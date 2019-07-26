@@ -17,10 +17,10 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='messaging.proto',
-  package='messaging',
+  package='messagingService',
   syntax='proto3',
   serialized_options=_b('\n\037com.jj-robot.andy4srv.messaging'),
-  serialized_pb=_b('\n\x0fmessaging.proto\x12\tmessaging\"\x1b\n\tSubscribe\x12\x0e\n\x06topics\x18\x01 \x03(\t\"\x1d\n\x0bUnsubscribe\x12\x0e\n\x06topics\x18\x01 \x03(\t\"1\n\x0eMessagePublish\x12\x0e\n\x06topics\x18\x01 \x03(\t\x12\x0f\n\x07payload\x18\x02 \x01(\x0c\"\xb5\x01\n\x10MessagingRequest\x12)\n\tsubscribe\x18\x01 \x01(\x0b\x32\x14.messaging.SubscribeH\x00\x12-\n\x0bunsubscribe\x18\x02 \x01(\x0b\x32\x16.messaging.UnsubscribeH\x00\x12\x34\n\x0fmessage_publish\x18\x03 \x01(\x0b\x32\x19.messaging.MessagePublishH\x00\x42\x11\n\x0fmessaging_oneof\"3\n\x11MessagingResponse\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x0f\n\x07payload\x18\x02 \x01(\x0c\x32`\n\x10MessagingService\x12L\n\tMessaging\x12\x1b.messaging.MessagingRequest\x1a\x1c.messaging.MessagingResponse\"\x00(\x01\x30\x01\x42!\n\x1f\x63om.jj-robot.andy4srv.messagingb\x06proto3')
+  serialized_pb=_b('\n\x0fmessaging.proto\x12\x10messagingService\"\x1b\n\tSubscribe\x12\x0e\n\x06topics\x18\x01 \x03(\t\"\x1d\n\x0bUnsubscribe\x12\x0e\n\x06topics\x18\x01 \x03(\t\"1\n\x0eMessagePublish\x12\x0e\n\x06topics\x18\x01 \x03(\t\x12\x0f\n\x07payload\x18\x02 \x01(\x0c\"\xca\x01\n\x10MessagingRequest\x12\x30\n\tsubscribe\x18\x01 \x01(\x0b\x32\x1b.messagingService.SubscribeH\x00\x12\x34\n\x0bunsubscribe\x18\x02 \x01(\x0b\x32\x1d.messagingService.UnsubscribeH\x00\x12;\n\x0fmessage_publish\x18\x03 \x01(\x0b\x32 .messagingService.MessagePublishH\x00\x42\x11\n\x0fmessaging_oneof\"3\n\x11MessagingResponse\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x0f\n\x07payload\x18\x02 \x01(\x0c\x32n\n\x10MessagingService\x12Z\n\tMessaging\x12\".messagingService.MessagingRequest\x1a#.messagingService.MessagingResponse\"\x00(\x01\x30\x01\x42!\n\x1f\x63om.jj-robot.andy4srv.messagingb\x06proto3')
 )
 
 
@@ -28,13 +28,13 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _SUBSCRIBE = _descriptor.Descriptor(
   name='Subscribe',
-  full_name='messaging.Subscribe',
+  full_name='messagingService.Subscribe',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='topics', full_name='messaging.Subscribe.topics', index=0,
+      name='topics', full_name='messagingService.Subscribe.topics', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -52,20 +52,20 @@ _SUBSCRIBE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30,
-  serialized_end=57,
+  serialized_start=37,
+  serialized_end=64,
 )
 
 
 _UNSUBSCRIBE = _descriptor.Descriptor(
   name='Unsubscribe',
-  full_name='messaging.Unsubscribe',
+  full_name='messagingService.Unsubscribe',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='topics', full_name='messaging.Unsubscribe.topics', index=0,
+      name='topics', full_name='messagingService.Unsubscribe.topics', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -83,27 +83,27 @@ _UNSUBSCRIBE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=59,
-  serialized_end=88,
+  serialized_start=66,
+  serialized_end=95,
 )
 
 
 _MESSAGEPUBLISH = _descriptor.Descriptor(
   name='MessagePublish',
-  full_name='messaging.MessagePublish',
+  full_name='messagingService.MessagePublish',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='topics', full_name='messaging.MessagePublish.topics', index=0,
+      name='topics', full_name='messagingService.MessagePublish.topics', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='payload', full_name='messaging.MessagePublish.payload', index=1,
+      name='payload', full_name='messagingService.MessagePublish.payload', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -121,34 +121,34 @@ _MESSAGEPUBLISH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=90,
-  serialized_end=139,
+  serialized_start=97,
+  serialized_end=146,
 )
 
 
 _MESSAGINGREQUEST = _descriptor.Descriptor(
   name='MessagingRequest',
-  full_name='messaging.MessagingRequest',
+  full_name='messagingService.MessagingRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='subscribe', full_name='messaging.MessagingRequest.subscribe', index=0,
+      name='subscribe', full_name='messagingService.MessagingRequest.subscribe', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='unsubscribe', full_name='messaging.MessagingRequest.unsubscribe', index=1,
+      name='unsubscribe', full_name='messagingService.MessagingRequest.unsubscribe', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='message_publish', full_name='messaging.MessagingRequest.message_publish', index=2,
+      name='message_publish', full_name='messagingService.MessagingRequest.message_publish', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -166,30 +166,30 @@ _MESSAGINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='messaging_oneof', full_name='messaging.MessagingRequest.messaging_oneof',
+      name='messaging_oneof', full_name='messagingService.MessagingRequest.messaging_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=142,
-  serialized_end=323,
+  serialized_start=149,
+  serialized_end=351,
 )
 
 
 _MESSAGINGRESPONSE = _descriptor.Descriptor(
   name='MessagingResponse',
-  full_name='messaging.MessagingResponse',
+  full_name='messagingService.MessagingResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='topic', full_name='messaging.MessagingResponse.topic', index=0,
+      name='topic', full_name='messagingService.MessagingResponse.topic', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='payload', full_name='messaging.MessagingResponse.payload', index=1,
+      name='payload', full_name='messagingService.MessagingResponse.payload', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -207,8 +207,8 @@ _MESSAGINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=325,
-  serialized_end=376,
+  serialized_start=353,
+  serialized_end=404,
 )
 
 _MESSAGINGREQUEST.fields_by_name['subscribe'].message_type = _SUBSCRIBE
@@ -233,35 +233,35 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Subscribe = _reflection.GeneratedProtocolMessageType('Subscribe', (_message.Message,), dict(
   DESCRIPTOR = _SUBSCRIBE,
   __module__ = 'messaging_pb2'
-  # @@protoc_insertion_point(class_scope:messaging.Subscribe)
+  # @@protoc_insertion_point(class_scope:messagingService.Subscribe)
   ))
 _sym_db.RegisterMessage(Subscribe)
 
 Unsubscribe = _reflection.GeneratedProtocolMessageType('Unsubscribe', (_message.Message,), dict(
   DESCRIPTOR = _UNSUBSCRIBE,
   __module__ = 'messaging_pb2'
-  # @@protoc_insertion_point(class_scope:messaging.Unsubscribe)
+  # @@protoc_insertion_point(class_scope:messagingService.Unsubscribe)
   ))
 _sym_db.RegisterMessage(Unsubscribe)
 
 MessagePublish = _reflection.GeneratedProtocolMessageType('MessagePublish', (_message.Message,), dict(
   DESCRIPTOR = _MESSAGEPUBLISH,
   __module__ = 'messaging_pb2'
-  # @@protoc_insertion_point(class_scope:messaging.MessagePublish)
+  # @@protoc_insertion_point(class_scope:messagingService.MessagePublish)
   ))
 _sym_db.RegisterMessage(MessagePublish)
 
 MessagingRequest = _reflection.GeneratedProtocolMessageType('MessagingRequest', (_message.Message,), dict(
   DESCRIPTOR = _MESSAGINGREQUEST,
   __module__ = 'messaging_pb2'
-  # @@protoc_insertion_point(class_scope:messaging.MessagingRequest)
+  # @@protoc_insertion_point(class_scope:messagingService.MessagingRequest)
   ))
 _sym_db.RegisterMessage(MessagingRequest)
 
 MessagingResponse = _reflection.GeneratedProtocolMessageType('MessagingResponse', (_message.Message,), dict(
   DESCRIPTOR = _MESSAGINGRESPONSE,
   __module__ = 'messaging_pb2'
-  # @@protoc_insertion_point(class_scope:messaging.MessagingResponse)
+  # @@protoc_insertion_point(class_scope:messagingService.MessagingResponse)
   ))
 _sym_db.RegisterMessage(MessagingResponse)
 
@@ -270,16 +270,16 @@ DESCRIPTOR._options = None
 
 _MESSAGINGSERVICE = _descriptor.ServiceDescriptor(
   name='MessagingService',
-  full_name='messaging.MessagingService',
+  full_name='messagingService.MessagingService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=378,
-  serialized_end=474,
+  serialized_start=406,
+  serialized_end=516,
   methods=[
   _descriptor.MethodDescriptor(
     name='Messaging',
-    full_name='messaging.MessagingService.Messaging',
+    full_name='messagingService.MessagingService.Messaging',
     index=0,
     containing_service=None,
     input_type=_MESSAGINGREQUEST,

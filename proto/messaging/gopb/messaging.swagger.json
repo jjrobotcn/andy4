@@ -16,7 +16,7 @@
   ],
   "paths": {},
   "definitions": {
-    "messagingMessagePublish": {
+    "messagingServiceMessagePublish": {
       "type": "object",
       "properties": {
         "topics": {
@@ -34,7 +34,7 @@
       },
       "title": "消息类型"
     },
-    "messagingMessagingResponse": {
+    "messagingServiceMessagingResponse": {
       "type": "object",
       "properties": {
         "topic": {
@@ -48,7 +48,7 @@
         }
       }
     },
-    "messagingSubscribe": {
+    "messagingServiceSubscribe": {
       "type": "object",
       "properties": {
         "topics": {
@@ -61,7 +61,7 @@
       },
       "title": "订阅消息类型"
     },
-    "messagingUnsubscribe": {
+    "messagingServiceUnsubscribe": {
       "type": "object",
       "properties": {
         "topics": {
@@ -113,17 +113,17 @@
     }
   },
   "x-stream-definitions": {
-    "messagingMessagingResponse": {
+    "messagingServiceMessagingResponse": {
       "type": "object",
       "properties": {
         "result": {
-          "$ref": "#/definitions/messagingMessagingResponse"
+          "$ref": "#/definitions/messagingServiceMessagingResponse"
         },
         "error": {
           "$ref": "#/definitions/runtimeStreamError"
         }
       },
-      "title": "Stream result of messagingMessagingResponse"
+      "title": "Stream result of messagingServiceMessagingResponse"
     }
   }
 }

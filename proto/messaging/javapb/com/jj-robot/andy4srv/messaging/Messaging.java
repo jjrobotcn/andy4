@@ -15,7 +15,7 @@ public final class Messaging {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface SubscribeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:messaging.Subscribe)
+      // @@protoc_insertion_point(interface_extends:messagingService.Subscribe)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -58,11 +58,11 @@ public final class Messaging {
    * 订阅消息类型
    * </pre>
    *
-   * Protobuf type {@code messaging.Subscribe}
+   * Protobuf type {@code messagingService.Subscribe}
    */
   public  static final class Subscribe extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:messaging.Subscribe)
+      // @@protoc_insertion_point(message_implements:messagingService.Subscribe)
       SubscribeOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Subscribe.newBuilder() to construct.
@@ -130,13 +130,13 @@ public final class Messaging {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Subscribe_descriptor;
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Subscribe_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Subscribe_fieldAccessorTable
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Subscribe_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.jj-robot.andy4srv.messaging.Messaging.Subscribe.class, com.jj-robot.andy4srv.messaging.Messaging.Subscribe.Builder.class);
     }
@@ -352,21 +352,21 @@ public final class Messaging {
      * 订阅消息类型
      * </pre>
      *
-     * Protobuf type {@code messaging.Subscribe}
+     * Protobuf type {@code messagingService.Subscribe}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:messaging.Subscribe)
+        // @@protoc_insertion_point(builder_implements:messagingService.Subscribe)
         com.jj-robot.andy4srv.messaging.Messaging.SubscribeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Subscribe_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Subscribe_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Subscribe_fieldAccessorTable
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Subscribe_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.jj-robot.andy4srv.messaging.Messaging.Subscribe.class, com.jj-robot.andy4srv.messaging.Messaging.Subscribe.Builder.class);
       }
@@ -397,7 +397,7 @@ public final class Messaging {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Subscribe_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Subscribe_descriptor;
       }
 
       @java.lang.Override
@@ -653,10 +653,10 @@ public final class Messaging {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:messaging.Subscribe)
+      // @@protoc_insertion_point(builder_scope:messagingService.Subscribe)
     }
 
-    // @@protoc_insertion_point(class_scope:messaging.Subscribe)
+    // @@protoc_insertion_point(class_scope:messagingService.Subscribe)
     private static final com.jj-robot.andy4srv.messaging.Messaging.Subscribe DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.jj-robot.andy4srv.messaging.Messaging.Subscribe();
@@ -694,7 +694,7 @@ public final class Messaging {
   }
 
   public interface UnsubscribeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:messaging.Unsubscribe)
+      // @@protoc_insertion_point(interface_extends:messagingService.Unsubscribe)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -737,11 +737,11 @@ public final class Messaging {
    * 取消订阅消息类型
    * </pre>
    *
-   * Protobuf type {@code messaging.Unsubscribe}
+   * Protobuf type {@code messagingService.Unsubscribe}
    */
   public  static final class Unsubscribe extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:messaging.Unsubscribe)
+      // @@protoc_insertion_point(message_implements:messagingService.Unsubscribe)
       UnsubscribeOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use Unsubscribe.newBuilder() to construct.
@@ -809,13 +809,13 @@ public final class Messaging {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Unsubscribe_descriptor;
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Unsubscribe_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Unsubscribe_fieldAccessorTable
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Unsubscribe_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.class, com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.Builder.class);
     }
@@ -1031,21 +1031,21 @@ public final class Messaging {
      * 取消订阅消息类型
      * </pre>
      *
-     * Protobuf type {@code messaging.Unsubscribe}
+     * Protobuf type {@code messagingService.Unsubscribe}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:messaging.Unsubscribe)
+        // @@protoc_insertion_point(builder_implements:messagingService.Unsubscribe)
         com.jj-robot.andy4srv.messaging.Messaging.UnsubscribeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Unsubscribe_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Unsubscribe_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Unsubscribe_fieldAccessorTable
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Unsubscribe_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.class, com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.Builder.class);
       }
@@ -1076,7 +1076,7 @@ public final class Messaging {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_Unsubscribe_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_Unsubscribe_descriptor;
       }
 
       @java.lang.Override
@@ -1332,10 +1332,10 @@ public final class Messaging {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:messaging.Unsubscribe)
+      // @@protoc_insertion_point(builder_scope:messagingService.Unsubscribe)
     }
 
-    // @@protoc_insertion_point(class_scope:messaging.Unsubscribe)
+    // @@protoc_insertion_point(class_scope:messagingService.Unsubscribe)
     private static final com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe();
@@ -1373,7 +1373,7 @@ public final class Messaging {
   }
 
   public interface MessagePublishOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:messaging.MessagePublish)
+      // @@protoc_insertion_point(interface_extends:messagingService.MessagePublish)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1425,11 +1425,11 @@ public final class Messaging {
    * 消息类型
    * </pre>
    *
-   * Protobuf type {@code messaging.MessagePublish}
+   * Protobuf type {@code messagingService.MessagePublish}
    */
   public  static final class MessagePublish extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:messaging.MessagePublish)
+      // @@protoc_insertion_point(message_implements:messagingService.MessagePublish)
       MessagePublishOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MessagePublish.newBuilder() to construct.
@@ -1503,13 +1503,13 @@ public final class Messaging {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagePublish_descriptor;
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagePublish_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagePublish_fieldAccessorTable
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagePublish_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.class, com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.Builder.class);
     }
@@ -1750,21 +1750,21 @@ public final class Messaging {
      * 消息类型
      * </pre>
      *
-     * Protobuf type {@code messaging.MessagePublish}
+     * Protobuf type {@code messagingService.MessagePublish}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:messaging.MessagePublish)
+        // @@protoc_insertion_point(builder_implements:messagingService.MessagePublish)
         com.jj-robot.andy4srv.messaging.Messaging.MessagePublishOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagePublish_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagePublish_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagePublish_fieldAccessorTable
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagePublish_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.class, com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.Builder.class);
       }
@@ -1797,7 +1797,7 @@ public final class Messaging {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagePublish_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagePublish_descriptor;
       }
 
       @java.lang.Override
@@ -2100,10 +2100,10 @@ public final class Messaging {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:messaging.MessagePublish)
+      // @@protoc_insertion_point(builder_scope:messagingService.MessagePublish)
     }
 
-    // @@protoc_insertion_point(class_scope:messaging.MessagePublish)
+    // @@protoc_insertion_point(class_scope:messagingService.MessagePublish)
     private static final com.jj-robot.andy4srv.messaging.Messaging.MessagePublish DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.jj-robot.andy4srv.messaging.Messaging.MessagePublish();
@@ -2141,56 +2141,56 @@ public final class Messaging {
   }
 
   public interface MessagingRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:messaging.MessagingRequest)
+      // @@protoc_insertion_point(interface_extends:messagingService.MessagingRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.messaging.Subscribe subscribe = 1;</code>
+     * <code>.messagingService.Subscribe subscribe = 1;</code>
      */
     boolean hasSubscribe();
     /**
-     * <code>.messaging.Subscribe subscribe = 1;</code>
+     * <code>.messagingService.Subscribe subscribe = 1;</code>
      */
     com.jj-robot.andy4srv.messaging.Messaging.Subscribe getSubscribe();
     /**
-     * <code>.messaging.Subscribe subscribe = 1;</code>
+     * <code>.messagingService.Subscribe subscribe = 1;</code>
      */
     com.jj-robot.andy4srv.messaging.Messaging.SubscribeOrBuilder getSubscribeOrBuilder();
 
     /**
-     * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+     * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
      */
     boolean hasUnsubscribe();
     /**
-     * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+     * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
      */
     com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe getUnsubscribe();
     /**
-     * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+     * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
      */
     com.jj-robot.andy4srv.messaging.Messaging.UnsubscribeOrBuilder getUnsubscribeOrBuilder();
 
     /**
-     * <code>.messaging.MessagePublish message_publish = 3;</code>
+     * <code>.messagingService.MessagePublish message_publish = 3;</code>
      */
     boolean hasMessagePublish();
     /**
-     * <code>.messaging.MessagePublish message_publish = 3;</code>
+     * <code>.messagingService.MessagePublish message_publish = 3;</code>
      */
     com.jj-robot.andy4srv.messaging.Messaging.MessagePublish getMessagePublish();
     /**
-     * <code>.messaging.MessagePublish message_publish = 3;</code>
+     * <code>.messagingService.MessagePublish message_publish = 3;</code>
      */
     com.jj-robot.andy4srv.messaging.Messaging.MessagePublishOrBuilder getMessagePublishOrBuilder();
 
     public com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest.MessagingOneofCase getMessagingOneofCase();
   }
   /**
-   * Protobuf type {@code messaging.MessagingRequest}
+   * Protobuf type {@code messagingService.MessagingRequest}
    */
   public  static final class MessagingRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:messaging.MessagingRequest)
+      // @@protoc_insertion_point(message_implements:messagingService.MessagingRequest)
       MessagingRequestOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MessagingRequest.newBuilder() to construct.
@@ -2287,13 +2287,13 @@ public final class Messaging {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingRequest_descriptor;
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingRequest_fieldAccessorTable
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest.class, com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest.Builder.class);
     }
@@ -2340,13 +2340,13 @@ public final class Messaging {
 
     public static final int SUBSCRIBE_FIELD_NUMBER = 1;
     /**
-     * <code>.messaging.Subscribe subscribe = 1;</code>
+     * <code>.messagingService.Subscribe subscribe = 1;</code>
      */
     public boolean hasSubscribe() {
       return messagingOneofCase_ == 1;
     }
     /**
-     * <code>.messaging.Subscribe subscribe = 1;</code>
+     * <code>.messagingService.Subscribe subscribe = 1;</code>
      */
     public com.jj-robot.andy4srv.messaging.Messaging.Subscribe getSubscribe() {
       if (messagingOneofCase_ == 1) {
@@ -2355,7 +2355,7 @@ public final class Messaging {
       return com.jj-robot.andy4srv.messaging.Messaging.Subscribe.getDefaultInstance();
     }
     /**
-     * <code>.messaging.Subscribe subscribe = 1;</code>
+     * <code>.messagingService.Subscribe subscribe = 1;</code>
      */
     public com.jj-robot.andy4srv.messaging.Messaging.SubscribeOrBuilder getSubscribeOrBuilder() {
       if (messagingOneofCase_ == 1) {
@@ -2366,13 +2366,13 @@ public final class Messaging {
 
     public static final int UNSUBSCRIBE_FIELD_NUMBER = 2;
     /**
-     * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+     * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
      */
     public boolean hasUnsubscribe() {
       return messagingOneofCase_ == 2;
     }
     /**
-     * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+     * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
      */
     public com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe getUnsubscribe() {
       if (messagingOneofCase_ == 2) {
@@ -2381,7 +2381,7 @@ public final class Messaging {
       return com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.getDefaultInstance();
     }
     /**
-     * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+     * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
      */
     public com.jj-robot.andy4srv.messaging.Messaging.UnsubscribeOrBuilder getUnsubscribeOrBuilder() {
       if (messagingOneofCase_ == 2) {
@@ -2392,13 +2392,13 @@ public final class Messaging {
 
     public static final int MESSAGE_PUBLISH_FIELD_NUMBER = 3;
     /**
-     * <code>.messaging.MessagePublish message_publish = 3;</code>
+     * <code>.messagingService.MessagePublish message_publish = 3;</code>
      */
     public boolean hasMessagePublish() {
       return messagingOneofCase_ == 3;
     }
     /**
-     * <code>.messaging.MessagePublish message_publish = 3;</code>
+     * <code>.messagingService.MessagePublish message_publish = 3;</code>
      */
     public com.jj-robot.andy4srv.messaging.Messaging.MessagePublish getMessagePublish() {
       if (messagingOneofCase_ == 3) {
@@ -2407,7 +2407,7 @@ public final class Messaging {
       return com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.getDefaultInstance();
     }
     /**
-     * <code>.messaging.MessagePublish message_publish = 3;</code>
+     * <code>.messagingService.MessagePublish message_publish = 3;</code>
      */
     public com.jj-robot.andy4srv.messaging.Messaging.MessagePublishOrBuilder getMessagePublishOrBuilder() {
       if (messagingOneofCase_ == 3) {
@@ -2615,21 +2615,21 @@ public final class Messaging {
       return builder;
     }
     /**
-     * Protobuf type {@code messaging.MessagingRequest}
+     * Protobuf type {@code messagingService.MessagingRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:messaging.MessagingRequest)
+        // @@protoc_insertion_point(builder_implements:messagingService.MessagingRequest)
         com.jj-robot.andy4srv.messaging.Messaging.MessagingRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingRequest_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingRequest_fieldAccessorTable
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest.class, com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest.Builder.class);
       }
@@ -2660,7 +2660,7 @@ public final class Messaging {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingRequest_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingRequest_descriptor;
       }
 
       @java.lang.Override
@@ -2814,13 +2814,13 @@ public final class Messaging {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.jj-robot.andy4srv.messaging.Messaging.Subscribe, com.jj-robot.andy4srv.messaging.Messaging.Subscribe.Builder, com.jj-robot.andy4srv.messaging.Messaging.SubscribeOrBuilder> subscribeBuilder_;
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public boolean hasSubscribe() {
         return messagingOneofCase_ == 1;
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.Subscribe getSubscribe() {
         if (subscribeBuilder_ == null) {
@@ -2836,7 +2836,7 @@ public final class Messaging {
         }
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public Builder setSubscribe(com.jj-robot.andy4srv.messaging.Messaging.Subscribe value) {
         if (subscribeBuilder_ == null) {
@@ -2852,7 +2852,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public Builder setSubscribe(
           com.jj-robot.andy4srv.messaging.Messaging.Subscribe.Builder builderForValue) {
@@ -2866,7 +2866,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public Builder mergeSubscribe(com.jj-robot.andy4srv.messaging.Messaging.Subscribe value) {
         if (subscribeBuilder_ == null) {
@@ -2888,7 +2888,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public Builder clearSubscribe() {
         if (subscribeBuilder_ == null) {
@@ -2907,13 +2907,13 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.Subscribe.Builder getSubscribeBuilder() {
         return getSubscribeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.SubscribeOrBuilder getSubscribeOrBuilder() {
         if ((messagingOneofCase_ == 1) && (subscribeBuilder_ != null)) {
@@ -2926,7 +2926,7 @@ public final class Messaging {
         }
       }
       /**
-       * <code>.messaging.Subscribe subscribe = 1;</code>
+       * <code>.messagingService.Subscribe subscribe = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.jj-robot.andy4srv.messaging.Messaging.Subscribe, com.jj-robot.andy4srv.messaging.Messaging.Subscribe.Builder, com.jj-robot.andy4srv.messaging.Messaging.SubscribeOrBuilder> 
@@ -2950,13 +2950,13 @@ public final class Messaging {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe, com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.Builder, com.jj-robot.andy4srv.messaging.Messaging.UnsubscribeOrBuilder> unsubscribeBuilder_;
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public boolean hasUnsubscribe() {
         return messagingOneofCase_ == 2;
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe getUnsubscribe() {
         if (unsubscribeBuilder_ == null) {
@@ -2972,7 +2972,7 @@ public final class Messaging {
         }
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public Builder setUnsubscribe(com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe value) {
         if (unsubscribeBuilder_ == null) {
@@ -2988,7 +2988,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public Builder setUnsubscribe(
           com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.Builder builderForValue) {
@@ -3002,7 +3002,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public Builder mergeUnsubscribe(com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe value) {
         if (unsubscribeBuilder_ == null) {
@@ -3024,7 +3024,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public Builder clearUnsubscribe() {
         if (unsubscribeBuilder_ == null) {
@@ -3043,13 +3043,13 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.Builder getUnsubscribeBuilder() {
         return getUnsubscribeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.UnsubscribeOrBuilder getUnsubscribeOrBuilder() {
         if ((messagingOneofCase_ == 2) && (unsubscribeBuilder_ != null)) {
@@ -3062,7 +3062,7 @@ public final class Messaging {
         }
       }
       /**
-       * <code>.messaging.Unsubscribe unsubscribe = 2;</code>
+       * <code>.messagingService.Unsubscribe unsubscribe = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe, com.jj-robot.andy4srv.messaging.Messaging.Unsubscribe.Builder, com.jj-robot.andy4srv.messaging.Messaging.UnsubscribeOrBuilder> 
@@ -3086,13 +3086,13 @@ public final class Messaging {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.jj-robot.andy4srv.messaging.Messaging.MessagePublish, com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.Builder, com.jj-robot.andy4srv.messaging.Messaging.MessagePublishOrBuilder> messagePublishBuilder_;
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public boolean hasMessagePublish() {
         return messagingOneofCase_ == 3;
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.MessagePublish getMessagePublish() {
         if (messagePublishBuilder_ == null) {
@@ -3108,7 +3108,7 @@ public final class Messaging {
         }
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public Builder setMessagePublish(com.jj-robot.andy4srv.messaging.Messaging.MessagePublish value) {
         if (messagePublishBuilder_ == null) {
@@ -3124,7 +3124,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public Builder setMessagePublish(
           com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.Builder builderForValue) {
@@ -3138,7 +3138,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public Builder mergeMessagePublish(com.jj-robot.andy4srv.messaging.Messaging.MessagePublish value) {
         if (messagePublishBuilder_ == null) {
@@ -3160,7 +3160,7 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public Builder clearMessagePublish() {
         if (messagePublishBuilder_ == null) {
@@ -3179,13 +3179,13 @@ public final class Messaging {
         return this;
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.Builder getMessagePublishBuilder() {
         return getMessagePublishFieldBuilder().getBuilder();
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       public com.jj-robot.andy4srv.messaging.Messaging.MessagePublishOrBuilder getMessagePublishOrBuilder() {
         if ((messagingOneofCase_ == 3) && (messagePublishBuilder_ != null)) {
@@ -3198,7 +3198,7 @@ public final class Messaging {
         }
       }
       /**
-       * <code>.messaging.MessagePublish message_publish = 3;</code>
+       * <code>.messagingService.MessagePublish message_publish = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.jj-robot.andy4srv.messaging.Messaging.MessagePublish, com.jj-robot.andy4srv.messaging.Messaging.MessagePublish.Builder, com.jj-robot.andy4srv.messaging.Messaging.MessagePublishOrBuilder> 
@@ -3231,10 +3231,10 @@ public final class Messaging {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:messaging.MessagingRequest)
+      // @@protoc_insertion_point(builder_scope:messagingService.MessagingRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:messaging.MessagingRequest)
+    // @@protoc_insertion_point(class_scope:messagingService.MessagingRequest)
     private static final com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest();
@@ -3272,7 +3272,7 @@ public final class Messaging {
   }
 
   public interface MessagingResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:messaging.MessagingResponse)
+      // @@protoc_insertion_point(interface_extends:messagingService.MessagingResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -3303,11 +3303,11 @@ public final class Messaging {
     com.google.protobuf.ByteString getPayload();
   }
   /**
-   * Protobuf type {@code messaging.MessagingResponse}
+   * Protobuf type {@code messagingService.MessagingResponse}
    */
   public  static final class MessagingResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:messaging.MessagingResponse)
+      // @@protoc_insertion_point(message_implements:messagingService.MessagingResponse)
       MessagingResponseOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use MessagingResponse.newBuilder() to construct.
@@ -3375,13 +3375,13 @@ public final class Messaging {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingResponse_descriptor;
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingResponse_fieldAccessorTable
+      return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse.class, com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse.Builder.class);
     }
@@ -3607,21 +3607,21 @@ public final class Messaging {
       return builder;
     }
     /**
-     * Protobuf type {@code messaging.MessagingResponse}
+     * Protobuf type {@code messagingService.MessagingResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:messaging.MessagingResponse)
+        // @@protoc_insertion_point(builder_implements:messagingService.MessagingResponse)
         com.jj-robot.andy4srv.messaging.Messaging.MessagingResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingResponse_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingResponse_fieldAccessorTable
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse.class, com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse.Builder.class);
       }
@@ -3654,7 +3654,7 @@ public final class Messaging {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messaging_MessagingResponse_descriptor;
+        return com.jj-robot.andy4srv.messaging.Messaging.internal_static_messagingService_MessagingResponse_descriptor;
       }
 
       @java.lang.Override
@@ -3902,10 +3902,10 @@ public final class Messaging {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:messaging.MessagingResponse)
+      // @@protoc_insertion_point(builder_scope:messagingService.MessagingResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:messaging.MessagingResponse)
+    // @@protoc_insertion_point(class_scope:messagingService.MessagingResponse)
     private static final com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse();
@@ -3943,30 +3943,30 @@ public final class Messaging {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_messaging_Subscribe_descriptor;
+    internal_static_messagingService_Subscribe_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_messaging_Subscribe_fieldAccessorTable;
+      internal_static_messagingService_Subscribe_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_messaging_Unsubscribe_descriptor;
+    internal_static_messagingService_Unsubscribe_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_messaging_Unsubscribe_fieldAccessorTable;
+      internal_static_messagingService_Unsubscribe_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_messaging_MessagePublish_descriptor;
+    internal_static_messagingService_MessagePublish_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_messaging_MessagePublish_fieldAccessorTable;
+      internal_static_messagingService_MessagePublish_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_messaging_MessagingRequest_descriptor;
+    internal_static_messagingService_MessagingRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_messaging_MessagingRequest_fieldAccessorTable;
+      internal_static_messagingService_MessagingRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_messaging_MessagingResponse_descriptor;
+    internal_static_messagingService_MessagingResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_messaging_MessagingResponse_fieldAccessorTable;
+      internal_static_messagingService_MessagingResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3976,19 +3976,20 @@ public final class Messaging {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017messaging.proto\022\tmessaging\"\033\n\tSubscrib" +
-      "e\022\016\n\006topics\030\001 \003(\t\"\035\n\013Unsubscribe\022\016\n\006topi" +
-      "cs\030\001 \003(\t\"1\n\016MessagePublish\022\016\n\006topics\030\001 \003" +
-      "(\t\022\017\n\007payload\030\002 \001(\014\"\265\001\n\020MessagingRequest" +
-      "\022)\n\tsubscribe\030\001 \001(\0132\024.messaging.Subscrib" +
-      "eH\000\022-\n\013unsubscribe\030\002 \001(\0132\026.messaging.Uns" +
-      "ubscribeH\000\0224\n\017message_publish\030\003 \001(\0132\031.me" +
-      "ssaging.MessagePublishH\000B\021\n\017messaging_on" +
-      "eof\"3\n\021MessagingResponse\022\r\n\005topic\030\001 \001(\t\022" +
-      "\017\n\007payload\030\002 \001(\0142`\n\020MessagingService\022L\n\t" +
-      "Messaging\022\033.messaging.MessagingRequest\032\034" +
-      ".messaging.MessagingResponse\"\000(\0010\001B!\n\037co" +
-      "m.jj-robot.andy4srv.messagingb\006proto3"
+      "\n\017messaging.proto\022\020messagingService\"\033\n\tS" +
+      "ubscribe\022\016\n\006topics\030\001 \003(\t\"\035\n\013Unsubscribe\022" +
+      "\016\n\006topics\030\001 \003(\t\"1\n\016MessagePublish\022\016\n\006top" +
+      "ics\030\001 \003(\t\022\017\n\007payload\030\002 \001(\014\"\312\001\n\020Messaging" +
+      "Request\0220\n\tsubscribe\030\001 \001(\0132\033.messagingSe" +
+      "rvice.SubscribeH\000\0224\n\013unsubscribe\030\002 \001(\0132\035" +
+      ".messagingService.UnsubscribeH\000\022;\n\017messa" +
+      "ge_publish\030\003 \001(\0132 .messagingService.Mess" +
+      "agePublishH\000B\021\n\017messaging_oneof\"3\n\021Messa" +
+      "gingResponse\022\r\n\005topic\030\001 \001(\t\022\017\n\007payload\030\002" +
+      " \001(\0142n\n\020MessagingService\022Z\n\tMessaging\022\"." +
+      "messagingService.MessagingRequest\032#.mess" +
+      "agingService.MessagingResponse\"\000(\0010\001B!\n\037" +
+      "com.jj-robot.andy4srv.messagingb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4002,35 +4003,35 @@ public final class Messaging {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_messaging_Subscribe_descriptor =
+    internal_static_messagingService_Subscribe_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_messaging_Subscribe_fieldAccessorTable = new
+    internal_static_messagingService_Subscribe_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_messaging_Subscribe_descriptor,
+        internal_static_messagingService_Subscribe_descriptor,
         new java.lang.String[] { "Topics", });
-    internal_static_messaging_Unsubscribe_descriptor =
+    internal_static_messagingService_Unsubscribe_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_messaging_Unsubscribe_fieldAccessorTable = new
+    internal_static_messagingService_Unsubscribe_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_messaging_Unsubscribe_descriptor,
+        internal_static_messagingService_Unsubscribe_descriptor,
         new java.lang.String[] { "Topics", });
-    internal_static_messaging_MessagePublish_descriptor =
+    internal_static_messagingService_MessagePublish_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_messaging_MessagePublish_fieldAccessorTable = new
+    internal_static_messagingService_MessagePublish_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_messaging_MessagePublish_descriptor,
+        internal_static_messagingService_MessagePublish_descriptor,
         new java.lang.String[] { "Topics", "Payload", });
-    internal_static_messaging_MessagingRequest_descriptor =
+    internal_static_messagingService_MessagingRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_messaging_MessagingRequest_fieldAccessorTable = new
+    internal_static_messagingService_MessagingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_messaging_MessagingRequest_descriptor,
+        internal_static_messagingService_MessagingRequest_descriptor,
         new java.lang.String[] { "Subscribe", "Unsubscribe", "MessagePublish", "MessagingOneof", });
-    internal_static_messaging_MessagingResponse_descriptor =
+    internal_static_messagingService_MessagingResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_messaging_MessagingResponse_fieldAccessorTable = new
+    internal_static_messagingService_MessagingResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_messaging_MessagingResponse_descriptor,
+        internal_static_messagingService_MessagingResponse_descriptor,
         new java.lang.String[] { "Topic", "Payload", });
   }
 

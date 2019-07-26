@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package messaging;
+package messagingService;
 
 option java_package = "com.jj-robot.andy4srv.messaging";
 

@@ -15,7 +15,7 @@ class MessagingServiceStub(object):
       channel: A grpc.Channel.
     """
     self.Messaging = channel.stream_stream(
-        '/messaging.MessagingService/Messaging',
+        '/messagingService.MessagingService/Messaging',
         request_serializer=messaging__pb2.MessagingRequest.SerializeToString,
         response_deserializer=messaging__pb2.MessagingResponse.FromString,
         )
@@ -42,5 +42,5 @@ def add_MessagingServiceServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'messaging.MessagingService', rpc_method_handlers)
+      'messagingService.MessagingService', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

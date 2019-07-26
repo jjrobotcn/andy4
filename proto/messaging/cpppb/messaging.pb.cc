@@ -19,7 +19,7 @@
 extern PROTOBUF_INTERNAL_EXPORT_messaging_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_MessagePublish_messaging_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_messaging_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Subscribe_messaging_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_messaging_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Unsubscribe_messaging_2eproto;
-namespace messaging {
+namespace messagingService {
 class SubscribeDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Subscribe> _instance;
@@ -35,24 +35,24 @@ class MessagePublishDefaultTypeInternal {
 class MessagingRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<MessagingRequest> _instance;
-  const ::messaging::Subscribe* subscribe_;
-  const ::messaging::Unsubscribe* unsubscribe_;
-  const ::messaging::MessagePublish* message_publish_;
+  const ::messagingService::Subscribe* subscribe_;
+  const ::messagingService::Unsubscribe* unsubscribe_;
+  const ::messagingService::MessagePublish* message_publish_;
 } _MessagingRequest_default_instance_;
 class MessagingResponseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<MessagingResponse> _instance;
 } _MessagingResponse_default_instance_;
-}  // namespace messaging
+}  // namespace messagingService
 static void InitDefaultsSubscribe_messaging_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::messaging::_Subscribe_default_instance_;
-    new (ptr) ::messaging::Subscribe();
+    void* ptr = &::messagingService::_Subscribe_default_instance_;
+    new (ptr) ::messagingService::Subscribe();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::messaging::Subscribe::InitAsDefaultInstance();
+  ::messagingService::Subscribe::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_Subscribe_messaging_2eproto =
@@ -62,11 +62,11 @@ static void InitDefaultsUnsubscribe_messaging_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::messaging::_Unsubscribe_default_instance_;
-    new (ptr) ::messaging::Unsubscribe();
+    void* ptr = &::messagingService::_Unsubscribe_default_instance_;
+    new (ptr) ::messagingService::Unsubscribe();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::messaging::Unsubscribe::InitAsDefaultInstance();
+  ::messagingService::Unsubscribe::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_Unsubscribe_messaging_2eproto =
@@ -76,11 +76,11 @@ static void InitDefaultsMessagePublish_messaging_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::messaging::_MessagePublish_default_instance_;
-    new (ptr) ::messaging::MessagePublish();
+    void* ptr = &::messagingService::_MessagePublish_default_instance_;
+    new (ptr) ::messagingService::MessagePublish();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::messaging::MessagePublish::InitAsDefaultInstance();
+  ::messagingService::MessagePublish::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_MessagePublish_messaging_2eproto =
@@ -90,11 +90,11 @@ static void InitDefaultsMessagingRequest_messaging_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::messaging::_MessagingRequest_default_instance_;
-    new (ptr) ::messaging::MessagingRequest();
+    void* ptr = &::messagingService::_MessagingRequest_default_instance_;
+    new (ptr) ::messagingService::MessagingRequest();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::messaging::MessagingRequest::InitAsDefaultInstance();
+  ::messagingService::MessagingRequest::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<3> scc_info_MessagingRequest_messaging_2eproto =
@@ -107,11 +107,11 @@ static void InitDefaultsMessagingResponse_messaging_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::messaging::_MessagingResponse_default_instance_;
-    new (ptr) ::messaging::MessagingResponse();
+    void* ptr = &::messagingService::_MessagingResponse_default_instance_;
+    new (ptr) ::messagingService::MessagingResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::messaging::MessagingResponse::InitAsDefaultInstance();
+  ::messagingService::MessagingResponse::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_MessagingResponse_messaging_2eproto =
@@ -131,55 +131,55 @@ constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descr
 
 const ::google::protobuf::uint32 TableStruct_messaging_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::messaging::Subscribe, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::Subscribe, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::messaging::Subscribe, topics_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::Subscribe, topics_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::messaging::Unsubscribe, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::Unsubscribe, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::messaging::Unsubscribe, topics_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::Unsubscribe, topics_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagePublish, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagePublish, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagePublish, topics_),
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagePublish, payload_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagePublish, topics_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagePublish, payload_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagingRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagingRequest, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagingRequest, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagingRequest, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::messaging::MessagingRequestDefaultTypeInternal, subscribe_),
-  offsetof(::messaging::MessagingRequestDefaultTypeInternal, unsubscribe_),
-  offsetof(::messaging::MessagingRequestDefaultTypeInternal, message_publish_),
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagingRequest, messaging_oneof_),
+  offsetof(::messagingService::MessagingRequestDefaultTypeInternal, subscribe_),
+  offsetof(::messagingService::MessagingRequestDefaultTypeInternal, unsubscribe_),
+  offsetof(::messagingService::MessagingRequestDefaultTypeInternal, message_publish_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagingRequest, messaging_oneof_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagingResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagingResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagingResponse, topic_),
-  PROTOBUF_FIELD_OFFSET(::messaging::MessagingResponse, payload_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagingResponse, topic_),
+  PROTOBUF_FIELD_OFFSET(::messagingService::MessagingResponse, payload_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::messaging::Subscribe)},
-  { 6, -1, sizeof(::messaging::Unsubscribe)},
-  { 12, -1, sizeof(::messaging::MessagePublish)},
-  { 19, -1, sizeof(::messaging::MessagingRequest)},
-  { 28, -1, sizeof(::messaging::MessagingResponse)},
+  { 0, -1, sizeof(::messagingService::Subscribe)},
+  { 6, -1, sizeof(::messagingService::Unsubscribe)},
+  { 12, -1, sizeof(::messagingService::MessagePublish)},
+  { 19, -1, sizeof(::messagingService::MessagingRequest)},
+  { 28, -1, sizeof(::messagingService::MessagingResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::messaging::_Subscribe_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::messaging::_Unsubscribe_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::messaging::_MessagePublish_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::messaging::_MessagingRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::messaging::_MessagingResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::messagingService::_Subscribe_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::messagingService::_Unsubscribe_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::messagingService::_MessagePublish_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::messagingService::_MessagingRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::messagingService::_MessagingResponse_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_messaging_2eproto = {
@@ -189,24 +189,25 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_messaging_2eproto[] =
-  "\n\017messaging.proto\022\tmessaging\"\033\n\tSubscrib"
-  "e\022\016\n\006topics\030\001 \003(\t\"\035\n\013Unsubscribe\022\016\n\006topi"
-  "cs\030\001 \003(\t\"1\n\016MessagePublish\022\016\n\006topics\030\001 \003"
-  "(\t\022\017\n\007payload\030\002 \001(\014\"\265\001\n\020MessagingRequest"
-  "\022)\n\tsubscribe\030\001 \001(\0132\024.messaging.Subscrib"
-  "eH\000\022-\n\013unsubscribe\030\002 \001(\0132\026.messaging.Uns"
-  "ubscribeH\000\0224\n\017message_publish\030\003 \001(\0132\031.me"
-  "ssaging.MessagePublishH\000B\021\n\017messaging_on"
-  "eof\"3\n\021MessagingResponse\022\r\n\005topic\030\001 \001(\t\022"
-  "\017\n\007payload\030\002 \001(\0142`\n\020MessagingService\022L\n\t"
-  "Messaging\022\033.messaging.MessagingRequest\032\034"
-  ".messaging.MessagingResponse\"\000(\0010\001B!\n\037co"
-  "m.jj-robot.andy4srv.messagingb\006proto3"
+  "\n\017messaging.proto\022\020messagingService\"\033\n\tS"
+  "ubscribe\022\016\n\006topics\030\001 \003(\t\"\035\n\013Unsubscribe\022"
+  "\016\n\006topics\030\001 \003(\t\"1\n\016MessagePublish\022\016\n\006top"
+  "ics\030\001 \003(\t\022\017\n\007payload\030\002 \001(\014\"\312\001\n\020Messaging"
+  "Request\0220\n\tsubscribe\030\001 \001(\0132\033.messagingSe"
+  "rvice.SubscribeH\000\0224\n\013unsubscribe\030\002 \001(\0132\035"
+  ".messagingService.UnsubscribeH\000\022;\n\017messa"
+  "ge_publish\030\003 \001(\0132 .messagingService.Mess"
+  "agePublishH\000B\021\n\017messaging_oneof\"3\n\021Messa"
+  "gingResponse\022\r\n\005topic\030\001 \001(\t\022\017\n\007payload\030\002"
+  " \001(\0142n\n\020MessagingService\022Z\n\tMessaging\022\"."
+  "messagingService.MessagingRequest\032#.mess"
+  "agingService.MessagingResponse\"\000(\0010\001B!\n\037"
+  "com.jj-robot.andy4srv.messagingb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_messaging_2eproto = {
   false, InitDefaults_messaging_2eproto, 
   descriptor_table_protodef_messaging_2eproto,
-  "messaging.proto", &assign_descriptors_table_messaging_2eproto, 517,
+  "messaging.proto", &assign_descriptors_table_messaging_2eproto, 559,
 };
 
 void AddDescriptors_messaging_2eproto() {
@@ -218,7 +219,7 @@ void AddDescriptors_messaging_2eproto() {
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_messaging_2eproto = []() { AddDescriptors_messaging_2eproto(); return true; }();
-namespace messaging {
+namespace messagingService {
 
 // ===================================================================
 
@@ -235,14 +236,14 @@ const int Subscribe::kTopicsFieldNumber;
 Subscribe::Subscribe()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:messaging.Subscribe)
+  // @@protoc_insertion_point(constructor:messagingService.Subscribe)
 }
 Subscribe::Subscribe(const Subscribe& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       topics_(from.topics_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:messaging.Subscribe)
+  // @@protoc_insertion_point(copy_constructor:messagingService.Subscribe)
 }
 
 void Subscribe::SharedCtor() {
@@ -251,7 +252,7 @@ void Subscribe::SharedCtor() {
 }
 
 Subscribe::~Subscribe() {
-  // @@protoc_insertion_point(destructor:messaging.Subscribe)
+  // @@protoc_insertion_point(destructor:messagingService.Subscribe)
   SharedDtor();
 }
 
@@ -268,7 +269,7 @@ const Subscribe& Subscribe::default_instance() {
 
 
 void Subscribe::Clear() {
-// @@protoc_insertion_point(message_clear_start:messaging.Subscribe)
+// @@protoc_insertion_point(message_clear_start:messagingService.Subscribe)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -296,7 +297,7 @@ const char* Subscribe::_InternalParse(const char* begin, const char* end, void* 
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("messaging.Subscribe.topics");
+          ctx->extra_parse_data().SetFieldName("messagingService.Subscribe.topics");
           object = msg->add_topics();
           if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
             parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -337,7 +338,7 @@ bool Subscribe::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:messaging.Subscribe)
+  // @@protoc_insertion_point(parse_start:messagingService.Subscribe)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -352,7 +353,7 @@ bool Subscribe::MergePartialFromCodedStream(
             this->topics(this->topics_size() - 1).data(),
             static_cast<int>(this->topics(this->topics_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "messaging.Subscribe.topics"));
+            "messagingService.Subscribe.topics"));
         } else {
           goto handle_unusual;
         }
@@ -371,10 +372,10 @@ bool Subscribe::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:messaging.Subscribe)
+  // @@protoc_insertion_point(parse_success:messagingService.Subscribe)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:messaging.Subscribe)
+  // @@protoc_insertion_point(parse_failure:messagingService.Subscribe)
   return false;
 #undef DO_
 }
@@ -382,7 +383,7 @@ failure:
 
 void Subscribe::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:messaging.Subscribe)
+  // @@protoc_insertion_point(serialize_start:messagingService.Subscribe)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -391,7 +392,7 @@ void Subscribe::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topics(i).data(), static_cast<int>(this->topics(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.Subscribe.topics");
+      "messagingService.Subscribe.topics");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->topics(i), output);
   }
@@ -400,12 +401,12 @@ void Subscribe::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:messaging.Subscribe)
+  // @@protoc_insertion_point(serialize_end:messagingService.Subscribe)
 }
 
 ::google::protobuf::uint8* Subscribe::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:messaging.Subscribe)
+  // @@protoc_insertion_point(serialize_to_array_start:messagingService.Subscribe)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -414,7 +415,7 @@ void Subscribe::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topics(i).data(), static_cast<int>(this->topics(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.Subscribe.topics");
+      "messagingService.Subscribe.topics");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->topics(i), target);
   }
@@ -423,12 +424,12 @@ void Subscribe::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:messaging.Subscribe)
+  // @@protoc_insertion_point(serialize_to_array_end:messagingService.Subscribe)
   return target;
 }
 
 size_t Subscribe::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:messaging.Subscribe)
+// @@protoc_insertion_point(message_byte_size_start:messagingService.Subscribe)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -454,22 +455,22 @@ size_t Subscribe::ByteSizeLong() const {
 }
 
 void Subscribe::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:messaging.Subscribe)
+// @@protoc_insertion_point(generalized_merge_from_start:messagingService.Subscribe)
   GOOGLE_DCHECK_NE(&from, this);
   const Subscribe* source =
       ::google::protobuf::DynamicCastToGenerated<Subscribe>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messaging.Subscribe)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messagingService.Subscribe)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:messaging.Subscribe)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:messagingService.Subscribe)
     MergeFrom(*source);
   }
 }
 
 void Subscribe::MergeFrom(const Subscribe& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:messaging.Subscribe)
+// @@protoc_insertion_point(class_specific_merge_from_start:messagingService.Subscribe)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -479,14 +480,14 @@ void Subscribe::MergeFrom(const Subscribe& from) {
 }
 
 void Subscribe::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:messaging.Subscribe)
+// @@protoc_insertion_point(generalized_copy_from_start:messagingService.Subscribe)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Subscribe::CopyFrom(const Subscribe& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:messaging.Subscribe)
+// @@protoc_insertion_point(class_specific_copy_from_start:messagingService.Subscribe)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -527,14 +528,14 @@ const int Unsubscribe::kTopicsFieldNumber;
 Unsubscribe::Unsubscribe()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:messaging.Unsubscribe)
+  // @@protoc_insertion_point(constructor:messagingService.Unsubscribe)
 }
 Unsubscribe::Unsubscribe(const Unsubscribe& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       topics_(from.topics_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:messaging.Unsubscribe)
+  // @@protoc_insertion_point(copy_constructor:messagingService.Unsubscribe)
 }
 
 void Unsubscribe::SharedCtor() {
@@ -543,7 +544,7 @@ void Unsubscribe::SharedCtor() {
 }
 
 Unsubscribe::~Unsubscribe() {
-  // @@protoc_insertion_point(destructor:messaging.Unsubscribe)
+  // @@protoc_insertion_point(destructor:messagingService.Unsubscribe)
   SharedDtor();
 }
 
@@ -560,7 +561,7 @@ const Unsubscribe& Unsubscribe::default_instance() {
 
 
 void Unsubscribe::Clear() {
-// @@protoc_insertion_point(message_clear_start:messaging.Unsubscribe)
+// @@protoc_insertion_point(message_clear_start:messagingService.Unsubscribe)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -588,7 +589,7 @@ const char* Unsubscribe::_InternalParse(const char* begin, const char* end, void
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("messaging.Unsubscribe.topics");
+          ctx->extra_parse_data().SetFieldName("messagingService.Unsubscribe.topics");
           object = msg->add_topics();
           if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
             parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -629,7 +630,7 @@ bool Unsubscribe::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:messaging.Unsubscribe)
+  // @@protoc_insertion_point(parse_start:messagingService.Unsubscribe)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -644,7 +645,7 @@ bool Unsubscribe::MergePartialFromCodedStream(
             this->topics(this->topics_size() - 1).data(),
             static_cast<int>(this->topics(this->topics_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "messaging.Unsubscribe.topics"));
+            "messagingService.Unsubscribe.topics"));
         } else {
           goto handle_unusual;
         }
@@ -663,10 +664,10 @@ bool Unsubscribe::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:messaging.Unsubscribe)
+  // @@protoc_insertion_point(parse_success:messagingService.Unsubscribe)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:messaging.Unsubscribe)
+  // @@protoc_insertion_point(parse_failure:messagingService.Unsubscribe)
   return false;
 #undef DO_
 }
@@ -674,7 +675,7 @@ failure:
 
 void Unsubscribe::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:messaging.Unsubscribe)
+  // @@protoc_insertion_point(serialize_start:messagingService.Unsubscribe)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -683,7 +684,7 @@ void Unsubscribe::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topics(i).data(), static_cast<int>(this->topics(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.Unsubscribe.topics");
+      "messagingService.Unsubscribe.topics");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->topics(i), output);
   }
@@ -692,12 +693,12 @@ void Unsubscribe::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:messaging.Unsubscribe)
+  // @@protoc_insertion_point(serialize_end:messagingService.Unsubscribe)
 }
 
 ::google::protobuf::uint8* Unsubscribe::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:messaging.Unsubscribe)
+  // @@protoc_insertion_point(serialize_to_array_start:messagingService.Unsubscribe)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -706,7 +707,7 @@ void Unsubscribe::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topics(i).data(), static_cast<int>(this->topics(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.Unsubscribe.topics");
+      "messagingService.Unsubscribe.topics");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->topics(i), target);
   }
@@ -715,12 +716,12 @@ void Unsubscribe::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:messaging.Unsubscribe)
+  // @@protoc_insertion_point(serialize_to_array_end:messagingService.Unsubscribe)
   return target;
 }
 
 size_t Unsubscribe::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:messaging.Unsubscribe)
+// @@protoc_insertion_point(message_byte_size_start:messagingService.Unsubscribe)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -746,22 +747,22 @@ size_t Unsubscribe::ByteSizeLong() const {
 }
 
 void Unsubscribe::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:messaging.Unsubscribe)
+// @@protoc_insertion_point(generalized_merge_from_start:messagingService.Unsubscribe)
   GOOGLE_DCHECK_NE(&from, this);
   const Unsubscribe* source =
       ::google::protobuf::DynamicCastToGenerated<Unsubscribe>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messaging.Unsubscribe)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messagingService.Unsubscribe)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:messaging.Unsubscribe)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:messagingService.Unsubscribe)
     MergeFrom(*source);
   }
 }
 
 void Unsubscribe::MergeFrom(const Unsubscribe& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:messaging.Unsubscribe)
+// @@protoc_insertion_point(class_specific_merge_from_start:messagingService.Unsubscribe)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -771,14 +772,14 @@ void Unsubscribe::MergeFrom(const Unsubscribe& from) {
 }
 
 void Unsubscribe::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:messaging.Unsubscribe)
+// @@protoc_insertion_point(generalized_copy_from_start:messagingService.Unsubscribe)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Unsubscribe::CopyFrom(const Unsubscribe& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:messaging.Unsubscribe)
+// @@protoc_insertion_point(class_specific_copy_from_start:messagingService.Unsubscribe)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -820,7 +821,7 @@ const int MessagePublish::kPayloadFieldNumber;
 MessagePublish::MessagePublish()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:messaging.MessagePublish)
+  // @@protoc_insertion_point(constructor:messagingService.MessagePublish)
 }
 MessagePublish::MessagePublish(const MessagePublish& from)
   : ::google::protobuf::Message(),
@@ -831,7 +832,7 @@ MessagePublish::MessagePublish(const MessagePublish& from)
   if (from.payload().size() > 0) {
     payload_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
-  // @@protoc_insertion_point(copy_constructor:messaging.MessagePublish)
+  // @@protoc_insertion_point(copy_constructor:messagingService.MessagePublish)
 }
 
 void MessagePublish::SharedCtor() {
@@ -841,7 +842,7 @@ void MessagePublish::SharedCtor() {
 }
 
 MessagePublish::~MessagePublish() {
-  // @@protoc_insertion_point(destructor:messaging.MessagePublish)
+  // @@protoc_insertion_point(destructor:messagingService.MessagePublish)
   SharedDtor();
 }
 
@@ -859,7 +860,7 @@ const MessagePublish& MessagePublish::default_instance() {
 
 
 void MessagePublish::Clear() {
-// @@protoc_insertion_point(message_clear_start:messaging.MessagePublish)
+// @@protoc_insertion_point(message_clear_start:messagingService.MessagePublish)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -888,7 +889,7 @@ const char* MessagePublish::_InternalParse(const char* begin, const char* end, v
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("messaging.MessagePublish.topics");
+          ctx->extra_parse_data().SetFieldName("messagingService.MessagePublish.topics");
           object = msg->add_topics();
           if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
             parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -944,7 +945,7 @@ bool MessagePublish::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:messaging.MessagePublish)
+  // @@protoc_insertion_point(parse_start:messagingService.MessagePublish)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -959,7 +960,7 @@ bool MessagePublish::MergePartialFromCodedStream(
             this->topics(this->topics_size() - 1).data(),
             static_cast<int>(this->topics(this->topics_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "messaging.MessagePublish.topics"));
+            "messagingService.MessagePublish.topics"));
         } else {
           goto handle_unusual;
         }
@@ -989,10 +990,10 @@ bool MessagePublish::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:messaging.MessagePublish)
+  // @@protoc_insertion_point(parse_success:messagingService.MessagePublish)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:messaging.MessagePublish)
+  // @@protoc_insertion_point(parse_failure:messagingService.MessagePublish)
   return false;
 #undef DO_
 }
@@ -1000,7 +1001,7 @@ failure:
 
 void MessagePublish::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:messaging.MessagePublish)
+  // @@protoc_insertion_point(serialize_start:messagingService.MessagePublish)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1009,7 +1010,7 @@ void MessagePublish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topics(i).data(), static_cast<int>(this->topics(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.MessagePublish.topics");
+      "messagingService.MessagePublish.topics");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->topics(i), output);
   }
@@ -1024,12 +1025,12 @@ void MessagePublish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:messaging.MessagePublish)
+  // @@protoc_insertion_point(serialize_end:messagingService.MessagePublish)
 }
 
 ::google::protobuf::uint8* MessagePublish::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:messaging.MessagePublish)
+  // @@protoc_insertion_point(serialize_to_array_start:messagingService.MessagePublish)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1038,7 +1039,7 @@ void MessagePublish::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topics(i).data(), static_cast<int>(this->topics(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.MessagePublish.topics");
+      "messagingService.MessagePublish.topics");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->topics(i), target);
   }
@@ -1054,12 +1055,12 @@ void MessagePublish::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:messaging.MessagePublish)
+  // @@protoc_insertion_point(serialize_to_array_end:messagingService.MessagePublish)
   return target;
 }
 
 size_t MessagePublish::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:messaging.MessagePublish)
+// @@protoc_insertion_point(message_byte_size_start:messagingService.MessagePublish)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1092,22 +1093,22 @@ size_t MessagePublish::ByteSizeLong() const {
 }
 
 void MessagePublish::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:messaging.MessagePublish)
+// @@protoc_insertion_point(generalized_merge_from_start:messagingService.MessagePublish)
   GOOGLE_DCHECK_NE(&from, this);
   const MessagePublish* source =
       ::google::protobuf::DynamicCastToGenerated<MessagePublish>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messaging.MessagePublish)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messagingService.MessagePublish)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:messaging.MessagePublish)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:messagingService.MessagePublish)
     MergeFrom(*source);
   }
 }
 
 void MessagePublish::MergeFrom(const MessagePublish& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:messaging.MessagePublish)
+// @@protoc_insertion_point(class_specific_merge_from_start:messagingService.MessagePublish)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1121,14 +1122,14 @@ void MessagePublish::MergeFrom(const MessagePublish& from) {
 }
 
 void MessagePublish::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:messaging.MessagePublish)
+// @@protoc_insertion_point(generalized_copy_from_start:messagingService.MessagePublish)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void MessagePublish::CopyFrom(const MessagePublish& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:messaging.MessagePublish)
+// @@protoc_insertion_point(class_specific_copy_from_start:messagingService.MessagePublish)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1159,33 +1160,33 @@ void MessagePublish::InternalSwap(MessagePublish* other) {
 // ===================================================================
 
 void MessagingRequest::InitAsDefaultInstance() {
-  ::messaging::_MessagingRequest_default_instance_.subscribe_ = const_cast< ::messaging::Subscribe*>(
-      ::messaging::Subscribe::internal_default_instance());
-  ::messaging::_MessagingRequest_default_instance_.unsubscribe_ = const_cast< ::messaging::Unsubscribe*>(
-      ::messaging::Unsubscribe::internal_default_instance());
-  ::messaging::_MessagingRequest_default_instance_.message_publish_ = const_cast< ::messaging::MessagePublish*>(
-      ::messaging::MessagePublish::internal_default_instance());
+  ::messagingService::_MessagingRequest_default_instance_.subscribe_ = const_cast< ::messagingService::Subscribe*>(
+      ::messagingService::Subscribe::internal_default_instance());
+  ::messagingService::_MessagingRequest_default_instance_.unsubscribe_ = const_cast< ::messagingService::Unsubscribe*>(
+      ::messagingService::Unsubscribe::internal_default_instance());
+  ::messagingService::_MessagingRequest_default_instance_.message_publish_ = const_cast< ::messagingService::MessagePublish*>(
+      ::messagingService::MessagePublish::internal_default_instance());
 }
 class MessagingRequest::HasBitSetters {
  public:
-  static const ::messaging::Subscribe& subscribe(const MessagingRequest* msg);
-  static const ::messaging::Unsubscribe& unsubscribe(const MessagingRequest* msg);
-  static const ::messaging::MessagePublish& message_publish(const MessagingRequest* msg);
+  static const ::messagingService::Subscribe& subscribe(const MessagingRequest* msg);
+  static const ::messagingService::Unsubscribe& unsubscribe(const MessagingRequest* msg);
+  static const ::messagingService::MessagePublish& message_publish(const MessagingRequest* msg);
 };
 
-const ::messaging::Subscribe&
+const ::messagingService::Subscribe&
 MessagingRequest::HasBitSetters::subscribe(const MessagingRequest* msg) {
   return *msg->messaging_oneof_.subscribe_;
 }
-const ::messaging::Unsubscribe&
+const ::messagingService::Unsubscribe&
 MessagingRequest::HasBitSetters::unsubscribe(const MessagingRequest* msg) {
   return *msg->messaging_oneof_.unsubscribe_;
 }
-const ::messaging::MessagePublish&
+const ::messagingService::MessagePublish&
 MessagingRequest::HasBitSetters::message_publish(const MessagingRequest* msg) {
   return *msg->messaging_oneof_.message_publish_;
 }
-void MessagingRequest::set_allocated_subscribe(::messaging::Subscribe* subscribe) {
+void MessagingRequest::set_allocated_subscribe(::messagingService::Subscribe* subscribe) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_messaging_oneof();
   if (subscribe) {
@@ -1197,9 +1198,9 @@ void MessagingRequest::set_allocated_subscribe(::messaging::Subscribe* subscribe
     set_has_subscribe();
     messaging_oneof_.subscribe_ = subscribe;
   }
-  // @@protoc_insertion_point(field_set_allocated:messaging.MessagingRequest.subscribe)
+  // @@protoc_insertion_point(field_set_allocated:messagingService.MessagingRequest.subscribe)
 }
-void MessagingRequest::set_allocated_unsubscribe(::messaging::Unsubscribe* unsubscribe) {
+void MessagingRequest::set_allocated_unsubscribe(::messagingService::Unsubscribe* unsubscribe) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_messaging_oneof();
   if (unsubscribe) {
@@ -1211,9 +1212,9 @@ void MessagingRequest::set_allocated_unsubscribe(::messaging::Unsubscribe* unsub
     set_has_unsubscribe();
     messaging_oneof_.unsubscribe_ = unsubscribe;
   }
-  // @@protoc_insertion_point(field_set_allocated:messaging.MessagingRequest.unsubscribe)
+  // @@protoc_insertion_point(field_set_allocated:messagingService.MessagingRequest.unsubscribe)
 }
-void MessagingRequest::set_allocated_message_publish(::messaging::MessagePublish* message_publish) {
+void MessagingRequest::set_allocated_message_publish(::messagingService::MessagePublish* message_publish) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_messaging_oneof();
   if (message_publish) {
@@ -1225,7 +1226,7 @@ void MessagingRequest::set_allocated_message_publish(::messaging::MessagePublish
     set_has_message_publish();
     messaging_oneof_.message_publish_ = message_publish;
   }
-  // @@protoc_insertion_point(field_set_allocated:messaging.MessagingRequest.message_publish)
+  // @@protoc_insertion_point(field_set_allocated:messagingService.MessagingRequest.message_publish)
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int MessagingRequest::kSubscribeFieldNumber;
@@ -1236,7 +1237,7 @@ const int MessagingRequest::kMessagePublishFieldNumber;
 MessagingRequest::MessagingRequest()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:messaging.MessagingRequest)
+  // @@protoc_insertion_point(constructor:messagingService.MessagingRequest)
 }
 MessagingRequest::MessagingRequest(const MessagingRequest& from)
   : ::google::protobuf::Message(),
@@ -1245,22 +1246,22 @@ MessagingRequest::MessagingRequest(const MessagingRequest& from)
   clear_has_messaging_oneof();
   switch (from.messaging_oneof_case()) {
     case kSubscribe: {
-      mutable_subscribe()->::messaging::Subscribe::MergeFrom(from.subscribe());
+      mutable_subscribe()->::messagingService::Subscribe::MergeFrom(from.subscribe());
       break;
     }
     case kUnsubscribe: {
-      mutable_unsubscribe()->::messaging::Unsubscribe::MergeFrom(from.unsubscribe());
+      mutable_unsubscribe()->::messagingService::Unsubscribe::MergeFrom(from.unsubscribe());
       break;
     }
     case kMessagePublish: {
-      mutable_message_publish()->::messaging::MessagePublish::MergeFrom(from.message_publish());
+      mutable_message_publish()->::messagingService::MessagePublish::MergeFrom(from.message_publish());
       break;
     }
     case MESSAGING_ONEOF_NOT_SET: {
       break;
     }
   }
-  // @@protoc_insertion_point(copy_constructor:messaging.MessagingRequest)
+  // @@protoc_insertion_point(copy_constructor:messagingService.MessagingRequest)
 }
 
 void MessagingRequest::SharedCtor() {
@@ -1270,7 +1271,7 @@ void MessagingRequest::SharedCtor() {
 }
 
 MessagingRequest::~MessagingRequest() {
-  // @@protoc_insertion_point(destructor:messaging.MessagingRequest)
+  // @@protoc_insertion_point(destructor:messagingService.MessagingRequest)
   SharedDtor();
 }
 
@@ -1290,7 +1291,7 @@ const MessagingRequest& MessagingRequest::default_instance() {
 
 
 void MessagingRequest::clear_messaging_oneof() {
-// @@protoc_insertion_point(one_of_clear_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(one_of_clear_start:messagingService.MessagingRequest)
   switch (messaging_oneof_case()) {
     case kSubscribe: {
       delete messaging_oneof_.subscribe_;
@@ -1313,7 +1314,7 @@ void MessagingRequest::clear_messaging_oneof() {
 
 
 void MessagingRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(message_clear_start:messagingService.MessagingRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1335,12 +1336,12 @@ const char* MessagingRequest::_InternalParse(const char* begin, const char* end,
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // .messaging.Subscribe subscribe = 1;
+      // .messagingService.Subscribe subscribe = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::messaging::Subscribe::_InternalParse;
+        parser_till_end = ::messagingService::Subscribe::_InternalParse;
         object = msg->mutable_subscribe();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -1348,12 +1349,12 @@ const char* MessagingRequest::_InternalParse(const char* begin, const char* end,
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .messaging.Unsubscribe unsubscribe = 2;
+      // .messagingService.Unsubscribe unsubscribe = 2;
       case 2: {
         if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::messaging::Unsubscribe::_InternalParse;
+        parser_till_end = ::messagingService::Unsubscribe::_InternalParse;
         object = msg->mutable_unsubscribe();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -1361,12 +1362,12 @@ const char* MessagingRequest::_InternalParse(const char* begin, const char* end,
             {parser_till_end, object}, ptr - size, ptr));
         break;
       }
-      // .messaging.MessagePublish message_publish = 3;
+      // .messagingService.MessagePublish message_publish = 3;
       case 3: {
         if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::messaging::MessagePublish::_InternalParse;
+        parser_till_end = ::messagingService::MessagePublish::_InternalParse;
         object = msg->mutable_message_publish();
         if (size > end - ptr) goto len_delim_till_end;
         ptr += size;
@@ -1398,13 +1399,13 @@ bool MessagingRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:messaging.MessagingRequest)
+  // @@protoc_insertion_point(parse_start:messagingService.MessagingRequest)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .messaging.Subscribe subscribe = 1;
+      // .messagingService.Subscribe subscribe = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -1415,7 +1416,7 @@ bool MessagingRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .messaging.Unsubscribe unsubscribe = 2;
+      // .messagingService.Unsubscribe unsubscribe = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -1426,7 +1427,7 @@ bool MessagingRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .messaging.MessagePublish message_publish = 3;
+      // .messagingService.MessagePublish message_publish = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
@@ -1449,10 +1450,10 @@ bool MessagingRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:messaging.MessagingRequest)
+  // @@protoc_insertion_point(parse_success:messagingService.MessagingRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:messaging.MessagingRequest)
+  // @@protoc_insertion_point(parse_failure:messagingService.MessagingRequest)
   return false;
 #undef DO_
 }
@@ -1460,23 +1461,23 @@ failure:
 
 void MessagingRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:messaging.MessagingRequest)
+  // @@protoc_insertion_point(serialize_start:messagingService.MessagingRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .messaging.Subscribe subscribe = 1;
+  // .messagingService.Subscribe subscribe = 1;
   if (has_subscribe()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, HasBitSetters::subscribe(this), output);
   }
 
-  // .messaging.Unsubscribe unsubscribe = 2;
+  // .messagingService.Unsubscribe unsubscribe = 2;
   if (has_unsubscribe()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, HasBitSetters::unsubscribe(this), output);
   }
 
-  // .messaging.MessagePublish message_publish = 3;
+  // .messagingService.MessagePublish message_publish = 3;
   if (has_message_publish()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, HasBitSetters::message_publish(this), output);
@@ -1486,30 +1487,30 @@ void MessagingRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:messaging.MessagingRequest)
+  // @@protoc_insertion_point(serialize_end:messagingService.MessagingRequest)
 }
 
 ::google::protobuf::uint8* MessagingRequest::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:messaging.MessagingRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:messagingService.MessagingRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .messaging.Subscribe subscribe = 1;
+  // .messagingService.Subscribe subscribe = 1;
   if (has_subscribe()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         1, HasBitSetters::subscribe(this), target);
   }
 
-  // .messaging.Unsubscribe unsubscribe = 2;
+  // .messagingService.Unsubscribe unsubscribe = 2;
   if (has_unsubscribe()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         2, HasBitSetters::unsubscribe(this), target);
   }
 
-  // .messaging.MessagePublish message_publish = 3;
+  // .messagingService.MessagePublish message_publish = 3;
   if (has_message_publish()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -1520,12 +1521,12 @@ void MessagingRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:messaging.MessagingRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:messagingService.MessagingRequest)
   return target;
 }
 
 size_t MessagingRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(message_byte_size_start:messagingService.MessagingRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1538,21 +1539,21 @@ size_t MessagingRequest::ByteSizeLong() const {
   (void) cached_has_bits;
 
   switch (messaging_oneof_case()) {
-    // .messaging.Subscribe subscribe = 1;
+    // .messagingService.Subscribe subscribe = 1;
     case kSubscribe: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *messaging_oneof_.subscribe_);
       break;
     }
-    // .messaging.Unsubscribe unsubscribe = 2;
+    // .messagingService.Unsubscribe unsubscribe = 2;
     case kUnsubscribe: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *messaging_oneof_.unsubscribe_);
       break;
     }
-    // .messaging.MessagePublish message_publish = 3;
+    // .messagingService.MessagePublish message_publish = 3;
     case kMessagePublish: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -1569,22 +1570,22 @@ size_t MessagingRequest::ByteSizeLong() const {
 }
 
 void MessagingRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:messagingService.MessagingRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const MessagingRequest* source =
       ::google::protobuf::DynamicCastToGenerated<MessagingRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messaging.MessagingRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messagingService.MessagingRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:messaging.MessagingRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:messagingService.MessagingRequest)
     MergeFrom(*source);
   }
 }
 
 void MessagingRequest::MergeFrom(const MessagingRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:messagingService.MessagingRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1592,15 +1593,15 @@ void MessagingRequest::MergeFrom(const MessagingRequest& from) {
 
   switch (from.messaging_oneof_case()) {
     case kSubscribe: {
-      mutable_subscribe()->::messaging::Subscribe::MergeFrom(from.subscribe());
+      mutable_subscribe()->::messagingService::Subscribe::MergeFrom(from.subscribe());
       break;
     }
     case kUnsubscribe: {
-      mutable_unsubscribe()->::messaging::Unsubscribe::MergeFrom(from.unsubscribe());
+      mutable_unsubscribe()->::messagingService::Unsubscribe::MergeFrom(from.unsubscribe());
       break;
     }
     case kMessagePublish: {
-      mutable_message_publish()->::messaging::MessagePublish::MergeFrom(from.message_publish());
+      mutable_message_publish()->::messagingService::MessagePublish::MergeFrom(from.message_publish());
       break;
     }
     case MESSAGING_ONEOF_NOT_SET: {
@@ -1610,14 +1611,14 @@ void MessagingRequest::MergeFrom(const MessagingRequest& from) {
 }
 
 void MessagingRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:messagingService.MessagingRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void MessagingRequest::CopyFrom(const MessagingRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:messaging.MessagingRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:messagingService.MessagingRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1660,7 +1661,7 @@ const int MessagingResponse::kPayloadFieldNumber;
 MessagingResponse::MessagingResponse()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:messaging.MessagingResponse)
+  // @@protoc_insertion_point(constructor:messagingService.MessagingResponse)
 }
 MessagingResponse::MessagingResponse(const MessagingResponse& from)
   : ::google::protobuf::Message(),
@@ -1674,7 +1675,7 @@ MessagingResponse::MessagingResponse(const MessagingResponse& from)
   if (from.payload().size() > 0) {
     payload_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.payload_);
   }
-  // @@protoc_insertion_point(copy_constructor:messaging.MessagingResponse)
+  // @@protoc_insertion_point(copy_constructor:messagingService.MessagingResponse)
 }
 
 void MessagingResponse::SharedCtor() {
@@ -1685,7 +1686,7 @@ void MessagingResponse::SharedCtor() {
 }
 
 MessagingResponse::~MessagingResponse() {
-  // @@protoc_insertion_point(destructor:messaging.MessagingResponse)
+  // @@protoc_insertion_point(destructor:messagingService.MessagingResponse)
   SharedDtor();
 }
 
@@ -1704,7 +1705,7 @@ const MessagingResponse& MessagingResponse::default_instance() {
 
 
 void MessagingResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:messaging.MessagingResponse)
+// @@protoc_insertion_point(message_clear_start:messagingService.MessagingResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1732,7 +1733,7 @@ const char* MessagingResponse::_InternalParse(const char* begin, const char* end
         if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
         ptr = ::google::protobuf::io::ReadSize(ptr, &size);
         GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("messaging.MessagingResponse.topic");
+        ctx->extra_parse_data().SetFieldName("messagingService.MessagingResponse.topic");
         object = msg->mutable_topic();
         if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
           parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -1786,7 +1787,7 @@ bool MessagingResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:messaging.MessagingResponse)
+  // @@protoc_insertion_point(parse_start:messagingService.MessagingResponse)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1800,7 +1801,7 @@ bool MessagingResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->topic().data(), static_cast<int>(this->topic().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "messaging.MessagingResponse.topic"));
+            "messagingService.MessagingResponse.topic"));
         } else {
           goto handle_unusual;
         }
@@ -1830,10 +1831,10 @@ bool MessagingResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:messaging.MessagingResponse)
+  // @@protoc_insertion_point(parse_success:messagingService.MessagingResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:messaging.MessagingResponse)
+  // @@protoc_insertion_point(parse_failure:messagingService.MessagingResponse)
   return false;
 #undef DO_
 }
@@ -1841,7 +1842,7 @@ failure:
 
 void MessagingResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:messaging.MessagingResponse)
+  // @@protoc_insertion_point(serialize_start:messagingService.MessagingResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1850,7 +1851,7 @@ void MessagingResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topic().data(), static_cast<int>(this->topic().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.MessagingResponse.topic");
+      "messagingService.MessagingResponse.topic");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->topic(), output);
   }
@@ -1865,12 +1866,12 @@ void MessagingResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:messaging.MessagingResponse)
+  // @@protoc_insertion_point(serialize_end:messagingService.MessagingResponse)
 }
 
 ::google::protobuf::uint8* MessagingResponse::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:messaging.MessagingResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:messagingService.MessagingResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1879,7 +1880,7 @@ void MessagingResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->topic().data(), static_cast<int>(this->topic().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "messaging.MessagingResponse.topic");
+      "messagingService.MessagingResponse.topic");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->topic(), target);
@@ -1896,12 +1897,12 @@ void MessagingResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:messaging.MessagingResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:messagingService.MessagingResponse)
   return target;
 }
 
 size_t MessagingResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:messaging.MessagingResponse)
+// @@protoc_insertion_point(message_byte_size_start:messagingService.MessagingResponse)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1933,22 +1934,22 @@ size_t MessagingResponse::ByteSizeLong() const {
 }
 
 void MessagingResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:messaging.MessagingResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:messagingService.MessagingResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const MessagingResponse* source =
       ::google::protobuf::DynamicCastToGenerated<MessagingResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messaging.MessagingResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:messagingService.MessagingResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:messaging.MessagingResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:messagingService.MessagingResponse)
     MergeFrom(*source);
   }
 }
 
 void MessagingResponse::MergeFrom(const MessagingResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:messaging.MessagingResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:messagingService.MessagingResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1965,14 +1966,14 @@ void MessagingResponse::MergeFrom(const MessagingResponse& from) {
 }
 
 void MessagingResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:messaging.MessagingResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:messagingService.MessagingResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void MessagingResponse::CopyFrom(const MessagingResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:messaging.MessagingResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:messagingService.MessagingResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2002,23 +2003,23 @@ void MessagingResponse::InternalSwap(MessagingResponse* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace messaging
+}  // namespace messagingService
 namespace google {
 namespace protobuf {
-template<> PROTOBUF_NOINLINE ::messaging::Subscribe* Arena::CreateMaybeMessage< ::messaging::Subscribe >(Arena* arena) {
-  return Arena::CreateInternal< ::messaging::Subscribe >(arena);
+template<> PROTOBUF_NOINLINE ::messagingService::Subscribe* Arena::CreateMaybeMessage< ::messagingService::Subscribe >(Arena* arena) {
+  return Arena::CreateInternal< ::messagingService::Subscribe >(arena);
 }
-template<> PROTOBUF_NOINLINE ::messaging::Unsubscribe* Arena::CreateMaybeMessage< ::messaging::Unsubscribe >(Arena* arena) {
-  return Arena::CreateInternal< ::messaging::Unsubscribe >(arena);
+template<> PROTOBUF_NOINLINE ::messagingService::Unsubscribe* Arena::CreateMaybeMessage< ::messagingService::Unsubscribe >(Arena* arena) {
+  return Arena::CreateInternal< ::messagingService::Unsubscribe >(arena);
 }
-template<> PROTOBUF_NOINLINE ::messaging::MessagePublish* Arena::CreateMaybeMessage< ::messaging::MessagePublish >(Arena* arena) {
-  return Arena::CreateInternal< ::messaging::MessagePublish >(arena);
+template<> PROTOBUF_NOINLINE ::messagingService::MessagePublish* Arena::CreateMaybeMessage< ::messagingService::MessagePublish >(Arena* arena) {
+  return Arena::CreateInternal< ::messagingService::MessagePublish >(arena);
 }
-template<> PROTOBUF_NOINLINE ::messaging::MessagingRequest* Arena::CreateMaybeMessage< ::messaging::MessagingRequest >(Arena* arena) {
-  return Arena::CreateInternal< ::messaging::MessagingRequest >(arena);
+template<> PROTOBUF_NOINLINE ::messagingService::MessagingRequest* Arena::CreateMaybeMessage< ::messagingService::MessagingRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::messagingService::MessagingRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::messaging::MessagingResponse* Arena::CreateMaybeMessage< ::messaging::MessagingResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::messaging::MessagingResponse >(arena);
+template<> PROTOBUF_NOINLINE ::messagingService::MessagingResponse* Arena::CreateMaybeMessage< ::messagingService::MessagingResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::messagingService::MessagingResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

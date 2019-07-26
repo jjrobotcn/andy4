@@ -13,14 +13,14 @@
 // Designated initializer
 - (instancetype)initWithHost:(NSString *)host callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [super initWithHost:host
-                 packageName:@"messaging"
+                 packageName:@"messagingService"
                  serviceName:@"MessagingService"
                  callOptions:callOptions];
 }
 
 - (instancetype)initWithHost:(NSString *)host {
   return [super initWithHost:host
-                 packageName:@"messaging"
+                 packageName:@"messagingService"
                  serviceName:@"MessagingService"];
 }
 

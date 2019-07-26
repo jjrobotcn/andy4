@@ -48,7 +48,7 @@ struct TableStruct_messaging_2eproto {
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors_messaging_2eproto();
-namespace messaging {
+namespace messagingService {
 class MessagePublish;
 class MessagePublishDefaultTypeInternal;
 extern MessagePublishDefaultTypeInternal _MessagePublish_default_instance_;
@@ -64,22 +64,22 @@ extern SubscribeDefaultTypeInternal _Subscribe_default_instance_;
 class Unsubscribe;
 class UnsubscribeDefaultTypeInternal;
 extern UnsubscribeDefaultTypeInternal _Unsubscribe_default_instance_;
-}  // namespace messaging
+}  // namespace messagingService
 namespace google {
 namespace protobuf {
-template<> ::messaging::MessagePublish* Arena::CreateMaybeMessage<::messaging::MessagePublish>(Arena*);
-template<> ::messaging::MessagingRequest* Arena::CreateMaybeMessage<::messaging::MessagingRequest>(Arena*);
-template<> ::messaging::MessagingResponse* Arena::CreateMaybeMessage<::messaging::MessagingResponse>(Arena*);
-template<> ::messaging::Subscribe* Arena::CreateMaybeMessage<::messaging::Subscribe>(Arena*);
-template<> ::messaging::Unsubscribe* Arena::CreateMaybeMessage<::messaging::Unsubscribe>(Arena*);
+template<> ::messagingService::MessagePublish* Arena::CreateMaybeMessage<::messagingService::MessagePublish>(Arena*);
+template<> ::messagingService::MessagingRequest* Arena::CreateMaybeMessage<::messagingService::MessagingRequest>(Arena*);
+template<> ::messagingService::MessagingResponse* Arena::CreateMaybeMessage<::messagingService::MessagingResponse>(Arena*);
+template<> ::messagingService::Subscribe* Arena::CreateMaybeMessage<::messagingService::Subscribe>(Arena*);
+template<> ::messagingService::Unsubscribe* Arena::CreateMaybeMessage<::messagingService::Unsubscribe>(Arena*);
 }  // namespace protobuf
 }  // namespace google
-namespace messaging {
+namespace messagingService {
 
 // ===================================================================
 
 class Subscribe final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messaging.Subscribe) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messagingService.Subscribe) */ {
  public:
   Subscribe();
   virtual ~Subscribe();
@@ -195,7 +195,7 @@ class Subscribe final :
   const ::google::protobuf::RepeatedPtrField<::std::string>& topics() const;
   ::google::protobuf::RepeatedPtrField<::std::string>* mutable_topics();
 
-  // @@protoc_insertion_point(class_scope:messaging.Subscribe)
+  // @@protoc_insertion_point(class_scope:messagingService.Subscribe)
  private:
   class HasBitSetters;
 
@@ -207,7 +207,7 @@ class Subscribe final :
 // -------------------------------------------------------------------
 
 class Unsubscribe final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messaging.Unsubscribe) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messagingService.Unsubscribe) */ {
  public:
   Unsubscribe();
   virtual ~Unsubscribe();
@@ -323,7 +323,7 @@ class Unsubscribe final :
   const ::google::protobuf::RepeatedPtrField<::std::string>& topics() const;
   ::google::protobuf::RepeatedPtrField<::std::string>* mutable_topics();
 
-  // @@protoc_insertion_point(class_scope:messaging.Unsubscribe)
+  // @@protoc_insertion_point(class_scope:messagingService.Unsubscribe)
  private:
   class HasBitSetters;
 
@@ -335,7 +335,7 @@ class Unsubscribe final :
 // -------------------------------------------------------------------
 
 class MessagePublish final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messaging.MessagePublish) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messagingService.MessagePublish) */ {
  public:
   MessagePublish();
   virtual ~MessagePublish();
@@ -465,7 +465,7 @@ class MessagePublish final :
   ::std::string* release_payload();
   void set_allocated_payload(::std::string* payload);
 
-  // @@protoc_insertion_point(class_scope:messaging.MessagePublish)
+  // @@protoc_insertion_point(class_scope:messagingService.MessagePublish)
  private:
   class HasBitSetters;
 
@@ -478,7 +478,7 @@ class MessagePublish final :
 // -------------------------------------------------------------------
 
 class MessagingRequest final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messaging.MessagingRequest) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messagingService.MessagingRequest) */ {
  public:
   MessagingRequest();
   virtual ~MessagingRequest();
@@ -579,36 +579,36 @@ class MessagingRequest final :
 
   // accessors -------------------------------------------------------
 
-  // .messaging.Subscribe subscribe = 1;
+  // .messagingService.Subscribe subscribe = 1;
   bool has_subscribe() const;
   void clear_subscribe();
   static const int kSubscribeFieldNumber = 1;
-  const ::messaging::Subscribe& subscribe() const;
-  ::messaging::Subscribe* release_subscribe();
-  ::messaging::Subscribe* mutable_subscribe();
-  void set_allocated_subscribe(::messaging::Subscribe* subscribe);
+  const ::messagingService::Subscribe& subscribe() const;
+  ::messagingService::Subscribe* release_subscribe();
+  ::messagingService::Subscribe* mutable_subscribe();
+  void set_allocated_subscribe(::messagingService::Subscribe* subscribe);
 
-  // .messaging.Unsubscribe unsubscribe = 2;
+  // .messagingService.Unsubscribe unsubscribe = 2;
   bool has_unsubscribe() const;
   void clear_unsubscribe();
   static const int kUnsubscribeFieldNumber = 2;
-  const ::messaging::Unsubscribe& unsubscribe() const;
-  ::messaging::Unsubscribe* release_unsubscribe();
-  ::messaging::Unsubscribe* mutable_unsubscribe();
-  void set_allocated_unsubscribe(::messaging::Unsubscribe* unsubscribe);
+  const ::messagingService::Unsubscribe& unsubscribe() const;
+  ::messagingService::Unsubscribe* release_unsubscribe();
+  ::messagingService::Unsubscribe* mutable_unsubscribe();
+  void set_allocated_unsubscribe(::messagingService::Unsubscribe* unsubscribe);
 
-  // .messaging.MessagePublish message_publish = 3;
+  // .messagingService.MessagePublish message_publish = 3;
   bool has_message_publish() const;
   void clear_message_publish();
   static const int kMessagePublishFieldNumber = 3;
-  const ::messaging::MessagePublish& message_publish() const;
-  ::messaging::MessagePublish* release_message_publish();
-  ::messaging::MessagePublish* mutable_message_publish();
-  void set_allocated_message_publish(::messaging::MessagePublish* message_publish);
+  const ::messagingService::MessagePublish& message_publish() const;
+  ::messagingService::MessagePublish* release_message_publish();
+  ::messagingService::MessagePublish* mutable_message_publish();
+  void set_allocated_message_publish(::messagingService::MessagePublish* message_publish);
 
   void clear_messaging_oneof();
   MessagingOneofCase messaging_oneof_case() const;
-  // @@protoc_insertion_point(class_scope:messaging.MessagingRequest)
+  // @@protoc_insertion_point(class_scope:messagingService.MessagingRequest)
  private:
   class HasBitSetters;
   void set_has_subscribe();
@@ -621,9 +621,9 @@ class MessagingRequest final :
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   union MessagingOneofUnion {
     MessagingOneofUnion() {}
-    ::messaging::Subscribe* subscribe_;
-    ::messaging::Unsubscribe* unsubscribe_;
-    ::messaging::MessagePublish* message_publish_;
+    ::messagingService::Subscribe* subscribe_;
+    ::messagingService::Unsubscribe* unsubscribe_;
+    ::messagingService::MessagePublish* message_publish_;
   } messaging_oneof_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -633,7 +633,7 @@ class MessagingRequest final :
 // -------------------------------------------------------------------
 
 class MessagingResponse final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messaging.MessagingResponse) */ {
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:messagingService.MessagingResponse) */ {
  public:
   MessagingResponse();
   virtual ~MessagingResponse();
@@ -755,7 +755,7 @@ class MessagingResponse final :
   ::std::string* release_payload();
   void set_allocated_payload(::std::string* payload);
 
-  // @@protoc_insertion_point(class_scope:messaging.MessagingResponse)
+  // @@protoc_insertion_point(class_scope:messagingService.MessagingResponse)
  private:
   class HasBitSetters;
 
@@ -784,64 +784,64 @@ inline void Subscribe::clear_topics() {
   topics_.Clear();
 }
 inline const ::std::string& Subscribe::topics(int index) const {
-  // @@protoc_insertion_point(field_get:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_get:messagingService.Subscribe.topics)
   return topics_.Get(index);
 }
 inline ::std::string* Subscribe::mutable_topics(int index) {
-  // @@protoc_insertion_point(field_mutable:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_mutable:messagingService.Subscribe.topics)
   return topics_.Mutable(index);
 }
 inline void Subscribe::set_topics(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_set:messagingService.Subscribe.topics)
   topics_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
 inline void Subscribe::set_topics(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_set:messagingService.Subscribe.topics)
   topics_.Mutable(index)->assign(std::move(value));
 }
 #endif
 inline void Subscribe::set_topics(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   topics_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_set_char:messagingService.Subscribe.topics)
 }
 inline void Subscribe::set_topics(int index, const char* value, size_t size) {
   topics_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_set_pointer:messagingService.Subscribe.topics)
 }
 inline ::std::string* Subscribe::add_topics() {
-  // @@protoc_insertion_point(field_add_mutable:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_add_mutable:messagingService.Subscribe.topics)
   return topics_.Add();
 }
 inline void Subscribe::add_topics(const ::std::string& value) {
   topics_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_add:messagingService.Subscribe.topics)
 }
 #if LANG_CXX11
 inline void Subscribe::add_topics(::std::string&& value) {
   topics_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_add:messagingService.Subscribe.topics)
 }
 #endif
 inline void Subscribe::add_topics(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   topics_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_add_char:messagingService.Subscribe.topics)
 }
 inline void Subscribe::add_topics(const char* value, size_t size) {
   topics_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_add_pointer:messagingService.Subscribe.topics)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
 Subscribe::topics() const {
-  // @@protoc_insertion_point(field_list:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_list:messagingService.Subscribe.topics)
   return topics_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
 Subscribe::mutable_topics() {
-  // @@protoc_insertion_point(field_mutable_list:messaging.Subscribe.topics)
+  // @@protoc_insertion_point(field_mutable_list:messagingService.Subscribe.topics)
   return &topics_;
 }
 
@@ -857,64 +857,64 @@ inline void Unsubscribe::clear_topics() {
   topics_.Clear();
 }
 inline const ::std::string& Unsubscribe::topics(int index) const {
-  // @@protoc_insertion_point(field_get:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_get:messagingService.Unsubscribe.topics)
   return topics_.Get(index);
 }
 inline ::std::string* Unsubscribe::mutable_topics(int index) {
-  // @@protoc_insertion_point(field_mutable:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_mutable:messagingService.Unsubscribe.topics)
   return topics_.Mutable(index);
 }
 inline void Unsubscribe::set_topics(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_set:messagingService.Unsubscribe.topics)
   topics_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
 inline void Unsubscribe::set_topics(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_set:messagingService.Unsubscribe.topics)
   topics_.Mutable(index)->assign(std::move(value));
 }
 #endif
 inline void Unsubscribe::set_topics(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   topics_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_set_char:messagingService.Unsubscribe.topics)
 }
 inline void Unsubscribe::set_topics(int index, const char* value, size_t size) {
   topics_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_set_pointer:messagingService.Unsubscribe.topics)
 }
 inline ::std::string* Unsubscribe::add_topics() {
-  // @@protoc_insertion_point(field_add_mutable:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_add_mutable:messagingService.Unsubscribe.topics)
   return topics_.Add();
 }
 inline void Unsubscribe::add_topics(const ::std::string& value) {
   topics_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_add:messagingService.Unsubscribe.topics)
 }
 #if LANG_CXX11
 inline void Unsubscribe::add_topics(::std::string&& value) {
   topics_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_add:messagingService.Unsubscribe.topics)
 }
 #endif
 inline void Unsubscribe::add_topics(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   topics_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_add_char:messagingService.Unsubscribe.topics)
 }
 inline void Unsubscribe::add_topics(const char* value, size_t size) {
   topics_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_add_pointer:messagingService.Unsubscribe.topics)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
 Unsubscribe::topics() const {
-  // @@protoc_insertion_point(field_list:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_list:messagingService.Unsubscribe.topics)
   return topics_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
 Unsubscribe::mutable_topics() {
-  // @@protoc_insertion_point(field_mutable_list:messaging.Unsubscribe.topics)
+  // @@protoc_insertion_point(field_mutable_list:messagingService.Unsubscribe.topics)
   return &topics_;
 }
 
@@ -930,64 +930,64 @@ inline void MessagePublish::clear_topics() {
   topics_.Clear();
 }
 inline const ::std::string& MessagePublish::topics(int index) const {
-  // @@protoc_insertion_point(field_get:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_get:messagingService.MessagePublish.topics)
   return topics_.Get(index);
 }
 inline ::std::string* MessagePublish::mutable_topics(int index) {
-  // @@protoc_insertion_point(field_mutable:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagePublish.topics)
   return topics_.Mutable(index);
 }
 inline void MessagePublish::set_topics(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_set:messagingService.MessagePublish.topics)
   topics_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
 inline void MessagePublish::set_topics(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_set:messagingService.MessagePublish.topics)
   topics_.Mutable(index)->assign(std::move(value));
 }
 #endif
 inline void MessagePublish::set_topics(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   topics_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_set_char:messagingService.MessagePublish.topics)
 }
 inline void MessagePublish::set_topics(int index, const char* value, size_t size) {
   topics_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_set_pointer:messagingService.MessagePublish.topics)
 }
 inline ::std::string* MessagePublish::add_topics() {
-  // @@protoc_insertion_point(field_add_mutable:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_add_mutable:messagingService.MessagePublish.topics)
   return topics_.Add();
 }
 inline void MessagePublish::add_topics(const ::std::string& value) {
   topics_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_add:messagingService.MessagePublish.topics)
 }
 #if LANG_CXX11
 inline void MessagePublish::add_topics(::std::string&& value) {
   topics_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_add:messagingService.MessagePublish.topics)
 }
 #endif
 inline void MessagePublish::add_topics(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   topics_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_add_char:messagingService.MessagePublish.topics)
 }
 inline void MessagePublish::add_topics(const char* value, size_t size) {
   topics_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_add_pointer:messagingService.MessagePublish.topics)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
 MessagePublish::topics() const {
-  // @@protoc_insertion_point(field_list:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_list:messagingService.MessagePublish.topics)
   return topics_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
 MessagePublish::mutable_topics() {
-  // @@protoc_insertion_point(field_mutable_list:messaging.MessagePublish.topics)
+  // @@protoc_insertion_point(field_mutable_list:messagingService.MessagePublish.topics)
   return &topics_;
 }
 
@@ -996,41 +996,41 @@ inline void MessagePublish::clear_payload() {
   payload_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& MessagePublish::payload() const {
-  // @@protoc_insertion_point(field_get:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_get:messagingService.MessagePublish.payload)
   return payload_.GetNoArena();
 }
 inline void MessagePublish::set_payload(const ::std::string& value) {
   
   payload_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_set:messagingService.MessagePublish.payload)
 }
 #if LANG_CXX11
 inline void MessagePublish::set_payload(::std::string&& value) {
   
   payload_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_set_rvalue:messagingService.MessagePublish.payload)
 }
 #endif
 inline void MessagePublish::set_payload(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   payload_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_set_char:messagingService.MessagePublish.payload)
 }
 inline void MessagePublish::set_payload(const void* value, size_t size) {
   
   payload_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_set_pointer:messagingService.MessagePublish.payload)
 }
 inline ::std::string* MessagePublish::mutable_payload() {
   
-  // @@protoc_insertion_point(field_mutable:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagePublish.payload)
   return payload_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* MessagePublish::release_payload() {
-  // @@protoc_insertion_point(field_release:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_release:messagingService.MessagePublish.payload)
   
   return payload_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1041,14 +1041,14 @@ inline void MessagePublish::set_allocated_payload(::std::string* payload) {
     
   }
   payload_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), payload);
-  // @@protoc_insertion_point(field_set_allocated:messaging.MessagePublish.payload)
+  // @@protoc_insertion_point(field_set_allocated:messagingService.MessagePublish.payload)
 }
 
 // -------------------------------------------------------------------
 
 // MessagingRequest
 
-// .messaging.Subscribe subscribe = 1;
+// .messagingService.Subscribe subscribe = 1;
 inline bool MessagingRequest::has_subscribe() const {
   return messaging_oneof_case() == kSubscribe;
 }
@@ -1061,35 +1061,35 @@ inline void MessagingRequest::clear_subscribe() {
     clear_has_messaging_oneof();
   }
 }
-inline ::messaging::Subscribe* MessagingRequest::release_subscribe() {
-  // @@protoc_insertion_point(field_release:messaging.MessagingRequest.subscribe)
+inline ::messagingService::Subscribe* MessagingRequest::release_subscribe() {
+  // @@protoc_insertion_point(field_release:messagingService.MessagingRequest.subscribe)
   if (has_subscribe()) {
     clear_has_messaging_oneof();
-      ::messaging::Subscribe* temp = messaging_oneof_.subscribe_;
+      ::messagingService::Subscribe* temp = messaging_oneof_.subscribe_;
     messaging_oneof_.subscribe_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::messaging::Subscribe& MessagingRequest::subscribe() const {
-  // @@protoc_insertion_point(field_get:messaging.MessagingRequest.subscribe)
+inline const ::messagingService::Subscribe& MessagingRequest::subscribe() const {
+  // @@protoc_insertion_point(field_get:messagingService.MessagingRequest.subscribe)
   return has_subscribe()
       ? *messaging_oneof_.subscribe_
-      : *reinterpret_cast< ::messaging::Subscribe*>(&::messaging::_Subscribe_default_instance_);
+      : *reinterpret_cast< ::messagingService::Subscribe*>(&::messagingService::_Subscribe_default_instance_);
 }
-inline ::messaging::Subscribe* MessagingRequest::mutable_subscribe() {
+inline ::messagingService::Subscribe* MessagingRequest::mutable_subscribe() {
   if (!has_subscribe()) {
     clear_messaging_oneof();
     set_has_subscribe();
-    messaging_oneof_.subscribe_ = CreateMaybeMessage< ::messaging::Subscribe >(
+    messaging_oneof_.subscribe_ = CreateMaybeMessage< ::messagingService::Subscribe >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:messaging.MessagingRequest.subscribe)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagingRequest.subscribe)
   return messaging_oneof_.subscribe_;
 }
 
-// .messaging.Unsubscribe unsubscribe = 2;
+// .messagingService.Unsubscribe unsubscribe = 2;
 inline bool MessagingRequest::has_unsubscribe() const {
   return messaging_oneof_case() == kUnsubscribe;
 }
@@ -1102,35 +1102,35 @@ inline void MessagingRequest::clear_unsubscribe() {
     clear_has_messaging_oneof();
   }
 }
-inline ::messaging::Unsubscribe* MessagingRequest::release_unsubscribe() {
-  // @@protoc_insertion_point(field_release:messaging.MessagingRequest.unsubscribe)
+inline ::messagingService::Unsubscribe* MessagingRequest::release_unsubscribe() {
+  // @@protoc_insertion_point(field_release:messagingService.MessagingRequest.unsubscribe)
   if (has_unsubscribe()) {
     clear_has_messaging_oneof();
-      ::messaging::Unsubscribe* temp = messaging_oneof_.unsubscribe_;
+      ::messagingService::Unsubscribe* temp = messaging_oneof_.unsubscribe_;
     messaging_oneof_.unsubscribe_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::messaging::Unsubscribe& MessagingRequest::unsubscribe() const {
-  // @@protoc_insertion_point(field_get:messaging.MessagingRequest.unsubscribe)
+inline const ::messagingService::Unsubscribe& MessagingRequest::unsubscribe() const {
+  // @@protoc_insertion_point(field_get:messagingService.MessagingRequest.unsubscribe)
   return has_unsubscribe()
       ? *messaging_oneof_.unsubscribe_
-      : *reinterpret_cast< ::messaging::Unsubscribe*>(&::messaging::_Unsubscribe_default_instance_);
+      : *reinterpret_cast< ::messagingService::Unsubscribe*>(&::messagingService::_Unsubscribe_default_instance_);
 }
-inline ::messaging::Unsubscribe* MessagingRequest::mutable_unsubscribe() {
+inline ::messagingService::Unsubscribe* MessagingRequest::mutable_unsubscribe() {
   if (!has_unsubscribe()) {
     clear_messaging_oneof();
     set_has_unsubscribe();
-    messaging_oneof_.unsubscribe_ = CreateMaybeMessage< ::messaging::Unsubscribe >(
+    messaging_oneof_.unsubscribe_ = CreateMaybeMessage< ::messagingService::Unsubscribe >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:messaging.MessagingRequest.unsubscribe)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagingRequest.unsubscribe)
   return messaging_oneof_.unsubscribe_;
 }
 
-// .messaging.MessagePublish message_publish = 3;
+// .messagingService.MessagePublish message_publish = 3;
 inline bool MessagingRequest::has_message_publish() const {
   return messaging_oneof_case() == kMessagePublish;
 }
@@ -1143,31 +1143,31 @@ inline void MessagingRequest::clear_message_publish() {
     clear_has_messaging_oneof();
   }
 }
-inline ::messaging::MessagePublish* MessagingRequest::release_message_publish() {
-  // @@protoc_insertion_point(field_release:messaging.MessagingRequest.message_publish)
+inline ::messagingService::MessagePublish* MessagingRequest::release_message_publish() {
+  // @@protoc_insertion_point(field_release:messagingService.MessagingRequest.message_publish)
   if (has_message_publish()) {
     clear_has_messaging_oneof();
-      ::messaging::MessagePublish* temp = messaging_oneof_.message_publish_;
+      ::messagingService::MessagePublish* temp = messaging_oneof_.message_publish_;
     messaging_oneof_.message_publish_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::messaging::MessagePublish& MessagingRequest::message_publish() const {
-  // @@protoc_insertion_point(field_get:messaging.MessagingRequest.message_publish)
+inline const ::messagingService::MessagePublish& MessagingRequest::message_publish() const {
+  // @@protoc_insertion_point(field_get:messagingService.MessagingRequest.message_publish)
   return has_message_publish()
       ? *messaging_oneof_.message_publish_
-      : *reinterpret_cast< ::messaging::MessagePublish*>(&::messaging::_MessagePublish_default_instance_);
+      : *reinterpret_cast< ::messagingService::MessagePublish*>(&::messagingService::_MessagePublish_default_instance_);
 }
-inline ::messaging::MessagePublish* MessagingRequest::mutable_message_publish() {
+inline ::messagingService::MessagePublish* MessagingRequest::mutable_message_publish() {
   if (!has_message_publish()) {
     clear_messaging_oneof();
     set_has_message_publish();
-    messaging_oneof_.message_publish_ = CreateMaybeMessage< ::messaging::MessagePublish >(
+    messaging_oneof_.message_publish_ = CreateMaybeMessage< ::messagingService::MessagePublish >(
         GetArenaNoVirtual());
   }
-  // @@protoc_insertion_point(field_mutable:messaging.MessagingRequest.message_publish)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagingRequest.message_publish)
   return messaging_oneof_.message_publish_;
 }
 
@@ -1189,41 +1189,41 @@ inline void MessagingResponse::clear_topic() {
   topic_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& MessagingResponse::topic() const {
-  // @@protoc_insertion_point(field_get:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_get:messagingService.MessagingResponse.topic)
   return topic_.GetNoArena();
 }
 inline void MessagingResponse::set_topic(const ::std::string& value) {
   
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_set:messagingService.MessagingResponse.topic)
 }
 #if LANG_CXX11
 inline void MessagingResponse::set_topic(::std::string&& value) {
   
   topic_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_set_rvalue:messagingService.MessagingResponse.topic)
 }
 #endif
 inline void MessagingResponse::set_topic(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_set_char:messagingService.MessagingResponse.topic)
 }
 inline void MessagingResponse::set_topic(const char* value, size_t size) {
   
   topic_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_set_pointer:messagingService.MessagingResponse.topic)
 }
 inline ::std::string* MessagingResponse::mutable_topic() {
   
-  // @@protoc_insertion_point(field_mutable:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagingResponse.topic)
   return topic_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* MessagingResponse::release_topic() {
-  // @@protoc_insertion_point(field_release:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_release:messagingService.MessagingResponse.topic)
   
   return topic_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1234,7 +1234,7 @@ inline void MessagingResponse::set_allocated_topic(::std::string* topic) {
     
   }
   topic_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), topic);
-  // @@protoc_insertion_point(field_set_allocated:messaging.MessagingResponse.topic)
+  // @@protoc_insertion_point(field_set_allocated:messagingService.MessagingResponse.topic)
 }
 
 // bytes payload = 2;
@@ -1242,41 +1242,41 @@ inline void MessagingResponse::clear_payload() {
   payload_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline const ::std::string& MessagingResponse::payload() const {
-  // @@protoc_insertion_point(field_get:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_get:messagingService.MessagingResponse.payload)
   return payload_.GetNoArena();
 }
 inline void MessagingResponse::set_payload(const ::std::string& value) {
   
   payload_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_set:messagingService.MessagingResponse.payload)
 }
 #if LANG_CXX11
 inline void MessagingResponse::set_payload(::std::string&& value) {
   
   payload_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_set_rvalue:messagingService.MessagingResponse.payload)
 }
 #endif
 inline void MessagingResponse::set_payload(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   payload_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_set_char:messagingService.MessagingResponse.payload)
 }
 inline void MessagingResponse::set_payload(const void* value, size_t size) {
   
   payload_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_set_pointer:messagingService.MessagingResponse.payload)
 }
 inline ::std::string* MessagingResponse::mutable_payload() {
   
-  // @@protoc_insertion_point(field_mutable:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_mutable:messagingService.MessagingResponse.payload)
   return payload_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* MessagingResponse::release_payload() {
-  // @@protoc_insertion_point(field_release:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_release:messagingService.MessagingResponse.payload)
   
   return payload_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1287,7 +1287,7 @@ inline void MessagingResponse::set_allocated_payload(::std::string* payload) {
     
   }
   payload_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), payload);
-  // @@protoc_insertion_point(field_set_allocated:messaging.MessagingResponse.payload)
+  // @@protoc_insertion_point(field_set_allocated:messagingService.MessagingResponse.payload)
 }
 
 #ifdef __GNUC__
@@ -1304,7 +1304,7 @@ inline void MessagingResponse::set_allocated_payload(::std::string* payload) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace messaging
+}  // namespace messagingService
 
 // @@protoc_insertion_point(global_scope)
 

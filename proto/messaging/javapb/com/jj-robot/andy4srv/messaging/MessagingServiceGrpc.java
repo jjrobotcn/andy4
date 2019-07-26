@@ -27,7 +27,7 @@ public final class MessagingServiceGrpc {
 
   private MessagingServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "messaging.MessagingService";
+  public static final String SERVICE_NAME = "messagingService.MessagingService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest,
@@ -48,7 +48,7 @@ public final class MessagingServiceGrpc {
               io.grpc.MethodDescriptor.<com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest, com.jj-robot.andy4srv.messaging.Messaging.MessagingResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "messaging.MessagingService", "Messaging"))
+                  "messagingService.MessagingService", "Messaging"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.jj-robot.andy4srv.messaging.Messaging.MessagingRequest.getDefaultInstance()))

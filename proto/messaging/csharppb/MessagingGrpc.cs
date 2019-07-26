@@ -7,28 +7,28 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Messaging {
+namespace MessagingService {
   /// <summary>
   /// MessagingService消息服务便于开发者在不同设备或应用中实现消息通信广播
   /// </summary>
   public static partial class MessagingService
   {
-    static readonly string __ServiceName = "messaging.MessagingService";
+    static readonly string __ServiceName = "messagingService.MessagingService";
 
-    static readonly grpc::Marshaller<global::Messaging.MessagingRequest> __Marshaller_messaging_MessagingRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Messaging.MessagingRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Messaging.MessagingResponse> __Marshaller_messaging_MessagingResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Messaging.MessagingResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::MessagingService.MessagingRequest> __Marshaller_messagingService_MessagingRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::MessagingService.MessagingRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::MessagingService.MessagingResponse> __Marshaller_messagingService_MessagingResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::MessagingService.MessagingResponse.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Messaging.MessagingRequest, global::Messaging.MessagingResponse> __Method_Messaging = new grpc::Method<global::Messaging.MessagingRequest, global::Messaging.MessagingResponse>(
+    static readonly grpc::Method<global::MessagingService.MessagingRequest, global::MessagingService.MessagingResponse> __Method_Messaging = new grpc::Method<global::MessagingService.MessagingRequest, global::MessagingService.MessagingResponse>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
         "Messaging",
-        __Marshaller_messaging_MessagingRequest,
-        __Marshaller_messaging_MessagingResponse);
+        __Marshaller_messagingService_MessagingRequest,
+        __Marshaller_messagingService_MessagingResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Messaging.MessagingReflection.Descriptor.Services[0]; }
+      get { return global::MessagingService.MessagingReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of MessagingService</summary>
@@ -42,7 +42,7 @@ namespace Messaging {
       /// <param name="responseStream">Used for sending responses back to the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
-      public virtual global::System.Threading.Tasks.Task Messaging(grpc::IAsyncStreamReader<global::Messaging.MessagingRequest> requestStream, grpc::IServerStreamWriter<global::Messaging.MessagingResponse> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task Messaging(grpc::IAsyncStreamReader<global::MessagingService.MessagingRequest> requestStream, grpc::IServerStreamWriter<global::MessagingService.MessagingResponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -79,7 +79,7 @@ namespace Messaging {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncDuplexStreamingCall<global::Messaging.MessagingRequest, global::Messaging.MessagingResponse> Messaging(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncDuplexStreamingCall<global::MessagingService.MessagingRequest, global::MessagingService.MessagingResponse> Messaging(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Messaging(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -88,7 +88,7 @@ namespace Messaging {
       /// </summary>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncDuplexStreamingCall<global::Messaging.MessagingRequest, global::Messaging.MessagingResponse> Messaging(grpc::CallOptions options)
+      public virtual grpc::AsyncDuplexStreamingCall<global::MessagingService.MessagingRequest, global::MessagingService.MessagingResponse> Messaging(grpc::CallOptions options)
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_Messaging, null, options);
       }
@@ -113,7 +113,7 @@ namespace Messaging {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, MessagingServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Messaging, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Messaging.MessagingRequest, global::Messaging.MessagingResponse>(serviceImpl.Messaging));
+      serviceBinder.AddMethod(__Method_Messaging, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::MessagingService.MessagingRequest, global::MessagingService.MessagingResponse>(serviceImpl.Messaging));
     }
 
   }

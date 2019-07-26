@@ -16,10 +16,10 @@
 #include <grpcpp/impl/codegen/server_callback.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace messaging {
+namespace messagingService {
 
 static const char* MessagingService_method_names[] = {
-  "/messaging.MessagingService/Messaging",
+  "/messagingService.MessagingService/Messaging",
 };
 
 std::unique_ptr< MessagingService::Stub> MessagingService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,39 +32,39 @@ MessagingService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& c
   : channel_(channel), rpcmethod_Messaging_(MessagingService_method_names[0], ::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
 
-::grpc::ClientReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* MessagingService::Stub::MessagingRaw(::grpc::ClientContext* context) {
-  return ::grpc::internal::ClientReaderWriterFactory< ::messaging::MessagingRequest, ::messaging::MessagingResponse>::Create(channel_.get(), rpcmethod_Messaging_, context);
+::grpc::ClientReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* MessagingService::Stub::MessagingRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>::Create(channel_.get(), rpcmethod_Messaging_, context);
 }
 
-void MessagingService::Stub::experimental_async::Messaging(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::messaging::MessagingRequest,::messaging::MessagingResponse>* reactor) {
-  ::grpc::internal::ClientCallbackReaderWriterFactory< ::messaging::MessagingRequest,::messaging::MessagingResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_Messaging_, context, reactor);
+void MessagingService::Stub::experimental_async::Messaging(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::messagingService::MessagingRequest,::messagingService::MessagingResponse>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::messagingService::MessagingRequest,::messagingService::MessagingResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_Messaging_, context, reactor);
 }
 
-::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* MessagingService::Stub::AsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::messaging::MessagingRequest, ::messaging::MessagingResponse>::Create(channel_.get(), cq, rpcmethod_Messaging_, context, true, tag);
+::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* MessagingService::Stub::AsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>::Create(channel_.get(), cq, rpcmethod_Messaging_, context, true, tag);
 }
 
-::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* MessagingService::Stub::PrepareAsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::messaging::MessagingRequest, ::messaging::MessagingResponse>::Create(channel_.get(), cq, rpcmethod_Messaging_, context, false, nullptr);
+::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* MessagingService::Stub::PrepareAsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>::Create(channel_.get(), cq, rpcmethod_Messaging_, context, false, nullptr);
 }
 
 MessagingService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       MessagingService_method_names[0],
       ::grpc::internal::RpcMethod::BIDI_STREAMING,
-      new ::grpc::internal::BidiStreamingHandler< MessagingService::Service, ::messaging::MessagingRequest, ::messaging::MessagingResponse>(
+      new ::grpc::internal::BidiStreamingHandler< MessagingService::Service, ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>(
           std::mem_fn(&MessagingService::Service::Messaging), this)));
 }
 
 MessagingService::Service::~Service() {
 }
 
-::grpc::Status MessagingService::Service::Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream) {
+::grpc::Status MessagingService::Service::Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream) {
   (void) context;
   (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
 
-}  // namespace messaging
+}  // namespace messagingService
 

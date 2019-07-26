@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Messaging {
+namespace MessagingService {
 
   /// <summary>Holder for reflection information generated from messaging.proto</summary>
   public static partial class MessagingReflection {
@@ -24,26 +24,27 @@ namespace Messaging {
     static MessagingReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg9tZXNzYWdpbmcucHJvdG8SCW1lc3NhZ2luZyIbCglTdWJzY3JpYmUSDgoG",
-            "dG9waWNzGAEgAygJIh0KC1Vuc3Vic2NyaWJlEg4KBnRvcGljcxgBIAMoCSIx",
-            "Cg5NZXNzYWdlUHVibGlzaBIOCgZ0b3BpY3MYASADKAkSDwoHcGF5bG9hZBgC",
-            "IAEoDCK1AQoQTWVzc2FnaW5nUmVxdWVzdBIpCglzdWJzY3JpYmUYASABKAsy",
-            "FC5tZXNzYWdpbmcuU3Vic2NyaWJlSAASLQoLdW5zdWJzY3JpYmUYAiABKAsy",
-            "Fi5tZXNzYWdpbmcuVW5zdWJzY3JpYmVIABI0Cg9tZXNzYWdlX3B1Ymxpc2gY",
-            "AyABKAsyGS5tZXNzYWdpbmcuTWVzc2FnZVB1Ymxpc2hIAEIRCg9tZXNzYWdp",
-            "bmdfb25lb2YiMwoRTWVzc2FnaW5nUmVzcG9uc2USDQoFdG9waWMYASABKAkS",
-            "DwoHcGF5bG9hZBgCIAEoDDJgChBNZXNzYWdpbmdTZXJ2aWNlEkwKCU1lc3Nh",
-            "Z2luZxIbLm1lc3NhZ2luZy5NZXNzYWdpbmdSZXF1ZXN0GhwubWVzc2FnaW5n",
-            "Lk1lc3NhZ2luZ1Jlc3BvbnNlIgAoATABQiEKH2NvbS5qai1yb2JvdC5hbmR5",
-            "NHNydi5tZXNzYWdpbmdiBnByb3RvMw=="));
+            "Cg9tZXNzYWdpbmcucHJvdG8SEG1lc3NhZ2luZ1NlcnZpY2UiGwoJU3Vic2Ny",
+            "aWJlEg4KBnRvcGljcxgBIAMoCSIdCgtVbnN1YnNjcmliZRIOCgZ0b3BpY3MY",
+            "ASADKAkiMQoOTWVzc2FnZVB1Ymxpc2gSDgoGdG9waWNzGAEgAygJEg8KB3Bh",
+            "eWxvYWQYAiABKAwiygEKEE1lc3NhZ2luZ1JlcXVlc3QSMAoJc3Vic2NyaWJl",
+            "GAEgASgLMhsubWVzc2FnaW5nU2VydmljZS5TdWJzY3JpYmVIABI0Cgt1bnN1",
+            "YnNjcmliZRgCIAEoCzIdLm1lc3NhZ2luZ1NlcnZpY2UuVW5zdWJzY3JpYmVI",
+            "ABI7Cg9tZXNzYWdlX3B1Ymxpc2gYAyABKAsyIC5tZXNzYWdpbmdTZXJ2aWNl",
+            "Lk1lc3NhZ2VQdWJsaXNoSABCEQoPbWVzc2FnaW5nX29uZW9mIjMKEU1lc3Nh",
+            "Z2luZ1Jlc3BvbnNlEg0KBXRvcGljGAEgASgJEg8KB3BheWxvYWQYAiABKAwy",
+            "bgoQTWVzc2FnaW5nU2VydmljZRJaCglNZXNzYWdpbmcSIi5tZXNzYWdpbmdT",
+            "ZXJ2aWNlLk1lc3NhZ2luZ1JlcXVlc3QaIy5tZXNzYWdpbmdTZXJ2aWNlLk1l",
+            "c3NhZ2luZ1Jlc3BvbnNlIgAoATABQiEKH2NvbS5qai1yb2JvdC5hbmR5NHNy",
+            "di5tZXNzYWdpbmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Messaging.Subscribe), global::Messaging.Subscribe.Parser, new[]{ "Topics" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Messaging.Unsubscribe), global::Messaging.Unsubscribe.Parser, new[]{ "Topics" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Messaging.MessagePublish), global::Messaging.MessagePublish.Parser, new[]{ "Topics", "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Messaging.MessagingRequest), global::Messaging.MessagingRequest.Parser, new[]{ "Subscribe", "Unsubscribe", "MessagePublish" }, new[]{ "MessagingOneof" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Messaging.MessagingResponse), global::Messaging.MessagingResponse.Parser, new[]{ "Topic", "Payload" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::MessagingService.Subscribe), global::MessagingService.Subscribe.Parser, new[]{ "Topics" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MessagingService.Unsubscribe), global::MessagingService.Unsubscribe.Parser, new[]{ "Topics" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MessagingService.MessagePublish), global::MessagingService.MessagePublish.Parser, new[]{ "Topics", "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MessagingService.MessagingRequest), global::MessagingService.MessagingRequest.Parser, new[]{ "Subscribe", "Unsubscribe", "MessagePublish" }, new[]{ "MessagingOneof" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::MessagingService.MessagingResponse), global::MessagingService.MessagingResponse.Parser, new[]{ "Topic", "Payload" }, null, null, null)
           }));
     }
     #endregion
@@ -61,7 +62,7 @@ namespace Messaging {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Messaging.MessagingReflection.Descriptor.MessageTypes[0]; }
+      get { return global::MessagingService.MessagingReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -188,7 +189,7 @@ namespace Messaging {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Messaging.MessagingReflection.Descriptor.MessageTypes[1]; }
+      get { return global::MessagingService.MessagingReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -315,7 +316,7 @@ namespace Messaging {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Messaging.MessagingReflection.Descriptor.MessageTypes[2]; }
+      get { return global::MessagingService.MessagingReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -470,7 +471,7 @@ namespace Messaging {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Messaging.MessagingReflection.Descriptor.MessageTypes[3]; }
+      get { return global::MessagingService.MessagingReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -510,8 +511,8 @@ namespace Messaging {
     /// <summary>Field number for the "subscribe" field.</summary>
     public const int SubscribeFieldNumber = 1;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Messaging.Subscribe Subscribe {
-      get { return messagingOneofCase_ == MessagingOneofOneofCase.Subscribe ? (global::Messaging.Subscribe) messagingOneof_ : null; }
+    public global::MessagingService.Subscribe Subscribe {
+      get { return messagingOneofCase_ == MessagingOneofOneofCase.Subscribe ? (global::MessagingService.Subscribe) messagingOneof_ : null; }
       set {
         messagingOneof_ = value;
         messagingOneofCase_ = value == null ? MessagingOneofOneofCase.None : MessagingOneofOneofCase.Subscribe;
@@ -521,8 +522,8 @@ namespace Messaging {
     /// <summary>Field number for the "unsubscribe" field.</summary>
     public const int UnsubscribeFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Messaging.Unsubscribe Unsubscribe {
-      get { return messagingOneofCase_ == MessagingOneofOneofCase.Unsubscribe ? (global::Messaging.Unsubscribe) messagingOneof_ : null; }
+    public global::MessagingService.Unsubscribe Unsubscribe {
+      get { return messagingOneofCase_ == MessagingOneofOneofCase.Unsubscribe ? (global::MessagingService.Unsubscribe) messagingOneof_ : null; }
       set {
         messagingOneof_ = value;
         messagingOneofCase_ = value == null ? MessagingOneofOneofCase.None : MessagingOneofOneofCase.Unsubscribe;
@@ -532,8 +533,8 @@ namespace Messaging {
     /// <summary>Field number for the "message_publish" field.</summary>
     public const int MessagePublishFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Messaging.MessagePublish MessagePublish {
-      get { return messagingOneofCase_ == MessagingOneofOneofCase.MessagePublish ? (global::Messaging.MessagePublish) messagingOneof_ : null; }
+    public global::MessagingService.MessagePublish MessagePublish {
+      get { return messagingOneofCase_ == MessagingOneofOneofCase.MessagePublish ? (global::MessagingService.MessagePublish) messagingOneof_ : null; }
       set {
         messagingOneof_ = value;
         messagingOneofCase_ = value == null ? MessagingOneofOneofCase.None : MessagingOneofOneofCase.MessagePublish;
@@ -643,19 +644,19 @@ namespace Messaging {
       switch (other.MessagingOneofCase) {
         case MessagingOneofOneofCase.Subscribe:
           if (Subscribe == null) {
-            Subscribe = new global::Messaging.Subscribe();
+            Subscribe = new global::MessagingService.Subscribe();
           }
           Subscribe.MergeFrom(other.Subscribe);
           break;
         case MessagingOneofOneofCase.Unsubscribe:
           if (Unsubscribe == null) {
-            Unsubscribe = new global::Messaging.Unsubscribe();
+            Unsubscribe = new global::MessagingService.Unsubscribe();
           }
           Unsubscribe.MergeFrom(other.Unsubscribe);
           break;
         case MessagingOneofOneofCase.MessagePublish:
           if (MessagePublish == null) {
-            MessagePublish = new global::Messaging.MessagePublish();
+            MessagePublish = new global::MessagingService.MessagePublish();
           }
           MessagePublish.MergeFrom(other.MessagePublish);
           break;
@@ -673,7 +674,7 @@ namespace Messaging {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            global::Messaging.Subscribe subBuilder = new global::Messaging.Subscribe();
+            global::MessagingService.Subscribe subBuilder = new global::MessagingService.Subscribe();
             if (messagingOneofCase_ == MessagingOneofOneofCase.Subscribe) {
               subBuilder.MergeFrom(Subscribe);
             }
@@ -682,7 +683,7 @@ namespace Messaging {
             break;
           }
           case 18: {
-            global::Messaging.Unsubscribe subBuilder = new global::Messaging.Unsubscribe();
+            global::MessagingService.Unsubscribe subBuilder = new global::MessagingService.Unsubscribe();
             if (messagingOneofCase_ == MessagingOneofOneofCase.Unsubscribe) {
               subBuilder.MergeFrom(Unsubscribe);
             }
@@ -691,7 +692,7 @@ namespace Messaging {
             break;
           }
           case 26: {
-            global::Messaging.MessagePublish subBuilder = new global::Messaging.MessagePublish();
+            global::MessagingService.MessagePublish subBuilder = new global::MessagingService.MessagePublish();
             if (messagingOneofCase_ == MessagingOneofOneofCase.MessagePublish) {
               subBuilder.MergeFrom(MessagePublish);
             }
@@ -713,7 +714,7 @@ namespace Messaging {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Messaging.MessagingReflection.Descriptor.MessageTypes[4]; }
+      get { return global::MessagingService.MessagingReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

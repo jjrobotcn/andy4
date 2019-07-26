@@ -37,55 +37,55 @@ namespace grpc {
 class ServerContext;
 }  // namespace grpc
 
-namespace messaging {
+namespace messagingService {
 
 // MessagingService消息服务便于开发者在不同设备或应用中实现消息通信广播
 class MessagingService final {
  public:
   static constexpr char const* service_full_name() {
-    return "messaging.MessagingService";
+    return "messagingService.MessagingService";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
     // Messaging为消息发布订阅方法
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>> Messaging(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>>(MessagingRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>> Messaging(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>>(MessagingRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>> AsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>>(AsyncMessagingRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>> AsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>>(AsyncMessagingRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>> PrepareAsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>>(PrepareAsyncMessagingRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>> PrepareAsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>>(PrepareAsyncMessagingRaw(context, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       // Messaging为消息发布订阅方法
-      virtual void Messaging(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::messaging::MessagingRequest,::messaging::MessagingResponse>* reactor) = 0;
+      virtual void Messaging(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::messagingService::MessagingRequest,::messagingService::MessagingResponse>* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* MessagingRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* AsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* PrepareAsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* MessagingRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* AsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* PrepareAsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>> Messaging(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>>(MessagingRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>> Messaging(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>>(MessagingRaw(context));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>> AsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>>(AsyncMessagingRaw(context, cq, tag));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>> AsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>>(AsyncMessagingRaw(context, cq, tag));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>> PrepareAsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>>(PrepareAsyncMessagingRaw(context, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>> PrepareAsyncMessaging(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>>(PrepareAsyncMessagingRaw(context, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void Messaging(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::messaging::MessagingRequest,::messaging::MessagingResponse>* reactor) override;
+      void Messaging(::grpc::ClientContext* context, ::grpc::experimental::ClientBidiReactor< ::messagingService::MessagingRequest,::messagingService::MessagingResponse>* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -97,9 +97,9 @@ class MessagingService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* MessagingRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* AsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* PrepareAsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* MessagingRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* AsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* PrepareAsyncMessagingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Messaging_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -109,7 +109,7 @@ class MessagingService final {
     Service();
     virtual ~Service();
     // Messaging为消息发布订阅方法
-    virtual ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream);
+    virtual ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream);
   };
   template <class BaseClass>
   class WithAsyncMethod_Messaging : public BaseClass {
@@ -123,11 +123,11 @@ class MessagingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream)  override {
+    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestMessaging(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestMessaging(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
     }
   };
@@ -139,20 +139,20 @@ class MessagingService final {
    public:
     ExperimentalWithCallbackMethod_Messaging() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc::internal::CallbackBidiHandler< ::messaging::MessagingRequest, ::messaging::MessagingResponse>(
+        new ::grpc::internal::CallbackBidiHandler< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>(
           [this] { return this->Messaging(); }));
     }
     ~ExperimentalWithCallbackMethod_Messaging() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream)  override {
+    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::experimental::ServerBidiReactor< ::messaging::MessagingRequest, ::messaging::MessagingResponse>* Messaging() {
+    virtual ::grpc::experimental::ServerBidiReactor< ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>* Messaging() {
       return new ::grpc::internal::UnimplementedBidiReactor<
-        ::messaging::MessagingRequest, ::messaging::MessagingResponse>;}
+        ::messagingService::MessagingRequest, ::messagingService::MessagingResponse>;}
   };
   typedef ExperimentalWithCallbackMethod_Messaging<Service > ExperimentalCallbackService;
   template <class BaseClass>
@@ -167,7 +167,7 @@ class MessagingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream)  override {
+    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -184,7 +184,7 @@ class MessagingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream)  override {
+    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -206,7 +206,7 @@ class MessagingService final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messaging::MessagingResponse, ::messaging::MessagingRequest>* stream)  override {
+    ::grpc::Status Messaging(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::messagingService::MessagingResponse, ::messagingService::MessagingRequest>* stream)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -219,7 +219,7 @@ class MessagingService final {
   typedef Service StreamedService;
 };
 
-}  // namespace messaging
+}  // namespace messagingService
 
 
 #endif  // GRPC_messaging_2eproto__INCLUDED
