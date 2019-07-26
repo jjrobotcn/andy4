@@ -1,0 +1,129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "messaging.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "messagingMessagePublish": {
+      "type": "object",
+      "properties": {
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "数据发布的主题列表"
+        },
+        "payload": {
+          "type": "string",
+          "format": "byte",
+          "title": "消息内容"
+        }
+      },
+      "title": "消息类型"
+    },
+    "messagingMessagingResponse": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "title": "消息主题"
+        },
+        "payload": {
+          "type": "string",
+          "format": "byte",
+          "title": "消息内容"
+        }
+      }
+    },
+    "messagingSubscribe": {
+      "type": "object",
+      "properties": {
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "订阅的主题列表"
+        }
+      },
+      "title": "订阅消息类型"
+    },
+    "messagingUnsubscribe": {
+      "type": "object",
+      "properties": {
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "取消订阅的主题列表"
+        }
+      },
+      "title": "取消订阅消息类型"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "messagingMessagingResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/messagingMessagingResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of messagingMessagingResponse"
+    }
+  }
+}
