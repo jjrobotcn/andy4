@@ -1,7 +1,7 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Messaging;
+namespace MessagingService;
 
 /**
  * MessagingService消息服务便于开发者在不同设备或应用中实现消息通信广播
@@ -23,8 +23,8 @@ class MessagingServiceClient extends \Grpc\BaseStub {
      * @param array $options call options
      */
     public function Messaging($metadata = [], $options = []) {
-        return $this->_bidiRequest('/messaging.MessagingService/Messaging',
-        ['\Messaging\MessagingResponse','decode'],
+        return $this->_bidiRequest('/messagingService.MessagingService/Messaging',
+        ['\MessagingService\MessagingResponse','decode'],
         $metadata, $options);
     }
 
