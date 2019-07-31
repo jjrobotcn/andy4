@@ -1,0 +1,278 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "player.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/motion/hands/player/on_state_change": {
+      "get": {
+        "summary": "OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据",
+        "operationId": "OnStateChange",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/handsmotionOnStateChangeResponse"
+            }
+          }
+        },
+        "tags": [
+          "Player"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/player/play": {
+      "post": {
+        "summary": "Play为播放动作组对象方法",
+        "operationId": "Play",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionPlayResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionPlayRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Player"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/player/playlist": {
+      "get": {
+        "summary": "Playlist为获取动作组对象列表方法",
+        "operationId": "Playlist",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionPlaylistResponse"
+            }
+          }
+        },
+        "tags": [
+          "Player"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/player/reset": {
+      "get": {
+        "summary": "Reset为重置初始状态方法",
+        "operationId": "Reset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionResetResponse"
+            }
+          }
+        },
+        "tags": [
+          "Player"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/player/state": {
+      "get": {
+        "summary": "State为查询当前player状态方法",
+        "operationId": "State",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionStateResponse"
+            }
+          }
+        },
+        "tags": [
+          "Player"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/player/stop": {
+      "get": {
+        "summary": "Stop为停止动作组对象方法",
+        "operationId": "Stop",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionStopResponse"
+            }
+          }
+        },
+        "tags": [
+          "Player"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "handsmotionOnStateChangeResponse": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/handsmotionPlayerState",
+          "title": "播放状态"
+        },
+        "uri": {
+          "$ref": "#/definitions/handsmotionUri",
+          "title": "动作组资源Uri"
+        }
+      }
+    },
+    "handsmotionPlayRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "title": "使用自定义名时将播放首个匹配项"
+        },
+        "repeated": {
+          "type": "integer",
+          "format": "int32",
+          "title": "播放动作重复次数\n小于0: 无限重复，可通过Stop停止\n0: 同等设置该值为1\n\u003e 0: 根据设置播放次数重复播放\n默认播放1次"
+        },
+        "repeated_interval_ms": {
+          "type": "integer",
+          "format": "int64",
+          "title": "重复播放间隔，单位为毫秒\n默认为0，无间隔"
+        }
+      }
+    },
+    "handsmotionPlayResponse": {
+      "type": "object"
+    },
+    "handsmotionPlayerState": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "STOPPED",
+        "PLAYING"
+      ],
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 默认零值，不使用\n - STOPPED: 已停止\n - PLAYING: 播放中",
+      "title": "播放状态"
+    },
+    "handsmotionPlaylistResponse": {
+      "type": "object",
+      "properties": {
+        "playlist": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/handsmotionUri"
+          },
+          "title": "Uri动作组播放列表"
+        }
+      }
+    },
+    "handsmotionResetResponse": {
+      "type": "object"
+    },
+    "handsmotionStateResponse": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/handsmotionPlayerState",
+          "title": "播放状态"
+        },
+        "uri": {
+          "$ref": "#/definitions/handsmotionUri",
+          "title": "动作组资源Uri"
+        }
+      }
+    },
+    "handsmotionStopResponse": {
+      "type": "object"
+    },
+    "handsmotionUri": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "动作组分配id"
+        },
+        "name": {
+          "type": "string",
+          "title": "动作组自字义名"
+        }
+      },
+      "title": "动作组对象描述"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "handsmotionOnStateChangeResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/handsmotionOnStateChangeResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of handsmotionOnStateChangeResponse"
+    }
+  }
+}
