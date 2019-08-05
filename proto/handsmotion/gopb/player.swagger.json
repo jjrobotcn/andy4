@@ -33,6 +33,52 @@
       }
     },
     "/api/v2/motion/hands/player/play": {
+      "get": {
+        "summary": "Play为播放动作组对象方法",
+        "operationId": "Play2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionPlayResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "使用自定义名时将播放首个匹配项.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "repeated",
+            "description": "播放动作重复次数\n小于0: 无限重复，可通过Stop停止\n0: 同等设置该值为1\n\u003e 0: 根据设置播放次数重复播放\n默认播放1次.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "repeated_interval_ms",
+            "description": "重复播放间隔，单位为毫秒\n默认为0，无间隔.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Player"
+        ]
+      },
       "post": {
         "summary": "Play为播放动作组对象方法",
         "operationId": "Play",
@@ -62,7 +108,7 @@
     "/api/v2/motion/hands/player/playlist": {
       "get": {
         "summary": "Playlist为获取动作组对象列表方法",
-        "operationId": "Playlist",
+        "operationId": "Playlist2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -74,12 +120,37 @@
         "tags": [
           "Player"
         ]
+      },
+      "post": {
+        "summary": "Playlist为获取动作组对象列表方法",
+        "operationId": "Playlist",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionPlaylistResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionPlaylistRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Player"
+        ]
       }
     },
     "/api/v2/motion/hands/player/reset": {
       "get": {
         "summary": "Reset为重置初始状态方法",
-        "operationId": "Reset",
+        "operationId": "Reset2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -91,12 +162,37 @@
         "tags": [
           "Player"
         ]
+      },
+      "post": {
+        "summary": "Reset为重置初始状态方法",
+        "operationId": "Reset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionResetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionResetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Player"
+        ]
       }
     },
     "/api/v2/motion/hands/player/state": {
       "get": {
         "summary": "State为查询当前player状态方法",
-        "operationId": "State",
+        "operationId": "State2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -108,10 +204,50 @@
         "tags": [
           "Player"
         ]
+      },
+      "post": {
+        "summary": "State为查询当前player状态方法",
+        "operationId": "State",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionStateResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Player"
+        ]
       }
     },
     "/api/v2/motion/hands/player/stop": {
       "get": {
+        "summary": "Stop为停止动作组对象方法",
+        "operationId": "Stop2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionStopResponse"
+            }
+          }
+        },
+        "tags": [
+          "Player"
+        ]
+      },
+      "post": {
         "summary": "Stop为停止动作组对象方法",
         "operationId": "Stop",
         "responses": {
@@ -122,6 +258,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionStopRequest"
+            }
+          }
+        ],
         "tags": [
           "Player"
         ]
@@ -178,6 +324,9 @@
       "description": "- UNKNOWN: 默认零值，不使用\n - STOPPED: 已停止\n - PLAYING: 播放中",
       "title": "播放状态"
     },
+    "handsmotionPlaylistRequest": {
+      "type": "object"
+    },
     "handsmotionPlaylistResponse": {
       "type": "object",
       "properties": {
@@ -190,7 +339,13 @@
         }
       }
     },
+    "handsmotionResetRequest": {
+      "type": "object"
+    },
     "handsmotionResetResponse": {
+      "type": "object"
+    },
+    "handsmotionStateRequest": {
       "type": "object"
     },
     "handsmotionStateResponse": {
@@ -205,6 +360,9 @@
           "title": "动作组资源Uri"
         }
       }
+    },
+    "handsmotionStopRequest": {
+      "type": "object"
     },
     "handsmotionStopResponse": {
       "type": "object"

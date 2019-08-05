@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='handsmotion',
   syntax='proto3',
   serialized_options=_b('\n!com.jj-robot.andy4srv.handsmotion'),
-  serialized_pb=_b('\n\x0cplayer.proto\x12\x0bhandsmotion\x1a\x1cgoogle/api/annotations.proto\"\x1f\n\x03Uri\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"b\n\x0bPlayRequest\x12\x0c\n\x02id\x18\x01 \x01(\tH\x00\x12\x0e\n\x04name\x18\x02 \x01(\tH\x00\x12\x10\n\x08repeated\x18\x03 \x01(\x05\x12\x1c\n\x14repeated_interval_ms\x18\x04 \x01(\rB\x05\n\x03uri\"\x0e\n\x0cPlayResponse\"\r\n\x0bStopRequest\"\x0e\n\x0cStopResponse\"\x0e\n\x0cResetRequest\"\x0f\n\rResetResponse\"\x11\n\x0fPlaylistRequest\"6\n\x10PlaylistResponse\x12\"\n\x08playlist\x18\x01 \x03(\x0b\x32\x10.handsmotion.Uri\"\x0e\n\x0cStateRequest\"W\n\rStateResponse\x12\'\n\x05state\x18\x01 \x01(\x0e\x32\x18.handsmotion.PlayerState\x12\x1d\n\x03uri\x18\x02 \x01(\x0b\x32\x10.handsmotion.Uri\"\x16\n\x14OnStateChangeRequest\"_\n\x15OnStateChangeResponse\x12\'\n\x05state\x18\x01 \x01(\x0e\x32\x18.handsmotion.PlayerState\x12\x1d\n\x03uri\x18\x02 \x01(\x0b\x32\x10.handsmotion.Uri*4\n\x0bPlayerState\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\x0b\n\x07PLAYING\x10\x02\x32\xb6\x05\n\x06Player\x12h\n\x04Play\x12\x18.handsmotion.PlayRequest\x1a\x19.handsmotion.PlayResponse\"+\x82\xd3\xe4\x93\x02%\" /api/v2/motion/hands/player/play:\x01*\x12\x65\n\x04Stop\x12\x18.handsmotion.StopRequest\x1a\x19.handsmotion.StopResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /api/v2/motion/hands/player/stop\x12i\n\x05Reset\x12\x19.handsmotion.ResetRequest\x1a\x1a.handsmotion.ResetResponse\")\x82\xd3\xe4\x93\x02#\x12!/api/v2/motion/hands/player/reset\x12u\n\x08Playlist\x12\x1c.handsmotion.PlaylistRequest\x1a\x1d.handsmotion.PlaylistResponse\",\x82\xd3\xe4\x93\x02&\x12$/api/v2/motion/hands/player/playlist\x12i\n\x05State\x12\x19.handsmotion.StateRequest\x1a\x1a.handsmotion.StateResponse\")\x82\xd3\xe4\x93\x02#\x12!/api/v2/motion/hands/player/state\x12\x8d\x01\n\rOnStateChange\x12!.handsmotion.OnStateChangeRequest\x1a\".handsmotion.OnStateChangeResponse\"3\x82\xd3\xe4\x93\x02-\x12+/api/v2/motion/hands/player/on_state_change0\x01\x42#\n!com.jj-robot.andy4srv.handsmotionb\x06proto3')
+  serialized_pb=_b('\n\x0cplayer.proto\x12\x0bhandsmotion\x1a\x1cgoogle/api/annotations.proto\"\x1f\n\x03Uri\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"b\n\x0bPlayRequest\x12\x0c\n\x02id\x18\x01 \x01(\tH\x00\x12\x0e\n\x04name\x18\x02 \x01(\tH\x00\x12\x10\n\x08repeated\x18\x03 \x01(\x05\x12\x1c\n\x14repeated_interval_ms\x18\x04 \x01(\rB\x05\n\x03uri\"\x0e\n\x0cPlayResponse\"\r\n\x0bStopRequest\"\x0e\n\x0cStopResponse\"\x0e\n\x0cResetRequest\"\x0f\n\rResetResponse\"\x11\n\x0fPlaylistRequest\"6\n\x10PlaylistResponse\x12\"\n\x08playlist\x18\x01 \x03(\x0b\x32\x10.handsmotion.Uri\"\x0e\n\x0cStateRequest\"W\n\rStateResponse\x12\'\n\x05state\x18\x01 \x01(\x0e\x32\x18.handsmotion.PlayerState\x12\x1d\n\x03uri\x18\x02 \x01(\x0b\x32\x10.handsmotion.Uri\"\x16\n\x14OnStateChangeRequest\"_\n\x15OnStateChangeResponse\x12\'\n\x05state\x18\x01 \x01(\x0e\x32\x18.handsmotion.PlayerState\x12\x1d\n\x03uri\x18\x02 \x01(\x0b\x32\x10.handsmotion.Uri*4\n\x0bPlayerState\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\x0b\n\x07PLAYING\x10\x02\x32\x81\x07\n\x06Player\x12\x8c\x01\n\x04Play\x12\x18.handsmotion.PlayRequest\x1a\x19.handsmotion.PlayResponse\"O\x82\xd3\xe4\x93\x02I\" /api/v2/motion/hands/player/play:\x01*Z\"\x12 /api/v2/motion/hands/player/play\x12\x8c\x01\n\x04Stop\x12\x18.handsmotion.StopRequest\x1a\x19.handsmotion.StopResponse\"O\x82\xd3\xe4\x93\x02I\" /api/v2/motion/hands/player/stop:\x01*Z\"\x12 /api/v2/motion/hands/player/stop\x12\x91\x01\n\x05Reset\x12\x19.handsmotion.ResetRequest\x1a\x1a.handsmotion.ResetResponse\"Q\x82\xd3\xe4\x93\x02K\"!/api/v2/motion/hands/player/reset:\x01*Z#\x12!/api/v2/motion/hands/player/reset\x12\xa0\x01\n\x08Playlist\x12\x1c.handsmotion.PlaylistRequest\x1a\x1d.handsmotion.PlaylistResponse\"W\x82\xd3\xe4\x93\x02Q\"$/api/v2/motion/hands/player/playlist:\x01*Z&\x12$/api/v2/motion/hands/player/playlist\x12\x91\x01\n\x05State\x12\x19.handsmotion.StateRequest\x1a\x1a.handsmotion.StateResponse\"Q\x82\xd3\xe4\x93\x02K\"!/api/v2/motion/hands/player/state:\x01*Z#\x12!/api/v2/motion/hands/player/state\x12\x8d\x01\n\rOnStateChange\x12!.handsmotion.OnStateChangeRequest\x1a\".handsmotion.OnStateChangeResponse\"3\x82\xd3\xe4\x93\x02-\x12+/api/v2/motion/hands/player/on_state_change0\x01\x42#\n!com.jj-robot.andy4srv.handsmotionb\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -578,7 +578,7 @@ _PLAYER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=628,
-  serialized_end=1322,
+  serialized_end=1525,
   methods=[
   _descriptor.MethodDescriptor(
     name='Play',
@@ -587,7 +587,7 @@ _PLAYER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_PLAYREQUEST,
     output_type=_PLAYRESPONSE,
-    serialized_options=_b('\202\323\344\223\002%\" /api/v2/motion/hands/player/play:\001*'),
+    serialized_options=_b('\202\323\344\223\002I\" /api/v2/motion/hands/player/play:\001*Z\"\022 /api/v2/motion/hands/player/play'),
   ),
   _descriptor.MethodDescriptor(
     name='Stop',
@@ -596,7 +596,7 @@ _PLAYER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STOPREQUEST,
     output_type=_STOPRESPONSE,
-    serialized_options=_b('\202\323\344\223\002\"\022 /api/v2/motion/hands/player/stop'),
+    serialized_options=_b('\202\323\344\223\002I\" /api/v2/motion/hands/player/stop:\001*Z\"\022 /api/v2/motion/hands/player/stop'),
   ),
   _descriptor.MethodDescriptor(
     name='Reset',
@@ -605,7 +605,7 @@ _PLAYER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_RESETREQUEST,
     output_type=_RESETRESPONSE,
-    serialized_options=_b('\202\323\344\223\002#\022!/api/v2/motion/hands/player/reset'),
+    serialized_options=_b('\202\323\344\223\002K\"!/api/v2/motion/hands/player/reset:\001*Z#\022!/api/v2/motion/hands/player/reset'),
   ),
   _descriptor.MethodDescriptor(
     name='Playlist',
@@ -614,7 +614,7 @@ _PLAYER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_PLAYLISTREQUEST,
     output_type=_PLAYLISTRESPONSE,
-    serialized_options=_b('\202\323\344\223\002&\022$/api/v2/motion/hands/player/playlist'),
+    serialized_options=_b('\202\323\344\223\002Q\"$/api/v2/motion/hands/player/playlist:\001*Z&\022$/api/v2/motion/hands/player/playlist'),
   ),
   _descriptor.MethodDescriptor(
     name='State',
@@ -623,7 +623,7 @@ _PLAYER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_STATEREQUEST,
     output_type=_STATERESPONSE,
-    serialized_options=_b('\202\323\344\223\002#\022!/api/v2/motion/hands/player/state'),
+    serialized_options=_b('\202\323\344\223\002K\"!/api/v2/motion/hands/player/state:\001*Z#\022!/api/v2/motion/hands/player/state'),
   ),
   _descriptor.MethodDescriptor(
     name='OnStateChange',
