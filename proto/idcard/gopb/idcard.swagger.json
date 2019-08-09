@@ -1,0 +1,128 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "idcard.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "idCardServiceGetIdInfoResponse": {
+      "type": "object",
+      "properties": {
+        "id_info": {
+          "$ref": "#/definitions/idCardServiceIdInfo",
+          "title": "身份证数据"
+        }
+      },
+      "title": "获取读卡数据流结果"
+    },
+    "idCardServiceIdInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "身份证号"
+        },
+        "name": {
+          "type": "string",
+          "title": "姓名"
+        },
+        "gender": {
+          "type": "string",
+          "title": "性别"
+        },
+        "national": {
+          "type": "string",
+          "title": "民族"
+        },
+        "birthday": {
+          "type": "string",
+          "title": "出生日期"
+        },
+        "address": {
+          "type": "string",
+          "title": "地址"
+        },
+        "sign_organization": {
+          "type": "string",
+          "title": "发证机关"
+        },
+        "start_date": {
+          "type": "string",
+          "title": "有效期开始日期"
+        },
+        "end_date": {
+          "type": "string",
+          "title": "有效期截止日期"
+        },
+        "photo": {
+          "type": "string",
+          "format": "byte",
+          "title": "身份证头像图片数据"
+        }
+      },
+      "title": "身份证数据"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "idCardServiceGetIdInfoResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/idCardServiceGetIdInfoResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of idCardServiceGetIdInfoResponse"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package expressionService;
+
+import "google/api/annotations.proto";
+
+service ExpressionService {
+    // 播放表情
+    rpc PlayExpressions (PlayExpressionsRequest) returns (PlayExpressionsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/expression/play_expressions"
+            body: "*"
+        };
+    }
+
+    // 停止表情
+    rpc StopExpression (StopExpressionRequest) returns (StopExpressionResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/expression/stop_expression"
+            body: "*"
+        };
+    }
+
+    // 上传表情
+    rpc UploadExpressionFile (UploadExpressionFileRequest) returns (UploadExpressionFileResponse) {
+    }
+
+    // 表情重命名
+    // >= v1.1.0
+    rpc Rename (RenameRequest) returns (RenameResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/expression/rename"
+            body: "*"
+        };
+    }
+
+    // 获取表情数据
+    rpc ListExpressions (ListExpressionsRequest) returns (ListExpressionsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/expression/list_expressions"
+            body: "*"
+        };
+    }
+
+    // 删除表情
+    rpc DeleteExpressions (DeleteExpressionsRequest) returns (DeleteExpressionsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/expression/delete_expressions"
+            body: "*"
+        };
+    }
+}
+
+// 表情对象
+message ExpressionInfo {
+    // 表情id
+    string id = 1;
+
+    // 表情名
+    string name = 2;
+
+    // 预览图
+    string preview_b64 = 3;
+}
+
+// 播放表情请求
+message PlayExpressionsRequest {
+    // 播放的表情对象列表
+    // 可仅填入id项或表情名
+    repeated ExpressionInfo expressions_info = 1;
+
+    // 循环播放
+    // 0: 持续循环
+    uint32 loop_times = 2;
+
+    // 切换间隔ms
+    // 每套表情间的间隔
+    uint32 duration = 3;
+}
+
+// 播放表情结果
+message PlayExpressionsResponse {
+}
+
+// 停止表情请求
+message StopExpressionRequest {
+}
+
+// 停止表情结果
+message StopExpressionResponse {
+}
+
+// 上传表情请求
+message UploadExpressionFileRequest {
+    // 表情名
+    // 为空时将产生随机表情名
+    string name = 1;
+
+    // 表情zip文件
+    bytes data = 2;
+}
+
+// 上传表情结果
+message UploadExpressionFileResponse {
+    // 表情对象
+    ExpressionInfo expression_info = 1;
+}
+
+// 获取表情数据请求
+message ListExpressionsRequest {
+}
+
+// 获取表情数据结果
+message ListExpressionsResponse {
+    // 表情对象列表
+    repeated ExpressionInfo expressions_info = 1;
+}
+
+// 删除表情请求
+message DeleteExpressionsRequest {
+    // 删除表情id列表
+    repeated string expressions_id = 1;
+}
+
+// 删除表情结果
+message DeleteExpressionsResponse {
+}
+
+// 表情重命名请求
+message RenameRequest {
+    // 表情id
+    string id = 1;
+
+    // 新表情名
+    string name = 2;
+}
+
+// 表情重命名结果
+message RenameResponse {
+    // 表情id
+    string id = 1;
+
+    // 表情名
+    string name = 2;
+}

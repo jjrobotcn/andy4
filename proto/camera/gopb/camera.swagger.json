@@ -1,0 +1,193 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "camera.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/camera/dvr_list_date_videos": {
+      "post": {
+        "summary": "获取监控数据指定日期视频文件列表",
+        "operationId": "DvrListDateVideos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cameraServiceDvrListDateVideosResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cameraServiceDvrListDateVideosRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CameraService"
+        ]
+      }
+    },
+    "/api/v2/camera/dvr_list_dates": {
+      "post": {
+        "summary": "获取监控数据日期列表",
+        "operationId": "DvrListDates",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cameraServiceDvrListDatesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cameraServiceDvrListDatesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CameraService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "cameraServiceDvrDateVideosFilter": {
+      "type": "object",
+      "properties": {
+        "hour_start": {
+          "type": "string",
+          "title": "过滤开始小时, 0为当日零点开始\n大于23将返回参数错误"
+        },
+        "hour_end": {
+          "type": "string",
+          "title": "过滤结束小时, 0为当日23点\n小于hour_start或大于23将返回参数错误"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "title": "限制视频列表数量, 0为所有"
+        }
+      },
+      "title": "过滤参数"
+    },
+    "cameraServiceDvrListDateVideosRequest": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "title": "请求日期, 根据DvrListDatesResonse中日期"
+        },
+        "filter": {
+          "$ref": "#/definitions/cameraServiceDvrDateVideosFilter",
+          "title": "过滤参数"
+        }
+      }
+    },
+    "cameraServiceDvrListDateVideosResponse": {
+      "type": "object",
+      "properties": {
+        "videos_static": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "监控文件静态文件地址列表"
+        }
+      }
+    },
+    "cameraServiceDvrListDatesRequest": {
+      "type": "object"
+    },
+    "cameraServiceDvrListDatesResponse": {
+      "type": "object",
+      "properties": {
+        "date_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cameraServiceLiveH264StreamResponse": {
+      "type": "object",
+      "properties": {
+        "frame": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "cameraServiceLiveH264StreamResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/cameraServiceLiveH264StreamResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of cameraServiceLiveH264StreamResponse"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package powerService;
+
+service PowerService {
+    // 获取电源状态数据流
+    rpc GetPowerStatus (GetPowerStatusRequest) returns (stream GetPowerStatusResponse) {
+    }
+}
+
+message PowerStatus {
+    uint32 level = 1; // 电量0-100
+    bool is_charging = 2; // 是否充电中
+    map<string, bool> devices = 3; // 设备状态
+}
+
+message GetPowerStatusRequest {
+
+}
+
+message GetPowerStatusResponse {
+    PowerStatus power_status = 1;
+}

@@ -1,0 +1,281 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "expression.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/expression/delete_expressions": {
+      "post": {
+        "summary": "删除表情",
+        "operationId": "DeleteExpressions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServiceDeleteExpressionsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/expressionServiceDeleteExpressionsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    },
+    "/api/v2/expression/list_expressions": {
+      "post": {
+        "summary": "获取表情数据",
+        "operationId": "ListExpressions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServiceListExpressionsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/expressionServiceListExpressionsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    },
+    "/api/v2/expression/play_expressions": {
+      "post": {
+        "summary": "播放表情",
+        "operationId": "PlayExpressions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServicePlayExpressionsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/expressionServicePlayExpressionsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    },
+    "/api/v2/expression/rename": {
+      "post": {
+        "summary": "表情重命名\n\u003e= v1.1.0",
+        "operationId": "Rename",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServiceRenameResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/expressionServiceRenameRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    },
+    "/api/v2/expression/stop_expression": {
+      "post": {
+        "summary": "停止表情",
+        "operationId": "StopExpression",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServiceStopExpressionResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/expressionServiceStopExpressionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "expressionServiceDeleteExpressionsRequest": {
+      "type": "object",
+      "properties": {
+        "expressions_id": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "删除表情id列表"
+        }
+      },
+      "title": "删除表情请求"
+    },
+    "expressionServiceDeleteExpressionsResponse": {
+      "type": "object",
+      "title": "删除表情结果"
+    },
+    "expressionServiceExpressionInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "表情id"
+        },
+        "name": {
+          "type": "string",
+          "title": "表情名"
+        },
+        "preview_b64": {
+          "type": "string",
+          "title": "预览图"
+        }
+      },
+      "title": "表情对象"
+    },
+    "expressionServiceListExpressionsRequest": {
+      "type": "object",
+      "title": "获取表情数据请求"
+    },
+    "expressionServiceListExpressionsResponse": {
+      "type": "object",
+      "properties": {
+        "expressions_info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/expressionServiceExpressionInfo"
+          },
+          "title": "表情对象列表"
+        }
+      },
+      "title": "获取表情数据结果"
+    },
+    "expressionServicePlayExpressionsRequest": {
+      "type": "object",
+      "properties": {
+        "expressions_info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/expressionServiceExpressionInfo"
+          },
+          "title": "播放的表情对象列表\n可仅填入id项或表情名"
+        },
+        "loop_times": {
+          "type": "integer",
+          "format": "int64",
+          "title": "循环播放\n0: 持续循环"
+        },
+        "duration": {
+          "type": "integer",
+          "format": "int64",
+          "title": "切换间隔ms\n每套表情间的间隔"
+        }
+      },
+      "title": "播放表情请求"
+    },
+    "expressionServicePlayExpressionsResponse": {
+      "type": "object",
+      "title": "播放表情结果"
+    },
+    "expressionServiceRenameRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "表情id"
+        },
+        "name": {
+          "type": "string",
+          "title": "新表情名"
+        }
+      },
+      "title": "表情重命名请求"
+    },
+    "expressionServiceRenameResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "表情id"
+        },
+        "name": {
+          "type": "string",
+          "title": "表情名"
+        }
+      },
+      "title": "表情重命名结果"
+    },
+    "expressionServiceStopExpressionRequest": {
+      "type": "object",
+      "title": "停止表情请求"
+    },
+    "expressionServiceStopExpressionResponse": {
+      "type": "object",
+      "title": "停止表情结果"
+    },
+    "expressionServiceUploadExpressionFileResponse": {
+      "type": "object",
+      "properties": {
+        "expression_info": {
+          "$ref": "#/definitions/expressionServiceExpressionInfo",
+          "title": "表情对象"
+        }
+      },
+      "title": "上传表情结果"
+    }
+  }
+}

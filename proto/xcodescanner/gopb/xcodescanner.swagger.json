@@ -1,0 +1,80 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "xcodescanner.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "xcScannerServiceGetScanDataResponse": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "title": "扫码结果"
+    }
+  },
+  "x-stream-definitions": {
+    "xcScannerServiceGetScanDataResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/xcScannerServiceGetScanDataResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of xcScannerServiceGetScanDataResponse"
+    }
+  }
+}

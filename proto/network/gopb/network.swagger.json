@@ -1,0 +1,338 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "network.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/network/connect": {
+      "post": {
+        "summary": "连接至指定网络\n连接失败将立即返回错误\n若30秒后成功获取状态将返回超时失败",
+        "operationId": "Connect",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/networkServiceConnectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/networkServiceConnectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "NetworkService"
+        ]
+      }
+    },
+    "/api/v2/network/get_network_device_info": {
+      "post": {
+        "summary": "获取网络设备相关信息\nv1.1.0",
+        "operationId": "GetNetworkDeviceInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/networkServiceGetNetworkDeviceInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/networkServiceGetNetworkDeviceInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "NetworkService"
+        ]
+      }
+    },
+    "/api/v2/network/update_network_device_info": {
+      "post": {
+        "summary": "修改网络设备相关信息\nv1.1.0",
+        "operationId": "UpdateNetworkDeviceInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/networkServiceUpdateNetworkDeviceInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/networkServiceUpdateNetworkDeviceInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "NetworkService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "networkServiceConnectRequest": {
+      "type": "object",
+      "properties": {
+        "network_info": {
+          "$ref": "#/definitions/networkServiceNetworkInfo",
+          "title": "!!! \u003e=v1.2.0可不再使用此NetworkInfo请求，此参数声明作废，请使用更为精简的ssid作为连接目标参数\n目标网络信息\n此对象应由ListNetworks.ListNetworksResponse.NetworkInfo中获取"
+        },
+        "ssid": {
+          "type": "string",
+          "title": "\u003e=v1.2.0\n目标网络ssid\n自动获取当前的NetworkInfo信息中首个匹配ssid，\n若匹配失败将直接返回连接错误\n不支持隐藏ssid的链接"
+        },
+        "pwd": {
+          "type": "string",
+          "title": "wifi密码"
+        },
+        "keep_alive": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "\u003e=v1.2.0\n保持当前外部连接\n配置此参数后将立即启动状态监听。\n若出现DISCONNECTED状态且keep_alive_interval间隔时间内，\n状态持续为DISCONNECTED状态将自动发起ConnectRequest。\n在等待期间出现非DISCONNECTED的任意状态切换，\nkeep_alive_interval都将重新计算。"
+        },
+        "keep_alive_interval": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\u003e=v1.2.0\n保持当前连接判断间隔, 默认及最小为30s"
+        }
+      },
+      "title": "连接至指定网络请求"
+    },
+    "networkServiceConnectResponse": {
+      "type": "object",
+      "title": "连接至指定网络请求结果"
+    },
+    "networkServiceGetNetworkDeviceInfoRequest": {
+      "type": "object",
+      "properties": {
+        "with_credential": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "是否获取密码"
+        }
+      },
+      "title": "获取网络设备相关信息请求"
+    },
+    "networkServiceGetNetworkDeviceInfoResponse": {
+      "type": "object",
+      "properties": {
+        "network_device_info": {
+          "$ref": "#/definitions/networkServiceNetworkDeviceInfo",
+          "title": "网络设备信息"
+        }
+      },
+      "title": "获取网络设备相关信息结果"
+    },
+    "networkServiceGetStatusResponse": {
+      "type": "object",
+      "properties": {
+        "network_status": {
+          "$ref": "#/definitions/networkServiceNetworkStatus",
+          "title": "网络状态"
+        }
+      },
+      "title": "获取连接状态流结果"
+    },
+    "networkServiceListNetworksResponse": {
+      "type": "object",
+      "properties": {
+        "networks_info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/networkServiceNetworkInfo"
+          },
+          "title": "网络信息列表"
+        }
+      },
+      "title": "获取网络扫描结果流结果"
+    },
+    "networkServiceNetworkDeviceInfo": {
+      "type": "object",
+      "properties": {
+        "ssid": {
+          "type": "string",
+          "title": "wifi名\n5G网络名为(2.4G)-5G"
+        },
+        "credential": {
+          "type": "string",
+          "title": "密码"
+        }
+      },
+      "title": "网络设备信息"
+    },
+    "networkServiceNetworkInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "wifi名"
+        },
+        "mac": {
+          "type": "string",
+          "title": "mac地址"
+        },
+        "channel": {
+          "type": "integer",
+          "format": "int64",
+          "title": "网络信道"
+        },
+        "rssi": {
+          "type": "integer",
+          "format": "int64",
+          "title": "信号强度 0-100"
+        }
+      },
+      "title": "网络信息"
+    },
+    "networkServiceNetworkStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/networkServiceStatus",
+          "title": "连接状态"
+        },
+        "name": {
+          "type": "string",
+          "title": "连接的上级网络ssid"
+        },
+        "public_ip": {
+          "type": "string",
+          "title": "连接的上级网络ip"
+        },
+        "rssi": {
+          "type": "integer",
+          "format": "int64",
+          "title": "当前信号强度"
+        },
+        "upload": {
+          "type": "integer",
+          "format": "int64",
+          "title": "当前上传速度"
+        },
+        "download": {
+          "type": "integer",
+          "format": "int64",
+          "title": "当前下载速度"
+        }
+      },
+      "title": "网络状态"
+    },
+    "networkServiceStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "DISCONNECTED",
+        "CONNECTING",
+        "CONNECTED"
+      ],
+      "default": "UNKNOWN",
+      "description": "- UNKNOWN: 保留数据\n - DISCONNECTED: 连接断开\n - CONNECTING: 连接中\n - CONNECTED: 已连接",
+      "title": "连接状态"
+    },
+    "networkServiceUpdateNetworkDeviceInfoRequest": {
+      "type": "object",
+      "properties": {
+        "network_device_info": {
+          "$ref": "#/definitions/networkServiceNetworkDeviceInfo",
+          "title": "网络设备信息\nNetworkInfo中留空为不更新"
+        }
+      },
+      "title": "修改网络设备相关信息请求"
+    },
+    "networkServiceUpdateNetworkDeviceInfoResponse": {
+      "type": "object",
+      "title": "修改网络设备相关信息结果"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "networkServiceGetStatusResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/networkServiceGetStatusResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of networkServiceGetStatusResponse"
+    },
+    "networkServiceListNetworksResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/networkServiceListNetworksResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of networkServiceListNetworksResponse"
+    }
+  }
+}

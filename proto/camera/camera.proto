@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package cameraService;
+
+import "google/api/annotations.proto";
+
+service CameraService {
+    // 直播流数据, 数据为h264 nal单元
+    rpc LiveH264Stream (LiveH264StreamRequest) returns (stream LiveH264StreamResponse) {}
+
+    // 获取监控数据日期列表
+    rpc DvrListDates (DvrListDatesRequest) returns (DvrListDatesResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/camera/dvr_list_dates"
+            body: "*"
+        };
+    }
+
+    // 获取监控数据指定日期视频文件列表
+    rpc DvrListDateVideos (DvrListDateVideosRequest) returns (DvrListDateVideosResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/camera/dvr_list_date_videos"
+            body: "*"
+        };
+    }
+}
+
+message LiveH264StreamRequest {
+}
+
+message LiveH264StreamResponse {
+    bytes frame = 1;
+}
+
+message DvrListDatesRequest {}
+
+message DvrListDatesResponse {
+    repeated string date_list = 1;
+}
+
+// 过滤参数
+message DvrDateVideosFilter {
+    // 过滤开始小时, 0为当日零点开始
+    // 大于23将返回参数错误
+    string hour_start = 1;
+
+    // 过滤结束小时, 0为当日23点
+    // 小于hour_start或大于23将返回参数错误
+    string hour_end = 2;
+
+    // 限制视频列表数量, 0为所有
+    uint32 limit = 3;
+}
+
+message DvrListDateVideosRequest {
+    // 请求日期, 根据DvrListDatesResonse中日期
+    string date = 1;
+
+    // 过滤参数
+    DvrDateVideosFilter filter = 2;
+}
+
+message DvrListDateVideosResponse {
+    // 监控文件静态文件地址列表
+    repeated string videos_static = 1;
+}

@@ -1,0 +1,99 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "power.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "powerServiceGetPowerStatusResponse": {
+      "type": "object",
+      "properties": {
+        "power_status": {
+          "$ref": "#/definitions/powerServicePowerStatus"
+        }
+      }
+    },
+    "powerServicePowerStatus": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "is_charging": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "devices": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean",
+            "format": "boolean"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "powerServiceGetPowerStatusResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/powerServiceGetPowerStatusResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of powerServiceGetPowerStatusResponse"
+    }
+  }
+}

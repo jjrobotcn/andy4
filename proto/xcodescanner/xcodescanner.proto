@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package xcScannerService;
+
+service XCodeScannerService {
+    rpc GetScanData (GetScanDataRequest) returns (stream GetScanDataResponse) {
+    }
+}
+
+message GetScanDataRequest {
+
+}
+
+// 扫码结果
+message GetScanDataResponse {
+    string content = 1;
+}

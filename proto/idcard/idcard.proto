@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package idCardService;
+
+service IDCardService {
+    // 获取读卡数据流
+    rpc GetIdInfo (GetIdInfoRequest) returns (stream GetIdInfoResponse) {
+    }
+}
+
+// 获取读卡数据流请求
+message GetIdInfoRequest {
+}
+
+// 身份证数据
+message IdInfo {
+    // 身份证号
+    string id = 1;
+
+    // 姓名
+    string name = 2;
+
+    // 性别
+    string gender = 3;
+
+    // 民族
+    string national = 4;
+
+    // 出生日期
+    string birthday = 5;
+
+    // 地址
+    string address = 6;
+
+    // 发证机关
+    string sign_organization = 7;
+
+    // 有效期开始日期
+    string start_date = 8;
+
+    // 有效期截止日期
+    string end_date = 9;
+
+    // 身份证头像图片数据
+    bytes photo = 10;
+
+    reserved "reserved";
+    reserved 11;
+}
+
+// 获取读卡数据流结果
+message GetIdInfoResponse {
+    // 身份证数据
+    IdInfo id_info = 1;
+}
