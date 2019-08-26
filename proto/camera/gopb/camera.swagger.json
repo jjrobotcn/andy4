@@ -15,55 +15,18 @@
     "application/json"
   ],
   "paths": {
-    "/api/v2/camera/dvr_list_date_videos": {
-      "post": {
-        "summary": "获取监控数据指定日期视频文件列表",
-        "operationId": "DvrListDateVideos",
+    "/api/v2/camera/image": {
+      "get": {
+        "summary": "获取当前最新图片jpg\n图片更新时间周期为1s",
+        "operationId": "LatestImage",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cameraServiceDvrListDateVideosResponse"
+              "$ref": "#/definitions/cameraServiceLatestImageResponse"
             }
           }
         },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cameraServiceDvrListDateVideosRequest"
-            }
-          }
-        ],
-        "tags": [
-          "CameraService"
-        ]
-      }
-    },
-    "/api/v2/camera/dvr_list_dates": {
-      "post": {
-        "summary": "获取监控数据日期列表",
-        "operationId": "DvrListDates",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/cameraServiceDvrListDatesResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/cameraServiceDvrListDatesRequest"
-            }
-          }
-        ],
         "tags": [
           "CameraService"
         ]
@@ -71,61 +34,17 @@
     }
   },
   "definitions": {
-    "cameraServiceDvrDateVideosFilter": {
+    "cameraServiceLatestImageResponse": {
       "type": "object",
       "properties": {
-        "hour_start": {
+        "time": {
           "type": "string",
-          "title": "过滤开始小时, 0为当日零点开始\n大于23将返回参数错误"
+          "title": "图片时间\n格式: 2019-01-02_03:04:05"
         },
-        "hour_end": {
+        "image": {
           "type": "string",
-          "title": "过滤结束小时, 0为当日23点\n小于hour_start或大于23将返回参数错误"
-        },
-        "limit": {
-          "type": "integer",
-          "format": "int64",
-          "title": "限制视频列表数量, 0为所有"
-        }
-      },
-      "title": "过滤参数"
-    },
-    "cameraServiceDvrListDateVideosRequest": {
-      "type": "object",
-      "properties": {
-        "date": {
-          "type": "string",
-          "title": "请求日期, 根据DvrListDatesResonse中日期"
-        },
-        "filter": {
-          "$ref": "#/definitions/cameraServiceDvrDateVideosFilter",
-          "title": "过滤参数"
-        }
-      }
-    },
-    "cameraServiceDvrListDateVideosResponse": {
-      "type": "object",
-      "properties": {
-        "videos_static": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "监控文件静态文件地址列表"
-        }
-      }
-    },
-    "cameraServiceDvrListDatesRequest": {
-      "type": "object"
-    },
-    "cameraServiceDvrListDatesResponse": {
-      "type": "object",
-      "properties": {
-        "date_list": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "format": "byte",
+          "title": "图片数据"
         }
       }
     },

@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace grpc_impl {
-class Channel;
 class CompletionQueue;
 class ServerCompletionQueue;
+class ServerContext;
 }  // namespace grpc_impl
 
 namespace grpc {
@@ -31,10 +31,6 @@ namespace experimental {
 template <typename RequestT, typename ResponseT>
 class MessageAllocator;
 }  // namespace experimental
-}  // namespace grpc_impl
-
-namespace grpc {
-class ServerContext;
 }  // namespace grpc
 
 namespace cameraService {
@@ -57,47 +53,34 @@ class CameraService final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cameraService::LiveH264StreamResponse>> PrepareAsyncLiveH264Stream(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cameraService::LiveH264StreamResponse>>(PrepareAsyncLiveH264StreamRaw(context, request, cq));
     }
-    // 获取监控数据日期列表
-    virtual ::grpc::Status DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::cameraService::DvrListDatesResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDatesResponse>> AsyncDvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDatesResponse>>(AsyncDvrListDatesRaw(context, request, cq));
+    // 获取当前最新图片jpg
+    // 图片更新时间周期为1s
+    virtual ::grpc::Status LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::cameraService::LatestImageResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>> AsyncLatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>>(AsyncLatestImageRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDatesResponse>> PrepareAsyncDvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDatesResponse>>(PrepareAsyncDvrListDatesRaw(context, request, cq));
-    }
-    // 获取监控数据指定日期视频文件列表
-    virtual ::grpc::Status DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::cameraService::DvrListDateVideosResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDateVideosResponse>> AsyncDvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDateVideosResponse>>(AsyncDvrListDateVideosRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDateVideosResponse>> PrepareAsyncDvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDateVideosResponse>>(PrepareAsyncDvrListDateVideosRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>> PrepareAsyncLatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>>(PrepareAsyncLatestImageRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       // 直播流数据, 数据为h264 nal单元
       virtual void LiveH264Stream(::grpc::ClientContext* context, ::cameraService::LiveH264StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::cameraService::LiveH264StreamResponse>* reactor) = 0;
-      // 获取监控数据日期列表
-      virtual void DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DvrListDates(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDatesResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void DvrListDates(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      // 获取监控数据指定日期视频文件列表
-      virtual void DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DvrListDateVideos(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDateVideosResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void DvrListDateVideos(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 获取当前最新图片jpg
+      // 图片更新时间周期为1s
+      virtual void LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
     virtual ::grpc::ClientReaderInterface< ::cameraService::LiveH264StreamResponse>* LiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::cameraService::LiveH264StreamResponse>* AsyncLiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::cameraService::LiveH264StreamResponse>* PrepareAsyncLiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDatesResponse>* AsyncDvrListDatesRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDatesResponse>* PrepareAsyncDvrListDatesRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDateVideosResponse>* AsyncDvrListDateVideosRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::DvrListDateVideosResponse>* PrepareAsyncDvrListDateVideosRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>* AsyncLatestImageRaw(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>* PrepareAsyncLatestImageRaw(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -111,32 +94,21 @@ class CameraService final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::cameraService::LiveH264StreamResponse>> PrepareAsyncLiveH264Stream(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::cameraService::LiveH264StreamResponse>>(PrepareAsyncLiveH264StreamRaw(context, request, cq));
     }
-    ::grpc::Status DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::cameraService::DvrListDatesResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>> AsyncDvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>>(AsyncDvrListDatesRaw(context, request, cq));
+    ::grpc::Status LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::cameraService::LatestImageResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>> AsyncLatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>>(AsyncLatestImageRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>> PrepareAsyncDvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>>(PrepareAsyncDvrListDatesRaw(context, request, cq));
-    }
-    ::grpc::Status DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::cameraService::DvrListDateVideosResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>> AsyncDvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>>(AsyncDvrListDateVideosRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>> PrepareAsyncDvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>>(PrepareAsyncDvrListDateVideosRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>> PrepareAsyncLatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>>(PrepareAsyncLatestImageRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
       void LiveH264Stream(::grpc::ClientContext* context, ::cameraService::LiveH264StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::cameraService::LiveH264StreamResponse>* reactor) override;
-      void DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, std::function<void(::grpc::Status)>) override;
-      void DvrListDates(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDatesResponse* response, std::function<void(::grpc::Status)>) override;
-      void DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void DvrListDates(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, std::function<void(::grpc::Status)>) override;
-      void DvrListDateVideos(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDateVideosResponse* response, std::function<void(::grpc::Status)>) override;
-      void DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void DvrListDateVideos(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)>) override;
+      void LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)>) override;
+      void LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -151,13 +123,10 @@ class CameraService final {
     ::grpc::ClientReader< ::cameraService::LiveH264StreamResponse>* LiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request) override;
     ::grpc::ClientAsyncReader< ::cameraService::LiveH264StreamResponse>* AsyncLiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::cameraService::LiveH264StreamResponse>* PrepareAsyncLiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>* AsyncDvrListDatesRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>* PrepareAsyncDvrListDatesRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>* AsyncDvrListDateVideosRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>* PrepareAsyncDvrListDateVideosRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>* AsyncLatestImageRaw(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>* PrepareAsyncLatestImageRaw(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_LiveH264Stream_;
-    const ::grpc::internal::RpcMethod rpcmethod_DvrListDates_;
-    const ::grpc::internal::RpcMethod rpcmethod_DvrListDateVideos_;
+    const ::grpc::internal::RpcMethod rpcmethod_LatestImage_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -167,10 +136,9 @@ class CameraService final {
     virtual ~Service();
     // 直播流数据, 数据为h264 nal单元
     virtual ::grpc::Status LiveH264Stream(::grpc::ServerContext* context, const ::cameraService::LiveH264StreamRequest* request, ::grpc::ServerWriter< ::cameraService::LiveH264StreamResponse>* writer);
-    // 获取监控数据日期列表
-    virtual ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response);
-    // 获取监控数据指定日期视频文件列表
-    virtual ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response);
+    // 获取当前最新图片jpg
+    // 图片更新时间周期为1s
+    virtual ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_LiveH264Stream : public BaseClass {
@@ -193,46 +161,26 @@ class CameraService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_DvrListDates : public BaseClass {
+  class WithAsyncMethod_LatestImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_DvrListDates() {
+    WithAsyncMethod_LatestImage() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_DvrListDates() override {
+    ~WithAsyncMethod_LatestImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) override {
+    ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDvrListDates(::grpc::ServerContext* context, ::cameraService::DvrListDatesRequest* request, ::grpc::ServerAsyncResponseWriter< ::cameraService::DvrListDatesResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestLatestImage(::grpc::ServerContext* context, ::cameraService::LatestImageRequest* request, ::grpc::ServerAsyncResponseWriter< ::cameraService::LatestImageResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_DvrListDateVideos : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_DvrListDateVideos() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_DvrListDateVideos() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDvrListDateVideos(::grpc::ServerContext* context, ::cameraService::DvrListDateVideosRequest* request, ::grpc::ServerAsyncResponseWriter< ::cameraService::DvrListDateVideosResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_LiveH264Stream<WithAsyncMethod_DvrListDates<WithAsyncMethod_DvrListDateVideos<Service > > > AsyncService;
+  typedef WithAsyncMethod_LiveH264Stream<WithAsyncMethod_LatestImage<Service > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_LiveH264Stream : public BaseClass {
    private:
@@ -256,68 +204,37 @@ class CameraService final {
         ::cameraService::LiveH264StreamRequest, ::cameraService::LiveH264StreamResponse>;}
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DvrListDates : public BaseClass {
+  class ExperimentalWithCallbackMethod_LatestImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithCallbackMethod_DvrListDates() {
+    ExperimentalWithCallbackMethod_LatestImage() {
       ::grpc::Service::experimental().MarkMethodCallback(1,
-        new ::grpc::internal::CallbackUnaryHandler< ::cameraService::DvrListDatesRequest, ::cameraService::DvrListDatesResponse>(
+        new ::grpc::internal::CallbackUnaryHandler< ::cameraService::LatestImageRequest, ::cameraService::LatestImageResponse>(
           [this](::grpc::ServerContext* context,
-                 const ::cameraService::DvrListDatesRequest* request,
-                 ::cameraService::DvrListDatesResponse* response,
+                 const ::cameraService::LatestImageRequest* request,
+                 ::cameraService::LatestImageResponse* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->DvrListDates(context, request, response, controller);
+                   return this->LatestImage(context, request, response, controller);
                  }));
     }
-    void SetMessageAllocatorFor_DvrListDates(
-        ::grpc::experimental::MessageAllocator< ::cameraService::DvrListDatesRequest, ::cameraService::DvrListDatesResponse>* allocator) {
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::cameraService::DvrListDatesRequest, ::cameraService::DvrListDatesResponse>*>(
+    void SetMessageAllocatorFor_LatestImage(
+        ::grpc::experimental::MessageAllocator< ::cameraService::LatestImageRequest, ::cameraService::LatestImageResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::cameraService::LatestImageRequest, ::cameraService::LatestImageResponse>*>(
           ::grpc::Service::experimental().GetHandler(1))
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_DvrListDates() override {
+    ~ExperimentalWithCallbackMethod_LatestImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) override {
+    ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_DvrListDateVideos : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithCallbackMethod_DvrListDateVideos() {
-      ::grpc::Service::experimental().MarkMethodCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::cameraService::DvrListDateVideosRequest, ::cameraService::DvrListDateVideosResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::cameraService::DvrListDateVideosRequest* request,
-                 ::cameraService::DvrListDateVideosResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->DvrListDateVideos(context, request, response, controller);
-                 }));
-    }
-    void SetMessageAllocatorFor_DvrListDateVideos(
-        ::grpc::experimental::MessageAllocator< ::cameraService::DvrListDateVideosRequest, ::cameraService::DvrListDateVideosResponse>* allocator) {
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::cameraService::DvrListDateVideosRequest, ::cameraService::DvrListDateVideosResponse>*>(
-          ::grpc::Service::experimental().GetHandler(2))
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_DvrListDateVideos() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  typedef ExperimentalWithCallbackMethod_LiveH264Stream<ExperimentalWithCallbackMethod_DvrListDates<ExperimentalWithCallbackMethod_DvrListDateVideos<Service > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_LiveH264Stream<ExperimentalWithCallbackMethod_LatestImage<Service > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_LiveH264Stream : public BaseClass {
    private:
@@ -336,35 +253,18 @@ class CameraService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_DvrListDates : public BaseClass {
+  class WithGenericMethod_LatestImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_DvrListDates() {
+    WithGenericMethod_LatestImage() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_DvrListDates() override {
+    ~WithGenericMethod_LatestImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_DvrListDateVideos : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_DvrListDateVideos() {
-      ::grpc::Service::MarkMethodGeneric(2);
-    }
-    ~WithGenericMethod_DvrListDateVideos() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) override {
+    ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -390,43 +290,23 @@ class CameraService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_DvrListDates : public BaseClass {
+  class WithRawMethod_LatestImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithRawMethod_DvrListDates() {
+    WithRawMethod_LatestImage() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_DvrListDates() override {
+    ~WithRawMethod_LatestImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) override {
+    ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDvrListDates(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestLatestImage(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_DvrListDateVideos : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithRawMethod_DvrListDateVideos() {
-      ::grpc::Service::MarkMethodRaw(2);
-    }
-    ~WithRawMethod_DvrListDateVideos() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDvrListDateVideos(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -452,96 +332,51 @@ class CameraService final {
         ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DvrListDates : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_LatestImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_DvrListDates() {
+    ExperimentalWithRawCallbackMethod_LatestImage() {
       ::grpc::Service::experimental().MarkMethodRawCallback(1,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
                  ::grpc::ByteBuffer* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->DvrListDates(context, request, response, controller);
+                   this->LatestImage(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithRawCallbackMethod_DvrListDates() override {
+    ~ExperimentalWithRawCallbackMethod_LatestImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) override {
+    ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void DvrListDates(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void LatestImage(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_DvrListDateVideos : public BaseClass {
+  class WithStreamedUnaryMethod_LatestImage : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_DvrListDateVideos() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(2,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->DvrListDateVideos(context, request, response, controller);
-                 }));
-    }
-    ~ExperimentalWithRawCallbackMethod_DvrListDateVideos() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void DvrListDateVideos(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_DvrListDates : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithStreamedUnaryMethod_DvrListDates() {
+    WithStreamedUnaryMethod_LatestImage() {
       ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler< ::cameraService::DvrListDatesRequest, ::cameraService::DvrListDatesResponse>(std::bind(&WithStreamedUnaryMethod_DvrListDates<BaseClass>::StreamedDvrListDates, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::cameraService::LatestImageRequest, ::cameraService::LatestImageResponse>(std::bind(&WithStreamedUnaryMethod_LatestImage<BaseClass>::StreamedLatestImage, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_DvrListDates() override {
+    ~WithStreamedUnaryMethod_LatestImage() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) override {
+    ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDvrListDates(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cameraService::DvrListDatesRequest,::cameraService::DvrListDatesResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedLatestImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cameraService::LatestImageRequest,::cameraService::LatestImageResponse>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_DvrListDateVideos : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithStreamedUnaryMethod_DvrListDateVideos() {
-      ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler< ::cameraService::DvrListDateVideosRequest, ::cameraService::DvrListDateVideosResponse>(std::bind(&WithStreamedUnaryMethod_DvrListDateVideos<BaseClass>::StreamedDvrListDateVideos, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_DvrListDateVideos() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDvrListDateVideos(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::cameraService::DvrListDateVideosRequest,::cameraService::DvrListDateVideosResponse>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_DvrListDates<WithStreamedUnaryMethod_DvrListDateVideos<Service > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_LatestImage<Service > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_LiveH264Stream : public BaseClass {
    private:
@@ -563,7 +398,7 @@ class CameraService final {
     virtual ::grpc::Status StreamedLiveH264Stream(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::cameraService::LiveH264StreamRequest,::cameraService::LiveH264StreamResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_LiveH264Stream<Service > SplitStreamedService;
-  typedef WithSplitStreamingMethod_LiveH264Stream<WithStreamedUnaryMethod_DvrListDates<WithStreamedUnaryMethod_DvrListDateVideos<Service > > > StreamedService;
+  typedef WithSplitStreamingMethod_LiveH264Stream<WithStreamedUnaryMethod_LatestImage<Service > > StreamedService;
 };
 
 }  // namespace cameraService

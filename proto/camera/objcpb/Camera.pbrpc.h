@@ -9,10 +9,8 @@
 #import <RxLibrary/GRXWriter.h>
 #endif
 
-@class DvrListDateVideosRequest;
-@class DvrListDateVideosResponse;
-@class DvrListDatesRequest;
-@class DvrListDatesResponse;
+@class LatestImageRequest;
+@class LatestImageResponse;
 @class LiveH264StreamRequest;
 @class LiveH264StreamResponse;
 
@@ -38,19 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (GRPCUnaryProtoCall *)liveH264StreamWithMessage:(LiveH264StreamRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
-#pragma mark DvrListDates(DvrListDatesRequest) returns (DvrListDatesResponse)
+#pragma mark LatestImage(LatestImageRequest) returns (LatestImageResponse)
 
 /**
- * 获取监控数据日期列表
+ * 获取当前最新图片jpg
+ * 图片更新时间周期为1s
  */
-- (GRPCUnaryProtoCall *)dvrListDatesWithMessage:(DvrListDatesRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
-
-#pragma mark DvrListDateVideos(DvrListDateVideosRequest) returns (DvrListDateVideosResponse)
-
-/**
- * 获取监控数据指定日期视频文件列表
- */
-- (GRPCUnaryProtoCall *)dvrListDateVideosWithMessage:(DvrListDateVideosRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+- (GRPCUnaryProtoCall *)latestImageWithMessage:(LatestImageRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 @end
 
@@ -77,38 +69,23 @@ NS_ASSUME_NONNULL_BEGIN
 - (GRPCProtoCall *)RPCToLiveH264StreamWithRequest:(LiveH264StreamRequest *)request eventHandler:(void(^)(BOOL done, LiveH264StreamResponse *_Nullable response, NSError *_Nullable error))eventHandler;
 
 
-#pragma mark DvrListDates(DvrListDatesRequest) returns (DvrListDatesResponse)
+#pragma mark LatestImage(LatestImageRequest) returns (LatestImageResponse)
 
 /**
- * 获取监控数据日期列表
+ * 获取当前最新图片jpg
+ * 图片更新时间周期为1s
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
-- (void)dvrListDatesWithRequest:(DvrListDatesRequest *)request handler:(void(^)(DvrListDatesResponse *_Nullable response, NSError *_Nullable error))handler;
+- (void)latestImageWithRequest:(LatestImageRequest *)request handler:(void(^)(LatestImageResponse *_Nullable response, NSError *_Nullable error))handler;
 
 /**
- * 获取监控数据日期列表
+ * 获取当前最新图片jpg
+ * 图片更新时间周期为1s
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
-- (GRPCProtoCall *)RPCToDvrListDatesWithRequest:(DvrListDatesRequest *)request handler:(void(^)(DvrListDatesResponse *_Nullable response, NSError *_Nullable error))handler;
-
-
-#pragma mark DvrListDateVideos(DvrListDateVideosRequest) returns (DvrListDateVideosResponse)
-
-/**
- * 获取监控数据指定日期视频文件列表
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (void)dvrListDateVideosWithRequest:(DvrListDateVideosRequest *)request handler:(void(^)(DvrListDateVideosResponse *_Nullable response, NSError *_Nullable error))handler;
-
-/**
- * 获取监控数据指定日期视频文件列表
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (GRPCProtoCall *)RPCToDvrListDateVideosWithRequest:(DvrListDateVideosRequest *)request handler:(void(^)(DvrListDateVideosResponse *_Nullable response, NSError *_Nullable error))handler;
+- (GRPCProtoCall *)RPCToLatestImageWithRequest:(LatestImageRequest *)request handler:(void(^)(LatestImageResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

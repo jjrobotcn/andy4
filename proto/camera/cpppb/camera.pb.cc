@@ -8,159 +8,92 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-
-extern PROTOBUF_INTERNAL_EXPORT_camera_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_DvrDateVideosFilter_camera_2eproto;
 namespace cameraService {
 class LiveH264StreamRequestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<LiveH264StreamRequest> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LiveH264StreamRequest> _instance;
 } _LiveH264StreamRequest_default_instance_;
 class LiveH264StreamResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<LiveH264StreamResponse> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LiveH264StreamResponse> _instance;
 } _LiveH264StreamResponse_default_instance_;
-class DvrListDatesRequestDefaultTypeInternal {
+class LatestImageRequestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DvrListDatesRequest> _instance;
-} _DvrListDatesRequest_default_instance_;
-class DvrListDatesResponseDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LatestImageRequest> _instance;
+} _LatestImageRequest_default_instance_;
+class LatestImageResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DvrListDatesResponse> _instance;
-} _DvrListDatesResponse_default_instance_;
-class DvrDateVideosFilterDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DvrDateVideosFilter> _instance;
-} _DvrDateVideosFilter_default_instance_;
-class DvrListDateVideosRequestDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DvrListDateVideosRequest> _instance;
-} _DvrListDateVideosRequest_default_instance_;
-class DvrListDateVideosResponseDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DvrListDateVideosResponse> _instance;
-} _DvrListDateVideosResponse_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LatestImageResponse> _instance;
+} _LatestImageResponse_default_instance_;
 }  // namespace cameraService
-static void InitDefaultsLiveH264StreamRequest_camera_2eproto() {
+static void InitDefaultsscc_info_LatestImageRequest_camera_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::cameraService::_LatestImageRequest_default_instance_;
+    new (ptr) ::cameraService::LatestImageRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::cameraService::LatestImageRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LatestImageRequest_camera_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_LatestImageRequest_camera_2eproto}, {}};
+
+static void InitDefaultsscc_info_LatestImageResponse_camera_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::cameraService::_LatestImageResponse_default_instance_;
+    new (ptr) ::cameraService::LatestImageResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::cameraService::LatestImageResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LatestImageResponse_camera_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_LatestImageResponse_camera_2eproto}, {}};
+
+static void InitDefaultsscc_info_LiveH264StreamRequest_camera_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::cameraService::_LiveH264StreamRequest_default_instance_;
     new (ptr) ::cameraService::LiveH264StreamRequest();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
   ::cameraService::LiveH264StreamRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_LiveH264StreamRequest_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsLiveH264StreamRequest_camera_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LiveH264StreamRequest_camera_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_LiveH264StreamRequest_camera_2eproto}, {}};
 
-static void InitDefaultsLiveH264StreamResponse_camera_2eproto() {
+static void InitDefaultsscc_info_LiveH264StreamResponse_camera_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::cameraService::_LiveH264StreamResponse_default_instance_;
     new (ptr) ::cameraService::LiveH264StreamResponse();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
   ::cameraService::LiveH264StreamResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_LiveH264StreamResponse_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsLiveH264StreamResponse_camera_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LiveH264StreamResponse_camera_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_LiveH264StreamResponse_camera_2eproto}, {}};
 
-static void InitDefaultsDvrListDatesRequest_camera_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_camera_2eproto[4];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_camera_2eproto = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_camera_2eproto = nullptr;
 
-  {
-    void* ptr = &::cameraService::_DvrListDatesRequest_default_instance_;
-    new (ptr) ::cameraService::DvrListDatesRequest();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::cameraService::DvrListDatesRequest::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_DvrListDatesRequest_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDvrListDatesRequest_camera_2eproto}, {}};
-
-static void InitDefaultsDvrListDatesResponse_camera_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::cameraService::_DvrListDatesResponse_default_instance_;
-    new (ptr) ::cameraService::DvrListDatesResponse();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::cameraService::DvrListDatesResponse::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_DvrListDatesResponse_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDvrListDatesResponse_camera_2eproto}, {}};
-
-static void InitDefaultsDvrDateVideosFilter_camera_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::cameraService::_DvrDateVideosFilter_default_instance_;
-    new (ptr) ::cameraService::DvrDateVideosFilter();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::cameraService::DvrDateVideosFilter::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_DvrDateVideosFilter_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDvrDateVideosFilter_camera_2eproto}, {}};
-
-static void InitDefaultsDvrListDateVideosRequest_camera_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::cameraService::_DvrListDateVideosRequest_default_instance_;
-    new (ptr) ::cameraService::DvrListDateVideosRequest();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::cameraService::DvrListDateVideosRequest::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<1> scc_info_DvrListDateVideosRequest_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDvrListDateVideosRequest_camera_2eproto}, {
-      &scc_info_DvrDateVideosFilter_camera_2eproto.base,}};
-
-static void InitDefaultsDvrListDateVideosResponse_camera_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::cameraService::_DvrListDateVideosResponse_default_instance_;
-    new (ptr) ::cameraService::DvrListDateVideosResponse();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::cameraService::DvrListDateVideosResponse::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_DvrListDateVideosResponse_camera_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDvrListDateVideosResponse_camera_2eproto}, {}};
-
-void InitDefaults_camera_2eproto() {
-  ::google::protobuf::internal::InitSCC(&scc_info_LiveH264StreamRequest_camera_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_LiveH264StreamResponse_camera_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DvrListDatesRequest_camera_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DvrListDatesResponse_camera_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DvrDateVideosFilter_camera_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DvrListDateVideosRequest_camera_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DvrListDateVideosResponse_camera_2eproto.base);
-}
-
-::google::protobuf::Metadata file_level_metadata_camera_2eproto[7];
-constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_camera_2eproto = nullptr;
-constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_camera_2eproto = nullptr;
-
-const ::google::protobuf::uint32 TableStruct_camera_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_camera_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::cameraService::LiveH264StreamRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -173,103 +106,65 @@ const ::google::protobuf::uint32 TableStruct_camera_2eproto::offsets[] PROTOBUF_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::cameraService::LiveH264StreamResponse, frame_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDatesRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::cameraService::LatestImageRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDatesResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::cameraService::LatestImageResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDatesResponse, date_list_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrDateVideosFilter, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrDateVideosFilter, hour_start_),
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrDateVideosFilter, hour_end_),
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrDateVideosFilter, limit_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDateVideosRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDateVideosRequest, date_),
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDateVideosRequest, filter_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDateVideosResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::cameraService::DvrListDateVideosResponse, videos_static_),
+  PROTOBUF_FIELD_OFFSET(::cameraService::LatestImageResponse, time_),
+  PROTOBUF_FIELD_OFFSET(::cameraService::LatestImageResponse, image_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::cameraService::LiveH264StreamRequest)},
   { 5, -1, sizeof(::cameraService::LiveH264StreamResponse)},
-  { 11, -1, sizeof(::cameraService::DvrListDatesRequest)},
-  { 16, -1, sizeof(::cameraService::DvrListDatesResponse)},
-  { 22, -1, sizeof(::cameraService::DvrDateVideosFilter)},
-  { 30, -1, sizeof(::cameraService::DvrListDateVideosRequest)},
-  { 37, -1, sizeof(::cameraService::DvrListDateVideosResponse)},
+  { 11, -1, sizeof(::cameraService::LatestImageRequest)},
+  { 16, -1, sizeof(::cameraService::LatestImageResponse)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_LiveH264StreamRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_LiveH264StreamResponse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_DvrListDatesRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_DvrListDatesResponse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_DvrDateVideosFilter_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_DvrListDateVideosRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::cameraService::_DvrListDateVideosResponse_default_instance_),
-};
-
-::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_camera_2eproto = {
-  {}, AddDescriptors_camera_2eproto, "camera.proto", schemas,
-  file_default_instances, TableStruct_camera_2eproto::offsets,
-  file_level_metadata_camera_2eproto, 7, file_level_enum_descriptors_camera_2eproto, file_level_service_descriptors_camera_2eproto,
+static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cameraService::_LiveH264StreamRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cameraService::_LiveH264StreamResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cameraService::_LatestImageRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cameraService::_LatestImageResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_camera_2eproto[] =
   "\n\014camera.proto\022\rcameraService\032\034google/ap"
   "i/annotations.proto\"\027\n\025LiveH264StreamReq"
   "uest\"\'\n\026LiveH264StreamResponse\022\r\n\005frame\030"
-  "\001 \001(\014\"\025\n\023DvrListDatesRequest\")\n\024DvrListD"
-  "atesResponse\022\021\n\tdate_list\030\001 \003(\t\"J\n\023DvrDa"
-  "teVideosFilter\022\022\n\nhour_start\030\001 \001(\t\022\020\n\010ho"
-  "ur_end\030\002 \001(\t\022\r\n\005limit\030\003 \001(\r\"\\\n\030DvrListDa"
-  "teVideosRequest\022\014\n\004date\030\001 \001(\t\0222\n\006filter\030"
-  "\002 \001(\0132\".cameraService.DvrDateVideosFilte"
-  "r\"2\n\031DvrListDateVideosResponse\022\025\n\rvideos"
-  "_static\030\001 \003(\t2\217\003\n\rCameraService\022a\n\016LiveH"
-  "264Stream\022$.cameraService.LiveH264Stream"
-  "Request\032%.cameraService.LiveH264StreamRe"
-  "sponse\"\0000\001\022\201\001\n\014DvrListDates\022\".cameraServ"
-  "ice.DvrListDatesRequest\032#.cameraService."
-  "DvrListDatesResponse\"(\202\323\344\223\002\"\"\035/api/v2/ca"
-  "mera/dvr_list_dates:\001*\022\226\001\n\021DvrListDateVi"
-  "deos\022\'.cameraService.DvrListDateVideosRe"
-  "quest\032(.cameraService.DvrListDateVideosR"
-  "esponse\".\202\323\344\223\002(\"#/api/v2/camera/dvr_list"
-  "_date_videos:\001*b\006proto3"
+  "\001 \001(\014\"\024\n\022LatestImageRequest\"2\n\023LatestIma"
+  "geResponse\022\014\n\004time\030\001 \001(\t\022\r\n\005image\030\002 \001(\0142"
+  "\346\001\n\rCameraService\022a\n\016LiveH264Stream\022$.ca"
+  "meraService.LiveH264StreamRequest\032%.came"
+  "raService.LiveH264StreamResponse\"\0000\001\022r\n\013"
+  "LatestImage\022!.cameraService.LatestImageR"
+  "equest\032\".cameraService.LatestImageRespon"
+  "se\"\034\202\323\344\223\002\026\022\024/api/v2/camera/imageb\006proto3"
   ;
-::google::protobuf::internal::DescriptorTable descriptor_table_camera_2eproto = {
-  false, InitDefaults_camera_2eproto, 
-  descriptor_table_protodef_camera_2eproto,
-  "camera.proto", &assign_descriptors_table_camera_2eproto, 823,
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_camera_2eproto_deps[1] = {
+  &::descriptor_table_google_2fapi_2fannotations_2eproto,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_camera_2eproto_sccs[4] = {
+  &scc_info_LatestImageRequest_camera_2eproto.base,
+  &scc_info_LatestImageResponse_camera_2eproto.base,
+  &scc_info_LiveH264StreamRequest_camera_2eproto.base,
+  &scc_info_LiveH264StreamResponse_camera_2eproto.base,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_camera_2eproto_once;
+static bool descriptor_table_camera_2eproto_initialized = false;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_camera_2eproto = {
+  &descriptor_table_camera_2eproto_initialized, descriptor_table_protodef_camera_2eproto, "camera.proto", 440,
+  &descriptor_table_camera_2eproto_once, descriptor_table_camera_2eproto_sccs, descriptor_table_camera_2eproto_deps, 4, 1,
+  schemas, file_default_instances, TableStruct_camera_2eproto::offsets,
+  file_level_metadata_camera_2eproto, 4, file_level_enum_descriptors_camera_2eproto, file_level_service_descriptors_camera_2eproto,
 };
 
-void AddDescriptors_camera_2eproto() {
-  static constexpr ::google::protobuf::internal::InitFunc deps[1] =
-  {
-    ::AddDescriptors_google_2fapi_2fannotations_2eproto,
-  };
- ::google::protobuf::internal::AddDescriptors(&descriptor_table_camera_2eproto, deps, 1);
-}
-
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_camera_2eproto = []() { AddDescriptors_camera_2eproto(); return true; }();
+static bool dynamic_init_dummy_camera_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_camera_2eproto), true);
 namespace cameraService {
 
 // ===================================================================
@@ -284,12 +179,12 @@ class LiveH264StreamRequest::HasBitSetters {
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LiveH264StreamRequest::LiveH264StreamRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:cameraService.LiveH264StreamRequest)
 }
 LiveH264StreamRequest::LiveH264StreamRequest(const LiveH264StreamRequest& from)
-  : ::google::protobuf::Message(),
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:cameraService.LiveH264StreamRequest)
@@ -310,14 +205,14 @@ void LiveH264StreamRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const LiveH264StreamRequest& LiveH264StreamRequest::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_LiveH264StreamRequest_camera_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LiveH264StreamRequest_camera_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void LiveH264StreamRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:cameraService.LiveH264StreamRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -325,48 +220,46 @@ void LiveH264StreamRequest::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* LiveH264StreamRequest::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<LiveH264StreamRequest*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* LiveH264StreamRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       default: {
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool LiveH264StreamRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
   // @@protoc_insertion_point(parse_start:cameraService.LiveH264StreamRequest)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
   handle_unusual:
     if (tag == 0) {
       goto success;
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
+    DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
           input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
@@ -380,26 +273,26 @@ failure:
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void LiveH264StreamRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:cameraService.LiveH264StreamRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:cameraService.LiveH264StreamRequest)
 }
 
-::google::protobuf::uint8* LiveH264StreamRequest::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::PROTOBUF_NAMESPACE_ID::uint8* LiveH264StreamRequest::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:cameraService.LiveH264StreamRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:cameraService.LiveH264StreamRequest)
@@ -412,27 +305,27 @@ size_t LiveH264StreamRequest::ByteSizeLong() const {
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void LiveH264StreamRequest::MergeFrom(const ::google::protobuf::Message& from) {
+void LiveH264StreamRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:cameraService.LiveH264StreamRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const LiveH264StreamRequest* source =
-      ::google::protobuf::DynamicCastToGenerated<LiveH264StreamRequest>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LiveH264StreamRequest>(
           &from);
   if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.LiveH264StreamRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.LiveH264StreamRequest)
     MergeFrom(*source);
@@ -443,12 +336,12 @@ void LiveH264StreamRequest::MergeFrom(const LiveH264StreamRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:cameraService.LiveH264StreamRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
 }
 
-void LiveH264StreamRequest::CopyFrom(const ::google::protobuf::Message& from) {
+void LiveH264StreamRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:cameraService.LiveH264StreamRequest)
   if (&from == this) return;
   Clear();
@@ -475,9 +368,8 @@ void LiveH264StreamRequest::InternalSwap(LiveH264StreamRequest* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata LiveH264StreamRequest::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata LiveH264StreamRequest::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
@@ -494,25 +386,24 @@ const int LiveH264StreamResponse::kFrameFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 LiveH264StreamResponse::LiveH264StreamResponse()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:cameraService.LiveH264StreamResponse)
 }
 LiveH264StreamResponse::LiveH264StreamResponse(const LiveH264StreamResponse& from)
-  : ::google::protobuf::Message(),
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  frame_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from.frame().size() > 0) {
-    frame_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.frame_);
+    frame_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.frame_);
   }
   // @@protoc_insertion_point(copy_constructor:cameraService.LiveH264StreamResponse)
 }
 
 void LiveH264StreamResponse::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_LiveH264StreamResponse_camera_2eproto.base);
-  frame_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_LiveH264StreamResponse_camera_2eproto.base);
+  frame_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 LiveH264StreamResponse::~LiveH264StreamResponse() {
@@ -521,94 +412,77 @@ LiveH264StreamResponse::~LiveH264StreamResponse() {
 }
 
 void LiveH264StreamResponse::SharedDtor() {
-  frame_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  frame_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void LiveH264StreamResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const LiveH264StreamResponse& LiveH264StreamResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_LiveH264StreamResponse_camera_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LiveH264StreamResponse_camera_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void LiveH264StreamResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:cameraService.LiveH264StreamResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  frame_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  frame_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* LiveH264StreamResponse::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<LiveH264StreamResponse*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* LiveH264StreamResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // bytes frame = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        object = msg->mutable_frame();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParser;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(mutable_frame(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool LiveH264StreamResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
   // @@protoc_insertion_point(parse_start:cameraService.LiveH264StreamResponse)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // bytes frame = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_frame()));
         } else {
           goto handle_unusual;
@@ -621,7 +495,7 @@ bool LiveH264StreamResponse::MergePartialFromCodedStream(
         if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
               input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
@@ -638,39 +512,39 @@ failure:
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void LiveH264StreamResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:cameraService.LiveH264StreamResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bytes frame = 1;
   if (this->frame().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesMaybeAliased(
       1, this->frame(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:cameraService.LiveH264StreamResponse)
 }
 
-::google::protobuf::uint8* LiveH264StreamResponse::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::PROTOBUF_NAMESPACE_ID::uint8* LiveH264StreamResponse::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:cameraService.LiveH264StreamResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bytes frame = 1;
   if (this->frame().size() > 0) {
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesToArray(
         1, this->frame(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:cameraService.LiveH264StreamResponse)
@@ -683,34 +557,34 @@ size_t LiveH264StreamResponse::ByteSizeLong() const {
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bytes frame = 1;
   if (this->frame().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->frame());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void LiveH264StreamResponse::MergeFrom(const ::google::protobuf::Message& from) {
+void LiveH264StreamResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:cameraService.LiveH264StreamResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const LiveH264StreamResponse* source =
-      ::google::protobuf::DynamicCastToGenerated<LiveH264StreamResponse>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LiveH264StreamResponse>(
           &from);
   if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.LiveH264StreamResponse)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.LiveH264StreamResponse)
     MergeFrom(*source);
@@ -721,16 +595,16 @@ void LiveH264StreamResponse::MergeFrom(const LiveH264StreamResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:cameraService.LiveH264StreamResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.frame().size() > 0) {
 
-    frame_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.frame_);
+    frame_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.frame_);
   }
 }
 
-void LiveH264StreamResponse::CopyFrom(const ::google::protobuf::Message& from) {
+void LiveH264StreamResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:cameraService.LiveH264StreamResponse)
   if (&from == this) return;
   Clear();
@@ -755,62 +629,61 @@ void LiveH264StreamResponse::Swap(LiveH264StreamResponse* other) {
 void LiveH264StreamResponse::InternalSwap(LiveH264StreamResponse* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  frame_.Swap(&other->frame_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  frame_.Swap(&other->frame_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
 }
 
-::google::protobuf::Metadata LiveH264StreamResponse::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata LiveH264StreamResponse::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void DvrListDatesRequest::InitAsDefaultInstance() {
+void LatestImageRequest::InitAsDefaultInstance() {
 }
-class DvrListDatesRequest::HasBitSetters {
+class LatestImageRequest::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-DvrListDatesRequest::DvrListDatesRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+LatestImageRequest::LatestImageRequest()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(constructor:cameraService.LatestImageRequest)
 }
-DvrListDatesRequest::DvrListDatesRequest(const DvrListDatesRequest& from)
-  : ::google::protobuf::Message(),
+LatestImageRequest::LatestImageRequest(const LatestImageRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(copy_constructor:cameraService.LatestImageRequest)
 }
 
-void DvrListDatesRequest::SharedCtor() {
+void LatestImageRequest::SharedCtor() {
 }
 
-DvrListDatesRequest::~DvrListDatesRequest() {
-  // @@protoc_insertion_point(destructor:cameraService.DvrListDatesRequest)
+LatestImageRequest::~LatestImageRequest() {
+  // @@protoc_insertion_point(destructor:cameraService.LatestImageRequest)
   SharedDtor();
 }
 
-void DvrListDatesRequest::SharedDtor() {
+void LatestImageRequest::SharedDtor() {
 }
 
-void DvrListDatesRequest::SetCachedSize(int size) const {
+void LatestImageRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const DvrListDatesRequest& DvrListDatesRequest::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_DvrListDatesRequest_camera_2eproto.base);
+const LatestImageRequest& LatestImageRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LatestImageRequest_camera_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void DvrListDatesRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:cameraService.DvrListDatesRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+void LatestImageRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:cameraService.LatestImageRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -818,651 +691,300 @@ void DvrListDatesRequest::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* DvrListDatesRequest::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<DvrListDatesRequest*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* LatestImageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       default: {
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool DvrListDatesRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+bool LatestImageRequest::MergePartialFromCodedStream(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:cameraService.DvrListDatesRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cameraService.LatestImageRequest)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
   handle_unusual:
     if (tag == 0) {
       goto success;
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
+    DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
           input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
-  // @@protoc_insertion_point(parse_success:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(parse_success:cameraService.LatestImageRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(parse_failure:cameraService.LatestImageRequest)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void DvrListDatesRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:cameraService.DvrListDatesRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+void LatestImageRequest::SerializeWithCachedSizes(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cameraService.LatestImageRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(serialize_end:cameraService.LatestImageRequest)
 }
 
-::google::protobuf::uint8* DvrListDatesRequest::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:cameraService.DvrListDatesRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+::PROTOBUF_NAMESPACE_ID::uint8* LatestImageRequest::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:cameraService.LatestImageRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:cameraService.LatestImageRequest)
   return target;
 }
 
-size_t DvrListDatesRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:cameraService.DvrListDatesRequest)
+size_t LatestImageRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cameraService.LatestImageRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void DvrListDatesRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:cameraService.DvrListDatesRequest)
+void LatestImageRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cameraService.LatestImageRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const DvrListDatesRequest* source =
-      ::google::protobuf::DynamicCastToGenerated<DvrListDatesRequest>(
+  const LatestImageRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LatestImageRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.DvrListDatesRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.LatestImageRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.DvrListDatesRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.LatestImageRequest)
     MergeFrom(*source);
   }
 }
 
-void DvrListDatesRequest::MergeFrom(const DvrListDatesRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.DvrListDatesRequest)
+void LatestImageRequest::MergeFrom(const LatestImageRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.LatestImageRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
 }
 
-void DvrListDatesRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:cameraService.DvrListDatesRequest)
+void LatestImageRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cameraService.LatestImageRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DvrListDatesRequest::CopyFrom(const DvrListDatesRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.DvrListDatesRequest)
+void LatestImageRequest::CopyFrom(const LatestImageRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.LatestImageRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DvrListDatesRequest::IsInitialized() const {
+bool LatestImageRequest::IsInitialized() const {
   return true;
 }
 
-void DvrListDatesRequest::Swap(DvrListDatesRequest* other) {
+void LatestImageRequest::Swap(LatestImageRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void DvrListDatesRequest::InternalSwap(DvrListDatesRequest* other) {
+void LatestImageRequest::InternalSwap(LatestImageRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata DvrListDatesRequest::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata LatestImageRequest::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void DvrListDatesResponse::InitAsDefaultInstance() {
+void LatestImageResponse::InitAsDefaultInstance() {
 }
-class DvrListDatesResponse::HasBitSetters {
+class LatestImageResponse::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DvrListDatesResponse::kDateListFieldNumber;
+const int LatestImageResponse::kTimeFieldNumber;
+const int LatestImageResponse::kImageFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-DvrListDatesResponse::DvrListDatesResponse()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+LatestImageResponse::LatestImageResponse()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:cameraService.DvrListDatesResponse)
+  // @@protoc_insertion_point(constructor:cameraService.LatestImageResponse)
 }
-DvrListDatesResponse::DvrListDatesResponse(const DvrListDatesResponse& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr),
-      date_list_(from.date_list_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:cameraService.DvrListDatesResponse)
-}
-
-void DvrListDatesResponse::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_DvrListDatesResponse_camera_2eproto.base);
-}
-
-DvrListDatesResponse::~DvrListDatesResponse() {
-  // @@protoc_insertion_point(destructor:cameraService.DvrListDatesResponse)
-  SharedDtor();
-}
-
-void DvrListDatesResponse::SharedDtor() {
-}
-
-void DvrListDatesResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DvrListDatesResponse& DvrListDatesResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_DvrListDatesResponse_camera_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DvrListDatesResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:cameraService.DvrListDatesResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  date_list_.Clear();
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* DvrListDatesResponse::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<DvrListDatesResponse*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // repeated string date_list = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        do {
-          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("cameraService.DvrListDatesResponse.date_list");
-          object = msg->add_date_list();
-          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-            goto string_till_end;
-          }
-          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-          ptr += size;
-          if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool DvrListDatesResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:cameraService.DvrListDatesResponse)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated string date_list = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_date_list()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->date_list(this->date_list_size() - 1).data(),
-            static_cast<int>(this->date_list(this->date_list_size() - 1).length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "cameraService.DvrListDatesResponse.date_list"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:cameraService.DvrListDatesResponse)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:cameraService.DvrListDatesResponse)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void DvrListDatesResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:cameraService.DvrListDatesResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated string date_list = 1;
-  for (int i = 0, n = this->date_list_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->date_list(i).data(), static_cast<int>(this->date_list(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrListDatesResponse.date_list");
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->date_list(i), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:cameraService.DvrListDatesResponse)
-}
-
-::google::protobuf::uint8* DvrListDatesResponse::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:cameraService.DvrListDatesResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated string date_list = 1;
-  for (int i = 0, n = this->date_list_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->date_list(i).data(), static_cast<int>(this->date_list(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrListDatesResponse.date_list");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(1, this->date_list(i), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:cameraService.DvrListDatesResponse)
-  return target;
-}
-
-size_t DvrListDatesResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:cameraService.DvrListDatesResponse)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated string date_list = 1;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->date_list_size());
-  for (int i = 0, n = this->date_list_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->date_list(i));
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void DvrListDatesResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:cameraService.DvrListDatesResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DvrListDatesResponse* source =
-      ::google::protobuf::DynamicCastToGenerated<DvrListDatesResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.DvrListDatesResponse)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.DvrListDatesResponse)
-    MergeFrom(*source);
-  }
-}
-
-void DvrListDatesResponse::MergeFrom(const DvrListDatesResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.DvrListDatesResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  date_list_.MergeFrom(from.date_list_);
-}
-
-void DvrListDatesResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:cameraService.DvrListDatesResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void DvrListDatesResponse::CopyFrom(const DvrListDatesResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.DvrListDatesResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool DvrListDatesResponse::IsInitialized() const {
-  return true;
-}
-
-void DvrListDatesResponse::Swap(DvrListDatesResponse* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void DvrListDatesResponse::InternalSwap(DvrListDatesResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  date_list_.InternalSwap(CastToBase(&other->date_list_));
-}
-
-::google::protobuf::Metadata DvrListDatesResponse::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void DvrDateVideosFilter::InitAsDefaultInstance() {
-}
-class DvrDateVideosFilter::HasBitSetters {
- public:
-};
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DvrDateVideosFilter::kHourStartFieldNumber;
-const int DvrDateVideosFilter::kHourEndFieldNumber;
-const int DvrDateVideosFilter::kLimitFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-DvrDateVideosFilter::DvrDateVideosFilter()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:cameraService.DvrDateVideosFilter)
-}
-DvrDateVideosFilter::DvrDateVideosFilter(const DvrDateVideosFilter& from)
-  : ::google::protobuf::Message(),
+LatestImageResponse::LatestImageResponse(const LatestImageResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  hour_start_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.hour_start().size() > 0) {
-    hour_start_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hour_start_);
+  time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from.time().size() > 0) {
+    time_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.time_);
   }
-  hour_end_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.hour_end().size() > 0) {
-    hour_end_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hour_end_);
+  image_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from.image().size() > 0) {
+    image_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.image_);
   }
-  limit_ = from.limit_;
-  // @@protoc_insertion_point(copy_constructor:cameraService.DvrDateVideosFilter)
+  // @@protoc_insertion_point(copy_constructor:cameraService.LatestImageResponse)
 }
 
-void DvrDateVideosFilter::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_DvrDateVideosFilter_camera_2eproto.base);
-  hour_start_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  hour_end_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  limit_ = 0u;
+void LatestImageResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_LatestImageResponse_camera_2eproto.base);
+  time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  image_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-DvrDateVideosFilter::~DvrDateVideosFilter() {
-  // @@protoc_insertion_point(destructor:cameraService.DvrDateVideosFilter)
+LatestImageResponse::~LatestImageResponse() {
+  // @@protoc_insertion_point(destructor:cameraService.LatestImageResponse)
   SharedDtor();
 }
 
-void DvrDateVideosFilter::SharedDtor() {
-  hour_start_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  hour_end_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void LatestImageResponse::SharedDtor() {
+  time_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  image_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void DvrDateVideosFilter::SetCachedSize(int size) const {
+void LatestImageResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const DvrDateVideosFilter& DvrDateVideosFilter::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_DvrDateVideosFilter_camera_2eproto.base);
+const LatestImageResponse& LatestImageResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LatestImageResponse_camera_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void DvrDateVideosFilter::Clear() {
-// @@protoc_insertion_point(message_clear_start:cameraService.DvrDateVideosFilter)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+void LatestImageResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:cameraService.LatestImageResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  hour_start_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  hour_end_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  limit_ = 0u;
+  time_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  image_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* DvrDateVideosFilter::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<DvrDateVideosFilter*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* LatestImageResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
-      // string hour_start = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("cameraService.DvrDateVideosFilter.hour_start");
-        object = msg->mutable_hour_start();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // string hour_end = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("cameraService.DvrDateVideosFilter.hour_end");
-        object = msg->mutable_hour_end();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // uint32 limit = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 24) goto handle_unusual;
-        msg->set_limit(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
+      // string time = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_time(), ptr, ctx, "cameraService.LatestImageResponse.time");
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes image = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(mutable_image(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool DvrDateVideosFilter::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+bool LatestImageResponse::MergePartialFromCodedStream(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:cameraService.DvrDateVideosFilter)
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+  // @@protoc_insertion_point(parse_start:cameraService.LatestImageResponse)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string hour_start = 1;
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string time = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_hour_start()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->hour_start().data(), static_cast<int>(this->hour_start().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "cameraService.DvrDateVideosFilter.hour_start"));
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->mutable_time()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->time().data(), static_cast<int>(this->time().length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "cameraService.LatestImageResponse.time"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string hour_end = 2;
+      // bytes image = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_hour_end()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->hour_end().data(), static_cast<int>(this->hour_end().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "cameraService.DvrDateVideosFilter.hour_end"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // uint32 limit = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (24 & 0xFF)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &limit_)));
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_image()));
         } else {
           goto handle_unusual;
         }
@@ -1474,896 +996,199 @@ bool DvrDateVideosFilter::MergePartialFromCodedStream(
         if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
               input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:cameraService.DvrDateVideosFilter)
+  // @@protoc_insertion_point(parse_success:cameraService.LatestImageResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:cameraService.DvrDateVideosFilter)
+  // @@protoc_insertion_point(parse_failure:cameraService.LatestImageResponse)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void DvrDateVideosFilter::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:cameraService.DvrDateVideosFilter)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+void LatestImageResponse::SerializeWithCachedSizes(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:cameraService.LatestImageResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string hour_start = 1;
-  if (this->hour_start().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hour_start().data(), static_cast<int>(this->hour_start().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrDateVideosFilter.hour_start");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->hour_start(), output);
+  // string time = 1;
+  if (this->time().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->time().data(), static_cast<int>(this->time().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "cameraService.LatestImageResponse.time");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->time(), output);
   }
 
-  // string hour_end = 2;
-  if (this->hour_end().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hour_end().data(), static_cast<int>(this->hour_end().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrDateVideosFilter.hour_end");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->hour_end(), output);
-  }
-
-  // uint32 limit = 3;
-  if (this->limit() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->limit(), output);
+  // bytes image = 2;
+  if (this->image().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->image(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:cameraService.DvrDateVideosFilter)
+  // @@protoc_insertion_point(serialize_end:cameraService.LatestImageResponse)
 }
 
-::google::protobuf::uint8* DvrDateVideosFilter::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:cameraService.DvrDateVideosFilter)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+::PROTOBUF_NAMESPACE_ID::uint8* LatestImageResponse::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:cameraService.LatestImageResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string hour_start = 1;
-  if (this->hour_start().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hour_start().data(), static_cast<int>(this->hour_start().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrDateVideosFilter.hour_start");
+  // string time = 1;
+  if (this->time().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->time().data(), static_cast<int>(this->time().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "cameraService.LatestImageResponse.time");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->hour_start(), target);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+        1, this->time(), target);
   }
 
-  // string hour_end = 2;
-  if (this->hour_end().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->hour_end().data(), static_cast<int>(this->hour_end().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrDateVideosFilter.hour_end");
+  // bytes image = 2;
+  if (this->image().size() > 0) {
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->hour_end(), target);
-  }
-
-  // uint32 limit = 3;
-  if (this->limit() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->limit(), target);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesToArray(
+        2, this->image(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:cameraService.DvrDateVideosFilter)
+  // @@protoc_insertion_point(serialize_to_array_end:cameraService.LatestImageResponse)
   return target;
 }
 
-size_t DvrDateVideosFilter::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:cameraService.DvrDateVideosFilter)
+size_t LatestImageResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cameraService.LatestImageResponse)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string hour_start = 1;
-  if (this->hour_start().size() > 0) {
+  // string time = 1;
+  if (this->time().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->hour_start());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->time());
   }
 
-  // string hour_end = 2;
-  if (this->hour_end().size() > 0) {
+  // bytes image = 2;
+  if (this->image().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->hour_end());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->image());
   }
 
-  // uint32 limit = 3;
-  if (this->limit() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->limit());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void DvrDateVideosFilter::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:cameraService.DvrDateVideosFilter)
+void LatestImageResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cameraService.LatestImageResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const DvrDateVideosFilter* source =
-      ::google::protobuf::DynamicCastToGenerated<DvrDateVideosFilter>(
+  const LatestImageResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LatestImageResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.DvrDateVideosFilter)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.LatestImageResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.DvrDateVideosFilter)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.LatestImageResponse)
     MergeFrom(*source);
   }
 }
 
-void DvrDateVideosFilter::MergeFrom(const DvrDateVideosFilter& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.DvrDateVideosFilter)
+void LatestImageResponse::MergeFrom(const LatestImageResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.LatestImageResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.hour_start().size() > 0) {
+  if (from.time().size() > 0) {
 
-    hour_start_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hour_start_);
+    time_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.time_);
   }
-  if (from.hour_end().size() > 0) {
+  if (from.image().size() > 0) {
 
-    hour_end_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hour_end_);
-  }
-  if (from.limit() != 0) {
-    set_limit(from.limit());
+    image_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.image_);
   }
 }
 
-void DvrDateVideosFilter::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:cameraService.DvrDateVideosFilter)
+void LatestImageResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cameraService.LatestImageResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DvrDateVideosFilter::CopyFrom(const DvrDateVideosFilter& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.DvrDateVideosFilter)
+void LatestImageResponse::CopyFrom(const LatestImageResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.LatestImageResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DvrDateVideosFilter::IsInitialized() const {
+bool LatestImageResponse::IsInitialized() const {
   return true;
 }
 
-void DvrDateVideosFilter::Swap(DvrDateVideosFilter* other) {
+void LatestImageResponse::Swap(LatestImageResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void DvrDateVideosFilter::InternalSwap(DvrDateVideosFilter* other) {
+void LatestImageResponse::InternalSwap(LatestImageResponse* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  hour_start_.Swap(&other->hour_start_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  time_.Swap(&other->time_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  hour_end_.Swap(&other->hour_end_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  image_.Swap(&other->image_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(limit_, other->limit_);
 }
 
-::google::protobuf::Metadata DvrDateVideosFilter::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void DvrListDateVideosRequest::InitAsDefaultInstance() {
-  ::cameraService::_DvrListDateVideosRequest_default_instance_._instance.get_mutable()->filter_ = const_cast< ::cameraService::DvrDateVideosFilter*>(
-      ::cameraService::DvrDateVideosFilter::internal_default_instance());
-}
-class DvrListDateVideosRequest::HasBitSetters {
- public:
-  static const ::cameraService::DvrDateVideosFilter& filter(const DvrListDateVideosRequest* msg);
-};
-
-const ::cameraService::DvrDateVideosFilter&
-DvrListDateVideosRequest::HasBitSetters::filter(const DvrListDateVideosRequest* msg) {
-  return *msg->filter_;
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DvrListDateVideosRequest::kDateFieldNumber;
-const int DvrListDateVideosRequest::kFilterFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-DvrListDateVideosRequest::DvrListDateVideosRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:cameraService.DvrListDateVideosRequest)
-}
-DvrListDateVideosRequest::DvrListDateVideosRequest(const DvrListDateVideosRequest& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.date().size() > 0) {
-    date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.date_);
-  }
-  if (from.has_filter()) {
-    filter_ = new ::cameraService::DvrDateVideosFilter(*from.filter_);
-  } else {
-    filter_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:cameraService.DvrListDateVideosRequest)
-}
-
-void DvrListDateVideosRequest::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_DvrListDateVideosRequest_camera_2eproto.base);
-  date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  filter_ = nullptr;
-}
-
-DvrListDateVideosRequest::~DvrListDateVideosRequest() {
-  // @@protoc_insertion_point(destructor:cameraService.DvrListDateVideosRequest)
-  SharedDtor();
-}
-
-void DvrListDateVideosRequest::SharedDtor() {
-  date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete filter_;
-}
-
-void DvrListDateVideosRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DvrListDateVideosRequest& DvrListDateVideosRequest::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_DvrListDateVideosRequest_camera_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DvrListDateVideosRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:cameraService.DvrListDateVideosRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == nullptr && filter_ != nullptr) {
-    delete filter_;
-  }
-  filter_ = nullptr;
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* DvrListDateVideosRequest::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<DvrListDateVideosRequest*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // string date = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        ctx->extra_parse_data().SetFieldName("cameraService.DvrListDateVideosRequest.date");
-        object = msg->mutable_date();
-        if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-          parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-          goto string_till_end;
-        }
-        GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-        ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-        ptr += size;
-        break;
-      }
-      // .cameraService.DvrDateVideosFilter filter = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 18) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::cameraService::DvrDateVideosFilter::_InternalParse;
-        object = msg->mutable_filter();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool DvrListDateVideosRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:cameraService.DvrListDateVideosRequest)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string date = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_date()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->date().data(), static_cast<int>(this->date().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "cameraService.DvrListDateVideosRequest.date"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .cameraService.DvrDateVideosFilter filter = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (18 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_filter()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:cameraService.DvrListDateVideosRequest)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:cameraService.DvrListDateVideosRequest)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void DvrListDateVideosRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:cameraService.DvrListDateVideosRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string date = 1;
-  if (this->date().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->date().data(), static_cast<int>(this->date().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrListDateVideosRequest.date");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->date(), output);
-  }
-
-  // .cameraService.DvrDateVideosFilter filter = 2;
-  if (this->has_filter()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, HasBitSetters::filter(this), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:cameraService.DvrListDateVideosRequest)
-}
-
-::google::protobuf::uint8* DvrListDateVideosRequest::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:cameraService.DvrListDateVideosRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string date = 1;
-  if (this->date().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->date().data(), static_cast<int>(this->date().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrListDateVideosRequest.date");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->date(), target);
-  }
-
-  // .cameraService.DvrDateVideosFilter filter = 2;
-  if (this->has_filter()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        2, HasBitSetters::filter(this), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:cameraService.DvrListDateVideosRequest)
-  return target;
-}
-
-size_t DvrListDateVideosRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:cameraService.DvrListDateVideosRequest)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string date = 1;
-  if (this->date().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->date());
-  }
-
-  // .cameraService.DvrDateVideosFilter filter = 2;
-  if (this->has_filter()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *filter_);
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void DvrListDateVideosRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:cameraService.DvrListDateVideosRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DvrListDateVideosRequest* source =
-      ::google::protobuf::DynamicCastToGenerated<DvrListDateVideosRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.DvrListDateVideosRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.DvrListDateVideosRequest)
-    MergeFrom(*source);
-  }
-}
-
-void DvrListDateVideosRequest::MergeFrom(const DvrListDateVideosRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.DvrListDateVideosRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.date().size() > 0) {
-
-    date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.date_);
-  }
-  if (from.has_filter()) {
-    mutable_filter()->::cameraService::DvrDateVideosFilter::MergeFrom(from.filter());
-  }
-}
-
-void DvrListDateVideosRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:cameraService.DvrListDateVideosRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void DvrListDateVideosRequest::CopyFrom(const DvrListDateVideosRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.DvrListDateVideosRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool DvrListDateVideosRequest::IsInitialized() const {
-  return true;
-}
-
-void DvrListDateVideosRequest::Swap(DvrListDateVideosRequest* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void DvrListDateVideosRequest::InternalSwap(DvrListDateVideosRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  date_.Swap(&other->date_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(filter_, other->filter_);
-}
-
-::google::protobuf::Metadata DvrListDateVideosRequest::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void DvrListDateVideosResponse::InitAsDefaultInstance() {
-}
-class DvrListDateVideosResponse::HasBitSetters {
- public:
-};
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DvrListDateVideosResponse::kVideosStaticFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-DvrListDateVideosResponse::DvrListDateVideosResponse()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:cameraService.DvrListDateVideosResponse)
-}
-DvrListDateVideosResponse::DvrListDateVideosResponse(const DvrListDateVideosResponse& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(nullptr),
-      videos_static_(from.videos_static_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:cameraService.DvrListDateVideosResponse)
-}
-
-void DvrListDateVideosResponse::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_DvrListDateVideosResponse_camera_2eproto.base);
-}
-
-DvrListDateVideosResponse::~DvrListDateVideosResponse() {
-  // @@protoc_insertion_point(destructor:cameraService.DvrListDateVideosResponse)
-  SharedDtor();
-}
-
-void DvrListDateVideosResponse::SharedDtor() {
-}
-
-void DvrListDateVideosResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DvrListDateVideosResponse& DvrListDateVideosResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_DvrListDateVideosResponse_camera_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DvrListDateVideosResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:cameraService.DvrListDateVideosResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  videos_static_.Clear();
-  _internal_metadata_.Clear();
-}
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* DvrListDateVideosResponse::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<DvrListDateVideosResponse*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-    switch (tag >> 3) {
-      // repeated string videos_static = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        do {
-          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("cameraService.DvrListDateVideosResponse.videos_static");
-          object = msg->add_videos_static();
-          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
-            parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
-            goto string_till_end;
-          }
-          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheckUTF8(ptr, size, ctx));
-          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
-          ptr += size;
-          if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
-        break;
-      }
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
-        }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
-      }
-    }  // switch
-  }  // while
-  return ptr;
-string_till_end:
-  static_cast<::std::string*>(object)->clear();
-  static_cast<::std::string*>(object)->reserve(size);
-  goto len_delim_till_end;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
-}
-#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool DvrListDateVideosResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:cameraService.DvrListDateVideosResponse)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated string videos_static = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_videos_static()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->videos_static(this->videos_static_size() - 1).data(),
-            static_cast<int>(this->videos_static(this->videos_static_size() - 1).length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "cameraService.DvrListDateVideosResponse.videos_static"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:cameraService.DvrListDateVideosResponse)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:cameraService.DvrListDateVideosResponse)
-  return false;
-#undef DO_
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-
-void DvrListDateVideosResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:cameraService.DvrListDateVideosResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated string videos_static = 1;
-  for (int i = 0, n = this->videos_static_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->videos_static(i).data(), static_cast<int>(this->videos_static(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrListDateVideosResponse.videos_static");
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->videos_static(i), output);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        _internal_metadata_.unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:cameraService.DvrListDateVideosResponse)
-}
-
-::google::protobuf::uint8* DvrListDateVideosResponse::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:cameraService.DvrListDateVideosResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated string videos_static = 1;
-  for (int i = 0, n = this->videos_static_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->videos_static(i).data(), static_cast<int>(this->videos_static(i).length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "cameraService.DvrListDateVideosResponse.videos_static");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(1, this->videos_static(i), target);
-  }
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:cameraService.DvrListDateVideosResponse)
-  return target;
-}
-
-size_t DvrListDateVideosResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:cameraService.DvrListDateVideosResponse)
-  size_t total_size = 0;
-
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        _internal_metadata_.unknown_fields());
-  }
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated string videos_static = 1;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->videos_static_size());
-  for (int i = 0, n = this->videos_static_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->videos_static(i));
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void DvrListDateVideosResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:cameraService.DvrListDateVideosResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DvrListDateVideosResponse* source =
-      ::google::protobuf::DynamicCastToGenerated<DvrListDateVideosResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cameraService.DvrListDateVideosResponse)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:cameraService.DvrListDateVideosResponse)
-    MergeFrom(*source);
-  }
-}
-
-void DvrListDateVideosResponse::MergeFrom(const DvrListDateVideosResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cameraService.DvrListDateVideosResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  videos_static_.MergeFrom(from.videos_static_);
-}
-
-void DvrListDateVideosResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:cameraService.DvrListDateVideosResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void DvrListDateVideosResponse::CopyFrom(const DvrListDateVideosResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:cameraService.DvrListDateVideosResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool DvrListDateVideosResponse::IsInitialized() const {
-  return true;
-}
-
-void DvrListDateVideosResponse::Swap(DvrListDateVideosResponse* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void DvrListDateVideosResponse::InternalSwap(DvrListDateVideosResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  videos_static_.InternalSwap(CastToBase(&other->videos_static_));
-}
-
-::google::protobuf::Metadata DvrListDateVideosResponse::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_camera_2eproto);
-  return ::file_level_metadata_camera_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata LatestImageResponse::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace cameraService
-namespace google {
-namespace protobuf {
+PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::cameraService::LiveH264StreamRequest* Arena::CreateMaybeMessage< ::cameraService::LiveH264StreamRequest >(Arena* arena) {
   return Arena::CreateInternal< ::cameraService::LiveH264StreamRequest >(arena);
 }
 template<> PROTOBUF_NOINLINE ::cameraService::LiveH264StreamResponse* Arena::CreateMaybeMessage< ::cameraService::LiveH264StreamResponse >(Arena* arena) {
   return Arena::CreateInternal< ::cameraService::LiveH264StreamResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::cameraService::DvrListDatesRequest* Arena::CreateMaybeMessage< ::cameraService::DvrListDatesRequest >(Arena* arena) {
-  return Arena::CreateInternal< ::cameraService::DvrListDatesRequest >(arena);
+template<> PROTOBUF_NOINLINE ::cameraService::LatestImageRequest* Arena::CreateMaybeMessage< ::cameraService::LatestImageRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::cameraService::LatestImageRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::cameraService::DvrListDatesResponse* Arena::CreateMaybeMessage< ::cameraService::DvrListDatesResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::cameraService::DvrListDatesResponse >(arena);
+template<> PROTOBUF_NOINLINE ::cameraService::LatestImageResponse* Arena::CreateMaybeMessage< ::cameraService::LatestImageResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::cameraService::LatestImageResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::cameraService::DvrDateVideosFilter* Arena::CreateMaybeMessage< ::cameraService::DvrDateVideosFilter >(Arena* arena) {
-  return Arena::CreateInternal< ::cameraService::DvrDateVideosFilter >(arena);
-}
-template<> PROTOBUF_NOINLINE ::cameraService::DvrListDateVideosRequest* Arena::CreateMaybeMessage< ::cameraService::DvrListDateVideosRequest >(Arena* arena) {
-  return Arena::CreateInternal< ::cameraService::DvrListDateVideosRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::cameraService::DvrListDateVideosResponse* Arena::CreateMaybeMessage< ::cameraService::DvrListDateVideosResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::cameraService::DvrListDateVideosResponse >(arena);
-}
-}  // namespace protobuf
-}  // namespace google
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 #include <google/protobuf/port_undef.inc>

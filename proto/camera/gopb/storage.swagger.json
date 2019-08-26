@@ -1,0 +1,237 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "storage.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/camera/storage/videos": {
+      "post": {
+        "summary": "获取监控视频列表",
+        "operationId": "ListVideos2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cameraServiceListVideosResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cameraServiceListVideosRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Storage"
+        ]
+      }
+    },
+    "/api/v2/camera/storage/dates": {
+      "get": {
+        "summary": "获取监控视频日期列表",
+        "operationId": "ListDates",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cameraServiceListDatesResponse"
+            }
+          }
+        },
+        "tags": [
+          "Storage"
+        ]
+      }
+    },
+    "/api/v2/camera/storage/videos": {
+      "get": {
+        "summary": "获取监控视频列表",
+        "operationId": "ListVideos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cameraServiceListVideosResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "start",
+            "description": "开始时间\n默认为当日00:00:00\n格式 2019-01-02_03:04:05.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end",
+            "description": "结束时间\n默认为当日23:59:59\n格式 2019-01-02_03:04:05.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Storage"
+        ]
+      }
+    },
+    "/api/v2/camera/storage/videos/delete": {
+      "post": {
+        "summary": "删除监控视频文件",
+        "operationId": "DeleteVideoFiles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cameraServiceDeleteVideoFilesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cameraServiceDeleteVideoFilesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Storage"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "cameraServiceDeleteVideoFilesRequest": {
+      "type": "object",
+      "properties": {
+        "videos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "e.g. [2019-01-01/00:00:00.mp4, 2019-12-01/22:10:00.mp4]"
+        }
+      }
+    },
+    "cameraServiceDeleteVideoFilesResponse": {
+      "type": "object"
+    },
+    "cameraServiceGetVideoFileResponse": {
+      "type": "object",
+      "properties": {
+        "chunk": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "cameraServiceListDatesResponse": {
+      "type": "object",
+      "properties": {
+        "dates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "日期 e.g. [2019-01-01, 2019-01-02]"
+        }
+      }
+    },
+    "cameraServiceListVideosRequest": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "title": "开始时间\n默认为当日00:00:00\n格式 2019-01-02_03:04:05"
+        },
+        "end": {
+          "type": "string",
+          "title": "结束时间\n默认为当日23:59:59\n格式 2019-01-02_03:04:05"
+        }
+      }
+    },
+    "cameraServiceListVideosResponse": {
+      "type": "object",
+      "properties": {
+        "videos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "e.g. [2019-01-01/00:00:00.mp4, 2019-01-01/00:10:00.mp4]"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "cameraServiceGetVideoFileResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/cameraServiceGetVideoFileResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of cameraServiceGetVideoFileResponse"
+    }
+  }
+}

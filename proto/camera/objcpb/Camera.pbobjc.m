@@ -130,14 +130,14 @@ typedef struct LiveH264StreamResponse__storage_ {
 
 @end
 
-#pragma mark - DvrListDatesRequest
+#pragma mark - LatestImageRequest
 
-@implementation DvrListDatesRequest
+@implementation LatestImageRequest
 
 
-typedef struct DvrListDatesRequest__storage_ {
+typedef struct LatestImageRequest__storage_ {
   uint32_t _has_storage_[1];
-} DvrListDatesRequest__storage_;
+} LatestImageRequest__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -145,12 +145,12 @@ typedef struct DvrListDatesRequest__storage_ {
   static GPBDescriptor *descriptor = nil;
   if (!descriptor) {
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[DvrListDatesRequest class]
+        [GPBDescriptor allocDescriptorForClass:[LatestImageRequest class]
                                      rootClass:[CameraRoot class]
                                           file:CameraRoot_FileDescriptor()
                                         fields:NULL
                                     fieldCount:0
-                                   storageSize:sizeof(DvrListDatesRequest__storage_)
+                                   storageSize:sizeof(LatestImageRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
@@ -162,16 +162,18 @@ typedef struct DvrListDatesRequest__storage_ {
 
 @end
 
-#pragma mark - DvrListDatesResponse
+#pragma mark - LatestImageResponse
 
-@implementation DvrListDatesResponse
+@implementation LatestImageResponse
 
-@dynamic dateListArray, dateListArray_Count;
+@dynamic time;
+@dynamic image;
 
-typedef struct DvrListDatesResponse__storage_ {
+typedef struct LatestImageResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSMutableArray *dateListArray;
-} DvrListDatesResponse__storage_;
+  NSString *time;
+  NSData *image;
+} LatestImageResponse__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -180,190 +182,31 @@ typedef struct DvrListDatesResponse__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "dateListArray",
+        .name = "time",
         .dataTypeSpecific.className = NULL,
-        .number = DvrListDatesResponse_FieldNumber_DateListArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(DvrListDatesResponse__storage_, dateListArray),
-        .flags = GPBFieldRepeated,
-        .dataType = GPBDataTypeString,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[DvrListDatesResponse class]
-                                     rootClass:[CameraRoot class]
-                                          file:CameraRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(DvrListDatesResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - DvrDateVideosFilter
-
-@implementation DvrDateVideosFilter
-
-@dynamic hourStart;
-@dynamic hourEnd;
-@dynamic limit;
-
-typedef struct DvrDateVideosFilter__storage_ {
-  uint32_t _has_storage_[1];
-  uint32_t limit;
-  NSString *hourStart;
-  NSString *hourEnd;
-} DvrDateVideosFilter__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "hourStart",
-        .dataTypeSpecific.className = NULL,
-        .number = DvrDateVideosFilter_FieldNumber_HourStart,
+        .number = LatestImageResponse_FieldNumber_Time,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(DvrDateVideosFilter__storage_, hourStart),
+        .offset = (uint32_t)offsetof(LatestImageResponse__storage_, time),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "hourEnd",
+        .name = "image",
         .dataTypeSpecific.className = NULL,
-        .number = DvrDateVideosFilter_FieldNumber_HourEnd,
+        .number = LatestImageResponse_FieldNumber_Image,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(DvrDateVideosFilter__storage_, hourEnd),
+        .offset = (uint32_t)offsetof(LatestImageResponse__storage_, image),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "limit",
-        .dataTypeSpecific.className = NULL,
-        .number = DvrDateVideosFilter_FieldNumber_Limit,
-        .hasIndex = 2,
-        .offset = (uint32_t)offsetof(DvrDateVideosFilter__storage_, limit),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeBytes,
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[DvrDateVideosFilter class]
+        [GPBDescriptor allocDescriptorForClass:[LatestImageResponse class]
                                      rootClass:[CameraRoot class]
                                           file:CameraRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(DvrDateVideosFilter__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - DvrListDateVideosRequest
-
-@implementation DvrListDateVideosRequest
-
-@dynamic date;
-@dynamic hasFilter, filter;
-
-typedef struct DvrListDateVideosRequest__storage_ {
-  uint32_t _has_storage_[1];
-  NSString *date;
-  DvrDateVideosFilter *filter;
-} DvrListDateVideosRequest__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "date",
-        .dataTypeSpecific.className = NULL,
-        .number = DvrListDateVideosRequest_FieldNumber_Date,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(DvrListDateVideosRequest__storage_, date),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "filter",
-        .dataTypeSpecific.className = GPBStringifySymbol(DvrDateVideosFilter),
-        .number = DvrListDateVideosRequest_FieldNumber_Filter,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(DvrListDateVideosRequest__storage_, filter),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[DvrListDateVideosRequest class]
-                                     rootClass:[CameraRoot class]
-                                          file:CameraRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(DvrListDateVideosRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - DvrListDateVideosResponse
-
-@implementation DvrListDateVideosResponse
-
-@dynamic videosStaticArray, videosStaticArray_Count;
-
-typedef struct DvrListDateVideosResponse__storage_ {
-  uint32_t _has_storage_[1];
-  NSMutableArray *videosStaticArray;
-} DvrListDateVideosResponse__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "videosStaticArray",
-        .dataTypeSpecific.className = NULL,
-        .number = DvrListDateVideosResponse_FieldNumber_VideosStaticArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(DvrListDateVideosResponse__storage_, videosStaticArray),
-        .flags = GPBFieldRepeated,
-        .dataType = GPBDataTypeString,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[DvrListDateVideosResponse class]
-                                     rootClass:[CameraRoot class]
-                                          file:CameraRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(DvrListDateVideosResponse__storage_)
+                                   storageSize:sizeof(LatestImageResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");

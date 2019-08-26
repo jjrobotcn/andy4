@@ -19,15 +19,10 @@ class CameraServiceStub(object):
         request_serializer=camera__pb2.LiveH264StreamRequest.SerializeToString,
         response_deserializer=camera__pb2.LiveH264StreamResponse.FromString,
         )
-    self.DvrListDates = channel.unary_unary(
-        '/cameraService.CameraService/DvrListDates',
-        request_serializer=camera__pb2.DvrListDatesRequest.SerializeToString,
-        response_deserializer=camera__pb2.DvrListDatesResponse.FromString,
-        )
-    self.DvrListDateVideos = channel.unary_unary(
-        '/cameraService.CameraService/DvrListDateVideos',
-        request_serializer=camera__pb2.DvrListDateVideosRequest.SerializeToString,
-        response_deserializer=camera__pb2.DvrListDateVideosResponse.FromString,
+    self.LatestImage = channel.unary_unary(
+        '/cameraService.CameraService/LatestImage',
+        request_serializer=camera__pb2.LatestImageRequest.SerializeToString,
+        response_deserializer=camera__pb2.LatestImageResponse.FromString,
         )
 
 
@@ -42,15 +37,9 @@ class CameraServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def DvrListDates(self, request, context):
-    """获取监控数据日期列表
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def DvrListDateVideos(self, request, context):
-    """获取监控数据指定日期视频文件列表
+  def LatestImage(self, request, context):
+    """获取当前最新图片jpg
+    图片更新时间周期为1s
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -64,15 +53,10 @@ def add_CameraServiceServicer_to_server(servicer, server):
           request_deserializer=camera__pb2.LiveH264StreamRequest.FromString,
           response_serializer=camera__pb2.LiveH264StreamResponse.SerializeToString,
       ),
-      'DvrListDates': grpc.unary_unary_rpc_method_handler(
-          servicer.DvrListDates,
-          request_deserializer=camera__pb2.DvrListDatesRequest.FromString,
-          response_serializer=camera__pb2.DvrListDatesResponse.SerializeToString,
-      ),
-      'DvrListDateVideos': grpc.unary_unary_rpc_method_handler(
-          servicer.DvrListDateVideos,
-          request_deserializer=camera__pb2.DvrListDateVideosRequest.FromString,
-          response_serializer=camera__pb2.DvrListDateVideosResponse.SerializeToString,
+      'LatestImage': grpc.unary_unary_rpc_method_handler(
+          servicer.LatestImage,
+          request_deserializer=camera__pb2.LatestImageRequest.FromString,
+          response_serializer=camera__pb2.LatestImageResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

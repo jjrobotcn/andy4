@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='cameraService',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63\x61mera.proto\x12\rcameraService\x1a\x1cgoogle/api/annotations.proto\"\x17\n\x15LiveH264StreamRequest\"\'\n\x16LiveH264StreamResponse\x12\r\n\x05\x66rame\x18\x01 \x01(\x0c\"\x15\n\x13\x44vrListDatesRequest\")\n\x14\x44vrListDatesResponse\x12\x11\n\tdate_list\x18\x01 \x03(\t\"J\n\x13\x44vrDateVideosFilter\x12\x12\n\nhour_start\x18\x01 \x01(\t\x12\x10\n\x08hour_end\x18\x02 \x01(\t\x12\r\n\x05limit\x18\x03 \x01(\r\"\\\n\x18\x44vrListDateVideosRequest\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x32\n\x06\x66ilter\x18\x02 \x01(\x0b\x32\".cameraService.DvrDateVideosFilter\"2\n\x19\x44vrListDateVideosResponse\x12\x15\n\rvideos_static\x18\x01 \x03(\t2\x8f\x03\n\rCameraService\x12\x61\n\x0eLiveH264Stream\x12$.cameraService.LiveH264StreamRequest\x1a%.cameraService.LiveH264StreamResponse\"\x00\x30\x01\x12\x81\x01\n\x0c\x44vrListDates\x12\".cameraService.DvrListDatesRequest\x1a#.cameraService.DvrListDatesResponse\"(\x82\xd3\xe4\x93\x02\"\"\x1d/api/v2/camera/dvr_list_dates:\x01*\x12\x96\x01\n\x11\x44vrListDateVideos\x12\'.cameraService.DvrListDateVideosRequest\x1a(.cameraService.DvrListDateVideosResponse\".\x82\xd3\xe4\x93\x02(\"#/api/v2/camera/dvr_list_date_videos:\x01*b\x06proto3')
+  serialized_pb=_b('\n\x0c\x63\x61mera.proto\x12\rcameraService\x1a\x1cgoogle/api/annotations.proto\"\x17\n\x15LiveH264StreamRequest\"\'\n\x16LiveH264StreamResponse\x12\r\n\x05\x66rame\x18\x01 \x01(\x0c\"\x14\n\x12LatestImageRequest\"2\n\x13LatestImageResponse\x12\x0c\n\x04time\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\x0c\x32\xe6\x01\n\rCameraService\x12\x61\n\x0eLiveH264Stream\x12$.cameraService.LiveH264StreamRequest\x1a%.cameraService.LiveH264StreamResponse\"\x00\x30\x01\x12r\n\x0bLatestImage\x12!.cameraService.LatestImageRequest\x1a\".cameraService.LatestImageResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/api/v2/camera/imageb\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -83,9 +83,9 @@ _LIVEH264STREAMRESPONSE = _descriptor.Descriptor(
 )
 
 
-_DVRLISTDATESREQUEST = _descriptor.Descriptor(
-  name='DvrListDatesRequest',
-  full_name='cameraService.DvrListDatesRequest',
+_LATESTIMAGEREQUEST = _descriptor.Descriptor(
+  name='LatestImageRequest',
+  full_name='cameraService.LatestImageRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -103,66 +103,28 @@ _DVRLISTDATESREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=127,
-  serialized_end=148,
+  serialized_end=147,
 )
 
 
-_DVRLISTDATESRESPONSE = _descriptor.Descriptor(
-  name='DvrListDatesResponse',
-  full_name='cameraService.DvrListDatesResponse',
+_LATESTIMAGERESPONSE = _descriptor.Descriptor(
+  name='LatestImageResponse',
+  full_name='cameraService.LatestImageResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='date_list', full_name='cameraService.DvrListDatesResponse.date_list', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=150,
-  serialized_end=191,
-)
-
-
-_DVRDATEVIDEOSFILTER = _descriptor.Descriptor(
-  name='DvrDateVideosFilter',
-  full_name='cameraService.DvrDateVideosFilter',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='hour_start', full_name='cameraService.DvrDateVideosFilter.hour_start', index=0,
+      name='time', full_name='cameraService.LatestImageResponse.time', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='hour_end', full_name='cameraService.DvrDateVideosFilter.hour_end', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='limit', full_name='cameraService.DvrDateVideosFilter.limit', index=2,
-      number=3, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
+      name='image', full_name='cameraService.LatestImageResponse.image', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -178,137 +140,43 @@ _DVRDATEVIDEOSFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=193,
-  serialized_end=267,
+  serialized_start=149,
+  serialized_end=199,
 )
 
-
-_DVRLISTDATEVIDEOSREQUEST = _descriptor.Descriptor(
-  name='DvrListDateVideosRequest',
-  full_name='cameraService.DvrListDateVideosRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='date', full_name='cameraService.DvrListDateVideosRequest.date', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='filter', full_name='cameraService.DvrListDateVideosRequest.filter', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=269,
-  serialized_end=361,
-)
-
-
-_DVRLISTDATEVIDEOSRESPONSE = _descriptor.Descriptor(
-  name='DvrListDateVideosResponse',
-  full_name='cameraService.DvrListDateVideosResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='videos_static', full_name='cameraService.DvrListDateVideosResponse.videos_static', index=0,
-      number=1, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=363,
-  serialized_end=413,
-)
-
-_DVRLISTDATEVIDEOSREQUEST.fields_by_name['filter'].message_type = _DVRDATEVIDEOSFILTER
 DESCRIPTOR.message_types_by_name['LiveH264StreamRequest'] = _LIVEH264STREAMREQUEST
 DESCRIPTOR.message_types_by_name['LiveH264StreamResponse'] = _LIVEH264STREAMRESPONSE
-DESCRIPTOR.message_types_by_name['DvrListDatesRequest'] = _DVRLISTDATESREQUEST
-DESCRIPTOR.message_types_by_name['DvrListDatesResponse'] = _DVRLISTDATESRESPONSE
-DESCRIPTOR.message_types_by_name['DvrDateVideosFilter'] = _DVRDATEVIDEOSFILTER
-DESCRIPTOR.message_types_by_name['DvrListDateVideosRequest'] = _DVRLISTDATEVIDEOSREQUEST
-DESCRIPTOR.message_types_by_name['DvrListDateVideosResponse'] = _DVRLISTDATEVIDEOSRESPONSE
+DESCRIPTOR.message_types_by_name['LatestImageRequest'] = _LATESTIMAGEREQUEST
+DESCRIPTOR.message_types_by_name['LatestImageResponse'] = _LATESTIMAGERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-LiveH264StreamRequest = _reflection.GeneratedProtocolMessageType('LiveH264StreamRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LIVEH264STREAMREQUEST,
-  __module__ = 'camera_pb2'
+LiveH264StreamRequest = _reflection.GeneratedProtocolMessageType('LiveH264StreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LIVEH264STREAMREQUEST,
+  '__module__' : 'camera_pb2'
   # @@protoc_insertion_point(class_scope:cameraService.LiveH264StreamRequest)
-  ))
+  })
 _sym_db.RegisterMessage(LiveH264StreamRequest)
 
-LiveH264StreamResponse = _reflection.GeneratedProtocolMessageType('LiveH264StreamResponse', (_message.Message,), dict(
-  DESCRIPTOR = _LIVEH264STREAMRESPONSE,
-  __module__ = 'camera_pb2'
+LiveH264StreamResponse = _reflection.GeneratedProtocolMessageType('LiveH264StreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LIVEH264STREAMRESPONSE,
+  '__module__' : 'camera_pb2'
   # @@protoc_insertion_point(class_scope:cameraService.LiveH264StreamResponse)
-  ))
+  })
 _sym_db.RegisterMessage(LiveH264StreamResponse)
 
-DvrListDatesRequest = _reflection.GeneratedProtocolMessageType('DvrListDatesRequest', (_message.Message,), dict(
-  DESCRIPTOR = _DVRLISTDATESREQUEST,
-  __module__ = 'camera_pb2'
-  # @@protoc_insertion_point(class_scope:cameraService.DvrListDatesRequest)
-  ))
-_sym_db.RegisterMessage(DvrListDatesRequest)
+LatestImageRequest = _reflection.GeneratedProtocolMessageType('LatestImageRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LATESTIMAGEREQUEST,
+  '__module__' : 'camera_pb2'
+  # @@protoc_insertion_point(class_scope:cameraService.LatestImageRequest)
+  })
+_sym_db.RegisterMessage(LatestImageRequest)
 
-DvrListDatesResponse = _reflection.GeneratedProtocolMessageType('DvrListDatesResponse', (_message.Message,), dict(
-  DESCRIPTOR = _DVRLISTDATESRESPONSE,
-  __module__ = 'camera_pb2'
-  # @@protoc_insertion_point(class_scope:cameraService.DvrListDatesResponse)
-  ))
-_sym_db.RegisterMessage(DvrListDatesResponse)
-
-DvrDateVideosFilter = _reflection.GeneratedProtocolMessageType('DvrDateVideosFilter', (_message.Message,), dict(
-  DESCRIPTOR = _DVRDATEVIDEOSFILTER,
-  __module__ = 'camera_pb2'
-  # @@protoc_insertion_point(class_scope:cameraService.DvrDateVideosFilter)
-  ))
-_sym_db.RegisterMessage(DvrDateVideosFilter)
-
-DvrListDateVideosRequest = _reflection.GeneratedProtocolMessageType('DvrListDateVideosRequest', (_message.Message,), dict(
-  DESCRIPTOR = _DVRLISTDATEVIDEOSREQUEST,
-  __module__ = 'camera_pb2'
-  # @@protoc_insertion_point(class_scope:cameraService.DvrListDateVideosRequest)
-  ))
-_sym_db.RegisterMessage(DvrListDateVideosRequest)
-
-DvrListDateVideosResponse = _reflection.GeneratedProtocolMessageType('DvrListDateVideosResponse', (_message.Message,), dict(
-  DESCRIPTOR = _DVRLISTDATEVIDEOSRESPONSE,
-  __module__ = 'camera_pb2'
-  # @@protoc_insertion_point(class_scope:cameraService.DvrListDateVideosResponse)
-  ))
-_sym_db.RegisterMessage(DvrListDateVideosResponse)
+LatestImageResponse = _reflection.GeneratedProtocolMessageType('LatestImageResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LATESTIMAGERESPONSE,
+  '__module__' : 'camera_pb2'
+  # @@protoc_insertion_point(class_scope:cameraService.LatestImageResponse)
+  })
+_sym_db.RegisterMessage(LatestImageResponse)
 
 
 
@@ -318,8 +186,8 @@ _CAMERASERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=416,
-  serialized_end=815,
+  serialized_start=202,
+  serialized_end=432,
   methods=[
   _descriptor.MethodDescriptor(
     name='LiveH264Stream',
@@ -331,22 +199,13 @@ _CAMERASERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='DvrListDates',
-    full_name='cameraService.CameraService.DvrListDates',
+    name='LatestImage',
+    full_name='cameraService.CameraService.LatestImage',
     index=1,
     containing_service=None,
-    input_type=_DVRLISTDATESREQUEST,
-    output_type=_DVRLISTDATESRESPONSE,
-    serialized_options=_b('\202\323\344\223\002\"\"\035/api/v2/camera/dvr_list_dates:\001*'),
-  ),
-  _descriptor.MethodDescriptor(
-    name='DvrListDateVideos',
-    full_name='cameraService.CameraService.DvrListDateVideos',
-    index=2,
-    containing_service=None,
-    input_type=_DVRLISTDATEVIDEOSREQUEST,
-    output_type=_DVRLISTDATEVIDEOSRESPONSE,
-    serialized_options=_b('\202\323\344\223\002(\"#/api/v2/camera/dvr_list_date_videos:\001*'),
+    input_type=_LATESTIMAGEREQUEST,
+    output_type=_LATESTIMAGERESPONSE,
+    serialized_options=_b('\202\323\344\223\002\026\022\024/api/v2/camera/image'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_CAMERASERVICE)

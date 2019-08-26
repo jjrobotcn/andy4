@@ -16,10 +16,9 @@ module CameraService
 
       # 直播流数据, 数据为h264 nal单元
       rpc :LiveH264Stream, LiveH264StreamRequest, stream(LiveH264StreamResponse)
-      # 获取监控数据日期列表
-      rpc :DvrListDates, DvrListDatesRequest, DvrListDatesResponse
-      # 获取监控数据指定日期视频文件列表
-      rpc :DvrListDateVideos, DvrListDateVideosRequest, DvrListDateVideosResponse
+      # 获取当前最新图片jpg
+      # 图片更新时间周期为1s
+      rpc :LatestImage, LatestImageRequest, LatestImageResponse
     end
 
     Stub = Service.rpc_stub_class

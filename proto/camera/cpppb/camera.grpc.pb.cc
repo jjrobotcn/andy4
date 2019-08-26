@@ -20,8 +20,7 @@ namespace cameraService {
 
 static const char* CameraService_method_names[] = {
   "/cameraService.CameraService/LiveH264Stream",
-  "/cameraService.CameraService/DvrListDates",
-  "/cameraService.CameraService/DvrListDateVideos",
+  "/cameraService.CameraService/LatestImage",
 };
 
 std::unique_ptr< CameraService::Stub> CameraService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,8 +31,7 @@ std::unique_ptr< CameraService::Stub> CameraService::NewStub(const std::shared_p
 
 CameraService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_LiveH264Stream_(CameraService_method_names[0], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_DvrListDates_(CameraService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DvrListDateVideos_(CameraService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_LatestImage_(CameraService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReader< ::cameraService::LiveH264StreamResponse>* CameraService::Stub::LiveH264StreamRaw(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request) {
@@ -52,60 +50,32 @@ void CameraService::Stub::experimental_async::LiveH264Stream(::grpc::ClientConte
   return ::grpc::internal::ClientAsyncReaderFactory< ::cameraService::LiveH264StreamResponse>::Create(channel_.get(), cq, rpcmethod_LiveH264Stream_, context, request, false, nullptr);
 }
 
-::grpc::Status CameraService::Stub::DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::cameraService::DvrListDatesResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_DvrListDates_, context, request, response);
+::grpc::Status CameraService::Stub::LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::cameraService::LatestImageResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_LatestImage_, context, request, response);
 }
 
-void CameraService::Stub::experimental_async::DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_DvrListDates_, context, request, response, std::move(f));
+void CameraService::Stub::experimental_async::LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_LatestImage_, context, request, response, std::move(f));
 }
 
-void CameraService::Stub::experimental_async::DvrListDates(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDatesResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_DvrListDates_, context, request, response, std::move(f));
+void CameraService::Stub::experimental_async::LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_LatestImage_, context, request, response, std::move(f));
 }
 
-void CameraService::Stub::experimental_async::DvrListDates(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_DvrListDates_, context, request, response, reactor);
+void CameraService::Stub::experimental_async::LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_LatestImage_, context, request, response, reactor);
 }
 
-void CameraService::Stub::experimental_async::DvrListDates(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_DvrListDates_, context, request, response, reactor);
+void CameraService::Stub::experimental_async::LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_LatestImage_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>* CameraService::Stub::AsyncDvrListDatesRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::cameraService::DvrListDatesResponse>::Create(channel_.get(), cq, rpcmethod_DvrListDates_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>* CameraService::Stub::AsyncLatestImageRaw(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::cameraService::LatestImageResponse>::Create(channel_.get(), cq, rpcmethod_LatestImage_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDatesResponse>* CameraService::Stub::PrepareAsyncDvrListDatesRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDatesRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::cameraService::DvrListDatesResponse>::Create(channel_.get(), cq, rpcmethod_DvrListDates_, context, request, false);
-}
-
-::grpc::Status CameraService::Stub::DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::cameraService::DvrListDateVideosResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_DvrListDateVideos_, context, request, response);
-}
-
-void CameraService::Stub::experimental_async::DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_DvrListDateVideos_, context, request, response, std::move(f));
-}
-
-void CameraService::Stub::experimental_async::DvrListDateVideos(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDateVideosResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_DvrListDateVideos_, context, request, response, std::move(f));
-}
-
-void CameraService::Stub::experimental_async::DvrListDateVideos(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_DvrListDateVideos_, context, request, response, reactor);
-}
-
-void CameraService::Stub::experimental_async::DvrListDateVideos(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::DvrListDateVideosResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_DvrListDateVideos_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>* CameraService::Stub::AsyncDvrListDateVideosRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::cameraService::DvrListDateVideosResponse>::Create(channel_.get(), cq, rpcmethod_DvrListDateVideos_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::cameraService::DvrListDateVideosResponse>* CameraService::Stub::PrepareAsyncDvrListDateVideosRaw(::grpc::ClientContext* context, const ::cameraService::DvrListDateVideosRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::cameraService::DvrListDateVideosResponse>::Create(channel_.get(), cq, rpcmethod_DvrListDateVideos_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::cameraService::LatestImageResponse>* CameraService::Stub::PrepareAsyncLatestImageRaw(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::cameraService::LatestImageResponse>::Create(channel_.get(), cq, rpcmethod_LatestImage_, context, request, false);
 }
 
 CameraService::Service::Service() {
@@ -117,13 +87,8 @@ CameraService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       CameraService_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< CameraService::Service, ::cameraService::DvrListDatesRequest, ::cameraService::DvrListDatesResponse>(
-          std::mem_fn(&CameraService::Service::DvrListDates), this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      CameraService_method_names[2],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< CameraService::Service, ::cameraService::DvrListDateVideosRequest, ::cameraService::DvrListDateVideosResponse>(
-          std::mem_fn(&CameraService::Service::DvrListDateVideos), this)));
+      new ::grpc::internal::RpcMethodHandler< CameraService::Service, ::cameraService::LatestImageRequest, ::cameraService::LatestImageResponse>(
+          std::mem_fn(&CameraService::Service::LatestImage), this)));
 }
 
 CameraService::Service::~Service() {
@@ -136,14 +101,7 @@ CameraService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status CameraService::Service::DvrListDates(::grpc::ServerContext* context, const ::cameraService::DvrListDatesRequest* request, ::cameraService::DvrListDatesResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status CameraService::Service::DvrListDateVideos(::grpc::ServerContext* context, const ::cameraService::DvrListDateVideosRequest* request, ::cameraService::DvrListDateVideosResponse* response) {
+::grpc::Status CameraService::Service::LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response) {
   (void) context;
   (void) request;
   (void) response;

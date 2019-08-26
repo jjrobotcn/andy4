@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.21.1-SNAPSHOT)",
+    value = "by gRPC proto compiler (version 1.22.2-SNAPSHOT)",
     comments = "Source: camera.proto")
 public final class CameraServiceGrpc {
 
@@ -59,68 +59,36 @@ public final class CameraServiceGrpc {
      return getLiveH264StreamMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<cameraService.Camera.DvrListDatesRequest,
-      cameraService.Camera.DvrListDatesResponse> getDvrListDatesMethod;
+  private static volatile io.grpc.MethodDescriptor<cameraService.Camera.LatestImageRequest,
+      cameraService.Camera.LatestImageResponse> getLatestImageMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DvrListDates",
-      requestType = cameraService.Camera.DvrListDatesRequest.class,
-      responseType = cameraService.Camera.DvrListDatesResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "LatestImage",
+      requestType = cameraService.Camera.LatestImageRequest.class,
+      responseType = cameraService.Camera.LatestImageResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<cameraService.Camera.DvrListDatesRequest,
-      cameraService.Camera.DvrListDatesResponse> getDvrListDatesMethod() {
-    io.grpc.MethodDescriptor<cameraService.Camera.DvrListDatesRequest, cameraService.Camera.DvrListDatesResponse> getDvrListDatesMethod;
-    if ((getDvrListDatesMethod = CameraServiceGrpc.getDvrListDatesMethod) == null) {
+  public static io.grpc.MethodDescriptor<cameraService.Camera.LatestImageRequest,
+      cameraService.Camera.LatestImageResponse> getLatestImageMethod() {
+    io.grpc.MethodDescriptor<cameraService.Camera.LatestImageRequest, cameraService.Camera.LatestImageResponse> getLatestImageMethod;
+    if ((getLatestImageMethod = CameraServiceGrpc.getLatestImageMethod) == null) {
       synchronized (CameraServiceGrpc.class) {
-        if ((getDvrListDatesMethod = CameraServiceGrpc.getDvrListDatesMethod) == null) {
-          CameraServiceGrpc.getDvrListDatesMethod = getDvrListDatesMethod = 
-              io.grpc.MethodDescriptor.<cameraService.Camera.DvrListDatesRequest, cameraService.Camera.DvrListDatesResponse>newBuilder()
+        if ((getLatestImageMethod = CameraServiceGrpc.getLatestImageMethod) == null) {
+          CameraServiceGrpc.getLatestImageMethod = getLatestImageMethod = 
+              io.grpc.MethodDescriptor.<cameraService.Camera.LatestImageRequest, cameraService.Camera.LatestImageResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "cameraService.CameraService", "DvrListDates"))
+                  "cameraService.CameraService", "LatestImage"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cameraService.Camera.DvrListDatesRequest.getDefaultInstance()))
+                  cameraService.Camera.LatestImageRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cameraService.Camera.DvrListDatesResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new CameraServiceMethodDescriptorSupplier("DvrListDates"))
+                  cameraService.Camera.LatestImageResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new CameraServiceMethodDescriptorSupplier("LatestImage"))
                   .build();
           }
         }
      }
-     return getDvrListDatesMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<cameraService.Camera.DvrListDateVideosRequest,
-      cameraService.Camera.DvrListDateVideosResponse> getDvrListDateVideosMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "DvrListDateVideos",
-      requestType = cameraService.Camera.DvrListDateVideosRequest.class,
-      responseType = cameraService.Camera.DvrListDateVideosResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<cameraService.Camera.DvrListDateVideosRequest,
-      cameraService.Camera.DvrListDateVideosResponse> getDvrListDateVideosMethod() {
-    io.grpc.MethodDescriptor<cameraService.Camera.DvrListDateVideosRequest, cameraService.Camera.DvrListDateVideosResponse> getDvrListDateVideosMethod;
-    if ((getDvrListDateVideosMethod = CameraServiceGrpc.getDvrListDateVideosMethod) == null) {
-      synchronized (CameraServiceGrpc.class) {
-        if ((getDvrListDateVideosMethod = CameraServiceGrpc.getDvrListDateVideosMethod) == null) {
-          CameraServiceGrpc.getDvrListDateVideosMethod = getDvrListDateVideosMethod = 
-              io.grpc.MethodDescriptor.<cameraService.Camera.DvrListDateVideosRequest, cameraService.Camera.DvrListDateVideosResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "cameraService.CameraService", "DvrListDateVideos"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cameraService.Camera.DvrListDateVideosRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cameraService.Camera.DvrListDateVideosResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new CameraServiceMethodDescriptorSupplier("DvrListDateVideos"))
-                  .build();
-          }
-        }
-     }
-     return getDvrListDateVideosMethod;
+     return getLatestImageMethod;
   }
 
   /**
@@ -162,22 +130,13 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取监控数据日期列表
+     * 获取当前最新图片jpg
+     * 图片更新时间周期为1s
      * </pre>
      */
-    public void dvrListDates(cameraService.Camera.DvrListDatesRequest request,
-        io.grpc.stub.StreamObserver<cameraService.Camera.DvrListDatesResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getDvrListDatesMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 获取监控数据指定日期视频文件列表
-     * </pre>
-     */
-    public void dvrListDateVideos(cameraService.Camera.DvrListDateVideosRequest request,
-        io.grpc.stub.StreamObserver<cameraService.Camera.DvrListDateVideosResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getDvrListDateVideosMethod(), responseObserver);
+    public void latestImage(cameraService.Camera.LatestImageRequest request,
+        io.grpc.stub.StreamObserver<cameraService.Camera.LatestImageResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getLatestImageMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -190,19 +149,12 @@ public final class CameraServiceGrpc {
                 cameraService.Camera.LiveH264StreamResponse>(
                   this, METHODID_LIVE_H264STREAM)))
           .addMethod(
-            getDvrListDatesMethod(),
+            getLatestImageMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                cameraService.Camera.DvrListDatesRequest,
-                cameraService.Camera.DvrListDatesResponse>(
-                  this, METHODID_DVR_LIST_DATES)))
-          .addMethod(
-            getDvrListDateVideosMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                cameraService.Camera.DvrListDateVideosRequest,
-                cameraService.Camera.DvrListDateVideosResponse>(
-                  this, METHODID_DVR_LIST_DATE_VIDEOS)))
+                cameraService.Camera.LatestImageRequest,
+                cameraService.Camera.LatestImageResponse>(
+                  this, METHODID_LATEST_IMAGE)))
           .build();
     }
   }
@@ -238,24 +190,14 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取监控数据日期列表
+     * 获取当前最新图片jpg
+     * 图片更新时间周期为1s
      * </pre>
      */
-    public void dvrListDates(cameraService.Camera.DvrListDatesRequest request,
-        io.grpc.stub.StreamObserver<cameraService.Camera.DvrListDatesResponse> responseObserver) {
+    public void latestImage(cameraService.Camera.LatestImageRequest request,
+        io.grpc.stub.StreamObserver<cameraService.Camera.LatestImageResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getDvrListDatesMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * 获取监控数据指定日期视频文件列表
-     * </pre>
-     */
-    public void dvrListDateVideos(cameraService.Camera.DvrListDateVideosRequest request,
-        io.grpc.stub.StreamObserver<cameraService.Camera.DvrListDateVideosResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getDvrListDateVideosMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getLatestImageMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -290,22 +232,13 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取监控数据日期列表
+     * 获取当前最新图片jpg
+     * 图片更新时间周期为1s
      * </pre>
      */
-    public cameraService.Camera.DvrListDatesResponse dvrListDates(cameraService.Camera.DvrListDatesRequest request) {
+    public cameraService.Camera.LatestImageResponse latestImage(cameraService.Camera.LatestImageRequest request) {
       return blockingUnaryCall(
-          getChannel(), getDvrListDatesMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * 获取监控数据指定日期视频文件列表
-     * </pre>
-     */
-    public cameraService.Camera.DvrListDateVideosResponse dvrListDateVideos(cameraService.Camera.DvrListDateVideosRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getDvrListDateVideosMethod(), getCallOptions(), request);
+          getChannel(), getLatestImageMethod(), getCallOptions(), request);
     }
   }
 
@@ -329,30 +262,19 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取监控数据日期列表
+     * 获取当前最新图片jpg
+     * 图片更新时间周期为1s
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<cameraService.Camera.DvrListDatesResponse> dvrListDates(
-        cameraService.Camera.DvrListDatesRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<cameraService.Camera.LatestImageResponse> latestImage(
+        cameraService.Camera.LatestImageRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getDvrListDatesMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
-     * 获取监控数据指定日期视频文件列表
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<cameraService.Camera.DvrListDateVideosResponse> dvrListDateVideos(
-        cameraService.Camera.DvrListDateVideosRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getDvrListDateVideosMethod(), getCallOptions()), request);
+          getChannel().newCall(getLatestImageMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_LIVE_H264STREAM = 0;
-  private static final int METHODID_DVR_LIST_DATES = 1;
-  private static final int METHODID_DVR_LIST_DATE_VIDEOS = 2;
+  private static final int METHODID_LATEST_IMAGE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -375,13 +297,9 @@ public final class CameraServiceGrpc {
           serviceImpl.liveH264Stream((cameraService.Camera.LiveH264StreamRequest) request,
               (io.grpc.stub.StreamObserver<cameraService.Camera.LiveH264StreamResponse>) responseObserver);
           break;
-        case METHODID_DVR_LIST_DATES:
-          serviceImpl.dvrListDates((cameraService.Camera.DvrListDatesRequest) request,
-              (io.grpc.stub.StreamObserver<cameraService.Camera.DvrListDatesResponse>) responseObserver);
-          break;
-        case METHODID_DVR_LIST_DATE_VIDEOS:
-          serviceImpl.dvrListDateVideos((cameraService.Camera.DvrListDateVideosRequest) request,
-              (io.grpc.stub.StreamObserver<cameraService.Camera.DvrListDateVideosResponse>) responseObserver);
+        case METHODID_LATEST_IMAGE:
+          serviceImpl.latestImage((cameraService.Camera.LatestImageRequest) request,
+              (io.grpc.stub.StreamObserver<cameraService.Camera.LatestImageResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -445,8 +363,7 @@ public final class CameraServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CameraServiceFileDescriptorSupplier())
               .addMethod(getLiveH264StreamMethod())
-              .addMethod(getDvrListDatesMethod())
-              .addMethod(getDvrListDateVideosMethod())
+              .addMethod(getLatestImageMethod())
               .build();
         }
       }

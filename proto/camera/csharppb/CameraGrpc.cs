@@ -14,10 +14,8 @@ namespace CameraService {
 
     static readonly grpc::Marshaller<global::CameraService.LiveH264StreamRequest> __Marshaller_cameraService_LiveH264StreamRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.LiveH264StreamRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CameraService.LiveH264StreamResponse> __Marshaller_cameraService_LiveH264StreamResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.LiveH264StreamResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CameraService.DvrListDatesRequest> __Marshaller_cameraService_DvrListDatesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.DvrListDatesRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CameraService.DvrListDatesResponse> __Marshaller_cameraService_DvrListDatesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.DvrListDatesResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CameraService.DvrListDateVideosRequest> __Marshaller_cameraService_DvrListDateVideosRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.DvrListDateVideosRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CameraService.DvrListDateVideosResponse> __Marshaller_cameraService_DvrListDateVideosResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.DvrListDateVideosResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::CameraService.LatestImageRequest> __Marshaller_cameraService_LatestImageRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.LatestImageRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::CameraService.LatestImageResponse> __Marshaller_cameraService_LatestImageResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CameraService.LatestImageResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::CameraService.LiveH264StreamRequest, global::CameraService.LiveH264StreamResponse> __Method_LiveH264Stream = new grpc::Method<global::CameraService.LiveH264StreamRequest, global::CameraService.LiveH264StreamResponse>(
         grpc::MethodType.ServerStreaming,
@@ -26,19 +24,12 @@ namespace CameraService {
         __Marshaller_cameraService_LiveH264StreamRequest,
         __Marshaller_cameraService_LiveH264StreamResponse);
 
-    static readonly grpc::Method<global::CameraService.DvrListDatesRequest, global::CameraService.DvrListDatesResponse> __Method_DvrListDates = new grpc::Method<global::CameraService.DvrListDatesRequest, global::CameraService.DvrListDatesResponse>(
+    static readonly grpc::Method<global::CameraService.LatestImageRequest, global::CameraService.LatestImageResponse> __Method_LatestImage = new grpc::Method<global::CameraService.LatestImageRequest, global::CameraService.LatestImageResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "DvrListDates",
-        __Marshaller_cameraService_DvrListDatesRequest,
-        __Marshaller_cameraService_DvrListDatesResponse);
-
-    static readonly grpc::Method<global::CameraService.DvrListDateVideosRequest, global::CameraService.DvrListDateVideosResponse> __Method_DvrListDateVideos = new grpc::Method<global::CameraService.DvrListDateVideosRequest, global::CameraService.DvrListDateVideosResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "DvrListDateVideos",
-        __Marshaller_cameraService_DvrListDateVideosRequest,
-        __Marshaller_cameraService_DvrListDateVideosResponse);
+        "LatestImage",
+        __Marshaller_cameraService_LatestImageRequest,
+        __Marshaller_cameraService_LatestImageResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -63,23 +54,13 @@ namespace CameraService {
       }
 
       /// <summary>
-      /// 获取监控数据日期列表
+      /// 获取当前最新图片jpg
+      /// 图片更新时间周期为1s
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::CameraService.DvrListDatesResponse> DvrListDates(global::CameraService.DvrListDatesRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
-      /// 获取监控数据指定日期视频文件列表
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::CameraService.DvrListDateVideosResponse> DvrListDateVideos(global::CameraService.DvrListDateVideosRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::CameraService.LatestImageResponse> LatestImage(global::CameraService.LatestImageRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -132,92 +113,52 @@ namespace CameraService {
         return CallInvoker.AsyncServerStreamingCall(__Method_LiveH264Stream, null, options, request);
       }
       /// <summary>
-      /// 获取监控数据日期列表
+      /// 获取当前最新图片jpg
+      /// 图片更新时间周期为1s
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::CameraService.DvrListDatesResponse DvrListDates(global::CameraService.DvrListDatesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::CameraService.LatestImageResponse LatestImage(global::CameraService.LatestImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return DvrListDates(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return LatestImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// 获取监控数据日期列表
+      /// 获取当前最新图片jpg
+      /// 图片更新时间周期为1s
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::CameraService.DvrListDatesResponse DvrListDates(global::CameraService.DvrListDatesRequest request, grpc::CallOptions options)
+      public virtual global::CameraService.LatestImageResponse LatestImage(global::CameraService.LatestImageRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_DvrListDates, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_LatestImage, null, options, request);
       }
       /// <summary>
-      /// 获取监控数据日期列表
+      /// 获取当前最新图片jpg
+      /// 图片更新时间周期为1s
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CameraService.DvrListDatesResponse> DvrListDatesAsync(global::CameraService.DvrListDatesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::CameraService.LatestImageResponse> LatestImageAsync(global::CameraService.LatestImageRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return DvrListDatesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return LatestImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// 获取监控数据日期列表
+      /// 获取当前最新图片jpg
+      /// 图片更新时间周期为1s
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CameraService.DvrListDatesResponse> DvrListDatesAsync(global::CameraService.DvrListDatesRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::CameraService.LatestImageResponse> LatestImageAsync(global::CameraService.LatestImageRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_DvrListDates, null, options, request);
-      }
-      /// <summary>
-      /// 获取监控数据指定日期视频文件列表
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::CameraService.DvrListDateVideosResponse DvrListDateVideos(global::CameraService.DvrListDateVideosRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return DvrListDateVideos(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// 获取监控数据指定日期视频文件列表
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::CameraService.DvrListDateVideosResponse DvrListDateVideos(global::CameraService.DvrListDateVideosRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_DvrListDateVideos, null, options, request);
-      }
-      /// <summary>
-      /// 获取监控数据指定日期视频文件列表
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CameraService.DvrListDateVideosResponse> DvrListDateVideosAsync(global::CameraService.DvrListDateVideosRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return DvrListDateVideosAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// 获取监控数据指定日期视频文件列表
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CameraService.DvrListDateVideosResponse> DvrListDateVideosAsync(global::CameraService.DvrListDateVideosRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_DvrListDateVideos, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_LatestImage, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override CameraServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -232,8 +173,7 @@ namespace CameraService {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_LiveH264Stream, serviceImpl.LiveH264Stream)
-          .AddMethod(__Method_DvrListDates, serviceImpl.DvrListDates)
-          .AddMethod(__Method_DvrListDateVideos, serviceImpl.DvrListDateVideos).Build();
+          .AddMethod(__Method_LatestImage, serviceImpl.LatestImage).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -243,8 +183,7 @@ namespace CameraService {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, CameraServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_LiveH264Stream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::CameraService.LiveH264StreamRequest, global::CameraService.LiveH264StreamResponse>(serviceImpl.LiveH264Stream));
-      serviceBinder.AddMethod(__Method_DvrListDates, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CameraService.DvrListDatesRequest, global::CameraService.DvrListDatesResponse>(serviceImpl.DvrListDates));
-      serviceBinder.AddMethod(__Method_DvrListDateVideos, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CameraService.DvrListDateVideosRequest, global::CameraService.DvrListDateVideosResponse>(serviceImpl.DvrListDateVideos));
+      serviceBinder.AddMethod(__Method_LatestImage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::CameraService.LatestImageRequest, global::CameraService.LatestImageResponse>(serviceImpl.LatestImage));
     }
 
   }

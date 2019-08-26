@@ -11,22 +11,11 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "cameraService.LiveH264StreamResponse" do
       optional :frame, :bytes, 1
     end
-    add_message "cameraService.DvrListDatesRequest" do
+    add_message "cameraService.LatestImageRequest" do
     end
-    add_message "cameraService.DvrListDatesResponse" do
-      repeated :date_list, :string, 1
-    end
-    add_message "cameraService.DvrDateVideosFilter" do
-      optional :hour_start, :string, 1
-      optional :hour_end, :string, 2
-      optional :limit, :uint32, 3
-    end
-    add_message "cameraService.DvrListDateVideosRequest" do
-      optional :date, :string, 1
-      optional :filter, :message, 2, "cameraService.DvrDateVideosFilter"
-    end
-    add_message "cameraService.DvrListDateVideosResponse" do
-      repeated :videos_static, :string, 1
+    add_message "cameraService.LatestImageResponse" do
+      optional :time, :string, 1
+      optional :image, :bytes, 2
     end
   end
 end
@@ -34,9 +23,6 @@ end
 module CameraService
   LiveH264StreamRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.LiveH264StreamRequest").msgclass
   LiveH264StreamResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.LiveH264StreamResponse").msgclass
-  DvrListDatesRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.DvrListDatesRequest").msgclass
-  DvrListDatesResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.DvrListDatesResponse").msgclass
-  DvrDateVideosFilter = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.DvrDateVideosFilter").msgclass
-  DvrListDateVideosRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.DvrListDateVideosRequest").msgclass
-  DvrListDateVideosResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.DvrListDateVideosResponse").msgclass
+  LatestImageRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.LatestImageRequest").msgclass
+  LatestImageResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("cameraService.LatestImageResponse").msgclass
 end

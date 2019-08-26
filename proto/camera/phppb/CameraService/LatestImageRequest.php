@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>cameraService.LiveH264StreamRequest</code>
+ * Generated from protobuf message <code>cameraService.LatestImageRequest</code>
  */
-class LiveH264StreamRequest extends \Google\Protobuf\Internal\Message
+class LatestImageRequest extends \Google\Protobuf\Internal\Message
 {
 
     /**

@@ -27,8 +27,6 @@
 
 CF_EXTERN_C_BEGIN
 
-@class DvrDateVideosFilter;
-
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - CameraRoot
@@ -64,87 +62,29 @@ typedef GPB_ENUM(LiveH264StreamResponse_FieldNumber) {
 
 @end
 
-#pragma mark - DvrListDatesRequest
+#pragma mark - LatestImageRequest
 
-@interface DvrListDatesRequest : GPBMessage
-
-@end
-
-#pragma mark - DvrListDatesResponse
-
-typedef GPB_ENUM(DvrListDatesResponse_FieldNumber) {
-  DvrListDatesResponse_FieldNumber_DateListArray = 1,
-};
-
-@interface DvrListDatesResponse : GPBMessage
-
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *dateListArray;
-/** The number of items in @c dateListArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger dateListArray_Count;
+@interface LatestImageRequest : GPBMessage
 
 @end
 
-#pragma mark - DvrDateVideosFilter
+#pragma mark - LatestImageResponse
 
-typedef GPB_ENUM(DvrDateVideosFilter_FieldNumber) {
-  DvrDateVideosFilter_FieldNumber_HourStart = 1,
-  DvrDateVideosFilter_FieldNumber_HourEnd = 2,
-  DvrDateVideosFilter_FieldNumber_Limit = 3,
+typedef GPB_ENUM(LatestImageResponse_FieldNumber) {
+  LatestImageResponse_FieldNumber_Time = 1,
+  LatestImageResponse_FieldNumber_Image = 2,
 };
+
+@interface LatestImageResponse : GPBMessage
 
 /**
- * 过滤参数
+ * 图片时间
+ * 格式: 2019-01-02_03:04:05
  **/
-@interface DvrDateVideosFilter : GPBMessage
+@property(nonatomic, readwrite, copy, null_resettable) NSString *time;
 
-/**
- * 过滤开始小时, 0为当日零点开始
- * 大于23将返回参数错误
- **/
-@property(nonatomic, readwrite, copy, null_resettable) NSString *hourStart;
-
-/**
- * 过滤结束小时, 0为当日23点
- * 小于hour_start或大于23将返回参数错误
- **/
-@property(nonatomic, readwrite, copy, null_resettable) NSString *hourEnd;
-
-/** 限制视频列表数量, 0为所有 */
-@property(nonatomic, readwrite) uint32_t limit;
-
-@end
-
-#pragma mark - DvrListDateVideosRequest
-
-typedef GPB_ENUM(DvrListDateVideosRequest_FieldNumber) {
-  DvrListDateVideosRequest_FieldNumber_Date = 1,
-  DvrListDateVideosRequest_FieldNumber_Filter = 2,
-};
-
-@interface DvrListDateVideosRequest : GPBMessage
-
-/** 请求日期, 根据DvrListDatesResonse中日期 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *date;
-
-/** 过滤参数 */
-@property(nonatomic, readwrite, strong, null_resettable) DvrDateVideosFilter *filter;
-/** Test to see if @c filter has been set. */
-@property(nonatomic, readwrite) BOOL hasFilter;
-
-@end
-
-#pragma mark - DvrListDateVideosResponse
-
-typedef GPB_ENUM(DvrListDateVideosResponse_FieldNumber) {
-  DvrListDateVideosResponse_FieldNumber_VideosStaticArray = 1,
-};
-
-@interface DvrListDateVideosResponse : GPBMessage
-
-/** 监控文件静态文件地址列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *videosStaticArray;
-/** The number of items in @c videosStaticArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger videosStaticArray_Count;
+/** 图片数据 */
+@property(nonatomic, readwrite, copy, null_resettable) NSData *image;
 
 @end
 

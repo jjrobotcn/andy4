@@ -5,48 +5,26 @@ var grpc = require('grpc');
 var camera_pb = require('./camera_pb.js');
 var google_api_annotations_pb = require('./google/api/annotations_pb.js');
 
-function serialize_cameraService_DvrListDateVideosRequest(arg) {
-  if (!(arg instanceof camera_pb.DvrListDateVideosRequest)) {
-    throw new Error('Expected argument of type cameraService.DvrListDateVideosRequest');
+function serialize_cameraService_LatestImageRequest(arg) {
+  if (!(arg instanceof camera_pb.LatestImageRequest)) {
+    throw new Error('Expected argument of type cameraService.LatestImageRequest');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_cameraService_DvrListDateVideosRequest(buffer_arg) {
-  return camera_pb.DvrListDateVideosRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_cameraService_LatestImageRequest(buffer_arg) {
+  return camera_pb.LatestImageRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_cameraService_DvrListDateVideosResponse(arg) {
-  if (!(arg instanceof camera_pb.DvrListDateVideosResponse)) {
-    throw new Error('Expected argument of type cameraService.DvrListDateVideosResponse');
+function serialize_cameraService_LatestImageResponse(arg) {
+  if (!(arg instanceof camera_pb.LatestImageResponse)) {
+    throw new Error('Expected argument of type cameraService.LatestImageResponse');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_cameraService_DvrListDateVideosResponse(buffer_arg) {
-  return camera_pb.DvrListDateVideosResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_cameraService_DvrListDatesRequest(arg) {
-  if (!(arg instanceof camera_pb.DvrListDatesRequest)) {
-    throw new Error('Expected argument of type cameraService.DvrListDatesRequest');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_cameraService_DvrListDatesRequest(buffer_arg) {
-  return camera_pb.DvrListDatesRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_cameraService_DvrListDatesResponse(arg) {
-  if (!(arg instanceof camera_pb.DvrListDatesResponse)) {
-    throw new Error('Expected argument of type cameraService.DvrListDatesResponse');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_cameraService_DvrListDatesResponse(buffer_arg) {
-  return camera_pb.DvrListDatesResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_cameraService_LatestImageResponse(buffer_arg) {
+  return camera_pb.LatestImageResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_cameraService_LiveH264StreamRequest(arg) {
@@ -85,29 +63,18 @@ var CameraServiceService = exports.CameraServiceService = {
     responseSerialize: serialize_cameraService_LiveH264StreamResponse,
     responseDeserialize: deserialize_cameraService_LiveH264StreamResponse,
   },
-  // 获取监控数据日期列表
-  dvrListDates: {
-    path: '/cameraService.CameraService/DvrListDates',
+  // 获取当前最新图片jpg
+  // 图片更新时间周期为1s
+  latestImage: {
+    path: '/cameraService.CameraService/LatestImage',
     requestStream: false,
     responseStream: false,
-    requestType: camera_pb.DvrListDatesRequest,
-    responseType: camera_pb.DvrListDatesResponse,
-    requestSerialize: serialize_cameraService_DvrListDatesRequest,
-    requestDeserialize: deserialize_cameraService_DvrListDatesRequest,
-    responseSerialize: serialize_cameraService_DvrListDatesResponse,
-    responseDeserialize: deserialize_cameraService_DvrListDatesResponse,
-  },
-  // 获取监控数据指定日期视频文件列表
-  dvrListDateVideos: {
-    path: '/cameraService.CameraService/DvrListDateVideos',
-    requestStream: false,
-    responseStream: false,
-    requestType: camera_pb.DvrListDateVideosRequest,
-    responseType: camera_pb.DvrListDateVideosResponse,
-    requestSerialize: serialize_cameraService_DvrListDateVideosRequest,
-    requestDeserialize: deserialize_cameraService_DvrListDateVideosRequest,
-    responseSerialize: serialize_cameraService_DvrListDateVideosResponse,
-    responseDeserialize: deserialize_cameraService_DvrListDateVideosResponse,
+    requestType: camera_pb.LatestImageRequest,
+    responseType: camera_pb.LatestImageResponse,
+    requestSerialize: serialize_cameraService_LatestImageRequest,
+    requestDeserialize: deserialize_cameraService_LatestImageRequest,
+    responseSerialize: serialize_cameraService_LatestImageResponse,
+    responseDeserialize: deserialize_cameraService_LatestImageResponse,
   },
 };
 

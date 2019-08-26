@@ -95,222 +95,83 @@ func (m *LiveH264StreamResponse) GetFrame() []byte {
 	return nil
 }
 
-type DvrListDatesRequest struct {
+type LatestImageRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DvrListDatesRequest) Reset()         { *m = DvrListDatesRequest{} }
-func (m *DvrListDatesRequest) String() string { return proto.CompactTextString(m) }
-func (*DvrListDatesRequest) ProtoMessage()    {}
-func (*DvrListDatesRequest) Descriptor() ([]byte, []int) {
+func (m *LatestImageRequest) Reset()         { *m = LatestImageRequest{} }
+func (m *LatestImageRequest) String() string { return proto.CompactTextString(m) }
+func (*LatestImageRequest) ProtoMessage()    {}
+func (*LatestImageRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_2f444de3b23b55d1, []int{2}
 }
 
-func (m *DvrListDatesRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DvrListDatesRequest.Unmarshal(m, b)
+func (m *LatestImageRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LatestImageRequest.Unmarshal(m, b)
 }
-func (m *DvrListDatesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DvrListDatesRequest.Marshal(b, m, deterministic)
+func (m *LatestImageRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LatestImageRequest.Marshal(b, m, deterministic)
 }
-func (m *DvrListDatesRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DvrListDatesRequest.Merge(m, src)
+func (m *LatestImageRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LatestImageRequest.Merge(m, src)
 }
-func (m *DvrListDatesRequest) XXX_Size() int {
-	return xxx_messageInfo_DvrListDatesRequest.Size(m)
+func (m *LatestImageRequest) XXX_Size() int {
+	return xxx_messageInfo_LatestImageRequest.Size(m)
 }
-func (m *DvrListDatesRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_DvrListDatesRequest.DiscardUnknown(m)
+func (m *LatestImageRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_LatestImageRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_DvrListDatesRequest proto.InternalMessageInfo
+var xxx_messageInfo_LatestImageRequest proto.InternalMessageInfo
 
-type DvrListDatesResponse struct {
-	DateList             []string `protobuf:"bytes,1,rep,name=date_list,json=dateList,proto3" json:"date_list,omitempty"`
+type LatestImageResponse struct {
+	// 图片时间
+	// 格式: 2019-01-02_03:04:05
+	Time string `protobuf:"bytes,1,opt,name=time,proto3" json:"time,omitempty"`
+	// 图片数据
+	Image                []byte   `protobuf:"bytes,2,opt,name=image,proto3" json:"image,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DvrListDatesResponse) Reset()         { *m = DvrListDatesResponse{} }
-func (m *DvrListDatesResponse) String() string { return proto.CompactTextString(m) }
-func (*DvrListDatesResponse) ProtoMessage()    {}
-func (*DvrListDatesResponse) Descriptor() ([]byte, []int) {
+func (m *LatestImageResponse) Reset()         { *m = LatestImageResponse{} }
+func (m *LatestImageResponse) String() string { return proto.CompactTextString(m) }
+func (*LatestImageResponse) ProtoMessage()    {}
+func (*LatestImageResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_2f444de3b23b55d1, []int{3}
 }
 
-func (m *DvrListDatesResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DvrListDatesResponse.Unmarshal(m, b)
+func (m *LatestImageResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_LatestImageResponse.Unmarshal(m, b)
 }
-func (m *DvrListDatesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DvrListDatesResponse.Marshal(b, m, deterministic)
+func (m *LatestImageResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_LatestImageResponse.Marshal(b, m, deterministic)
 }
-func (m *DvrListDatesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DvrListDatesResponse.Merge(m, src)
+func (m *LatestImageResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LatestImageResponse.Merge(m, src)
 }
-func (m *DvrListDatesResponse) XXX_Size() int {
-	return xxx_messageInfo_DvrListDatesResponse.Size(m)
+func (m *LatestImageResponse) XXX_Size() int {
+	return xxx_messageInfo_LatestImageResponse.Size(m)
 }
-func (m *DvrListDatesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_DvrListDatesResponse.DiscardUnknown(m)
+func (m *LatestImageResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_LatestImageResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_DvrListDatesResponse proto.InternalMessageInfo
+var xxx_messageInfo_LatestImageResponse proto.InternalMessageInfo
 
-func (m *DvrListDatesResponse) GetDateList() []string {
+func (m *LatestImageResponse) GetTime() string {
 	if m != nil {
-		return m.DateList
-	}
-	return nil
-}
-
-// 过滤参数
-type DvrDateVideosFilter struct {
-	// 过滤开始小时, 0为当日零点开始
-	// 大于23将返回参数错误
-	HourStart string `protobuf:"bytes,1,opt,name=hour_start,json=hourStart,proto3" json:"hour_start,omitempty"`
-	// 过滤结束小时, 0为当日23点
-	// 小于hour_start或大于23将返回参数错误
-	HourEnd string `protobuf:"bytes,2,opt,name=hour_end,json=hourEnd,proto3" json:"hour_end,omitempty"`
-	// 限制视频列表数量, 0为所有
-	Limit                uint32   `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DvrDateVideosFilter) Reset()         { *m = DvrDateVideosFilter{} }
-func (m *DvrDateVideosFilter) String() string { return proto.CompactTextString(m) }
-func (*DvrDateVideosFilter) ProtoMessage()    {}
-func (*DvrDateVideosFilter) Descriptor() ([]byte, []int) {
-	return fileDescriptor_2f444de3b23b55d1, []int{4}
-}
-
-func (m *DvrDateVideosFilter) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DvrDateVideosFilter.Unmarshal(m, b)
-}
-func (m *DvrDateVideosFilter) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DvrDateVideosFilter.Marshal(b, m, deterministic)
-}
-func (m *DvrDateVideosFilter) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DvrDateVideosFilter.Merge(m, src)
-}
-func (m *DvrDateVideosFilter) XXX_Size() int {
-	return xxx_messageInfo_DvrDateVideosFilter.Size(m)
-}
-func (m *DvrDateVideosFilter) XXX_DiscardUnknown() {
-	xxx_messageInfo_DvrDateVideosFilter.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DvrDateVideosFilter proto.InternalMessageInfo
-
-func (m *DvrDateVideosFilter) GetHourStart() string {
-	if m != nil {
-		return m.HourStart
+		return m.Time
 	}
 	return ""
 }
 
-func (m *DvrDateVideosFilter) GetHourEnd() string {
+func (m *LatestImageResponse) GetImage() []byte {
 	if m != nil {
-		return m.HourEnd
-	}
-	return ""
-}
-
-func (m *DvrDateVideosFilter) GetLimit() uint32 {
-	if m != nil {
-		return m.Limit
-	}
-	return 0
-}
-
-type DvrListDateVideosRequest struct {
-	// 请求日期, 根据DvrListDatesResonse中日期
-	Date string `protobuf:"bytes,1,opt,name=date,proto3" json:"date,omitempty"`
-	// 过滤参数
-	Filter               *DvrDateVideosFilter `protobuf:"bytes,2,opt,name=filter,proto3" json:"filter,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
-}
-
-func (m *DvrListDateVideosRequest) Reset()         { *m = DvrListDateVideosRequest{} }
-func (m *DvrListDateVideosRequest) String() string { return proto.CompactTextString(m) }
-func (*DvrListDateVideosRequest) ProtoMessage()    {}
-func (*DvrListDateVideosRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_2f444de3b23b55d1, []int{5}
-}
-
-func (m *DvrListDateVideosRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DvrListDateVideosRequest.Unmarshal(m, b)
-}
-func (m *DvrListDateVideosRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DvrListDateVideosRequest.Marshal(b, m, deterministic)
-}
-func (m *DvrListDateVideosRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DvrListDateVideosRequest.Merge(m, src)
-}
-func (m *DvrListDateVideosRequest) XXX_Size() int {
-	return xxx_messageInfo_DvrListDateVideosRequest.Size(m)
-}
-func (m *DvrListDateVideosRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_DvrListDateVideosRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DvrListDateVideosRequest proto.InternalMessageInfo
-
-func (m *DvrListDateVideosRequest) GetDate() string {
-	if m != nil {
-		return m.Date
-	}
-	return ""
-}
-
-func (m *DvrListDateVideosRequest) GetFilter() *DvrDateVideosFilter {
-	if m != nil {
-		return m.Filter
-	}
-	return nil
-}
-
-type DvrListDateVideosResponse struct {
-	// 监控文件静态文件地址列表
-	VideosStatic         []string `protobuf:"bytes,1,rep,name=videos_static,json=videosStatic,proto3" json:"videos_static,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DvrListDateVideosResponse) Reset()         { *m = DvrListDateVideosResponse{} }
-func (m *DvrListDateVideosResponse) String() string { return proto.CompactTextString(m) }
-func (*DvrListDateVideosResponse) ProtoMessage()    {}
-func (*DvrListDateVideosResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_2f444de3b23b55d1, []int{6}
-}
-
-func (m *DvrListDateVideosResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DvrListDateVideosResponse.Unmarshal(m, b)
-}
-func (m *DvrListDateVideosResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DvrListDateVideosResponse.Marshal(b, m, deterministic)
-}
-func (m *DvrListDateVideosResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DvrListDateVideosResponse.Merge(m, src)
-}
-func (m *DvrListDateVideosResponse) XXX_Size() int {
-	return xxx_messageInfo_DvrListDateVideosResponse.Size(m)
-}
-func (m *DvrListDateVideosResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_DvrListDateVideosResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DvrListDateVideosResponse proto.InternalMessageInfo
-
-func (m *DvrListDateVideosResponse) GetVideosStatic() []string {
-	if m != nil {
-		return m.VideosStatic
+		return m.Image
 	}
 	return nil
 }
@@ -318,44 +179,30 @@ func (m *DvrListDateVideosResponse) GetVideosStatic() []string {
 func init() {
 	proto.RegisterType((*LiveH264StreamRequest)(nil), "cameraService.LiveH264StreamRequest")
 	proto.RegisterType((*LiveH264StreamResponse)(nil), "cameraService.LiveH264StreamResponse")
-	proto.RegisterType((*DvrListDatesRequest)(nil), "cameraService.DvrListDatesRequest")
-	proto.RegisterType((*DvrListDatesResponse)(nil), "cameraService.DvrListDatesResponse")
-	proto.RegisterType((*DvrDateVideosFilter)(nil), "cameraService.DvrDateVideosFilter")
-	proto.RegisterType((*DvrListDateVideosRequest)(nil), "cameraService.DvrListDateVideosRequest")
-	proto.RegisterType((*DvrListDateVideosResponse)(nil), "cameraService.DvrListDateVideosResponse")
+	proto.RegisterType((*LatestImageRequest)(nil), "cameraService.LatestImageRequest")
+	proto.RegisterType((*LatestImageResponse)(nil), "cameraService.LatestImageResponse")
 }
 
 func init() { proto.RegisterFile("camera.proto", fileDescriptor_2f444de3b23b55d1) }
 
 var fileDescriptor_2f444de3b23b55d1 = []byte{
-	// 430 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xcd, 0x6e, 0xd4, 0x30,
-	0x10, 0xc7, 0x71, 0x17, 0x4a, 0x77, 0xd8, 0x45, 0xc2, 0xb4, 0x90, 0x2e, 0x54, 0x5a, 0x79, 0x41,
-	0x44, 0x3d, 0x24, 0x28, 0x45, 0x1c, 0xf6, 0x84, 0x44, 0x41, 0x1c, 0x7a, 0x4a, 0x24, 0xae, 0x91,
-	0xd9, 0x4c, 0x8b, 0x51, 0x12, 0x2f, 0xb6, 0x9b, 0x3b, 0xbc, 0x00, 0x07, 0x24, 0x5e, 0x8c, 0x57,
-	0xe0, 0x41, 0x90, 0x3f, 0x90, 0x36, 0x4b, 0xda, 0xde, 0x32, 0x7f, 0xcf, 0xc7, 0xcf, 0xf3, 0x77,
-	0x60, 0xb2, 0xe2, 0x0d, 0x2a, 0x9e, 0xac, 0x95, 0x34, 0x92, 0x4e, 0x7d, 0x54, 0xa0, 0xea, 0xc4,
-	0x0a, 0x67, 0x4f, 0x2f, 0xa4, 0xbc, 0xa8, 0x31, 0xe5, 0x6b, 0x91, 0xf2, 0xb6, 0x95, 0x86, 0x1b,
-	0x21, 0x5b, 0xed, 0x93, 0xd9, 0x63, 0x38, 0x38, 0x13, 0x1d, 0x7e, 0xc8, 0x5e, 0xbf, 0x2a, 0x8c,
-	0x42, 0xde, 0xe4, 0xf8, 0xf5, 0x12, 0xb5, 0x61, 0x09, 0x3c, 0xda, 0x3e, 0xd0, 0x6b, 0xd9, 0x6a,
-	0xa4, 0xfb, 0x70, 0xe7, 0x5c, 0xf1, 0x06, 0x23, 0x32, 0x27, 0xf1, 0x24, 0xf7, 0x01, 0x3b, 0x80,
-	0x87, 0xa7, 0x9d, 0x3a, 0x13, 0xda, 0x9c, 0x72, 0x83, 0xfa, 0x5f, 0x9b, 0x13, 0xd8, 0xef, 0xcb,
-	0xa1, 0xc9, 0x13, 0x18, 0x57, 0xdc, 0x60, 0x59, 0x0b, 0x6d, 0x22, 0x32, 0x1f, 0xc5, 0xe3, 0x7c,
-	0xcf, 0x0a, 0x36, 0x93, 0xa1, 0xeb, 0x65, 0x0b, 0x3e, 0x8a, 0x0a, 0xa5, 0x7e, 0x2f, 0x6a, 0x83,
-	0x8a, 0x1e, 0x01, 0x7c, 0x96, 0x97, 0xaa, 0xd4, 0x86, 0x2b, 0xe3, 0xa6, 0x8f, 0xf3, 0xb1, 0x55,
-	0x0a, 0x2b, 0xd0, 0x43, 0xd8, 0x73, 0xc7, 0xd8, 0x56, 0xd1, 0x8e, 0x3b, 0xbc, 0x6b, 0xe3, 0x77,
-	0x6d, 0x65, 0x91, 0x6b, 0xd1, 0x08, 0x13, 0x8d, 0xe6, 0x24, 0x9e, 0xe6, 0x3e, 0x60, 0x5f, 0x20,
-	0xda, 0x60, 0xf3, 0xa3, 0x02, 0x37, 0xa5, 0x70, 0xdb, 0xe2, 0x84, 0x29, 0xee, 0x9b, 0x2e, 0x61,
-	0xf7, 0xdc, 0x91, 0xb8, 0xf6, 0xf7, 0x32, 0x96, 0xf4, 0x36, 0x9d, 0x0c, 0x30, 0xe7, 0xa1, 0x82,
-	0xbd, 0x81, 0xc3, 0x81, 0x59, 0x61, 0x19, 0x0b, 0x98, 0x76, 0x4e, 0xb1, 0x57, 0x33, 0x62, 0x15,
-	0x16, 0x32, 0xf1, 0x62, 0xe1, 0xb4, 0xec, 0xc7, 0x08, 0xa6, 0x6f, 0x37, 0xe7, 0x51, 0x0e, 0xf7,
-	0xfb, 0x16, 0xd1, 0x67, 0x5b, 0x44, 0x83, 0xd6, 0xce, 0x9e, 0xdf, 0x90, 0xe5, 0xa9, 0xd8, 0xad,
-	0x97, 0x84, 0x7e, 0x23, 0x30, 0xd9, 0xf4, 0x8f, 0x0e, 0xdc, 0x79, 0xdb, 0xf3, 0xd9, 0xe2, 0xda,
-	0x9c, 0xd0, 0x3d, 0xfe, 0xfe, 0xfb, 0xcf, 0xcf, 0x1d, 0xc6, 0x8e, 0xdc, 0xc3, 0xec, 0xb2, 0xd4,
-	0xd7, 0xa4, 0x55, 0xa7, 0xdc, 0xa3, 0x28, 0xed, 0xca, 0xf5, 0x92, 0x1c, 0xd3, 0x5f, 0x04, 0x1e,
-	0xfc, 0xb7, 0x3b, 0xfa, 0xe2, 0xea, 0x21, 0x3d, 0x27, 0x67, 0xf1, 0xcd, 0x89, 0x01, 0x29, 0x71,
-	0x48, 0x31, 0x5b, 0x5c, 0x87, 0x54, 0x7a, 0x53, 0x96, 0xe4, 0xf8, 0xd3, 0xae, 0xfb, 0x85, 0x4e,
-	0xfe, 0x06, 0x00, 0x00, 0xff, 0xff, 0x7c, 0x85, 0x23, 0x6e, 0x7f, 0x03, 0x00, 0x00,
+	// 255 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x49, 0x4e, 0xcc, 0x4d,
+	0x2d, 0x4a, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x85, 0xf0, 0x82, 0x53, 0x8b, 0xca,
+	0x32, 0x93, 0x53, 0xa5, 0x64, 0xd2, 0xf3, 0xf3, 0xd3, 0x73, 0x52, 0xf5, 0x13, 0x0b, 0x32, 0xf5,
+	0x13, 0xf3, 0xf2, 0xf2, 0x4b, 0x12, 0x4b, 0x32, 0xf3, 0xf3, 0x8a, 0x21, 0x8a, 0x95, 0xc4, 0xb9,
+	0x44, 0x7d, 0x32, 0xcb, 0x52, 0x3d, 0x8c, 0xcc, 0x4c, 0x82, 0x4b, 0x8a, 0x52, 0x13, 0x73, 0x83,
+	0x52, 0x0b, 0x4b, 0x53, 0x8b, 0x4b, 0x94, 0xf4, 0xb8, 0xc4, 0xd0, 0x25, 0x8a, 0x0b, 0xf2, 0xf3,
+	0x8a, 0x53, 0x85, 0x44, 0xb8, 0x58, 0xd3, 0x8a, 0x12, 0x73, 0x53, 0x25, 0x18, 0x15, 0x18, 0x35,
+	0x78, 0x82, 0x20, 0x1c, 0x25, 0x11, 0x2e, 0x21, 0x9f, 0xc4, 0x92, 0xd4, 0xe2, 0x12, 0xcf, 0xdc,
+	0xc4, 0xf4, 0x54, 0x98, 0x29, 0xf6, 0x5c, 0xc2, 0x28, 0xa2, 0x50, 0x23, 0x84, 0xb8, 0x58, 0x4a,
+	0x32, 0xa1, 0x26, 0x70, 0x06, 0x81, 0xd9, 0x20, 0x63, 0x33, 0x41, 0x8a, 0x24, 0x98, 0x20, 0xc6,
+	0x82, 0x39, 0x46, 0xcf, 0x18, 0xb9, 0x78, 0x9d, 0x91, 0xfd, 0x23, 0x94, 0xc8, 0xc5, 0x87, 0xea,
+	0x30, 0x21, 0x15, 0x3d, 0x14, 0x1f, 0xeb, 0x61, 0xf5, 0x90, 0x94, 0x2a, 0x01, 0x55, 0x10, 0xa7,
+	0x29, 0x31, 0x18, 0x30, 0x0a, 0x15, 0x71, 0x71, 0x23, 0xb9, 0x5a, 0x48, 0x11, 0x5d, 0x27, 0x86,
+	0x3f, 0xa5, 0x94, 0xf0, 0x29, 0x81, 0x9a, 0x2c, 0xd3, 0x74, 0xf9, 0xc9, 0x64, 0x26, 0x31, 0x21,
+	0x11, 0x70, 0x54, 0x94, 0x19, 0xe9, 0x43, 0xb4, 0xe8, 0x83, 0x3d, 0x9a, 0xc4, 0x06, 0x8e, 0x0f,
+	0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0x1e, 0x6c, 0x8e, 0x4c, 0xcc, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -372,10 +219,9 @@ const _ = grpc.SupportPackageIsVersion4
 type CameraServiceClient interface {
 	// 直播流数据, 数据为h264 nal单元
 	LiveH264Stream(ctx context.Context, in *LiveH264StreamRequest, opts ...grpc.CallOption) (CameraService_LiveH264StreamClient, error)
-	// 获取监控数据日期列表
-	DvrListDates(ctx context.Context, in *DvrListDatesRequest, opts ...grpc.CallOption) (*DvrListDatesResponse, error)
-	// 获取监控数据指定日期视频文件列表
-	DvrListDateVideos(ctx context.Context, in *DvrListDateVideosRequest, opts ...grpc.CallOption) (*DvrListDateVideosResponse, error)
+	// 获取当前最新图片jpg
+	// 图片更新时间周期为1s
+	LatestImage(ctx context.Context, in *LatestImageRequest, opts ...grpc.CallOption) (*LatestImageResponse, error)
 }
 
 type cameraServiceClient struct {
@@ -418,18 +264,9 @@ func (x *cameraServiceLiveH264StreamClient) Recv() (*LiveH264StreamResponse, err
 	return m, nil
 }
 
-func (c *cameraServiceClient) DvrListDates(ctx context.Context, in *DvrListDatesRequest, opts ...grpc.CallOption) (*DvrListDatesResponse, error) {
-	out := new(DvrListDatesResponse)
-	err := c.cc.Invoke(ctx, "/cameraService.CameraService/DvrListDates", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraServiceClient) DvrListDateVideos(ctx context.Context, in *DvrListDateVideosRequest, opts ...grpc.CallOption) (*DvrListDateVideosResponse, error) {
-	out := new(DvrListDateVideosResponse)
-	err := c.cc.Invoke(ctx, "/cameraService.CameraService/DvrListDateVideos", in, out, opts...)
+func (c *cameraServiceClient) LatestImage(ctx context.Context, in *LatestImageRequest, opts ...grpc.CallOption) (*LatestImageResponse, error) {
+	out := new(LatestImageResponse)
+	err := c.cc.Invoke(ctx, "/cameraService.CameraService/LatestImage", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -440,10 +277,9 @@ func (c *cameraServiceClient) DvrListDateVideos(ctx context.Context, in *DvrList
 type CameraServiceServer interface {
 	// 直播流数据, 数据为h264 nal单元
 	LiveH264Stream(*LiveH264StreamRequest, CameraService_LiveH264StreamServer) error
-	// 获取监控数据日期列表
-	DvrListDates(context.Context, *DvrListDatesRequest) (*DvrListDatesResponse, error)
-	// 获取监控数据指定日期视频文件列表
-	DvrListDateVideos(context.Context, *DvrListDateVideosRequest) (*DvrListDateVideosResponse, error)
+	// 获取当前最新图片jpg
+	// 图片更新时间周期为1s
+	LatestImage(context.Context, *LatestImageRequest) (*LatestImageResponse, error)
 }
 
 // UnimplementedCameraServiceServer can be embedded to have forward compatible implementations.
@@ -453,11 +289,8 @@ type UnimplementedCameraServiceServer struct {
 func (*UnimplementedCameraServiceServer) LiveH264Stream(req *LiveH264StreamRequest, srv CameraService_LiveH264StreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method LiveH264Stream not implemented")
 }
-func (*UnimplementedCameraServiceServer) DvrListDates(ctx context.Context, req *DvrListDatesRequest) (*DvrListDatesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DvrListDates not implemented")
-}
-func (*UnimplementedCameraServiceServer) DvrListDateVideos(ctx context.Context, req *DvrListDateVideosRequest) (*DvrListDateVideosResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DvrListDateVideos not implemented")
+func (*UnimplementedCameraServiceServer) LatestImage(ctx context.Context, req *LatestImageRequest) (*LatestImageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LatestImage not implemented")
 }
 
 func RegisterCameraServiceServer(s *grpc.Server, srv CameraServiceServer) {
@@ -485,38 +318,20 @@ func (x *cameraServiceLiveH264StreamServer) Send(m *LiveH264StreamResponse) erro
 	return x.ServerStream.SendMsg(m)
 }
 
-func _CameraService_DvrListDates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DvrListDatesRequest)
+func _CameraService_LatestImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LatestImageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CameraServiceServer).DvrListDates(ctx, in)
+		return srv.(CameraServiceServer).LatestImage(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/cameraService.CameraService/DvrListDates",
+		FullMethod: "/cameraService.CameraService/LatestImage",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraServiceServer).DvrListDates(ctx, req.(*DvrListDatesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraService_DvrListDateVideos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DvrListDateVideosRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraServiceServer).DvrListDateVideos(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/cameraService.CameraService/DvrListDateVideos",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraServiceServer).DvrListDateVideos(ctx, req.(*DvrListDateVideosRequest))
+		return srv.(CameraServiceServer).LatestImage(ctx, req.(*LatestImageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -526,12 +341,8 @@ var _CameraService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*CameraServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "DvrListDates",
-			Handler:    _CameraService_DvrListDates_Handler,
-		},
-		{
-			MethodName: "DvrListDateVideos",
-			Handler:    _CameraService_DvrListDateVideos_Handler,
+			MethodName: "LatestImage",
+			Handler:    _CameraService_LatestImage_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

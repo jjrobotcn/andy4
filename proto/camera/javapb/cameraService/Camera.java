@@ -34,6 +34,13 @@ public final class Camera {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LiveH264StreamRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -451,6 +458,13 @@ public final class Camera {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LiveH264StreamResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -463,7 +477,6 @@ public final class Camera {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -903,23 +916,30 @@ public final class Camera {
 
   }
 
-  public interface DvrListDatesRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cameraService.DvrListDatesRequest)
+  public interface LatestImageRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cameraService.LatestImageRequest)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code cameraService.DvrListDatesRequest}
+   * Protobuf type {@code cameraService.LatestImageRequest}
    */
-  public  static final class DvrListDatesRequest extends
+  public  static final class LatestImageRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cameraService.DvrListDatesRequest)
-      DvrListDatesRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:cameraService.LatestImageRequest)
+      LatestImageRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DvrListDatesRequest.newBuilder() to construct.
-    private DvrListDatesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use LatestImageRequest.newBuilder() to construct.
+    private LatestImageRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DvrListDatesRequest() {
+    private LatestImageRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LatestImageRequest();
     }
 
     @java.lang.Override
@@ -927,7 +947,7 @@ public final class Camera {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DvrListDatesRequest(
+    private LatestImageRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -966,15 +986,15 @@ public final class Camera {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDatesRequest_descriptor;
+      return cameraService.Camera.internal_static_cameraService_LatestImageRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDatesRequest_fieldAccessorTable
+      return cameraService.Camera.internal_static_cameraService_LatestImageRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              cameraService.Camera.DvrListDatesRequest.class, cameraService.Camera.DvrListDatesRequest.Builder.class);
+              cameraService.Camera.LatestImageRequest.class, cameraService.Camera.LatestImageRequest.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1010,10 +1030,10 @@ public final class Camera {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof cameraService.Camera.DvrListDatesRequest)) {
+      if (!(obj instanceof cameraService.Camera.LatestImageRequest)) {
         return super.equals(obj);
       }
-      cameraService.Camera.DvrListDatesRequest other = (cameraService.Camera.DvrListDatesRequest) obj;
+      cameraService.Camera.LatestImageRequest other = (cameraService.Camera.LatestImageRequest) obj;
 
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -1031,69 +1051,69 @@ public final class Camera {
       return hash;
     }
 
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(byte[] data)
+    public static cameraService.Camera.LatestImageRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(java.io.InputStream input)
+    public static cameraService.Camera.LatestImageRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseDelimitedFrom(java.io.InputStream input)
+    public static cameraService.Camera.LatestImageRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseDelimitedFrom(
+    public static cameraService.Camera.LatestImageRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static cameraService.Camera.DvrListDatesRequest parseFrom(
+    public static cameraService.Camera.LatestImageRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1106,7 +1126,7 @@ public final class Camera {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(cameraService.Camera.DvrListDatesRequest prototype) {
+    public static Builder newBuilder(cameraService.Camera.LatestImageRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1122,26 +1142,26 @@ public final class Camera {
       return builder;
     }
     /**
-     * Protobuf type {@code cameraService.DvrListDatesRequest}
+     * Protobuf type {@code cameraService.LatestImageRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cameraService.DvrListDatesRequest)
-        cameraService.Camera.DvrListDatesRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:cameraService.LatestImageRequest)
+        cameraService.Camera.LatestImageRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDatesRequest_descriptor;
+        return cameraService.Camera.internal_static_cameraService_LatestImageRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDatesRequest_fieldAccessorTable
+        return cameraService.Camera.internal_static_cameraService_LatestImageRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                cameraService.Camera.DvrListDatesRequest.class, cameraService.Camera.DvrListDatesRequest.Builder.class);
+                cameraService.Camera.LatestImageRequest.class, cameraService.Camera.LatestImageRequest.Builder.class);
       }
 
-      // Construct using cameraService.Camera.DvrListDatesRequest.newBuilder()
+      // Construct using cameraService.Camera.LatestImageRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1165,17 +1185,17 @@ public final class Camera {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDatesRequest_descriptor;
+        return cameraService.Camera.internal_static_cameraService_LatestImageRequest_descriptor;
       }
 
       @java.lang.Override
-      public cameraService.Camera.DvrListDatesRequest getDefaultInstanceForType() {
-        return cameraService.Camera.DvrListDatesRequest.getDefaultInstance();
+      public cameraService.Camera.LatestImageRequest getDefaultInstanceForType() {
+        return cameraService.Camera.LatestImageRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public cameraService.Camera.DvrListDatesRequest build() {
-        cameraService.Camera.DvrListDatesRequest result = buildPartial();
+      public cameraService.Camera.LatestImageRequest build() {
+        cameraService.Camera.LatestImageRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1183,8 +1203,8 @@ public final class Camera {
       }
 
       @java.lang.Override
-      public cameraService.Camera.DvrListDatesRequest buildPartial() {
-        cameraService.Camera.DvrListDatesRequest result = new cameraService.Camera.DvrListDatesRequest(this);
+      public cameraService.Camera.LatestImageRequest buildPartial() {
+        cameraService.Camera.LatestImageRequest result = new cameraService.Camera.LatestImageRequest(this);
         onBuilt();
         return result;
       }
@@ -1223,16 +1243,16 @@ public final class Camera {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cameraService.Camera.DvrListDatesRequest) {
-          return mergeFrom((cameraService.Camera.DvrListDatesRequest)other);
+        if (other instanceof cameraService.Camera.LatestImageRequest) {
+          return mergeFrom((cameraService.Camera.LatestImageRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(cameraService.Camera.DvrListDatesRequest other) {
-        if (other == cameraService.Camera.DvrListDatesRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(cameraService.Camera.LatestImageRequest other) {
+        if (other == cameraService.Camera.LatestImageRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1248,11 +1268,11 @@ public final class Camera {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cameraService.Camera.DvrListDatesRequest parsedMessage = null;
+        cameraService.Camera.LatestImageRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cameraService.Camera.DvrListDatesRequest) e.getUnfinishedMessage();
+          parsedMessage = (cameraService.Camera.LatestImageRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1274,83 +1294,101 @@ public final class Camera {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:cameraService.DvrListDatesRequest)
+      // @@protoc_insertion_point(builder_scope:cameraService.LatestImageRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:cameraService.DvrListDatesRequest)
-    private static final cameraService.Camera.DvrListDatesRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:cameraService.LatestImageRequest)
+    private static final cameraService.Camera.LatestImageRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new cameraService.Camera.DvrListDatesRequest();
+      DEFAULT_INSTANCE = new cameraService.Camera.LatestImageRequest();
     }
 
-    public static cameraService.Camera.DvrListDatesRequest getDefaultInstance() {
+    public static cameraService.Camera.LatestImageRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DvrListDatesRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DvrListDatesRequest>() {
+    private static final com.google.protobuf.Parser<LatestImageRequest>
+        PARSER = new com.google.protobuf.AbstractParser<LatestImageRequest>() {
       @java.lang.Override
-      public DvrListDatesRequest parsePartialFrom(
+      public LatestImageRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DvrListDatesRequest(input, extensionRegistry);
+        return new LatestImageRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DvrListDatesRequest> parser() {
+    public static com.google.protobuf.Parser<LatestImageRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DvrListDatesRequest> getParserForType() {
+    public com.google.protobuf.Parser<LatestImageRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public cameraService.Camera.DvrListDatesRequest getDefaultInstanceForType() {
+    public cameraService.Camera.LatestImageRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DvrListDatesResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cameraService.DvrListDatesResponse)
+  public interface LatestImageResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cameraService.LatestImageResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated string date_list = 1;</code>
+     * <pre>
+     * 图片时间
+     * 格式: 2019-01-02_03:04:05
+     * </pre>
+     *
+     * <code>string time = 1;</code>
      */
-    java.util.List<java.lang.String>
-        getDateListList();
+    java.lang.String getTime();
     /**
-     * <code>repeated string date_list = 1;</code>
-     */
-    int getDateListCount();
-    /**
-     * <code>repeated string date_list = 1;</code>
-     */
-    java.lang.String getDateList(int index);
-    /**
-     * <code>repeated string date_list = 1;</code>
+     * <pre>
+     * 图片时间
+     * 格式: 2019-01-02_03:04:05
+     * </pre>
+     *
+     * <code>string time = 1;</code>
      */
     com.google.protobuf.ByteString
-        getDateListBytes(int index);
+        getTimeBytes();
+
+    /**
+     * <pre>
+     * 图片数据
+     * </pre>
+     *
+     * <code>bytes image = 2;</code>
+     */
+    com.google.protobuf.ByteString getImage();
   }
   /**
-   * Protobuf type {@code cameraService.DvrListDatesResponse}
+   * Protobuf type {@code cameraService.LatestImageResponse}
    */
-  public  static final class DvrListDatesResponse extends
+  public  static final class LatestImageResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cameraService.DvrListDatesResponse)
-      DvrListDatesResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:cameraService.LatestImageResponse)
+      LatestImageResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DvrListDatesResponse.newBuilder() to construct.
-    private DvrListDatesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use LatestImageResponse.newBuilder() to construct.
+    private LatestImageResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DvrListDatesResponse() {
-      dateList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private LatestImageResponse() {
+      time_ = "";
+      image_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LatestImageResponse();
     }
 
     @java.lang.Override
@@ -1358,7 +1396,7 @@ public final class Camera {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DvrListDatesResponse(
+    private LatestImageResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1366,645 +1404,6 @@ public final class Camera {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dateList_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dateList_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dateList_ = dateList_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDatesResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDatesResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cameraService.Camera.DvrListDatesResponse.class, cameraService.Camera.DvrListDatesResponse.Builder.class);
-    }
-
-    public static final int DATE_LIST_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList dateList_;
-    /**
-     * <code>repeated string date_list = 1;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getDateListList() {
-      return dateList_;
-    }
-    /**
-     * <code>repeated string date_list = 1;</code>
-     */
-    public int getDateListCount() {
-      return dateList_.size();
-    }
-    /**
-     * <code>repeated string date_list = 1;</code>
-     */
-    public java.lang.String getDateList(int index) {
-      return dateList_.get(index);
-    }
-    /**
-     * <code>repeated string date_list = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDateListBytes(int index) {
-      return dateList_.getByteString(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < dateList_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dateList_.getRaw(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < dateList_.size(); i++) {
-          dataSize += computeStringSizeNoTag(dateList_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getDateListList().size();
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof cameraService.Camera.DvrListDatesResponse)) {
-        return super.equals(obj);
-      }
-      cameraService.Camera.DvrListDatesResponse other = (cameraService.Camera.DvrListDatesResponse) obj;
-
-      if (!getDateListList()
-          .equals(other.getDateListList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getDateListCount() > 0) {
-        hash = (37 * hash) + DATE_LIST_FIELD_NUMBER;
-        hash = (53 * hash) + getDateListList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDatesResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(cameraService.Camera.DvrListDatesResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code cameraService.DvrListDatesResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cameraService.DvrListDatesResponse)
-        cameraService.Camera.DvrListDatesResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDatesResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDatesResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                cameraService.Camera.DvrListDatesResponse.class, cameraService.Camera.DvrListDatesResponse.Builder.class);
-      }
-
-      // Construct using cameraService.Camera.DvrListDatesResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        dateList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDatesResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDatesResponse getDefaultInstanceForType() {
-        return cameraService.Camera.DvrListDatesResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDatesResponse build() {
-        cameraService.Camera.DvrListDatesResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDatesResponse buildPartial() {
-        cameraService.Camera.DvrListDatesResponse result = new cameraService.Camera.DvrListDatesResponse(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          dateList_ = dateList_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.dateList_ = dateList_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cameraService.Camera.DvrListDatesResponse) {
-          return mergeFrom((cameraService.Camera.DvrListDatesResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(cameraService.Camera.DvrListDatesResponse other) {
-        if (other == cameraService.Camera.DvrListDatesResponse.getDefaultInstance()) return this;
-        if (!other.dateList_.isEmpty()) {
-          if (dateList_.isEmpty()) {
-            dateList_ = other.dateList_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureDateListIsMutable();
-            dateList_.addAll(other.dateList_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        cameraService.Camera.DvrListDatesResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cameraService.Camera.DvrListDatesResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.LazyStringList dateList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureDateListIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          dateList_ = new com.google.protobuf.LazyStringArrayList(dateList_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getDateListList() {
-        return dateList_.getUnmodifiableView();
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public int getDateListCount() {
-        return dateList_.size();
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public java.lang.String getDateList(int index) {
-        return dateList_.get(index);
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getDateListBytes(int index) {
-        return dateList_.getByteString(index);
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public Builder setDateList(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDateListIsMutable();
-        dateList_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public Builder addDateList(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDateListIsMutable();
-        dateList_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public Builder addAllDateList(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureDateListIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, dateList_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public Builder clearDateList() {
-        dateList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string date_list = 1;</code>
-       */
-      public Builder addDateListBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureDateListIsMutable();
-        dateList_.add(value);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:cameraService.DvrListDatesResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:cameraService.DvrListDatesResponse)
-    private static final cameraService.Camera.DvrListDatesResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new cameraService.Camera.DvrListDatesResponse();
-    }
-
-    public static cameraService.Camera.DvrListDatesResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DvrListDatesResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DvrListDatesResponse>() {
-      @java.lang.Override
-      public DvrListDatesResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DvrListDatesResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DvrListDatesResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DvrListDatesResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public cameraService.Camera.DvrListDatesResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DvrDateVideosFilterOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cameraService.DvrDateVideosFilter)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 过滤开始小时, 0为当日零点开始
-     * 大于23将返回参数错误
-     * </pre>
-     *
-     * <code>string hour_start = 1;</code>
-     */
-    java.lang.String getHourStart();
-    /**
-     * <pre>
-     * 过滤开始小时, 0为当日零点开始
-     * 大于23将返回参数错误
-     * </pre>
-     *
-     * <code>string hour_start = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getHourStartBytes();
-
-    /**
-     * <pre>
-     * 过滤结束小时, 0为当日23点
-     * 小于hour_start或大于23将返回参数错误
-     * </pre>
-     *
-     * <code>string hour_end = 2;</code>
-     */
-    java.lang.String getHourEnd();
-    /**
-     * <pre>
-     * 过滤结束小时, 0为当日23点
-     * 小于hour_start或大于23将返回参数错误
-     * </pre>
-     *
-     * <code>string hour_end = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getHourEndBytes();
-
-    /**
-     * <pre>
-     * 限制视频列表数量, 0为所有
-     * </pre>
-     *
-     * <code>uint32 limit = 3;</code>
-     */
-    int getLimit();
-  }
-  /**
-   * <pre>
-   * 过滤参数
-   * </pre>
-   *
-   * Protobuf type {@code cameraService.DvrDateVideosFilter}
-   */
-  public  static final class DvrDateVideosFilter extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cameraService.DvrDateVideosFilter)
-      DvrDateVideosFilterOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DvrDateVideosFilter.newBuilder() to construct.
-    private DvrDateVideosFilter(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DvrDateVideosFilter() {
-      hourStart_ = "";
-      hourEnd_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DvrDateVideosFilter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2018,18 +1417,12 @@ public final class Camera {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              hourStart_ = s;
+              time_ = s;
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
 
-              hourEnd_ = s;
-              break;
-            }
-            case 24: {
-
-              limit_ = input.readUInt32();
+              image_ = input.readBytes();
               break;
             }
             default: {
@@ -2053,116 +1446,72 @@ public final class Camera {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return cameraService.Camera.internal_static_cameraService_DvrDateVideosFilter_descriptor;
+      return cameraService.Camera.internal_static_cameraService_LatestImageResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return cameraService.Camera.internal_static_cameraService_DvrDateVideosFilter_fieldAccessorTable
+      return cameraService.Camera.internal_static_cameraService_LatestImageResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              cameraService.Camera.DvrDateVideosFilter.class, cameraService.Camera.DvrDateVideosFilter.Builder.class);
+              cameraService.Camera.LatestImageResponse.class, cameraService.Camera.LatestImageResponse.Builder.class);
     }
 
-    public static final int HOUR_START_FIELD_NUMBER = 1;
-    private volatile java.lang.Object hourStart_;
+    public static final int TIME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object time_;
     /**
      * <pre>
-     * 过滤开始小时, 0为当日零点开始
-     * 大于23将返回参数错误
+     * 图片时间
+     * 格式: 2019-01-02_03:04:05
      * </pre>
      *
-     * <code>string hour_start = 1;</code>
+     * <code>string time = 1;</code>
      */
-    public java.lang.String getHourStart() {
-      java.lang.Object ref = hourStart_;
+    public java.lang.String getTime() {
+      java.lang.Object ref = time_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        hourStart_ = s;
+        time_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * 过滤开始小时, 0为当日零点开始
-     * 大于23将返回参数错误
+     * 图片时间
+     * 格式: 2019-01-02_03:04:05
      * </pre>
      *
-     * <code>string hour_start = 1;</code>
+     * <code>string time = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getHourStartBytes() {
-      java.lang.Object ref = hourStart_;
+        getTimeBytes() {
+      java.lang.Object ref = time_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        hourStart_ = b;
+        time_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int HOUR_END_FIELD_NUMBER = 2;
-    private volatile java.lang.Object hourEnd_;
+    public static final int IMAGE_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString image_;
     /**
      * <pre>
-     * 过滤结束小时, 0为当日23点
-     * 小于hour_start或大于23将返回参数错误
+     * 图片数据
      * </pre>
      *
-     * <code>string hour_end = 2;</code>
+     * <code>bytes image = 2;</code>
      */
-    public java.lang.String getHourEnd() {
-      java.lang.Object ref = hourEnd_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        hourEnd_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 过滤结束小时, 0为当日23点
-     * 小于hour_start或大于23将返回参数错误
-     * </pre>
-     *
-     * <code>string hour_end = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getHourEndBytes() {
-      java.lang.Object ref = hourEnd_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        hourEnd_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int LIMIT_FIELD_NUMBER = 3;
-    private int limit_;
-    /**
-     * <pre>
-     * 限制视频列表数量, 0为所有
-     * </pre>
-     *
-     * <code>uint32 limit = 3;</code>
-     */
-    public int getLimit() {
-      return limit_;
+    public com.google.protobuf.ByteString getImage() {
+      return image_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2179,14 +1528,11 @@ public final class Camera {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getHourStartBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hourStart_);
+      if (!getTimeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, time_);
       }
-      if (!getHourEndBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hourEnd_);
-      }
-      if (limit_ != 0) {
-        output.writeUInt32(3, limit_);
+      if (!image_.isEmpty()) {
+        output.writeBytes(2, image_);
       }
       unknownFields.writeTo(output);
     }
@@ -2197,15 +1543,12 @@ public final class Camera {
       if (size != -1) return size;
 
       size = 0;
-      if (!getHourStartBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hourStart_);
+      if (!getTimeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, time_);
       }
-      if (!getHourEndBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, hourEnd_);
-      }
-      if (limit_ != 0) {
+      if (!image_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, limit_);
+          .computeBytesSize(2, image_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2217,17 +1560,15 @@ public final class Camera {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof cameraService.Camera.DvrDateVideosFilter)) {
+      if (!(obj instanceof cameraService.Camera.LatestImageResponse)) {
         return super.equals(obj);
       }
-      cameraService.Camera.DvrDateVideosFilter other = (cameraService.Camera.DvrDateVideosFilter) obj;
+      cameraService.Camera.LatestImageResponse other = (cameraService.Camera.LatestImageResponse) obj;
 
-      if (!getHourStart()
-          .equals(other.getHourStart())) return false;
-      if (!getHourEnd()
-          .equals(other.getHourEnd())) return false;
-      if (getLimit()
-          != other.getLimit()) return false;
+      if (!getTime()
+          .equals(other.getTime())) return false;
+      if (!getImage()
+          .equals(other.getImage())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2239,80 +1580,78 @@ public final class Camera {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + HOUR_START_FIELD_NUMBER;
-      hash = (53 * hash) + getHourStart().hashCode();
-      hash = (37 * hash) + HOUR_END_FIELD_NUMBER;
-      hash = (53 * hash) + getHourEnd().hashCode();
-      hash = (37 * hash) + LIMIT_FIELD_NUMBER;
-      hash = (53 * hash) + getLimit();
+      hash = (37 * hash) + TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getTime().hashCode();
+      hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getImage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(byte[] data)
+    public static cameraService.Camera.LatestImageResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(java.io.InputStream input)
+    public static cameraService.Camera.LatestImageResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseDelimitedFrom(java.io.InputStream input)
+    public static cameraService.Camera.LatestImageResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseDelimitedFrom(
+    public static cameraService.Camera.LatestImageResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static cameraService.Camera.DvrDateVideosFilter parseFrom(
+    public static cameraService.Camera.LatestImageResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2325,7 +1664,7 @@ public final class Camera {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(cameraService.Camera.DvrDateVideosFilter prototype) {
+    public static Builder newBuilder(cameraService.Camera.LatestImageResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2341,30 +1680,26 @@ public final class Camera {
       return builder;
     }
     /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * Protobuf type {@code cameraService.DvrDateVideosFilter}
+     * Protobuf type {@code cameraService.LatestImageResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cameraService.DvrDateVideosFilter)
-        cameraService.Camera.DvrDateVideosFilterOrBuilder {
+        // @@protoc_insertion_point(builder_implements:cameraService.LatestImageResponse)
+        cameraService.Camera.LatestImageResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return cameraService.Camera.internal_static_cameraService_DvrDateVideosFilter_descriptor;
+        return cameraService.Camera.internal_static_cameraService_LatestImageResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return cameraService.Camera.internal_static_cameraService_DvrDateVideosFilter_fieldAccessorTable
+        return cameraService.Camera.internal_static_cameraService_LatestImageResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                cameraService.Camera.DvrDateVideosFilter.class, cameraService.Camera.DvrDateVideosFilter.Builder.class);
+                cameraService.Camera.LatestImageResponse.class, cameraService.Camera.LatestImageResponse.Builder.class);
       }
 
-      // Construct using cameraService.Camera.DvrDateVideosFilter.newBuilder()
+      // Construct using cameraService.Camera.LatestImageResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2382,11 +1717,9 @@ public final class Camera {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        hourStart_ = "";
+        time_ = "";
 
-        hourEnd_ = "";
-
-        limit_ = 0;
+        image_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -2394,17 +1727,17 @@ public final class Camera {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return cameraService.Camera.internal_static_cameraService_DvrDateVideosFilter_descriptor;
+        return cameraService.Camera.internal_static_cameraService_LatestImageResponse_descriptor;
       }
 
       @java.lang.Override
-      public cameraService.Camera.DvrDateVideosFilter getDefaultInstanceForType() {
-        return cameraService.Camera.DvrDateVideosFilter.getDefaultInstance();
+      public cameraService.Camera.LatestImageResponse getDefaultInstanceForType() {
+        return cameraService.Camera.LatestImageResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public cameraService.Camera.DvrDateVideosFilter build() {
-        cameraService.Camera.DvrDateVideosFilter result = buildPartial();
+      public cameraService.Camera.LatestImageResponse build() {
+        cameraService.Camera.LatestImageResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2412,11 +1745,10 @@ public final class Camera {
       }
 
       @java.lang.Override
-      public cameraService.Camera.DvrDateVideosFilter buildPartial() {
-        cameraService.Camera.DvrDateVideosFilter result = new cameraService.Camera.DvrDateVideosFilter(this);
-        result.hourStart_ = hourStart_;
-        result.hourEnd_ = hourEnd_;
-        result.limit_ = limit_;
+      public cameraService.Camera.LatestImageResponse buildPartial() {
+        cameraService.Camera.LatestImageResponse result = new cameraService.Camera.LatestImageResponse(this);
+        result.time_ = time_;
+        result.image_ = image_;
         onBuilt();
         return result;
       }
@@ -2455,26 +1787,22 @@ public final class Camera {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cameraService.Camera.DvrDateVideosFilter) {
-          return mergeFrom((cameraService.Camera.DvrDateVideosFilter)other);
+        if (other instanceof cameraService.Camera.LatestImageResponse) {
+          return mergeFrom((cameraService.Camera.LatestImageResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(cameraService.Camera.DvrDateVideosFilter other) {
-        if (other == cameraService.Camera.DvrDateVideosFilter.getDefaultInstance()) return this;
-        if (!other.getHourStart().isEmpty()) {
-          hourStart_ = other.hourStart_;
+      public Builder mergeFrom(cameraService.Camera.LatestImageResponse other) {
+        if (other == cameraService.Camera.LatestImageResponse.getDefaultInstance()) return this;
+        if (!other.getTime().isEmpty()) {
+          time_ = other.time_;
           onChanged();
         }
-        if (!other.getHourEnd().isEmpty()) {
-          hourEnd_ = other.hourEnd_;
-          onChanged();
-        }
-        if (other.getLimit() != 0) {
-          setLimit(other.getLimit());
+        if (other.getImage() != com.google.protobuf.ByteString.EMPTY) {
+          setImage(other.getImage());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2491,11 +1819,11 @@ public final class Camera {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cameraService.Camera.DvrDateVideosFilter parsedMessage = null;
+        cameraService.Camera.LatestImageResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cameraService.Camera.DvrDateVideosFilter) e.getUnfinishedMessage();
+          parsedMessage = (cameraService.Camera.LatestImageResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2505,22 +1833,22 @@ public final class Camera {
         return this;
       }
 
-      private java.lang.Object hourStart_ = "";
+      private java.lang.Object time_ = "";
       /**
        * <pre>
-       * 过滤开始小时, 0为当日零点开始
-       * 大于23将返回参数错误
+       * 图片时间
+       * 格式: 2019-01-02_03:04:05
        * </pre>
        *
-       * <code>string hour_start = 1;</code>
+       * <code>string time = 1;</code>
        */
-      public java.lang.String getHourStart() {
-        java.lang.Object ref = hourStart_;
+      public java.lang.String getTime() {
+        java.lang.Object ref = time_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          hourStart_ = s;
+          time_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2528,20 +1856,20 @@ public final class Camera {
       }
       /**
        * <pre>
-       * 过滤开始小时, 0为当日零点开始
-       * 大于23将返回参数错误
+       * 图片时间
+       * 格式: 2019-01-02_03:04:05
        * </pre>
        *
-       * <code>string hour_start = 1;</code>
+       * <code>string time = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getHourStartBytes() {
-        java.lang.Object ref = hourStart_;
+          getTimeBytes() {
+        java.lang.Object ref = time_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          hourStart_ = b;
+          time_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -2549,184 +1877,93 @@ public final class Camera {
       }
       /**
        * <pre>
-       * 过滤开始小时, 0为当日零点开始
-       * 大于23将返回参数错误
+       * 图片时间
+       * 格式: 2019-01-02_03:04:05
        * </pre>
        *
-       * <code>string hour_start = 1;</code>
+       * <code>string time = 1;</code>
        */
-      public Builder setHourStart(
+      public Builder setTime(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        hourStart_ = value;
+        time_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 过滤开始小时, 0为当日零点开始
-       * 大于23将返回参数错误
+       * 图片时间
+       * 格式: 2019-01-02_03:04:05
        * </pre>
        *
-       * <code>string hour_start = 1;</code>
+       * <code>string time = 1;</code>
        */
-      public Builder clearHourStart() {
+      public Builder clearTime() {
         
-        hourStart_ = getDefaultInstance().getHourStart();
+        time_ = getDefaultInstance().getTime();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 过滤开始小时, 0为当日零点开始
-       * 大于23将返回参数错误
+       * 图片时间
+       * 格式: 2019-01-02_03:04:05
        * </pre>
        *
-       * <code>string hour_start = 1;</code>
+       * <code>string time = 1;</code>
        */
-      public Builder setHourStartBytes(
+      public Builder setTimeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        hourStart_ = value;
+        time_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object hourEnd_ = "";
+      private com.google.protobuf.ByteString image_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       * 过滤结束小时, 0为当日23点
-       * 小于hour_start或大于23将返回参数错误
+       * 图片数据
        * </pre>
        *
-       * <code>string hour_end = 2;</code>
+       * <code>bytes image = 2;</code>
        */
-      public java.lang.String getHourEnd() {
-        java.lang.Object ref = hourEnd_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          hourEnd_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.google.protobuf.ByteString getImage() {
+        return image_;
       }
       /**
        * <pre>
-       * 过滤结束小时, 0为当日23点
-       * 小于hour_start或大于23将返回参数错误
+       * 图片数据
        * </pre>
        *
-       * <code>string hour_end = 2;</code>
+       * <code>bytes image = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getHourEndBytes() {
-        java.lang.Object ref = hourEnd_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          hourEnd_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 过滤结束小时, 0为当日23点
-       * 小于hour_start或大于23将返回参数错误
-       * </pre>
-       *
-       * <code>string hour_end = 2;</code>
-       */
-      public Builder setHourEnd(
-          java.lang.String value) {
+      public Builder setImage(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        hourEnd_ = value;
+        image_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 过滤结束小时, 0为当日23点
-       * 小于hour_start或大于23将返回参数错误
+       * 图片数据
        * </pre>
        *
-       * <code>string hour_end = 2;</code>
+       * <code>bytes image = 2;</code>
        */
-      public Builder clearHourEnd() {
+      public Builder clearImage() {
         
-        hourEnd_ = getDefaultInstance().getHourEnd();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 过滤结束小时, 0为当日23点
-       * 小于hour_start或大于23将返回参数错误
-       * </pre>
-       *
-       * <code>string hour_end = 2;</code>
-       */
-      public Builder setHourEndBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        hourEnd_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int limit_ ;
-      /**
-       * <pre>
-       * 限制视频列表数量, 0为所有
-       * </pre>
-       *
-       * <code>uint32 limit = 3;</code>
-       */
-      public int getLimit() {
-        return limit_;
-      }
-      /**
-       * <pre>
-       * 限制视频列表数量, 0为所有
-       * </pre>
-       *
-       * <code>uint32 limit = 3;</code>
-       */
-      public Builder setLimit(int value) {
-        
-        limit_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 限制视频列表数量, 0为所有
-       * </pre>
-       *
-       * <code>uint32 limit = 3;</code>
-       */
-      public Builder clearLimit() {
-        
-        limit_ = 0;
+        image_ = getDefaultInstance().getImage();
         onChanged();
         return this;
       }
@@ -2743,1551 +1980,41 @@ public final class Camera {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:cameraService.DvrDateVideosFilter)
+      // @@protoc_insertion_point(builder_scope:cameraService.LatestImageResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:cameraService.DvrDateVideosFilter)
-    private static final cameraService.Camera.DvrDateVideosFilter DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:cameraService.LatestImageResponse)
+    private static final cameraService.Camera.LatestImageResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new cameraService.Camera.DvrDateVideosFilter();
+      DEFAULT_INSTANCE = new cameraService.Camera.LatestImageResponse();
     }
 
-    public static cameraService.Camera.DvrDateVideosFilter getDefaultInstance() {
+    public static cameraService.Camera.LatestImageResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DvrDateVideosFilter>
-        PARSER = new com.google.protobuf.AbstractParser<DvrDateVideosFilter>() {
+    private static final com.google.protobuf.Parser<LatestImageResponse>
+        PARSER = new com.google.protobuf.AbstractParser<LatestImageResponse>() {
       @java.lang.Override
-      public DvrDateVideosFilter parsePartialFrom(
+      public LatestImageResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DvrDateVideosFilter(input, extensionRegistry);
+        return new LatestImageResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DvrDateVideosFilter> parser() {
+    public static com.google.protobuf.Parser<LatestImageResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DvrDateVideosFilter> getParserForType() {
+    public com.google.protobuf.Parser<LatestImageResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public cameraService.Camera.DvrDateVideosFilter getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DvrListDateVideosRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cameraService.DvrListDateVideosRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 请求日期, 根据DvrListDatesResonse中日期
-     * </pre>
-     *
-     * <code>string date = 1;</code>
-     */
-    java.lang.String getDate();
-    /**
-     * <pre>
-     * 请求日期, 根据DvrListDatesResonse中日期
-     * </pre>
-     *
-     * <code>string date = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getDateBytes();
-
-    /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-     */
-    boolean hasFilter();
-    /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-     */
-    cameraService.Camera.DvrDateVideosFilter getFilter();
-    /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-     */
-    cameraService.Camera.DvrDateVideosFilterOrBuilder getFilterOrBuilder();
-  }
-  /**
-   * Protobuf type {@code cameraService.DvrListDateVideosRequest}
-   */
-  public  static final class DvrListDateVideosRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cameraService.DvrListDateVideosRequest)
-      DvrListDateVideosRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DvrListDateVideosRequest.newBuilder() to construct.
-    private DvrListDateVideosRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DvrListDateVideosRequest() {
-      date_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DvrListDateVideosRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              date_ = s;
-              break;
-            }
-            case 18: {
-              cameraService.Camera.DvrDateVideosFilter.Builder subBuilder = null;
-              if (filter_ != null) {
-                subBuilder = filter_.toBuilder();
-              }
-              filter_ = input.readMessage(cameraService.Camera.DvrDateVideosFilter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(filter_);
-                filter_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDateVideosRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDateVideosRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cameraService.Camera.DvrListDateVideosRequest.class, cameraService.Camera.DvrListDateVideosRequest.Builder.class);
-    }
-
-    public static final int DATE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object date_;
-    /**
-     * <pre>
-     * 请求日期, 根据DvrListDatesResonse中日期
-     * </pre>
-     *
-     * <code>string date = 1;</code>
-     */
-    public java.lang.String getDate() {
-      java.lang.Object ref = date_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        date_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 请求日期, 根据DvrListDatesResonse中日期
-     * </pre>
-     *
-     * <code>string date = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDateBytes() {
-      java.lang.Object ref = date_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        date_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FILTER_FIELD_NUMBER = 2;
-    private cameraService.Camera.DvrDateVideosFilter filter_;
-    /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-     */
-    public boolean hasFilter() {
-      return filter_ != null;
-    }
-    /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-     */
-    public cameraService.Camera.DvrDateVideosFilter getFilter() {
-      return filter_ == null ? cameraService.Camera.DvrDateVideosFilter.getDefaultInstance() : filter_;
-    }
-    /**
-     * <pre>
-     * 过滤参数
-     * </pre>
-     *
-     * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-     */
-    public cameraService.Camera.DvrDateVideosFilterOrBuilder getFilterOrBuilder() {
-      return getFilter();
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getDateBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, date_);
-      }
-      if (filter_ != null) {
-        output.writeMessage(2, getFilter());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getDateBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, date_);
-      }
-      if (filter_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getFilter());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof cameraService.Camera.DvrListDateVideosRequest)) {
-        return super.equals(obj);
-      }
-      cameraService.Camera.DvrListDateVideosRequest other = (cameraService.Camera.DvrListDateVideosRequest) obj;
-
-      if (!getDate()
-          .equals(other.getDate())) return false;
-      if (hasFilter() != other.hasFilter()) return false;
-      if (hasFilter()) {
-        if (!getFilter()
-            .equals(other.getFilter())) return false;
-      }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DATE_FIELD_NUMBER;
-      hash = (53 * hash) + getDate().hashCode();
-      if (hasFilter()) {
-        hash = (37 * hash) + FILTER_FIELD_NUMBER;
-        hash = (53 * hash) + getFilter().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDateVideosRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(cameraService.Camera.DvrListDateVideosRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code cameraService.DvrListDateVideosRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cameraService.DvrListDateVideosRequest)
-        cameraService.Camera.DvrListDateVideosRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDateVideosRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDateVideosRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                cameraService.Camera.DvrListDateVideosRequest.class, cameraService.Camera.DvrListDateVideosRequest.Builder.class);
-      }
-
-      // Construct using cameraService.Camera.DvrListDateVideosRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        date_ = "";
-
-        if (filterBuilder_ == null) {
-          filter_ = null;
-        } else {
-          filter_ = null;
-          filterBuilder_ = null;
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDateVideosRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDateVideosRequest getDefaultInstanceForType() {
-        return cameraService.Camera.DvrListDateVideosRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDateVideosRequest build() {
-        cameraService.Camera.DvrListDateVideosRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDateVideosRequest buildPartial() {
-        cameraService.Camera.DvrListDateVideosRequest result = new cameraService.Camera.DvrListDateVideosRequest(this);
-        result.date_ = date_;
-        if (filterBuilder_ == null) {
-          result.filter_ = filter_;
-        } else {
-          result.filter_ = filterBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cameraService.Camera.DvrListDateVideosRequest) {
-          return mergeFrom((cameraService.Camera.DvrListDateVideosRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(cameraService.Camera.DvrListDateVideosRequest other) {
-        if (other == cameraService.Camera.DvrListDateVideosRequest.getDefaultInstance()) return this;
-        if (!other.getDate().isEmpty()) {
-          date_ = other.date_;
-          onChanged();
-        }
-        if (other.hasFilter()) {
-          mergeFilter(other.getFilter());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        cameraService.Camera.DvrListDateVideosRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cameraService.Camera.DvrListDateVideosRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object date_ = "";
-      /**
-       * <pre>
-       * 请求日期, 根据DvrListDatesResonse中日期
-       * </pre>
-       *
-       * <code>string date = 1;</code>
-       */
-      public java.lang.String getDate() {
-        java.lang.Object ref = date_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          date_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 请求日期, 根据DvrListDatesResonse中日期
-       * </pre>
-       *
-       * <code>string date = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getDateBytes() {
-        java.lang.Object ref = date_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          date_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 请求日期, 根据DvrListDatesResonse中日期
-       * </pre>
-       *
-       * <code>string date = 1;</code>
-       */
-      public Builder setDate(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        date_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 请求日期, 根据DvrListDatesResonse中日期
-       * </pre>
-       *
-       * <code>string date = 1;</code>
-       */
-      public Builder clearDate() {
-        
-        date_ = getDefaultInstance().getDate();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 请求日期, 根据DvrListDatesResonse中日期
-       * </pre>
-       *
-       * <code>string date = 1;</code>
-       */
-      public Builder setDateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        date_ = value;
-        onChanged();
-        return this;
-      }
-
-      private cameraService.Camera.DvrDateVideosFilter filter_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          cameraService.Camera.DvrDateVideosFilter, cameraService.Camera.DvrDateVideosFilter.Builder, cameraService.Camera.DvrDateVideosFilterOrBuilder> filterBuilder_;
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public boolean hasFilter() {
-        return filterBuilder_ != null || filter_ != null;
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public cameraService.Camera.DvrDateVideosFilter getFilter() {
-        if (filterBuilder_ == null) {
-          return filter_ == null ? cameraService.Camera.DvrDateVideosFilter.getDefaultInstance() : filter_;
-        } else {
-          return filterBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public Builder setFilter(cameraService.Camera.DvrDateVideosFilter value) {
-        if (filterBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          filter_ = value;
-          onChanged();
-        } else {
-          filterBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public Builder setFilter(
-          cameraService.Camera.DvrDateVideosFilter.Builder builderForValue) {
-        if (filterBuilder_ == null) {
-          filter_ = builderForValue.build();
-          onChanged();
-        } else {
-          filterBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public Builder mergeFilter(cameraService.Camera.DvrDateVideosFilter value) {
-        if (filterBuilder_ == null) {
-          if (filter_ != null) {
-            filter_ =
-              cameraService.Camera.DvrDateVideosFilter.newBuilder(filter_).mergeFrom(value).buildPartial();
-          } else {
-            filter_ = value;
-          }
-          onChanged();
-        } else {
-          filterBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public Builder clearFilter() {
-        if (filterBuilder_ == null) {
-          filter_ = null;
-          onChanged();
-        } else {
-          filter_ = null;
-          filterBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public cameraService.Camera.DvrDateVideosFilter.Builder getFilterBuilder() {
-        
-        onChanged();
-        return getFilterFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      public cameraService.Camera.DvrDateVideosFilterOrBuilder getFilterOrBuilder() {
-        if (filterBuilder_ != null) {
-          return filterBuilder_.getMessageOrBuilder();
-        } else {
-          return filter_ == null ?
-              cameraService.Camera.DvrDateVideosFilter.getDefaultInstance() : filter_;
-        }
-      }
-      /**
-       * <pre>
-       * 过滤参数
-       * </pre>
-       *
-       * <code>.cameraService.DvrDateVideosFilter filter = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          cameraService.Camera.DvrDateVideosFilter, cameraService.Camera.DvrDateVideosFilter.Builder, cameraService.Camera.DvrDateVideosFilterOrBuilder> 
-          getFilterFieldBuilder() {
-        if (filterBuilder_ == null) {
-          filterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              cameraService.Camera.DvrDateVideosFilter, cameraService.Camera.DvrDateVideosFilter.Builder, cameraService.Camera.DvrDateVideosFilterOrBuilder>(
-                  getFilter(),
-                  getParentForChildren(),
-                  isClean());
-          filter_ = null;
-        }
-        return filterBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:cameraService.DvrListDateVideosRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:cameraService.DvrListDateVideosRequest)
-    private static final cameraService.Camera.DvrListDateVideosRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new cameraService.Camera.DvrListDateVideosRequest();
-    }
-
-    public static cameraService.Camera.DvrListDateVideosRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DvrListDateVideosRequest>
-        PARSER = new com.google.protobuf.AbstractParser<DvrListDateVideosRequest>() {
-      @java.lang.Override
-      public DvrListDateVideosRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DvrListDateVideosRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DvrListDateVideosRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DvrListDateVideosRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public cameraService.Camera.DvrListDateVideosRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface DvrListDateVideosResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cameraService.DvrListDateVideosResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    java.util.List<java.lang.String>
-        getVideosStaticList();
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    int getVideosStaticCount();
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    java.lang.String getVideosStatic(int index);
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getVideosStaticBytes(int index);
-  }
-  /**
-   * Protobuf type {@code cameraService.DvrListDateVideosResponse}
-   */
-  public  static final class DvrListDateVideosResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cameraService.DvrListDateVideosResponse)
-      DvrListDateVideosResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use DvrListDateVideosResponse.newBuilder() to construct.
-    private DvrListDateVideosResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private DvrListDateVideosResponse() {
-      videosStatic_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private DvrListDateVideosResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                videosStatic_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              videosStatic_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          videosStatic_ = videosStatic_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDateVideosResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cameraService.Camera.internal_static_cameraService_DvrListDateVideosResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cameraService.Camera.DvrListDateVideosResponse.class, cameraService.Camera.DvrListDateVideosResponse.Builder.class);
-    }
-
-    public static final int VIDEOS_STATIC_FIELD_NUMBER = 1;
-    private com.google.protobuf.LazyStringList videosStatic_;
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    public com.google.protobuf.ProtocolStringList
-        getVideosStaticList() {
-      return videosStatic_;
-    }
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    public int getVideosStaticCount() {
-      return videosStatic_.size();
-    }
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    public java.lang.String getVideosStatic(int index) {
-      return videosStatic_.get(index);
-    }
-    /**
-     * <pre>
-     * 监控文件静态文件地址列表
-     * </pre>
-     *
-     * <code>repeated string videos_static = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getVideosStaticBytes(int index) {
-      return videosStatic_.getByteString(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < videosStatic_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, videosStatic_.getRaw(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < videosStatic_.size(); i++) {
-          dataSize += computeStringSizeNoTag(videosStatic_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getVideosStaticList().size();
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof cameraService.Camera.DvrListDateVideosResponse)) {
-        return super.equals(obj);
-      }
-      cameraService.Camera.DvrListDateVideosResponse other = (cameraService.Camera.DvrListDateVideosResponse) obj;
-
-      if (!getVideosStaticList()
-          .equals(other.getVideosStaticList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getVideosStaticCount() > 0) {
-        hash = (37 * hash) + VIDEOS_STATIC_FIELD_NUMBER;
-        hash = (53 * hash) + getVideosStaticList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cameraService.Camera.DvrListDateVideosResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(cameraService.Camera.DvrListDateVideosResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code cameraService.DvrListDateVideosResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cameraService.DvrListDateVideosResponse)
-        cameraService.Camera.DvrListDateVideosResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDateVideosResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDateVideosResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                cameraService.Camera.DvrListDateVideosResponse.class, cameraService.Camera.DvrListDateVideosResponse.Builder.class);
-      }
-
-      // Construct using cameraService.Camera.DvrListDateVideosResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        videosStatic_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return cameraService.Camera.internal_static_cameraService_DvrListDateVideosResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDateVideosResponse getDefaultInstanceForType() {
-        return cameraService.Camera.DvrListDateVideosResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDateVideosResponse build() {
-        cameraService.Camera.DvrListDateVideosResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public cameraService.Camera.DvrListDateVideosResponse buildPartial() {
-        cameraService.Camera.DvrListDateVideosResponse result = new cameraService.Camera.DvrListDateVideosResponse(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          videosStatic_ = videosStatic_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.videosStatic_ = videosStatic_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cameraService.Camera.DvrListDateVideosResponse) {
-          return mergeFrom((cameraService.Camera.DvrListDateVideosResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(cameraService.Camera.DvrListDateVideosResponse other) {
-        if (other == cameraService.Camera.DvrListDateVideosResponse.getDefaultInstance()) return this;
-        if (!other.videosStatic_.isEmpty()) {
-          if (videosStatic_.isEmpty()) {
-            videosStatic_ = other.videosStatic_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureVideosStaticIsMutable();
-            videosStatic_.addAll(other.videosStatic_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        cameraService.Camera.DvrListDateVideosResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cameraService.Camera.DvrListDateVideosResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.LazyStringList videosStatic_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureVideosStaticIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          videosStatic_ = new com.google.protobuf.LazyStringArrayList(videosStatic_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getVideosStaticList() {
-        return videosStatic_.getUnmodifiableView();
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public int getVideosStaticCount() {
-        return videosStatic_.size();
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public java.lang.String getVideosStatic(int index) {
-        return videosStatic_.get(index);
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getVideosStaticBytes(int index) {
-        return videosStatic_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public Builder setVideosStatic(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVideosStaticIsMutable();
-        videosStatic_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public Builder addVideosStatic(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVideosStaticIsMutable();
-        videosStatic_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public Builder addAllVideosStatic(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureVideosStaticIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, videosStatic_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public Builder clearVideosStatic() {
-        videosStatic_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 监控文件静态文件地址列表
-       * </pre>
-       *
-       * <code>repeated string videos_static = 1;</code>
-       */
-      public Builder addVideosStaticBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureVideosStaticIsMutable();
-        videosStatic_.add(value);
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:cameraService.DvrListDateVideosResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:cameraService.DvrListDateVideosResponse)
-    private static final cameraService.Camera.DvrListDateVideosResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new cameraService.Camera.DvrListDateVideosResponse();
-    }
-
-    public static cameraService.Camera.DvrListDateVideosResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<DvrListDateVideosResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DvrListDateVideosResponse>() {
-      @java.lang.Override
-      public DvrListDateVideosResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DvrListDateVideosResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<DvrListDateVideosResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<DvrListDateVideosResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public cameraService.Camera.DvrListDateVideosResponse getDefaultInstanceForType() {
+    public cameraService.Camera.LatestImageResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4304,30 +2031,15 @@ public final class Camera {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_cameraService_LiveH264StreamResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cameraService_DvrListDatesRequest_descriptor;
+    internal_static_cameraService_LatestImageRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cameraService_DvrListDatesRequest_fieldAccessorTable;
+      internal_static_cameraService_LatestImageRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cameraService_DvrListDatesResponse_descriptor;
+    internal_static_cameraService_LatestImageResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cameraService_DvrListDatesResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cameraService_DvrDateVideosFilter_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cameraService_DvrDateVideosFilter_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cameraService_DvrListDateVideosRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cameraService_DvrListDateVideosRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cameraService_DvrListDateVideosResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cameraService_DvrListDateVideosResponse_fieldAccessorTable;
+      internal_static_cameraService_LatestImageResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4340,38 +2052,20 @@ public final class Camera {
       "\n\014camera.proto\022\rcameraService\032\034google/ap" +
       "i/annotations.proto\"\027\n\025LiveH264StreamReq" +
       "uest\"\'\n\026LiveH264StreamResponse\022\r\n\005frame\030" +
-      "\001 \001(\014\"\025\n\023DvrListDatesRequest\")\n\024DvrListD" +
-      "atesResponse\022\021\n\tdate_list\030\001 \003(\t\"J\n\023DvrDa" +
-      "teVideosFilter\022\022\n\nhour_start\030\001 \001(\t\022\020\n\010ho" +
-      "ur_end\030\002 \001(\t\022\r\n\005limit\030\003 \001(\r\"\\\n\030DvrListDa" +
-      "teVideosRequest\022\014\n\004date\030\001 \001(\t\0222\n\006filter\030" +
-      "\002 \001(\0132\".cameraService.DvrDateVideosFilte" +
-      "r\"2\n\031DvrListDateVideosResponse\022\025\n\rvideos" +
-      "_static\030\001 \003(\t2\217\003\n\rCameraService\022a\n\016LiveH" +
-      "264Stream\022$.cameraService.LiveH264Stream" +
-      "Request\032%.cameraService.LiveH264StreamRe" +
-      "sponse\"\0000\001\022\201\001\n\014DvrListDates\022\".cameraServ" +
-      "ice.DvrListDatesRequest\032#.cameraService." +
-      "DvrListDatesResponse\"(\202\323\344\223\002\"\"\035/api/v2/ca" +
-      "mera/dvr_list_dates:\001*\022\226\001\n\021DvrListDateVi" +
-      "deos\022\'.cameraService.DvrListDateVideosRe" +
-      "quest\032(.cameraService.DvrListDateVideosR" +
-      "esponse\".\202\323\344\223\002(\"#/api/v2/camera/dvr_list" +
-      "_date_videos:\001*b\006proto3"
+      "\001 \001(\014\"\024\n\022LatestImageRequest\"2\n\023LatestIma" +
+      "geResponse\022\014\n\004time\030\001 \001(\t\022\r\n\005image\030\002 \001(\0142" +
+      "\346\001\n\rCameraService\022a\n\016LiveH264Stream\022$.ca" +
+      "meraService.LiveH264StreamRequest\032%.came" +
+      "raService.LiveH264StreamResponse\"\0000\001\022r\n\013" +
+      "LatestImage\022!.cameraService.LatestImageR" +
+      "equest\032\".cameraService.LatestImageRespon" +
+      "se\"\034\202\323\344\223\002\026\022\024/api/v2/camera/imageb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-        }, assigner);
+        });
     internal_static_cameraService_LiveH264StreamRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_cameraService_LiveH264StreamRequest_fieldAccessorTable = new
@@ -4384,36 +2078,18 @@ public final class Camera {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cameraService_LiveH264StreamResponse_descriptor,
         new java.lang.String[] { "Frame", });
-    internal_static_cameraService_DvrListDatesRequest_descriptor =
+    internal_static_cameraService_LatestImageRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_cameraService_DvrListDatesRequest_fieldAccessorTable = new
+    internal_static_cameraService_LatestImageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cameraService_DvrListDatesRequest_descriptor,
+        internal_static_cameraService_LatestImageRequest_descriptor,
         new java.lang.String[] { });
-    internal_static_cameraService_DvrListDatesResponse_descriptor =
+    internal_static_cameraService_LatestImageResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_cameraService_DvrListDatesResponse_fieldAccessorTable = new
+    internal_static_cameraService_LatestImageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cameraService_DvrListDatesResponse_descriptor,
-        new java.lang.String[] { "DateList", });
-    internal_static_cameraService_DvrDateVideosFilter_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_cameraService_DvrDateVideosFilter_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cameraService_DvrDateVideosFilter_descriptor,
-        new java.lang.String[] { "HourStart", "HourEnd", "Limit", });
-    internal_static_cameraService_DvrListDateVideosRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_cameraService_DvrListDateVideosRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cameraService_DvrListDateVideosRequest_descriptor,
-        new java.lang.String[] { "Date", "Filter", });
-    internal_static_cameraService_DvrListDateVideosResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_cameraService_DvrListDateVideosResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cameraService_DvrListDateVideosResponse_descriptor,
-        new java.lang.String[] { "VideosStatic", });
+        internal_static_cameraService_LatestImageResponse_descriptor,
+        new java.lang.String[] { "Time", "Image", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

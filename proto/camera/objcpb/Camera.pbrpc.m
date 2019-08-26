@@ -87,72 +87,41 @@
              responseClass:[LiveH264StreamResponse class]];
 }
 
-#pragma mark DvrListDates(DvrListDatesRequest) returns (DvrListDatesResponse)
+#pragma mark LatestImage(LatestImageRequest) returns (LatestImageResponse)
 
 // Deprecated methods.
 /**
- * 获取监控数据日期列表
+ * 获取当前最新图片jpg
+ * 图片更新时间周期为1s
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
-- (void)dvrListDatesWithRequest:(DvrListDatesRequest *)request handler:(void(^)(DvrListDatesResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToDvrListDatesWithRequest:request handler:handler] start];
+- (void)latestImageWithRequest:(LatestImageRequest *)request handler:(void(^)(LatestImageResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToLatestImageWithRequest:request handler:handler] start];
 }
 // Returns a not-yet-started RPC object.
 /**
- * 获取监控数据日期列表
+ * 获取当前最新图片jpg
+ * 图片更新时间周期为1s
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
-- (GRPCProtoCall *)RPCToDvrListDatesWithRequest:(DvrListDatesRequest *)request handler:(void(^)(DvrListDatesResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"DvrListDates"
+- (GRPCProtoCall *)RPCToLatestImageWithRequest:(LatestImageRequest *)request handler:(void(^)(LatestImageResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"LatestImage"
             requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[DvrListDatesResponse class]
+             responseClass:[LatestImageResponse class]
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 /**
- * 获取监控数据日期列表
+ * 获取当前最新图片jpg
+ * 图片更新时间周期为1s
  */
-- (GRPCUnaryProtoCall *)dvrListDatesWithMessage:(DvrListDatesRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
-  return [self RPCToMethod:@"DvrListDates"
+- (GRPCUnaryProtoCall *)latestImageWithMessage:(LatestImageRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
+  return [self RPCToMethod:@"LatestImage"
                    message:message
            responseHandler:handler
                callOptions:callOptions
-             responseClass:[DvrListDatesResponse class]];
-}
-
-#pragma mark DvrListDateVideos(DvrListDateVideosRequest) returns (DvrListDateVideosResponse)
-
-// Deprecated methods.
-/**
- * 获取监控数据指定日期视频文件列表
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (void)dvrListDateVideosWithRequest:(DvrListDateVideosRequest *)request handler:(void(^)(DvrListDateVideosResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToDvrListDateVideosWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-/**
- * 获取监控数据指定日期视频文件列表
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (GRPCProtoCall *)RPCToDvrListDateVideosWithRequest:(DvrListDateVideosRequest *)request handler:(void(^)(DvrListDateVideosResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"DvrListDateVideos"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[DvrListDateVideosResponse class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-/**
- * 获取监控数据指定日期视频文件列表
- */
-- (GRPCUnaryProtoCall *)dvrListDateVideosWithMessage:(DvrListDateVideosRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
-  return [self RPCToMethod:@"DvrListDateVideos"
-                   message:message
-           responseHandler:handler
-               callOptions:callOptions
-             responseClass:[DvrListDateVideosResponse class]];
+             responseClass:[LatestImageResponse class]];
 }
 
 @end

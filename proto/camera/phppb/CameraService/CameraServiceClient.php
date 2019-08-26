@@ -31,30 +31,17 @@ class CameraServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     * 获取监控数据日期列表
-     * @param \CameraService\DvrListDatesRequest $argument input argument
+     * 获取当前最新图片jpg
+     * 图片更新时间周期为1s
+     * @param \CameraService\LatestImageRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function DvrListDates(\CameraService\DvrListDatesRequest $argument,
+    public function LatestImage(\CameraService\LatestImageRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/cameraService.CameraService/DvrListDates',
+        return $this->_simpleRequest('/cameraService.CameraService/LatestImage',
         $argument,
-        ['\CameraService\DvrListDatesResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * 获取监控数据指定日期视频文件列表
-     * @param \CameraService\DvrListDateVideosRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function DvrListDateVideos(\CameraService\DvrListDateVideosRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/cameraService.CameraService/DvrListDateVideos',
-        $argument,
-        ['\CameraService\DvrListDateVideosResponse', 'decode'],
+        ['\CameraService\LatestImageResponse', 'decode'],
         $metadata, $options);
     }
 

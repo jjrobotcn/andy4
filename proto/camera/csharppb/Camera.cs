@@ -26,33 +26,21 @@ namespace CameraService {
           string.Concat(
             "CgxjYW1lcmEucHJvdG8SDWNhbWVyYVNlcnZpY2UaHGdvb2dsZS9hcGkvYW5u",
             "b3RhdGlvbnMucHJvdG8iFwoVTGl2ZUgyNjRTdHJlYW1SZXF1ZXN0IicKFkxp",
-            "dmVIMjY0U3RyZWFtUmVzcG9uc2USDQoFZnJhbWUYASABKAwiFQoTRHZyTGlz",
-            "dERhdGVzUmVxdWVzdCIpChREdnJMaXN0RGF0ZXNSZXNwb25zZRIRCglkYXRl",
-            "X2xpc3QYASADKAkiSgoTRHZyRGF0ZVZpZGVvc0ZpbHRlchISCgpob3VyX3N0",
-            "YXJ0GAEgASgJEhAKCGhvdXJfZW5kGAIgASgJEg0KBWxpbWl0GAMgASgNIlwK",
-            "GER2ckxpc3REYXRlVmlkZW9zUmVxdWVzdBIMCgRkYXRlGAEgASgJEjIKBmZp",
-            "bHRlchgCIAEoCzIiLmNhbWVyYVNlcnZpY2UuRHZyRGF0ZVZpZGVvc0ZpbHRl",
-            "ciIyChlEdnJMaXN0RGF0ZVZpZGVvc1Jlc3BvbnNlEhUKDXZpZGVvc19zdGF0",
-            "aWMYASADKAkyjwMKDUNhbWVyYVNlcnZpY2USYQoOTGl2ZUgyNjRTdHJlYW0S",
-            "JC5jYW1lcmFTZXJ2aWNlLkxpdmVIMjY0U3RyZWFtUmVxdWVzdBolLmNhbWVy",
-            "YVNlcnZpY2UuTGl2ZUgyNjRTdHJlYW1SZXNwb25zZSIAMAESgQEKDER2ckxp",
-            "c3REYXRlcxIiLmNhbWVyYVNlcnZpY2UuRHZyTGlzdERhdGVzUmVxdWVzdBoj",
-            "LmNhbWVyYVNlcnZpY2UuRHZyTGlzdERhdGVzUmVzcG9uc2UiKILT5JMCIiId",
-            "L2FwaS92Mi9jYW1lcmEvZHZyX2xpc3RfZGF0ZXM6ASoSlgEKEUR2ckxpc3RE",
-            "YXRlVmlkZW9zEicuY2FtZXJhU2VydmljZS5EdnJMaXN0RGF0ZVZpZGVvc1Jl",
-            "cXVlc3QaKC5jYW1lcmFTZXJ2aWNlLkR2ckxpc3REYXRlVmlkZW9zUmVzcG9u",
-            "c2UiLoLT5JMCKCIjL2FwaS92Mi9jYW1lcmEvZHZyX2xpc3RfZGF0ZV92aWRl",
-            "b3M6ASpiBnByb3RvMw=="));
+            "dmVIMjY0U3RyZWFtUmVzcG9uc2USDQoFZnJhbWUYASABKAwiFAoSTGF0ZXN0",
+            "SW1hZ2VSZXF1ZXN0IjIKE0xhdGVzdEltYWdlUmVzcG9uc2USDAoEdGltZRgB",
+            "IAEoCRINCgVpbWFnZRgCIAEoDDLmAQoNQ2FtZXJhU2VydmljZRJhCg5MaXZl",
+            "SDI2NFN0cmVhbRIkLmNhbWVyYVNlcnZpY2UuTGl2ZUgyNjRTdHJlYW1SZXF1",
+            "ZXN0GiUuY2FtZXJhU2VydmljZS5MaXZlSDI2NFN0cmVhbVJlc3BvbnNlIgAw",
+            "ARJyCgtMYXRlc3RJbWFnZRIhLmNhbWVyYVNlcnZpY2UuTGF0ZXN0SW1hZ2VS",
+            "ZXF1ZXN0GiIuY2FtZXJhU2VydmljZS5MYXRlc3RJbWFnZVJlc3BvbnNlIhyC",
+            "0+STAhYSFC9hcGkvdjIvY2FtZXJhL2ltYWdlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.LiveH264StreamRequest), global::CameraService.LiveH264StreamRequest.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.LiveH264StreamResponse), global::CameraService.LiveH264StreamResponse.Parser, new[]{ "Frame" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.DvrListDatesRequest), global::CameraService.DvrListDatesRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.DvrListDatesResponse), global::CameraService.DvrListDatesResponse.Parser, new[]{ "DateList" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.DvrDateVideosFilter), global::CameraService.DvrDateVideosFilter.Parser, new[]{ "HourStart", "HourEnd", "Limit" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.DvrListDateVideosRequest), global::CameraService.DvrListDateVideosRequest.Parser, new[]{ "Date", "Filter" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.DvrListDateVideosResponse), global::CameraService.DvrListDateVideosResponse.Parser, new[]{ "VideosStatic" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.LatestImageRequest), global::CameraService.LatestImageRequest.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CameraService.LatestImageResponse), global::CameraService.LatestImageResponse.Parser, new[]{ "Time", "Image" }, null, null, null)
           }));
     }
     #endregion
@@ -289,11 +277,11 @@ namespace CameraService {
 
   }
 
-  public sealed partial class DvrListDatesRequest : pb::IMessage<DvrListDatesRequest> {
-    private static readonly pb::MessageParser<DvrListDatesRequest> _parser = new pb::MessageParser<DvrListDatesRequest>(() => new DvrListDatesRequest());
+  public sealed partial class LatestImageRequest : pb::IMessage<LatestImageRequest> {
+    private static readonly pb::MessageParser<LatestImageRequest> _parser = new pb::MessageParser<LatestImageRequest>(() => new LatestImageRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DvrListDatesRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<LatestImageRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -306,29 +294,29 @@ namespace CameraService {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDatesRequest() {
+    public LatestImageRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDatesRequest(DvrListDatesRequest other) : this() {
+    public LatestImageRequest(LatestImageRequest other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDatesRequest Clone() {
-      return new DvrListDatesRequest(this);
+    public LatestImageRequest Clone() {
+      return new LatestImageRequest(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as DvrListDatesRequest);
+      return Equals(other as LatestImageRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DvrListDatesRequest other) {
+    public bool Equals(LatestImageRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -369,7 +357,7 @@ namespace CameraService {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DvrListDatesRequest other) {
+    public void MergeFrom(LatestImageRequest other) {
       if (other == null) {
         return;
       }
@@ -390,11 +378,11 @@ namespace CameraService {
 
   }
 
-  public sealed partial class DvrListDatesResponse : pb::IMessage<DvrListDatesResponse> {
-    private static readonly pb::MessageParser<DvrListDatesResponse> _parser = new pb::MessageParser<DvrListDatesResponse>(() => new DvrListDatesResponse());
+  public sealed partial class LatestImageResponse : pb::IMessage<LatestImageResponse> {
+    private static readonly pb::MessageParser<LatestImageResponse> _parser = new pb::MessageParser<LatestImageResponse>(() => new LatestImageResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DvrListDatesResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<LatestImageResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -407,54 +395,76 @@ namespace CameraService {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDatesResponse() {
+    public LatestImageResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDatesResponse(DvrListDatesResponse other) : this() {
-      dateList_ = other.dateList_.Clone();
+    public LatestImageResponse(LatestImageResponse other) : this() {
+      time_ = other.time_;
+      image_ = other.image_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDatesResponse Clone() {
-      return new DvrListDatesResponse(this);
+    public LatestImageResponse Clone() {
+      return new LatestImageResponse(this);
     }
 
-    /// <summary>Field number for the "date_list" field.</summary>
-    public const int DateListFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_dateList_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> dateList_ = new pbc::RepeatedField<string>();
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 1;
+    private string time_ = "";
+    /// <summary>
+    /// 图片时间
+    /// 格式: 2019-01-02_03:04:05
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> DateList {
-      get { return dateList_; }
+    public string Time {
+      get { return time_; }
+      set {
+        time_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "image" field.</summary>
+    public const int ImageFieldNumber = 2;
+    private pb::ByteString image_ = pb::ByteString.Empty;
+    /// <summary>
+    /// 图片数据
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pb::ByteString Image {
+      get { return image_; }
+      set {
+        image_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as DvrListDatesResponse);
+      return Equals(other as LatestImageResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DvrListDatesResponse other) {
+    public bool Equals(LatestImageResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!dateList_.Equals(other.dateList_)) return false;
+      if (Time != other.Time) return false;
+      if (Image != other.Image) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= dateList_.GetHashCode();
+      if (Time.Length != 0) hash ^= Time.GetHashCode();
+      if (Image.Length != 0) hash ^= Image.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -468,181 +478,13 @@ namespace CameraService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      dateList_.WriteTo(output, _repeated_dateList_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += dateList_.CalculateSize(_repeated_dateList_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DvrListDatesResponse other) {
-      if (other == null) {
-        return;
-      }
-      dateList_.Add(other.dateList_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            dateList_.AddEntriesFrom(input, _repeated_dateList_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  /// <summary>
-  /// 过滤参数
-  /// </summary>
-  public sealed partial class DvrDateVideosFilter : pb::IMessage<DvrDateVideosFilter> {
-    private static readonly pb::MessageParser<DvrDateVideosFilter> _parser = new pb::MessageParser<DvrDateVideosFilter>(() => new DvrDateVideosFilter());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DvrDateVideosFilter> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::CameraService.CameraReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrDateVideosFilter() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrDateVideosFilter(DvrDateVideosFilter other) : this() {
-      hourStart_ = other.hourStart_;
-      hourEnd_ = other.hourEnd_;
-      limit_ = other.limit_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrDateVideosFilter Clone() {
-      return new DvrDateVideosFilter(this);
-    }
-
-    /// <summary>Field number for the "hour_start" field.</summary>
-    public const int HourStartFieldNumber = 1;
-    private string hourStart_ = "";
-    /// <summary>
-    /// 过滤开始小时, 0为当日零点开始
-    /// 大于23将返回参数错误
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string HourStart {
-      get { return hourStart_; }
-      set {
-        hourStart_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "hour_end" field.</summary>
-    public const int HourEndFieldNumber = 2;
-    private string hourEnd_ = "";
-    /// <summary>
-    /// 过滤结束小时, 0为当日23点
-    /// 小于hour_start或大于23将返回参数错误
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string HourEnd {
-      get { return hourEnd_; }
-      set {
-        hourEnd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "limit" field.</summary>
-    public const int LimitFieldNumber = 3;
-    private uint limit_;
-    /// <summary>
-    /// 限制视频列表数量, 0为所有
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Limit {
-      get { return limit_; }
-      set {
-        limit_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DvrDateVideosFilter);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DvrDateVideosFilter other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (HourStart != other.HourStart) return false;
-      if (HourEnd != other.HourEnd) return false;
-      if (Limit != other.Limit) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HourStart.Length != 0) hash ^= HourStart.GetHashCode();
-      if (HourEnd.Length != 0) hash ^= HourEnd.GetHashCode();
-      if (Limit != 0) hash ^= Limit.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HourStart.Length != 0) {
+      if (Time.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(HourStart);
+        output.WriteString(Time);
       }
-      if (HourEnd.Length != 0) {
+      if (Image.Length != 0) {
         output.WriteRawTag(18);
-        output.WriteString(HourEnd);
-      }
-      if (Limit != 0) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Limit);
+        output.WriteBytes(Image);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -652,14 +494,11 @@ namespace CameraService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (HourStart.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(HourStart);
+      if (Time.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Time);
       }
-      if (HourEnd.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(HourEnd);
-      }
-      if (Limit != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Limit);
+      if (Image.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Image);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -668,18 +507,15 @@ namespace CameraService {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DvrDateVideosFilter other) {
+    public void MergeFrom(LatestImageResponse other) {
       if (other == null) {
         return;
       }
-      if (other.HourStart.Length != 0) {
-        HourStart = other.HourStart;
+      if (other.Time.Length != 0) {
+        Time = other.Time;
       }
-      if (other.HourEnd.Length != 0) {
-        HourEnd = other.HourEnd;
-      }
-      if (other.Limit != 0) {
-        Limit = other.Limit;
+      if (other.Image.Length != 0) {
+        Image = other.Image;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -693,308 +529,11 @@ namespace CameraService {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            HourStart = input.ReadString();
+            Time = input.ReadString();
             break;
           }
           case 18: {
-            HourEnd = input.ReadString();
-            break;
-          }
-          case 24: {
-            Limit = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class DvrListDateVideosRequest : pb::IMessage<DvrListDateVideosRequest> {
-    private static readonly pb::MessageParser<DvrListDateVideosRequest> _parser = new pb::MessageParser<DvrListDateVideosRequest>(() => new DvrListDateVideosRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DvrListDateVideosRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::CameraService.CameraReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDateVideosRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDateVideosRequest(DvrListDateVideosRequest other) : this() {
-      date_ = other.date_;
-      filter_ = other.filter_ != null ? other.filter_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDateVideosRequest Clone() {
-      return new DvrListDateVideosRequest(this);
-    }
-
-    /// <summary>Field number for the "date" field.</summary>
-    public const int DateFieldNumber = 1;
-    private string date_ = "";
-    /// <summary>
-    /// 请求日期, 根据DvrListDatesResonse中日期
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Date {
-      get { return date_; }
-      set {
-        date_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "filter" field.</summary>
-    public const int FilterFieldNumber = 2;
-    private global::CameraService.DvrDateVideosFilter filter_;
-    /// <summary>
-    /// 过滤参数
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::CameraService.DvrDateVideosFilter Filter {
-      get { return filter_; }
-      set {
-        filter_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DvrListDateVideosRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DvrListDateVideosRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Date != other.Date) return false;
-      if (!object.Equals(Filter, other.Filter)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Date.Length != 0) hash ^= Date.GetHashCode();
-      if (filter_ != null) hash ^= Filter.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Date.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Date);
-      }
-      if (filter_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Filter);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Date.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Date);
-      }
-      if (filter_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Filter);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DvrListDateVideosRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Date.Length != 0) {
-        Date = other.Date;
-      }
-      if (other.filter_ != null) {
-        if (filter_ == null) {
-          Filter = new global::CameraService.DvrDateVideosFilter();
-        }
-        Filter.MergeFrom(other.Filter);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Date = input.ReadString();
-            break;
-          }
-          case 18: {
-            if (filter_ == null) {
-              Filter = new global::CameraService.DvrDateVideosFilter();
-            }
-            input.ReadMessage(Filter);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class DvrListDateVideosResponse : pb::IMessage<DvrListDateVideosResponse> {
-    private static readonly pb::MessageParser<DvrListDateVideosResponse> _parser = new pb::MessageParser<DvrListDateVideosResponse>(() => new DvrListDateVideosResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<DvrListDateVideosResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::CameraService.CameraReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDateVideosResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDateVideosResponse(DvrListDateVideosResponse other) : this() {
-      videosStatic_ = other.videosStatic_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DvrListDateVideosResponse Clone() {
-      return new DvrListDateVideosResponse(this);
-    }
-
-    /// <summary>Field number for the "videos_static" field.</summary>
-    public const int VideosStaticFieldNumber = 1;
-    private static readonly pb::FieldCodec<string> _repeated_videosStatic_codec
-        = pb::FieldCodec.ForString(10);
-    private readonly pbc::RepeatedField<string> videosStatic_ = new pbc::RepeatedField<string>();
-    /// <summary>
-    /// 监控文件静态文件地址列表
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<string> VideosStatic {
-      get { return videosStatic_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as DvrListDateVideosResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(DvrListDateVideosResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!videosStatic_.Equals(other.videosStatic_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= videosStatic_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      videosStatic_.WriteTo(output, _repeated_videosStatic_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += videosStatic_.CalculateSize(_repeated_videosStatic_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(DvrListDateVideosResponse other) {
-      if (other == null) {
-        return;
-      }
-      videosStatic_.Add(other.videosStatic_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            videosStatic_.AddEntriesFrom(input, _repeated_videosStatic_codec);
+            Image = input.ReadBytes();
             break;
           }
         }
