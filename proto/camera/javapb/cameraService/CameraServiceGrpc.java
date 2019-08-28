@@ -130,8 +130,7 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取当前最新图片jpg
-     * 图片更新时间周期为1s
+     * 获取实时当前最新图片jpg
      * </pre>
      */
     public void latestImage(cameraService.Camera.LatestImageRequest request,
@@ -190,8 +189,7 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取当前最新图片jpg
-     * 图片更新时间周期为1s
+     * 获取实时当前最新图片jpg
      * </pre>
      */
     public void latestImage(cameraService.Camera.LatestImageRequest request,
@@ -232,8 +230,7 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取当前最新图片jpg
-     * 图片更新时间周期为1s
+     * 获取实时当前最新图片jpg
      * </pre>
      */
     public cameraService.Camera.LatestImageResponse latestImage(cameraService.Camera.LatestImageRequest request) {
@@ -262,8 +259,7 @@ public final class CameraServiceGrpc {
 
     /**
      * <pre>
-     * 获取当前最新图片jpg
-     * 图片更新时间周期为1s
+     * 获取实时当前最新图片jpg
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<cameraService.Camera.LatestImageResponse> latestImage(

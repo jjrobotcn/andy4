@@ -254,8 +254,7 @@ const _ = grpc.SupportPackageIsVersion4
 type CameraServiceClient interface {
 	// 直播流数据, 数据为h264 nal单元
 	LiveH264Stream(ctx context.Context, in *LiveH264StreamRequest, opts ...grpc.CallOption) (CameraService_LiveH264StreamClient, error)
-	// 获取当前最新图片jpg
-	// 图片更新时间周期为1s
+	// 获取实时当前最新图片jpg
 	LatestImage(ctx context.Context, in *LatestImageRequest, opts ...grpc.CallOption) (*LatestImageResponse, error)
 }
 
@@ -312,8 +311,7 @@ func (c *cameraServiceClient) LatestImage(ctx context.Context, in *LatestImageRe
 type CameraServiceServer interface {
 	// 直播流数据, 数据为h264 nal单元
 	LiveH264Stream(*LiveH264StreamRequest, CameraService_LiveH264StreamServer) error
-	// 获取当前最新图片jpg
-	// 图片更新时间周期为1s
+	// 获取实时当前最新图片jpg
 	LatestImage(context.Context, *LatestImageRequest) (*LatestImageResponse, error)
 }
 

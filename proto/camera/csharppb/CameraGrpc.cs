@@ -54,8 +54,7 @@ namespace CameraService {
       }
 
       /// <summary>
-      /// 获取当前最新图片jpg
-      /// 图片更新时间周期为1s
+      /// 获取实时当前最新图片jpg
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -113,8 +112,7 @@ namespace CameraService {
         return CallInvoker.AsyncServerStreamingCall(__Method_LiveH264Stream, null, options, request);
       }
       /// <summary>
-      /// 获取当前最新图片jpg
-      /// 图片更新时间周期为1s
+      /// 获取实时当前最新图片jpg
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -126,8 +124,7 @@ namespace CameraService {
         return LatestImage(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// 获取当前最新图片jpg
-      /// 图片更新时间周期为1s
+      /// 获取实时当前最新图片jpg
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -137,8 +134,7 @@ namespace CameraService {
         return CallInvoker.BlockingUnaryCall(__Method_LatestImage, null, options, request);
       }
       /// <summary>
-      /// 获取当前最新图片jpg
-      /// 图片更新时间周期为1s
+      /// 获取实时当前最新图片jpg
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -150,8 +146,7 @@ namespace CameraService {
         return LatestImageAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// 获取当前最新图片jpg
-      /// 图片更新时间周期为1s
+      /// 获取实时当前最新图片jpg
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>

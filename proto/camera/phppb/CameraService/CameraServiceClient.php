@@ -31,8 +31,7 @@ class CameraServiceClient extends \Grpc\BaseStub {
     }
 
     /**
-     * 获取当前最新图片jpg
-     * 图片更新时间周期为1s
+     * 获取实时当前最新图片jpg
      * @param \CameraService\LatestImageRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

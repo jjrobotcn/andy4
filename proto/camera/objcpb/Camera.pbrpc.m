@@ -91,8 +91,7 @@
 
 // Deprecated methods.
 /**
- * 获取当前最新图片jpg
- * 图片更新时间周期为1s
+ * 获取实时当前最新图片jpg
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -101,8 +100,7 @@
 }
 // Returns a not-yet-started RPC object.
 /**
- * 获取当前最新图片jpg
- * 图片更新时间周期为1s
+ * 获取实时当前最新图片jpg
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -113,8 +111,7 @@
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 /**
- * 获取当前最新图片jpg
- * 图片更新时间周期为1s
+ * 获取实时当前最新图片jpg
  */
 - (GRPCUnaryProtoCall *)latestImageWithMessage:(LatestImageRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [self RPCToMethod:@"LatestImage"

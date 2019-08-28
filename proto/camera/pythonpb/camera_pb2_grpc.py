@@ -38,8 +38,7 @@ class CameraServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def LatestImage(self, request, context):
-    """获取当前最新图片jpg
-    图片更新时间周期为1s
+    """获取实时当前最新图片jpg
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')

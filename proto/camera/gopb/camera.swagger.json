@@ -17,7 +17,7 @@
   "paths": {
     "/api/v2/camera/image": {
       "get": {
-        "summary": "获取当前最新图片jpg\n图片更新时间周期为1s",
+        "summary": "获取实时当前最新图片jpg",
         "operationId": "LatestImage",
         "responses": {
           "200": {

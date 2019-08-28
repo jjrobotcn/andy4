@@ -39,8 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark LatestImage(LatestImageRequest) returns (LatestImageResponse)
 
 /**
- * 获取当前最新图片jpg
- * 图片更新时间周期为1s
+ * 获取实时当前最新图片jpg
  */
 - (GRPCUnaryProtoCall *)latestImageWithMessage:(LatestImageRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
@@ -72,16 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark LatestImage(LatestImageRequest) returns (LatestImageResponse)
 
 /**
- * 获取当前最新图片jpg
- * 图片更新时间周期为1s
+ * 获取实时当前最新图片jpg
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (void)latestImageWithRequest:(LatestImageRequest *)request handler:(void(^)(LatestImageResponse *_Nullable response, NSError *_Nullable error))handler;
 
 /**
- * 获取当前最新图片jpg
- * 图片更新时间周期为1s
+ * 获取实时当前最新图片jpg
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */

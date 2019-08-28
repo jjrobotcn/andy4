@@ -63,8 +63,7 @@ var CameraServiceService = exports.CameraServiceService = {
     responseSerialize: serialize_cameraService_LiveH264StreamResponse,
     responseDeserialize: deserialize_cameraService_LiveH264StreamResponse,
   },
-  // 获取当前最新图片jpg
-  // 图片更新时间周期为1s
+  // 获取实时当前最新图片jpg
   latestImage: {
     path: '/cameraService.CameraService/LatestImage',
     requestStream: false,

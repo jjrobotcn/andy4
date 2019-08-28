@@ -53,8 +53,7 @@ class CameraService final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cameraService::LiveH264StreamResponse>> PrepareAsyncLiveH264Stream(::grpc::ClientContext* context, const ::cameraService::LiveH264StreamRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::cameraService::LiveH264StreamResponse>>(PrepareAsyncLiveH264StreamRaw(context, request, cq));
     }
-    // 获取当前最新图片jpg
-    // 图片更新时间周期为1s
+    // 获取实时当前最新图片jpg
     virtual ::grpc::Status LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::cameraService::LatestImageResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>> AsyncLatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::cameraService::LatestImageResponse>>(AsyncLatestImageRaw(context, request, cq));
@@ -67,8 +66,7 @@ class CameraService final {
       virtual ~experimental_async_interface() {}
       // 直播流数据, 数据为h264 nal单元
       virtual void LiveH264Stream(::grpc::ClientContext* context, ::cameraService::LiveH264StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::cameraService::LiveH264StreamResponse>* reactor) = 0;
-      // 获取当前最新图片jpg
-      // 图片更新时间周期为1s
+      // 获取实时当前最新图片jpg
       virtual void LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void LatestImage(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::cameraService::LatestImageResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void LatestImage(::grpc::ClientContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
@@ -136,8 +134,7 @@ class CameraService final {
     virtual ~Service();
     // 直播流数据, 数据为h264 nal单元
     virtual ::grpc::Status LiveH264Stream(::grpc::ServerContext* context, const ::cameraService::LiveH264StreamRequest* request, ::grpc::ServerWriter< ::cameraService::LiveH264StreamResponse>* writer);
-    // 获取当前最新图片jpg
-    // 图片更新时间周期为1s
+    // 获取实时当前最新图片jpg
     virtual ::grpc::Status LatestImage(::grpc::ServerContext* context, const ::cameraService::LatestImageRequest* request, ::cameraService::LatestImageResponse* response);
   };
   template <class BaseClass>

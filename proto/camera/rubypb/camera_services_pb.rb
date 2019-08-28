@@ -16,8 +16,7 @@ module CameraService
 
       # 直播流数据, 数据为h264 nal单元
       rpc :LiveH264Stream, LiveH264StreamRequest, stream(LiveH264StreamResponse)
-      # 获取当前最新图片jpg
-      # 图片更新时间周期为1s
+      # 获取实时当前最新图片jpg
       rpc :LatestImage, LatestImageRequest, LatestImageResponse
     end
 
