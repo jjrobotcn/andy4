@@ -45,6 +45,34 @@ func request_MotionService_MoveTo_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
+var (
+	filter_MotionService_PositioningData_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+)
+
+func request_MotionService_PositioningData_0(ctx context.Context, marshaler runtime.Marshaler, client MotionServiceClient, req *http.Request, pathParams map[string]string) (MotionService_PositioningDataClient, runtime.ServerMetadata, error) {
+	var protoReq PositioningDataRequest
+	var metadata runtime.ServerMetadata
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_MotionService_PositioningData_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	stream, err := client.PositioningData(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
+
+}
+
 func request_MotionService_GetPosition_0(ctx context.Context, marshaler runtime.Marshaler, client MotionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPositionRequest
 	var metadata runtime.ServerMetadata
@@ -222,6 +250,26 @@ func RegisterMotionServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 
 	})
 
+	mux.Handle("GET", pattern_MotionService_PositioningData_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_MotionService_PositioningData_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_MotionService_PositioningData_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_MotionService_GetPosition_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -366,25 +414,29 @@ func RegisterMotionServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 }
 
 var (
-	pattern_MotionService_MoveTo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "move_to"}, ""))
+	pattern_MotionService_MoveTo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "move_to"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_GetPosition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "get_position"}, ""))
+	pattern_MotionService_PositioningData_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "positioning_data"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_NewGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "new_group"}, ""))
+	pattern_MotionService_GetPosition_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "get_position"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_ListGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "list_groups"}, ""))
+	pattern_MotionService_NewGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "new_group"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_UpdateGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "update_group"}, ""))
+	pattern_MotionService_ListGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "list_groups"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_DeleteGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "delete_groups"}, ""))
+	pattern_MotionService_UpdateGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "update_group"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_ListGroupTargets_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "list_group_targets"}, ""))
+	pattern_MotionService_DeleteGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "delete_groups"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_MotionService_UpdateGroupTargets_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "update_group_targets"}, ""))
+	pattern_MotionService_ListGroupTargets_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "list_group_targets"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_MotionService_UpdateGroupTargets_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "motion", "update_group_targets"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
 	forward_MotionService_MoveTo_0 = runtime.ForwardResponseMessage
+
+	forward_MotionService_PositioningData_0 = runtime.ForwardResponseStream
 
 	forward_MotionService_GetPosition_0 = runtime.ForwardResponseMessage
 

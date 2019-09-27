@@ -15,7 +15,11 @@ service MotionService {
 
     // 持续监听位置消息
     rpc PositioningData (PositioningDataRequest) returns (stream PositioningDataResponse) {
-
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/motion/positioning_data
+            // e.g. [GET] http://10.10.10.2:81/api/v2/motion/positioning_data
+            get: "/api/v2/motion/positioning_data"
+        };
     }
 
     // 获取当前位置信息

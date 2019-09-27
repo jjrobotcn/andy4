@@ -177,6 +177,45 @@
         ]
       }
     },
+    "/api/v2/motion/positioning_data": {
+      "get": {
+        "summary": "持续监听位置消息",
+        "operationId": "PositioningData",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/motionServicePositioningDataResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "motion_type",
+            "description": "功能类型.\n\n - UNKNOWN_MOTION_TYPE: 保留\n - HEAD: 头部",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN_MOTION_TYPE",
+              "HEAD"
+            ],
+            "default": "UNKNOWN_MOTION_TYPE"
+          },
+          {
+            "name": "disability",
+            "description": "设备是否失能\n需使用手动控制运动功能时启用\n服务断开后将自动使能.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          }
+        ],
+        "tags": [
+          "MotionService"
+        ]
+      }
+    },
     "/api/v2/motion/update_group": {
       "post": {
         "summary": "更新组信息",
