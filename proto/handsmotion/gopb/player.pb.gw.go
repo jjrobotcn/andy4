@@ -448,27 +448,27 @@ func RegisterPlayerHandlerClient(ctx context.Context, mux *runtime.ServeMux, cli
 }
 
 var (
-	pattern_Player_Play_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "play"}, ""))
+	pattern_Player_Play_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "play"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Play_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "play"}, ""))
+	pattern_Player_Play_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "play"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Stop_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "stop"}, ""))
+	pattern_Player_Stop_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "stop"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Stop_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "stop"}, ""))
+	pattern_Player_Stop_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "stop"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Reset_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "reset"}, ""))
+	pattern_Player_Reset_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "reset"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Reset_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "reset"}, ""))
+	pattern_Player_Reset_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "reset"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Playlist_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "playlist"}, ""))
+	pattern_Player_Playlist_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "playlist"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_Playlist_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "playlist"}, ""))
+	pattern_Player_Playlist_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "playlist"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_State_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "state"}, ""))
+	pattern_Player_State_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "state"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_State_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "state"}, ""))
+	pattern_Player_State_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "state"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Player_OnStateChange_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "on_state_change"}, ""))
+	pattern_Player_OnStateChange_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "player", "on_state_change"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
