@@ -216,14 +216,14 @@ class PutRequest :
 
   // accessors -------------------------------------------------------
 
-  // bytes key = 1;
+  // string key = 1;
   void clear_key();
   static const int kKeyFieldNumber = 1;
   const std::string& key() const;
   void set_key(const std::string& value);
   void set_key(std::string&& value);
   void set_key(const char* value);
-  void set_key(const void* value, size_t size);
+  void set_key(const char* value, size_t size);
   std::string* mutable_key();
   std::string* release_key();
   void set_allocated_key(std::string* key);
@@ -480,14 +480,14 @@ class GetRequest :
 
   // accessors -------------------------------------------------------
 
-  // bytes key = 1;
+  // string key = 1;
   void clear_key();
   static const int kKeyFieldNumber = 1;
   const std::string& key() const;
   void set_key(const std::string& value);
   void set_key(std::string&& value);
   void set_key(const char* value);
-  void set_key(const void* value, size_t size);
+  void set_key(const char* value, size_t size);
   std::string* mutable_key();
   std::string* release_key();
   void set_allocated_key(std::string* key);
@@ -744,14 +744,14 @@ class GetPrefixRequest :
 
   // accessors -------------------------------------------------------
 
-  // bytes key_prefix = 1;
+  // string key_prefix = 1;
   void clear_key_prefix();
   static const int kKeyPrefixFieldNumber = 1;
   const std::string& key_prefix() const;
   void set_key_prefix(const std::string& value);
   void set_key_prefix(std::string&& value);
   void set_key_prefix(const char* value);
-  void set_key_prefix(const void* value, size_t size);
+  void set_key_prefix(const char* value, size_t size);
   std::string* mutable_key_prefix();
   std::string* release_key_prefix();
   void set_allocated_key_prefix(std::string* key_prefix);
@@ -876,14 +876,14 @@ class GetPrefixResponse_Match :
 
   // accessors -------------------------------------------------------
 
-  // bytes key = 1;
+  // string key = 1;
   void clear_key();
   static const int kKeyFieldNumber = 1;
   const std::string& key() const;
   void set_key(const std::string& value);
   void set_key(std::string&& value);
   void set_key(const char* value);
-  void set_key(const void* value, size_t size);
+  void set_key(const char* value, size_t size);
   std::string* mutable_key();
   std::string* release_key();
   void set_allocated_key(std::string* key);
@@ -1155,14 +1155,14 @@ class GetPrefixStreamRequest :
 
   // accessors -------------------------------------------------------
 
-  // bytes key_prefix = 1;
+  // string key_prefix = 1;
   void clear_key_prefix();
   static const int kKeyPrefixFieldNumber = 1;
   const std::string& key_prefix() const;
   void set_key_prefix(const std::string& value);
   void set_key_prefix(std::string&& value);
   void set_key_prefix(const char* value);
-  void set_key_prefix(const void* value, size_t size);
+  void set_key_prefix(const char* value, size_t size);
   std::string* mutable_key_prefix();
   std::string* release_key_prefix();
   void set_allocated_key_prefix(std::string* key_prefix);
@@ -1287,14 +1287,14 @@ class GetPrefixStreamResponse :
 
   // accessors -------------------------------------------------------
 
-  // bytes key = 1;
+  // string key = 1;
   void clear_key();
   static const int kKeyFieldNumber = 1;
   const std::string& key() const;
   void set_key(const std::string& value);
   void set_key(std::string&& value);
   void set_key(const char* value);
-  void set_key(const void* value, size_t size);
+  void set_key(const char* value, size_t size);
   std::string* mutable_key();
   std::string* release_key();
   void set_allocated_key(std::string* key);
@@ -1432,14 +1432,14 @@ class DeleteRequest :
 
   // accessors -------------------------------------------------------
 
-  // bytes key = 1;
+  // string key = 1;
   void clear_key();
   static const int kKeyFieldNumber = 1;
   const std::string& key() const;
   void set_key(const std::string& value);
   void set_key(std::string&& value);
   void set_key(const char* value);
-  void set_key(const void* value, size_t size);
+  void set_key(const char* value, size_t size);
   std::string* mutable_key();
   std::string* release_key();
   void set_allocated_key(std::string* key);
@@ -1583,7 +1583,7 @@ class DeleteResponse :
 #endif  // __GNUC__
 // PutRequest
 
-// bytes key = 1;
+// string key = 1;
 inline void PutRequest::clear_key() {
   key_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -1608,7 +1608,7 @@ inline void PutRequest::set_key(const char* value) {
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.PutRequest.key)
 }
-inline void PutRequest::set_key(const void* value, size_t size) {
+inline void PutRequest::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -1693,7 +1693,7 @@ inline void PutRequest::set_allocated_value(std::string* value) {
 
 // GetRequest
 
-// bytes key = 1;
+// string key = 1;
 inline void GetRequest::clear_key() {
   key_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -1718,7 +1718,7 @@ inline void GetRequest::set_key(const char* value) {
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.GetRequest.key)
 }
-inline void GetRequest::set_key(const void* value, size_t size) {
+inline void GetRequest::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -1803,7 +1803,7 @@ inline void GetResponse::set_allocated_value(std::string* value) {
 
 // GetPrefixRequest
 
-// bytes key_prefix = 1;
+// string key_prefix = 1;
 inline void GetPrefixRequest::clear_key_prefix() {
   key_prefix_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -1828,7 +1828,7 @@ inline void GetPrefixRequest::set_key_prefix(const char* value) {
   key_prefix_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.GetPrefixRequest.key_prefix)
 }
-inline void GetPrefixRequest::set_key_prefix(const void* value, size_t size) {
+inline void GetPrefixRequest::set_key_prefix(const char* value, size_t size) {
   
   key_prefix_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -1858,7 +1858,7 @@ inline void GetPrefixRequest::set_allocated_key_prefix(std::string* key_prefix) 
 
 // GetPrefixResponse_Match
 
-// bytes key = 1;
+// string key = 1;
 inline void GetPrefixResponse_Match::clear_key() {
   key_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -1883,7 +1883,7 @@ inline void GetPrefixResponse_Match::set_key(const char* value) {
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.GetPrefixResponse.Match.key)
 }
-inline void GetPrefixResponse_Match::set_key(const void* value, size_t size) {
+inline void GetPrefixResponse_Match::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -1998,7 +1998,7 @@ GetPrefixResponse::matches() const {
 
 // GetPrefixStreamRequest
 
-// bytes key_prefix = 1;
+// string key_prefix = 1;
 inline void GetPrefixStreamRequest::clear_key_prefix() {
   key_prefix_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -2023,7 +2023,7 @@ inline void GetPrefixStreamRequest::set_key_prefix(const char* value) {
   key_prefix_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.GetPrefixStreamRequest.key_prefix)
 }
-inline void GetPrefixStreamRequest::set_key_prefix(const void* value, size_t size) {
+inline void GetPrefixStreamRequest::set_key_prefix(const char* value, size_t size) {
   
   key_prefix_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -2053,7 +2053,7 @@ inline void GetPrefixStreamRequest::set_allocated_key_prefix(std::string* key_pr
 
 // GetPrefixStreamResponse
 
-// bytes key = 1;
+// string key = 1;
 inline void GetPrefixStreamResponse::clear_key() {
   key_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -2078,7 +2078,7 @@ inline void GetPrefixStreamResponse::set_key(const char* value) {
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.GetPrefixStreamResponse.key)
 }
-inline void GetPrefixStreamResponse::set_key(const void* value, size_t size) {
+inline void GetPrefixStreamResponse::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
@@ -2159,7 +2159,7 @@ inline void GetPrefixStreamResponse::set_allocated_value(std::string* value) {
 
 // DeleteRequest
 
-// bytes key = 1;
+// string key = 1;
 inline void DeleteRequest::clear_key() {
   key_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -2184,7 +2184,7 @@ inline void DeleteRequest::set_key(const char* value) {
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:kvstore.DeleteRequest.key)
 }
-inline void DeleteRequest::set_key(const void* value, size_t size) {
+inline void DeleteRequest::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));

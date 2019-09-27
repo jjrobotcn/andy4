@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='kvstore',
   syntax='proto3',
   serialized_options=_b('B\021KVStoreOuterClass'),
-  serialized_pb=_b('\n\rkvstore.proto\x12\x07kvstore\x1a\x1cgoogle/api/annotations.proto\"(\n\nPutRequest\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\r\n\x05value\x18\x02 \x01(\x0c\"\r\n\x0bPutResponse\"\x19\n\nGetRequest\x12\x0b\n\x03key\x18\x01 \x01(\x0c\"\x1c\n\x0bGetResponse\x12\r\n\x05value\x18\x01 \x01(\x0c\"&\n\x10GetPrefixRequest\x12\x12\n\nkey_prefix\x18\x01 \x01(\x0c\"k\n\x11GetPrefixResponse\x12\x31\n\x07matches\x18\x01 \x03(\x0b\x32 .kvstore.GetPrefixResponse.Match\x1a#\n\x05Match\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\r\n\x05value\x18\x02 \x01(\x0c\",\n\x16GetPrefixStreamRequest\x12\x12\n\nkey_prefix\x18\x01 \x01(\x0c\"5\n\x17GetPrefixStreamResponse\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\r\n\x05value\x18\x02 \x01(\x0c\"\x1c\n\rDeleteRequest\x12\x0b\n\x03key\x18\x01 \x01(\x0c\"\x10\n\x0e\x44\x65leteResponse2\xb0\x04\n\x07KVStore\x12P\n\x03Put\x12\x13.kvstore.PutRequest\x1a\x14.kvstore.PutResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/api/v2/kvstore/put:\x01*\x12g\n\x03Get\x12\x13.kvstore.GetRequest\x1a\x14.kvstore.GetResponse\"5\x82\xd3\xe4\x93\x02/\"\x13/api/v2/kvstore/get:\x01*Z\x15\x12\x13/api/v2/kvstore/get\x12\x87\x01\n\tGetPrefix\x12\x19.kvstore.GetPrefixRequest\x1a\x1a.kvstore.GetPrefixResponse\"C\x82\xd3\xe4\x93\x02=\"\x1a/api/v2/kvstore/get_prefix:\x01*Z\x1c\x12\x1a/api/v2/kvstore/get_prefix\x12\x81\x01\n\x0fGetPrefixStream\x12\x1f.kvstore.GetPrefixStreamRequest\x1a .kvstore.GetPrefixStreamResponse\")\x82\xd3\xe4\x93\x02#\x12!/api/v2/kvstore/get_prefix_stream0\x01\x12\\\n\x06\x44\x65lete\x12\x16.kvstore.DeleteRequest\x1a\x17.kvstore.DeleteResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/api/v2/kvstore/delete:\x01*B\x13\x42\x11KVStoreOuterClassb\x06proto3')
+  serialized_pb=_b('\n\rkvstore.proto\x12\x07kvstore\x1a\x1cgoogle/api/annotations.proto\"(\n\nPutRequest\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c\"\r\n\x0bPutResponse\"\x19\n\nGetRequest\x12\x0b\n\x03key\x18\x01 \x01(\t\"\x1c\n\x0bGetResponse\x12\r\n\x05value\x18\x01 \x01(\x0c\"&\n\x10GetPrefixRequest\x12\x12\n\nkey_prefix\x18\x01 \x01(\t\"k\n\x11GetPrefixResponse\x12\x31\n\x07matches\x18\x01 \x03(\x0b\x32 .kvstore.GetPrefixResponse.Match\x1a#\n\x05Match\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c\",\n\x16GetPrefixStreamRequest\x12\x12\n\nkey_prefix\x18\x01 \x01(\t\"5\n\x17GetPrefixStreamResponse\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c\"\x1c\n\rDeleteRequest\x12\x0b\n\x03key\x18\x01 \x01(\t\"\x10\n\x0e\x44\x65leteResponse2\xb0\x04\n\x07KVStore\x12P\n\x03Put\x12\x13.kvstore.PutRequest\x1a\x14.kvstore.PutResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\"\x13/api/v2/kvstore/put:\x01*\x12g\n\x03Get\x12\x13.kvstore.GetRequest\x1a\x14.kvstore.GetResponse\"5\x82\xd3\xe4\x93\x02/\"\x13/api/v2/kvstore/get:\x01*Z\x15\x12\x13/api/v2/kvstore/get\x12\x87\x01\n\tGetPrefix\x12\x19.kvstore.GetPrefixRequest\x1a\x1a.kvstore.GetPrefixResponse\"C\x82\xd3\xe4\x93\x02=\"\x1a/api/v2/kvstore/get_prefix:\x01*Z\x1c\x12\x1a/api/v2/kvstore/get_prefix\x12\x81\x01\n\x0fGetPrefixStream\x12\x1f.kvstore.GetPrefixStreamRequest\x1a .kvstore.GetPrefixStreamResponse\")\x82\xd3\xe4\x93\x02#\x12!/api/v2/kvstore/get_prefix_stream0\x01\x12\\\n\x06\x44\x65lete\x12\x16.kvstore.DeleteRequest\x1a\x17.kvstore.DeleteResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/api/v2/kvstore/delete:\x01*B\x13\x42\x11KVStoreOuterClassb\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -37,8 +37,8 @@ _PUTREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='kvstore.PutRequest.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -99,8 +99,8 @@ _GETREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='kvstore.GetRequest.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -161,8 +161,8 @@ _GETPREFIXREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key_prefix', full_name='kvstore.GetPrefixRequest.key_prefix', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -192,8 +192,8 @@ _GETPREFIXRESPONSE_MATCH = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='kvstore.GetPrefixResponse.Match.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -260,8 +260,8 @@ _GETPREFIXSTREAMREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key_prefix', full_name='kvstore.GetPrefixStreamRequest.key_prefix', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -291,8 +291,8 @@ _GETPREFIXSTREAMRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='kvstore.GetPrefixStreamResponse.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -329,8 +329,8 @@ _DELETEREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='kvstore.DeleteRequest.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),

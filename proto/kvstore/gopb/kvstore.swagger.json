@@ -59,8 +59,7 @@
             "name": "key",
             "in": "query",
             "required": false,
-            "type": "string",
-            "format": "byte"
+            "type": "string"
           }
         ],
         "tags": [
@@ -111,8 +110,7 @@
             "description": "keys: [not_match, match_1, match_2, match.3, match@4]\nmatch: [match_1, match_2, match.3, match@4]\nmatch_: [match_1,, match_2]\nmatch@: [match@3]\nmatch!: [].",
             "in": "query",
             "required": false,
-            "type": "string",
-            "format": "byte"
+            "type": "string"
           }
         ],
         "tags": [
@@ -163,8 +161,7 @@
             "description": "keys: [not_match, match_1, match_2, match.3, match@4]\nmatch: [match_1, match_2, match.3, match@4]\nmatch_: [match_1,, match_2]\nmatch@: [match@3]\nmatch!: [].",
             "in": "query",
             "required": false,
-            "type": "string",
-            "format": "byte"
+            "type": "string"
           }
         ],
         "tags": [
@@ -205,8 +202,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         },
         "value": {
           "type": "string",
@@ -218,8 +214,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         }
       }
     },
@@ -231,7 +226,6 @@
       "properties": {
         "key_prefix": {
           "type": "string",
-          "format": "byte",
           "title": "keys: [not_match, match_1, match_2, match.3, match@4]\nmatch: [match_1, match_2, match.3, match@4]\nmatch_: [match_1,, match_2]\nmatch@: [match@3]\nmatch!: []"
         }
       }
@@ -251,8 +245,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         },
         "value": {
           "type": "string",
@@ -264,8 +257,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         }
       }
     },
@@ -282,8 +274,7 @@
       "type": "object",
       "properties": {
         "key": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         },
         "value": {
           "type": "string",

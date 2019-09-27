@@ -62,7 +62,7 @@ static GPBFileDescriptor *KvstoreRoot_FileDescriptor(void) {
 
 typedef struct PutRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSData *key;
+  NSString *key;
   NSData *value;
 } PutRequest__storage_;
 
@@ -79,7 +79,7 @@ typedef struct PutRequest__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(PutRequest__storage_, key),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
       {
         .name = "value",
@@ -149,7 +149,7 @@ typedef struct PutResponse__storage_ {
 
 typedef struct GetRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSData *key;
+  NSString *key;
 } GetRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -165,7 +165,7 @@ typedef struct GetRequest__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetRequest__storage_, key),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -239,7 +239,7 @@ typedef struct GetResponse__storage_ {
 
 typedef struct GetPrefixRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSData *keyPrefix;
+  NSString *keyPrefix;
 } GetPrefixRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -255,7 +255,7 @@ typedef struct GetPrefixRequest__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetPrefixRequest__storage_, keyPrefix),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -330,7 +330,7 @@ typedef struct GetPrefixResponse__storage_ {
 
 typedef struct GetPrefixResponse_Match__storage_ {
   uint32_t _has_storage_[1];
-  NSData *key;
+  NSString *key;
   NSData *value;
 } GetPrefixResponse_Match__storage_;
 
@@ -347,7 +347,7 @@ typedef struct GetPrefixResponse_Match__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetPrefixResponse_Match__storage_, key),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
       {
         .name = "value",
@@ -386,7 +386,7 @@ typedef struct GetPrefixResponse_Match__storage_ {
 
 typedef struct GetPrefixStreamRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSData *keyPrefix;
+  NSString *keyPrefix;
 } GetPrefixStreamRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -402,7 +402,7 @@ typedef struct GetPrefixStreamRequest__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetPrefixStreamRequest__storage_, keyPrefix),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -432,7 +432,7 @@ typedef struct GetPrefixStreamRequest__storage_ {
 
 typedef struct GetPrefixStreamResponse__storage_ {
   uint32_t _has_storage_[1];
-  NSData *key;
+  NSString *key;
   NSData *value;
 } GetPrefixStreamResponse__storage_;
 
@@ -449,7 +449,7 @@ typedef struct GetPrefixStreamResponse__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetPrefixStreamResponse__storage_, key),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
       {
         .name = "value",
@@ -487,7 +487,7 @@ typedef struct GetPrefixStreamResponse__storage_ {
 
 typedef struct DeleteRequest__storage_ {
   uint32_t _has_storage_[1];
-  NSData *key;
+  NSString *key;
 } DeleteRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -503,7 +503,7 @@ typedef struct DeleteRequest__storage_ {
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(DeleteRequest__storage_, key),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeBytes,
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =

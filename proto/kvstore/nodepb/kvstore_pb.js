@@ -287,7 +287,7 @@ proto.kvstore.PutRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.kvstore.PutRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    key: msg.getKey_asB64(),
+    key: jspb.Message.getFieldWithDefault(msg, 1, ""),
     value: msg.getValue_asB64()
   };
 
@@ -326,7 +326,7 @@ proto.kvstore.PutRequest.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
     case 2:
@@ -362,9 +362,9 @@ proto.kvstore.PutRequest.prototype.serializeBinary = function() {
  */
 proto.kvstore.PutRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKey_asU8();
+  f = message.getKey();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -380,41 +380,17 @@ proto.kvstore.PutRequest.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional bytes key = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.PutRequest.prototype.getKey = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key = 1;
- * This is a type-conversion wrapper around `getKey()`
+ * optional string key = 1;
  * @return {string}
  */
-proto.kvstore.PutRequest.prototype.getKey_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKey()));
+proto.kvstore.PutRequest.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKey()`
- * @return {!Uint8Array}
- */
-proto.kvstore.PutRequest.prototype.getKey_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKey()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.PutRequest.prototype.setKey = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -590,7 +566,7 @@ proto.kvstore.GetRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.kvstore.GetRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    key: msg.getKey_asB64()
+    key: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -628,7 +604,7 @@ proto.kvstore.GetRequest.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
     default:
@@ -660,9 +636,9 @@ proto.kvstore.GetRequest.prototype.serializeBinary = function() {
  */
 proto.kvstore.GetRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKey_asU8();
+  f = message.getKey();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -671,41 +647,17 @@ proto.kvstore.GetRequest.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional bytes key = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.GetRequest.prototype.getKey = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key = 1;
- * This is a type-conversion wrapper around `getKey()`
+ * optional string key = 1;
  * @return {string}
  */
-proto.kvstore.GetRequest.prototype.getKey_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKey()));
+proto.kvstore.GetRequest.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKey()`
- * @return {!Uint8Array}
- */
-proto.kvstore.GetRequest.prototype.getKey_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKey()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.GetRequest.prototype.setKey = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -892,7 +844,7 @@ proto.kvstore.GetPrefixRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.kvstore.GetPrefixRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    keyPrefix: msg.getKeyPrefix_asB64()
+    keyPrefix: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -930,7 +882,7 @@ proto.kvstore.GetPrefixRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKeyPrefix(value);
       break;
     default:
@@ -962,9 +914,9 @@ proto.kvstore.GetPrefixRequest.prototype.serializeBinary = function() {
  */
 proto.kvstore.GetPrefixRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKeyPrefix_asU8();
+  f = message.getKeyPrefix();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -973,41 +925,17 @@ proto.kvstore.GetPrefixRequest.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional bytes key_prefix = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.GetPrefixRequest.prototype.getKeyPrefix = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key_prefix = 1;
- * This is a type-conversion wrapper around `getKeyPrefix()`
+ * optional string key_prefix = 1;
  * @return {string}
  */
-proto.kvstore.GetPrefixRequest.prototype.getKeyPrefix_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKeyPrefix()));
+proto.kvstore.GetPrefixRequest.prototype.getKeyPrefix = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key_prefix = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKeyPrefix()`
- * @return {!Uint8Array}
- */
-proto.kvstore.GetPrefixRequest.prototype.getKeyPrefix_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKeyPrefix()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.GetPrefixRequest.prototype.setKeyPrefix = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1165,7 +1093,7 @@ proto.kvstore.GetPrefixResponse.Match.prototype.toObject = function(opt_includeI
  */
 proto.kvstore.GetPrefixResponse.Match.toObject = function(includeInstance, msg) {
   var f, obj = {
-    key: msg.getKey_asB64(),
+    key: jspb.Message.getFieldWithDefault(msg, 1, ""),
     value: msg.getValue_asB64()
   };
 
@@ -1204,7 +1132,7 @@ proto.kvstore.GetPrefixResponse.Match.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
     case 2:
@@ -1240,9 +1168,9 @@ proto.kvstore.GetPrefixResponse.Match.prototype.serializeBinary = function() {
  */
 proto.kvstore.GetPrefixResponse.Match.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKey_asU8();
+  f = message.getKey();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -1258,41 +1186,17 @@ proto.kvstore.GetPrefixResponse.Match.serializeBinaryToWriter = function(message
 
 
 /**
- * optional bytes key = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.GetPrefixResponse.Match.prototype.getKey = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key = 1;
- * This is a type-conversion wrapper around `getKey()`
+ * optional string key = 1;
  * @return {string}
  */
-proto.kvstore.GetPrefixResponse.Match.prototype.getKey_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKey()));
+proto.kvstore.GetPrefixResponse.Match.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKey()`
- * @return {!Uint8Array}
- */
-proto.kvstore.GetPrefixResponse.Match.prototype.getKey_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKey()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.GetPrefixResponse.Match.prototype.setKey = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1401,7 +1305,7 @@ proto.kvstore.GetPrefixStreamRequest.prototype.toObject = function(opt_includeIn
  */
 proto.kvstore.GetPrefixStreamRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    keyPrefix: msg.getKeyPrefix_asB64()
+    keyPrefix: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1439,7 +1343,7 @@ proto.kvstore.GetPrefixStreamRequest.deserializeBinaryFromReader = function(msg,
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKeyPrefix(value);
       break;
     default:
@@ -1471,9 +1375,9 @@ proto.kvstore.GetPrefixStreamRequest.prototype.serializeBinary = function() {
  */
 proto.kvstore.GetPrefixStreamRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKeyPrefix_asU8();
+  f = message.getKeyPrefix();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -1482,41 +1386,17 @@ proto.kvstore.GetPrefixStreamRequest.serializeBinaryToWriter = function(message,
 
 
 /**
- * optional bytes key_prefix = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.GetPrefixStreamRequest.prototype.getKeyPrefix = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key_prefix = 1;
- * This is a type-conversion wrapper around `getKeyPrefix()`
+ * optional string key_prefix = 1;
  * @return {string}
  */
-proto.kvstore.GetPrefixStreamRequest.prototype.getKeyPrefix_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKeyPrefix()));
+proto.kvstore.GetPrefixStreamRequest.prototype.getKeyPrefix = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key_prefix = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKeyPrefix()`
- * @return {!Uint8Array}
- */
-proto.kvstore.GetPrefixStreamRequest.prototype.getKeyPrefix_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKeyPrefix()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.GetPrefixStreamRequest.prototype.setKeyPrefix = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1552,7 +1432,7 @@ proto.kvstore.GetPrefixStreamResponse.prototype.toObject = function(opt_includeI
  */
 proto.kvstore.GetPrefixStreamResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    key: msg.getKey_asB64(),
+    key: jspb.Message.getFieldWithDefault(msg, 1, ""),
     value: msg.getValue_asB64()
   };
 
@@ -1591,7 +1471,7 @@ proto.kvstore.GetPrefixStreamResponse.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
     case 2:
@@ -1627,9 +1507,9 @@ proto.kvstore.GetPrefixStreamResponse.prototype.serializeBinary = function() {
  */
 proto.kvstore.GetPrefixStreamResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKey_asU8();
+  f = message.getKey();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -1645,41 +1525,17 @@ proto.kvstore.GetPrefixStreamResponse.serializeBinaryToWriter = function(message
 
 
 /**
- * optional bytes key = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.GetPrefixStreamResponse.prototype.getKey = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key = 1;
- * This is a type-conversion wrapper around `getKey()`
+ * optional string key = 1;
  * @return {string}
  */
-proto.kvstore.GetPrefixStreamResponse.prototype.getKey_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKey()));
+proto.kvstore.GetPrefixStreamResponse.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKey()`
- * @return {!Uint8Array}
- */
-proto.kvstore.GetPrefixStreamResponse.prototype.getKey_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKey()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.GetPrefixStreamResponse.prototype.setKey = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1754,7 +1610,7 @@ proto.kvstore.DeleteRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.kvstore.DeleteRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    key: msg.getKey_asB64()
+    key: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1792,7 +1648,7 @@ proto.kvstore.DeleteRequest.deserializeBinaryFromReader = function(msg, reader) 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      var value = /** @type {string} */ (reader.readString());
       msg.setKey(value);
       break;
     default:
@@ -1824,9 +1680,9 @@ proto.kvstore.DeleteRequest.prototype.serializeBinary = function() {
  */
 proto.kvstore.DeleteRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getKey_asU8();
+  f = message.getKey();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -1835,41 +1691,17 @@ proto.kvstore.DeleteRequest.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional bytes key = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.kvstore.DeleteRequest.prototype.getKey = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes key = 1;
- * This is a type-conversion wrapper around `getKey()`
+ * optional string key = 1;
  * @return {string}
  */
-proto.kvstore.DeleteRequest.prototype.getKey_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getKey()));
+proto.kvstore.DeleteRequest.prototype.getKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/**
- * optional bytes key = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getKey()`
- * @return {!Uint8Array}
- */
-proto.kvstore.DeleteRequest.prototype.getKey_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getKey()));
-};
-
-
-/** @param {!(string|Uint8Array)} value */
+/** @param {string} value */
 proto.kvstore.DeleteRequest.prototype.setKey = function(value) {
-  jspb.Message.setProto3BytesField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

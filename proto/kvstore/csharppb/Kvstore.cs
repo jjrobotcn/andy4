@@ -25,15 +25,15 @@ namespace Kvstore {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg1rdnN0b3JlLnByb3RvEgdrdnN0b3JlGhxnb29nbGUvYXBpL2Fubm90YXRp",
-            "b25zLnByb3RvIigKClB1dFJlcXVlc3QSCwoDa2V5GAEgASgMEg0KBXZhbHVl",
+            "b25zLnByb3RvIigKClB1dFJlcXVlc3QSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
             "GAIgASgMIg0KC1B1dFJlc3BvbnNlIhkKCkdldFJlcXVlc3QSCwoDa2V5GAEg",
-            "ASgMIhwKC0dldFJlc3BvbnNlEg0KBXZhbHVlGAEgASgMIiYKEEdldFByZWZp",
-            "eFJlcXVlc3QSEgoKa2V5X3ByZWZpeBgBIAEoDCJrChFHZXRQcmVmaXhSZXNw",
+            "ASgJIhwKC0dldFJlc3BvbnNlEg0KBXZhbHVlGAEgASgMIiYKEEdldFByZWZp",
+            "eFJlcXVlc3QSEgoKa2V5X3ByZWZpeBgBIAEoCSJrChFHZXRQcmVmaXhSZXNw",
             "b25zZRIxCgdtYXRjaGVzGAEgAygLMiAua3ZzdG9yZS5HZXRQcmVmaXhSZXNw",
-            "b25zZS5NYXRjaBojCgVNYXRjaBILCgNrZXkYASABKAwSDQoFdmFsdWUYAiAB",
+            "b25zZS5NYXRjaBojCgVNYXRjaBILCgNrZXkYASABKAkSDQoFdmFsdWUYAiAB",
             "KAwiLAoWR2V0UHJlZml4U3RyZWFtUmVxdWVzdBISCgprZXlfcHJlZml4GAEg",
-            "ASgMIjUKF0dldFByZWZpeFN0cmVhbVJlc3BvbnNlEgsKA2tleRgBIAEoDBIN",
-            "CgV2YWx1ZRgCIAEoDCIcCg1EZWxldGVSZXF1ZXN0EgsKA2tleRgBIAEoDCIQ",
+            "ASgJIjUKF0dldFByZWZpeFN0cmVhbVJlc3BvbnNlEgsKA2tleRgBIAEoCRIN",
+            "CgV2YWx1ZRgCIAEoDCIcCg1EZWxldGVSZXF1ZXN0EgsKA2tleRgBIAEoCSIQ",
             "Cg5EZWxldGVSZXNwb25zZTKwBAoHS1ZTdG9yZRJQCgNQdXQSEy5rdnN0b3Jl",
             "LlB1dFJlcXVlc3QaFC5rdnN0b3JlLlB1dFJlc3BvbnNlIh6C0+STAhgiEy9h",
             "cGkvdjIva3ZzdG9yZS9wdXQ6ASoSZwoDR2V0EhMua3ZzdG9yZS5HZXRSZXF1",
@@ -104,9 +104,9 @@ namespace Kvstore {
 
     /// <summary>Field number for the "key" field.</summary>
     public const int KeyFieldNumber = 1;
-    private pb::ByteString key_ = pb::ByteString.Empty;
+    private string key_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Key {
+    public string Key {
       get { return key_; }
       set {
         key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -162,7 +162,7 @@ namespace Kvstore {
     public void WriteTo(pb::CodedOutputStream output) {
       if (Key.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteBytes(Key);
+        output.WriteString(Key);
       }
       if (Value.Length != 0) {
         output.WriteRawTag(18);
@@ -177,7 +177,7 @@ namespace Kvstore {
     public int CalculateSize() {
       int size = 0;
       if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Key);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
       }
       if (Value.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Value);
@@ -211,7 +211,7 @@ namespace Kvstore {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Key = input.ReadBytes();
+            Key = input.ReadString();
             break;
           }
           case 18: {
@@ -361,9 +361,9 @@ namespace Kvstore {
 
     /// <summary>Field number for the "key" field.</summary>
     public const int KeyFieldNumber = 1;
-    private pb::ByteString key_ = pb::ByteString.Empty;
+    private string key_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Key {
+    public string Key {
       get { return key_; }
       set {
         key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -406,7 +406,7 @@ namespace Kvstore {
     public void WriteTo(pb::CodedOutputStream output) {
       if (Key.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteBytes(Key);
+        output.WriteString(Key);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -417,7 +417,7 @@ namespace Kvstore {
     public int CalculateSize() {
       int size = 0;
       if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Key);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -445,7 +445,7 @@ namespace Kvstore {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Key = input.ReadBytes();
+            Key = input.ReadString();
             break;
           }
         }
@@ -619,7 +619,7 @@ namespace Kvstore {
 
     /// <summary>Field number for the "key_prefix" field.</summary>
     public const int KeyPrefixFieldNumber = 1;
-    private pb::ByteString keyPrefix_ = pb::ByteString.Empty;
+    private string keyPrefix_ = "";
     /// <summary>
     /// keys: [not_match, match_1, match_2, match.3, match@4]
     /// match: [match_1, match_2, match.3, match@4]
@@ -628,7 +628,7 @@ namespace Kvstore {
     /// match!: []
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString KeyPrefix {
+    public string KeyPrefix {
       get { return keyPrefix_; }
       set {
         keyPrefix_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -671,7 +671,7 @@ namespace Kvstore {
     public void WriteTo(pb::CodedOutputStream output) {
       if (KeyPrefix.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteBytes(KeyPrefix);
+        output.WriteString(KeyPrefix);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -682,7 +682,7 @@ namespace Kvstore {
     public int CalculateSize() {
       int size = 0;
       if (KeyPrefix.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(KeyPrefix);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(KeyPrefix);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -710,7 +710,7 @@ namespace Kvstore {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            KeyPrefix = input.ReadBytes();
+            KeyPrefix = input.ReadString();
             break;
           }
         }
@@ -879,9 +879,9 @@ namespace Kvstore {
 
         /// <summary>Field number for the "key" field.</summary>
         public const int KeyFieldNumber = 1;
-        private pb::ByteString key_ = pb::ByteString.Empty;
+        private string key_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-        public pb::ByteString Key {
+        public string Key {
           get { return key_; }
           set {
             key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -937,7 +937,7 @@ namespace Kvstore {
         public void WriteTo(pb::CodedOutputStream output) {
           if (Key.Length != 0) {
             output.WriteRawTag(10);
-            output.WriteBytes(Key);
+            output.WriteString(Key);
           }
           if (Value.Length != 0) {
             output.WriteRawTag(18);
@@ -952,7 +952,7 @@ namespace Kvstore {
         public int CalculateSize() {
           int size = 0;
           if (Key.Length != 0) {
-            size += 1 + pb::CodedOutputStream.ComputeBytesSize(Key);
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
           }
           if (Value.Length != 0) {
             size += 1 + pb::CodedOutputStream.ComputeBytesSize(Value);
@@ -986,7 +986,7 @@ namespace Kvstore {
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
               case 10: {
-                Key = input.ReadBytes();
+                Key = input.ReadString();
                 break;
               }
               case 18: {
@@ -1040,7 +1040,7 @@ namespace Kvstore {
 
     /// <summary>Field number for the "key_prefix" field.</summary>
     public const int KeyPrefixFieldNumber = 1;
-    private pb::ByteString keyPrefix_ = pb::ByteString.Empty;
+    private string keyPrefix_ = "";
     /// <summary>
     /// keys: [not_match, match_1, match_2, match.3, match@4]
     /// match: [match_1, match_2, match.3, match@4]
@@ -1049,7 +1049,7 @@ namespace Kvstore {
     /// match!: []
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString KeyPrefix {
+    public string KeyPrefix {
       get { return keyPrefix_; }
       set {
         keyPrefix_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -1092,7 +1092,7 @@ namespace Kvstore {
     public void WriteTo(pb::CodedOutputStream output) {
       if (KeyPrefix.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteBytes(KeyPrefix);
+        output.WriteString(KeyPrefix);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1103,7 +1103,7 @@ namespace Kvstore {
     public int CalculateSize() {
       int size = 0;
       if (KeyPrefix.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(KeyPrefix);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(KeyPrefix);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1131,7 +1131,7 @@ namespace Kvstore {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            KeyPrefix = input.ReadBytes();
+            KeyPrefix = input.ReadString();
             break;
           }
         }
@@ -1177,9 +1177,9 @@ namespace Kvstore {
 
     /// <summary>Field number for the "key" field.</summary>
     public const int KeyFieldNumber = 1;
-    private pb::ByteString key_ = pb::ByteString.Empty;
+    private string key_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Key {
+    public string Key {
       get { return key_; }
       set {
         key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -1235,7 +1235,7 @@ namespace Kvstore {
     public void WriteTo(pb::CodedOutputStream output) {
       if (Key.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteBytes(Key);
+        output.WriteString(Key);
       }
       if (Value.Length != 0) {
         output.WriteRawTag(18);
@@ -1250,7 +1250,7 @@ namespace Kvstore {
     public int CalculateSize() {
       int size = 0;
       if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Key);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
       }
       if (Value.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Value);
@@ -1284,7 +1284,7 @@ namespace Kvstore {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Key = input.ReadBytes();
+            Key = input.ReadString();
             break;
           }
           case 18: {
@@ -1333,9 +1333,9 @@ namespace Kvstore {
 
     /// <summary>Field number for the "key" field.</summary>
     public const int KeyFieldNumber = 1;
-    private pb::ByteString key_ = pb::ByteString.Empty;
+    private string key_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Key {
+    public string Key {
       get { return key_; }
       set {
         key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -1378,7 +1378,7 @@ namespace Kvstore {
     public void WriteTo(pb::CodedOutputStream output) {
       if (Key.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteBytes(Key);
+        output.WriteString(Key);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1389,7 +1389,7 @@ namespace Kvstore {
     public int CalculateSize() {
       int size = 0;
       if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Key);
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1417,7 +1417,7 @@ namespace Kvstore {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Key = input.ReadBytes();
+            Key = input.ReadString();
             break;
           }
         }

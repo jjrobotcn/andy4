@@ -20,7 +20,7 @@ class GetPrefixRequest extends \Google\Protobuf\Internal\Message
      * match&#64;: [match&#64;3]
      * match!: []
      *
-     * Generated from protobuf field <code>bytes key_prefix = 1;</code>
+     * Generated from protobuf field <code>string key_prefix = 1;</code>
      */
     private $key_prefix = '';
 
@@ -50,7 +50,7 @@ class GetPrefixRequest extends \Google\Protobuf\Internal\Message
      * match&#64;: [match&#64;3]
      * match!: []
      *
-     * Generated from protobuf field <code>bytes key_prefix = 1;</code>
+     * Generated from protobuf field <code>string key_prefix = 1;</code>
      * @return string
      */
     public function getKeyPrefix()
@@ -65,13 +65,13 @@ class GetPrefixRequest extends \Google\Protobuf\Internal\Message
      * match&#64;: [match&#64;3]
      * match!: []
      *
-     * Generated from protobuf field <code>bytes key_prefix = 1;</code>
+     * Generated from protobuf field <code>string key_prefix = 1;</code>
      * @param string $var
      * @return $this
      */
     public function setKeyPrefix($var)
     {
-        GPBUtil::checkString($var, False);
+        GPBUtil::checkString($var, True);
         $this->key_prefix = $var;
 
         return $this;

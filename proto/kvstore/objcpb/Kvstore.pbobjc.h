@@ -55,7 +55,7 @@ typedef GPB_ENUM(PutRequest_FieldNumber) {
 
 @interface PutRequest : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *key;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *value;
 
@@ -75,7 +75,7 @@ typedef GPB_ENUM(GetRequest_FieldNumber) {
 
 @interface GetRequest : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *key;
 
 @end
 
@@ -106,7 +106,7 @@ typedef GPB_ENUM(GetPrefixRequest_FieldNumber) {
  * match\@: [match\@3]
  * match!: []
  **/
-@property(nonatomic, readwrite, copy, null_resettable) NSData *keyPrefix;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *keyPrefix;
 
 @end
 
@@ -133,7 +133,7 @@ typedef GPB_ENUM(GetPrefixResponse_Match_FieldNumber) {
 
 @interface GetPrefixResponse_Match : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *key;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *value;
 
@@ -154,7 +154,7 @@ typedef GPB_ENUM(GetPrefixStreamRequest_FieldNumber) {
  * match\@: [match\@3]
  * match!: []
  **/
-@property(nonatomic, readwrite, copy, null_resettable) NSData *keyPrefix;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *keyPrefix;
 
 @end
 
@@ -167,7 +167,7 @@ typedef GPB_ENUM(GetPrefixStreamResponse_FieldNumber) {
 
 @interface GetPrefixStreamResponse : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *key;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *value;
 
@@ -181,7 +181,7 @@ typedef GPB_ENUM(DeleteRequest_FieldNumber) {
 
 @interface DeleteRequest : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSData *key;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *key;
 
 @end
 

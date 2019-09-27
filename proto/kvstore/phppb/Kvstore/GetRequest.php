@@ -14,7 +14,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>bytes key = 1;</code>
+     * Generated from protobuf field <code>string key = 1;</code>
      */
     private $key = '';
 
@@ -33,7 +33,7 @@ class GetRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bytes key = 1;</code>
+     * Generated from protobuf field <code>string key = 1;</code>
      * @return string
      */
     public function getKey()
@@ -42,13 +42,13 @@ class GetRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bytes key = 1;</code>
+     * Generated from protobuf field <code>string key = 1;</code>
      * @param string $var
      * @return $this
      */
     public function setKey($var)
     {
-        GPBUtil::checkString($var, False);
+        GPBUtil::checkString($var, True);
         $this->key = $var;
 
         return $this;

@@ -7,36 +7,36 @@ require 'google/api/annotations_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("kvstore.proto", :syntax => :proto3) do
     add_message "kvstore.PutRequest" do
-      optional :key, :bytes, 1
+      optional :key, :string, 1
       optional :value, :bytes, 2
     end
     add_message "kvstore.PutResponse" do
     end
     add_message "kvstore.GetRequest" do
-      optional :key, :bytes, 1
+      optional :key, :string, 1
     end
     add_message "kvstore.GetResponse" do
       optional :value, :bytes, 1
     end
     add_message "kvstore.GetPrefixRequest" do
-      optional :key_prefix, :bytes, 1
+      optional :key_prefix, :string, 1
     end
     add_message "kvstore.GetPrefixResponse" do
       repeated :matches, :message, 1, "kvstore.GetPrefixResponse.Match"
     end
     add_message "kvstore.GetPrefixResponse.Match" do
-      optional :key, :bytes, 1
+      optional :key, :string, 1
       optional :value, :bytes, 2
     end
     add_message "kvstore.GetPrefixStreamRequest" do
-      optional :key_prefix, :bytes, 1
+      optional :key_prefix, :string, 1
     end
     add_message "kvstore.GetPrefixStreamResponse" do
-      optional :key, :bytes, 1
+      optional :key, :string, 1
       optional :value, :bytes, 2
     end
     add_message "kvstore.DeleteRequest" do
-      optional :key, :bytes, 1
+      optional :key, :string, 1
     end
     add_message "kvstore.DeleteResponse" do
     end

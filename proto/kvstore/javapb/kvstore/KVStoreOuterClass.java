@@ -19,9 +19,14 @@ public final class KVStoreOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    com.google.protobuf.ByteString getKey();
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
 
     /**
      * <code>bytes value = 2;</code>
@@ -41,7 +46,7 @@ public final class KVStoreOuterClass {
       super(builder);
     }
     private PutRequest() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
+      key_ = "";
       value_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -76,8 +81,9 @@ public final class KVStoreOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              key_ = input.readBytes();
+              key_ = s;
               break;
             }
             case 18: {
@@ -118,12 +124,37 @@ public final class KVStoreOuterClass {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
+    private volatile java.lang.Object key_;
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
@@ -149,8 +180,8 @@ public final class KVStoreOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!key_.isEmpty()) {
-        output.writeBytes(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       if (!value_.isEmpty()) {
         output.writeBytes(2, value_);
@@ -164,9 +195,8 @@ public final class KVStoreOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!key_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       if (!value_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
@@ -339,7 +369,7 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        key_ = com.google.protobuf.ByteString.EMPTY;
+        key_ = "";
 
         value_ = com.google.protobuf.ByteString.EMPTY;
 
@@ -419,8 +449,9 @@ public final class KVStoreOuterClass {
 
       public Builder mergeFrom(kvstore.KVStoreOuterClass.PutRequest other) {
         if (other == kvstore.KVStoreOuterClass.PutRequest.getDefaultInstance()) return this;
-        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-          setKey(other.getKey());
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
         }
         if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
@@ -454,17 +485,43 @@ public final class KVStoreOuterClass {
         return this;
       }
 
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object key_ = "";
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public Builder setKey(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -474,11 +531,25 @@ public final class KVStoreOuterClass {
         return this;
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
       public Builder clearKey() {
         
         key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
         onChanged();
         return this;
       }
@@ -987,9 +1058,14 @@ public final class KVStoreOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    com.google.protobuf.ByteString getKey();
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
   }
   /**
    * Protobuf type {@code kvstore.GetRequest}
@@ -1004,7 +1080,7 @@ public final class KVStoreOuterClass {
       super(builder);
     }
     private GetRequest() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
+      key_ = "";
     }
 
     @java.lang.Override
@@ -1038,8 +1114,9 @@ public final class KVStoreOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              key_ = input.readBytes();
+              key_ = s;
               break;
             }
             default: {
@@ -1075,12 +1152,37 @@ public final class KVStoreOuterClass {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
+    private volatile java.lang.Object key_;
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1097,8 +1199,8 @@ public final class KVStoreOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!key_.isEmpty()) {
-        output.writeBytes(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       unknownFields.writeTo(output);
     }
@@ -1109,9 +1211,8 @@ public final class KVStoreOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!key_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1276,7 +1377,7 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        key_ = com.google.protobuf.ByteString.EMPTY;
+        key_ = "";
 
         return this;
       }
@@ -1353,8 +1454,9 @@ public final class KVStoreOuterClass {
 
       public Builder mergeFrom(kvstore.KVStoreOuterClass.GetRequest other) {
         if (other == kvstore.KVStoreOuterClass.GetRequest.getDefaultInstance()) return this;
-        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-          setKey(other.getKey());
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1385,17 +1487,43 @@ public final class KVStoreOuterClass {
         return this;
       }
 
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object key_ = "";
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public Builder setKey(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1405,11 +1533,25 @@ public final class KVStoreOuterClass {
         return this;
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
       public Builder clearKey() {
         
         key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
         onChanged();
         return this;
       }
@@ -1963,9 +2105,22 @@ public final class KVStoreOuterClass {
      * match!: []
      * </pre>
      *
-     * <code>bytes key_prefix = 1;</code>
+     * <code>string key_prefix = 1;</code>
      */
-    com.google.protobuf.ByteString getKeyPrefix();
+    java.lang.String getKeyPrefix();
+    /**
+     * <pre>
+     * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+     * match: [match_1, match_2, match.3, match&#64;4]
+     * match_: [match_1,, match_2]
+     * match&#64;: [match&#64;3]
+     * match!: []
+     * </pre>
+     *
+     * <code>string key_prefix = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyPrefixBytes();
   }
   /**
    * Protobuf type {@code kvstore.GetPrefixRequest}
@@ -1980,7 +2135,7 @@ public final class KVStoreOuterClass {
       super(builder);
     }
     private GetPrefixRequest() {
-      keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+      keyPrefix_ = "";
     }
 
     @java.lang.Override
@@ -2014,8 +2169,9 @@ public final class KVStoreOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              keyPrefix_ = input.readBytes();
+              keyPrefix_ = s;
               break;
             }
             default: {
@@ -2051,7 +2207,7 @@ public final class KVStoreOuterClass {
     }
 
     public static final int KEY_PREFIX_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString keyPrefix_;
+    private volatile java.lang.Object keyPrefix_;
     /**
      * <pre>
      * keys: [not_match, match_1, match_2, match.3, match&#64;4]
@@ -2061,10 +2217,43 @@ public final class KVStoreOuterClass {
      * match!: []
      * </pre>
      *
-     * <code>bytes key_prefix = 1;</code>
+     * <code>string key_prefix = 1;</code>
      */
-    public com.google.protobuf.ByteString getKeyPrefix() {
-      return keyPrefix_;
+    public java.lang.String getKeyPrefix() {
+      java.lang.Object ref = keyPrefix_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyPrefix_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+     * match: [match_1, match_2, match.3, match&#64;4]
+     * match_: [match_1,, match_2]
+     * match&#64;: [match&#64;3]
+     * match!: []
+     * </pre>
+     *
+     * <code>string key_prefix = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyPrefixBytes() {
+      java.lang.Object ref = keyPrefix_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyPrefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2081,8 +2270,8 @@ public final class KVStoreOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!keyPrefix_.isEmpty()) {
-        output.writeBytes(1, keyPrefix_);
+      if (!getKeyPrefixBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyPrefix_);
       }
       unknownFields.writeTo(output);
     }
@@ -2093,9 +2282,8 @@ public final class KVStoreOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!keyPrefix_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, keyPrefix_);
+      if (!getKeyPrefixBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyPrefix_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2260,7 +2448,7 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+        keyPrefix_ = "";
 
         return this;
       }
@@ -2337,8 +2525,9 @@ public final class KVStoreOuterClass {
 
       public Builder mergeFrom(kvstore.KVStoreOuterClass.GetPrefixRequest other) {
         if (other == kvstore.KVStoreOuterClass.GetPrefixRequest.getDefaultInstance()) return this;
-        if (other.getKeyPrefix() != com.google.protobuf.ByteString.EMPTY) {
-          setKeyPrefix(other.getKeyPrefix());
+        if (!other.getKeyPrefix().isEmpty()) {
+          keyPrefix_ = other.keyPrefix_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2369,7 +2558,7 @@ public final class KVStoreOuterClass {
         return this;
       }
 
-      private com.google.protobuf.ByteString keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object keyPrefix_ = "";
       /**
        * <pre>
        * keys: [not_match, match_1, match_2, match.3, match&#64;4]
@@ -2379,10 +2568,19 @@ public final class KVStoreOuterClass {
        * match!: []
        * </pre>
        *
-       * <code>bytes key_prefix = 1;</code>
+       * <code>string key_prefix = 1;</code>
        */
-      public com.google.protobuf.ByteString getKeyPrefix() {
-        return keyPrefix_;
+      public java.lang.String getKeyPrefix() {
+        java.lang.Object ref = keyPrefix_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyPrefix_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
@@ -2393,9 +2591,34 @@ public final class KVStoreOuterClass {
        * match!: []
        * </pre>
        *
-       * <code>bytes key_prefix = 1;</code>
+       * <code>string key_prefix = 1;</code>
        */
-      public Builder setKeyPrefix(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getKeyPrefixBytes() {
+        java.lang.Object ref = keyPrefix_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyPrefix_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+       * match: [match_1, match_2, match.3, match&#64;4]
+       * match_: [match_1,, match_2]
+       * match&#64;: [match&#64;3]
+       * match!: []
+       * </pre>
+       *
+       * <code>string key_prefix = 1;</code>
+       */
+      public Builder setKeyPrefix(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2413,11 +2636,33 @@ public final class KVStoreOuterClass {
        * match!: []
        * </pre>
        *
-       * <code>bytes key_prefix = 1;</code>
+       * <code>string key_prefix = 1;</code>
        */
       public Builder clearKeyPrefix() {
         
         keyPrefix_ = getDefaultInstance().getKeyPrefix();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+       * match: [match_1, match_2, match.3, match&#64;4]
+       * match_: [match_1,, match_2]
+       * match&#64;: [match&#64;3]
+       * match!: []
+       * </pre>
+       *
+       * <code>string key_prefix = 1;</code>
+       */
+      public Builder setKeyPrefixBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyPrefix_ = value;
         onChanged();
         return this;
       }
@@ -2598,9 +2843,14 @@ public final class KVStoreOuterClass {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      com.google.protobuf.ByteString getKey();
+      java.lang.String getKey();
+      /**
+       * <code>string key = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getKeyBytes();
 
       /**
        * <code>bytes value = 2;</code>
@@ -2620,7 +2870,7 @@ public final class KVStoreOuterClass {
         super(builder);
       }
       private Match() {
-        key_ = com.google.protobuf.ByteString.EMPTY;
+        key_ = "";
         value_ = com.google.protobuf.ByteString.EMPTY;
       }
 
@@ -2655,8 +2905,9 @@ public final class KVStoreOuterClass {
                 done = true;
                 break;
               case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
 
-                key_ = input.readBytes();
+                key_ = s;
                 break;
               }
               case 18: {
@@ -2697,12 +2948,37 @@ public final class KVStoreOuterClass {
       }
 
       public static final int KEY_FIELD_NUMBER = 1;
-      private com.google.protobuf.ByteString key_;
+      private volatile java.lang.Object key_;
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
 
       public static final int VALUE_FIELD_NUMBER = 2;
@@ -2728,8 +3004,8 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!key_.isEmpty()) {
-          output.writeBytes(1, key_);
+        if (!getKeyBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
         }
         if (!value_.isEmpty()) {
           output.writeBytes(2, value_);
@@ -2743,9 +3019,8 @@ public final class KVStoreOuterClass {
         if (size != -1) return size;
 
         size = 0;
-        if (!key_.isEmpty()) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, key_);
+        if (!getKeyBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
         }
         if (!value_.isEmpty()) {
           size += com.google.protobuf.CodedOutputStream
@@ -2918,7 +3193,7 @@ public final class KVStoreOuterClass {
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          key_ = com.google.protobuf.ByteString.EMPTY;
+          key_ = "";
 
           value_ = com.google.protobuf.ByteString.EMPTY;
 
@@ -2998,8 +3273,9 @@ public final class KVStoreOuterClass {
 
         public Builder mergeFrom(kvstore.KVStoreOuterClass.GetPrefixResponse.Match other) {
           if (other == kvstore.KVStoreOuterClass.GetPrefixResponse.Match.getDefaultInstance()) return this;
-          if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-            setKey(other.getKey());
+          if (!other.getKey().isEmpty()) {
+            key_ = other.key_;
+            onChanged();
           }
           if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
             setValue(other.getValue());
@@ -3033,17 +3309,43 @@ public final class KVStoreOuterClass {
           return this;
         }
 
-        private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+        private java.lang.Object key_ = "";
         /**
-         * <code>bytes key = 1;</code>
+         * <code>string key = 1;</code>
          */
-        public com.google.protobuf.ByteString getKey() {
-          return key_;
+        public java.lang.String getKey() {
+          java.lang.Object ref = key_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            key_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
         }
         /**
-         * <code>bytes key = 1;</code>
+         * <code>string key = 1;</code>
          */
-        public Builder setKey(com.google.protobuf.ByteString value) {
+        public com.google.protobuf.ByteString
+            getKeyBytes() {
+          java.lang.Object ref = key_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            key_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string key = 1;</code>
+         */
+        public Builder setKey(
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -3053,11 +3355,25 @@ public final class KVStoreOuterClass {
           return this;
         }
         /**
-         * <code>bytes key = 1;</code>
+         * <code>string key = 1;</code>
          */
         public Builder clearKey() {
           
           key_ = getDefaultInstance().getKey();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string key = 1;</code>
+         */
+        public Builder setKeyBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          key_ = value;
           onChanged();
           return this;
         }
@@ -3825,9 +4141,22 @@ public final class KVStoreOuterClass {
      * match!: []
      * </pre>
      *
-     * <code>bytes key_prefix = 1;</code>
+     * <code>string key_prefix = 1;</code>
      */
-    com.google.protobuf.ByteString getKeyPrefix();
+    java.lang.String getKeyPrefix();
+    /**
+     * <pre>
+     * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+     * match: [match_1, match_2, match.3, match&#64;4]
+     * match_: [match_1,, match_2]
+     * match&#64;: [match&#64;3]
+     * match!: []
+     * </pre>
+     *
+     * <code>string key_prefix = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyPrefixBytes();
   }
   /**
    * Protobuf type {@code kvstore.GetPrefixStreamRequest}
@@ -3842,7 +4171,7 @@ public final class KVStoreOuterClass {
       super(builder);
     }
     private GetPrefixStreamRequest() {
-      keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+      keyPrefix_ = "";
     }
 
     @java.lang.Override
@@ -3876,8 +4205,9 @@ public final class KVStoreOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              keyPrefix_ = input.readBytes();
+              keyPrefix_ = s;
               break;
             }
             default: {
@@ -3913,7 +4243,7 @@ public final class KVStoreOuterClass {
     }
 
     public static final int KEY_PREFIX_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString keyPrefix_;
+    private volatile java.lang.Object keyPrefix_;
     /**
      * <pre>
      * keys: [not_match, match_1, match_2, match.3, match&#64;4]
@@ -3923,10 +4253,43 @@ public final class KVStoreOuterClass {
      * match!: []
      * </pre>
      *
-     * <code>bytes key_prefix = 1;</code>
+     * <code>string key_prefix = 1;</code>
      */
-    public com.google.protobuf.ByteString getKeyPrefix() {
-      return keyPrefix_;
+    public java.lang.String getKeyPrefix() {
+      java.lang.Object ref = keyPrefix_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyPrefix_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+     * match: [match_1, match_2, match.3, match&#64;4]
+     * match_: [match_1,, match_2]
+     * match&#64;: [match&#64;3]
+     * match!: []
+     * </pre>
+     *
+     * <code>string key_prefix = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyPrefixBytes() {
+      java.lang.Object ref = keyPrefix_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyPrefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3943,8 +4306,8 @@ public final class KVStoreOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!keyPrefix_.isEmpty()) {
-        output.writeBytes(1, keyPrefix_);
+      if (!getKeyPrefixBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyPrefix_);
       }
       unknownFields.writeTo(output);
     }
@@ -3955,9 +4318,8 @@ public final class KVStoreOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!keyPrefix_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, keyPrefix_);
+      if (!getKeyPrefixBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyPrefix_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4122,7 +4484,7 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+        keyPrefix_ = "";
 
         return this;
       }
@@ -4199,8 +4561,9 @@ public final class KVStoreOuterClass {
 
       public Builder mergeFrom(kvstore.KVStoreOuterClass.GetPrefixStreamRequest other) {
         if (other == kvstore.KVStoreOuterClass.GetPrefixStreamRequest.getDefaultInstance()) return this;
-        if (other.getKeyPrefix() != com.google.protobuf.ByteString.EMPTY) {
-          setKeyPrefix(other.getKeyPrefix());
+        if (!other.getKeyPrefix().isEmpty()) {
+          keyPrefix_ = other.keyPrefix_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4231,7 +4594,7 @@ public final class KVStoreOuterClass {
         return this;
       }
 
-      private com.google.protobuf.ByteString keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object keyPrefix_ = "";
       /**
        * <pre>
        * keys: [not_match, match_1, match_2, match.3, match&#64;4]
@@ -4241,10 +4604,19 @@ public final class KVStoreOuterClass {
        * match!: []
        * </pre>
        *
-       * <code>bytes key_prefix = 1;</code>
+       * <code>string key_prefix = 1;</code>
        */
-      public com.google.protobuf.ByteString getKeyPrefix() {
-        return keyPrefix_;
+      public java.lang.String getKeyPrefix() {
+        java.lang.Object ref = keyPrefix_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyPrefix_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
@@ -4255,9 +4627,34 @@ public final class KVStoreOuterClass {
        * match!: []
        * </pre>
        *
-       * <code>bytes key_prefix = 1;</code>
+       * <code>string key_prefix = 1;</code>
        */
-      public Builder setKeyPrefix(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getKeyPrefixBytes() {
+        java.lang.Object ref = keyPrefix_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyPrefix_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+       * match: [match_1, match_2, match.3, match&#64;4]
+       * match_: [match_1,, match_2]
+       * match&#64;: [match&#64;3]
+       * match!: []
+       * </pre>
+       *
+       * <code>string key_prefix = 1;</code>
+       */
+      public Builder setKeyPrefix(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4275,11 +4672,33 @@ public final class KVStoreOuterClass {
        * match!: []
        * </pre>
        *
-       * <code>bytes key_prefix = 1;</code>
+       * <code>string key_prefix = 1;</code>
        */
       public Builder clearKeyPrefix() {
         
         keyPrefix_ = getDefaultInstance().getKeyPrefix();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * keys: [not_match, match_1, match_2, match.3, match&#64;4]
+       * match: [match_1, match_2, match.3, match&#64;4]
+       * match_: [match_1,, match_2]
+       * match&#64;: [match&#64;3]
+       * match!: []
+       * </pre>
+       *
+       * <code>string key_prefix = 1;</code>
+       */
+      public Builder setKeyPrefixBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keyPrefix_ = value;
         onChanged();
         return this;
       }
@@ -4341,9 +4760,14 @@ public final class KVStoreOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    com.google.protobuf.ByteString getKey();
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
 
     /**
      * <code>bytes value = 2;</code>
@@ -4363,7 +4787,7 @@ public final class KVStoreOuterClass {
       super(builder);
     }
     private GetPrefixStreamResponse() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
+      key_ = "";
       value_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -4398,8 +4822,9 @@ public final class KVStoreOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              key_ = input.readBytes();
+              key_ = s;
               break;
             }
             case 18: {
@@ -4440,12 +4865,37 @@ public final class KVStoreOuterClass {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
+    private volatile java.lang.Object key_;
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
@@ -4471,8 +4921,8 @@ public final class KVStoreOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!key_.isEmpty()) {
-        output.writeBytes(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       if (!value_.isEmpty()) {
         output.writeBytes(2, value_);
@@ -4486,9 +4936,8 @@ public final class KVStoreOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!key_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       if (!value_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
@@ -4661,7 +5110,7 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        key_ = com.google.protobuf.ByteString.EMPTY;
+        key_ = "";
 
         value_ = com.google.protobuf.ByteString.EMPTY;
 
@@ -4741,8 +5190,9 @@ public final class KVStoreOuterClass {
 
       public Builder mergeFrom(kvstore.KVStoreOuterClass.GetPrefixStreamResponse other) {
         if (other == kvstore.KVStoreOuterClass.GetPrefixStreamResponse.getDefaultInstance()) return this;
-        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-          setKey(other.getKey());
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
         }
         if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
@@ -4776,17 +5226,43 @@ public final class KVStoreOuterClass {
         return this;
       }
 
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object key_ = "";
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public Builder setKey(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4796,11 +5272,25 @@ public final class KVStoreOuterClass {
         return this;
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
       public Builder clearKey() {
         
         key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
         onChanged();
         return this;
       }
@@ -4891,9 +5381,14 @@ public final class KVStoreOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    com.google.protobuf.ByteString getKey();
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
   }
   /**
    * Protobuf type {@code kvstore.DeleteRequest}
@@ -4908,7 +5403,7 @@ public final class KVStoreOuterClass {
       super(builder);
     }
     private DeleteRequest() {
-      key_ = com.google.protobuf.ByteString.EMPTY;
+      key_ = "";
     }
 
     @java.lang.Override
@@ -4942,8 +5437,9 @@ public final class KVStoreOuterClass {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              key_ = input.readBytes();
+              key_ = s;
               break;
             }
             default: {
@@ -4979,12 +5475,37 @@ public final class KVStoreOuterClass {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
+    private volatile java.lang.Object key_;
     /**
-     * <code>bytes key = 1;</code>
+     * <code>string key = 1;</code>
      */
-    public com.google.protobuf.ByteString getKey() {
-      return key_;
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5001,8 +5522,8 @@ public final class KVStoreOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!key_.isEmpty()) {
-        output.writeBytes(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
       unknownFields.writeTo(output);
     }
@@ -5013,9 +5534,8 @@ public final class KVStoreOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!key_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, key_);
+      if (!getKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5180,7 +5700,7 @@ public final class KVStoreOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        key_ = com.google.protobuf.ByteString.EMPTY;
+        key_ = "";
 
         return this;
       }
@@ -5257,8 +5777,9 @@ public final class KVStoreOuterClass {
 
       public Builder mergeFrom(kvstore.KVStoreOuterClass.DeleteRequest other) {
         if (other == kvstore.KVStoreOuterClass.DeleteRequest.getDefaultInstance()) return this;
-        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
-          setKey(other.getKey());
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5289,17 +5810,43 @@ public final class KVStoreOuterClass {
         return this;
       }
 
-      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object key_ = "";
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public com.google.protobuf.ByteString getKey() {
-        return key_;
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
-      public Builder setKey(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKey(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5309,11 +5856,25 @@ public final class KVStoreOuterClass {
         return this;
       }
       /**
-       * <code>bytes key = 1;</code>
+       * <code>string key = 1;</code>
        */
       public Builder clearKey() {
         
         key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
         onChanged();
         return this;
       }
@@ -5854,16 +6415,16 @@ public final class KVStoreOuterClass {
     java.lang.String[] descriptorData = {
       "\n\rkvstore.proto\022\007kvstore\032\034google/api/ann" +
       "otations.proto\"(\n\nPutRequest\022\013\n\003key\030\001 \001(" +
-      "\014\022\r\n\005value\030\002 \001(\014\"\r\n\013PutResponse\"\031\n\nGetRe" +
-      "quest\022\013\n\003key\030\001 \001(\014\"\034\n\013GetResponse\022\r\n\005val" +
+      "\t\022\r\n\005value\030\002 \001(\014\"\r\n\013PutResponse\"\031\n\nGetRe" +
+      "quest\022\013\n\003key\030\001 \001(\t\"\034\n\013GetResponse\022\r\n\005val" +
       "ue\030\001 \001(\014\"&\n\020GetPrefixRequest\022\022\n\nkey_pref" +
-      "ix\030\001 \001(\014\"k\n\021GetPrefixResponse\0221\n\007matches" +
+      "ix\030\001 \001(\t\"k\n\021GetPrefixResponse\0221\n\007matches" +
       "\030\001 \003(\0132 .kvstore.GetPrefixResponse.Match" +
-      "\032#\n\005Match\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\",\n" +
+      "\032#\n\005Match\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014\",\n" +
       "\026GetPrefixStreamRequest\022\022\n\nkey_prefix\030\001 " +
-      "\001(\014\"5\n\027GetPrefixStreamResponse\022\013\n\003key\030\001 " +
-      "\001(\014\022\r\n\005value\030\002 \001(\014\"\034\n\rDeleteRequest\022\013\n\003k" +
-      "ey\030\001 \001(\014\"\020\n\016DeleteResponse2\260\004\n\007KVStore\022P" +
+      "\001(\t\"5\n\027GetPrefixStreamResponse\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\014\"\034\n\rDeleteRequest\022\013\n\003k" +
+      "ey\030\001 \001(\t\"\020\n\016DeleteResponse2\260\004\n\007KVStore\022P" +
       "\n\003Put\022\023.kvstore.PutRequest\032\024.kvstore.Put" +
       "Response\"\036\202\323\344\223\002\030\"\023/api/v2/kvstore/put:\001*" +
       "\022g\n\003Get\022\023.kvstore.GetRequest\032\024.kvstore.G" +
