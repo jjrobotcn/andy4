@@ -2,19 +2,41 @@ syntax = "proto3";
 
 package sensorService;
 
+import "google/api/annotations.proto";
+
 service SensorService {
     // 获取感应数据流
     rpc GetDetect (GetDetectRequest) returns (stream GetDetectResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/get_detect
+            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/get_detect
+            get: "/api/v2/sensor/get_detect"
+        };
     }
     // 获取动态感应数据
     // 场景示例： 迎宾感应
     rpc GetMotionInduction(GetMotionInductionRequest) returns (stream GetMotionInductionResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/get_motion_induction
+            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/get_motion_induction
+            get: "/api/v2/sensor/get_motion_induction"
+        };
     }
     // 获取触摸数据流
     rpc GetTouch (GetTouchRequest) returns (stream GetTouchResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/get_touch
+            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/get_touch
+            get: "/api/v2/sensor/get_touch"
+        };
     }
     // 获取传感器原始数据调试接口
     rpc Raw (RawRequest) returns (stream RawResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/raw
+            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/raw
+            get: "/api/v2/sensor/raw"
+        };
     }
 }
 

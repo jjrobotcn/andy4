@@ -14,7 +14,76 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/api/v2/sensor/get_detect": {
+      "get": {
+        "summary": "获取感应数据流",
+        "operationId": "GetDetect",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/sensorServiceGetDetectResponse"
+            }
+          }
+        },
+        "tags": [
+          "SensorService"
+        ]
+      }
+    },
+    "/api/v2/sensor/get_motion_induction": {
+      "get": {
+        "summary": "获取动态感应数据\n场景示例： 迎宾感应",
+        "operationId": "GetMotionInduction",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/sensorServiceGetMotionInductionResponse"
+            }
+          }
+        },
+        "tags": [
+          "SensorService"
+        ]
+      }
+    },
+    "/api/v2/sensor/get_touch": {
+      "get": {
+        "summary": "获取触摸数据流",
+        "operationId": "GetTouch",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/sensorServiceGetTouchResponse"
+            }
+          }
+        },
+        "tags": [
+          "SensorService"
+        ]
+      }
+    },
+    "/api/v2/sensor/raw": {
+      "get": {
+        "summary": "获取传感器原始数据调试接口",
+        "operationId": "Raw",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/sensorServiceRawResponse"
+            }
+          }
+        },
+        "tags": [
+          "SensorService"
+        ]
+      }
+    }
+  },
   "definitions": {
     "protobufAny": {
       "type": "object",
