@@ -14,7 +14,25 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/api/v2/power/get_power_status": {
+      "get": {
+        "summary": "获取电源状态数据流",
+        "operationId": "GetPowerStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/powerServiceGetPowerStatusResponse"
+            }
+          }
+        },
+        "tags": [
+          "PowerService"
+        ]
+      }
+    }
+  },
   "definitions": {
     "powerServiceGetPowerStatusResponse": {
       "type": "object",

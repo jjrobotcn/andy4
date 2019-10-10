@@ -2,9 +2,16 @@ syntax = "proto3";
 
 package powerService;
 
+import "google/api/annotations.proto";
+
 service PowerService {
     // 获取电源状态数据流
     rpc GetPowerStatus (GetPowerStatusRequest) returns (stream GetPowerStatusResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/power/get_power_status
+            // e.g. [GET] http://10.10.10.2:81/api/v2/power/get_power_status
+            get: "/api/v2/power/get_power_status"
+        };
     }
 }
 
