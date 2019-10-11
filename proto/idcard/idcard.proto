@@ -2,9 +2,15 @@ syntax = "proto3";
 
 package idCardService;
 
+import "google/api/annotations.proto";
+
 service IDCardService {
     // 获取读卡数据流
     rpc GetIdInfo (GetIdInfoRequest) returns (stream GetIdInfoResponse) {
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/idcard/get_id_info
+            get: "/api/v2/idcard/get_id_info"
+        };
     }
 }
 
