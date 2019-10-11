@@ -8,6 +8,10 @@ service NetworkService {
     // 获取网络扫描结果流
     // 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
     rpc ListNetworks (ListNetworksRequest) returns (stream ListNetworksResponse) {
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/network/list_networks
+            get: "/api/v2/network/list_networks"
+        };
     }
 
     // 连接至指定网络
@@ -24,6 +28,10 @@ service NetworkService {
     // 在连接开始时立即返回当前最新的扫描数据
     // 并持续在网络数据更新时接收新数据
     rpc GetStatus (GetStatusRequest) returns (stream GetStatusResponse) {
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/network/get_status
+            get: "/api/v2/network/get_status"
+        };
     }
 
     // 获取网络设备相关信息

@@ -28,6 +28,23 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
+func request_NetworkService_ListNetworks_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkServiceClient, req *http.Request, pathParams map[string]string) (NetworkService_ListNetworksClient, runtime.ServerMetadata, error) {
+	var protoReq ListNetworksRequest
+	var metadata runtime.ServerMetadata
+
+	stream, err := client.ListNetworks(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
+
+}
+
 func request_NetworkService_Connect_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ConnectRequest
 	var metadata runtime.ServerMetadata
@@ -42,6 +59,23 @@ func request_NetworkService_Connect_0(ctx context.Context, marshaler runtime.Mar
 
 	msg, err := client.Connect(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
+
+}
+
+func request_NetworkService_GetStatus_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkServiceClient, req *http.Request, pathParams map[string]string) (NetworkService_GetStatusClient, runtime.ServerMetadata, error) {
+	var protoReq GetStatusRequest
+	var metadata runtime.ServerMetadata
+
+	stream, err := client.GetStatus(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
 
 }
 
@@ -117,6 +151,26 @@ func RegisterNetworkServiceHandler(ctx context.Context, mux *runtime.ServeMux, c
 // "NetworkServiceClient" to call the correct interceptors.
 func RegisterNetworkServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client NetworkServiceClient) error {
 
+	mux.Handle("GET", pattern_NetworkService_ListNetworks_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_NetworkService_ListNetworks_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_NetworkService_ListNetworks_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_NetworkService_Connect_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -134,6 +188,26 @@ func RegisterNetworkServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		}
 
 		forward_NetworkService_Connect_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_NetworkService_GetStatus_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_NetworkService_GetStatus_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_NetworkService_GetStatus_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -181,15 +255,23 @@ func RegisterNetworkServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 }
 
 var (
-	pattern_NetworkService_Connect_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "connect"}, ""))
+	pattern_NetworkService_ListNetworks_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "list_networks"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NetworkService_GetNetworkDeviceInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "get_network_device_info"}, ""))
+	pattern_NetworkService_Connect_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "connect"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NetworkService_UpdateNetworkDeviceInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "update_network_device_info"}, ""))
+	pattern_NetworkService_GetStatus_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "get_status"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_NetworkService_GetNetworkDeviceInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "get_network_device_info"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_NetworkService_UpdateNetworkDeviceInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "network", "update_network_device_info"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
+	forward_NetworkService_ListNetworks_0 = runtime.ForwardResponseStream
+
 	forward_NetworkService_Connect_0 = runtime.ForwardResponseMessage
+
+	forward_NetworkService_GetStatus_0 = runtime.ForwardResponseStream
 
 	forward_NetworkService_GetNetworkDeviceInfo_0 = runtime.ForwardResponseMessage
 

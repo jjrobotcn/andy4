@@ -69,6 +69,40 @@
         ]
       }
     },
+    "/api/v2/network/get_status": {
+      "get": {
+        "summary": "获取连接状态流\n在连接开始时立即返回当前最新的扫描数据\n并持续在网络数据更新时接收新数据",
+        "operationId": "GetStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/networkServiceGetStatusResponse"
+            }
+          }
+        },
+        "tags": [
+          "NetworkService"
+        ]
+      }
+    },
+    "/api/v2/network/list_networks": {
+      "get": {
+        "summary": "获取网络扫描结果流\n扫描结果每30秒自动更新, 首次获取将返回记录中最新记录",
+        "operationId": "ListNetworks",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/networkServiceListNetworksResponse"
+            }
+          }
+        },
+        "tags": [
+          "NetworkService"
+        ]
+      }
+    },
     "/api/v2/network/update_network_device_info": {
       "post": {
         "summary": "修改网络设备相关信息\nv1.1.0",
