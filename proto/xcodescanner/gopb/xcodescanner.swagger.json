@@ -14,7 +14,24 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/api/v2/xcodescanner/get_scan_data": {
+      "get": {
+        "operationId": "GetScanData",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/xcScannerServiceGetScanDataResponse"
+            }
+          }
+        },
+        "tags": [
+          "XCodeScannerService"
+        ]
+      }
+    }
+  },
   "definitions": {
     "protobufAny": {
       "type": "object",
