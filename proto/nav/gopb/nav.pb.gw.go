@@ -28,6 +28,58 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
+func request_NavController_Move_0(ctx context.Context, marshaler runtime.Marshaler, client NavControllerClient, req *http.Request, pathParams map[string]string) (NavController_MoveClient, runtime.ServerMetadata, error) {
+	var metadata runtime.ServerMetadata
+	stream, err := client.Move(ctx)
+	if err != nil {
+		grpclog.Infof("Failed to start streaming: %v", err)
+		return nil, metadata, err
+	}
+	dec := marshaler.NewDecoder(req.Body)
+	handleSend := func() error {
+		var protoReq MoveRequest
+		err := dec.Decode(&protoReq)
+		if err == io.EOF {
+			return err
+		}
+		if err != nil {
+			grpclog.Infof("Failed to decode request: %v", err)
+			return err
+		}
+		if err := stream.Send(&protoReq); err != nil {
+			grpclog.Infof("Failed to send request: %v", err)
+			return err
+		}
+		return nil
+	}
+	if err := handleSend(); err != nil {
+		if cerr := stream.CloseSend(); cerr != nil {
+			grpclog.Infof("Failed to terminate client stream: %v", cerr)
+		}
+		if err == io.EOF {
+			return stream, metadata, nil
+		}
+		return nil, metadata, err
+	}
+	go func() {
+		for {
+			if err := handleSend(); err != nil {
+				break
+			}
+		}
+		if err := stream.CloseSend(); err != nil {
+			grpclog.Infof("Failed to terminate client stream: %v", err)
+		}
+	}()
+	header, err := stream.Header()
+	if err != nil {
+		grpclog.Infof("Failed to get header from client: %v", err)
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
+}
+
 func request_NavController_NavTo_0(ctx context.Context, marshaler runtime.Marshaler, client NavControllerClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq NavToRequest
 	var metadata runtime.ServerMetadata
@@ -99,14 +151,6 @@ func request_NavController_Rotate_0(ctx context.Context, marshaler runtime.Marsh
 func request_NavController_OnNavEventChange_0(ctx context.Context, marshaler runtime.Marshaler, client NavControllerClient, req *http.Request, pathParams map[string]string) (NavController_OnNavEventChangeClient, runtime.ServerMetadata, error) {
 	var protoReq OnNavEventChangeRequest
 	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
 
 	stream, err := client.OnNavEventChange(ctx, &protoReq)
 	if err != nil {
@@ -244,6 +288,26 @@ func RegisterNavControllerHandler(ctx context.Context, mux *runtime.ServeMux, co
 // "NavControllerClient" to call the correct interceptors.
 func RegisterNavControllerHandlerClient(ctx context.Context, mux *runtime.ServeMux, client NavControllerClient) error {
 
+	mux.Handle("GET", pattern_NavController_Move_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_NavController_Move_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_NavController_Move_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_NavController_NavTo_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -324,7 +388,7 @@ func RegisterNavControllerHandlerClient(ctx context.Context, mux *runtime.ServeM
 
 	})
 
-	mux.Handle("POST", pattern_NavController_OnNavEventChange_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_NavController_OnNavEventChange_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -448,28 +512,32 @@ func RegisterNavControllerHandlerClient(ctx context.Context, mux *runtime.ServeM
 }
 
 var (
-	pattern_NavController_NavTo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "nav_to"}, ""))
+	pattern_NavController_Move_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "move"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_NavStop_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "nav_stop"}, ""))
+	pattern_NavController_NavTo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "nav_to"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_AutoCharge_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "auto_charge"}, ""))
+	pattern_NavController_NavStop_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "nav_stop"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_Rotate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "rotate"}, ""))
+	pattern_NavController_AutoCharge_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "auto_charge"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_OnNavEventChange_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "on_nav_event_change"}, ""))
+	pattern_NavController_Rotate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "rotate"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_LocationReset_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "location_reset"}, ""))
+	pattern_NavController_OnNavEventChange_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "on_nav_event_change"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_NewRoute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "new_route"}, ""))
+	pattern_NavController_LocationReset_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "location_reset"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_ListRoutes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "list_routes"}, ""))
+	pattern_NavController_NewRoute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "new_route"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_UpdateRoute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "update_route"}, ""))
+	pattern_NavController_ListRoutes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "list_routes"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_NavController_DeleteRoutes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "delete_routes"}, ""))
+	pattern_NavController_UpdateRoute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "update_route"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_NavController_DeleteRoutes_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "nav", "delete_routes"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
+	forward_NavController_Move_0 = runtime.ForwardResponseStream
+
 	forward_NavController_NavTo_0 = runtime.ForwardResponseMessage
 
 	forward_NavController_NavStop_0 = runtime.ForwardResponseMessage

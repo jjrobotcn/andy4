@@ -12,7 +12,11 @@ service NavController {
     // 当机器人处于 *你* 的遥控移动状态时, 若5秒后无遥控指令的更新, *你* 将接收到MoveStatusResponse状态码RELEASED，
     // 此时遥控移动控制权交由抢占的 *其它用户* 或其它类型目标的操作
     rpc Move (stream MoveRequest) returns (stream MoveResponse) {
-    }
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/nav/move
+            get: "/api/v2/nav/move"
+        };
+}
 
     // 导航
     // 当机器人处理遥控移动中|充电中|旋转中时, 错误描述为: "[moving|charging|rotating] reject"
@@ -64,10 +68,10 @@ service NavController {
     // 监听导航模块中各类事件的变动更新
     rpc OnNavEventChange (OnNavEventChangeRequest) returns (stream OnNavEventChangeResponse) {
         option (google.api.http) = {
-            post: "/api/v2/nav/on_nav_event_change"
-            body: "*"
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/nav/on_nav_event_change
+            get: "/api/v2/nav/on_nav_event_change"
         };
-    }
+}
 
     // >=2.2.0
     // 重置当前定位

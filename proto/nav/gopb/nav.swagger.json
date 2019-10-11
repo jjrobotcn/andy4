@@ -123,6 +123,63 @@
         ]
       }
     },
+    "/api/v2/nav/move": {
+      "get": {
+        "summary": "遥控移动\n当机器人处于非空闲及遥控移动状态时， 当前链接将被强制关闭, 错误描述为: \"[naving|charging|rotating] reject\"\n当机器人处于 *其它用户* 的遥控移动状态时， *你* 将收到MoveStatusResponse状态码REJ_MOVING\n当机器人处于 *你* 的遥控移动状态时, 请在500ms内持续发送遥控指令， 超时将自动停止移动\n当机器人处于 *你* 的遥控移动状态时, 若5秒后无遥控指令的更新, *你* 将接收到MoveStatusResponse状态码RELEASED，\n此时遥控移动控制权交由抢占的 *其它用户* 或其它类型目标的操作",
+        "operationId": "Move",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/navServiceMoveResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "speed",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "rspeed",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "RELEASE",
+              "FORWARD",
+              "BACKWARD",
+              "LEFT",
+              "RIGHT",
+              "LEFT_FORWARD",
+              "RIGHT_FORWARD",
+              "LEFT_BACKWARD",
+              "RIGHT_BACKWARD"
+            ],
+            "default": "RELEASE"
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "NavController"
+        ]
+      }
+    },
     "/api/v2/nav/nav_stop": {
       "post": {
         "summary": "停止\n静止: 立即返回STOPPED\n旋转中: 返回旋转状态, STOPPED或CANCEL, 超时3秒\n其它: 错误描述为: \"[moving|charging] reject\"",
@@ -205,7 +262,7 @@
       }
     },
     "/api/v2/nav/on_nav_event_change": {
-      "post": {
+      "get": {
         "summary": "导航事件监听\n监听导航模块中各类事件的变动更新",
         "operationId": "OnNavEventChange",
         "responses": {
@@ -216,16 +273,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/navServiceOnNavEventChangeRequest"
-            }
-          }
-        ],
         "tags": [
           "NavController"
         ]
@@ -535,9 +582,6 @@
           "$ref": "#/definitions/navServiceRoute"
         }
       }
-    },
-    "navServiceOnNavEventChangeRequest": {
-      "type": "object"
     },
     "navServiceOnNavEventChangeResponse": {
       "type": "object",
