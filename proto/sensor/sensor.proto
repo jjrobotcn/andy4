@@ -9,7 +9,6 @@ service SensorService {
     rpc GetDetect (GetDetectRequest) returns (stream GetDetectResponse) {
         option (google.api.http) = {
             // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/get_detect
-            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/get_detect
             get: "/api/v2/sensor/get_detect"
         };
     }
@@ -18,7 +17,6 @@ service SensorService {
     rpc GetMotionInduction(GetMotionInductionRequest) returns (stream GetMotionInductionResponse) {
         option (google.api.http) = {
             // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/get_motion_induction
-            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/get_motion_induction
             get: "/api/v2/sensor/get_motion_induction"
         };
     }
@@ -26,7 +24,6 @@ service SensorService {
     rpc GetTouch (GetTouchRequest) returns (stream GetTouchResponse) {
         option (google.api.http) = {
             // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/get_touch
-            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/get_touch
             get: "/api/v2/sensor/get_touch"
         };
     }
@@ -34,7 +31,6 @@ service SensorService {
     rpc Raw (RawRequest) returns (stream RawResponse) {
         option (google.api.http) = {
             // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/sensor/raw
-            // e.g. [GET] http://10.10.10.2:81/api/v2/sensor/raw
             get: "/api/v2/sensor/raw"
         };
     }

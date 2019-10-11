@@ -47,7 +47,6 @@ service KVStore {
     rpc GetPrefixStream(GetPrefixStreamRequest) returns (stream GetPrefixStreamResponse) {
         option (google.api.http) = {
             // e.g. [WebSocket] ws://10.10.10.2:81/api/v1/kvstore/get_prefix_stream?key_prefix=
-            // e.g. [GET] http://10.10.10.2:81/api/v1/kvstore/get_prefix_stream?key_prefix=
             get: "/api/v2/kvstore/get_prefix_stream"
         };
     }
