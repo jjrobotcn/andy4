@@ -14,7 +14,68 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/api/v2/messaging/messaging": {
+      "get": {
+        "summary": "Messaging为消息发布订阅方法",
+        "operationId": "Messaging",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/messagingServiceMessagingResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "subscribe.topics",
+            "description": "订阅的主题列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "unsubscribe.topics",
+            "description": "取消订阅的主题列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "message_publish.topics",
+            "description": "数据发布的主题列表.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "message_publish.payload",
+            "description": "消息内容.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "byte"
+          }
+        ],
+        "tags": [
+          "MessagingService"
+        ]
+      }
+    }
+  },
   "definitions": {
     "messagingServiceMessagePublish": {
       "type": "object",
