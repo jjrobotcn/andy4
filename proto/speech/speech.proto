@@ -8,6 +8,10 @@ service SpeechService {
     // ListenSpeechEvent方法为监听语音事件变更状态流, 具体类型参考: SpeechEvent
     // ListenSpeechEventRequest中可配置相关状态消息过滤,
     rpc ListenSpeechEvent (ListenSpeechEventRequest) returns (stream ListenSpeechEventResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/speech/listen_speech_event
+            get: "/api/v2/speech/listen_speech_event"
+        };
     }
 
     // TextToSpeech(TTS)方法实现文本输入语音合成自动音频输出

@@ -28,6 +28,34 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
+var (
+	filter_SpeechService_ListenSpeechEvent_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+)
+
+func request_SpeechService_ListenSpeechEvent_0(ctx context.Context, marshaler runtime.Marshaler, client SpeechServiceClient, req *http.Request, pathParams map[string]string) (SpeechService_ListenSpeechEventClient, runtime.ServerMetadata, error) {
+	var protoReq ListenSpeechEventRequest
+	var metadata runtime.ServerMetadata
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_SpeechService_ListenSpeechEvent_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	stream, err := client.ListenSpeechEvent(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
+
+}
+
 func request_SpeechService_TextToSpeech_0(ctx context.Context, marshaler runtime.Marshaler, client SpeechServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TextToSpeechRequest
 	var metadata runtime.ServerMetadata
@@ -160,6 +188,26 @@ func RegisterSpeechServiceHandler(ctx context.Context, mux *runtime.ServeMux, co
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "SpeechServiceClient" to call the correct interceptors.
 func RegisterSpeechServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client SpeechServiceClient) error {
+
+	mux.Handle("GET", pattern_SpeechService_ListenSpeechEvent_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SpeechService_ListenSpeechEvent_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_SpeechService_ListenSpeechEvent_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+
+	})
 
 	mux.Handle("POST", pattern_SpeechService_TextToSpeech_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -305,22 +353,26 @@ func RegisterSpeechServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 }
 
 var (
-	pattern_SpeechService_TextToSpeech_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "text_to_speech"}, ""))
+	pattern_SpeechService_ListenSpeechEvent_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "listen_speech_event"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SpeechService_SpeechStop_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "speech_stop"}, ""))
+	pattern_SpeechService_TextToSpeech_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "text_to_speech"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SpeechService_WakeUp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "wake_up"}, ""))
+	pattern_SpeechService_SpeechStop_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "speech_stop"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SpeechService_Hibernate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "hibernate"}, ""))
+	pattern_SpeechService_WakeUp_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "wake_up"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SpeechService_SetVoiceVolume_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "set_voice_volume"}, ""))
+	pattern_SpeechService_Hibernate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "hibernate"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SpeechService_GetVoiceVolume_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "get_voice_volume"}, ""))
+	pattern_SpeechService_SetVoiceVolume_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "set_voice_volume"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SpeechService_SetParams_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "set_params"}, ""))
+	pattern_SpeechService_GetVoiceVolume_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "get_voice_volume"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_SpeechService_SetParams_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "speech", "set_params"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
+	forward_SpeechService_ListenSpeechEvent_0 = runtime.ForwardResponseStream
+
 	forward_SpeechService_TextToSpeech_0 = runtime.ForwardResponseMessage
 
 	forward_SpeechService_SpeechStop_0 = runtime.ForwardResponseMessage

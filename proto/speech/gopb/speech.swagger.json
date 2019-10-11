@@ -49,6 +49,33 @@
         ]
       }
     },
+    "/api/v2/speech/listen_speech_event": {
+      "get": {
+        "summary": "ListenSpeechEvent方法为监听语音事件变更状态流, 具体类型参考: SpeechEvent\nListenSpeechEventRequest中可配置相关状态消息过滤,",
+        "operationId": "ListenSpeechEvent",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/speechServiceListenSpeechEventResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "with_vad_vol",
+            "description": "是否获取vad状态传入语音音量动态变化\n启用与否不影响获取Vad_START, Vad_END\n仅影响Vad_VOLUME_CHANGE.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          }
+        ],
+        "tags": [
+          "SpeechService"
+        ]
+      }
+    },
     "/api/v2/speech/set_params": {
       "post": {
         "summary": "配置参数(当前仅支持AIUI模块)\nv2.1.0\nAIUI模块参数配置参考: https://aiui.xfyun.cn/docs/access_docs (开发-评估板/量产板 =\u003e AIUI SDK =\u003e 参数配置)",
