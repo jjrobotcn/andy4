@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace grpc_impl {
-class Channel;
 class CompletionQueue;
 class ServerCompletionQueue;
+class ServerContext;
 }  // namespace grpc_impl
 
 namespace grpc {
@@ -31,10 +31,6 @@ namespace experimental {
 template <typename RequestT, typename ResponseT>
 class MessageAllocator;
 }  // namespace experimental
-}  // namespace grpc_impl
-
-namespace grpc {
-class ServerContext;
 }  // namespace grpc
 
 namespace networkService {
@@ -48,7 +44,8 @@ class NetworkService final {
    public:
     virtual ~StubInterface() {}
     // 获取网络扫描结果流
-    // 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+    // api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+    // 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
     std::unique_ptr< ::grpc::ClientReaderInterface< ::networkService::ListNetworksResponse>> ListNetworks(::grpc::ClientContext* context, const ::networkService::ListNetworksRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::networkService::ListNetworksResponse>>(ListNetworksRaw(context, request));
     }
@@ -102,7 +99,8 @@ class NetworkService final {
      public:
       virtual ~experimental_async_interface() {}
       // 获取网络扫描结果流
-      // 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+      // api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+      // 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
       virtual void ListNetworks(::grpc::ClientContext* context, ::networkService::ListNetworksRequest* request, ::grpc::experimental::ClientReadReactor< ::networkService::ListNetworksResponse>* reactor) = 0;
       // 连接至指定网络
       // 连接失败将立即返回错误
@@ -238,7 +236,8 @@ class NetworkService final {
     Service();
     virtual ~Service();
     // 获取网络扫描结果流
-    // 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+    // api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+    // 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
     virtual ::grpc::Status ListNetworks(::grpc::ServerContext* context, const ::networkService::ListNetworksRequest* request, ::grpc::ServerWriter< ::networkService::ListNetworksResponse>* writer);
     // 连接至指定网络
     // 连接失败将立即返回错误

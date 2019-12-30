@@ -39,7 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * 获取网络扫描结果流
- * 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+ * api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+ * 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
  */
 - (GRPCUnaryProtoCall *)listNetworksWithMessage:(ListNetworksRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
@@ -89,7 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * 获取网络扫描结果流
- * 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+ * api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+ * 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -97,7 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * 获取网络扫描结果流
- * 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+ * api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+ * 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */

@@ -775,7 +775,8 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type NetworkServiceClient interface {
 	// 获取网络扫描结果流
-	// 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+	// api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+	// 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
 	ListNetworks(ctx context.Context, in *ListNetworksRequest, opts ...grpc.CallOption) (NetworkService_ListNetworksClient, error)
 	// 连接至指定网络
 	// 连接失败将立即返回错误
@@ -895,7 +896,8 @@ func (c *networkServiceClient) UpdateNetworkDeviceInfo(ctx context.Context, in *
 // NetworkServiceServer is the server API for NetworkService service.
 type NetworkServiceServer interface {
 	// 获取网络扫描结果流
-	// 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+	// api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+	// 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
 	ListNetworks(*ListNetworksRequest, NetworkService_ListNetworksServer) error
 	// 连接至指定网络
 	// 连接失败将立即返回错误

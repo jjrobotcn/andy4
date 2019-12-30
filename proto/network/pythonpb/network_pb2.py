@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='networkService',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\rnetwork.proto\x12\x0enetworkService\x1a\x1cgoogle/api/annotations.proto\"G\n\x0bNetworkInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03mac\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x03 \x01(\r\x12\x0c\n\x04rssi\x18\x04 \x01(\r\"\x15\n\x13ListNetworksRequest\"J\n\x14ListNetworksResponse\x12\x32\n\rnetworks_info\x18\x01 \x03(\x0b\x32\x1b.networkService.NetworkInfo\"\x93\x01\n\x0e\x43onnectRequest\x12\x35\n\x0cnetwork_info\x18\x01 \x01(\x0b\x32\x1b.networkService.NetworkInfoB\x02\x18\x01\x12\x0c\n\x04ssid\x18\x03 \x01(\t\x12\x0b\n\x03pwd\x18\x02 \x01(\t\x12\x12\n\nkeep_alive\x18\x04 \x01(\x08\x12\x1b\n\x13keep_alive_interval\x18\x05 \x01(\r\"\x88\x01\n\rNetworkStatus\x12&\n\x06status\x18\x01 \x01(\x0e\x32\x16.networkService.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tpublic_ip\x18\x03 \x01(\t\x12\x0c\n\x04rssi\x18\x04 \x01(\r\x12\x0e\n\x06upload\x18\x05 \x01(\r\x12\x10\n\x08\x64ownload\x18\x06 \x01(\r\"\x11\n\x0f\x43onnectResponse\"\x12\n\x10GetStatusRequest\"J\n\x11GetStatusResponse\x12\x35\n\x0enetwork_status\x18\x01 \x01(\x0b\x32\x1d.networkService.NetworkStatus\"5\n\x11NetworkDeviceInfo\x12\x0c\n\x04ssid\x18\x01 \x01(\t\x12\x12\n\ncredential\x18\x02 \x01(\t\"6\n\x1bGetNetworkDeviceInfoRequest\x12\x17\n\x0fwith_credential\x18\x01 \x01(\x08\"^\n\x1cGetNetworkDeviceInfoResponse\x12>\n\x13network_device_info\x18\x01 \x01(\x0b\x32!.networkService.NetworkDeviceInfo\"`\n\x1eUpdateNetworkDeviceInfoRequest\x12>\n\x13network_device_info\x18\x01 \x01(\x0b\x32!.networkService.NetworkDeviceInfo\"!\n\x1fUpdateNetworkDeviceInfoResponse*F\n\x06Status\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x10\n\x0c\x44ISCONNECTED\x10\x01\x12\x0e\n\nCONNECTING\x10\x02\x12\r\n\tCONNECTED\x10\x03\x32\x91\x05\n\x0eNetworkService\x12]\n\x0cListNetworks\x12#.networkService.ListNetworksRequest\x1a$.networkService.ListNetworksResponse\"\x00\x30\x01\x12n\n\x07\x43onnect\x12\x1e.networkService.ConnectRequest\x1a\x1f.networkService.ConnectResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v2/network/connect:\x01*\x12T\n\tGetStatus\x12 .networkService.GetStatusRequest\x1a!.networkService.GetStatusResponse\"\x00\x30\x01\x12\xa5\x01\n\x14GetNetworkDeviceInfo\x12+.networkService.GetNetworkDeviceInfoRequest\x1a,.networkService.GetNetworkDeviceInfoResponse\"2\x82\xd3\xe4\x93\x02,\"\'/api/v2/network/get_network_device_info:\x01*\x12\xb1\x01\n\x17UpdateNetworkDeviceInfo\x12..networkService.UpdateNetworkDeviceInfoRequest\x1a/.networkService.UpdateNetworkDeviceInfoResponse\"5\x82\xd3\xe4\x93\x02/\"*/api/v2/network/update_network_device_info:\x01*b\x06proto3')
+  serialized_pb=_b('\n\rnetwork.proto\x12\x0enetworkService\x1a\x1cgoogle/api/annotations.proto\"G\n\x0bNetworkInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03mac\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x03 \x01(\r\x12\x0c\n\x04rssi\x18\x04 \x01(\r\"\x15\n\x13ListNetworksRequest\"J\n\x14ListNetworksResponse\x12\x32\n\rnetworks_info\x18\x01 \x03(\x0b\x32\x1b.networkService.NetworkInfo\"\x93\x01\n\x0e\x43onnectRequest\x12\x35\n\x0cnetwork_info\x18\x01 \x01(\x0b\x32\x1b.networkService.NetworkInfoB\x02\x18\x01\x12\x0c\n\x04ssid\x18\x03 \x01(\t\x12\x0b\n\x03pwd\x18\x02 \x01(\t\x12\x12\n\nkeep_alive\x18\x04 \x01(\x08\x12\x1b\n\x13keep_alive_interval\x18\x05 \x01(\r\"\x88\x01\n\rNetworkStatus\x12&\n\x06status\x18\x01 \x01(\x0e\x32\x16.networkService.Status\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tpublic_ip\x18\x03 \x01(\t\x12\x0c\n\x04rssi\x18\x04 \x01(\r\x12\x0e\n\x06upload\x18\x05 \x01(\r\x12\x10\n\x08\x64ownload\x18\x06 \x01(\r\"\x11\n\x0f\x43onnectResponse\"\x12\n\x10GetStatusRequest\"J\n\x11GetStatusResponse\x12\x35\n\x0enetwork_status\x18\x01 \x01(\x0b\x32\x1d.networkService.NetworkStatus\"5\n\x11NetworkDeviceInfo\x12\x0c\n\x04ssid\x18\x01 \x01(\t\x12\x12\n\ncredential\x18\x02 \x01(\t\"6\n\x1bGetNetworkDeviceInfoRequest\x12\x17\n\x0fwith_credential\x18\x01 \x01(\x08\"^\n\x1cGetNetworkDeviceInfoResponse\x12>\n\x13network_device_info\x18\x01 \x01(\x0b\x32!.networkService.NetworkDeviceInfo\"`\n\x1eUpdateNetworkDeviceInfoRequest\x12>\n\x13network_device_info\x18\x01 \x01(\x0b\x32!.networkService.NetworkDeviceInfo\"!\n\x1fUpdateNetworkDeviceInfoResponse*F\n\x06Status\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x10\n\x0c\x44ISCONNECTED\x10\x01\x12\x0e\n\nCONNECTING\x10\x02\x12\r\n\tCONNECTED\x10\x03\x32\xd9\x05\n\x0eNetworkService\x12\x82\x01\n\x0cListNetworks\x12#.networkService.ListNetworksRequest\x1a$.networkService.ListNetworksResponse\"%\x82\xd3\xe4\x93\x02\x1f\x12\x1d/api/v2/network/list_networks0\x01\x12n\n\x07\x43onnect\x12\x1e.networkService.ConnectRequest\x1a\x1f.networkService.ConnectResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v2/network/connect:\x01*\x12v\n\tGetStatus\x12 .networkService.GetStatusRequest\x1a!.networkService.GetStatusResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/v2/network/get_status0\x01\x12\xa5\x01\n\x14GetNetworkDeviceInfo\x12+.networkService.GetNetworkDeviceInfoRequest\x1a,.networkService.GetNetworkDeviceInfoResponse\"2\x82\xd3\xe4\x93\x02,\"\'/api/v2/network/get_network_device_info:\x01*\x12\xb1\x01\n\x17UpdateNetworkDeviceInfo\x12..networkService.UpdateNetworkDeviceInfoRequest\x1a/.networkService.UpdateNetworkDeviceInfoResponse\"5\x82\xd3\xe4\x93\x02/\"*/api/v2/network/update_network_device_info:\x01*b\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -551,95 +551,95 @@ DESCRIPTOR.message_types_by_name['UpdateNetworkDeviceInfoResponse'] = _UPDATENET
 DESCRIPTOR.enum_types_by_name['Status'] = _STATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-NetworkInfo = _reflection.GeneratedProtocolMessageType('NetworkInfo', (_message.Message,), dict(
-  DESCRIPTOR = _NETWORKINFO,
-  __module__ = 'network_pb2'
+NetworkInfo = _reflection.GeneratedProtocolMessageType('NetworkInfo', (_message.Message,), {
+  'DESCRIPTOR' : _NETWORKINFO,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.NetworkInfo)
-  ))
+  })
 _sym_db.RegisterMessage(NetworkInfo)
 
-ListNetworksRequest = _reflection.GeneratedProtocolMessageType('ListNetworksRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LISTNETWORKSREQUEST,
-  __module__ = 'network_pb2'
+ListNetworksRequest = _reflection.GeneratedProtocolMessageType('ListNetworksRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTNETWORKSREQUEST,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.ListNetworksRequest)
-  ))
+  })
 _sym_db.RegisterMessage(ListNetworksRequest)
 
-ListNetworksResponse = _reflection.GeneratedProtocolMessageType('ListNetworksResponse', (_message.Message,), dict(
-  DESCRIPTOR = _LISTNETWORKSRESPONSE,
-  __module__ = 'network_pb2'
+ListNetworksResponse = _reflection.GeneratedProtocolMessageType('ListNetworksResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTNETWORKSRESPONSE,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.ListNetworksResponse)
-  ))
+  })
 _sym_db.RegisterMessage(ListNetworksResponse)
 
-ConnectRequest = _reflection.GeneratedProtocolMessageType('ConnectRequest', (_message.Message,), dict(
-  DESCRIPTOR = _CONNECTREQUEST,
-  __module__ = 'network_pb2'
+ConnectRequest = _reflection.GeneratedProtocolMessageType('ConnectRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CONNECTREQUEST,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.ConnectRequest)
-  ))
+  })
 _sym_db.RegisterMessage(ConnectRequest)
 
-NetworkStatus = _reflection.GeneratedProtocolMessageType('NetworkStatus', (_message.Message,), dict(
-  DESCRIPTOR = _NETWORKSTATUS,
-  __module__ = 'network_pb2'
+NetworkStatus = _reflection.GeneratedProtocolMessageType('NetworkStatus', (_message.Message,), {
+  'DESCRIPTOR' : _NETWORKSTATUS,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.NetworkStatus)
-  ))
+  })
 _sym_db.RegisterMessage(NetworkStatus)
 
-ConnectResponse = _reflection.GeneratedProtocolMessageType('ConnectResponse', (_message.Message,), dict(
-  DESCRIPTOR = _CONNECTRESPONSE,
-  __module__ = 'network_pb2'
+ConnectResponse = _reflection.GeneratedProtocolMessageType('ConnectResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CONNECTRESPONSE,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.ConnectResponse)
-  ))
+  })
 _sym_db.RegisterMessage(ConnectResponse)
 
-GetStatusRequest = _reflection.GeneratedProtocolMessageType('GetStatusRequest', (_message.Message,), dict(
-  DESCRIPTOR = _GETSTATUSREQUEST,
-  __module__ = 'network_pb2'
+GetStatusRequest = _reflection.GeneratedProtocolMessageType('GetStatusRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETSTATUSREQUEST,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.GetStatusRequest)
-  ))
+  })
 _sym_db.RegisterMessage(GetStatusRequest)
 
-GetStatusResponse = _reflection.GeneratedProtocolMessageType('GetStatusResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETSTATUSRESPONSE,
-  __module__ = 'network_pb2'
+GetStatusResponse = _reflection.GeneratedProtocolMessageType('GetStatusResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETSTATUSRESPONSE,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.GetStatusResponse)
-  ))
+  })
 _sym_db.RegisterMessage(GetStatusResponse)
 
-NetworkDeviceInfo = _reflection.GeneratedProtocolMessageType('NetworkDeviceInfo', (_message.Message,), dict(
-  DESCRIPTOR = _NETWORKDEVICEINFO,
-  __module__ = 'network_pb2'
+NetworkDeviceInfo = _reflection.GeneratedProtocolMessageType('NetworkDeviceInfo', (_message.Message,), {
+  'DESCRIPTOR' : _NETWORKDEVICEINFO,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.NetworkDeviceInfo)
-  ))
+  })
 _sym_db.RegisterMessage(NetworkDeviceInfo)
 
-GetNetworkDeviceInfoRequest = _reflection.GeneratedProtocolMessageType('GetNetworkDeviceInfoRequest', (_message.Message,), dict(
-  DESCRIPTOR = _GETNETWORKDEVICEINFOREQUEST,
-  __module__ = 'network_pb2'
+GetNetworkDeviceInfoRequest = _reflection.GeneratedProtocolMessageType('GetNetworkDeviceInfoRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETNETWORKDEVICEINFOREQUEST,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.GetNetworkDeviceInfoRequest)
-  ))
+  })
 _sym_db.RegisterMessage(GetNetworkDeviceInfoRequest)
 
-GetNetworkDeviceInfoResponse = _reflection.GeneratedProtocolMessageType('GetNetworkDeviceInfoResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETNETWORKDEVICEINFORESPONSE,
-  __module__ = 'network_pb2'
+GetNetworkDeviceInfoResponse = _reflection.GeneratedProtocolMessageType('GetNetworkDeviceInfoResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETNETWORKDEVICEINFORESPONSE,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.GetNetworkDeviceInfoResponse)
-  ))
+  })
 _sym_db.RegisterMessage(GetNetworkDeviceInfoResponse)
 
-UpdateNetworkDeviceInfoRequest = _reflection.GeneratedProtocolMessageType('UpdateNetworkDeviceInfoRequest', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATENETWORKDEVICEINFOREQUEST,
-  __module__ = 'network_pb2'
+UpdateNetworkDeviceInfoRequest = _reflection.GeneratedProtocolMessageType('UpdateNetworkDeviceInfoRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATENETWORKDEVICEINFOREQUEST,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.UpdateNetworkDeviceInfoRequest)
-  ))
+  })
 _sym_db.RegisterMessage(UpdateNetworkDeviceInfoRequest)
 
-UpdateNetworkDeviceInfoResponse = _reflection.GeneratedProtocolMessageType('UpdateNetworkDeviceInfoResponse', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATENETWORKDEVICEINFORESPONSE,
-  __module__ = 'network_pb2'
+UpdateNetworkDeviceInfoResponse = _reflection.GeneratedProtocolMessageType('UpdateNetworkDeviceInfoResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATENETWORKDEVICEINFORESPONSE,
+  '__module__' : 'network_pb2'
   # @@protoc_insertion_point(class_scope:networkService.UpdateNetworkDeviceInfoResponse)
-  ))
+  })
 _sym_db.RegisterMessage(UpdateNetworkDeviceInfoResponse)
 
 
@@ -652,7 +652,7 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=1052,
-  serialized_end=1709,
+  serialized_end=1781,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListNetworks',
@@ -661,7 +661,7 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTNETWORKSREQUEST,
     output_type=_LISTNETWORKSRESPONSE,
-    serialized_options=None,
+    serialized_options=_b('\202\323\344\223\002\037\022\035/api/v2/network/list_networks'),
   ),
   _descriptor.MethodDescriptor(
     name='Connect',
@@ -679,7 +679,7 @@ _NETWORKSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETSTATUSREQUEST,
     output_type=_GETSTATUSRESPONSE,
-    serialized_options=None,
+    serialized_options=_b('\202\323\344\223\002\034\022\032/api/v2/network/get_status'),
   ),
   _descriptor.MethodDescriptor(
     name='GetNetworkDeviceInfo',

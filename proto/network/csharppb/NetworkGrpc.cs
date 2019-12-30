@@ -70,7 +70,8 @@ namespace NetworkService {
     {
       /// <summary>
       /// 获取网络扫描结果流
-      /// 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+      /// api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+      /// 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
@@ -159,7 +160,8 @@ namespace NetworkService {
 
       /// <summary>
       /// 获取网络扫描结果流
-      /// 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+      /// api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+      /// 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -172,7 +174,8 @@ namespace NetworkService {
       }
       /// <summary>
       /// 获取网络扫描结果流
-      /// 扫描结果每30秒自动更新, 首次获取将返回记录中最新记录
+      /// api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+      /// 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>

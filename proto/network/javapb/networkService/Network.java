@@ -246,6 +246,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NetworkInfo();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -258,7 +265,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1120,6 +1126,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListNetworksRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1581,6 +1594,13 @@ public final class Network {
     }
     private ListNetworksResponse() {
       networksInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListNetworksResponse();
     }
 
     @java.lang.Override
@@ -2542,6 +2562,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ConnectRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2554,7 +2581,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3809,6 +3835,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NetworkStatus();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3821,7 +3854,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4868,6 +4900,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ConnectResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5284,6 +5323,13 @@ public final class Network {
       super(builder);
     }
     private GetStatusRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetStatusRequest();
     }
 
     @java.lang.Override
@@ -5731,6 +5777,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetStatusResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5743,7 +5796,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -6420,6 +6472,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NetworkDeviceInfo();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6432,7 +6491,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -7164,6 +7222,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetNetworkDeviceInfoRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7176,7 +7241,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -7683,6 +7747,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetNetworkDeviceInfoResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7695,7 +7766,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -8360,6 +8430,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateNetworkDeviceInfoRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8372,7 +8449,6 @@ public final class Network {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9021,6 +9097,13 @@ public final class Network {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateNetworkDeviceInfoResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9516,37 +9599,31 @@ public final class Network {
       "vice.NetworkDeviceInfo\"!\n\037UpdateNetworkD" +
       "eviceInfoResponse*F\n\006Status\022\013\n\007UNKNOWN\020\000" +
       "\022\020\n\014DISCONNECTED\020\001\022\016\n\nCONNECTING\020\002\022\r\n\tCO" +
-      "NNECTED\020\0032\221\005\n\016NetworkService\022]\n\014ListNetw" +
-      "orks\022#.networkService.ListNetworksReques" +
-      "t\032$.networkService.ListNetworksResponse\"" +
-      "\0000\001\022n\n\007Connect\022\036.networkService.ConnectR" +
-      "equest\032\037.networkService.ConnectResponse\"" +
-      "\"\202\323\344\223\002\034\"\027/api/v2/network/connect:\001*\022T\n\tG" +
-      "etStatus\022 .networkService.GetStatusReque" +
-      "st\032!.networkService.GetStatusResponse\"\0000" +
-      "\001\022\245\001\n\024GetNetworkDeviceInfo\022+.networkServ" +
-      "ice.GetNetworkDeviceInfoRequest\032,.networ" +
-      "kService.GetNetworkDeviceInfoResponse\"2\202" +
-      "\323\344\223\002,\"\'/api/v2/network/get_network_devic" +
-      "e_info:\001*\022\261\001\n\027UpdateNetworkDeviceInfo\022.." +
+      "NNECTED\020\0032\331\005\n\016NetworkService\022\202\001\n\014ListNet" +
+      "works\022#.networkService.ListNetworksReque" +
+      "st\032$.networkService.ListNetworksResponse" +
+      "\"%\202\323\344\223\002\037\022\035/api/v2/network/list_networks0" +
+      "\001\022n\n\007Connect\022\036.networkService.ConnectReq" +
+      "uest\032\037.networkService.ConnectResponse\"\"\202" +
+      "\323\344\223\002\034\"\027/api/v2/network/connect:\001*\022v\n\tGet" +
+      "Status\022 .networkService.GetStatusRequest" +
+      "\032!.networkService.GetStatusResponse\"\"\202\323\344" +
+      "\223\002\034\022\032/api/v2/network/get_status0\001\022\245\001\n\024Ge" +
+      "tNetworkDeviceInfo\022+.networkService.GetN" +
+      "etworkDeviceInfoRequest\032,.networkService" +
+      ".GetNetworkDeviceInfoResponse\"2\202\323\344\223\002,\"\'/" +
+      "api/v2/network/get_network_device_info:\001" +
+      "*\022\261\001\n\027UpdateNetworkDeviceInfo\022..networkS" +
+      "ervice.UpdateNetworkDeviceInfoRequest\032/." +
       "networkService.UpdateNetworkDeviceInfoRe" +
-      "quest\032/.networkService.UpdateNetworkDevi" +
-      "ceInfoResponse\"5\202\323\344\223\002/\"*/api/v2/network/" +
-      "update_network_device_info:\001*b\006proto3"
+      "sponse\"5\202\323\344\223\002/\"*/api/v2/network/update_n" +
+      "etwork_device_info:\001*b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-        }, assigner);
+        });
     internal_static_networkService_NetworkInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_networkService_NetworkInfo_fieldAccessorTable = new
