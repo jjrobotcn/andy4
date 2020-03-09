@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.21.1-SNAPSHOT)",
+    value = "by gRPC proto compiler (version 1.22.2-SNAPSHOT)",
     comments = "Source: power.proto")
 public final class PowerServiceGrpc {
 
@@ -59,6 +59,38 @@ public final class PowerServiceGrpc {
      return getGetPowerStatusMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<powerService.Power.RebootRequest,
+      powerService.Power.RebootResponse> getRebootMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Reboot",
+      requestType = powerService.Power.RebootRequest.class,
+      responseType = powerService.Power.RebootResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<powerService.Power.RebootRequest,
+      powerService.Power.RebootResponse> getRebootMethod() {
+    io.grpc.MethodDescriptor<powerService.Power.RebootRequest, powerService.Power.RebootResponse> getRebootMethod;
+    if ((getRebootMethod = PowerServiceGrpc.getRebootMethod) == null) {
+      synchronized (PowerServiceGrpc.class) {
+        if ((getRebootMethod = PowerServiceGrpc.getRebootMethod) == null) {
+          PowerServiceGrpc.getRebootMethod = getRebootMethod = 
+              io.grpc.MethodDescriptor.<powerService.Power.RebootRequest, powerService.Power.RebootResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "powerService.PowerService", "Reboot"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  powerService.Power.RebootRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  powerService.Power.RebootResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new PowerServiceMethodDescriptorSupplier("Reboot"))
+                  .build();
+          }
+        }
+     }
+     return getRebootMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -96,6 +128,16 @@ public final class PowerServiceGrpc {
       asyncUnimplementedUnaryCall(getGetPowerStatusMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * 对各模块的电源进行断电方式重启
+     * </pre>
+     */
+    public void reboot(powerService.Power.RebootRequest request,
+        io.grpc.stub.StreamObserver<powerService.Power.RebootResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getRebootMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -105,6 +147,13 @@ public final class PowerServiceGrpc {
                 powerService.Power.GetPowerStatusRequest,
                 powerService.Power.GetPowerStatusResponse>(
                   this, METHODID_GET_POWER_STATUS)))
+          .addMethod(
+            getRebootMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                powerService.Power.RebootRequest,
+                powerService.Power.RebootResponse>(
+                  this, METHODID_REBOOT)))
           .build();
     }
   }
@@ -137,6 +186,17 @@ public final class PowerServiceGrpc {
       asyncServerStreamingCall(
           getChannel().newCall(getGetPowerStatusMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 对各模块的电源进行断电方式重启
+     * </pre>
+     */
+    public void reboot(powerService.Power.RebootRequest request,
+        io.grpc.stub.StreamObserver<powerService.Power.RebootResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRebootMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -167,6 +227,16 @@ public final class PowerServiceGrpc {
       return blockingServerStreamingCall(
           getChannel(), getGetPowerStatusMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * 对各模块的电源进行断电方式重启
+     * </pre>
+     */
+    public powerService.Power.RebootResponse reboot(powerService.Power.RebootRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getRebootMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -186,9 +256,21 @@ public final class PowerServiceGrpc {
         io.grpc.CallOptions callOptions) {
       return new PowerServiceFutureStub(channel, callOptions);
     }
+
+    /**
+     * <pre>
+     * 对各模块的电源进行断电方式重启
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<powerService.Power.RebootResponse> reboot(
+        powerService.Power.RebootRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRebootMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_POWER_STATUS = 0;
+  private static final int METHODID_REBOOT = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -210,6 +292,10 @@ public final class PowerServiceGrpc {
         case METHODID_GET_POWER_STATUS:
           serviceImpl.getPowerStatus((powerService.Power.GetPowerStatusRequest) request,
               (io.grpc.stub.StreamObserver<powerService.Power.GetPowerStatusResponse>) responseObserver);
+          break;
+        case METHODID_REBOOT:
+          serviceImpl.reboot((powerService.Power.RebootRequest) request,
+              (io.grpc.stub.StreamObserver<powerService.Power.RebootResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -273,6 +359,7 @@ public final class PowerServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new PowerServiceFileDescriptorSupplier())
               .addMethod(getGetPowerStatusMethod())
+              .addMethod(getRebootMethod())
               .build();
         }
       }

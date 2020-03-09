@@ -7,6 +7,7 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -49,7 +50,7 @@ func (m *PowerStatus) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return xxx_messageInfo_PowerStatus.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -109,7 +110,7 @@ func (m *GetPowerStatusRequest) XXX_Marshal(b []byte, deterministic bool) ([]byt
 		return xxx_messageInfo_GetPowerStatusRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -149,7 +150,7 @@ func (m *GetPowerStatusResponse) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return xxx_messageInfo_GetPowerStatusResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -175,35 +176,131 @@ func (m *GetPowerStatusResponse) GetPowerStatus() *PowerStatus {
 	return nil
 }
 
+type RebootRequest struct {
+	// 所有模块重启(目前仅支持整机重启)
+	All                  bool     `protobuf:"varint,1,opt,name=all,proto3" json:"all,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RebootRequest) Reset()         { *m = RebootRequest{} }
+func (m *RebootRequest) String() string { return proto.CompactTextString(m) }
+func (*RebootRequest) ProtoMessage()    {}
+func (*RebootRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{3}
+}
+func (m *RebootRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *RebootRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_RebootRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *RebootRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RebootRequest.Merge(m, src)
+}
+func (m *RebootRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *RebootRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RebootRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RebootRequest proto.InternalMessageInfo
+
+func (m *RebootRequest) GetAll() bool {
+	if m != nil {
+		return m.All
+	}
+	return false
+}
+
+type RebootResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RebootResponse) Reset()         { *m = RebootResponse{} }
+func (m *RebootResponse) String() string { return proto.CompactTextString(m) }
+func (*RebootResponse) ProtoMessage()    {}
+func (*RebootResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{4}
+}
+func (m *RebootResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *RebootResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_RebootResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *RebootResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RebootResponse.Merge(m, src)
+}
+func (m *RebootResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *RebootResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_RebootResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RebootResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*PowerStatus)(nil), "powerService.PowerStatus")
 	proto.RegisterMapType((map[string]bool)(nil), "powerService.PowerStatus.DevicesEntry")
 	proto.RegisterType((*GetPowerStatusRequest)(nil), "powerService.GetPowerStatusRequest")
 	proto.RegisterType((*GetPowerStatusResponse)(nil), "powerService.GetPowerStatusResponse")
+	proto.RegisterType((*RebootRequest)(nil), "powerService.RebootRequest")
+	proto.RegisterType((*RebootResponse)(nil), "powerService.RebootResponse")
 }
 
 func init() { proto.RegisterFile("power.proto", fileDescriptor_a4fab2da8ea5416b) }
 
 var fileDescriptor_a4fab2da8ea5416b = []byte{
-	// 277 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2e, 0xc8, 0x2f, 0x4f,
-	0x2d, 0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x01, 0x73, 0x82, 0x53, 0x8b, 0xca, 0x32,
-	0x93, 0x53, 0x95, 0x0e, 0x31, 0x72, 0x71, 0x07, 0x80, 0x05, 0x4a, 0x12, 0x4b, 0x4a, 0x8b, 0x85,
-	0x44, 0xb8, 0x58, 0x73, 0x52, 0xcb, 0x52, 0x73, 0x24, 0x18, 0x15, 0x18, 0x35, 0x78, 0x83, 0x20,
-	0x1c, 0x21, 0x79, 0x2e, 0xee, 0xcc, 0xe2, 0xf8, 0xe4, 0x8c, 0xc4, 0xa2, 0xf4, 0xcc, 0xbc, 0x74,
-	0x09, 0x26, 0x05, 0x46, 0x0d, 0x8e, 0x20, 0xae, 0xcc, 0x62, 0x67, 0xa8, 0x88, 0x90, 0x03, 0x17,
-	0x7b, 0x4a, 0x2a, 0xc8, 0xc0, 0x62, 0x09, 0x66, 0x05, 0x66, 0x0d, 0x6e, 0x23, 0x35, 0x3d, 0x64,
-	0x6b, 0xf4, 0x90, 0xac, 0xd0, 0x73, 0x81, 0x28, 0x74, 0xcd, 0x2b, 0x29, 0xaa, 0x0c, 0x82, 0x69,
-	0x93, 0xb2, 0xe2, 0xe2, 0x41, 0x96, 0x10, 0x12, 0xe0, 0x62, 0xce, 0x4e, 0xad, 0x04, 0x3b, 0x83,
-	0x33, 0x08, 0xc4, 0x04, 0x39, 0xad, 0x2c, 0x31, 0xa7, 0x34, 0x15, 0x6a, 0x3d, 0x84, 0x63, 0xc5,
-	0x64, 0xc1, 0xa8, 0x24, 0xce, 0x25, 0xea, 0x9e, 0x5a, 0x82, 0x64, 0x47, 0x50, 0x6a, 0x61, 0x69,
-	0x6a, 0x71, 0x89, 0x52, 0x18, 0x97, 0x18, 0xba, 0x44, 0x71, 0x41, 0x7e, 0x5e, 0x71, 0xaa, 0x90,
-	0x0d, 0x17, 0x24, 0x1c, 0xe2, 0x8b, 0xc1, 0xe2, 0x60, 0x7b, 0xb8, 0x8d, 0x24, 0x71, 0xba, 0x3a,
-	0x08, 0x12, 0x86, 0x10, 0x8e, 0x51, 0x3e, 0x17, 0x4f, 0x00, 0x92, 0x42, 0xa1, 0x78, 0x2e, 0x3e,
-	0x54, 0x7b, 0x84, 0x94, 0x51, 0x4d, 0xc2, 0xea, 0x3c, 0x29, 0x15, 0xfc, 0x8a, 0x20, 0x4e, 0x55,
-	0x62, 0x30, 0x60, 0x74, 0xe2, 0x39, 0xf1, 0x48, 0x8e, 0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f,
-	0xe4, 0x18, 0x93, 0xd8, 0xc0, 0x31, 0x69, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x13, 0x3b, 0x07,
-	0x32, 0xd8, 0x01, 0x00, 0x00,
+	// 388 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0xcf, 0x6a, 0xdb, 0x40,
+	0x10, 0xc6, 0x59, 0x9b, 0xba, 0xee, 0x48, 0x36, 0x66, 0x71, 0x5b, 0x5b, 0x35, 0xb2, 0xaa, 0x16,
+	0x63, 0x7a, 0x90, 0x8a, 0x7a, 0x29, 0x26, 0x87, 0x90, 0x3f, 0xe4, 0x6a, 0x36, 0x90, 0xab, 0x91,
+	0xed, 0x45, 0x11, 0x11, 0x5a, 0x45, 0xbb, 0x56, 0xf0, 0x35, 0x90, 0x27, 0xc8, 0x1b, 0xe5, 0x94,
+	0x63, 0x20, 0x2f, 0x10, 0x4c, 0x1e, 0x23, 0x87, 0xa0, 0x5d, 0x19, 0xa4, 0xe0, 0xe4, 0xb6, 0xdf,
+	0xce, 0xb7, 0xf3, 0xfb, 0x66, 0x24, 0xd0, 0x12, 0x76, 0x45, 0x53, 0x27, 0x49, 0x99, 0x60, 0x58,
+	0x97, 0xe2, 0x94, 0xa6, 0x59, 0xb8, 0xa0, 0xc6, 0x20, 0x60, 0x2c, 0x88, 0xa8, 0xeb, 0x27, 0xa1,
+	0xeb, 0xc7, 0x31, 0x13, 0xbe, 0x08, 0x59, 0xcc, 0x95, 0xd7, 0xbe, 0x43, 0xa0, 0x4d, 0xa5, 0x5d,
+	0xf8, 0x62, 0xc5, 0x71, 0x17, 0x3e, 0x45, 0x34, 0xa3, 0x51, 0x0f, 0x59, 0x68, 0xdc, 0x22, 0x4a,
+	0xe0, 0x21, 0x68, 0x21, 0x9f, 0x2d, 0xce, 0xfd, 0x34, 0x08, 0xe3, 0xa0, 0x57, 0xb3, 0xd0, 0xb8,
+	0x49, 0x20, 0xe4, 0x87, 0xc5, 0x0d, 0xde, 0x87, 0xcf, 0x4b, 0x9a, 0xe3, 0x78, 0xaf, 0x6e, 0xd5,
+	0xc7, 0x9a, 0x37, 0x72, 0xca, 0x21, 0x9c, 0x12, 0xc2, 0x39, 0x52, 0xc6, 0xe3, 0x58, 0xa4, 0x6b,
+	0xb2, 0x7d, 0x66, 0x4c, 0x40, 0x2f, 0x17, 0x70, 0x07, 0xea, 0x17, 0x74, 0x2d, 0x63, 0x7c, 0x21,
+	0xf9, 0x31, 0x8f, 0x96, 0xf9, 0xd1, 0x8a, 0x16, 0x78, 0x25, 0x26, 0xb5, 0xff, 0xc8, 0xfe, 0x0e,
+	0x5f, 0x4f, 0xa8, 0x28, 0x31, 0x08, 0xbd, 0x5c, 0x51, 0x2e, 0xec, 0x33, 0xf8, 0xf6, 0xb6, 0xc0,
+	0x13, 0x16, 0x73, 0x8a, 0xf7, 0x40, 0x6d, 0x69, 0xc6, 0xe5, 0xbd, 0xe4, 0x68, 0x5e, 0xff, 0xdd,
+	0xd4, 0x44, 0x6d, 0x58, 0x09, 0xfb, 0x27, 0xb4, 0x08, 0x9d, 0x33, 0x26, 0x0a, 0x50, 0x9e, 0xd6,
+	0x8f, 0xd4, 0xd2, 0x9a, 0x24, 0x3f, 0xda, 0x1d, 0x68, 0x6f, 0x2d, 0x0a, 0xe9, 0xbd, 0x20, 0xd0,
+	0xa7, 0xa5, 0xf6, 0xf8, 0x06, 0x41, 0xbb, 0x1a, 0x0f, 0xff, 0xaa, 0x06, 0xd8, 0x39, 0x95, 0xf1,
+	0xfb, 0x63, 0x93, 0xc2, 0xd9, 0xa3, 0xeb, 0xc7, 0xe7, 0xdb, 0x9a, 0x85, 0x4d, 0xf9, 0xe5, 0x33,
+	0xcf, 0x95, 0x8f, 0xdc, 0x80, 0x8a, 0x59, 0x79, 0xf2, 0xbf, 0x08, 0x2f, 0xa1, 0xa1, 0xa2, 0xe2,
+	0x1f, 0xd5, 0xce, 0x95, 0x19, 0x8d, 0xc1, 0xee, 0x62, 0x81, 0x1b, 0x4a, 0x5c, 0xdf, 0xee, 0x56,
+	0x71, 0xa9, 0x74, 0x4d, 0xd0, 0x9f, 0x03, 0xfd, 0x7e, 0x63, 0xa2, 0x87, 0x8d, 0x89, 0x9e, 0x36,
+	0x26, 0x9a, 0x37, 0xe4, 0xef, 0xf7, 0xef, 0x35, 0x00, 0x00, 0xff, 0xff, 0x85, 0x94, 0x00, 0x61,
+	0xb9, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -220,6 +317,8 @@ const _ = grpc.SupportPackageIsVersion4
 type PowerServiceClient interface {
 	// 获取电源状态数据流
 	GetPowerStatus(ctx context.Context, in *GetPowerStatusRequest, opts ...grpc.CallOption) (PowerService_GetPowerStatusClient, error)
+	// 对各模块的电源进行断电方式重启
+	Reboot(ctx context.Context, in *RebootRequest, opts ...grpc.CallOption) (*RebootResponse, error)
 }
 
 type powerServiceClient struct {
@@ -262,10 +361,21 @@ func (x *powerServiceGetPowerStatusClient) Recv() (*GetPowerStatusResponse, erro
 	return m, nil
 }
 
+func (c *powerServiceClient) Reboot(ctx context.Context, in *RebootRequest, opts ...grpc.CallOption) (*RebootResponse, error) {
+	out := new(RebootResponse)
+	err := c.cc.Invoke(ctx, "/powerService.PowerService/Reboot", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PowerServiceServer is the server API for PowerService service.
 type PowerServiceServer interface {
 	// 获取电源状态数据流
 	GetPowerStatus(*GetPowerStatusRequest, PowerService_GetPowerStatusServer) error
+	// 对各模块的电源进行断电方式重启
+	Reboot(context.Context, *RebootRequest) (*RebootResponse, error)
 }
 
 // UnimplementedPowerServiceServer can be embedded to have forward compatible implementations.
@@ -274,6 +384,9 @@ type UnimplementedPowerServiceServer struct {
 
 func (*UnimplementedPowerServiceServer) GetPowerStatus(req *GetPowerStatusRequest, srv PowerService_GetPowerStatusServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetPowerStatus not implemented")
+}
+func (*UnimplementedPowerServiceServer) Reboot(ctx context.Context, req *RebootRequest) (*RebootResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Reboot not implemented")
 }
 
 func RegisterPowerServiceServer(s *grpc.Server, srv PowerServiceServer) {
@@ -301,10 +414,33 @@ func (x *powerServiceGetPowerStatusServer) Send(m *GetPowerStatusResponse) error
 	return x.ServerStream.SendMsg(m)
 }
 
+func _PowerService_Reboot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RebootRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).Reboot(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/powerService.PowerService/Reboot",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).Reboot(ctx, req.(*RebootRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _PowerService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "powerService.PowerService",
 	HandlerType: (*PowerServiceServer)(nil),
-	Methods:     []grpc.MethodDesc{},
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Reboot",
+			Handler:    _PowerService_Reboot_Handler,
+		},
+	},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "GetPowerStatus",
@@ -318,7 +454,7 @@ var _PowerService_serviceDesc = grpc.ServiceDesc{
 func (m *PowerStatus) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -326,56 +462,63 @@ func (m *PowerStatus) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PowerStatus) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PowerStatus) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Level != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintPower(dAtA, i, uint64(m.Level))
-	}
-	if m.IsCharging {
-		dAtA[i] = 0x10
-		i++
-		if m.IsCharging {
-			dAtA[i] = 1
-		} else {
-			dAtA[i] = 0
-		}
-		i++
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Devices) > 0 {
-		for k, _ := range m.Devices {
-			dAtA[i] = 0x1a
-			i++
+		for k := range m.Devices {
 			v := m.Devices[k]
-			mapSize := 1 + len(k) + sovPower(uint64(len(k))) + 1 + 1
-			i = encodeVarintPower(dAtA, i, uint64(mapSize))
-			dAtA[i] = 0xa
-			i++
-			i = encodeVarintPower(dAtA, i, uint64(len(k)))
-			i += copy(dAtA[i:], k)
-			dAtA[i] = 0x10
-			i++
+			baseI := i
+			i--
 			if v {
 				dAtA[i] = 1
 			} else {
 				dAtA[i] = 0
 			}
-			i++
+			i--
+			dAtA[i] = 0x10
+			i -= len(k)
+			copy(dAtA[i:], k)
+			i = encodeVarintPower(dAtA, i, uint64(len(k)))
+			i--
+			dAtA[i] = 0xa
+			i = encodeVarintPower(dAtA, i, uint64(baseI-i))
+			i--
+			dAtA[i] = 0x1a
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.IsCharging {
+		i--
+		if m.IsCharging {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x10
 	}
-	return i, nil
+	if m.Level != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.Level))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *GetPowerStatusRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -383,20 +526,26 @@ func (m *GetPowerStatusRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *GetPowerStatusRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetPowerStatusRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *GetPowerStatusResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -404,34 +553,108 @@ func (m *GetPowerStatusResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *GetPowerStatusResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetPowerStatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.PowerStatus != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintPower(dAtA, i, uint64(m.PowerStatus.Size()))
-		n1, err1 := m.PowerStatus.MarshalTo(dAtA[i:])
-		if err1 != nil {
-			return 0, err1
-		}
-		i += n1
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.PowerStatus != nil {
+		{
+			size, err := m.PowerStatus.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintPower(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *RebootRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *RebootRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RebootRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.All {
+		i--
+		if m.All {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *RebootResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *RebootResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RebootResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return len(dAtA) - i, nil
 }
 
 func encodeVarintPower(dAtA []byte, offset int, v uint64) int {
+	offset -= sovPower(v)
+	base := offset
 	for v >= 1<<7 {
 		dAtA[offset] = uint8(v&0x7f | 0x80)
 		v >>= 7
 		offset++
 	}
 	dAtA[offset] = uint8(v)
-	return offset + 1
+	return base
 }
 func (m *PowerStatus) Size() (n int) {
 	if m == nil {
@@ -481,6 +704,33 @@ func (m *GetPowerStatusResponse) Size() (n int) {
 		l = m.PowerStatus.Size()
 		n += 1 + l + sovPower(uint64(l))
 	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *RebootRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.All {
+		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *RebootResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
 	}
@@ -820,6 +1070,134 @@ func (m *GetPowerStatusResponse) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *RebootRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: RebootRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: RebootRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field All", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.All = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *RebootResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: RebootResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: RebootResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
 		default:
 			iNdEx = preIndex
 			skippy, err := skipPower(dAtA[iNdEx:])

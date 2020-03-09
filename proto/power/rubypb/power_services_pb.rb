@@ -16,6 +16,8 @@ module PowerService
 
       # 获取电源状态数据流
       rpc :GetPowerStatus, GetPowerStatusRequest, stream(GetPowerStatusResponse)
+      # 对各模块的电源进行断电方式重启
+      rpc :Reboot, RebootRequest, RebootResponse
     end
 
     Stub = Service.rpc_stub_class

@@ -24,21 +24,28 @@ namespace PowerService {
     static PowerReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtwb3dlci5wcm90bxIMcG93ZXJTZXJ2aWNlIpoBCgtQb3dlclN0YXR1cxIN",
-            "CgVsZXZlbBgBIAEoDRITCgtpc19jaGFyZ2luZxgCIAEoCBI3CgdkZXZpY2Vz",
-            "GAMgAygLMiYucG93ZXJTZXJ2aWNlLlBvd2VyU3RhdHVzLkRldmljZXNFbnRy",
-            "eRouCgxEZXZpY2VzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgI",
-            "OgI4ASIXChVHZXRQb3dlclN0YXR1c1JlcXVlc3QiSQoWR2V0UG93ZXJTdGF0",
-            "dXNSZXNwb25zZRIvCgxwb3dlcl9zdGF0dXMYASABKAsyGS5wb3dlclNlcnZp",
-            "Y2UuUG93ZXJTdGF0dXMybwoMUG93ZXJTZXJ2aWNlEl8KDkdldFBvd2VyU3Rh",
-            "dHVzEiMucG93ZXJTZXJ2aWNlLkdldFBvd2VyU3RhdHVzUmVxdWVzdBokLnBv",
-            "d2VyU2VydmljZS5HZXRQb3dlclN0YXR1c1Jlc3BvbnNlIgAwAWIGcHJvdG8z"));
+            "Cgtwb3dlci5wcm90bxIMcG93ZXJTZXJ2aWNlGhxnb29nbGUvYXBpL2Fubm90",
+            "YXRpb25zLnByb3RvIpoBCgtQb3dlclN0YXR1cxINCgVsZXZlbBgBIAEoDRIT",
+            "Cgtpc19jaGFyZ2luZxgCIAEoCBI3CgdkZXZpY2VzGAMgAygLMiYucG93ZXJT",
+            "ZXJ2aWNlLlBvd2VyU3RhdHVzLkRldmljZXNFbnRyeRouCgxEZXZpY2VzRW50",
+            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgIOgI4ASIXChVHZXRQb3dl",
+            "clN0YXR1c1JlcXVlc3QiSQoWR2V0UG93ZXJTdGF0dXNSZXNwb25zZRIvCgxw",
+            "b3dlcl9zdGF0dXMYASABKAsyGS5wb3dlclNlcnZpY2UuUG93ZXJTdGF0dXMi",
+            "HAoNUmVib290UmVxdWVzdBILCgNhbGwYASABKAgiEAoOUmVib290UmVzcG9u",
+            "c2Uy/AEKDFBvd2VyU2VydmljZRKFAQoOR2V0UG93ZXJTdGF0dXMSIy5wb3dl",
+            "clNlcnZpY2UuR2V0UG93ZXJTdGF0dXNSZXF1ZXN0GiQucG93ZXJTZXJ2aWNl",
+            "LkdldFBvd2VyU3RhdHVzUmVzcG9uc2UiJoLT5JMCIBIeL2FwaS92Mi9wb3dl",
+            "ci9nZXRfcG93ZXJfc3RhdHVzMAESZAoGUmVib290EhsucG93ZXJTZXJ2aWNl",
+            "LlJlYm9vdFJlcXVlc3QaHC5wb3dlclNlcnZpY2UuUmVib290UmVzcG9uc2Ui",
+            "H4LT5JMCGSIUL2FwaS92Mi9wb3dlci9yZWJvb3Q6ASpiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::PowerService.PowerStatus), global::PowerService.PowerStatus.Parser, new[]{ "Level", "IsCharging", "Devices" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::PowerService.GetPowerStatusRequest), global::PowerService.GetPowerStatusRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::PowerService.GetPowerStatusResponse), global::PowerService.GetPowerStatusResponse.Parser, new[]{ "PowerStatus" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::PowerService.GetPowerStatusResponse), global::PowerService.GetPowerStatusResponse.Parser, new[]{ "PowerStatus" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PowerService.RebootRequest), global::PowerService.RebootRequest.Parser, new[]{ "All" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::PowerService.RebootResponse), global::PowerService.RebootResponse.Parser, null, null, null, null)
           }));
     }
     #endregion
@@ -461,6 +468,239 @@ namespace PowerService {
             input.ReadMessage(PowerStatus);
             break;
           }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class RebootRequest : pb::IMessage<RebootRequest> {
+    private static readonly pb::MessageParser<RebootRequest> _parser = new pb::MessageParser<RebootRequest>(() => new RebootRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RebootRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::PowerService.PowerReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RebootRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RebootRequest(RebootRequest other) : this() {
+      all_ = other.all_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RebootRequest Clone() {
+      return new RebootRequest(this);
+    }
+
+    /// <summary>Field number for the "all" field.</summary>
+    public const int AllFieldNumber = 1;
+    private bool all_;
+    /// <summary>
+    /// 所有模块重启(目前仅支持整机重启)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool All {
+      get { return all_; }
+      set {
+        all_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as RebootRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(RebootRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (All != other.All) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (All != false) hash ^= All.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (All != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(All);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (All != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(RebootRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.All != false) {
+        All = other.All;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            All = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class RebootResponse : pb::IMessage<RebootResponse> {
+    private static readonly pb::MessageParser<RebootResponse> _parser = new pb::MessageParser<RebootResponse>(() => new RebootResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RebootResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::PowerService.PowerReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RebootResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RebootResponse(RebootResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RebootResponse Clone() {
+      return new RebootResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as RebootResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(RebootResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(RebootResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
         }
       }
     }

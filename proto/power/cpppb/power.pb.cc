@@ -8,35 +8,86 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-
-extern PROTOBUF_INTERNAL_EXPORT_power_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_power_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_PowerStatus_power_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_power_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PowerStatus_power_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_power_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto;
 namespace powerService {
 class PowerStatus_DevicesEntry_DoNotUseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<PowerStatus_DevicesEntry_DoNotUse> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PowerStatus_DevicesEntry_DoNotUse> _instance;
 } _PowerStatus_DevicesEntry_DoNotUse_default_instance_;
 class PowerStatusDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<PowerStatus> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PowerStatus> _instance;
 } _PowerStatus_default_instance_;
 class GetPowerStatusRequestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GetPowerStatusRequest> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetPowerStatusRequest> _instance;
 } _GetPowerStatusRequest_default_instance_;
 class GetPowerStatusResponseDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GetPowerStatusResponse> _instance;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GetPowerStatusResponse> _instance;
 } _GetPowerStatusResponse_default_instance_;
+class RebootRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RebootRequest> _instance;
+} _RebootRequest_default_instance_;
+class RebootResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RebootResponse> _instance;
+} _RebootResponse_default_instance_;
 }  // namespace powerService
-static void InitDefaultsPowerStatus_DevicesEntry_DoNotUse_power_2eproto() {
+static void InitDefaultsscc_info_GetPowerStatusRequest_power_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::powerService::_GetPowerStatusRequest_default_instance_;
+    new (ptr) ::powerService::GetPowerStatusRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::powerService::GetPowerStatusRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GetPowerStatusRequest_power_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_GetPowerStatusRequest_power_2eproto}, {}};
+
+static void InitDefaultsscc_info_GetPowerStatusResponse_power_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::powerService::_GetPowerStatusResponse_default_instance_;
+    new (ptr) ::powerService::GetPowerStatusResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::powerService::GetPowerStatusResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GetPowerStatusResponse_power_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_GetPowerStatusResponse_power_2eproto}, {
+      &scc_info_PowerStatus_power_2eproto.base,}};
+
+static void InitDefaultsscc_info_PowerStatus_power_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::powerService::_PowerStatus_default_instance_;
+    new (ptr) ::powerService::PowerStatus();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::powerService::PowerStatus::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_PowerStatus_power_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsscc_info_PowerStatus_power_2eproto}, {
+      &scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto.base,}};
+
+static void InitDefaultsscc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
@@ -46,65 +97,42 @@ static void InitDefaultsPowerStatus_DevicesEntry_DoNotUse_power_2eproto() {
   ::powerService::PowerStatus_DevicesEntry_DoNotUse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPowerStatus_DevicesEntry_DoNotUse_power_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto}, {}};
 
-static void InitDefaultsPowerStatus_power_2eproto() {
+static void InitDefaultsscc_info_RebootRequest_power_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::powerService::_PowerStatus_default_instance_;
-    new (ptr) ::powerService::PowerStatus();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    void* ptr = &::powerService::_RebootRequest_default_instance_;
+    new (ptr) ::powerService::RebootRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::powerService::PowerStatus::InitAsDefaultInstance();
+  ::powerService::RebootRequest::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_PowerStatus_power_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsPowerStatus_power_2eproto}, {
-      &scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RebootRequest_power_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_RebootRequest_power_2eproto}, {}};
 
-static void InitDefaultsGetPowerStatusRequest_power_2eproto() {
+static void InitDefaultsscc_info_RebootResponse_power_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::powerService::_GetPowerStatusRequest_default_instance_;
-    new (ptr) ::powerService::GetPowerStatusRequest();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    void* ptr = &::powerService::_RebootResponse_default_instance_;
+    new (ptr) ::powerService::RebootResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::powerService::GetPowerStatusRequest::InitAsDefaultInstance();
+  ::powerService::RebootResponse::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_GetPowerStatusRequest_power_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGetPowerStatusRequest_power_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RebootResponse_power_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_RebootResponse_power_2eproto}, {}};
 
-static void InitDefaultsGetPowerStatusResponse_power_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_power_2eproto[6];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_power_2eproto = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_power_2eproto = nullptr;
 
-  {
-    void* ptr = &::powerService::_GetPowerStatusResponse_default_instance_;
-    new (ptr) ::powerService::GetPowerStatusResponse();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::powerService::GetPowerStatusResponse::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<1> scc_info_GetPowerStatusResponse_power_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsGetPowerStatusResponse_power_2eproto}, {
-      &scc_info_PowerStatus_power_2eproto.base,}};
-
-void InitDefaults_power_2eproto() {
-  ::google::protobuf::internal::InitSCC(&scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_PowerStatus_power_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GetPowerStatusRequest_power_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GetPowerStatusResponse_power_2eproto.base);
-}
-
-::google::protobuf::Metadata file_level_metadata_power_2eproto[4];
-constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_power_2eproto = nullptr;
-constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_power_2eproto = nullptr;
-
-const ::google::protobuf::uint32 TableStruct_power_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_power_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   PROTOBUF_FIELD_OFFSET(::powerService::PowerStatus_DevicesEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::powerService::PowerStatus_DevicesEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -133,92 +161,93 @@ const ::google::protobuf::uint32 TableStruct_power_2eproto::offsets[] PROTOBUF_S
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::powerService::GetPowerStatusResponse, power_status_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::powerService::RebootRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::powerService::RebootRequest, all_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::powerService::RebootResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::powerService::PowerStatus_DevicesEntry_DoNotUse)},
   { 9, -1, sizeof(::powerService::PowerStatus)},
   { 17, -1, sizeof(::powerService::GetPowerStatusRequest)},
   { 22, -1, sizeof(::powerService::GetPowerStatusResponse)},
+  { 28, -1, sizeof(::powerService::RebootRequest)},
+  { 34, -1, sizeof(::powerService::RebootResponse)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::powerService::_PowerStatus_DevicesEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::powerService::_PowerStatus_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::powerService::_GetPowerStatusRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::powerService::_GetPowerStatusResponse_default_instance_),
-};
-
-::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_power_2eproto = {
-  {}, AddDescriptors_power_2eproto, "power.proto", schemas,
-  file_default_instances, TableStruct_power_2eproto::offsets,
-  file_level_metadata_power_2eproto, 4, file_level_enum_descriptors_power_2eproto, file_level_service_descriptors_power_2eproto,
+static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::powerService::_PowerStatus_DevicesEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::powerService::_PowerStatus_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::powerService::_GetPowerStatusRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::powerService::_GetPowerStatusResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::powerService::_RebootRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::powerService::_RebootResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_power_2eproto[] =
-  "\n\013power.proto\022\014powerService\"\232\001\n\013PowerSta"
-  "tus\022\r\n\005level\030\001 \001(\r\022\023\n\013is_charging\030\002 \001(\010\022"
-  "7\n\007devices\030\003 \003(\0132&.powerService.PowerSta"
-  "tus.DevicesEntry\032.\n\014DevicesEntry\022\013\n\003key\030"
-  "\001 \001(\t\022\r\n\005value\030\002 \001(\010:\0028\001\"\027\n\025GetPowerStat"
-  "usRequest\"I\n\026GetPowerStatusResponse\022/\n\014p"
-  "ower_status\030\001 \001(\0132\031.powerService.PowerSt"
-  "atus2o\n\014PowerService\022_\n\016GetPowerStatus\022#"
+  "\n\013power.proto\022\014powerService\032\034google/api/"
+  "annotations.proto\"\232\001\n\013PowerStatus\022\r\n\005lev"
+  "el\030\001 \001(\r\022\023\n\013is_charging\030\002 \001(\010\0227\n\007devices"
+  "\030\003 \003(\0132&.powerService.PowerStatus.Device"
+  "sEntry\032.\n\014DevicesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
+  "alue\030\002 \001(\010:\0028\001\"\027\n\025GetPowerStatusRequest\""
+  "I\n\026GetPowerStatusResponse\022/\n\014power_statu"
+  "s\030\001 \001(\0132\031.powerService.PowerStatus\"\034\n\rRe"
+  "bootRequest\022\013\n\003all\030\001 \001(\010\"\020\n\016RebootRespon"
+  "se2\374\001\n\014PowerService\022\205\001\n\016GetPowerStatus\022#"
   ".powerService.GetPowerStatusRequest\032$.po"
-  "werService.GetPowerStatusResponse\"\0000\001b\006p"
-  "roto3"
+  "werService.GetPowerStatusResponse\"&\202\323\344\223\002"
+  " \022\036/api/v2/power/get_power_status0\001\022d\n\006R"
+  "eboot\022\033.powerService.RebootRequest\032\034.pow"
+  "erService.RebootResponse\"\037\202\323\344\223\002\031\"\024/api/v"
+  "2/power/reboot:\001*b\006proto3"
   ;
-::google::protobuf::internal::DescriptorTable descriptor_table_power_2eproto = {
-  false, InitDefaults_power_2eproto, 
-  descriptor_table_protodef_power_2eproto,
-  "power.proto", &assign_descriptors_table_power_2eproto, 405,
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_power_2eproto_deps[1] = {
+  &::descriptor_table_google_2fapi_2fannotations_2eproto,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_power_2eproto_sccs[6] = {
+  &scc_info_GetPowerStatusRequest_power_2eproto.base,
+  &scc_info_GetPowerStatusResponse_power_2eproto.base,
+  &scc_info_PowerStatus_power_2eproto.base,
+  &scc_info_PowerStatus_DevicesEntry_DoNotUse_power_2eproto.base,
+  &scc_info_RebootRequest_power_2eproto.base,
+  &scc_info_RebootResponse_power_2eproto.base,
+};
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_power_2eproto_once;
+static bool descriptor_table_power_2eproto_initialized = false;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_power_2eproto = {
+  &descriptor_table_power_2eproto_initialized, descriptor_table_protodef_power_2eproto, "power.proto", 625,
+  &descriptor_table_power_2eproto_once, descriptor_table_power_2eproto_sccs, descriptor_table_power_2eproto_deps, 6, 1,
+  schemas, file_default_instances, TableStruct_power_2eproto::offsets,
+  file_level_metadata_power_2eproto, 6, file_level_enum_descriptors_power_2eproto, file_level_service_descriptors_power_2eproto,
 };
 
-void AddDescriptors_power_2eproto() {
-  static constexpr ::google::protobuf::internal::InitFunc deps[1] =
-  {
-  };
- ::google::protobuf::internal::AddDescriptors(&descriptor_table_power_2eproto, deps, 0);
-}
-
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_power_2eproto = []() { AddDescriptors_power_2eproto(); return true; }();
+static bool dynamic_init_dummy_power_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_power_2eproto), true);
 namespace powerService {
 
 // ===================================================================
 
 PowerStatus_DevicesEntry_DoNotUse::PowerStatus_DevicesEntry_DoNotUse() {}
-PowerStatus_DevicesEntry_DoNotUse::PowerStatus_DevicesEntry_DoNotUse(::google::protobuf::Arena* arena)
+PowerStatus_DevicesEntry_DoNotUse::PowerStatus_DevicesEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
 void PowerStatus_DevicesEntry_DoNotUse::MergeFrom(const PowerStatus_DevicesEntry_DoNotUse& other) {
   MergeFromInternal(other);
 }
-::google::protobuf::Metadata PowerStatus_DevicesEntry_DoNotUse::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_power_2eproto);
-  return ::file_level_metadata_power_2eproto[0];
+::PROTOBUF_NAMESPACE_ID::Metadata PowerStatus_DevicesEntry_DoNotUse::GetMetadata() const {
+  return GetMetadataStatic();
 }
 void PowerStatus_DevicesEntry_DoNotUse::MergeFrom(
-    const ::google::protobuf::Message& other) {
-  ::google::protobuf::Message::MergeFrom(other);
+    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
+  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
 }
-
-#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool PowerStatus_DevicesEntry_DoNotUse::_ParseMap(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx) {
-  using MF = ::google::protobuf::internal::MapField<
-      PowerStatus_DevicesEntry_DoNotUse, EntryKeyType, EntryValueType,
-      kEntryKeyFieldType, kEntryValueFieldType,
-      kEntryDefaultEnumValue>;
-  auto mf = static_cast<MF*>(object);
-  Parser<MF, ::google::protobuf::Map<EntryKeyType, EntryValueType>> parser(mf);
-#define DO_(x) if (!(x)) return false
-  DO_(parser.ParseMap(begin, end));
-  DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-    parser.key().data(), static_cast<int>(parser.key().length()),
-    ::google::protobuf::internal::WireFormatLite::PARSE,
-    "powerService.PowerStatus.DevicesEntry.key"));
-#undef DO_
-  return true;
-}
-#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 
 // ===================================================================
@@ -236,12 +265,12 @@ const int PowerStatus::kDevicesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PowerStatus::PowerStatus()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:powerService.PowerStatus)
 }
 PowerStatus::PowerStatus(const PowerStatus& from)
-  : ::google::protobuf::Message(),
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   devices_.MergeFrom(from.devices_);
@@ -252,8 +281,7 @@ PowerStatus::PowerStatus(const PowerStatus& from)
 }
 
 void PowerStatus::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_PowerStatus_power_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PowerStatus_power_2eproto.base);
   ::memset(&level_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&is_charging_) -
       reinterpret_cast<char*>(&level_)) + sizeof(is_charging_));
@@ -271,14 +299,14 @@ void PowerStatus::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const PowerStatus& PowerStatus::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_PowerStatus_power_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PowerStatus_power_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void PowerStatus::Clear() {
 // @@protoc_insertion_point(message_clear_start:powerService.PowerStatus)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -290,87 +318,75 @@ void PowerStatus::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* PowerStatus::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<PowerStatus*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* PowerStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 level = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 8) goto handle_unusual;
-        msg->set_level(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // bool is_charging = 2;
-      case 2: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 16) goto handle_unusual;
-        msg->set_is_charging(::google::protobuf::internal::ReadVarint(&ptr));
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        break;
-      }
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          is_charging_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       // map<string, bool> devices = 3;
-      case 3: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 26) goto handle_unusual;
-        do {
-          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          parser_till_end = ::google::protobuf::internal::SlowMapEntryParser;
-          auto parse_map = ::powerService::PowerStatus_DevicesEntry_DoNotUse::_ParseMap;
-          ctx->extra_parse_data().payload.clear();
-          ctx->extra_parse_data().parse_map = parse_map;
-          object = &msg->devices_;
-          if (size > end - ptr) goto len_delim_till_end;
-          auto newend = ptr + size;
-          GOOGLE_PROTOBUF_PARSER_ASSERT(parse_map(ptr, newend, object, ctx));
-          ptr = newend;
-          if (ptr >= end) break;
-        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 26 && (ptr += 1));
-        break;
-      }
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&devices_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 26);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool PowerStatus::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
   // @@protoc_insertion_point(parse_start:powerService.PowerStatus)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // uint32 level = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (8 & 0xFF)) {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (8 & 0xFF)) {
 
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   ::PROTOBUF_NAMESPACE_ID::uint32, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32>(
                  input, &level_)));
         } else {
           goto handle_unusual;
@@ -380,10 +396,10 @@ bool PowerStatus::MergePartialFromCodedStream(
 
       // bool is_charging = 2;
       case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (16 & 0xFF)) {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (16 & 0xFF)) {
 
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BOOL>(
                  input, &is_charging_)));
         } else {
           goto handle_unusual;
@@ -393,19 +409,19 @@ bool PowerStatus::MergePartialFromCodedStream(
 
       // map<string, bool> devices = 3;
       case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (26 & 0xFF)) {
-          PowerStatus_DevicesEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (26 & 0xFF)) {
+          PowerStatus_DevicesEntry_DoNotUse::Parser< ::PROTOBUF_NAMESPACE_ID::internal::MapField<
               PowerStatus_DevicesEntry_DoNotUse,
-              ::std::string, bool,
-              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-              ::google::protobuf::internal::WireFormatLite::TYPE_BOOL,
+              std::string, bool,
+              ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+              ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BOOL,
               0 >,
-            ::google::protobuf::Map< ::std::string, bool > > parser(&devices_);
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+            ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool > > parser(&devices_);
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessageNoVirtual(
               input, &parser));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
             parser.key().data(), static_cast<int>(parser.key().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
             "powerService.PowerStatus.DevicesEntry.key"));
         } else {
           goto handle_unusual;
@@ -418,7 +434,7 @@ bool PowerStatus::MergePartialFromCodedStream(
         if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
               input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
@@ -435,32 +451,32 @@ failure:
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void PowerStatus::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:powerService.PowerStatus)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 level = 1;
   if (this->level() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->level(), output);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32(1, this->level(), output);
   }
 
   // bool is_charging = 2;
   if (this->is_charging() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->is_charging(), output);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBool(2, this->is_charging(), output);
   }
 
   // map<string, bool> devices = 3;
   if (!this->devices().empty()) {
-    typedef ::google::protobuf::Map< ::std::string, bool >::const_pointer
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_pointer
         ConstPtr;
     typedef ConstPtr SortItem;
-    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
     struct Utf8Check {
       static void Check(ConstPtr p) {
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->first.data(), static_cast<int>(p->first.length()),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
           "powerService.PowerStatus.DevicesEntry.key");
       }
     };
@@ -469,66 +485,64 @@ void PowerStatus::SerializeWithCachedSizes(
         this->devices().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
           new SortItem[this->devices().size()]);
-      typedef ::google::protobuf::Map< ::std::string, bool >::size_type size_type;
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::size_type size_type;
       size_type n = 0;
-      for (::google::protobuf::Map< ::std::string, bool >::const_iterator
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_iterator
           it = this->devices().begin();
           it != this->devices().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      ::std::unique_ptr<PowerStatus_DevicesEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
-        entry.reset(devices_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(3, *entry, output);
+        PowerStatus_DevicesEntry_DoNotUse::MapEntryWrapper entry(nullptr, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second);
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(3, entry, output);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
-      ::std::unique_ptr<PowerStatus_DevicesEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::std::string, bool >::const_iterator
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_iterator
           it = this->devices().begin();
           it != this->devices().end(); ++it) {
-        entry.reset(devices_.NewEntryWrapper(it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(3, *entry, output);
+        PowerStatus_DevicesEntry_DoNotUse::MapEntryWrapper entry(nullptr, it->first, it->second);
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(3, entry, output);
         Utf8Check::Check(&(*it));
       }
     }
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:powerService.PowerStatus)
 }
 
-::google::protobuf::uint8* PowerStatus::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::PROTOBUF_NAMESPACE_ID::uint8* PowerStatus::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:powerService.PowerStatus)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 level = 1;
   if (this->level() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->level(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->level(), target);
   }
 
   // bool is_charging = 2;
   if (this->is_charging() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->is_charging(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->is_charging(), target);
   }
 
   // map<string, bool> devices = 3;
   if (!this->devices().empty()) {
-    typedef ::google::protobuf::Map< ::std::string, bool >::const_pointer
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_pointer
         ConstPtr;
     typedef ConstPtr SortItem;
-    typedef ::google::protobuf::internal::CompareByDerefFirst<SortItem> Less;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
     struct Utf8Check {
       static void Check(ConstPtr p) {
-        ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
           p->first.data(), static_cast<int>(p->first.length()),
-          ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
           "powerService.PowerStatus.DevicesEntry.key");
       }
     };
@@ -537,34 +551,32 @@ void PowerStatus::SerializeWithCachedSizes(
         this->devices().size() > 1) {
       ::std::unique_ptr<SortItem[]> items(
           new SortItem[this->devices().size()]);
-      typedef ::google::protobuf::Map< ::std::string, bool >::size_type size_type;
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::size_type size_type;
       size_type n = 0;
-      for (::google::protobuf::Map< ::std::string, bool >::const_iterator
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_iterator
           it = this->devices().begin();
           it != this->devices().end(); ++it, ++n) {
         items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
       }
       ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      ::std::unique_ptr<PowerStatus_DevicesEntry_DoNotUse> entry;
       for (size_type i = 0; i < n; i++) {
-        entry.reset(devices_.NewEntryWrapper(items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second));
-        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(3, *entry, target);
+        PowerStatus_DevicesEntry_DoNotUse::MapEntryWrapper entry(nullptr, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second);
+        target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(3, entry, target);
         Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
-      ::std::unique_ptr<PowerStatus_DevicesEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::std::string, bool >::const_iterator
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_iterator
           it = this->devices().begin();
           it != this->devices().end(); ++it) {
-        entry.reset(devices_.NewEntryWrapper(it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(3, *entry, target);
+        PowerStatus_DevicesEntry_DoNotUse::MapEntryWrapper entry(nullptr, it->first, it->second);
+        target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::InternalWriteMessageNoVirtualToArray(3, entry, target);
         Utf8Check::Check(&(*it));
       }
     }
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:powerService.PowerStatus)
@@ -577,31 +589,28 @@ size_t PowerStatus::ByteSizeLong() const {
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // map<string, bool> devices = 3;
   total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->devices_size());
-  {
-    ::std::unique_ptr<PowerStatus_DevicesEntry_DoNotUse> entry;
-    for (::google::protobuf::Map< ::std::string, bool >::const_iterator
-        it = this->devices().begin();
-        it != this->devices().end(); ++it) {
-      entry.reset(devices_.NewEntryWrapper(it->first, it->second));
-      total_size += ::google::protobuf::internal::WireFormatLite::
-          MessageSizeNoVirtual(*entry);
-    }
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->devices_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >::const_iterator
+      it = this->devices().begin();
+      it != this->devices().end(); ++it) {
+    PowerStatus_DevicesEntry_DoNotUse::MapEntryWrapper entry(nullptr, it->first, it->second);
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        MessageSizeNoVirtual(entry);
   }
 
   // uint32 level = 1;
   if (this->level() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
         this->level());
   }
 
@@ -610,20 +619,20 @@ size_t PowerStatus::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void PowerStatus::MergeFrom(const ::google::protobuf::Message& from) {
+void PowerStatus::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:powerService.PowerStatus)
   GOOGLE_DCHECK_NE(&from, this);
   const PowerStatus* source =
-      ::google::protobuf::DynamicCastToGenerated<PowerStatus>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PowerStatus>(
           &from);
   if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:powerService.PowerStatus)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:powerService.PowerStatus)
     MergeFrom(*source);
@@ -634,7 +643,7 @@ void PowerStatus::MergeFrom(const PowerStatus& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:powerService.PowerStatus)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   devices_.MergeFrom(from.devices_);
@@ -646,7 +655,7 @@ void PowerStatus::MergeFrom(const PowerStatus& from) {
   }
 }
 
-void PowerStatus::CopyFrom(const ::google::protobuf::Message& from) {
+void PowerStatus::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:powerService.PowerStatus)
   if (&from == this) return;
   Clear();
@@ -676,9 +685,8 @@ void PowerStatus::InternalSwap(PowerStatus* other) {
   swap(is_charging_, other->is_charging_);
 }
 
-::google::protobuf::Metadata PowerStatus::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_power_2eproto);
-  return ::file_level_metadata_power_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata PowerStatus::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
@@ -694,12 +702,12 @@ class GetPowerStatusRequest::HasBitSetters {
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GetPowerStatusRequest::GetPowerStatusRequest()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:powerService.GetPowerStatusRequest)
 }
 GetPowerStatusRequest::GetPowerStatusRequest(const GetPowerStatusRequest& from)
-  : ::google::protobuf::Message(),
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:powerService.GetPowerStatusRequest)
@@ -720,14 +728,14 @@ void GetPowerStatusRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const GetPowerStatusRequest& GetPowerStatusRequest::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_GetPowerStatusRequest_power_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetPowerStatusRequest_power_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void GetPowerStatusRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:powerService.GetPowerStatusRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -735,48 +743,46 @@ void GetPowerStatusRequest::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* GetPowerStatusRequest::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<GetPowerStatusRequest*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* GetPowerStatusRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       default: {
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool GetPowerStatusRequest::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
   // @@protoc_insertion_point(parse_start:powerService.GetPowerStatusRequest)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
   handle_unusual:
     if (tag == 0) {
       goto success;
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
+    DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
           input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
@@ -790,26 +796,26 @@ failure:
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void GetPowerStatusRequest::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:powerService.GetPowerStatusRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:powerService.GetPowerStatusRequest)
 }
 
-::google::protobuf::uint8* GetPowerStatusRequest::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::PROTOBUF_NAMESPACE_ID::uint8* GetPowerStatusRequest::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:powerService.GetPowerStatusRequest)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:powerService.GetPowerStatusRequest)
@@ -822,27 +828,27 @@ size_t GetPowerStatusRequest::ByteSizeLong() const {
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void GetPowerStatusRequest::MergeFrom(const ::google::protobuf::Message& from) {
+void GetPowerStatusRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:powerService.GetPowerStatusRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const GetPowerStatusRequest* source =
-      ::google::protobuf::DynamicCastToGenerated<GetPowerStatusRequest>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetPowerStatusRequest>(
           &from);
   if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:powerService.GetPowerStatusRequest)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:powerService.GetPowerStatusRequest)
     MergeFrom(*source);
@@ -853,12 +859,12 @@ void GetPowerStatusRequest::MergeFrom(const GetPowerStatusRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:powerService.GetPowerStatusRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
 }
 
-void GetPowerStatusRequest::CopyFrom(const ::google::protobuf::Message& from) {
+void GetPowerStatusRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:powerService.GetPowerStatusRequest)
   if (&from == this) return;
   Clear();
@@ -885,9 +891,8 @@ void GetPowerStatusRequest::InternalSwap(GetPowerStatusRequest* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata GetPowerStatusRequest::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_power_2eproto);
-  return ::file_level_metadata_power_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata GetPowerStatusRequest::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
@@ -911,12 +916,12 @@ const int GetPowerStatusResponse::kPowerStatusFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GetPowerStatusResponse::GetPowerStatusResponse()
-  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
   // @@protoc_insertion_point(constructor:powerService.GetPowerStatusResponse)
 }
 GetPowerStatusResponse::GetPowerStatusResponse(const GetPowerStatusResponse& from)
-  : ::google::protobuf::Message(),
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from.has_power_status()) {
@@ -928,8 +933,7 @@ GetPowerStatusResponse::GetPowerStatusResponse(const GetPowerStatusResponse& fro
 }
 
 void GetPowerStatusResponse::SharedCtor() {
-  ::google::protobuf::internal::InitSCC(
-      &scc_info_GetPowerStatusResponse_power_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GetPowerStatusResponse_power_2eproto.base);
   power_status_ = nullptr;
 }
 
@@ -946,14 +950,14 @@ void GetPowerStatusResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const GetPowerStatusResponse& GetPowerStatusResponse::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_GetPowerStatusResponse_power_2eproto.base);
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GetPowerStatusResponse_power_2eproto.base);
   return *internal_default_instance();
 }
 
 
 void GetPowerStatusResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:powerService.GetPowerStatusResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -965,65 +969,54 @@ void GetPowerStatusResponse::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* GetPowerStatusResponse::_InternalParse(const char* begin, const char* end, void* object,
-                  ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<GetPowerStatusResponse*>(object);
-  ::google::protobuf::int32 size; (void)size;
-  int depth; (void)depth;
-  ::google::protobuf::uint32 tag;
-  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
-  auto ptr = begin;
-  while (ptr < end) {
-    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
-    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+const char* GetPowerStatusResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
     switch (tag >> 3) {
       // .powerService.PowerStatus power_status = 1;
-      case 1: {
-        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
-        ptr = ::google::protobuf::io::ReadSize(ptr, &size);
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-        parser_till_end = ::powerService::PowerStatus::_InternalParse;
-        object = msg->mutable_power_status();
-        if (size > end - ptr) goto len_delim_till_end;
-        ptr += size;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ctx->ParseExactRange(
-            {parser_till_end, object}, ptr - size, ptr));
-        break;
-      }
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(mutable_power_status(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
-          ctx->EndGroup(tag);
-          return ptr;
+          ctx->SetLastTag(tag);
+          goto success;
         }
-        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
-          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
-        ptr = res.first;
-        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
-        if (res.second) return ptr;
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
       }
     }  // switch
   }  // while
+success:
   return ptr;
-len_delim_till_end:
-  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
-                               {parser_till_end, object}, size);
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 bool GetPowerStatusResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
   // @@protoc_insertion_point(parse_start:powerService.GetPowerStatusResponse)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // .powerService.PowerStatus power_status = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
                input, mutable_power_status()));
         } else {
           goto handle_unusual;
@@ -1036,7 +1029,7 @@ bool GetPowerStatusResponse::MergePartialFromCodedStream(
         if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
               input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
@@ -1053,39 +1046,39 @@ failure:
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
 void GetPowerStatusResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:powerService.GetPowerStatusResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .powerService.PowerStatus power_status = 1;
   if (this->has_power_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, HasBitSetters::power_status(this), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
   // @@protoc_insertion_point(serialize_end:powerService.GetPowerStatusResponse)
 }
 
-::google::protobuf::uint8* GetPowerStatusResponse::InternalSerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::PROTOBUF_NAMESPACE_ID::uint8* GetPowerStatusResponse::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:powerService.GetPowerStatusResponse)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .powerService.PowerStatus power_status = 1;
   if (this->has_power_status()) {
-    target = ::google::protobuf::internal::WireFormatLite::
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
         1, HasBitSetters::power_status(this), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:powerService.GetPowerStatusResponse)
@@ -1098,34 +1091,34 @@ size_t GetPowerStatusResponse::ByteSizeLong() const {
 
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .powerService.PowerStatus power_status = 1;
   if (this->has_power_status()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *power_status_);
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void GetPowerStatusResponse::MergeFrom(const ::google::protobuf::Message& from) {
+void GetPowerStatusResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:powerService.GetPowerStatusResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const GetPowerStatusResponse* source =
-      ::google::protobuf::DynamicCastToGenerated<GetPowerStatusResponse>(
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GetPowerStatusResponse>(
           &from);
   if (source == nullptr) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:powerService.GetPowerStatusResponse)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:powerService.GetPowerStatusResponse)
     MergeFrom(*source);
@@ -1136,7 +1129,7 @@ void GetPowerStatusResponse::MergeFrom(const GetPowerStatusResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:powerService.GetPowerStatusResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.has_power_status()) {
@@ -1144,7 +1137,7 @@ void GetPowerStatusResponse::MergeFrom(const GetPowerStatusResponse& from) {
   }
 }
 
-void GetPowerStatusResponse::CopyFrom(const ::google::protobuf::Message& from) {
+void GetPowerStatusResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:powerService.GetPowerStatusResponse)
   if (&from == this) return;
   Clear();
@@ -1172,16 +1165,475 @@ void GetPowerStatusResponse::InternalSwap(GetPowerStatusResponse* other) {
   swap(power_status_, other->power_status_);
 }
 
-::google::protobuf::Metadata GetPowerStatusResponse::GetMetadata() const {
-  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_power_2eproto);
-  return ::file_level_metadata_power_2eproto[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata GetPowerStatusResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void RebootRequest::InitAsDefaultInstance() {
+}
+class RebootRequest::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int RebootRequest::kAllFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+RebootRequest::RebootRequest()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:powerService.RebootRequest)
+}
+RebootRequest::RebootRequest(const RebootRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  all_ = from.all_;
+  // @@protoc_insertion_point(copy_constructor:powerService.RebootRequest)
+}
+
+void RebootRequest::SharedCtor() {
+  all_ = false;
+}
+
+RebootRequest::~RebootRequest() {
+  // @@protoc_insertion_point(destructor:powerService.RebootRequest)
+  SharedDtor();
+}
+
+void RebootRequest::SharedDtor() {
+}
+
+void RebootRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RebootRequest& RebootRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RebootRequest_power_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RebootRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:powerService.RebootRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  all_ = false;
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* RebootRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool all = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          all_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool RebootRequest::MergePartialFromCodedStream(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+  // @@protoc_insertion_point(parse_start:powerService.RebootRequest)
+  for (;;) {
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bool all = 1;
+      case 1: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (8 & 0xFF)) {
+
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &all_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:powerService.RebootRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:powerService.RebootRequest)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void RebootRequest::SerializeWithCachedSizes(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:powerService.RebootRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool all = 1;
+  if (this->all() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBool(1, this->all(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:powerService.RebootRequest)
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RebootRequest::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:powerService.RebootRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool all = 1;
+  if (this->all() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->all(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:powerService.RebootRequest)
+  return target;
+}
+
+size_t RebootRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:powerService.RebootRequest)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool all = 1;
+  if (this->all() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RebootRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:powerService.RebootRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RebootRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RebootRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:powerService.RebootRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:powerService.RebootRequest)
+    MergeFrom(*source);
+  }
+}
+
+void RebootRequest::MergeFrom(const RebootRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:powerService.RebootRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.all() != 0) {
+    set_all(from.all());
+  }
+}
+
+void RebootRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:powerService.RebootRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RebootRequest::CopyFrom(const RebootRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:powerService.RebootRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RebootRequest::IsInitialized() const {
+  return true;
+}
+
+void RebootRequest::Swap(RebootRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void RebootRequest::InternalSwap(RebootRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(all_, other->all_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RebootRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void RebootResponse::InitAsDefaultInstance() {
+}
+class RebootResponse::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+RebootResponse::RebootResponse()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:powerService.RebootResponse)
+}
+RebootResponse::RebootResponse(const RebootResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:powerService.RebootResponse)
+}
+
+void RebootResponse::SharedCtor() {
+}
+
+RebootResponse::~RebootResponse() {
+  // @@protoc_insertion_point(destructor:powerService.RebootResponse)
+  SharedDtor();
+}
+
+void RebootResponse::SharedDtor() {
+}
+
+void RebootResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const RebootResponse& RebootResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RebootResponse_power_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void RebootResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:powerService.RebootResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* RebootResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      default: {
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool RebootResponse::MergePartialFromCodedStream(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+  // @@protoc_insertion_point(parse_start:powerService.RebootResponse)
+  for (;;) {
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:powerService.RebootResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:powerService.RebootResponse)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void RebootResponse::SerializeWithCachedSizes(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:powerService.RebootResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:powerService.RebootResponse)
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RebootResponse::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:powerService.RebootResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:powerService.RebootResponse)
+  return target;
+}
+
+size_t RebootResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:powerService.RebootResponse)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RebootResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:powerService.RebootResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RebootResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RebootResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:powerService.RebootResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:powerService.RebootResponse)
+    MergeFrom(*source);
+  }
+}
+
+void RebootResponse::MergeFrom(const RebootResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:powerService.RebootResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void RebootResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:powerService.RebootResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RebootResponse::CopyFrom(const RebootResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:powerService.RebootResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RebootResponse::IsInitialized() const {
+  return true;
+}
+
+void RebootResponse::Swap(RebootResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void RebootResponse::InternalSwap(RebootResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RebootResponse::GetMetadata() const {
+  return GetMetadataStatic();
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace powerService
-namespace google {
-namespace protobuf {
+PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::powerService::PowerStatus_DevicesEntry_DoNotUse* Arena::CreateMaybeMessage< ::powerService::PowerStatus_DevicesEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateInternal< ::powerService::PowerStatus_DevicesEntry_DoNotUse >(arena);
 }
@@ -1194,8 +1646,13 @@ template<> PROTOBUF_NOINLINE ::powerService::GetPowerStatusRequest* Arena::Creat
 template<> PROTOBUF_NOINLINE ::powerService::GetPowerStatusResponse* Arena::CreateMaybeMessage< ::powerService::GetPowerStatusResponse >(Arena* arena) {
   return Arena::CreateInternal< ::powerService::GetPowerStatusResponse >(arena);
 }
-}  // namespace protobuf
-}  // namespace google
+template<> PROTOBUF_NOINLINE ::powerService::RebootRequest* Arena::CreateMaybeMessage< ::powerService::RebootRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::powerService::RebootRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::powerService::RebootResponse* Arena::CreateMaybeMessage< ::powerService::RebootResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::powerService::RebootResponse >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 #include <google/protobuf/port_undef.inc>

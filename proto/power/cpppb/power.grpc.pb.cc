@@ -20,6 +20,7 @@ namespace powerService {
 
 static const char* PowerService_method_names[] = {
   "/powerService.PowerService/GetPowerStatus",
+  "/powerService.PowerService/Reboot",
 };
 
 std::unique_ptr< PowerService::Stub> PowerService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -30,6 +31,7 @@ std::unique_ptr< PowerService::Stub> PowerService::NewStub(const std::shared_ptr
 
 PowerService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_GetPowerStatus_(PowerService_method_names[0], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_Reboot_(PowerService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReader< ::powerService::GetPowerStatusResponse>* PowerService::Stub::GetPowerStatusRaw(::grpc::ClientContext* context, const ::powerService::GetPowerStatusRequest& request) {
@@ -48,12 +50,45 @@ void PowerService::Stub::experimental_async::GetPowerStatus(::grpc::ClientContex
   return ::grpc::internal::ClientAsyncReaderFactory< ::powerService::GetPowerStatusResponse>::Create(channel_.get(), cq, rpcmethod_GetPowerStatus_, context, request, false, nullptr);
 }
 
+::grpc::Status PowerService::Stub::Reboot(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::powerService::RebootResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Reboot_, context, request, response);
+}
+
+void PowerService::Stub::experimental_async::Reboot(::grpc::ClientContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Reboot_, context, request, response, std::move(f));
+}
+
+void PowerService::Stub::experimental_async::Reboot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::RebootResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Reboot_, context, request, response, std::move(f));
+}
+
+void PowerService::Stub::experimental_async::Reboot(::grpc::ClientContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Reboot_, context, request, response, reactor);
+}
+
+void PowerService::Stub::experimental_async::Reboot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::RebootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Reboot_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::powerService::RebootResponse>* PowerService::Stub::AsyncRebootRaw(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::powerService::RebootResponse>::Create(channel_.get(), cq, rpcmethod_Reboot_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::powerService::RebootResponse>* PowerService::Stub::PrepareAsyncRebootRaw(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::powerService::RebootResponse>::Create(channel_.get(), cq, rpcmethod_Reboot_, context, request, false);
+}
+
 PowerService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       PowerService_method_names[0],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< PowerService::Service, ::powerService::GetPowerStatusRequest, ::powerService::GetPowerStatusResponse>(
           std::mem_fn(&PowerService::Service::GetPowerStatus), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      PowerService_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< PowerService::Service, ::powerService::RebootRequest, ::powerService::RebootResponse>(
+          std::mem_fn(&PowerService::Service::Reboot), this)));
 }
 
 PowerService::Service::~Service() {
@@ -63,6 +98,13 @@ PowerService::Service::~Service() {
   (void) context;
   (void) request;
   (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status PowerService::Service::Reboot(::grpc::ServerContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

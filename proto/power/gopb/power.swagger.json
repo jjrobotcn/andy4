@@ -31,6 +31,33 @@
           "PowerService"
         ]
       }
+    },
+    "/api/v2/power/reboot": {
+      "post": {
+        "summary": "对各模块的电源进行断电方式重启",
+        "operationId": "Reboot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/powerServiceRebootResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/powerServiceRebootRequest"
+            }
+          }
+        ],
+        "tags": [
+          "PowerService"
+        ]
+      }
     }
   },
   "definitions": {
@@ -61,6 +88,19 @@
           }
         }
       }
+    },
+    "powerServiceRebootRequest": {
+      "type": "object",
+      "properties": {
+        "all": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "所有模块重启(目前仅支持整机重启)"
+        }
+      }
+    },
+    "powerServiceRebootResponse": {
+      "type": "object"
     },
     "protobufAny": {
       "type": "object",

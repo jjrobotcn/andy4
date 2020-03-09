@@ -89,6 +89,25 @@ typedef GPB_ENUM(GetPowerStatusResponse_FieldNumber) {
 
 @end
 
+#pragma mark - RebootRequest
+
+typedef GPB_ENUM(RebootRequest_FieldNumber) {
+  RebootRequest_FieldNumber_All = 1,
+};
+
+@interface RebootRequest : GPBMessage
+
+/** 所有模块重启(目前仅支持整机重启) */
+@property(nonatomic, readwrite) BOOL all;
+
+@end
+
+#pragma mark - RebootResponse
+
+@interface RebootResponse : GPBMessage
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

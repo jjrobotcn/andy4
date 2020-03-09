@@ -14,6 +14,8 @@ namespace PowerService {
 
     static readonly grpc::Marshaller<global::PowerService.GetPowerStatusRequest> __Marshaller_powerService_GetPowerStatusRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::PowerService.GetPowerStatusRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::PowerService.GetPowerStatusResponse> __Marshaller_powerService_GetPowerStatusResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::PowerService.GetPowerStatusResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::PowerService.RebootRequest> __Marshaller_powerService_RebootRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::PowerService.RebootRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::PowerService.RebootResponse> __Marshaller_powerService_RebootResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::PowerService.RebootResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::PowerService.GetPowerStatusRequest, global::PowerService.GetPowerStatusResponse> __Method_GetPowerStatus = new grpc::Method<global::PowerService.GetPowerStatusRequest, global::PowerService.GetPowerStatusResponse>(
         grpc::MethodType.ServerStreaming,
@@ -21,6 +23,13 @@ namespace PowerService {
         "GetPowerStatus",
         __Marshaller_powerService_GetPowerStatusRequest,
         __Marshaller_powerService_GetPowerStatusResponse);
+
+    static readonly grpc::Method<global::PowerService.RebootRequest, global::PowerService.RebootResponse> __Method_Reboot = new grpc::Method<global::PowerService.RebootRequest, global::PowerService.RebootResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Reboot",
+        __Marshaller_powerService_RebootRequest,
+        __Marshaller_powerService_RebootResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -40,6 +49,17 @@ namespace PowerService {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
       public virtual global::System.Threading.Tasks.Task GetPowerStatus(global::PowerService.GetPowerStatusRequest request, grpc::IServerStreamWriter<global::PowerService.GetPowerStatusResponse> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 对各模块的电源进行断电方式重启
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::PowerService.RebootResponse> Reboot(global::PowerService.RebootRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -91,6 +111,50 @@ namespace PowerService {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetPowerStatus, null, options, request);
       }
+      /// <summary>
+      /// 对各模块的电源进行断电方式重启
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::PowerService.RebootResponse Reboot(global::PowerService.RebootRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Reboot(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 对各模块的电源进行断电方式重启
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::PowerService.RebootResponse Reboot(global::PowerService.RebootRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Reboot, null, options, request);
+      }
+      /// <summary>
+      /// 对各模块的电源进行断电方式重启
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::PowerService.RebootResponse> RebootAsync(global::PowerService.RebootRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return RebootAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 对各模块的电源进行断电方式重启
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::PowerService.RebootResponse> RebootAsync(global::PowerService.RebootRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Reboot, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override PowerServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -103,7 +167,8 @@ namespace PowerService {
     public static grpc::ServerServiceDefinition BindService(PowerServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetPowerStatus, serviceImpl.GetPowerStatus).Build();
+          .AddMethod(__Method_GetPowerStatus, serviceImpl.GetPowerStatus)
+          .AddMethod(__Method_Reboot, serviceImpl.Reboot).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -113,6 +178,7 @@ namespace PowerService {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, PowerServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetPowerStatus, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::PowerService.GetPowerStatusRequest, global::PowerService.GetPowerStatusResponse>(serviceImpl.GetPowerStatus));
+      serviceBinder.AddMethod(__Method_Reboot, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PowerService.RebootRequest, global::PowerService.RebootResponse>(serviceImpl.Reboot));
     }
 
   }

@@ -19,6 +19,11 @@ class PowerServiceStub(object):
         request_serializer=power__pb2.GetPowerStatusRequest.SerializeToString,
         response_deserializer=power__pb2.GetPowerStatusResponse.FromString,
         )
+    self.Reboot = channel.unary_unary(
+        '/powerService.PowerService/Reboot',
+        request_serializer=power__pb2.RebootRequest.SerializeToString,
+        response_deserializer=power__pb2.RebootResponse.FromString,
+        )
 
 
 class PowerServiceServicer(object):
@@ -32,6 +37,13 @@ class PowerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Reboot(self, request, context):
+    """对各模块的电源进行断电方式重启
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PowerServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -39,6 +51,11 @@ def add_PowerServiceServicer_to_server(servicer, server):
           servicer.GetPowerStatus,
           request_deserializer=power__pb2.GetPowerStatusRequest.FromString,
           response_serializer=power__pb2.GetPowerStatusResponse.SerializeToString,
+      ),
+      'Reboot': grpc.unary_unary_rpc_method_handler(
+          servicer.Reboot,
+          request_deserializer=power__pb2.RebootRequest.FromString,
+          response_serializer=power__pb2.RebootResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

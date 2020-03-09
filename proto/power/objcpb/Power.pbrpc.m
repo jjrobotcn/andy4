@@ -4,6 +4,7 @@
 #import <ProtoRPC/ProtoRPC.h>
 #import <RxLibrary/GRXWriter+Immediate.h>
 
+#import "google/api/Annotations.pbobjc.h"
 
 @implementation PowerService
 
@@ -84,6 +85,40 @@
            responseHandler:handler
                callOptions:callOptions
              responseClass:[GetPowerStatusResponse class]];
+}
+
+#pragma mark Reboot(RebootRequest) returns (RebootResponse)
+
+// Deprecated methods.
+/**
+ * 对各模块的电源进行断电方式重启
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)rebootWithRequest:(RebootRequest *)request handler:(void(^)(RebootResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToRebootWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * 对各模块的电源进行断电方式重启
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToRebootWithRequest:(RebootRequest *)request handler:(void(^)(RebootResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"Reboot"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[RebootResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+/**
+ * 对各模块的电源进行断电方式重启
+ */
+- (GRPCUnaryProtoCall *)rebootWithMessage:(RebootRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
+  return [self RPCToMethod:@"Reboot"
+                   message:message
+           responseHandler:handler
+               callOptions:callOptions
+             responseClass:[RebootResponse class]];
 }
 
 @end

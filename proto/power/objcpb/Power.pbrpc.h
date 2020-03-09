@@ -11,8 +11,11 @@
 
 @class GetPowerStatusRequest;
 @class GetPowerStatusResponse;
+@class RebootRequest;
+@class RebootResponse;
 
 #if !defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) || !GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
+  #import "google/api/Annotations.pbobjc.h"
 #endif
 
 @class GRPCProtoCall;
@@ -32,6 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
  * 获取电源状态数据流
  */
 - (GRPCUnaryProtoCall *)getPowerStatusWithMessage:(GetPowerStatusRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark Reboot(RebootRequest) returns (RebootResponse)
+
+/**
+ * 对各模块的电源进行断电方式重启
+ */
+- (GRPCUnaryProtoCall *)rebootWithMessage:(RebootRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 @end
 
@@ -56,6 +66,23 @@ NS_ASSUME_NONNULL_BEGIN
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (GRPCProtoCall *)RPCToGetPowerStatusWithRequest:(GetPowerStatusRequest *)request eventHandler:(void(^)(BOOL done, GetPowerStatusResponse *_Nullable response, NSError *_Nullable error))eventHandler;
+
+
+#pragma mark Reboot(RebootRequest) returns (RebootResponse)
+
+/**
+ * 对各模块的电源进行断电方式重启
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)rebootWithRequest:(RebootRequest *)request handler:(void(^)(RebootResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 对各模块的电源进行断电方式重启
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToRebootWithRequest:(RebootRequest *)request handler:(void(^)(RebootResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

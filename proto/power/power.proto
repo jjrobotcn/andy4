@@ -12,6 +12,14 @@ service PowerService {
             get: "/api/v2/power/get_power_status"
         };
     }
+
+    // 对各模块的电源进行断电方式重启
+    rpc Reboot(RebootRequest) returns (RebootResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/power/reboot"
+            body: "*"
+        };
+    }
 }
 
 message PowerStatus {
@@ -26,4 +34,13 @@ message GetPowerStatusRequest {
 
 message GetPowerStatusResponse {
     PowerStatus power_status = 1;
+}
+
+message RebootRequest {
+    // 所有模块重启(目前仅支持整机重启)
+    bool all = 1;
+}
+
+message RebootResponse {
+
 }

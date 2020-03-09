@@ -14,6 +14,7 @@
 #endif
 
 #import "Power.pbobjc.h"
+#import "google/api/Annotations.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -23,8 +24,18 @@
 
 @implementation PowerRoot
 
-// No extensions in the file and no imports, so no need to generate
-// +extensionRegistry.
++ (GPBExtensionRegistry*)extensionRegistry {
+  // This is called by +initialize so there is no need to worry
+  // about thread safety and initialization of registry.
+  static GPBExtensionRegistry* registry = nil;
+  if (!registry) {
+    GPB_DEBUG_CHECK_RUNTIME_VERSIONS();
+    registry = [[GPBExtensionRegistry alloc] init];
+    // Merge in the imports (direct or indirect) that defined extensions.
+    [registry addExtensions:[GAPIAnnotationsRoot extensionRegistry]];
+  }
+  return registry;
+}
 
 @end
 
@@ -174,6 +185,82 @@ typedef struct GetPowerStatusResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetPowerStatusResponse__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - RebootRequest
+
+@implementation RebootRequest
+
+@dynamic all;
+
+typedef struct RebootRequest__storage_ {
+  uint32_t _has_storage_[1];
+} RebootRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "all",
+        .dataTypeSpecific.className = NULL,
+        .number = RebootRequest_FieldNumber_All,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[RebootRequest class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(RebootRequest__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - RebootResponse
+
+@implementation RebootResponse
+
+
+typedef struct RebootResponse__storage_ {
+  uint32_t _has_storage_[1];
+} RebootResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[RebootResponse class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:NULL
+                                    fieldCount:0
+                                   storageSize:sizeof(RebootResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");

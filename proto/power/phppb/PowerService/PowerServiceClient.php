@@ -30,4 +30,18 @@ class PowerServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 对各模块的电源进行断电方式重启
+     * @param \PowerService\RebootRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Reboot(\PowerService\RebootRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/powerService.PowerService/Reboot',
+        $argument,
+        ['\PowerService\RebootResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

@@ -13,6 +13,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,8 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='powerService',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bpower.proto\x12\x0cpowerService\"\x9a\x01\n\x0bPowerStatus\x12\r\n\x05level\x18\x01 \x01(\r\x12\x13\n\x0bis_charging\x18\x02 \x01(\x08\x12\x37\n\x07\x64\x65vices\x18\x03 \x03(\x0b\x32&.powerService.PowerStatus.DevicesEntry\x1a.\n\x0c\x44\x65vicesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\x17\n\x15GetPowerStatusRequest\"I\n\x16GetPowerStatusResponse\x12/\n\x0cpower_status\x18\x01 \x01(\x0b\x32\x19.powerService.PowerStatus2o\n\x0cPowerService\x12_\n\x0eGetPowerStatus\x12#.powerService.GetPowerStatusRequest\x1a$.powerService.GetPowerStatusResponse\"\x00\x30\x01\x62\x06proto3')
-)
+  serialized_pb=_b('\n\x0bpower.proto\x12\x0cpowerService\x1a\x1cgoogle/api/annotations.proto\"\x9a\x01\n\x0bPowerStatus\x12\r\n\x05level\x18\x01 \x01(\r\x12\x13\n\x0bis_charging\x18\x02 \x01(\x08\x12\x37\n\x07\x64\x65vices\x18\x03 \x03(\x0b\x32&.powerService.PowerStatus.DevicesEntry\x1a.\n\x0c\x44\x65vicesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\x17\n\x15GetPowerStatusRequest\"I\n\x16GetPowerStatusResponse\x12/\n\x0cpower_status\x18\x01 \x01(\x0b\x32\x19.powerService.PowerStatus\"\x1c\n\rRebootRequest\x12\x0b\n\x03\x61ll\x18\x01 \x01(\x08\"\x10\n\x0eRebootResponse2\xfc\x01\n\x0cPowerService\x12\x85\x01\n\x0eGetPowerStatus\x12#.powerService.GetPowerStatusRequest\x1a$.powerService.GetPowerStatusResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/api/v2/power/get_power_status0\x01\x12\x64\n\x06Reboot\x12\x1b.powerService.RebootRequest\x1a\x1c.powerService.RebootResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x14/api/v2/power/reboot:\x01*b\x06proto3')
+  ,
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -59,8 +61,8 @@ _POWERSTATUS_DEVICESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=138,
-  serialized_end=184,
+  serialized_start=168,
+  serialized_end=214,
 )
 
 _POWERSTATUS = _descriptor.Descriptor(
@@ -103,8 +105,8 @@ _POWERSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=30,
-  serialized_end=184,
+  serialized_start=60,
+  serialized_end=214,
 )
 
 
@@ -127,8 +129,8 @@ _GETPOWERSTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=209,
+  serialized_start=216,
+  serialized_end=239,
 )
 
 
@@ -158,8 +160,63 @@ _GETPOWERSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=211,
-  serialized_end=284,
+  serialized_start=241,
+  serialized_end=314,
+)
+
+
+_REBOOTREQUEST = _descriptor.Descriptor(
+  name='RebootRequest',
+  full_name='powerService.RebootRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='all', full_name='powerService.RebootRequest.all', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=316,
+  serialized_end=344,
+)
+
+
+_REBOOTRESPONSE = _descriptor.Descriptor(
+  name='RebootResponse',
+  full_name='powerService.RebootResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=346,
+  serialized_end=362,
 )
 
 _POWERSTATUS_DEVICESENTRY.containing_type = _POWERSTATUS
@@ -168,36 +225,52 @@ _GETPOWERSTATUSRESPONSE.fields_by_name['power_status'].message_type = _POWERSTAT
 DESCRIPTOR.message_types_by_name['PowerStatus'] = _POWERSTATUS
 DESCRIPTOR.message_types_by_name['GetPowerStatusRequest'] = _GETPOWERSTATUSREQUEST
 DESCRIPTOR.message_types_by_name['GetPowerStatusResponse'] = _GETPOWERSTATUSRESPONSE
+DESCRIPTOR.message_types_by_name['RebootRequest'] = _REBOOTREQUEST
+DESCRIPTOR.message_types_by_name['RebootResponse'] = _REBOOTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-PowerStatus = _reflection.GeneratedProtocolMessageType('PowerStatus', (_message.Message,), dict(
+PowerStatus = _reflection.GeneratedProtocolMessageType('PowerStatus', (_message.Message,), {
 
-  DevicesEntry = _reflection.GeneratedProtocolMessageType('DevicesEntry', (_message.Message,), dict(
-    DESCRIPTOR = _POWERSTATUS_DEVICESENTRY,
-    __module__ = 'power_pb2'
+  'DevicesEntry' : _reflection.GeneratedProtocolMessageType('DevicesEntry', (_message.Message,), {
+    'DESCRIPTOR' : _POWERSTATUS_DEVICESENTRY,
+    '__module__' : 'power_pb2'
     # @@protoc_insertion_point(class_scope:powerService.PowerStatus.DevicesEntry)
-    ))
+    })
   ,
-  DESCRIPTOR = _POWERSTATUS,
-  __module__ = 'power_pb2'
+  'DESCRIPTOR' : _POWERSTATUS,
+  '__module__' : 'power_pb2'
   # @@protoc_insertion_point(class_scope:powerService.PowerStatus)
-  ))
+  })
 _sym_db.RegisterMessage(PowerStatus)
 _sym_db.RegisterMessage(PowerStatus.DevicesEntry)
 
-GetPowerStatusRequest = _reflection.GeneratedProtocolMessageType('GetPowerStatusRequest', (_message.Message,), dict(
-  DESCRIPTOR = _GETPOWERSTATUSREQUEST,
-  __module__ = 'power_pb2'
+GetPowerStatusRequest = _reflection.GeneratedProtocolMessageType('GetPowerStatusRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETPOWERSTATUSREQUEST,
+  '__module__' : 'power_pb2'
   # @@protoc_insertion_point(class_scope:powerService.GetPowerStatusRequest)
-  ))
+  })
 _sym_db.RegisterMessage(GetPowerStatusRequest)
 
-GetPowerStatusResponse = _reflection.GeneratedProtocolMessageType('GetPowerStatusResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETPOWERSTATUSRESPONSE,
-  __module__ = 'power_pb2'
+GetPowerStatusResponse = _reflection.GeneratedProtocolMessageType('GetPowerStatusResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETPOWERSTATUSRESPONSE,
+  '__module__' : 'power_pb2'
   # @@protoc_insertion_point(class_scope:powerService.GetPowerStatusResponse)
-  ))
+  })
 _sym_db.RegisterMessage(GetPowerStatusResponse)
+
+RebootRequest = _reflection.GeneratedProtocolMessageType('RebootRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REBOOTREQUEST,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.RebootRequest)
+  })
+_sym_db.RegisterMessage(RebootRequest)
+
+RebootResponse = _reflection.GeneratedProtocolMessageType('RebootResponse', (_message.Message,), {
+  'DESCRIPTOR' : _REBOOTRESPONSE,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.RebootResponse)
+  })
+_sym_db.RegisterMessage(RebootResponse)
 
 
 _POWERSTATUS_DEVICESENTRY._options = None
@@ -208,8 +281,8 @@ _POWERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=286,
-  serialized_end=397,
+  serialized_start=365,
+  serialized_end=617,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetPowerStatus',
@@ -218,7 +291,16 @@ _POWERSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETPOWERSTATUSREQUEST,
     output_type=_GETPOWERSTATUSRESPONSE,
-    serialized_options=None,
+    serialized_options=_b('\202\323\344\223\002 \022\036/api/v2/power/get_power_status'),
+  ),
+  _descriptor.MethodDescriptor(
+    name='Reboot',
+    full_name='powerService.PowerService.Reboot',
+    index=1,
+    containing_service=None,
+    input_type=_REBOOTREQUEST,
+    output_type=_REBOOTRESPONSE,
+    serialized_options=_b('\202\323\344\223\002\031\"\024/api/v2/power/reboot:\001*'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_POWERSERVICE)
