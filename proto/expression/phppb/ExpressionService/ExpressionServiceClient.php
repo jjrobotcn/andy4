@@ -101,4 +101,33 @@ class ExpressionServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 获取当前表情模块状态
+     * @param \ExpressionService\StateRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function State(\ExpressionService\StateRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/expressionService.ExpressionService/State',
+        $argument,
+        ['\ExpressionService\StateResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 控制表情的开关
+     * 关闭时表现为黑屏
+     * @param \ExpressionService\SwitchRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Switch(\ExpressionService\SwitchRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/expressionService.ExpressionService/Switch',
+        $argument,
+        ['\ExpressionService\SwitchResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

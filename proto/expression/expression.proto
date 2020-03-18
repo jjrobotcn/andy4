@@ -49,6 +49,22 @@ service ExpressionService {
             body: "*"
         };
     }
+
+    // 获取当前表情模块状态
+    rpc State(StateRequest) returns (StateResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/expression/state"
+        };
+    }
+
+    // 控制表情的开关
+    // 关闭时表现为黑屏
+    rpc Switch(SwitchRequest) returns (SwitchResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/expression/switch"
+            body: "*"
+        };
+    }
 }
 
 // 表情对象
@@ -142,4 +158,25 @@ message RenameResponse {
 
     // 表情名
     string name = 2;
+}
+
+message StateRequest {
+
+}
+
+message StateResponse {
+    // 当前是否启用
+    bool is_active = 1;
+    // 当前是否在播放中
+    bool is_playing = 2;
+}
+
+message SwitchRequest {
+    // 启用与关闭
+    bool active = 1;
+}
+
+message SwitchResponse {
+    // 当前是否启用
+    bool is_active = 1;
 }

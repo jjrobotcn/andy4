@@ -24,6 +24,10 @@ namespace ExpressionService {
     static readonly grpc::Marshaller<global::ExpressionService.ListExpressionsResponse> __Marshaller_expressionService_ListExpressionsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.ListExpressionsResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ExpressionService.DeleteExpressionsRequest> __Marshaller_expressionService_DeleteExpressionsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.DeleteExpressionsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ExpressionService.DeleteExpressionsResponse> __Marshaller_expressionService_DeleteExpressionsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.DeleteExpressionsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExpressionService.StateRequest> __Marshaller_expressionService_StateRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.StateRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExpressionService.StateResponse> __Marshaller_expressionService_StateResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.StateResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExpressionService.SwitchRequest> __Marshaller_expressionService_SwitchRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.SwitchRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ExpressionService.SwitchResponse> __Marshaller_expressionService_SwitchResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ExpressionService.SwitchResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::ExpressionService.PlayExpressionsRequest, global::ExpressionService.PlayExpressionsResponse> __Method_PlayExpressions = new grpc::Method<global::ExpressionService.PlayExpressionsRequest, global::ExpressionService.PlayExpressionsResponse>(
         grpc::MethodType.Unary,
@@ -66,6 +70,20 @@ namespace ExpressionService {
         "DeleteExpressions",
         __Marshaller_expressionService_DeleteExpressionsRequest,
         __Marshaller_expressionService_DeleteExpressionsResponse);
+
+    static readonly grpc::Method<global::ExpressionService.StateRequest, global::ExpressionService.StateResponse> __Method_State = new grpc::Method<global::ExpressionService.StateRequest, global::ExpressionService.StateResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "State",
+        __Marshaller_expressionService_StateRequest,
+        __Marshaller_expressionService_StateResponse);
+
+    static readonly grpc::Method<global::ExpressionService.SwitchRequest, global::ExpressionService.SwitchResponse> __Method_Switch = new grpc::Method<global::ExpressionService.SwitchRequest, global::ExpressionService.SwitchResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Switch",
+        __Marshaller_expressionService_SwitchRequest,
+        __Marshaller_expressionService_SwitchResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -140,6 +158,29 @@ namespace ExpressionService {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::ExpressionService.DeleteExpressionsResponse> DeleteExpressions(global::ExpressionService.DeleteExpressionsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 获取当前表情模块状态
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::ExpressionService.StateResponse> State(global::ExpressionService.StateRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 控制表情的开关
+      /// 关闭时表现为黑屏
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::ExpressionService.SwitchResponse> Switch(global::ExpressionService.SwitchRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -437,6 +478,98 @@ namespace ExpressionService {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteExpressions, null, options, request);
       }
+      /// <summary>
+      /// 获取当前表情模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::ExpressionService.StateResponse State(global::ExpressionService.StateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return State(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 获取当前表情模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::ExpressionService.StateResponse State(global::ExpressionService.StateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_State, null, options, request);
+      }
+      /// <summary>
+      /// 获取当前表情模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::ExpressionService.StateResponse> StateAsync(global::ExpressionService.StateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 获取当前表情模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::ExpressionService.StateResponse> StateAsync(global::ExpressionService.StateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_State, null, options, request);
+      }
+      /// <summary>
+      /// 控制表情的开关
+      /// 关闭时表现为黑屏
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::ExpressionService.SwitchResponse Switch(global::ExpressionService.SwitchRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Switch(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 控制表情的开关
+      /// 关闭时表现为黑屏
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::ExpressionService.SwitchResponse Switch(global::ExpressionService.SwitchRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Switch, null, options, request);
+      }
+      /// <summary>
+      /// 控制表情的开关
+      /// 关闭时表现为黑屏
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::ExpressionService.SwitchResponse> SwitchAsync(global::ExpressionService.SwitchRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SwitchAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 控制表情的开关
+      /// 关闭时表现为黑屏
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::ExpressionService.SwitchResponse> SwitchAsync(global::ExpressionService.SwitchRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Switch, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override ExpressionServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -454,7 +587,9 @@ namespace ExpressionService {
           .AddMethod(__Method_UploadExpressionFile, serviceImpl.UploadExpressionFile)
           .AddMethod(__Method_Rename, serviceImpl.Rename)
           .AddMethod(__Method_ListExpressions, serviceImpl.ListExpressions)
-          .AddMethod(__Method_DeleteExpressions, serviceImpl.DeleteExpressions).Build();
+          .AddMethod(__Method_DeleteExpressions, serviceImpl.DeleteExpressions)
+          .AddMethod(__Method_State, serviceImpl.State)
+          .AddMethod(__Method_Switch, serviceImpl.Switch).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -469,6 +604,8 @@ namespace ExpressionService {
       serviceBinder.AddMethod(__Method_Rename, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ExpressionService.RenameRequest, global::ExpressionService.RenameResponse>(serviceImpl.Rename));
       serviceBinder.AddMethod(__Method_ListExpressions, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ExpressionService.ListExpressionsRequest, global::ExpressionService.ListExpressionsResponse>(serviceImpl.ListExpressions));
       serviceBinder.AddMethod(__Method_DeleteExpressions, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ExpressionService.DeleteExpressionsRequest, global::ExpressionService.DeleteExpressionsResponse>(serviceImpl.DeleteExpressions));
+      serviceBinder.AddMethod(__Method_State, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ExpressionService.StateRequest, global::ExpressionService.StateResponse>(serviceImpl.State));
+      serviceBinder.AddMethod(__Method_Switch, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ExpressionService.SwitchRequest, global::ExpressionService.SwitchResponse>(serviceImpl.Switch));
     }
 
   }

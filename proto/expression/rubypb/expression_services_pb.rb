@@ -27,6 +27,11 @@ module ExpressionService
       rpc :ListExpressions, ListExpressionsRequest, ListExpressionsResponse
       # 删除表情
       rpc :DeleteExpressions, DeleteExpressionsRequest, DeleteExpressionsResponse
+      # 获取当前表情模块状态
+      rpc :State, StateRequest, StateResponse
+      # 控制表情的开关
+      # 关闭时表现为黑屏
+      rpc :Switch, SwitchRequest, SwitchResponse
     end
 
     Stub = Service.rpc_stub_class

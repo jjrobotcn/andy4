@@ -44,6 +44,16 @@ class ExpressionServiceStub(object):
         request_serializer=expression__pb2.DeleteExpressionsRequest.SerializeToString,
         response_deserializer=expression__pb2.DeleteExpressionsResponse.FromString,
         )
+    self.State = channel.unary_unary(
+        '/expressionService.ExpressionService/State',
+        request_serializer=expression__pb2.StateRequest.SerializeToString,
+        response_deserializer=expression__pb2.StateResponse.FromString,
+        )
+    self.Switch = channel.unary_unary(
+        '/expressionService.ExpressionService/Switch',
+        request_serializer=expression__pb2.SwitchRequest.SerializeToString,
+        response_deserializer=expression__pb2.SwitchResponse.FromString,
+        )
 
 
 class ExpressionServiceServicer(object):
@@ -93,6 +103,21 @@ class ExpressionServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def State(self, request, context):
+    """获取当前表情模块状态
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Switch(self, request, context):
+    """控制表情的开关
+    关闭时表现为黑屏
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_ExpressionServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -125,6 +150,16 @@ def add_ExpressionServiceServicer_to_server(servicer, server):
           servicer.DeleteExpressions,
           request_deserializer=expression__pb2.DeleteExpressionsRequest.FromString,
           response_serializer=expression__pb2.DeleteExpressionsResponse.SerializeToString,
+      ),
+      'State': grpc.unary_unary_rpc_method_handler(
+          servicer.State,
+          request_deserializer=expression__pb2.StateRequest.FromString,
+          response_serializer=expression__pb2.StateResponse.SerializeToString,
+      ),
+      'Switch': grpc.unary_unary_rpc_method_handler(
+          servicer.Switch,
+          request_deserializer=expression__pb2.SwitchRequest.FromString,
+          response_serializer=expression__pb2.SwitchResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

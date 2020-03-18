@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='expressionService',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x65xpression.proto\x12\x11\x65xpressionService\x1a\x1cgoogle/api/annotations.proto\"?\n\x0e\x45xpressionInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bpreview_b64\x18\x03 \x01(\t\"{\n\x16PlayExpressionsRequest\x12;\n\x10\x65xpressions_info\x18\x01 \x03(\x0b\x32!.expressionService.ExpressionInfo\x12\x12\n\nloop_times\x18\x02 \x01(\r\x12\x10\n\x08\x64uration\x18\x03 \x01(\r\"\x19\n\x17PlayExpressionsResponse\"\x17\n\x15StopExpressionRequest\"\x18\n\x16StopExpressionResponse\"9\n\x1bUploadExpressionFileRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"Z\n\x1cUploadExpressionFileResponse\x12:\n\x0f\x65xpression_info\x18\x01 \x01(\x0b\x32!.expressionService.ExpressionInfo\"\x18\n\x16ListExpressionsRequest\"V\n\x17ListExpressionsResponse\x12;\n\x10\x65xpressions_info\x18\x01 \x03(\x0b\x32!.expressionService.ExpressionInfo\"2\n\x18\x44\x65leteExpressionsRequest\x12\x16\n\x0e\x65xpressions_id\x18\x01 \x03(\t\"\x1b\n\x19\x44\x65leteExpressionsResponse\")\n\rRenameRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"*\n\x0eRenameResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t2\xf3\x06\n\x11\x45xpressionService\x12\x98\x01\n\x0fPlayExpressions\x12).expressionService.PlayExpressionsRequest\x1a*.expressionService.PlayExpressionsResponse\".\x82\xd3\xe4\x93\x02(\"#/api/v2/expression/play_expressions:\x01*\x12\x94\x01\n\x0eStopExpression\x12(.expressionService.StopExpressionRequest\x1a).expressionService.StopExpressionResponse\"-\x82\xd3\xe4\x93\x02\'\"\"/api/v2/expression/stop_expression:\x01*\x12y\n\x14UploadExpressionFile\x12..expressionService.UploadExpressionFileRequest\x1a/.expressionService.UploadExpressionFileResponse\"\x00\x12s\n\x06Rename\x12 .expressionService.RenameRequest\x1a!.expressionService.RenameResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/expression/rename:\x01*\x12\x98\x01\n\x0fListExpressions\x12).expressionService.ListExpressionsRequest\x1a*.expressionService.ListExpressionsResponse\".\x82\xd3\xe4\x93\x02(\"#/api/v2/expression/list_expressions:\x01*\x12\xa0\x01\n\x11\x44\x65leteExpressions\x12+.expressionService.DeleteExpressionsRequest\x1a,.expressionService.DeleteExpressionsResponse\"0\x82\xd3\xe4\x93\x02*\"%/api/v2/expression/delete_expressions:\x01*b\x06proto3')
+  serialized_pb=_b('\n\x10\x65xpression.proto\x12\x11\x65xpressionService\x1a\x1cgoogle/api/annotations.proto\"?\n\x0e\x45xpressionInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0bpreview_b64\x18\x03 \x01(\t\"{\n\x16PlayExpressionsRequest\x12;\n\x10\x65xpressions_info\x18\x01 \x03(\x0b\x32!.expressionService.ExpressionInfo\x12\x12\n\nloop_times\x18\x02 \x01(\r\x12\x10\n\x08\x64uration\x18\x03 \x01(\r\"\x19\n\x17PlayExpressionsResponse\"\x17\n\x15StopExpressionRequest\"\x18\n\x16StopExpressionResponse\"9\n\x1bUploadExpressionFileRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\"Z\n\x1cUploadExpressionFileResponse\x12:\n\x0f\x65xpression_info\x18\x01 \x01(\x0b\x32!.expressionService.ExpressionInfo\"\x18\n\x16ListExpressionsRequest\"V\n\x17ListExpressionsResponse\x12;\n\x10\x65xpressions_info\x18\x01 \x03(\x0b\x32!.expressionService.ExpressionInfo\"2\n\x18\x44\x65leteExpressionsRequest\x12\x16\n\x0e\x65xpressions_id\x18\x01 \x03(\t\"\x1b\n\x19\x44\x65leteExpressionsResponse\")\n\rRenameRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"*\n\x0eRenameResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x0e\n\x0cStateRequest\"6\n\rStateResponse\x12\x11\n\tis_active\x18\x01 \x01(\x08\x12\x12\n\nis_playing\x18\x02 \x01(\x08\"\x1f\n\rSwitchRequest\x12\x0e\n\x06\x61\x63tive\x18\x01 \x01(\x08\"#\n\x0eSwitchResponse\x12\x11\n\tis_active\x18\x01 \x01(\x08\x32\xd6\x08\n\x11\x45xpressionService\x12\x98\x01\n\x0fPlayExpressions\x12).expressionService.PlayExpressionsRequest\x1a*.expressionService.PlayExpressionsResponse\".\x82\xd3\xe4\x93\x02(\"#/api/v2/expression/play_expressions:\x01*\x12\x94\x01\n\x0eStopExpression\x12(.expressionService.StopExpressionRequest\x1a).expressionService.StopExpressionResponse\"-\x82\xd3\xe4\x93\x02\'\"\"/api/v2/expression/stop_expression:\x01*\x12y\n\x14UploadExpressionFile\x12..expressionService.UploadExpressionFileRequest\x1a/.expressionService.UploadExpressionFileResponse\"\x00\x12s\n\x06Rename\x12 .expressionService.RenameRequest\x1a!.expressionService.RenameResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/expression/rename:\x01*\x12\x98\x01\n\x0fListExpressions\x12).expressionService.ListExpressionsRequest\x1a*.expressionService.ListExpressionsResponse\".\x82\xd3\xe4\x93\x02(\"#/api/v2/expression/list_expressions:\x01*\x12\xa0\x01\n\x11\x44\x65leteExpressions\x12+.expressionService.DeleteExpressionsRequest\x1a,.expressionService.DeleteExpressionsResponse\"0\x82\xd3\xe4\x93\x02*\"%/api/v2/expression/delete_expressions:\x01*\x12l\n\x05State\x12\x1f.expressionService.StateRequest\x1a .expressionService.StateResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/api/v2/expression/state\x12s\n\x06Switch\x12 .expressionService.SwitchRequest\x1a!.expressionService.SwitchResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/expression/switch:\x01*b\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -444,6 +444,130 @@ _RENAMERESPONSE = _descriptor.Descriptor(
   serialized_end=768,
 )
 
+
+_STATEREQUEST = _descriptor.Descriptor(
+  name='StateRequest',
+  full_name='expressionService.StateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=770,
+  serialized_end=784,
+)
+
+
+_STATERESPONSE = _descriptor.Descriptor(
+  name='StateResponse',
+  full_name='expressionService.StateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='is_active', full_name='expressionService.StateResponse.is_active', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_playing', full_name='expressionService.StateResponse.is_playing', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=786,
+  serialized_end=840,
+)
+
+
+_SWITCHREQUEST = _descriptor.Descriptor(
+  name='SwitchRequest',
+  full_name='expressionService.SwitchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='active', full_name='expressionService.SwitchRequest.active', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=842,
+  serialized_end=873,
+)
+
+
+_SWITCHRESPONSE = _descriptor.Descriptor(
+  name='SwitchResponse',
+  full_name='expressionService.SwitchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='is_active', full_name='expressionService.SwitchResponse.is_active', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=875,
+  serialized_end=910,
+)
+
 _PLAYEXPRESSIONSREQUEST.fields_by_name['expressions_info'].message_type = _EXPRESSIONINFO
 _UPLOADEXPRESSIONFILERESPONSE.fields_by_name['expression_info'].message_type = _EXPRESSIONINFO
 _LISTEXPRESSIONSRESPONSE.fields_by_name['expressions_info'].message_type = _EXPRESSIONINFO
@@ -460,98 +584,130 @@ DESCRIPTOR.message_types_by_name['DeleteExpressionsRequest'] = _DELETEEXPRESSION
 DESCRIPTOR.message_types_by_name['DeleteExpressionsResponse'] = _DELETEEXPRESSIONSRESPONSE
 DESCRIPTOR.message_types_by_name['RenameRequest'] = _RENAMEREQUEST
 DESCRIPTOR.message_types_by_name['RenameResponse'] = _RENAMERESPONSE
+DESCRIPTOR.message_types_by_name['StateRequest'] = _STATEREQUEST
+DESCRIPTOR.message_types_by_name['StateResponse'] = _STATERESPONSE
+DESCRIPTOR.message_types_by_name['SwitchRequest'] = _SWITCHREQUEST
+DESCRIPTOR.message_types_by_name['SwitchResponse'] = _SWITCHRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-ExpressionInfo = _reflection.GeneratedProtocolMessageType('ExpressionInfo', (_message.Message,), dict(
-  DESCRIPTOR = _EXPRESSIONINFO,
-  __module__ = 'expression_pb2'
+ExpressionInfo = _reflection.GeneratedProtocolMessageType('ExpressionInfo', (_message.Message,), {
+  'DESCRIPTOR' : _EXPRESSIONINFO,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.ExpressionInfo)
-  ))
+  })
 _sym_db.RegisterMessage(ExpressionInfo)
 
-PlayExpressionsRequest = _reflection.GeneratedProtocolMessageType('PlayExpressionsRequest', (_message.Message,), dict(
-  DESCRIPTOR = _PLAYEXPRESSIONSREQUEST,
-  __module__ = 'expression_pb2'
+PlayExpressionsRequest = _reflection.GeneratedProtocolMessageType('PlayExpressionsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PLAYEXPRESSIONSREQUEST,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.PlayExpressionsRequest)
-  ))
+  })
 _sym_db.RegisterMessage(PlayExpressionsRequest)
 
-PlayExpressionsResponse = _reflection.GeneratedProtocolMessageType('PlayExpressionsResponse', (_message.Message,), dict(
-  DESCRIPTOR = _PLAYEXPRESSIONSRESPONSE,
-  __module__ = 'expression_pb2'
+PlayExpressionsResponse = _reflection.GeneratedProtocolMessageType('PlayExpressionsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PLAYEXPRESSIONSRESPONSE,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.PlayExpressionsResponse)
-  ))
+  })
 _sym_db.RegisterMessage(PlayExpressionsResponse)
 
-StopExpressionRequest = _reflection.GeneratedProtocolMessageType('StopExpressionRequest', (_message.Message,), dict(
-  DESCRIPTOR = _STOPEXPRESSIONREQUEST,
-  __module__ = 'expression_pb2'
+StopExpressionRequest = _reflection.GeneratedProtocolMessageType('StopExpressionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STOPEXPRESSIONREQUEST,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.StopExpressionRequest)
-  ))
+  })
 _sym_db.RegisterMessage(StopExpressionRequest)
 
-StopExpressionResponse = _reflection.GeneratedProtocolMessageType('StopExpressionResponse', (_message.Message,), dict(
-  DESCRIPTOR = _STOPEXPRESSIONRESPONSE,
-  __module__ = 'expression_pb2'
+StopExpressionResponse = _reflection.GeneratedProtocolMessageType('StopExpressionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STOPEXPRESSIONRESPONSE,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.StopExpressionResponse)
-  ))
+  })
 _sym_db.RegisterMessage(StopExpressionResponse)
 
-UploadExpressionFileRequest = _reflection.GeneratedProtocolMessageType('UploadExpressionFileRequest', (_message.Message,), dict(
-  DESCRIPTOR = _UPLOADEXPRESSIONFILEREQUEST,
-  __module__ = 'expression_pb2'
+UploadExpressionFileRequest = _reflection.GeneratedProtocolMessageType('UploadExpressionFileRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPLOADEXPRESSIONFILEREQUEST,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.UploadExpressionFileRequest)
-  ))
+  })
 _sym_db.RegisterMessage(UploadExpressionFileRequest)
 
-UploadExpressionFileResponse = _reflection.GeneratedProtocolMessageType('UploadExpressionFileResponse', (_message.Message,), dict(
-  DESCRIPTOR = _UPLOADEXPRESSIONFILERESPONSE,
-  __module__ = 'expression_pb2'
+UploadExpressionFileResponse = _reflection.GeneratedProtocolMessageType('UploadExpressionFileResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPLOADEXPRESSIONFILERESPONSE,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.UploadExpressionFileResponse)
-  ))
+  })
 _sym_db.RegisterMessage(UploadExpressionFileResponse)
 
-ListExpressionsRequest = _reflection.GeneratedProtocolMessageType('ListExpressionsRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LISTEXPRESSIONSREQUEST,
-  __module__ = 'expression_pb2'
+ListExpressionsRequest = _reflection.GeneratedProtocolMessageType('ListExpressionsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTEXPRESSIONSREQUEST,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.ListExpressionsRequest)
-  ))
+  })
 _sym_db.RegisterMessage(ListExpressionsRequest)
 
-ListExpressionsResponse = _reflection.GeneratedProtocolMessageType('ListExpressionsResponse', (_message.Message,), dict(
-  DESCRIPTOR = _LISTEXPRESSIONSRESPONSE,
-  __module__ = 'expression_pb2'
+ListExpressionsResponse = _reflection.GeneratedProtocolMessageType('ListExpressionsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTEXPRESSIONSRESPONSE,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.ListExpressionsResponse)
-  ))
+  })
 _sym_db.RegisterMessage(ListExpressionsResponse)
 
-DeleteExpressionsRequest = _reflection.GeneratedProtocolMessageType('DeleteExpressionsRequest', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEEXPRESSIONSREQUEST,
-  __module__ = 'expression_pb2'
+DeleteExpressionsRequest = _reflection.GeneratedProtocolMessageType('DeleteExpressionsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEEXPRESSIONSREQUEST,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.DeleteExpressionsRequest)
-  ))
+  })
 _sym_db.RegisterMessage(DeleteExpressionsRequest)
 
-DeleteExpressionsResponse = _reflection.GeneratedProtocolMessageType('DeleteExpressionsResponse', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEEXPRESSIONSRESPONSE,
-  __module__ = 'expression_pb2'
+DeleteExpressionsResponse = _reflection.GeneratedProtocolMessageType('DeleteExpressionsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEEXPRESSIONSRESPONSE,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.DeleteExpressionsResponse)
-  ))
+  })
 _sym_db.RegisterMessage(DeleteExpressionsResponse)
 
-RenameRequest = _reflection.GeneratedProtocolMessageType('RenameRequest', (_message.Message,), dict(
-  DESCRIPTOR = _RENAMEREQUEST,
-  __module__ = 'expression_pb2'
+RenameRequest = _reflection.GeneratedProtocolMessageType('RenameRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RENAMEREQUEST,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.RenameRequest)
-  ))
+  })
 _sym_db.RegisterMessage(RenameRequest)
 
-RenameResponse = _reflection.GeneratedProtocolMessageType('RenameResponse', (_message.Message,), dict(
-  DESCRIPTOR = _RENAMERESPONSE,
-  __module__ = 'expression_pb2'
+RenameResponse = _reflection.GeneratedProtocolMessageType('RenameResponse', (_message.Message,), {
+  'DESCRIPTOR' : _RENAMERESPONSE,
+  '__module__' : 'expression_pb2'
   # @@protoc_insertion_point(class_scope:expressionService.RenameResponse)
-  ))
+  })
 _sym_db.RegisterMessage(RenameResponse)
+
+StateRequest = _reflection.GeneratedProtocolMessageType('StateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STATEREQUEST,
+  '__module__' : 'expression_pb2'
+  # @@protoc_insertion_point(class_scope:expressionService.StateRequest)
+  })
+_sym_db.RegisterMessage(StateRequest)
+
+StateResponse = _reflection.GeneratedProtocolMessageType('StateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STATERESPONSE,
+  '__module__' : 'expression_pb2'
+  # @@protoc_insertion_point(class_scope:expressionService.StateResponse)
+  })
+_sym_db.RegisterMessage(StateResponse)
+
+SwitchRequest = _reflection.GeneratedProtocolMessageType('SwitchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SWITCHREQUEST,
+  '__module__' : 'expression_pb2'
+  # @@protoc_insertion_point(class_scope:expressionService.SwitchRequest)
+  })
+_sym_db.RegisterMessage(SwitchRequest)
+
+SwitchResponse = _reflection.GeneratedProtocolMessageType('SwitchResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SWITCHRESPONSE,
+  '__module__' : 'expression_pb2'
+  # @@protoc_insertion_point(class_scope:expressionService.SwitchResponse)
+  })
+_sym_db.RegisterMessage(SwitchResponse)
 
 
 
@@ -561,8 +717,8 @@ _EXPRESSIONSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=771,
-  serialized_end=1654,
+  serialized_start=913,
+  serialized_end=2023,
   methods=[
   _descriptor.MethodDescriptor(
     name='PlayExpressions',
@@ -617,6 +773,24 @@ _EXPRESSIONSERVICE = _descriptor.ServiceDescriptor(
     input_type=_DELETEEXPRESSIONSREQUEST,
     output_type=_DELETEEXPRESSIONSRESPONSE,
     serialized_options=_b('\202\323\344\223\002*\"%/api/v2/expression/delete_expressions:\001*'),
+  ),
+  _descriptor.MethodDescriptor(
+    name='State',
+    full_name='expressionService.ExpressionService.State',
+    index=6,
+    containing_service=None,
+    input_type=_STATEREQUEST,
+    output_type=_STATERESPONSE,
+    serialized_options=_b('\202\323\344\223\002\032\022\030/api/v2/expression/state'),
+  ),
+  _descriptor.MethodDescriptor(
+    name='Switch',
+    full_name='expressionService.ExpressionService.Switch',
+    index=7,
+    containing_service=None,
+    input_type=_SWITCHREQUEST,
+    output_type=_SWITCHRESPONSE,
+    serialized_options=_b('\202\323\344\223\002\036\"\031/api/v2/expression/switch:\001*'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_EXPRESSIONSERVICE)

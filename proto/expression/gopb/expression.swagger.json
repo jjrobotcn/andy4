@@ -123,6 +123,23 @@
         ]
       }
     },
+    "/api/v2/expression/state": {
+      "get": {
+        "summary": "获取当前表情模块状态",
+        "operationId": "State",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServiceStateResponse"
+            }
+          }
+        },
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    },
     "/api/v2/expression/stop_expression": {
       "post": {
         "summary": "停止表情",
@@ -142,6 +159,33 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/expressionServiceStopExpressionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ExpressionService"
+        ]
+      }
+    },
+    "/api/v2/expression/switch": {
+      "post": {
+        "summary": "控制表情的开关\n关闭时表现为黑屏",
+        "operationId": "Switch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/expressionServiceSwitchResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/expressionServiceSwitchRequest"
             }
           }
         ],
@@ -259,6 +303,21 @@
       },
       "title": "表情重命名结果"
     },
+    "expressionServiceStateResponse": {
+      "type": "object",
+      "properties": {
+        "is_active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前是否启用"
+        },
+        "is_playing": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前是否在播放中"
+        }
+      }
+    },
     "expressionServiceStopExpressionRequest": {
       "type": "object",
       "title": "停止表情请求"
@@ -266,6 +325,26 @@
     "expressionServiceStopExpressionResponse": {
       "type": "object",
       "title": "停止表情结果"
+    },
+    "expressionServiceSwitchRequest": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "启用与关闭"
+        }
+      }
+    },
+    "expressionServiceSwitchResponse": {
+      "type": "object",
+      "properties": {
+        "is_active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前是否启用"
+        }
+      }
     },
     "expressionServiceUploadExpressionFileResponse": {
       "type": "object",

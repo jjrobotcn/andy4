@@ -267,6 +267,55 @@ typedef GPB_ENUM(RenameResponse_FieldNumber) {
 
 @end
 
+#pragma mark - StateRequest
+
+@interface StateRequest : GPBMessage
+
+@end
+
+#pragma mark - StateResponse
+
+typedef GPB_ENUM(StateResponse_FieldNumber) {
+  StateResponse_FieldNumber_IsActive = 1,
+  StateResponse_FieldNumber_IsPlaying = 2,
+};
+
+@interface StateResponse : GPBMessage
+
+/** 当前是否启用 */
+@property(nonatomic, readwrite) BOOL isActive;
+
+/** 当前是否在播放中 */
+@property(nonatomic, readwrite) BOOL isPlaying;
+
+@end
+
+#pragma mark - SwitchRequest
+
+typedef GPB_ENUM(SwitchRequest_FieldNumber) {
+  SwitchRequest_FieldNumber_Active = 1,
+};
+
+@interface SwitchRequest : GPBMessage
+
+/** 启用与关闭 */
+@property(nonatomic, readwrite) BOOL active;
+
+@end
+
+#pragma mark - SwitchResponse
+
+typedef GPB_ENUM(SwitchResponse_FieldNumber) {
+  SwitchResponse_FieldNumber_IsActive = 1,
+};
+
+@interface SwitchResponse : GPBMessage
+
+/** 当前是否启用 */
+@property(nonatomic, readwrite) BOOL isActive;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 CF_EXTERN_C_END

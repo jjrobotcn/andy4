@@ -25,6 +25,8 @@ static const char* ExpressionService_method_names[] = {
   "/expressionService.ExpressionService/Rename",
   "/expressionService.ExpressionService/ListExpressions",
   "/expressionService.ExpressionService/DeleteExpressions",
+  "/expressionService.ExpressionService/State",
+  "/expressionService.ExpressionService/Switch",
 };
 
 std::unique_ptr< ExpressionService::Stub> ExpressionService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -40,6 +42,8 @@ ExpressionService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& 
   , rpcmethod_Rename_(ExpressionService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_ListExpressions_(ExpressionService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteExpressions_(ExpressionService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_State_(ExpressionService_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Switch_(ExpressionService_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status ExpressionService::Stub::PlayExpressions(::grpc::ClientContext* context, const ::expressionService::PlayExpressionsRequest& request, ::expressionService::PlayExpressionsResponse* response) {
@@ -210,6 +214,62 @@ void ExpressionService::Stub::experimental_async::DeleteExpressions(::grpc::Clie
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::expressionService::DeleteExpressionsResponse>::Create(channel_.get(), cq, rpcmethod_DeleteExpressions_, context, request, false);
 }
 
+::grpc::Status ExpressionService::Stub::State(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::expressionService::StateResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_State_, context, request, response);
+}
+
+void ExpressionService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, std::move(f));
+}
+
+void ExpressionService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::StateResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, std::move(f));
+}
+
+void ExpressionService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, reactor);
+}
+
+void ExpressionService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>* ExpressionService::Stub::AsyncStateRaw(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::expressionService::StateResponse>::Create(channel_.get(), cq, rpcmethod_State_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>* ExpressionService::Stub::PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::expressionService::StateResponse>::Create(channel_.get(), cq, rpcmethod_State_, context, request, false);
+}
+
+::grpc::Status ExpressionService::Stub::Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::expressionService::SwitchResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Switch_, context, request, response);
+}
+
+void ExpressionService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, std::move(f));
+}
+
+void ExpressionService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::SwitchResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, std::move(f));
+}
+
+void ExpressionService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, reactor);
+}
+
+void ExpressionService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>* ExpressionService::Stub::AsyncSwitchRaw(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::expressionService::SwitchResponse>::Create(channel_.get(), cq, rpcmethod_Switch_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>* ExpressionService::Stub::PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::expressionService::SwitchResponse>::Create(channel_.get(), cq, rpcmethod_Switch_, context, request, false);
+}
+
 ExpressionService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ExpressionService_method_names[0],
@@ -241,6 +301,16 @@ ExpressionService::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< ExpressionService::Service, ::expressionService::DeleteExpressionsRequest, ::expressionService::DeleteExpressionsResponse>(
           std::mem_fn(&ExpressionService::Service::DeleteExpressions), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      ExpressionService_method_names[6],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< ExpressionService::Service, ::expressionService::StateRequest, ::expressionService::StateResponse>(
+          std::mem_fn(&ExpressionService::Service::State), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      ExpressionService_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< ExpressionService::Service, ::expressionService::SwitchRequest, ::expressionService::SwitchResponse>(
+          std::mem_fn(&ExpressionService::Service::Switch), this)));
 }
 
 ExpressionService::Service::~Service() {
@@ -282,6 +352,20 @@ ExpressionService::Service::~Service() {
 }
 
 ::grpc::Status ExpressionService::Service::DeleteExpressions(::grpc::ServerContext* context, const ::expressionService::DeleteExpressionsRequest* request, ::expressionService::DeleteExpressionsResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status ExpressionService::Service::State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status ExpressionService::Service::Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) {
   (void) context;
   (void) request;
   (void) response;

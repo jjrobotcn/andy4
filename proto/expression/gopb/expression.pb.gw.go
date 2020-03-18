@@ -113,6 +113,32 @@ func request_ExpressionService_DeleteExpressions_0(ctx context.Context, marshale
 
 }
 
+func request_ExpressionService_State_0(ctx context.Context, marshaler runtime.Marshaler, client ExpressionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq StateRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := client.State(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func request_ExpressionService_Switch_0(ctx context.Context, marshaler runtime.Marshaler, client ExpressionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq SwitchRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.Switch(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
 // RegisterExpressionServiceHandlerFromEndpoint is same as RegisterExpressionServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
 func RegisterExpressionServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
@@ -251,19 +277,63 @@ func RegisterExpressionServiceHandlerClient(ctx context.Context, mux *runtime.Se
 
 	})
 
+	mux.Handle("GET", pattern_ExpressionService_State_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_ExpressionService_State_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_ExpressionService_State_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_ExpressionService_Switch_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_ExpressionService_Switch_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_ExpressionService_Switch_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
 var (
-	pattern_ExpressionService_PlayExpressions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "play_expressions"}, ""))
+	pattern_ExpressionService_PlayExpressions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "play_expressions"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_ExpressionService_StopExpression_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "stop_expression"}, ""))
+	pattern_ExpressionService_StopExpression_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "stop_expression"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_ExpressionService_Rename_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "rename"}, ""))
+	pattern_ExpressionService_Rename_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "rename"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_ExpressionService_ListExpressions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "list_expressions"}, ""))
+	pattern_ExpressionService_ListExpressions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "list_expressions"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_ExpressionService_DeleteExpressions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "delete_expressions"}, ""))
+	pattern_ExpressionService_DeleteExpressions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "delete_expressions"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_ExpressionService_State_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "state"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_ExpressionService_Switch_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "expression", "switch"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -276,4 +346,8 @@ var (
 	forward_ExpressionService_ListExpressions_0 = runtime.ForwardResponseMessage
 
 	forward_ExpressionService_DeleteExpressions_0 = runtime.ForwardResponseMessage
+
+	forward_ExpressionService_State_0 = runtime.ForwardResponseMessage
+
+	forward_ExpressionService_Switch_0 = runtime.ForwardResponseMessage
 )

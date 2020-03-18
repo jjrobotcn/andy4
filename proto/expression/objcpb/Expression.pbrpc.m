@@ -260,5 +260,76 @@
              responseClass:[DeleteExpressionsResponse class]];
 }
 
+#pragma mark State(StateRequest) returns (StateResponse)
+
+// Deprecated methods.
+/**
+ * 获取当前表情模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)stateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToStateWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * 获取当前表情模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToStateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"State"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[StateResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+/**
+ * 获取当前表情模块状态
+ */
+- (GRPCUnaryProtoCall *)stateWithMessage:(StateRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
+  return [self RPCToMethod:@"State"
+                   message:message
+           responseHandler:handler
+               callOptions:callOptions
+             responseClass:[StateResponse class]];
+}
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+// Deprecated methods.
+/**
+ * 控制表情的开关
+ * 关闭时表现为黑屏
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)switchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToSwitchWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * 控制表情的开关
+ * 关闭时表现为黑屏
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToSwitchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"Switch"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[SwitchResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+/**
+ * 控制表情的开关
+ * 关闭时表现为黑屏
+ */
+- (GRPCUnaryProtoCall *)switchWithMessage:(SwitchRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
+  return [self RPCToMethod:@"Switch"
+                   message:message
+           responseHandler:handler
+               callOptions:callOptions
+             responseClass:[SwitchResponse class]];
+}
+
 @end
 #endif

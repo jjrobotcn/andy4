@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace grpc_impl {
-class Channel;
 class CompletionQueue;
 class ServerCompletionQueue;
+class ServerContext;
 }  // namespace grpc_impl
 
 namespace grpc {
@@ -31,10 +31,6 @@ namespace experimental {
 template <typename RequestT, typename ResponseT>
 class MessageAllocator;
 }  // namespace experimental
-}  // namespace grpc_impl
-
-namespace grpc {
-class ServerContext;
 }  // namespace grpc
 
 namespace expressionService {
@@ -96,6 +92,23 @@ class ExpressionService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::DeleteExpressionsResponse>> PrepareAsyncDeleteExpressions(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::DeleteExpressionsResponse>>(PrepareAsyncDeleteExpressionsRaw(context, request, cq));
     }
+    // 获取当前表情模块状态
+    virtual ::grpc::Status State(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::expressionService::StateResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::StateResponse>> AsyncState(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::StateResponse>>(AsyncStateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::StateResponse>> PrepareAsyncState(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::StateResponse>>(PrepareAsyncStateRaw(context, request, cq));
+    }
+    // 控制表情的开关
+    // 关闭时表现为黑屏
+    virtual ::grpc::Status Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::expressionService::SwitchResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::SwitchResponse>> AsyncSwitch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::SwitchResponse>>(AsyncSwitchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::SwitchResponse>> PrepareAsyncSwitch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::SwitchResponse>>(PrepareAsyncSwitchRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -130,6 +143,17 @@ class ExpressionService final {
       virtual void DeleteExpressions(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::DeleteExpressionsResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeleteExpressions(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest* request, ::expressionService::DeleteExpressionsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void DeleteExpressions(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::DeleteExpressionsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 获取当前表情模块状态
+      virtual void State(::grpc::ClientContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::StateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void State(::grpc::ClientContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 控制表情的开关
+      // 关闭时表现为黑屏
+      virtual void Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::SwitchResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -145,6 +169,10 @@ class ExpressionService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::ListExpressionsResponse>* PrepareAsyncListExpressionsRaw(::grpc::ClientContext* context, const ::expressionService::ListExpressionsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::DeleteExpressionsResponse>* AsyncDeleteExpressionsRaw(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::DeleteExpressionsResponse>* PrepareAsyncDeleteExpressionsRaw(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::StateResponse>* AsyncStateRaw(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::StateResponse>* PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::SwitchResponse>* AsyncSwitchRaw(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::expressionService::SwitchResponse>* PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -191,6 +219,20 @@ class ExpressionService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::DeleteExpressionsResponse>> PrepareAsyncDeleteExpressions(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::DeleteExpressionsResponse>>(PrepareAsyncDeleteExpressionsRaw(context, request, cq));
     }
+    ::grpc::Status State(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::expressionService::StateResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>> AsyncState(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>>(AsyncStateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>> PrepareAsyncState(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>>(PrepareAsyncStateRaw(context, request, cq));
+    }
+    ::grpc::Status Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::expressionService::SwitchResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>> AsyncSwitch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>>(AsyncSwitchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>> PrepareAsyncSwitch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>>(PrepareAsyncSwitchRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -218,6 +260,14 @@ class ExpressionService final {
       void DeleteExpressions(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::DeleteExpressionsResponse* response, std::function<void(::grpc::Status)>) override;
       void DeleteExpressions(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest* request, ::expressionService::DeleteExpressionsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void DeleteExpressions(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::DeleteExpressionsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void State(::grpc::ClientContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, std::function<void(::grpc::Status)>) override;
+      void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::StateResponse* response, std::function<void(::grpc::Status)>) override;
+      void State(::grpc::ClientContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, std::function<void(::grpc::Status)>) override;
+      void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::SwitchResponse* response, std::function<void(::grpc::Status)>) override;
+      void Switch(::grpc::ClientContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -241,12 +291,18 @@ class ExpressionService final {
     ::grpc::ClientAsyncResponseReader< ::expressionService::ListExpressionsResponse>* PrepareAsyncListExpressionsRaw(::grpc::ClientContext* context, const ::expressionService::ListExpressionsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::expressionService::DeleteExpressionsResponse>* AsyncDeleteExpressionsRaw(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::expressionService::DeleteExpressionsResponse>* PrepareAsyncDeleteExpressionsRaw(::grpc::ClientContext* context, const ::expressionService::DeleteExpressionsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>* AsyncStateRaw(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::expressionService::StateResponse>* PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::expressionService::StateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>* AsyncSwitchRaw(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::expressionService::SwitchResponse>* PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::expressionService::SwitchRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_PlayExpressions_;
     const ::grpc::internal::RpcMethod rpcmethod_StopExpression_;
     const ::grpc::internal::RpcMethod rpcmethod_UploadExpressionFile_;
     const ::grpc::internal::RpcMethod rpcmethod_Rename_;
     const ::grpc::internal::RpcMethod rpcmethod_ListExpressions_;
     const ::grpc::internal::RpcMethod rpcmethod_DeleteExpressions_;
+    const ::grpc::internal::RpcMethod rpcmethod_State_;
+    const ::grpc::internal::RpcMethod rpcmethod_Switch_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -267,6 +323,11 @@ class ExpressionService final {
     virtual ::grpc::Status ListExpressions(::grpc::ServerContext* context, const ::expressionService::ListExpressionsRequest* request, ::expressionService::ListExpressionsResponse* response);
     // 删除表情
     virtual ::grpc::Status DeleteExpressions(::grpc::ServerContext* context, const ::expressionService::DeleteExpressionsRequest* request, ::expressionService::DeleteExpressionsResponse* response);
+    // 获取当前表情模块状态
+    virtual ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response);
+    // 控制表情的开关
+    // 关闭时表现为黑屏
+    virtual ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_PlayExpressions : public BaseClass {
@@ -388,7 +449,47 @@ class ExpressionService final {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_PlayExpressions<WithAsyncMethod_StopExpression<WithAsyncMethod_UploadExpressionFile<WithAsyncMethod_Rename<WithAsyncMethod_ListExpressions<WithAsyncMethod_DeleteExpressions<Service > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_State() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestState(::grpc::ServerContext* context, ::expressionService::StateRequest* request, ::grpc::ServerAsyncResponseWriter< ::expressionService::StateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Switch() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSwitch(::grpc::ServerContext* context, ::expressionService::SwitchRequest* request, ::grpc::ServerAsyncResponseWriter< ::expressionService::SwitchResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_PlayExpressions<WithAsyncMethod_StopExpression<WithAsyncMethod_UploadExpressionFile<WithAsyncMethod_Rename<WithAsyncMethod_ListExpressions<WithAsyncMethod_DeleteExpressions<WithAsyncMethod_State<WithAsyncMethod_Switch<Service > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_PlayExpressions : public BaseClass {
    private:
@@ -575,7 +676,69 @@ class ExpressionService final {
     }
     virtual void DeleteExpressions(::grpc::ServerContext* context, const ::expressionService::DeleteExpressionsRequest* request, ::expressionService::DeleteExpressionsResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_PlayExpressions<ExperimentalWithCallbackMethod_StopExpression<ExperimentalWithCallbackMethod_UploadExpressionFile<ExperimentalWithCallbackMethod_Rename<ExperimentalWithCallbackMethod_ListExpressions<ExperimentalWithCallbackMethod_DeleteExpressions<Service > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_State() {
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::expressionService::StateRequest, ::expressionService::StateResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::expressionService::StateRequest* request,
+                 ::expressionService::StateResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->State(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_State(
+        ::grpc::experimental::MessageAllocator< ::expressionService::StateRequest, ::expressionService::StateResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::expressionService::StateRequest, ::expressionService::StateResponse>*>(
+          ::grpc::Service::experimental().GetHandler(6))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_Switch() {
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::expressionService::SwitchRequest, ::expressionService::SwitchResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::expressionService::SwitchRequest* request,
+                 ::expressionService::SwitchResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Switch(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_Switch(
+        ::grpc::experimental::MessageAllocator< ::expressionService::SwitchRequest, ::expressionService::SwitchResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::expressionService::SwitchRequest, ::expressionService::SwitchResponse>*>(
+          ::grpc::Service::experimental().GetHandler(7))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_PlayExpressions<ExperimentalWithCallbackMethod_StopExpression<ExperimentalWithCallbackMethod_UploadExpressionFile<ExperimentalWithCallbackMethod_Rename<ExperimentalWithCallbackMethod_ListExpressions<ExperimentalWithCallbackMethod_DeleteExpressions<ExperimentalWithCallbackMethod_State<ExperimentalWithCallbackMethod_Switch<Service > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_PlayExpressions : public BaseClass {
    private:
@@ -674,6 +837,40 @@ class ExpressionService final {
     }
     // disable synchronous version of this method
     ::grpc::Status DeleteExpressions(::grpc::ServerContext* context, const ::expressionService::DeleteExpressionsRequest* request, ::expressionService::DeleteExpressionsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_State() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Switch() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -796,6 +993,46 @@ class ExpressionService final {
     }
     void RequestDeleteExpressions(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_State() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestState(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_Switch() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSwitch(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -949,6 +1186,56 @@ class ExpressionService final {
     virtual void DeleteExpressions(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_State() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->State(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void State(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Switch() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Switch(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Switch(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_PlayExpressions : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -1068,9 +1355,49 @@ class ExpressionService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDeleteExpressions(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::expressionService::DeleteExpressionsRequest,::expressionService::DeleteExpressionsResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_PlayExpressions<WithStreamedUnaryMethod_StopExpression<WithStreamedUnaryMethod_UploadExpressionFile<WithStreamedUnaryMethod_Rename<WithStreamedUnaryMethod_ListExpressions<WithStreamedUnaryMethod_DeleteExpressions<Service > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_State() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler< ::expressionService::StateRequest, ::expressionService::StateResponse>(std::bind(&WithStreamedUnaryMethod_State<BaseClass>::StreamedState, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::expressionService::StateRequest* request, ::expressionService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedState(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::expressionService::StateRequest,::expressionService::StateResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Switch() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler< ::expressionService::SwitchRequest, ::expressionService::SwitchResponse>(std::bind(&WithStreamedUnaryMethod_Switch<BaseClass>::StreamedSwitch, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::expressionService::SwitchRequest* request, ::expressionService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSwitch(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::expressionService::SwitchRequest,::expressionService::SwitchResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_PlayExpressions<WithStreamedUnaryMethod_StopExpression<WithStreamedUnaryMethod_UploadExpressionFile<WithStreamedUnaryMethod_Rename<WithStreamedUnaryMethod_ListExpressions<WithStreamedUnaryMethod_DeleteExpressions<WithStreamedUnaryMethod_State<WithStreamedUnaryMethod_Switch<Service > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_PlayExpressions<WithStreamedUnaryMethod_StopExpression<WithStreamedUnaryMethod_UploadExpressionFile<WithStreamedUnaryMethod_Rename<WithStreamedUnaryMethod_ListExpressions<WithStreamedUnaryMethod_DeleteExpressions<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_PlayExpressions<WithStreamedUnaryMethod_StopExpression<WithStreamedUnaryMethod_UploadExpressionFile<WithStreamedUnaryMethod_Rename<WithStreamedUnaryMethod_ListExpressions<WithStreamedUnaryMethod_DeleteExpressions<WithStreamedUnaryMethod_State<WithStreamedUnaryMethod_Switch<Service > > > > > > > > StreamedService;
 };
 
 }  // namespace expressionService

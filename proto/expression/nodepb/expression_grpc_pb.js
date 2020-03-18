@@ -93,6 +93,28 @@ function deserialize_expressionService_RenameResponse(buffer_arg) {
   return expression_pb.RenameResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_expressionService_StateRequest(arg) {
+  if (!(arg instanceof expression_pb.StateRequest)) {
+    throw new Error('Expected argument of type expressionService.StateRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_expressionService_StateRequest(buffer_arg) {
+  return expression_pb.StateRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_expressionService_StateResponse(arg) {
+  if (!(arg instanceof expression_pb.StateResponse)) {
+    throw new Error('Expected argument of type expressionService.StateResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_expressionService_StateResponse(buffer_arg) {
+  return expression_pb.StateResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_expressionService_StopExpressionRequest(arg) {
   if (!(arg instanceof expression_pb.StopExpressionRequest)) {
     throw new Error('Expected argument of type expressionService.StopExpressionRequest');
@@ -113,6 +135,28 @@ function serialize_expressionService_StopExpressionResponse(arg) {
 
 function deserialize_expressionService_StopExpressionResponse(buffer_arg) {
   return expression_pb.StopExpressionResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_expressionService_SwitchRequest(arg) {
+  if (!(arg instanceof expression_pb.SwitchRequest)) {
+    throw new Error('Expected argument of type expressionService.SwitchRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_expressionService_SwitchRequest(buffer_arg) {
+  return expression_pb.SwitchRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_expressionService_SwitchResponse(arg) {
+  if (!(arg instanceof expression_pb.SwitchResponse)) {
+    throw new Error('Expected argument of type expressionService.SwitchResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_expressionService_SwitchResponse(buffer_arg) {
+  return expression_pb.SwitchResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_expressionService_UploadExpressionFileRequest(arg) {
@@ -211,6 +255,31 @@ var ExpressionServiceService = exports.ExpressionServiceService = {
     requestDeserialize: deserialize_expressionService_DeleteExpressionsRequest,
     responseSerialize: serialize_expressionService_DeleteExpressionsResponse,
     responseDeserialize: deserialize_expressionService_DeleteExpressionsResponse,
+  },
+  // 获取当前表情模块状态
+  state: {
+    path: '/expressionService.ExpressionService/State',
+    requestStream: false,
+    responseStream: false,
+    requestType: expression_pb.StateRequest,
+    responseType: expression_pb.StateResponse,
+    requestSerialize: serialize_expressionService_StateRequest,
+    requestDeserialize: deserialize_expressionService_StateRequest,
+    responseSerialize: serialize_expressionService_StateResponse,
+    responseDeserialize: deserialize_expressionService_StateResponse,
+  },
+  // 控制表情的开关
+  // 关闭时表现为黑屏
+  switch: {
+    path: '/expressionService.ExpressionService/Switch',
+    requestStream: false,
+    responseStream: false,
+    requestType: expression_pb.SwitchRequest,
+    responseType: expression_pb.SwitchResponse,
+    requestSerialize: serialize_expressionService_SwitchRequest,
+    requestDeserialize: deserialize_expressionService_SwitchRequest,
+    responseSerialize: serialize_expressionService_SwitchResponse,
+    responseDeserialize: deserialize_expressionService_SwitchResponse,
   },
 };
 

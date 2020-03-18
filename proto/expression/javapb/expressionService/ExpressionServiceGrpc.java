@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.21.1-SNAPSHOT)",
+    value = "by gRPC proto compiler (version 1.22.2-SNAPSHOT)",
     comments = "Source: expression.proto")
 public final class ExpressionServiceGrpc {
 
@@ -219,6 +219,70 @@ public final class ExpressionServiceGrpc {
      return getDeleteExpressionsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<expressionService.Expression.StateRequest,
+      expressionService.Expression.StateResponse> getStateMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "State",
+      requestType = expressionService.Expression.StateRequest.class,
+      responseType = expressionService.Expression.StateResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<expressionService.Expression.StateRequest,
+      expressionService.Expression.StateResponse> getStateMethod() {
+    io.grpc.MethodDescriptor<expressionService.Expression.StateRequest, expressionService.Expression.StateResponse> getStateMethod;
+    if ((getStateMethod = ExpressionServiceGrpc.getStateMethod) == null) {
+      synchronized (ExpressionServiceGrpc.class) {
+        if ((getStateMethod = ExpressionServiceGrpc.getStateMethod) == null) {
+          ExpressionServiceGrpc.getStateMethod = getStateMethod = 
+              io.grpc.MethodDescriptor.<expressionService.Expression.StateRequest, expressionService.Expression.StateResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "expressionService.ExpressionService", "State"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  expressionService.Expression.StateRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  expressionService.Expression.StateResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ExpressionServiceMethodDescriptorSupplier("State"))
+                  .build();
+          }
+        }
+     }
+     return getStateMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<expressionService.Expression.SwitchRequest,
+      expressionService.Expression.SwitchResponse> getSwitchMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Switch",
+      requestType = expressionService.Expression.SwitchRequest.class,
+      responseType = expressionService.Expression.SwitchResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<expressionService.Expression.SwitchRequest,
+      expressionService.Expression.SwitchResponse> getSwitchMethod() {
+    io.grpc.MethodDescriptor<expressionService.Expression.SwitchRequest, expressionService.Expression.SwitchResponse> getSwitchMethod;
+    if ((getSwitchMethod = ExpressionServiceGrpc.getSwitchMethod) == null) {
+      synchronized (ExpressionServiceGrpc.class) {
+        if ((getSwitchMethod = ExpressionServiceGrpc.getSwitchMethod) == null) {
+          ExpressionServiceGrpc.getSwitchMethod = getSwitchMethod = 
+              io.grpc.MethodDescriptor.<expressionService.Expression.SwitchRequest, expressionService.Expression.SwitchResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "expressionService.ExpressionService", "Switch"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  expressionService.Expression.SwitchRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  expressionService.Expression.SwitchResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ExpressionServiceMethodDescriptorSupplier("Switch"))
+                  .build();
+          }
+        }
+     }
+     return getSwitchMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -307,6 +371,27 @@ public final class ExpressionServiceGrpc {
       asyncUnimplementedUnaryCall(getDeleteExpressionsMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * 获取当前表情模块状态
+     * </pre>
+     */
+    public void state(expressionService.Expression.StateRequest request,
+        io.grpc.stub.StreamObserver<expressionService.Expression.StateResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getStateMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 控制表情的开关
+     * 关闭时表现为黑屏
+     * </pre>
+     */
+    public void switch_(expressionService.Expression.SwitchRequest request,
+        io.grpc.stub.StreamObserver<expressionService.Expression.SwitchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSwitchMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -351,6 +436,20 @@ public final class ExpressionServiceGrpc {
                 expressionService.Expression.DeleteExpressionsRequest,
                 expressionService.Expression.DeleteExpressionsResponse>(
                   this, METHODID_DELETE_EXPRESSIONS)))
+          .addMethod(
+            getStateMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                expressionService.Expression.StateRequest,
+                expressionService.Expression.StateResponse>(
+                  this, METHODID_STATE)))
+          .addMethod(
+            getSwitchMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                expressionService.Expression.SwitchRequest,
+                expressionService.Expression.SwitchResponse>(
+                  this, METHODID_SWITCH)))
           .build();
     }
   }
@@ -439,6 +538,29 @@ public final class ExpressionServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getDeleteExpressionsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 获取当前表情模块状态
+     * </pre>
+     */
+    public void state(expressionService.Expression.StateRequest request,
+        io.grpc.stub.StreamObserver<expressionService.Expression.StateResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getStateMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 控制表情的开关
+     * 关闭时表现为黑屏
+     * </pre>
+     */
+    public void switch_(expressionService.Expression.SwitchRequest request,
+        io.grpc.stub.StreamObserver<expressionService.Expression.SwitchResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSwitchMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -518,6 +640,27 @@ public final class ExpressionServiceGrpc {
     public expressionService.Expression.DeleteExpressionsResponse deleteExpressions(expressionService.Expression.DeleteExpressionsRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeleteExpressionsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 获取当前表情模块状态
+     * </pre>
+     */
+    public expressionService.Expression.StateResponse state(expressionService.Expression.StateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getStateMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 控制表情的开关
+     * 关闭时表现为黑屏
+     * </pre>
+     */
+    public expressionService.Expression.SwitchResponse switch_(expressionService.Expression.SwitchRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getSwitchMethod(), getCallOptions(), request);
     }
   }
 
@@ -605,6 +748,29 @@ public final class ExpressionServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeleteExpressionsMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * 获取当前表情模块状态
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<expressionService.Expression.StateResponse> state(
+        expressionService.Expression.StateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getStateMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 控制表情的开关
+     * 关闭时表现为黑屏
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<expressionService.Expression.SwitchResponse> switch_(
+        expressionService.Expression.SwitchRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSwitchMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_PLAY_EXPRESSIONS = 0;
@@ -613,6 +779,8 @@ public final class ExpressionServiceGrpc {
   private static final int METHODID_RENAME = 3;
   private static final int METHODID_LIST_EXPRESSIONS = 4;
   private static final int METHODID_DELETE_EXPRESSIONS = 5;
+  private static final int METHODID_STATE = 6;
+  private static final int METHODID_SWITCH = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -654,6 +822,14 @@ public final class ExpressionServiceGrpc {
         case METHODID_DELETE_EXPRESSIONS:
           serviceImpl.deleteExpressions((expressionService.Expression.DeleteExpressionsRequest) request,
               (io.grpc.stub.StreamObserver<expressionService.Expression.DeleteExpressionsResponse>) responseObserver);
+          break;
+        case METHODID_STATE:
+          serviceImpl.state((expressionService.Expression.StateRequest) request,
+              (io.grpc.stub.StreamObserver<expressionService.Expression.StateResponse>) responseObserver);
+          break;
+        case METHODID_SWITCH:
+          serviceImpl.switch_((expressionService.Expression.SwitchRequest) request,
+              (io.grpc.stub.StreamObserver<expressionService.Expression.SwitchResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -722,6 +898,8 @@ public final class ExpressionServiceGrpc {
               .addMethod(getRenameMethod())
               .addMethod(getListExpressionsMethod())
               .addMethod(getDeleteExpressionsMethod())
+              .addMethod(getStateMethod())
+              .addMethod(getSwitchMethod())
               .build();
         }
       }

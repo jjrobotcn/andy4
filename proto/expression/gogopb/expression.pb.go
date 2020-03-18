@@ -54,7 +54,7 @@ func (m *ExpressionInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, erro
 		return xxx_messageInfo_ExpressionInfo.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -124,7 +124,7 @@ func (m *PlayExpressionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return xxx_messageInfo_PlayExpressionsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -185,7 +185,7 @@ func (m *PlayExpressionsResponse) XXX_Marshal(b []byte, deterministic bool) ([]b
 		return xxx_messageInfo_PlayExpressionsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -225,7 +225,7 @@ func (m *StopExpressionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byt
 		return xxx_messageInfo_StopExpressionRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -265,7 +265,7 @@ func (m *StopExpressionResponse) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return xxx_messageInfo_StopExpressionResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -310,7 +310,7 @@ func (m *UploadExpressionFileRequest) XXX_Marshal(b []byte, deterministic bool) 
 		return xxx_messageInfo_UploadExpressionFileRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -366,7 +366,7 @@ func (m *UploadExpressionFileResponse) XXX_Marshal(b []byte, deterministic bool)
 		return xxx_messageInfo_UploadExpressionFileResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -413,7 +413,7 @@ func (m *ListExpressionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return xxx_messageInfo_ListExpressionsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -455,7 +455,7 @@ func (m *ListExpressionsResponse) XXX_Marshal(b []byte, deterministic bool) ([]b
 		return xxx_messageInfo_ListExpressionsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -504,7 +504,7 @@ func (m *DeleteExpressionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return xxx_messageInfo_DeleteExpressionsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -551,7 +551,7 @@ func (m *DeleteExpressionsResponse) XXX_Marshal(b []byte, deterministic bool) ([
 		return xxx_messageInfo_DeleteExpressionsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -595,7 +595,7 @@ func (m *RenameRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error
 		return xxx_messageInfo_RenameRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -653,7 +653,7 @@ func (m *RenameResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, erro
 		return xxx_messageInfo_RenameResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -686,6 +686,198 @@ func (m *RenameResponse) GetName() string {
 	return ""
 }
 
+type StateRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StateRequest) Reset()         { *m = StateRequest{} }
+func (m *StateRequest) String() string { return proto.CompactTextString(m) }
+func (*StateRequest) ProtoMessage()    {}
+func (*StateRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fcc7550768b3bd34, []int{13}
+}
+func (m *StateRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StateRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StateRequest.Merge(m, src)
+}
+func (m *StateRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *StateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StateRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StateRequest proto.InternalMessageInfo
+
+type StateResponse struct {
+	// 当前是否启用
+	IsActive bool `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	// 当前是否在播放中
+	IsPlaying            bool     `protobuf:"varint,2,opt,name=is_playing,json=isPlaying,proto3" json:"is_playing,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StateResponse) Reset()         { *m = StateResponse{} }
+func (m *StateResponse) String() string { return proto.CompactTextString(m) }
+func (*StateResponse) ProtoMessage()    {}
+func (*StateResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fcc7550768b3bd34, []int{14}
+}
+func (m *StateResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StateResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StateResponse.Merge(m, src)
+}
+func (m *StateResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *StateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StateResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StateResponse proto.InternalMessageInfo
+
+func (m *StateResponse) GetIsActive() bool {
+	if m != nil {
+		return m.IsActive
+	}
+	return false
+}
+
+func (m *StateResponse) GetIsPlaying() bool {
+	if m != nil {
+		return m.IsPlaying
+	}
+	return false
+}
+
+type SwitchRequest struct {
+	// 启用与关闭
+	Active               bool     `protobuf:"varint,1,opt,name=active,proto3" json:"active,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchRequest) Reset()         { *m = SwitchRequest{} }
+func (m *SwitchRequest) String() string { return proto.CompactTextString(m) }
+func (*SwitchRequest) ProtoMessage()    {}
+func (*SwitchRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fcc7550768b3bd34, []int{15}
+}
+func (m *SwitchRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchRequest.Merge(m, src)
+}
+func (m *SwitchRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchRequest proto.InternalMessageInfo
+
+func (m *SwitchRequest) GetActive() bool {
+	if m != nil {
+		return m.Active
+	}
+	return false
+}
+
+type SwitchResponse struct {
+	// 当前是否启用
+	IsActive             bool     `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchResponse) Reset()         { *m = SwitchResponse{} }
+func (m *SwitchResponse) String() string { return proto.CompactTextString(m) }
+func (*SwitchResponse) ProtoMessage()    {}
+func (*SwitchResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fcc7550768b3bd34, []int{16}
+}
+func (m *SwitchResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchResponse.Merge(m, src)
+}
+func (m *SwitchResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchResponse proto.InternalMessageInfo
+
+func (m *SwitchResponse) GetIsActive() bool {
+	if m != nil {
+		return m.IsActive
+	}
+	return false
+}
+
 func init() {
 	proto.RegisterType((*ExpressionInfo)(nil), "expressionService.ExpressionInfo")
 	proto.RegisterType((*PlayExpressionsRequest)(nil), "expressionService.PlayExpressionsRequest")
@@ -700,50 +892,62 @@ func init() {
 	proto.RegisterType((*DeleteExpressionsResponse)(nil), "expressionService.DeleteExpressionsResponse")
 	proto.RegisterType((*RenameRequest)(nil), "expressionService.RenameRequest")
 	proto.RegisterType((*RenameResponse)(nil), "expressionService.RenameResponse")
+	proto.RegisterType((*StateRequest)(nil), "expressionService.StateRequest")
+	proto.RegisterType((*StateResponse)(nil), "expressionService.StateResponse")
+	proto.RegisterType((*SwitchRequest)(nil), "expressionService.SwitchRequest")
+	proto.RegisterType((*SwitchResponse)(nil), "expressionService.SwitchResponse")
 }
 
 func init() { proto.RegisterFile("expression.proto", fileDescriptor_fcc7550768b3bd34) }
 
 var fileDescriptor_fcc7550768b3bd34 = []byte{
-	// 606 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x95, 0xcf, 0x6e, 0xd3, 0x4a,
-	0x14, 0xc6, 0xef, 0xa4, 0x55, 0x75, 0x73, 0xda, 0xb8, 0x64, 0x04, 0x8d, 0xe3, 0x96, 0x90, 0x0e,
-	0x54, 0xa4, 0x01, 0x12, 0x94, 0x46, 0x5d, 0xb0, 0xa3, 0x22, 0x48, 0xa0, 0x2e, 0x90, 0x4b, 0xd7,
-	0x91, 0x8b, 0xa7, 0xd1, 0x20, 0xd7, 0x63, 0x3c, 0xd3, 0x40, 0xb6, 0xbc, 0x02, 0x2c, 0x58, 0xc2,
-	0xdb, 0xb0, 0x44, 0xe2, 0x05, 0x50, 0xc4, 0x1b, 0xf0, 0x02, 0xc8, 0x93, 0x49, 0xe3, 0x38, 0xd3,
-	0xc8, 0x0b, 0x76, 0xf1, 0xcc, 0xf9, 0xf3, 0x3b, 0x67, 0xbe, 0x4f, 0x81, 0x1b, 0xf4, 0x43, 0x14,
-	0x53, 0x21, 0x18, 0x0f, 0x5b, 0x51, 0xcc, 0x25, 0xc7, 0xe5, 0xd9, 0xc9, 0x09, 0x8d, 0x87, 0xec,
-	0x0d, 0x75, 0x76, 0x06, 0x9c, 0x0f, 0x02, 0xda, 0xf6, 0x22, 0xd6, 0xf6, 0xc2, 0x90, 0x4b, 0x4f,
-	0x32, 0x1e, 0x8a, 0x49, 0x02, 0x39, 0x05, 0xab, 0x77, 0x95, 0xf2, 0x22, 0x3c, 0xe7, 0xd8, 0x82,
-	0x02, 0xf3, 0x6d, 0x54, 0x47, 0x8d, 0xa2, 0x5b, 0x60, 0x3e, 0xc6, 0xb0, 0x1a, 0x7a, 0x17, 0xd4,
-	0x2e, 0xa8, 0x13, 0xf5, 0x1b, 0xdf, 0x81, 0xf5, 0x28, 0xa6, 0x43, 0x46, 0xdf, 0xf7, 0xcf, 0x0e,
-	0xbb, 0xf6, 0x8a, 0xba, 0x02, 0x7d, 0x74, 0x74, 0xd8, 0x25, 0xdf, 0x10, 0x6c, 0xbd, 0x0a, 0xbc,
-	0xd1, 0xac, 0xb6, 0x70, 0xe9, 0xbb, 0x4b, 0x2a, 0x24, 0x3e, 0x4e, 0x63, 0x8b, 0x3e, 0x0b, 0xcf,
-	0xb9, 0x8d, 0xea, 0x2b, 0x8d, 0xf5, 0xce, 0x6e, 0x6b, 0x81, 0xbe, 0x35, 0x0f, 0xe7, 0x6e, 0xa6,
-	0x52, 0x15, 0xed, 0x6d, 0x80, 0x80, 0xf3, 0xa8, 0x2f, 0xd9, 0x05, 0x15, 0x8a, 0xb1, 0xe4, 0x16,
-	0x93, 0x93, 0xd7, 0xc9, 0x01, 0x76, 0xe0, 0x7f, 0xff, 0x32, 0x56, 0x13, 0x2b, 0xca, 0x92, 0x7b,
-	0xf5, 0x4d, 0xaa, 0x50, 0x59, 0x40, 0x14, 0x11, 0x0f, 0x05, 0x25, 0x15, 0xb8, 0x75, 0x22, 0x79,
-	0x34, 0xbb, 0xd2, 0xf0, 0xc4, 0x86, 0xad, 0xec, 0x85, 0x4e, 0xe9, 0xc1, 0xf6, 0x69, 0x14, 0x70,
-	0xcf, 0x9f, 0xdd, 0x3d, 0x67, 0x01, 0x9d, 0x4e, 0x3d, 0xdd, 0x22, 0x4a, 0x6d, 0x11, 0xc3, 0xaa,
-	0xef, 0x49, 0x4f, 0x51, 0x6f, 0xb8, 0xea, 0x37, 0x79, 0x0b, 0x3b, 0xe6, 0x32, 0x93, 0x36, 0xf8,
-	0x25, 0xa4, 0x56, 0x30, 0x5d, 0x1e, 0xca, 0xb7, 0x3c, 0x8b, 0xce, 0x7d, 0x27, 0xc3, 0x1c, 0x33,
-	0x21, 0x17, 0xdf, 0x88, 0x0c, 0xa0, 0xb2, 0x70, 0xa3, 0x01, 0xfe, 0xe9, 0xf3, 0x91, 0xa7, 0x60,
-	0x3f, 0xa3, 0x01, 0x95, 0xd4, 0x20, 0x94, 0x3d, 0xb0, 0xe6, 0x3a, 0xf9, 0xaa, 0x4f, 0xd1, 0x2d,
-	0xa5, 0x8b, 0xf8, 0x64, 0x1b, 0xaa, 0x86, 0x12, 0xfa, 0x55, 0x0e, 0xa0, 0xe4, 0xd2, 0x64, 0xd9,
-	0xd3, 0xa2, 0x39, 0xd4, 0x4d, 0xba, 0x60, 0x4d, 0x93, 0xf4, 0xd0, 0x39, 0xb2, 0x3a, 0x7f, 0xd6,
-	0xa0, 0xdc, 0xcb, 0x2e, 0x00, 0x7f, 0x41, 0xb0, 0x99, 0x51, 0x19, 0xde, 0x37, 0x2c, 0xca, 0x6c,
-	0x16, 0xa7, 0x99, 0x27, 0x54, 0xcf, 0xda, 0xfa, 0xf8, 0xf3, 0xf7, 0xa7, 0x42, 0x83, 0xdc, 0x55,
-	0x56, 0x1f, 0x76, 0xda, 0xb3, 0xd4, 0x76, 0x14, 0x78, 0xa3, 0x7e, 0x6a, 0x6f, 0x4f, 0x50, 0x13,
-	0x7f, 0x46, 0x60, 0xcd, 0x8b, 0x19, 0x37, 0x0c, 0xed, 0x8c, 0x46, 0x70, 0xf6, 0x73, 0x44, 0x6a,
-	0xae, 0x47, 0x8a, 0xeb, 0x3e, 0x21, 0x06, 0x2e, 0x21, 0x79, 0x94, 0xe2, 0x4a, 0xb0, 0x46, 0x70,
-	0xd3, 0xe4, 0x00, 0xdc, 0x32, 0x74, 0x5c, 0xe2, 0x38, 0xa7, 0x9d, 0x3b, 0x5e, 0x73, 0xfe, 0x87,
-	0x05, 0xac, 0x4d, 0x1e, 0x1e, 0xd7, 0x0d, 0xc9, 0x73, 0x42, 0x72, 0x76, 0x97, 0x44, 0xe8, 0x82,
-	0xf7, 0xd4, 0xe0, 0x35, 0x52, 0x35, 0x0c, 0x1e, 0xab, 0xd0, 0x64, 0xde, 0x44, 0x21, 0x19, 0xb3,
-	0x19, 0x15, 0x62, 0xb6, 0xaa, 0x51, 0x21, 0xd7, 0x78, 0x77, 0xa9, 0x42, 0x02, 0x26, 0x64, 0x56,
-	0x21, 0x5f, 0x11, 0x94, 0x17, 0xbc, 0x85, 0x1f, 0x18, 0x3a, 0x5e, 0x67, 0x62, 0xe7, 0x61, 0xbe,
-	0x60, 0x0d, 0xf8, 0x58, 0x01, 0x36, 0xc9, 0x9e, 0x01, 0xd0, 0x57, 0x59, 0x19, 0xc4, 0xa3, 0x8d,
-	0xef, 0xe3, 0x1a, 0xfa, 0x31, 0xae, 0xa1, 0x5f, 0xe3, 0x1a, 0x3a, 0x5b, 0x53, 0x7f, 0x6a, 0x07,
-	0x7f, 0x03, 0x00, 0x00, 0xff, 0xff, 0xa5, 0x3d, 0xc4, 0xfa, 0x19, 0x07, 0x00, 0x00,
+	// 727 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x56, 0xcd, 0x4e, 0xdb, 0x4a,
+	0x14, 0xbe, 0x13, 0xb8, 0x51, 0x72, 0x20, 0xe6, 0x32, 0xba, 0x17, 0x8c, 0xe1, 0x86, 0x30, 0x2d,
+	0x22, 0xa4, 0x25, 0xa9, 0x00, 0xb1, 0x60, 0x07, 0x2a, 0x95, 0xda, 0xb2, 0x40, 0x4e, 0x59, 0x47,
+	0x06, 0x0f, 0xe9, 0x54, 0xc6, 0xe3, 0x66, 0x86, 0x50, 0xb6, 0x7d, 0x85, 0x76, 0xd1, 0x65, 0xfb,
+	0x36, 0x5d, 0x56, 0xaa, 0xd4, 0x75, 0x85, 0xfa, 0x20, 0x95, 0x27, 0x63, 0x62, 0x27, 0x43, 0xe4,
+	0x45, 0x77, 0x9e, 0x33, 0xe7, 0xe7, 0x3b, 0xe7, 0x7c, 0xf3, 0xc9, 0xf0, 0x0f, 0x7d, 0x17, 0xf5,
+	0xa8, 0x10, 0x8c, 0x87, 0xcd, 0xa8, 0xc7, 0x25, 0xc7, 0xf3, 0x43, 0x4b, 0x9b, 0xf6, 0xfa, 0xec,
+	0x9c, 0x3a, 0x2b, 0x5d, 0xce, 0xbb, 0x01, 0x6d, 0x79, 0x11, 0x6b, 0x79, 0x61, 0xc8, 0xa5, 0x27,
+	0x19, 0x0f, 0xc5, 0x20, 0x80, 0x9c, 0x82, 0x75, 0x74, 0x17, 0xf2, 0x3c, 0xbc, 0xe0, 0xd8, 0x82,
+	0x02, 0xf3, 0x6d, 0x54, 0x43, 0xf5, 0xb2, 0x5b, 0x60, 0x3e, 0xc6, 0x30, 0x1d, 0x7a, 0x97, 0xd4,
+	0x2e, 0x28, 0x8b, 0xfa, 0xc6, 0xab, 0x30, 0x13, 0xf5, 0x68, 0x9f, 0xd1, 0xeb, 0xce, 0xd9, 0xde,
+	0xae, 0x3d, 0xa5, 0xae, 0x40, 0x9b, 0x0e, 0xf7, 0x76, 0xc9, 0x17, 0x04, 0x0b, 0x27, 0x81, 0x77,
+	0x33, 0xcc, 0x2d, 0x5c, 0xfa, 0xf6, 0x8a, 0x0a, 0x89, 0x8f, 0xd3, 0xb0, 0x45, 0x87, 0x85, 0x17,
+	0xdc, 0x46, 0xb5, 0xa9, 0xfa, 0xcc, 0xf6, 0x5a, 0x73, 0x0c, 0x7d, 0x33, 0x0b, 0xce, 0x9d, 0x4b,
+	0x85, 0x2a, 0xb4, 0xff, 0x03, 0x04, 0x9c, 0x47, 0x1d, 0xc9, 0x2e, 0xa9, 0x50, 0x18, 0x2b, 0x6e,
+	0x39, 0xb6, 0xbc, 0x8a, 0x0d, 0xd8, 0x81, 0x92, 0x7f, 0xd5, 0x53, 0x1d, 0x2b, 0x94, 0x15, 0xf7,
+	0xee, 0x4c, 0x96, 0x60, 0x71, 0x0c, 0xa2, 0x88, 0x78, 0x28, 0x28, 0x59, 0x84, 0xff, 0xda, 0x92,
+	0x47, 0xc3, 0x2b, 0x0d, 0x9e, 0xd8, 0xb0, 0x30, 0x7a, 0xa1, 0x43, 0x8e, 0x60, 0xf9, 0x34, 0x0a,
+	0xb8, 0xe7, 0x0f, 0xef, 0x9e, 0xb1, 0x80, 0x26, 0x5d, 0x27, 0x53, 0x44, 0xa9, 0x29, 0x62, 0x98,
+	0xf6, 0x3d, 0xe9, 0x29, 0xd4, 0xb3, 0xae, 0xfa, 0x26, 0x6f, 0x60, 0xc5, 0x9c, 0x66, 0x50, 0x06,
+	0xbf, 0x80, 0xd4, 0x08, 0x92, 0xe1, 0xa1, 0x7c, 0xc3, 0xb3, 0x68, 0xe6, 0x1c, 0x37, 0x73, 0xcc,
+	0x84, 0x1c, 0xdf, 0x11, 0xe9, 0xc2, 0xe2, 0xd8, 0x8d, 0x06, 0xf0, 0x47, 0xd7, 0x47, 0x0e, 0xc0,
+	0x7e, 0x4a, 0x03, 0x2a, 0xa9, 0x81, 0x28, 0xeb, 0x60, 0x65, 0x2a, 0xf9, 0xaa, 0x4e, 0xd9, 0xad,
+	0xa4, 0x93, 0xf8, 0x64, 0x19, 0x96, 0x0c, 0x29, 0xf4, 0x56, 0x76, 0xa0, 0xe2, 0xd2, 0x78, 0xd8,
+	0x49, 0xd2, 0x1c, 0xec, 0x26, 0xbb, 0x60, 0x25, 0x41, 0xba, 0xe9, 0x3c, 0x51, 0x16, 0xcc, 0xb6,
+	0xa5, 0x27, 0x93, 0x4a, 0xe4, 0x25, 0x54, 0xf4, 0x59, 0x27, 0x59, 0x86, 0x32, 0x13, 0x1d, 0xef,
+	0x5c, 0xb2, 0xfe, 0x80, 0x07, 0x25, 0xb7, 0xc4, 0xc4, 0x81, 0x3a, 0xc7, 0x3c, 0x66, 0xa2, 0x13,
+	0x05, 0xde, 0x0d, 0x0b, 0xbb, 0x2a, 0x6f, 0xc9, 0x2d, 0x33, 0x71, 0x32, 0x30, 0x90, 0x0d, 0xa8,
+	0xb4, 0xaf, 0x99, 0x3c, 0x7f, 0x9d, 0xf4, 0xb1, 0x00, 0xc5, 0x4c, 0x26, 0x7d, 0x22, 0x5b, 0x60,
+	0x25, 0x8e, 0x39, 0xca, 0x6e, 0xff, 0x28, 0xc1, 0xfc, 0xd1, 0xe8, 0xd6, 0xf0, 0x27, 0x04, 0x73,
+	0x23, 0x4f, 0x03, 0x6f, 0x1a, 0xb6, 0x6b, 0x7e, 0xe1, 0x4e, 0x23, 0x8f, 0xab, 0x5e, 0x50, 0xf3,
+	0xfd, 0xf7, 0x5f, 0x1f, 0x0a, 0x75, 0xf2, 0x40, 0xe9, 0x53, 0x7f, 0xbb, 0x35, 0x0c, 0x6d, 0xc5,
+	0xd3, 0xe8, 0xa4, 0x96, 0xbd, 0x8f, 0x1a, 0xf8, 0x23, 0x02, 0x2b, 0xfb, 0x02, 0x71, 0xdd, 0x50,
+	0xce, 0xf8, 0x7a, 0x9d, 0xcd, 0x1c, 0x9e, 0x1a, 0xd7, 0x96, 0xc2, 0xb5, 0x41, 0x88, 0x01, 0x97,
+	0x90, 0x3c, 0x4a, 0xe1, 0x8a, 0x61, 0xdd, 0xc0, 0xbf, 0xa6, 0x67, 0x8b, 0x9b, 0x86, 0x8a, 0x13,
+	0x64, 0xc2, 0x69, 0xe5, 0xf6, 0xd7, 0x38, 0xff, 0xc2, 0x02, 0x8a, 0x03, 0xb6, 0xe2, 0x9a, 0x21,
+	0x38, 0xc3, 0x7e, 0x67, 0x6d, 0x82, 0x87, 0x4e, 0xf8, 0x50, 0x35, 0x5e, 0x25, 0x4b, 0x86, 0xc6,
+	0x7b, 0xca, 0x35, 0xee, 0x37, 0x66, 0xc8, 0x88, 0x42, 0x18, 0x19, 0x62, 0xd6, 0x17, 0x23, 0x43,
+	0xee, 0x11, 0x9c, 0x89, 0x0c, 0x09, 0x98, 0x90, 0xa3, 0x0c, 0xf9, 0x8c, 0x60, 0x7e, 0x4c, 0x10,
+	0xf0, 0x23, 0x43, 0xc5, 0xfb, 0x94, 0xc7, 0x79, 0x9c, 0xcf, 0x59, 0x03, 0x7c, 0xa2, 0x00, 0x36,
+	0xc8, 0xba, 0x01, 0xa0, 0xaf, 0xa2, 0x46, 0x21, 0x06, 0xf0, 0xb7, 0x92, 0x06, 0xbc, 0x6a, 0x24,
+	0xe4, 0x50, 0x44, 0x9c, 0xda, 0xfd, 0x0e, 0xba, 0x7a, 0x4d, 0x55, 0x77, 0xb0, 0x6d, 0x24, 0x6a,
+	0x5c, 0x44, 0x40, 0x71, 0x20, 0x09, 0x46, 0x82, 0x64, 0x64, 0xc5, 0x48, 0x90, 0xac, 0x9e, 0x4c,
+	0x24, 0x88, 0x50, 0xae, 0xfb, 0xa8, 0x71, 0x38, 0xfb, 0xf5, 0xb6, 0x8a, 0xbe, 0xdd, 0x56, 0xd1,
+	0xcf, 0xdb, 0x2a, 0x3a, 0x2b, 0xaa, 0x9f, 0x8d, 0x9d, 0xdf, 0x01, 0x00, 0x00, 0xff, 0xff, 0x40,
+	0x67, 0x22, 0x82, 0xb1, 0x08, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -771,6 +975,11 @@ type ExpressionServiceClient interface {
 	ListExpressions(ctx context.Context, in *ListExpressionsRequest, opts ...grpc.CallOption) (*ListExpressionsResponse, error)
 	// 删除表情
 	DeleteExpressions(ctx context.Context, in *DeleteExpressionsRequest, opts ...grpc.CallOption) (*DeleteExpressionsResponse, error)
+	// 获取当前表情模块状态
+	State(ctx context.Context, in *StateRequest, opts ...grpc.CallOption) (*StateResponse, error)
+	// 控制表情的开关
+	// 关闭时表现为黑屏
+	Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error)
 }
 
 type expressionServiceClient struct {
@@ -835,6 +1044,24 @@ func (c *expressionServiceClient) DeleteExpressions(ctx context.Context, in *Del
 	return out, nil
 }
 
+func (c *expressionServiceClient) State(ctx context.Context, in *StateRequest, opts ...grpc.CallOption) (*StateResponse, error) {
+	out := new(StateResponse)
+	err := c.cc.Invoke(ctx, "/expressionService.ExpressionService/State", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *expressionServiceClient) Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error) {
+	out := new(SwitchResponse)
+	err := c.cc.Invoke(ctx, "/expressionService.ExpressionService/Switch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ExpressionServiceServer is the server API for ExpressionService service.
 type ExpressionServiceServer interface {
 	// 播放表情
@@ -850,6 +1077,11 @@ type ExpressionServiceServer interface {
 	ListExpressions(context.Context, *ListExpressionsRequest) (*ListExpressionsResponse, error)
 	// 删除表情
 	DeleteExpressions(context.Context, *DeleteExpressionsRequest) (*DeleteExpressionsResponse, error)
+	// 获取当前表情模块状态
+	State(context.Context, *StateRequest) (*StateResponse, error)
+	// 控制表情的开关
+	// 关闭时表现为黑屏
+	Switch(context.Context, *SwitchRequest) (*SwitchResponse, error)
 }
 
 // UnimplementedExpressionServiceServer can be embedded to have forward compatible implementations.
@@ -873,6 +1105,12 @@ func (*UnimplementedExpressionServiceServer) ListExpressions(ctx context.Context
 }
 func (*UnimplementedExpressionServiceServer) DeleteExpressions(ctx context.Context, req *DeleteExpressionsRequest) (*DeleteExpressionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteExpressions not implemented")
+}
+func (*UnimplementedExpressionServiceServer) State(ctx context.Context, req *StateRequest) (*StateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method State not implemented")
+}
+func (*UnimplementedExpressionServiceServer) Switch(ctx context.Context, req *SwitchRequest) (*SwitchResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Switch not implemented")
 }
 
 func RegisterExpressionServiceServer(s *grpc.Server, srv ExpressionServiceServer) {
@@ -987,6 +1225,42 @@ func _ExpressionService_DeleteExpressions_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ExpressionService_State_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExpressionServiceServer).State(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/expressionService.ExpressionService/State",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExpressionServiceServer).State(ctx, req.(*StateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExpressionService_Switch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwitchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExpressionServiceServer).Switch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/expressionService.ExpressionService/Switch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExpressionServiceServer).Switch(ctx, req.(*SwitchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _ExpressionService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "expressionService.ExpressionService",
 	HandlerType: (*ExpressionServiceServer)(nil),
@@ -1015,6 +1289,14 @@ var _ExpressionService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "DeleteExpressions",
 			Handler:    _ExpressionService_DeleteExpressions_Handler,
 		},
+		{
+			MethodName: "State",
+			Handler:    _ExpressionService_State_Handler,
+		},
+		{
+			MethodName: "Switch",
+			Handler:    _ExpressionService_Switch_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "expression.proto",
@@ -1023,7 +1305,7 @@ var _ExpressionService_serviceDesc = grpc.ServiceDesc{
 func (m *ExpressionInfo) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1031,38 +1313,47 @@ func (m *ExpressionInfo) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ExpressionInfo) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ExpressionInfo) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
-	}
-	if len(m.Name) > 0 {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.PreviewB64) > 0 {
-		dAtA[i] = 0x1a
-		i++
+		i -= len(m.PreviewB64)
+		copy(dAtA[i:], m.PreviewB64)
 		i = encodeVarintExpression(dAtA, i, uint64(len(m.PreviewB64)))
-		i += copy(dAtA[i:], m.PreviewB64)
+		i--
+		dAtA[i] = 0x1a
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintExpression(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x12
 	}
-	return i, nil
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintExpression(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *PlayExpressionsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1070,42 +1361,50 @@ func (m *PlayExpressionsRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PlayExpressionsRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PlayExpressionsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.ExpressionsInfo) > 0 {
-		for _, msg := range m.ExpressionsInfo {
-			dAtA[i] = 0xa
-			i++
-			i = encodeVarintExpression(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
-			}
-			i += n
-		}
-	}
-	if m.LoopTimes != 0 {
-		dAtA[i] = 0x10
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(m.LoopTimes))
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.Duration != 0 {
-		dAtA[i] = 0x18
-		i++
 		i = encodeVarintExpression(dAtA, i, uint64(m.Duration))
+		i--
+		dAtA[i] = 0x18
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.LoopTimes != 0 {
+		i = encodeVarintExpression(dAtA, i, uint64(m.LoopTimes))
+		i--
+		dAtA[i] = 0x10
 	}
-	return i, nil
+	if len(m.ExpressionsInfo) > 0 {
+		for iNdEx := len(m.ExpressionsInfo) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.ExpressionsInfo[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintExpression(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *PlayExpressionsResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1113,20 +1412,26 @@ func (m *PlayExpressionsResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PlayExpressionsResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PlayExpressionsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *StopExpressionRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1134,20 +1439,26 @@ func (m *StopExpressionRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *StopExpressionRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StopExpressionRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *StopExpressionResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1155,20 +1466,26 @@ func (m *StopExpressionResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *StopExpressionResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StopExpressionResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *UploadExpressionFileRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1176,32 +1493,40 @@ func (m *UploadExpressionFileRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *UploadExpressionFileRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UploadExpressionFileRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Name) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Data) > 0 {
-		dAtA[i] = 0x12
-		i++
+		i -= len(m.Data)
+		copy(dAtA[i:], m.Data)
 		i = encodeVarintExpression(dAtA, i, uint64(len(m.Data)))
-		i += copy(dAtA[i:], m.Data)
+		i--
+		dAtA[i] = 0x12
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintExpression(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0xa
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *UploadExpressionFileResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1209,30 +1534,38 @@ func (m *UploadExpressionFileResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *UploadExpressionFileResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UploadExpressionFileResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.ExpressionInfo != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(m.ExpressionInfo.Size()))
-		n1, err1 := m.ExpressionInfo.MarshalTo(dAtA[i:])
-		if err1 != nil {
-			return 0, err1
-		}
-		i += n1
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.ExpressionInfo != nil {
+		{
+			size, err := m.ExpressionInfo.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintExpression(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *ListExpressionsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1240,20 +1573,26 @@ func (m *ListExpressionsRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ListExpressionsRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ListExpressionsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *ListExpressionsResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1261,32 +1600,40 @@ func (m *ListExpressionsResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ListExpressionsResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ListExpressionsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.ExpressionsInfo) > 0 {
-		for _, msg := range m.ExpressionsInfo {
-			dAtA[i] = 0xa
-			i++
-			i = encodeVarintExpression(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
+		for iNdEx := len(m.ExpressionsInfo) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.ExpressionsInfo[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintExpression(dAtA, i, uint64(size))
 			}
-			i += n
+			i--
+			dAtA[i] = 0xa
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *DeleteExpressionsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1294,35 +1641,35 @@ func (m *DeleteExpressionsRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *DeleteExpressionsRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *DeleteExpressionsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.ExpressionsId) > 0 {
-		for _, s := range m.ExpressionsId {
+		for iNdEx := len(m.ExpressionsId) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.ExpressionsId[iNdEx])
+			copy(dAtA[i:], m.ExpressionsId[iNdEx])
+			i = encodeVarintExpression(dAtA, i, uint64(len(m.ExpressionsId[iNdEx])))
+			i--
 			dAtA[i] = 0xa
-			i++
-			l = len(s)
-			for l >= 1<<7 {
-				dAtA[i] = uint8(uint64(l)&0x7f | 0x80)
-				l >>= 7
-				i++
-			}
-			dAtA[i] = uint8(l)
-			i++
-			i += copy(dAtA[i:], s)
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *DeleteExpressionsResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1330,20 +1677,26 @@ func (m *DeleteExpressionsResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *DeleteExpressionsResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *DeleteExpressionsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *RenameRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1351,32 +1704,40 @@ func (m *RenameRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *RenameRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RenameRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Name) > 0 {
-		dAtA[i] = 0x12
-		i++
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
 		i = encodeVarintExpression(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+		i--
+		dAtA[i] = 0x12
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintExpression(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0xa
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *RenameResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1384,36 +1745,194 @@ func (m *RenameResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *RenameResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RenameResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintExpression(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Name) > 0 {
-		dAtA[i] = 0x12
-		i++
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
 		i = encodeVarintExpression(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+		i--
+		dAtA[i] = 0x12
 	}
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintExpression(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *StateRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StateRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StateRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
+}
+
+func (m *StateResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StateResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.IsPlaying {
+		i--
+		if m.IsPlaying {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.IsActive {
+		i--
+		if m.IsActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Active {
+		i--
+		if m.Active {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.IsActive {
+		i--
+		if m.IsActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func encodeVarintExpression(dAtA []byte, offset int, v uint64) int {
+	offset -= sovExpression(v)
+	base := offset
 	for v >= 1<<7 {
 		dAtA[offset] = uint8(v&0x7f | 0x80)
 		v >>= 7
 		offset++
 	}
 	dAtA[offset] = uint8(v)
-	return offset + 1
+	return base
 }
 func (m *ExpressionInfo) Size() (n int) {
 	if m == nil {
@@ -1628,6 +2147,66 @@ func (m *RenameResponse) Size() (n int) {
 	l = len(m.Name)
 	if l > 0 {
 		n += 1 + l + sovExpression(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *StateRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *StateResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.IsActive {
+		n += 2
+	}
+	if m.IsPlaying {
+		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Active {
+		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.IsActive {
+		n += 2
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -2782,6 +3361,302 @@ func (m *RenameResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.Name = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipExpression(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StateRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowExpression
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StateRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StateRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipExpression(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StateResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowExpression
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StateResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowExpression
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsActive = bool(v != 0)
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsPlaying", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowExpression
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsPlaying = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipExpression(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowExpression
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SwitchRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SwitchRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Active", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowExpression
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.Active = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipExpression(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthExpression
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowExpression
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SwitchResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SwitchResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowExpression
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsActive = bool(v != 0)
 		default:
 			iNdEx = preIndex
 			skippy, err := skipExpression(dAtA[iNdEx:])

@@ -17,8 +17,12 @@
 @class PlayExpressionsResponse;
 @class RenameRequest;
 @class RenameResponse;
+@class StateRequest;
+@class StateResponse;
 @class StopExpressionRequest;
 @class StopExpressionResponse;
+@class SwitchRequest;
+@class SwitchResponse;
 @class UploadExpressionFileRequest;
 @class UploadExpressionFileResponse;
 
@@ -79,6 +83,21 @@ NS_ASSUME_NONNULL_BEGIN
  * 删除表情
  */
 - (GRPCUnaryProtoCall *)deleteExpressionsWithMessage:(DeleteExpressionsRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark State(StateRequest) returns (StateResponse)
+
+/**
+ * 获取当前表情模块状态
+ */
+- (GRPCUnaryProtoCall *)stateWithMessage:(StateRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+/**
+ * 控制表情的开关
+ * 关闭时表现为黑屏
+ */
+- (GRPCUnaryProtoCall *)switchWithMessage:(SwitchRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 @end
 
@@ -190,6 +209,42 @@ NS_ASSUME_NONNULL_BEGIN
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (GRPCProtoCall *)RPCToDeleteExpressionsWithRequest:(DeleteExpressionsRequest *)request handler:(void(^)(DeleteExpressionsResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark State(StateRequest) returns (StateResponse)
+
+/**
+ * 获取当前表情模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)stateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 获取当前表情模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToStateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+/**
+ * 控制表情的开关
+ * 关闭时表现为黑屏
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)switchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 控制表情的开关
+ * 关闭时表现为黑屏
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToSwitchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

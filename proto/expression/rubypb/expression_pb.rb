@@ -47,6 +47,18 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :id, :string, 1
       optional :name, :string, 2
     end
+    add_message "expressionService.StateRequest" do
+    end
+    add_message "expressionService.StateResponse" do
+      optional :is_active, :bool, 1
+      optional :is_playing, :bool, 2
+    end
+    add_message "expressionService.SwitchRequest" do
+      optional :active, :bool, 1
+    end
+    add_message "expressionService.SwitchResponse" do
+      optional :is_active, :bool, 1
+    end
   end
 end
 
@@ -64,4 +76,8 @@ module ExpressionService
   DeleteExpressionsResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.DeleteExpressionsResponse").msgclass
   RenameRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.RenameRequest").msgclass
   RenameResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.RenameResponse").msgclass
+  StateRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.StateRequest").msgclass
+  StateResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.StateResponse").msgclass
+  SwitchRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.SwitchRequest").msgclass
+  SwitchResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("expressionService.SwitchResponse").msgclass
 end
