@@ -44,7 +44,7 @@ namespace PowerService {
             "C01vZHVsZVR5cGVzEhUKEVVua25vd25Nb2R1bGVUeXBlEAASCAoETWFpbhAB",
             "EgoKBkVzY1BvcxACEgoKBlNjcmVlbhADEgoKBlNlbnNvchAEEgoKBlNwZWVj",
             "aBAFEgoKBkxpZ2h0cxAGEg4KCkV4cHJlc3Npb24QBxINCglOYXZpZ2F0b3IQ",
-            "CBIKCgZNb3Rpb24QCRINCglBbXBsaWZpZXIQCjLCAwoMUG93ZXJTZXJ2aWNl",
+            "CBIKCgZNb3Rpb24QCRINCglBbXBsaWZpZXIQCjLFAwoMUG93ZXJTZXJ2aWNl",
             "EoUBCg5HZXRQb3dlclN0YXR1cxIjLnBvd2VyU2VydmljZS5HZXRQb3dlclN0",
             "YXR1c1JlcXVlc3QaJC5wb3dlclNlcnZpY2UuR2V0UG93ZXJTdGF0dXNSZXNw",
             "b25zZSImgtPkkwIgEh4vYXBpL3YyL3Bvd2VyL2dldF9wb3dlcl9zdGF0dXMw",
@@ -52,9 +52,9 @@ namespace PowerService {
             "d2VyU2VydmljZS5SZWJvb3RSZXNwb25zZSIfgtPkkwIZIhQvYXBpL3YyL3Bv",
             "d2VyL3JlYm9vdDoBKhJhCgZTdGF0ZXMSGy5wb3dlclNlcnZpY2UuU3RhdGVz",
             "UmVxdWVzdBocLnBvd2VyU2VydmljZS5TdGF0ZXNSZXNwb25zZSIcgtPkkwIW",
-            "EhQvYXBpL3YyL3Bvd2VyL3N0YXRlcxJhCgZTd2l0Y2gSGy5wb3dlclNlcnZp",
+            "EhQvYXBpL3YyL3Bvd2VyL3N0YXRlcxJkCgZTd2l0Y2gSGy5wb3dlclNlcnZp",
             "Y2UuU3dpdGNoUmVxdWVzdBocLnBvd2VyU2VydmljZS5Td2l0Y2hSZXNwb25z",
-            "ZSIcgtPkkwIWEhQvYXBpL3YyL3Bvd2VyL3N3aXRjaGIGcHJvdG8z"));
+            "ZSIfgtPkkwIZIhQvYXBpL3YyL3Bvd2VyL3N3aXRjaDoBKmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::PowerService.ModuleTypes), }, new pbr::GeneratedClrTypeInfo[] {

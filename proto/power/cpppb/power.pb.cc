@@ -380,7 +380,7 @@ const char descriptor_table_protodef_power_2eproto[] =
   "\022\010\n\004Main\020\001\022\n\n\006EscPos\020\002\022\n\n\006Screen\020\003\022\n\n\006Se"
   "nsor\020\004\022\n\n\006Speech\020\005\022\n\n\006Lights\020\006\022\016\n\nExpres"
   "sion\020\007\022\r\n\tNavigator\020\010\022\n\n\006Motion\020\t\022\r\n\tAmp"
-  "lifier\020\n2\302\003\n\014PowerService\022\205\001\n\016GetPowerSt"
+  "lifier\020\n2\305\003\n\014PowerService\022\205\001\n\016GetPowerSt"
   "atus\022#.powerService.GetPowerStatusReques"
   "t\032$.powerService.GetPowerStatusResponse\""
   "&\202\323\344\223\002 \022\036/api/v2/power/get_power_status0"
@@ -389,9 +389,9 @@ const char descriptor_table_protodef_power_2eproto[] =
   "/api/v2/power/reboot:\001*\022a\n\006States\022\033.powe"
   "rService.StatesRequest\032\034.powerService.St"
   "atesResponse\"\034\202\323\344\223\002\026\022\024/api/v2/power/stat"
-  "es\022a\n\006Switch\022\033.powerService.SwitchReques"
-  "t\032\034.powerService.SwitchResponse\"\034\202\323\344\223\002\026\022"
-  "\024/api/v2/power/switchb\006proto3"
+  "es\022d\n\006Switch\022\033.powerService.SwitchReques"
+  "t\032\034.powerService.SwitchResponse\"\037\202\323\344\223\002\031\""
+  "\024/api/v2/power/switch:\001*b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_power_2eproto_deps[1] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -413,7 +413,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_pow
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_power_2eproto_once;
 static bool descriptor_table_power_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_power_2eproto = {
-  &descriptor_table_power_2eproto_initialized, descriptor_table_protodef_power_2eproto, "power.proto", 1389,
+  &descriptor_table_power_2eproto_initialized, descriptor_table_protodef_power_2eproto, "power.proto", 1392,
   &descriptor_table_power_2eproto_once, descriptor_table_power_2eproto_sccs, descriptor_table_power_2eproto_deps, 12, 1,
   schemas, file_default_instances, TableStruct_power_2eproto::offsets,
   file_level_metadata_power_2eproto, 12, file_level_enum_descriptors_power_2eproto, file_level_service_descriptors_power_2eproto,

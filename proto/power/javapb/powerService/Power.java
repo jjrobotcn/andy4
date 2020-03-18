@@ -7600,7 +7600,7 @@ public final class Power {
       "\022\010\n\004Main\020\001\022\n\n\006EscPos\020\002\022\n\n\006Screen\020\003\022\n\n\006Se" +
       "nsor\020\004\022\n\n\006Speech\020\005\022\n\n\006Lights\020\006\022\016\n\nExpres" +
       "sion\020\007\022\r\n\tNavigator\020\010\022\n\n\006Motion\020\t\022\r\n\tAmp" +
-      "lifier\020\n2\302\003\n\014PowerService\022\205\001\n\016GetPowerSt" +
+      "lifier\020\n2\305\003\n\014PowerService\022\205\001\n\016GetPowerSt" +
       "atus\022#.powerService.GetPowerStatusReques" +
       "t\032$.powerService.GetPowerStatusResponse\"" +
       "&\202\323\344\223\002 \022\036/api/v2/power/get_power_status0" +
@@ -7609,9 +7609,9 @@ public final class Power {
       "/api/v2/power/reboot:\001*\022a\n\006States\022\033.powe" +
       "rService.StatesRequest\032\034.powerService.St" +
       "atesResponse\"\034\202\323\344\223\002\026\022\024/api/v2/power/stat" +
-      "es\022a\n\006Switch\022\033.powerService.SwitchReques" +
-      "t\032\034.powerService.SwitchResponse\"\034\202\323\344\223\002\026\022" +
-      "\024/api/v2/power/switchb\006proto3"
+      "es\022d\n\006Switch\022\033.powerService.SwitchReques" +
+      "t\032\034.powerService.SwitchResponse\"\037\202\323\344\223\002\031\"" +
+      "\024/api/v2/power/switch:\001*b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

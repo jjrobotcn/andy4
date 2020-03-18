@@ -77,7 +77,7 @@
       }
     },
     "/api/v2/power/switch": {
-      "get": {
+      "post": {
         "summary": "控制模块供电开关",
         "operationId": "Switch",
         "responses": {
@@ -88,6 +88,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/powerServiceSwitchRequest"
+            }
+          }
+        ],
         "tags": [
           "PowerService"
         ]
@@ -205,6 +215,17 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/powerServiceState"
+          }
+        }
+      }
+    },
+    "powerServiceSwitchRequest": {
+      "type": "object",
+      "properties": {
+        "requests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SwitchRequestrequest"
           }
         }
       }
