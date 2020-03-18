@@ -91,6 +91,70 @@ public final class PowerServiceGrpc {
      return getRebootMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<powerService.Power.StatesRequest,
+      powerService.Power.StatesResponse> getStatesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "States",
+      requestType = powerService.Power.StatesRequest.class,
+      responseType = powerService.Power.StatesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<powerService.Power.StatesRequest,
+      powerService.Power.StatesResponse> getStatesMethod() {
+    io.grpc.MethodDescriptor<powerService.Power.StatesRequest, powerService.Power.StatesResponse> getStatesMethod;
+    if ((getStatesMethod = PowerServiceGrpc.getStatesMethod) == null) {
+      synchronized (PowerServiceGrpc.class) {
+        if ((getStatesMethod = PowerServiceGrpc.getStatesMethod) == null) {
+          PowerServiceGrpc.getStatesMethod = getStatesMethod = 
+              io.grpc.MethodDescriptor.<powerService.Power.StatesRequest, powerService.Power.StatesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "powerService.PowerService", "States"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  powerService.Power.StatesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  powerService.Power.StatesResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new PowerServiceMethodDescriptorSupplier("States"))
+                  .build();
+          }
+        }
+     }
+     return getStatesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<powerService.Power.SwitchRequest,
+      powerService.Power.SwitchResponse> getSwitchMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Switch",
+      requestType = powerService.Power.SwitchRequest.class,
+      responseType = powerService.Power.SwitchResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<powerService.Power.SwitchRequest,
+      powerService.Power.SwitchResponse> getSwitchMethod() {
+    io.grpc.MethodDescriptor<powerService.Power.SwitchRequest, powerService.Power.SwitchResponse> getSwitchMethod;
+    if ((getSwitchMethod = PowerServiceGrpc.getSwitchMethod) == null) {
+      synchronized (PowerServiceGrpc.class) {
+        if ((getSwitchMethod = PowerServiceGrpc.getSwitchMethod) == null) {
+          PowerServiceGrpc.getSwitchMethod = getSwitchMethod = 
+              io.grpc.MethodDescriptor.<powerService.Power.SwitchRequest, powerService.Power.SwitchResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "powerService.PowerService", "Switch"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  powerService.Power.SwitchRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  powerService.Power.SwitchResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new PowerServiceMethodDescriptorSupplier("Switch"))
+                  .build();
+          }
+        }
+     }
+     return getSwitchMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +202,26 @@ public final class PowerServiceGrpc {
       asyncUnimplementedUnaryCall(getRebootMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * 获取所有电源模块状态
+     * </pre>
+     */
+    public void states(powerService.Power.StatesRequest request,
+        io.grpc.stub.StreamObserver<powerService.Power.StatesResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getStatesMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 控制模块供电开关
+     * </pre>
+     */
+    public void switch_(powerService.Power.SwitchRequest request,
+        io.grpc.stub.StreamObserver<powerService.Power.SwitchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSwitchMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -154,6 +238,20 @@ public final class PowerServiceGrpc {
                 powerService.Power.RebootRequest,
                 powerService.Power.RebootResponse>(
                   this, METHODID_REBOOT)))
+          .addMethod(
+            getStatesMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                powerService.Power.StatesRequest,
+                powerService.Power.StatesResponse>(
+                  this, METHODID_STATES)))
+          .addMethod(
+            getSwitchMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                powerService.Power.SwitchRequest,
+                powerService.Power.SwitchResponse>(
+                  this, METHODID_SWITCH)))
           .build();
     }
   }
@@ -197,6 +295,28 @@ public final class PowerServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getRebootMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 获取所有电源模块状态
+     * </pre>
+     */
+    public void states(powerService.Power.StatesRequest request,
+        io.grpc.stub.StreamObserver<powerService.Power.StatesResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getStatesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 控制模块供电开关
+     * </pre>
+     */
+    public void switch_(powerService.Power.SwitchRequest request,
+        io.grpc.stub.StreamObserver<powerService.Power.SwitchResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSwitchMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -237,6 +357,26 @@ public final class PowerServiceGrpc {
       return blockingUnaryCall(
           getChannel(), getRebootMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * 获取所有电源模块状态
+     * </pre>
+     */
+    public powerService.Power.StatesResponse states(powerService.Power.StatesRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getStatesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 控制模块供电开关
+     * </pre>
+     */
+    public powerService.Power.SwitchResponse switch_(powerService.Power.SwitchRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getSwitchMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -267,10 +407,34 @@ public final class PowerServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getRebootMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * 获取所有电源模块状态
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<powerService.Power.StatesResponse> states(
+        powerService.Power.StatesRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getStatesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 控制模块供电开关
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<powerService.Power.SwitchResponse> switch_(
+        powerService.Power.SwitchRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSwitchMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_POWER_STATUS = 0;
   private static final int METHODID_REBOOT = 1;
+  private static final int METHODID_STATES = 2;
+  private static final int METHODID_SWITCH = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -296,6 +460,14 @@ public final class PowerServiceGrpc {
         case METHODID_REBOOT:
           serviceImpl.reboot((powerService.Power.RebootRequest) request,
               (io.grpc.stub.StreamObserver<powerService.Power.RebootResponse>) responseObserver);
+          break;
+        case METHODID_STATES:
+          serviceImpl.states((powerService.Power.StatesRequest) request,
+              (io.grpc.stub.StreamObserver<powerService.Power.StatesResponse>) responseObserver);
+          break;
+        case METHODID_SWITCH:
+          serviceImpl.switch_((powerService.Power.SwitchRequest) request,
+              (io.grpc.stub.StreamObserver<powerService.Power.SwitchResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -360,6 +532,8 @@ public final class PowerServiceGrpc {
               .setSchemaDescriptor(new PowerServiceFileDescriptorSupplier())
               .addMethod(getGetPowerStatusMethod())
               .addMethod(getRebootMethod())
+              .addMethod(getStatesMethod())
+              .addMethod(getSwitchMethod())
               .build();
         }
       }

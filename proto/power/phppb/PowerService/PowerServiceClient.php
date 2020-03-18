@@ -44,4 +44,32 @@ class PowerServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 获取所有电源模块状态
+     * @param \PowerService\StatesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function States(\PowerService\StatesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/powerService.PowerService/States',
+        $argument,
+        ['\PowerService\StatesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 控制模块供电开关
+     * @param \PowerService\SwitchRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Switch(\PowerService\SwitchRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/powerService.PowerService/Switch',
+        $argument,
+        ['\PowerService\SwitchResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

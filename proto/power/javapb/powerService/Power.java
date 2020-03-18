@@ -14,6 +14,269 @@ public final class Power {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * 模块类型枚举
+   * </pre>
+   *
+   * Protobuf enum {@code powerService.ModuleTypes}
+   */
+  public enum ModuleTypes
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UnknownModuleType = 0;</code>
+     */
+    UnknownModuleType(0),
+    /**
+     * <pre>
+     * 工控、路由、摄像头
+     * </pre>
+     *
+     * <code>Main = 1;</code>
+     */
+    Main(1),
+    /**
+     * <pre>
+     * 小票打印机
+     * </pre>
+     *
+     * <code>EscPos = 2;</code>
+     */
+    EscPos(2),
+    /**
+     * <pre>
+     * 屏幕/平板
+     * </pre>
+     *
+     * <code>Screen = 3;</code>
+     */
+    Screen(3),
+    /**
+     * <pre>
+     * 传感器
+     * </pre>
+     *
+     * <code>Sensor = 4;</code>
+     */
+    Sensor(4),
+    /**
+     * <pre>
+     * 语音模块
+     * </pre>
+     *
+     * <code>Speech = 5;</code>
+     */
+    Speech(5),
+    /**
+     * <pre>
+     * 灯光模块（目前与表情模块为同一供电）
+     * </pre>
+     *
+     * <code>Lights = 6;</code>
+     */
+    Lights(6),
+    /**
+     * <pre>
+     * 表情模块（目前与灯光模块为同一供电）
+     * </pre>
+     *
+     * <code>Expression = 7;</code>
+     */
+    Expression(7),
+    /**
+     * <pre>
+     * 导航模块
+     * </pre>
+     *
+     * <code>Navigator = 8;</code>
+     */
+    Navigator(8),
+    /**
+     * <pre>
+     * 运动模块
+     * </pre>
+     *
+     * <code>Motion = 9;</code>
+     */
+    Motion(9),
+    /**
+     * <pre>
+     * 功放
+     * </pre>
+     *
+     * <code>Amplifier = 10;</code>
+     */
+    Amplifier(10),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UnknownModuleType = 0;</code>
+     */
+    public static final int UnknownModuleType_VALUE = 0;
+    /**
+     * <pre>
+     * 工控、路由、摄像头
+     * </pre>
+     *
+     * <code>Main = 1;</code>
+     */
+    public static final int Main_VALUE = 1;
+    /**
+     * <pre>
+     * 小票打印机
+     * </pre>
+     *
+     * <code>EscPos = 2;</code>
+     */
+    public static final int EscPos_VALUE = 2;
+    /**
+     * <pre>
+     * 屏幕/平板
+     * </pre>
+     *
+     * <code>Screen = 3;</code>
+     */
+    public static final int Screen_VALUE = 3;
+    /**
+     * <pre>
+     * 传感器
+     * </pre>
+     *
+     * <code>Sensor = 4;</code>
+     */
+    public static final int Sensor_VALUE = 4;
+    /**
+     * <pre>
+     * 语音模块
+     * </pre>
+     *
+     * <code>Speech = 5;</code>
+     */
+    public static final int Speech_VALUE = 5;
+    /**
+     * <pre>
+     * 灯光模块（目前与表情模块为同一供电）
+     * </pre>
+     *
+     * <code>Lights = 6;</code>
+     */
+    public static final int Lights_VALUE = 6;
+    /**
+     * <pre>
+     * 表情模块（目前与灯光模块为同一供电）
+     * </pre>
+     *
+     * <code>Expression = 7;</code>
+     */
+    public static final int Expression_VALUE = 7;
+    /**
+     * <pre>
+     * 导航模块
+     * </pre>
+     *
+     * <code>Navigator = 8;</code>
+     */
+    public static final int Navigator_VALUE = 8;
+    /**
+     * <pre>
+     * 运动模块
+     * </pre>
+     *
+     * <code>Motion = 9;</code>
+     */
+    public static final int Motion_VALUE = 9;
+    /**
+     * <pre>
+     * 功放
+     * </pre>
+     *
+     * <code>Amplifier = 10;</code>
+     */
+    public static final int Amplifier_VALUE = 10;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ModuleTypes valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ModuleTypes forNumber(int value) {
+      switch (value) {
+        case 0: return UnknownModuleType;
+        case 1: return Main;
+        case 2: return EscPos;
+        case 3: return Screen;
+        case 4: return Sensor;
+        case 5: return Speech;
+        case 6: return Lights;
+        case 7: return Expression;
+        case 8: return Navigator;
+        case 9: return Motion;
+        case 10: return Amplifier;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ModuleTypes>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ModuleTypes> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ModuleTypes>() {
+            public ModuleTypes findValueByNumber(int number) {
+              return ModuleTypes.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return powerService.Power.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final ModuleTypes[] VALUES = values();
+
+    public static ModuleTypes valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ModuleTypes(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:powerService.ModuleTypes)
+  }
+
   public interface PowerStatusOrBuilder extends
       // @@protoc_insertion_point(interface_extends:powerService.PowerStatus)
       com.google.protobuf.MessageOrBuilder {
@@ -39,19 +302,21 @@ public final class Power {
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-    int getDevicesCount();
+    @java.lang.Deprecated int getDevicesCount();
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-    boolean containsDevices(
+    @java.lang.Deprecated boolean containsDevices(
         java.lang.String key);
     /**
      * Use {@link #getDevicesMap()} instead.
@@ -62,31 +327,34 @@ public final class Power {
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-    java.util.Map<java.lang.String, java.lang.Boolean>
+    @java.lang.Deprecated java.util.Map<java.lang.String, java.lang.Boolean>
     getDevicesMap();
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-
+    @java.lang.Deprecated 
     boolean getDevicesOrDefault(
         java.lang.String key,
         boolean defaultValue);
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-
+    @java.lang.Deprecated 
     boolean getDevicesOrThrow(
         java.lang.String key);
   }
@@ -251,18 +519,19 @@ public final class Power {
       }
       return devices_;
     }
-
+    @java.lang.Deprecated 
     public int getDevicesCount() {
       return internalGetDevices().getMap().size();
     }
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-
+    @java.lang.Deprecated 
     public boolean containsDevices(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -278,22 +547,24 @@ public final class Power {
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-
+    @java.lang.Deprecated 
     public java.util.Map<java.lang.String, java.lang.Boolean> getDevicesMap() {
       return internalGetDevices().getMap();
     }
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-
+    @java.lang.Deprecated 
     public boolean getDevicesOrDefault(
         java.lang.String key,
         boolean defaultValue) {
@@ -305,11 +576,12 @@ public final class Power {
     /**
      * <pre>
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      * </pre>
      *
-     * <code>map&lt;string, bool&gt; devices = 3;</code>
+     * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
      */
-
+    @java.lang.Deprecated 
     public boolean getDevicesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
@@ -790,18 +1062,19 @@ public final class Power {
         }
         return devices_;
       }
-
+      @java.lang.Deprecated 
       public int getDevicesCount() {
         return internalGetDevices().getMap().size();
       }
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-
+      @java.lang.Deprecated 
       public boolean containsDevices(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -817,22 +1090,24 @@ public final class Power {
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-
+      @java.lang.Deprecated 
       public java.util.Map<java.lang.String, java.lang.Boolean> getDevicesMap() {
         return internalGetDevices().getMap();
       }
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-
+      @java.lang.Deprecated 
       public boolean getDevicesOrDefault(
           java.lang.String key,
           boolean defaultValue) {
@@ -844,11 +1119,12 @@ public final class Power {
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-
+      @java.lang.Deprecated 
       public boolean getDevicesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -859,7 +1135,7 @@ public final class Power {
         }
         return map.get(key);
       }
-
+      @java.lang.Deprecated 
       public Builder clearDevices() {
         internalGetMutableDevices().getMutableMap()
             .clear();
@@ -868,11 +1144,12 @@ public final class Power {
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-
+      @java.lang.Deprecated 
       public Builder removeDevices(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -891,11 +1168,12 @@ public final class Power {
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-      public Builder putDevices(
+      @java.lang.Deprecated public Builder putDevices(
           java.lang.String key,
           boolean value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
@@ -907,11 +1185,12 @@ public final class Power {
       /**
        * <pre>
        * 设备状态
+       * 此字段已作废，请使用States方法获取
        * </pre>
        *
-       * <code>map&lt;string, bool&gt; devices = 3;</code>
+       * <code>map&lt;string, bool&gt; devices = 3 [deprecated = true];</code>
        */
-
+      @java.lang.Deprecated 
       public Builder putAllDevices(
           java.util.Map<java.lang.String, java.lang.Boolean> values) {
         internalGetMutableDevices().getMutableMap()
@@ -2920,6 +3199,4315 @@ public final class Power {
 
   }
 
+  public interface StateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.State)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 模块类型
+     * </pre>
+     *
+     * <code>.powerService.ModuleTypes module = 1;</code>
+     */
+    int getModuleValue();
+    /**
+     * <pre>
+     * 模块类型
+     * </pre>
+     *
+     * <code>.powerService.ModuleTypes module = 1;</code>
+     */
+    powerService.Power.ModuleTypes getModule();
+
+    /**
+     * <pre>
+     * 当前模块是否供电
+     * </pre>
+     *
+     * <code>bool is_on = 2;</code>
+     */
+    boolean getIsOn();
+
+    /**
+     * <pre>
+     * 触发关闭供电倒计时（秒）
+     * -1为未配置或已失效
+     * </pre>
+     *
+     * <code>int32 off_after = 4;</code>
+     */
+    int getOffAfter();
+
+    /**
+     * <pre>
+     * 触发恢复供电倒计时（秒）
+     * -1为未配置或已失效
+     * </pre>
+     *
+     * <code>int32 on_after = 3;</code>
+     */
+    int getOnAfter();
+  }
+  /**
+   * Protobuf type {@code powerService.State}
+   */
+  public  static final class State extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.State)
+      StateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use State.newBuilder() to construct.
+    private State(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private State() {
+      module_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new State();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private State(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              module_ = rawValue;
+              break;
+            }
+            case 16: {
+
+              isOn_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              onAfter_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              offAfter_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return powerService.Power.internal_static_powerService_State_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return powerService.Power.internal_static_powerService_State_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              powerService.Power.State.class, powerService.Power.State.Builder.class);
+    }
+
+    public static final int MODULE_FIELD_NUMBER = 1;
+    private int module_;
+    /**
+     * <pre>
+     * 模块类型
+     * </pre>
+     *
+     * <code>.powerService.ModuleTypes module = 1;</code>
+     */
+    public int getModuleValue() {
+      return module_;
+    }
+    /**
+     * <pre>
+     * 模块类型
+     * </pre>
+     *
+     * <code>.powerService.ModuleTypes module = 1;</code>
+     */
+    public powerService.Power.ModuleTypes getModule() {
+      @SuppressWarnings("deprecation")
+      powerService.Power.ModuleTypes result = powerService.Power.ModuleTypes.valueOf(module_);
+      return result == null ? powerService.Power.ModuleTypes.UNRECOGNIZED : result;
+    }
+
+    public static final int IS_ON_FIELD_NUMBER = 2;
+    private boolean isOn_;
+    /**
+     * <pre>
+     * 当前模块是否供电
+     * </pre>
+     *
+     * <code>bool is_on = 2;</code>
+     */
+    public boolean getIsOn() {
+      return isOn_;
+    }
+
+    public static final int OFF_AFTER_FIELD_NUMBER = 4;
+    private int offAfter_;
+    /**
+     * <pre>
+     * 触发关闭供电倒计时（秒）
+     * -1为未配置或已失效
+     * </pre>
+     *
+     * <code>int32 off_after = 4;</code>
+     */
+    public int getOffAfter() {
+      return offAfter_;
+    }
+
+    public static final int ON_AFTER_FIELD_NUMBER = 3;
+    private int onAfter_;
+    /**
+     * <pre>
+     * 触发恢复供电倒计时（秒）
+     * -1为未配置或已失效
+     * </pre>
+     *
+     * <code>int32 on_after = 3;</code>
+     */
+    public int getOnAfter() {
+      return onAfter_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (module_ != powerService.Power.ModuleTypes.UnknownModuleType.getNumber()) {
+        output.writeEnum(1, module_);
+      }
+      if (isOn_ != false) {
+        output.writeBool(2, isOn_);
+      }
+      if (onAfter_ != 0) {
+        output.writeInt32(3, onAfter_);
+      }
+      if (offAfter_ != 0) {
+        output.writeInt32(4, offAfter_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (module_ != powerService.Power.ModuleTypes.UnknownModuleType.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, module_);
+      }
+      if (isOn_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isOn_);
+      }
+      if (onAfter_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, onAfter_);
+      }
+      if (offAfter_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, offAfter_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof powerService.Power.State)) {
+        return super.equals(obj);
+      }
+      powerService.Power.State other = (powerService.Power.State) obj;
+
+      if (module_ != other.module_) return false;
+      if (getIsOn()
+          != other.getIsOn()) return false;
+      if (getOffAfter()
+          != other.getOffAfter()) return false;
+      if (getOnAfter()
+          != other.getOnAfter()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MODULE_FIELD_NUMBER;
+      hash = (53 * hash) + module_;
+      hash = (37 * hash) + IS_ON_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsOn());
+      hash = (37 * hash) + OFF_AFTER_FIELD_NUMBER;
+      hash = (53 * hash) + getOffAfter();
+      hash = (37 * hash) + ON_AFTER_FIELD_NUMBER;
+      hash = (53 * hash) + getOnAfter();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static powerService.Power.State parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.State parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.State parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.State parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.State parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.State parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.State parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.State parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.State parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static powerService.Power.State parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.State parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.State parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(powerService.Power.State prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.State}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.State)
+        powerService.Power.StateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return powerService.Power.internal_static_powerService_State_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return powerService.Power.internal_static_powerService_State_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                powerService.Power.State.class, powerService.Power.State.Builder.class);
+      }
+
+      // Construct using powerService.Power.State.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        module_ = 0;
+
+        isOn_ = false;
+
+        offAfter_ = 0;
+
+        onAfter_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return powerService.Power.internal_static_powerService_State_descriptor;
+      }
+
+      @java.lang.Override
+      public powerService.Power.State getDefaultInstanceForType() {
+        return powerService.Power.State.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public powerService.Power.State build() {
+        powerService.Power.State result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public powerService.Power.State buildPartial() {
+        powerService.Power.State result = new powerService.Power.State(this);
+        result.module_ = module_;
+        result.isOn_ = isOn_;
+        result.offAfter_ = offAfter_;
+        result.onAfter_ = onAfter_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof powerService.Power.State) {
+          return mergeFrom((powerService.Power.State)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(powerService.Power.State other) {
+        if (other == powerService.Power.State.getDefaultInstance()) return this;
+        if (other.module_ != 0) {
+          setModuleValue(other.getModuleValue());
+        }
+        if (other.getIsOn() != false) {
+          setIsOn(other.getIsOn());
+        }
+        if (other.getOffAfter() != 0) {
+          setOffAfter(other.getOffAfter());
+        }
+        if (other.getOnAfter() != 0) {
+          setOnAfter(other.getOnAfter());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        powerService.Power.State parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (powerService.Power.State) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int module_ = 0;
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public int getModuleValue() {
+        return module_;
+      }
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public Builder setModuleValue(int value) {
+        module_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public powerService.Power.ModuleTypes getModule() {
+        @SuppressWarnings("deprecation")
+        powerService.Power.ModuleTypes result = powerService.Power.ModuleTypes.valueOf(module_);
+        return result == null ? powerService.Power.ModuleTypes.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public Builder setModule(powerService.Power.ModuleTypes value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        module_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public Builder clearModule() {
+        
+        module_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean isOn_ ;
+      /**
+       * <pre>
+       * 当前模块是否供电
+       * </pre>
+       *
+       * <code>bool is_on = 2;</code>
+       */
+      public boolean getIsOn() {
+        return isOn_;
+      }
+      /**
+       * <pre>
+       * 当前模块是否供电
+       * </pre>
+       *
+       * <code>bool is_on = 2;</code>
+       */
+      public Builder setIsOn(boolean value) {
+        
+        isOn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 当前模块是否供电
+       * </pre>
+       *
+       * <code>bool is_on = 2;</code>
+       */
+      public Builder clearIsOn() {
+        
+        isOn_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int offAfter_ ;
+      /**
+       * <pre>
+       * 触发关闭供电倒计时（秒）
+       * -1为未配置或已失效
+       * </pre>
+       *
+       * <code>int32 off_after = 4;</code>
+       */
+      public int getOffAfter() {
+        return offAfter_;
+      }
+      /**
+       * <pre>
+       * 触发关闭供电倒计时（秒）
+       * -1为未配置或已失效
+       * </pre>
+       *
+       * <code>int32 off_after = 4;</code>
+       */
+      public Builder setOffAfter(int value) {
+        
+        offAfter_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 触发关闭供电倒计时（秒）
+       * -1为未配置或已失效
+       * </pre>
+       *
+       * <code>int32 off_after = 4;</code>
+       */
+      public Builder clearOffAfter() {
+        
+        offAfter_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int onAfter_ ;
+      /**
+       * <pre>
+       * 触发恢复供电倒计时（秒）
+       * -1为未配置或已失效
+       * </pre>
+       *
+       * <code>int32 on_after = 3;</code>
+       */
+      public int getOnAfter() {
+        return onAfter_;
+      }
+      /**
+       * <pre>
+       * 触发恢复供电倒计时（秒）
+       * -1为未配置或已失效
+       * </pre>
+       *
+       * <code>int32 on_after = 3;</code>
+       */
+      public Builder setOnAfter(int value) {
+        
+        onAfter_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 触发恢复供电倒计时（秒）
+       * -1为未配置或已失效
+       * </pre>
+       *
+       * <code>int32 on_after = 3;</code>
+       */
+      public Builder clearOnAfter() {
+        
+        onAfter_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.State)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.State)
+    private static final powerService.Power.State DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new powerService.Power.State();
+    }
+
+    public static powerService.Power.State getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<State>
+        PARSER = new com.google.protobuf.AbstractParser<State>() {
+      @java.lang.Override
+      public State parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new State(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<State> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<State> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public powerService.Power.State getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StatesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.StatesRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code powerService.StatesRequest}
+   */
+  public  static final class StatesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.StatesRequest)
+      StatesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StatesRequest.newBuilder() to construct.
+    private StatesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StatesRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StatesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StatesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return powerService.Power.internal_static_powerService_StatesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return powerService.Power.internal_static_powerService_StatesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              powerService.Power.StatesRequest.class, powerService.Power.StatesRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof powerService.Power.StatesRequest)) {
+        return super.equals(obj);
+      }
+      powerService.Power.StatesRequest other = (powerService.Power.StatesRequest) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static powerService.Power.StatesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.StatesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.StatesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.StatesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static powerService.Power.StatesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.StatesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(powerService.Power.StatesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.StatesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.StatesRequest)
+        powerService.Power.StatesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return powerService.Power.internal_static_powerService_StatesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return powerService.Power.internal_static_powerService_StatesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                powerService.Power.StatesRequest.class, powerService.Power.StatesRequest.Builder.class);
+      }
+
+      // Construct using powerService.Power.StatesRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return powerService.Power.internal_static_powerService_StatesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public powerService.Power.StatesRequest getDefaultInstanceForType() {
+        return powerService.Power.StatesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public powerService.Power.StatesRequest build() {
+        powerService.Power.StatesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public powerService.Power.StatesRequest buildPartial() {
+        powerService.Power.StatesRequest result = new powerService.Power.StatesRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof powerService.Power.StatesRequest) {
+          return mergeFrom((powerService.Power.StatesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(powerService.Power.StatesRequest other) {
+        if (other == powerService.Power.StatesRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        powerService.Power.StatesRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (powerService.Power.StatesRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.StatesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.StatesRequest)
+    private static final powerService.Power.StatesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new powerService.Power.StatesRequest();
+    }
+
+    public static powerService.Power.StatesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StatesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<StatesRequest>() {
+      @java.lang.Override
+      public StatesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StatesRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StatesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StatesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public powerService.Power.StatesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StatesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.StatesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    java.util.List<powerService.Power.State> 
+        getStatesList();
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    powerService.Power.State getStates(int index);
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    int getStatesCount();
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    java.util.List<? extends powerService.Power.StateOrBuilder> 
+        getStatesOrBuilderList();
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    powerService.Power.StateOrBuilder getStatesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code powerService.StatesResponse}
+   */
+  public  static final class StatesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.StatesResponse)
+      StatesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StatesResponse.newBuilder() to construct.
+    private StatesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StatesResponse() {
+      states_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StatesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StatesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                states_ = new java.util.ArrayList<powerService.Power.State>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              states_.add(
+                  input.readMessage(powerService.Power.State.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          states_ = java.util.Collections.unmodifiableList(states_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return powerService.Power.internal_static_powerService_StatesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return powerService.Power.internal_static_powerService_StatesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              powerService.Power.StatesResponse.class, powerService.Power.StatesResponse.Builder.class);
+    }
+
+    public static final int STATES_FIELD_NUMBER = 1;
+    private java.util.List<powerService.Power.State> states_;
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public java.util.List<powerService.Power.State> getStatesList() {
+      return states_;
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public java.util.List<? extends powerService.Power.StateOrBuilder> 
+        getStatesOrBuilderList() {
+      return states_;
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public int getStatesCount() {
+      return states_.size();
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public powerService.Power.State getStates(int index) {
+      return states_.get(index);
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public powerService.Power.StateOrBuilder getStatesOrBuilder(
+        int index) {
+      return states_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < states_.size(); i++) {
+        output.writeMessage(1, states_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < states_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, states_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof powerService.Power.StatesResponse)) {
+        return super.equals(obj);
+      }
+      powerService.Power.StatesResponse other = (powerService.Power.StatesResponse) obj;
+
+      if (!getStatesList()
+          .equals(other.getStatesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getStatesCount() > 0) {
+        hash = (37 * hash) + STATES_FIELD_NUMBER;
+        hash = (53 * hash) + getStatesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static powerService.Power.StatesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.StatesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.StatesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.StatesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static powerService.Power.StatesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.StatesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(powerService.Power.StatesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.StatesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.StatesResponse)
+        powerService.Power.StatesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return powerService.Power.internal_static_powerService_StatesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return powerService.Power.internal_static_powerService_StatesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                powerService.Power.StatesResponse.class, powerService.Power.StatesResponse.Builder.class);
+      }
+
+      // Construct using powerService.Power.StatesResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getStatesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (statesBuilder_ == null) {
+          states_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          statesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return powerService.Power.internal_static_powerService_StatesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public powerService.Power.StatesResponse getDefaultInstanceForType() {
+        return powerService.Power.StatesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public powerService.Power.StatesResponse build() {
+        powerService.Power.StatesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public powerService.Power.StatesResponse buildPartial() {
+        powerService.Power.StatesResponse result = new powerService.Power.StatesResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (statesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            states_ = java.util.Collections.unmodifiableList(states_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.states_ = states_;
+        } else {
+          result.states_ = statesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof powerService.Power.StatesResponse) {
+          return mergeFrom((powerService.Power.StatesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(powerService.Power.StatesResponse other) {
+        if (other == powerService.Power.StatesResponse.getDefaultInstance()) return this;
+        if (statesBuilder_ == null) {
+          if (!other.states_.isEmpty()) {
+            if (states_.isEmpty()) {
+              states_ = other.states_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureStatesIsMutable();
+              states_.addAll(other.states_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.states_.isEmpty()) {
+            if (statesBuilder_.isEmpty()) {
+              statesBuilder_.dispose();
+              statesBuilder_ = null;
+              states_ = other.states_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              statesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getStatesFieldBuilder() : null;
+            } else {
+              statesBuilder_.addAllMessages(other.states_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        powerService.Power.StatesResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (powerService.Power.StatesResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<powerService.Power.State> states_ =
+        java.util.Collections.emptyList();
+      private void ensureStatesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          states_ = new java.util.ArrayList<powerService.Power.State>(states_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          powerService.Power.State, powerService.Power.State.Builder, powerService.Power.StateOrBuilder> statesBuilder_;
+
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public java.util.List<powerService.Power.State> getStatesList() {
+        if (statesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(states_);
+        } else {
+          return statesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public int getStatesCount() {
+        if (statesBuilder_ == null) {
+          return states_.size();
+        } else {
+          return statesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State getStates(int index) {
+        if (statesBuilder_ == null) {
+          return states_.get(index);
+        } else {
+          return statesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder setStates(
+          int index, powerService.Power.State value) {
+        if (statesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStatesIsMutable();
+          states_.set(index, value);
+          onChanged();
+        } else {
+          statesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder setStates(
+          int index, powerService.Power.State.Builder builderForValue) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          statesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(powerService.Power.State value) {
+        if (statesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStatesIsMutable();
+          states_.add(value);
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(
+          int index, powerService.Power.State value) {
+        if (statesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStatesIsMutable();
+          states_.add(index, value);
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(
+          powerService.Power.State.Builder builderForValue) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.add(builderForValue.build());
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(
+          int index, powerService.Power.State.Builder builderForValue) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addAllStates(
+          java.lang.Iterable<? extends powerService.Power.State> values) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, states_);
+          onChanged();
+        } else {
+          statesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder clearStates() {
+        if (statesBuilder_ == null) {
+          states_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          statesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder removeStates(int index) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.remove(index);
+          onChanged();
+        } else {
+          statesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State.Builder getStatesBuilder(
+          int index) {
+        return getStatesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.StateOrBuilder getStatesOrBuilder(
+          int index) {
+        if (statesBuilder_ == null) {
+          return states_.get(index);  } else {
+          return statesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public java.util.List<? extends powerService.Power.StateOrBuilder> 
+           getStatesOrBuilderList() {
+        if (statesBuilder_ != null) {
+          return statesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(states_);
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State.Builder addStatesBuilder() {
+        return getStatesFieldBuilder().addBuilder(
+            powerService.Power.State.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State.Builder addStatesBuilder(
+          int index) {
+        return getStatesFieldBuilder().addBuilder(
+            index, powerService.Power.State.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public java.util.List<powerService.Power.State.Builder> 
+           getStatesBuilderList() {
+        return getStatesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          powerService.Power.State, powerService.Power.State.Builder, powerService.Power.StateOrBuilder> 
+          getStatesFieldBuilder() {
+        if (statesBuilder_ == null) {
+          statesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              powerService.Power.State, powerService.Power.State.Builder, powerService.Power.StateOrBuilder>(
+                  states_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          states_ = null;
+        }
+        return statesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.StatesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.StatesResponse)
+    private static final powerService.Power.StatesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new powerService.Power.StatesResponse();
+    }
+
+    public static powerService.Power.StatesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StatesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<StatesResponse>() {
+      @java.lang.Override
+      public StatesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StatesResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StatesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StatesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public powerService.Power.StatesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SwitchRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.SwitchRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    java.util.List<powerService.Power.SwitchRequest.request> 
+        getRequestsList();
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    powerService.Power.SwitchRequest.request getRequests(int index);
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    int getRequestsCount();
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    java.util.List<? extends powerService.Power.SwitchRequest.requestOrBuilder> 
+        getRequestsOrBuilderList();
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    powerService.Power.SwitchRequest.requestOrBuilder getRequestsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code powerService.SwitchRequest}
+   */
+  public  static final class SwitchRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.SwitchRequest)
+      SwitchRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SwitchRequest.newBuilder() to construct.
+    private SwitchRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SwitchRequest() {
+      requests_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SwitchRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SwitchRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                requests_ = new java.util.ArrayList<powerService.Power.SwitchRequest.request>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              requests_.add(
+                  input.readMessage(powerService.Power.SwitchRequest.request.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          requests_ = java.util.Collections.unmodifiableList(requests_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return powerService.Power.internal_static_powerService_SwitchRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return powerService.Power.internal_static_powerService_SwitchRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              powerService.Power.SwitchRequest.class, powerService.Power.SwitchRequest.Builder.class);
+    }
+
+    public interface requestOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:powerService.SwitchRequest.request)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      int getModuleValue();
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      powerService.Power.ModuleTypes getModule();
+
+      /**
+       * <pre>
+       * 若干秒后关闭该模块供电
+       * -1为未配置 0为立即
+       * </pre>
+       *
+       * <code>int32 off_after = 4;</code>
+       */
+      int getOffAfter();
+
+      /**
+       * <pre>
+       * 若干秒后恢复该模块供电
+       * -1为未配置 0为立即
+       * </pre>
+       *
+       * <code>int32 on_after = 3;</code>
+       */
+      int getOnAfter();
+    }
+    /**
+     * Protobuf type {@code powerService.SwitchRequest.request}
+     */
+    public  static final class request extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:powerService.SwitchRequest.request)
+        requestOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use request.newBuilder() to construct.
+      private request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private request() {
+        module_ = 0;
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new request();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private request(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int rawValue = input.readEnum();
+
+                module_ = rawValue;
+                break;
+              }
+              case 24: {
+
+                onAfter_ = input.readInt32();
+                break;
+              }
+              case 32: {
+
+                offAfter_ = input.readInt32();
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return powerService.Power.internal_static_powerService_SwitchRequest_request_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return powerService.Power.internal_static_powerService_SwitchRequest_request_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                powerService.Power.SwitchRequest.request.class, powerService.Power.SwitchRequest.request.Builder.class);
+      }
+
+      public static final int MODULE_FIELD_NUMBER = 1;
+      private int module_;
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public int getModuleValue() {
+        return module_;
+      }
+      /**
+       * <pre>
+       * 模块类型
+       * </pre>
+       *
+       * <code>.powerService.ModuleTypes module = 1;</code>
+       */
+      public powerService.Power.ModuleTypes getModule() {
+        @SuppressWarnings("deprecation")
+        powerService.Power.ModuleTypes result = powerService.Power.ModuleTypes.valueOf(module_);
+        return result == null ? powerService.Power.ModuleTypes.UNRECOGNIZED : result;
+      }
+
+      public static final int OFF_AFTER_FIELD_NUMBER = 4;
+      private int offAfter_;
+      /**
+       * <pre>
+       * 若干秒后关闭该模块供电
+       * -1为未配置 0为立即
+       * </pre>
+       *
+       * <code>int32 off_after = 4;</code>
+       */
+      public int getOffAfter() {
+        return offAfter_;
+      }
+
+      public static final int ON_AFTER_FIELD_NUMBER = 3;
+      private int onAfter_;
+      /**
+       * <pre>
+       * 若干秒后恢复该模块供电
+       * -1为未配置 0为立即
+       * </pre>
+       *
+       * <code>int32 on_after = 3;</code>
+       */
+      public int getOnAfter() {
+        return onAfter_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (module_ != powerService.Power.ModuleTypes.UnknownModuleType.getNumber()) {
+          output.writeEnum(1, module_);
+        }
+        if (onAfter_ != 0) {
+          output.writeInt32(3, onAfter_);
+        }
+        if (offAfter_ != 0) {
+          output.writeInt32(4, offAfter_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (module_ != powerService.Power.ModuleTypes.UnknownModuleType.getNumber()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeEnumSize(1, module_);
+        }
+        if (onAfter_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(3, onAfter_);
+        }
+        if (offAfter_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(4, offAfter_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof powerService.Power.SwitchRequest.request)) {
+          return super.equals(obj);
+        }
+        powerService.Power.SwitchRequest.request other = (powerService.Power.SwitchRequest.request) obj;
+
+        if (module_ != other.module_) return false;
+        if (getOffAfter()
+            != other.getOffAfter()) return false;
+        if (getOnAfter()
+            != other.getOnAfter()) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + MODULE_FIELD_NUMBER;
+        hash = (53 * hash) + module_;
+        hash = (37 * hash) + OFF_AFTER_FIELD_NUMBER;
+        hash = (53 * hash) + getOffAfter();
+        hash = (37 * hash) + ON_AFTER_FIELD_NUMBER;
+        hash = (53 * hash) + getOnAfter();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static powerService.Power.SwitchRequest.request parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static powerService.Power.SwitchRequest.request parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static powerService.Power.SwitchRequest.request parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(powerService.Power.SwitchRequest.request prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code powerService.SwitchRequest.request}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:powerService.SwitchRequest.request)
+          powerService.Power.SwitchRequest.requestOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return powerService.Power.internal_static_powerService_SwitchRequest_request_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return powerService.Power.internal_static_powerService_SwitchRequest_request_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  powerService.Power.SwitchRequest.request.class, powerService.Power.SwitchRequest.request.Builder.class);
+        }
+
+        // Construct using powerService.Power.SwitchRequest.request.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          module_ = 0;
+
+          offAfter_ = 0;
+
+          onAfter_ = 0;
+
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return powerService.Power.internal_static_powerService_SwitchRequest_request_descriptor;
+        }
+
+        @java.lang.Override
+        public powerService.Power.SwitchRequest.request getDefaultInstanceForType() {
+          return powerService.Power.SwitchRequest.request.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public powerService.Power.SwitchRequest.request build() {
+          powerService.Power.SwitchRequest.request result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public powerService.Power.SwitchRequest.request buildPartial() {
+          powerService.Power.SwitchRequest.request result = new powerService.Power.SwitchRequest.request(this);
+          result.module_ = module_;
+          result.offAfter_ = offAfter_;
+          result.onAfter_ = onAfter_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof powerService.Power.SwitchRequest.request) {
+            return mergeFrom((powerService.Power.SwitchRequest.request)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(powerService.Power.SwitchRequest.request other) {
+          if (other == powerService.Power.SwitchRequest.request.getDefaultInstance()) return this;
+          if (other.module_ != 0) {
+            setModuleValue(other.getModuleValue());
+          }
+          if (other.getOffAfter() != 0) {
+            setOffAfter(other.getOffAfter());
+          }
+          if (other.getOnAfter() != 0) {
+            setOnAfter(other.getOnAfter());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          powerService.Power.SwitchRequest.request parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (powerService.Power.SwitchRequest.request) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private int module_ = 0;
+        /**
+         * <pre>
+         * 模块类型
+         * </pre>
+         *
+         * <code>.powerService.ModuleTypes module = 1;</code>
+         */
+        public int getModuleValue() {
+          return module_;
+        }
+        /**
+         * <pre>
+         * 模块类型
+         * </pre>
+         *
+         * <code>.powerService.ModuleTypes module = 1;</code>
+         */
+        public Builder setModuleValue(int value) {
+          module_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 模块类型
+         * </pre>
+         *
+         * <code>.powerService.ModuleTypes module = 1;</code>
+         */
+        public powerService.Power.ModuleTypes getModule() {
+          @SuppressWarnings("deprecation")
+          powerService.Power.ModuleTypes result = powerService.Power.ModuleTypes.valueOf(module_);
+          return result == null ? powerService.Power.ModuleTypes.UNRECOGNIZED : result;
+        }
+        /**
+         * <pre>
+         * 模块类型
+         * </pre>
+         *
+         * <code>.powerService.ModuleTypes module = 1;</code>
+         */
+        public Builder setModule(powerService.Power.ModuleTypes value) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          
+          module_ = value.getNumber();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 模块类型
+         * </pre>
+         *
+         * <code>.powerService.ModuleTypes module = 1;</code>
+         */
+        public Builder clearModule() {
+          
+          module_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private int offAfter_ ;
+        /**
+         * <pre>
+         * 若干秒后关闭该模块供电
+         * -1为未配置 0为立即
+         * </pre>
+         *
+         * <code>int32 off_after = 4;</code>
+         */
+        public int getOffAfter() {
+          return offAfter_;
+        }
+        /**
+         * <pre>
+         * 若干秒后关闭该模块供电
+         * -1为未配置 0为立即
+         * </pre>
+         *
+         * <code>int32 off_after = 4;</code>
+         */
+        public Builder setOffAfter(int value) {
+          
+          offAfter_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 若干秒后关闭该模块供电
+         * -1为未配置 0为立即
+         * </pre>
+         *
+         * <code>int32 off_after = 4;</code>
+         */
+        public Builder clearOffAfter() {
+          
+          offAfter_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private int onAfter_ ;
+        /**
+         * <pre>
+         * 若干秒后恢复该模块供电
+         * -1为未配置 0为立即
+         * </pre>
+         *
+         * <code>int32 on_after = 3;</code>
+         */
+        public int getOnAfter() {
+          return onAfter_;
+        }
+        /**
+         * <pre>
+         * 若干秒后恢复该模块供电
+         * -1为未配置 0为立即
+         * </pre>
+         *
+         * <code>int32 on_after = 3;</code>
+         */
+        public Builder setOnAfter(int value) {
+          
+          onAfter_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 若干秒后恢复该模块供电
+         * -1为未配置 0为立即
+         * </pre>
+         *
+         * <code>int32 on_after = 3;</code>
+         */
+        public Builder clearOnAfter() {
+          
+          onAfter_ = 0;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:powerService.SwitchRequest.request)
+      }
+
+      // @@protoc_insertion_point(class_scope:powerService.SwitchRequest.request)
+      private static final powerService.Power.SwitchRequest.request DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new powerService.Power.SwitchRequest.request();
+      }
+
+      public static powerService.Power.SwitchRequest.request getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<request>
+          PARSER = new com.google.protobuf.AbstractParser<request>() {
+        @java.lang.Override
+        public request parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new request(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<request> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<request> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchRequest.request getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int REQUESTS_FIELD_NUMBER = 1;
+    private java.util.List<powerService.Power.SwitchRequest.request> requests_;
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    public java.util.List<powerService.Power.SwitchRequest.request> getRequestsList() {
+      return requests_;
+    }
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    public java.util.List<? extends powerService.Power.SwitchRequest.requestOrBuilder> 
+        getRequestsOrBuilderList() {
+      return requests_;
+    }
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    public int getRequestsCount() {
+      return requests_.size();
+    }
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    public powerService.Power.SwitchRequest.request getRequests(int index) {
+      return requests_.get(index);
+    }
+    /**
+     * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+     */
+    public powerService.Power.SwitchRequest.requestOrBuilder getRequestsOrBuilder(
+        int index) {
+      return requests_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < requests_.size(); i++) {
+        output.writeMessage(1, requests_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < requests_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, requests_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof powerService.Power.SwitchRequest)) {
+        return super.equals(obj);
+      }
+      powerService.Power.SwitchRequest other = (powerService.Power.SwitchRequest) obj;
+
+      if (!getRequestsList()
+          .equals(other.getRequestsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRequestsCount() > 0) {
+        hash = (37 * hash) + REQUESTS_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static powerService.Power.SwitchRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.SwitchRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static powerService.Power.SwitchRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.SwitchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(powerService.Power.SwitchRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.SwitchRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.SwitchRequest)
+        powerService.Power.SwitchRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return powerService.Power.internal_static_powerService_SwitchRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return powerService.Power.internal_static_powerService_SwitchRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                powerService.Power.SwitchRequest.class, powerService.Power.SwitchRequest.Builder.class);
+      }
+
+      // Construct using powerService.Power.SwitchRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRequestsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (requestsBuilder_ == null) {
+          requests_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          requestsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return powerService.Power.internal_static_powerService_SwitchRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchRequest getDefaultInstanceForType() {
+        return powerService.Power.SwitchRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchRequest build() {
+        powerService.Power.SwitchRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchRequest buildPartial() {
+        powerService.Power.SwitchRequest result = new powerService.Power.SwitchRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (requestsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            requests_ = java.util.Collections.unmodifiableList(requests_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.requests_ = requests_;
+        } else {
+          result.requests_ = requestsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof powerService.Power.SwitchRequest) {
+          return mergeFrom((powerService.Power.SwitchRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(powerService.Power.SwitchRequest other) {
+        if (other == powerService.Power.SwitchRequest.getDefaultInstance()) return this;
+        if (requestsBuilder_ == null) {
+          if (!other.requests_.isEmpty()) {
+            if (requests_.isEmpty()) {
+              requests_ = other.requests_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRequestsIsMutable();
+              requests_.addAll(other.requests_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.requests_.isEmpty()) {
+            if (requestsBuilder_.isEmpty()) {
+              requestsBuilder_.dispose();
+              requestsBuilder_ = null;
+              requests_ = other.requests_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              requestsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRequestsFieldBuilder() : null;
+            } else {
+              requestsBuilder_.addAllMessages(other.requests_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        powerService.Power.SwitchRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (powerService.Power.SwitchRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<powerService.Power.SwitchRequest.request> requests_ =
+        java.util.Collections.emptyList();
+      private void ensureRequestsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          requests_ = new java.util.ArrayList<powerService.Power.SwitchRequest.request>(requests_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          powerService.Power.SwitchRequest.request, powerService.Power.SwitchRequest.request.Builder, powerService.Power.SwitchRequest.requestOrBuilder> requestsBuilder_;
+
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public java.util.List<powerService.Power.SwitchRequest.request> getRequestsList() {
+        if (requestsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(requests_);
+        } else {
+          return requestsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public int getRequestsCount() {
+        if (requestsBuilder_ == null) {
+          return requests_.size();
+        } else {
+          return requestsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public powerService.Power.SwitchRequest.request getRequests(int index) {
+        if (requestsBuilder_ == null) {
+          return requests_.get(index);
+        } else {
+          return requestsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder setRequests(
+          int index, powerService.Power.SwitchRequest.request value) {
+        if (requestsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRequestsIsMutable();
+          requests_.set(index, value);
+          onChanged();
+        } else {
+          requestsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder setRequests(
+          int index, powerService.Power.SwitchRequest.request.Builder builderForValue) {
+        if (requestsBuilder_ == null) {
+          ensureRequestsIsMutable();
+          requests_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          requestsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder addRequests(powerService.Power.SwitchRequest.request value) {
+        if (requestsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRequestsIsMutable();
+          requests_.add(value);
+          onChanged();
+        } else {
+          requestsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder addRequests(
+          int index, powerService.Power.SwitchRequest.request value) {
+        if (requestsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRequestsIsMutable();
+          requests_.add(index, value);
+          onChanged();
+        } else {
+          requestsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder addRequests(
+          powerService.Power.SwitchRequest.request.Builder builderForValue) {
+        if (requestsBuilder_ == null) {
+          ensureRequestsIsMutable();
+          requests_.add(builderForValue.build());
+          onChanged();
+        } else {
+          requestsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder addRequests(
+          int index, powerService.Power.SwitchRequest.request.Builder builderForValue) {
+        if (requestsBuilder_ == null) {
+          ensureRequestsIsMutable();
+          requests_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          requestsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder addAllRequests(
+          java.lang.Iterable<? extends powerService.Power.SwitchRequest.request> values) {
+        if (requestsBuilder_ == null) {
+          ensureRequestsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, requests_);
+          onChanged();
+        } else {
+          requestsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder clearRequests() {
+        if (requestsBuilder_ == null) {
+          requests_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          requestsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public Builder removeRequests(int index) {
+        if (requestsBuilder_ == null) {
+          ensureRequestsIsMutable();
+          requests_.remove(index);
+          onChanged();
+        } else {
+          requestsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public powerService.Power.SwitchRequest.request.Builder getRequestsBuilder(
+          int index) {
+        return getRequestsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public powerService.Power.SwitchRequest.requestOrBuilder getRequestsOrBuilder(
+          int index) {
+        if (requestsBuilder_ == null) {
+          return requests_.get(index);  } else {
+          return requestsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public java.util.List<? extends powerService.Power.SwitchRequest.requestOrBuilder> 
+           getRequestsOrBuilderList() {
+        if (requestsBuilder_ != null) {
+          return requestsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(requests_);
+        }
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public powerService.Power.SwitchRequest.request.Builder addRequestsBuilder() {
+        return getRequestsFieldBuilder().addBuilder(
+            powerService.Power.SwitchRequest.request.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public powerService.Power.SwitchRequest.request.Builder addRequestsBuilder(
+          int index) {
+        return getRequestsFieldBuilder().addBuilder(
+            index, powerService.Power.SwitchRequest.request.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .powerService.SwitchRequest.request requests = 1;</code>
+       */
+      public java.util.List<powerService.Power.SwitchRequest.request.Builder> 
+           getRequestsBuilderList() {
+        return getRequestsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          powerService.Power.SwitchRequest.request, powerService.Power.SwitchRequest.request.Builder, powerService.Power.SwitchRequest.requestOrBuilder> 
+          getRequestsFieldBuilder() {
+        if (requestsBuilder_ == null) {
+          requestsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              powerService.Power.SwitchRequest.request, powerService.Power.SwitchRequest.request.Builder, powerService.Power.SwitchRequest.requestOrBuilder>(
+                  requests_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          requests_ = null;
+        }
+        return requestsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.SwitchRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.SwitchRequest)
+    private static final powerService.Power.SwitchRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new powerService.Power.SwitchRequest();
+    }
+
+    public static powerService.Power.SwitchRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SwitchRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SwitchRequest>() {
+      @java.lang.Override
+      public SwitchRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SwitchRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SwitchRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SwitchRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public powerService.Power.SwitchRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SwitchResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.SwitchResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    java.util.List<powerService.Power.State> 
+        getStatesList();
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    powerService.Power.State getStates(int index);
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    int getStatesCount();
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    java.util.List<? extends powerService.Power.StateOrBuilder> 
+        getStatesOrBuilderList();
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    powerService.Power.StateOrBuilder getStatesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code powerService.SwitchResponse}
+   */
+  public  static final class SwitchResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.SwitchResponse)
+      SwitchResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SwitchResponse.newBuilder() to construct.
+    private SwitchResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SwitchResponse() {
+      states_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SwitchResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SwitchResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                states_ = new java.util.ArrayList<powerService.Power.State>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              states_.add(
+                  input.readMessage(powerService.Power.State.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          states_ = java.util.Collections.unmodifiableList(states_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return powerService.Power.internal_static_powerService_SwitchResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return powerService.Power.internal_static_powerService_SwitchResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              powerService.Power.SwitchResponse.class, powerService.Power.SwitchResponse.Builder.class);
+    }
+
+    public static final int STATES_FIELD_NUMBER = 1;
+    private java.util.List<powerService.Power.State> states_;
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public java.util.List<powerService.Power.State> getStatesList() {
+      return states_;
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public java.util.List<? extends powerService.Power.StateOrBuilder> 
+        getStatesOrBuilderList() {
+      return states_;
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public int getStatesCount() {
+      return states_.size();
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public powerService.Power.State getStates(int index) {
+      return states_.get(index);
+    }
+    /**
+     * <code>repeated .powerService.State states = 1;</code>
+     */
+    public powerService.Power.StateOrBuilder getStatesOrBuilder(
+        int index) {
+      return states_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < states_.size(); i++) {
+        output.writeMessage(1, states_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < states_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, states_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof powerService.Power.SwitchResponse)) {
+        return super.equals(obj);
+      }
+      powerService.Power.SwitchResponse other = (powerService.Power.SwitchResponse) obj;
+
+      if (!getStatesList()
+          .equals(other.getStatesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getStatesCount() > 0) {
+        hash = (37 * hash) + STATES_FIELD_NUMBER;
+        hash = (53 * hash) + getStatesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static powerService.Power.SwitchResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.SwitchResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static powerService.Power.SwitchResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static powerService.Power.SwitchResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(powerService.Power.SwitchResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.SwitchResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.SwitchResponse)
+        powerService.Power.SwitchResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return powerService.Power.internal_static_powerService_SwitchResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return powerService.Power.internal_static_powerService_SwitchResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                powerService.Power.SwitchResponse.class, powerService.Power.SwitchResponse.Builder.class);
+      }
+
+      // Construct using powerService.Power.SwitchResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getStatesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (statesBuilder_ == null) {
+          states_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          statesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return powerService.Power.internal_static_powerService_SwitchResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchResponse getDefaultInstanceForType() {
+        return powerService.Power.SwitchResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchResponse build() {
+        powerService.Power.SwitchResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public powerService.Power.SwitchResponse buildPartial() {
+        powerService.Power.SwitchResponse result = new powerService.Power.SwitchResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (statesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            states_ = java.util.Collections.unmodifiableList(states_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.states_ = states_;
+        } else {
+          result.states_ = statesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof powerService.Power.SwitchResponse) {
+          return mergeFrom((powerService.Power.SwitchResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(powerService.Power.SwitchResponse other) {
+        if (other == powerService.Power.SwitchResponse.getDefaultInstance()) return this;
+        if (statesBuilder_ == null) {
+          if (!other.states_.isEmpty()) {
+            if (states_.isEmpty()) {
+              states_ = other.states_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureStatesIsMutable();
+              states_.addAll(other.states_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.states_.isEmpty()) {
+            if (statesBuilder_.isEmpty()) {
+              statesBuilder_.dispose();
+              statesBuilder_ = null;
+              states_ = other.states_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              statesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getStatesFieldBuilder() : null;
+            } else {
+              statesBuilder_.addAllMessages(other.states_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        powerService.Power.SwitchResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (powerService.Power.SwitchResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<powerService.Power.State> states_ =
+        java.util.Collections.emptyList();
+      private void ensureStatesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          states_ = new java.util.ArrayList<powerService.Power.State>(states_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          powerService.Power.State, powerService.Power.State.Builder, powerService.Power.StateOrBuilder> statesBuilder_;
+
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public java.util.List<powerService.Power.State> getStatesList() {
+        if (statesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(states_);
+        } else {
+          return statesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public int getStatesCount() {
+        if (statesBuilder_ == null) {
+          return states_.size();
+        } else {
+          return statesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State getStates(int index) {
+        if (statesBuilder_ == null) {
+          return states_.get(index);
+        } else {
+          return statesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder setStates(
+          int index, powerService.Power.State value) {
+        if (statesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStatesIsMutable();
+          states_.set(index, value);
+          onChanged();
+        } else {
+          statesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder setStates(
+          int index, powerService.Power.State.Builder builderForValue) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          statesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(powerService.Power.State value) {
+        if (statesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStatesIsMutable();
+          states_.add(value);
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(
+          int index, powerService.Power.State value) {
+        if (statesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStatesIsMutable();
+          states_.add(index, value);
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(
+          powerService.Power.State.Builder builderForValue) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.add(builderForValue.build());
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addStates(
+          int index, powerService.Power.State.Builder builderForValue) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          statesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder addAllStates(
+          java.lang.Iterable<? extends powerService.Power.State> values) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, states_);
+          onChanged();
+        } else {
+          statesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder clearStates() {
+        if (statesBuilder_ == null) {
+          states_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          statesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public Builder removeStates(int index) {
+        if (statesBuilder_ == null) {
+          ensureStatesIsMutable();
+          states_.remove(index);
+          onChanged();
+        } else {
+          statesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State.Builder getStatesBuilder(
+          int index) {
+        return getStatesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.StateOrBuilder getStatesOrBuilder(
+          int index) {
+        if (statesBuilder_ == null) {
+          return states_.get(index);  } else {
+          return statesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public java.util.List<? extends powerService.Power.StateOrBuilder> 
+           getStatesOrBuilderList() {
+        if (statesBuilder_ != null) {
+          return statesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(states_);
+        }
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State.Builder addStatesBuilder() {
+        return getStatesFieldBuilder().addBuilder(
+            powerService.Power.State.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public powerService.Power.State.Builder addStatesBuilder(
+          int index) {
+        return getStatesFieldBuilder().addBuilder(
+            index, powerService.Power.State.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .powerService.State states = 1;</code>
+       */
+      public java.util.List<powerService.Power.State.Builder> 
+           getStatesBuilderList() {
+        return getStatesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          powerService.Power.State, powerService.Power.State.Builder, powerService.Power.StateOrBuilder> 
+          getStatesFieldBuilder() {
+        if (statesBuilder_ == null) {
+          statesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              powerService.Power.State, powerService.Power.State.Builder, powerService.Power.StateOrBuilder>(
+                  states_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          states_ = null;
+        }
+        return statesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.SwitchResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.SwitchResponse)
+    private static final powerService.Power.SwitchResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new powerService.Power.SwitchResponse();
+    }
+
+    public static powerService.Power.SwitchResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SwitchResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SwitchResponse>() {
+      @java.lang.Override
+      public SwitchResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SwitchResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SwitchResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SwitchResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public powerService.Power.SwitchResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_powerService_PowerStatus_descriptor;
   private static final 
@@ -2950,6 +7538,36 @@ public final class Power {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_powerService_RebootResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_State_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_State_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_StatesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_StatesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_StatesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_StatesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_SwitchRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_SwitchRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_SwitchRequest_request_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_SwitchRequest_request_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_SwitchResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_SwitchResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2960,21 +7578,40 @@ public final class Power {
   static {
     java.lang.String[] descriptorData = {
       "\n\013power.proto\022\014powerService\032\034google/api/" +
-      "annotations.proto\"\232\001\n\013PowerStatus\022\r\n\005lev" +
-      "el\030\001 \001(\r\022\023\n\013is_charging\030\002 \001(\010\0227\n\007devices" +
+      "annotations.proto\"\236\001\n\013PowerStatus\022\r\n\005lev" +
+      "el\030\001 \001(\r\022\023\n\013is_charging\030\002 \001(\010\022;\n\007devices" +
       "\030\003 \003(\0132&.powerService.PowerStatus.Device" +
-      "sEntry\032.\n\014DevicesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\010:\0028\001\"\027\n\025GetPowerStatusRequest\"" +
-      "I\n\026GetPowerStatusResponse\022/\n\014power_statu" +
-      "s\030\001 \001(\0132\031.powerService.PowerStatus\"\034\n\rRe" +
-      "bootRequest\022\013\n\003all\030\001 \001(\010\"\020\n\016RebootRespon" +
-      "se2\374\001\n\014PowerService\022\205\001\n\016GetPowerStatus\022#" +
-      ".powerService.GetPowerStatusRequest\032$.po" +
-      "werService.GetPowerStatusResponse\"&\202\323\344\223\002" +
-      " \022\036/api/v2/power/get_power_status0\001\022d\n\006R" +
-      "eboot\022\033.powerService.RebootRequest\032\034.pow" +
-      "erService.RebootResponse\"\037\202\323\344\223\002\031\"\024/api/v" +
-      "2/power/reboot:\001*b\006proto3"
+      "sEntryB\002\030\001\032.\n\014DevicesEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\010:\0028\001\"\027\n\025GetPowerStatusRequ" +
+      "est\"I\n\026GetPowerStatusResponse\022/\n\014power_s" +
+      "tatus\030\001 \001(\0132\031.powerService.PowerStatus\"\034" +
+      "\n\rRebootRequest\022\013\n\003all\030\001 \001(\010\"\020\n\016RebootRe" +
+      "sponse\"f\n\005State\022)\n\006module\030\001 \001(\0162\031.powerS" +
+      "ervice.ModuleTypes\022\r\n\005is_on\030\002 \001(\010\022\021\n\toff" +
+      "_after\030\004 \001(\005\022\020\n\010on_after\030\003 \001(\005\"\017\n\rStates" +
+      "Request\"5\n\016StatesResponse\022#\n\006states\030\001 \003(" +
+      "\0132\023.powerService.State\"\241\001\n\rSwitchRequest" +
+      "\0225\n\010requests\030\001 \003(\0132#.powerService.Switch" +
+      "Request.request\032Y\n\007request\022)\n\006module\030\001 \001" +
+      "(\0162\031.powerService.ModuleTypes\022\021\n\toff_aft" +
+      "er\030\004 \001(\005\022\020\n\010on_after\030\003 \001(\005\"5\n\016SwitchResp" +
+      "onse\022#\n\006states\030\001 \003(\0132\023.powerService.Stat" +
+      "e*\244\001\n\013ModuleTypes\022\025\n\021UnknownModuleType\020\000" +
+      "\022\010\n\004Main\020\001\022\n\n\006EscPos\020\002\022\n\n\006Screen\020\003\022\n\n\006Se" +
+      "nsor\020\004\022\n\n\006Speech\020\005\022\n\n\006Lights\020\006\022\016\n\nExpres" +
+      "sion\020\007\022\r\n\tNavigator\020\010\022\n\n\006Motion\020\t\022\r\n\tAmp" +
+      "lifier\020\n2\302\003\n\014PowerService\022\205\001\n\016GetPowerSt" +
+      "atus\022#.powerService.GetPowerStatusReques" +
+      "t\032$.powerService.GetPowerStatusResponse\"" +
+      "&\202\323\344\223\002 \022\036/api/v2/power/get_power_status0" +
+      "\001\022d\n\006Reboot\022\033.powerService.RebootRequest" +
+      "\032\034.powerService.RebootResponse\"\037\202\323\344\223\002\031\"\024" +
+      "/api/v2/power/reboot:\001*\022a\n\006States\022\033.powe" +
+      "rService.StatesRequest\032\034.powerService.St" +
+      "atesResponse\"\034\202\323\344\223\002\026\022\024/api/v2/power/stat" +
+      "es\022a\n\006Switch\022\033.powerService.SwitchReques" +
+      "t\032\034.powerService.SwitchResponse\"\034\202\323\344\223\002\026\022" +
+      "\024/api/v2/power/switchb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3017,6 +7654,42 @@ public final class Power {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_powerService_RebootResponse_descriptor,
         new java.lang.String[] { });
+    internal_static_powerService_State_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_powerService_State_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_State_descriptor,
+        new java.lang.String[] { "Module", "IsOn", "OffAfter", "OnAfter", });
+    internal_static_powerService_StatesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_powerService_StatesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_StatesRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_powerService_StatesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_powerService_StatesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_StatesResponse_descriptor,
+        new java.lang.String[] { "States", });
+    internal_static_powerService_SwitchRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_powerService_SwitchRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_SwitchRequest_descriptor,
+        new java.lang.String[] { "Requests", });
+    internal_static_powerService_SwitchRequest_request_descriptor =
+      internal_static_powerService_SwitchRequest_descriptor.getNestedTypes().get(0);
+    internal_static_powerService_SwitchRequest_request_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_SwitchRequest_request_descriptor,
+        new java.lang.String[] { "Module", "OffAfter", "OnAfter", });
+    internal_static_powerService_SwitchResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_powerService_SwitchResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_SwitchResponse_descriptor,
+        new java.lang.String[] { "States", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

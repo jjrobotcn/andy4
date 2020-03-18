@@ -13,6 +13,10 @@
 @class GetPowerStatusResponse;
 @class RebootRequest;
 @class RebootResponse;
+@class StatesRequest;
+@class StatesResponse;
+@class SwitchRequest;
+@class SwitchResponse;
 
 #if !defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) || !GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
   #import "google/api/Annotations.pbobjc.h"
@@ -42,6 +46,20 @@ NS_ASSUME_NONNULL_BEGIN
  * 对各模块的电源进行断电方式重启
  */
 - (GRPCUnaryProtoCall *)rebootWithMessage:(RebootRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark States(StatesRequest) returns (StatesResponse)
+
+/**
+ * 获取所有电源模块状态
+ */
+- (GRPCUnaryProtoCall *)statesWithMessage:(StatesRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+/**
+ * 控制模块供电开关
+ */
+- (GRPCUnaryProtoCall *)switchWithMessage:(SwitchRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 @end
 
@@ -83,6 +101,40 @@ NS_ASSUME_NONNULL_BEGIN
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (GRPCProtoCall *)RPCToRebootWithRequest:(RebootRequest *)request handler:(void(^)(RebootResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark States(StatesRequest) returns (StatesResponse)
+
+/**
+ * 获取所有电源模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)statesWithRequest:(StatesRequest *)request handler:(void(^)(StatesResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 获取所有电源模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToStatesWithRequest:(StatesRequest *)request handler:(void(^)(StatesResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+/**
+ * 控制模块供电开关
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)switchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 控制模块供电开关
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToSwitchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

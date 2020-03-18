@@ -121,5 +121,73 @@
              responseClass:[RebootResponse class]];
 }
 
+#pragma mark States(StatesRequest) returns (StatesResponse)
+
+// Deprecated methods.
+/**
+ * 获取所有电源模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)statesWithRequest:(StatesRequest *)request handler:(void(^)(StatesResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToStatesWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * 获取所有电源模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToStatesWithRequest:(StatesRequest *)request handler:(void(^)(StatesResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"States"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[StatesResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+/**
+ * 获取所有电源模块状态
+ */
+- (GRPCUnaryProtoCall *)statesWithMessage:(StatesRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
+  return [self RPCToMethod:@"States"
+                   message:message
+           responseHandler:handler
+               callOptions:callOptions
+             responseClass:[StatesResponse class]];
+}
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+// Deprecated methods.
+/**
+ * 控制模块供电开关
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)switchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler{
+  [[self RPCToSwitchWithRequest:request handler:handler] start];
+}
+// Returns a not-yet-started RPC object.
+/**
+ * 控制模块供电开关
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToSwitchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler{
+  return [self RPCToMethod:@"Switch"
+            requestsWriter:[GRXWriter writerWithValue:request]
+             responseClass:[SwitchResponse class]
+        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
+}
+/**
+ * 控制模块供电开关
+ */
+- (GRPCUnaryProtoCall *)switchWithMessage:(SwitchRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
+  return [self RPCToMethod:@"Switch"
+                   message:message
+           responseHandler:handler
+               callOptions:callOptions
+             responseClass:[SwitchResponse class]];
+}
+
 @end
 #endif

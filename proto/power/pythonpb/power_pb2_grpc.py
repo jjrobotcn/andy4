@@ -24,6 +24,16 @@ class PowerServiceStub(object):
         request_serializer=power__pb2.RebootRequest.SerializeToString,
         response_deserializer=power__pb2.RebootResponse.FromString,
         )
+    self.States = channel.unary_unary(
+        '/powerService.PowerService/States',
+        request_serializer=power__pb2.StatesRequest.SerializeToString,
+        response_deserializer=power__pb2.StatesResponse.FromString,
+        )
+    self.Switch = channel.unary_unary(
+        '/powerService.PowerService/Switch',
+        request_serializer=power__pb2.SwitchRequest.SerializeToString,
+        response_deserializer=power__pb2.SwitchResponse.FromString,
+        )
 
 
 class PowerServiceServicer(object):
@@ -44,6 +54,20 @@ class PowerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def States(self, request, context):
+    """获取所有电源模块状态
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Switch(self, request, context):
+    """控制模块供电开关
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PowerServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -56,6 +80,16 @@ def add_PowerServiceServicer_to_server(servicer, server):
           servicer.Reboot,
           request_deserializer=power__pb2.RebootRequest.FromString,
           response_serializer=power__pb2.RebootResponse.SerializeToString,
+      ),
+      'States': grpc.unary_unary_rpc_method_handler(
+          servicer.States,
+          request_deserializer=power__pb2.StatesRequest.FromString,
+          response_serializer=power__pb2.StatesResponse.SerializeToString,
+      ),
+      'Switch': grpc.unary_unary_rpc_method_handler(
+          servicer.Switch,
+          request_deserializer=power__pb2.SwitchRequest.FromString,
+          response_serializer=power__pb2.SwitchResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

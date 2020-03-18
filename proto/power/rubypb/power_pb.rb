@@ -21,6 +21,41 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "powerService.RebootResponse" do
     end
+    add_message "powerService.State" do
+      optional :module, :enum, 1, "powerService.ModuleTypes"
+      optional :is_on, :bool, 2
+      optional :off_after, :int32, 4
+      optional :on_after, :int32, 3
+    end
+    add_message "powerService.StatesRequest" do
+    end
+    add_message "powerService.StatesResponse" do
+      repeated :states, :message, 1, "powerService.State"
+    end
+    add_message "powerService.SwitchRequest" do
+      repeated :requests, :message, 1, "powerService.SwitchRequest.request"
+    end
+    add_message "powerService.SwitchRequest.request" do
+      optional :module, :enum, 1, "powerService.ModuleTypes"
+      optional :off_after, :int32, 4
+      optional :on_after, :int32, 3
+    end
+    add_message "powerService.SwitchResponse" do
+      repeated :states, :message, 1, "powerService.State"
+    end
+    add_enum "powerService.ModuleTypes" do
+      value :UnknownModuleType, 0
+      value :Main, 1
+      value :EscPos, 2
+      value :Screen, 3
+      value :Sensor, 4
+      value :Speech, 5
+      value :Lights, 6
+      value :Expression, 7
+      value :Navigator, 8
+      value :Motion, 9
+      value :Amplifier, 10
+    end
   end
 end
 
@@ -30,4 +65,11 @@ module PowerService
   GetPowerStatusResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.GetPowerStatusResponse").msgclass
   RebootRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.RebootRequest").msgclass
   RebootResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.RebootResponse").msgclass
+  State = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.State").msgclass
+  StatesRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.StatesRequest").msgclass
+  StatesResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.StatesResponse").msgclass
+  SwitchRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.SwitchRequest").msgclass
+  SwitchRequest::Request = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.SwitchRequest.request").msgclass
+  SwitchResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.SwitchResponse").msgclass
+  ModuleTypes = Google::Protobuf::DescriptorPool.generated_pool.lookup("powerService.ModuleTypes").enummodule
 end

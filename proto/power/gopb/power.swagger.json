@@ -58,9 +58,62 @@
           "PowerService"
         ]
       }
+    },
+    "/api/v2/power/states": {
+      "get": {
+        "summary": "获取所有电源模块状态",
+        "operationId": "States",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/powerServiceStatesResponse"
+            }
+          }
+        },
+        "tags": [
+          "PowerService"
+        ]
+      }
+    },
+    "/api/v2/power/switch": {
+      "get": {
+        "summary": "控制模块供电开关",
+        "operationId": "Switch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/powerServiceSwitchResponse"
+            }
+          }
+        },
+        "tags": [
+          "PowerService"
+        ]
+      }
     }
   },
   "definitions": {
+    "SwitchRequestrequest": {
+      "type": "object",
+      "properties": {
+        "module": {
+          "$ref": "#/definitions/powerServiceModuleTypes",
+          "title": "模块类型"
+        },
+        "off_after": {
+          "type": "integer",
+          "format": "int32",
+          "title": "若干秒后关闭该模块供电\n-1为未配置 0为立即"
+        },
+        "on_after": {
+          "type": "integer",
+          "format": "int32",
+          "title": "若干秒后恢复该模块供电\n-1为未配置 0为立即"
+        }
+      }
+    },
     "powerServiceGetPowerStatusResponse": {
       "type": "object",
       "properties": {
@@ -68,6 +121,24 @@
           "$ref": "#/definitions/powerServicePowerStatus"
         }
       }
+    },
+    "powerServiceModuleTypes": {
+      "type": "string",
+      "enum": [
+        "UnknownModuleType",
+        "Main",
+        "EscPos",
+        "Screen",
+        "Sensor",
+        "Speech",
+        "Lights",
+        "Expression",
+        "Navigator",
+        "Motion",
+        "Amplifier"
+      ],
+      "default": "UnknownModuleType",
+      "title": "模块类型枚举"
     },
     "powerServicePowerStatus": {
       "type": "object",
@@ -85,7 +156,8 @@
           "additionalProperties": {
             "type": "boolean",
             "format": "boolean"
-          }
+          },
+          "title": "设备状态\n此字段已作废，请使用States方法获取"
         }
       }
     },
@@ -101,6 +173,52 @@
     },
     "powerServiceRebootResponse": {
       "type": "object"
+    },
+    "powerServiceState": {
+      "type": "object",
+      "properties": {
+        "module": {
+          "$ref": "#/definitions/powerServiceModuleTypes",
+          "title": "模块类型"
+        },
+        "is_on": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前模块是否供电"
+        },
+        "off_after": {
+          "type": "integer",
+          "format": "int32",
+          "title": "触发关闭供电倒计时（秒）\n-1为未配置或已失效"
+        },
+        "on_after": {
+          "type": "integer",
+          "format": "int32",
+          "title": "触发恢复供电倒计时（秒）\n-1为未配置或已失效"
+        }
+      }
+    },
+    "powerServiceStatesResponse": {
+      "type": "object",
+      "properties": {
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/powerServiceState"
+          }
+        }
+      }
+    },
+    "powerServiceSwitchResponse": {
+      "type": "object",
+      "properties": {
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/powerServiceState"
+          }
+        }
+      }
     },
     "protobufAny": {
       "type": "object",

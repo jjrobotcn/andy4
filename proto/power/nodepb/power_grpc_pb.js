@@ -49,6 +49,50 @@ function deserialize_powerService_RebootResponse(buffer_arg) {
   return power_pb.RebootResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_powerService_StatesRequest(arg) {
+  if (!(arg instanceof power_pb.StatesRequest)) {
+    throw new Error('Expected argument of type powerService.StatesRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_StatesRequest(buffer_arg) {
+  return power_pb.StatesRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_powerService_StatesResponse(arg) {
+  if (!(arg instanceof power_pb.StatesResponse)) {
+    throw new Error('Expected argument of type powerService.StatesResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_StatesResponse(buffer_arg) {
+  return power_pb.StatesResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_powerService_SwitchRequest(arg) {
+  if (!(arg instanceof power_pb.SwitchRequest)) {
+    throw new Error('Expected argument of type powerService.SwitchRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_SwitchRequest(buffer_arg) {
+  return power_pb.SwitchRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_powerService_SwitchResponse(arg) {
+  if (!(arg instanceof power_pb.SwitchResponse)) {
+    throw new Error('Expected argument of type powerService.SwitchResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_SwitchResponse(buffer_arg) {
+  return power_pb.SwitchResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var PowerServiceService = exports.PowerServiceService = {
   // 获取电源状态数据流
@@ -74,6 +118,30 @@ var PowerServiceService = exports.PowerServiceService = {
     requestDeserialize: deserialize_powerService_RebootRequest,
     responseSerialize: serialize_powerService_RebootResponse,
     responseDeserialize: deserialize_powerService_RebootResponse,
+  },
+  // 获取所有电源模块状态
+  states: {
+    path: '/powerService.PowerService/States',
+    requestStream: false,
+    responseStream: false,
+    requestType: power_pb.StatesRequest,
+    responseType: power_pb.StatesResponse,
+    requestSerialize: serialize_powerService_StatesRequest,
+    requestDeserialize: deserialize_powerService_StatesRequest,
+    responseSerialize: serialize_powerService_StatesResponse,
+    responseDeserialize: deserialize_powerService_StatesResponse,
+  },
+  // 控制模块供电开关
+  switch: {
+    path: '/powerService.PowerService/Switch',
+    requestStream: false,
+    responseStream: false,
+    requestType: power_pb.SwitchRequest,
+    responseType: power_pb.SwitchResponse,
+    requestSerialize: serialize_powerService_SwitchRequest,
+    requestDeserialize: deserialize_powerService_SwitchRequest,
+    responseSerialize: serialize_powerService_SwitchResponse,
+    responseDeserialize: deserialize_powerService_SwitchResponse,
   },
 };
 

@@ -25,10 +25,65 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 模块类型枚举
+type ModuleTypes int32
+
+const (
+	ModuleTypes_UnknownModuleType ModuleTypes = 0
+	ModuleTypes_Main              ModuleTypes = 1
+	ModuleTypes_EscPos            ModuleTypes = 2
+	ModuleTypes_Screen            ModuleTypes = 3
+	ModuleTypes_Sensor            ModuleTypes = 4
+	ModuleTypes_Speech            ModuleTypes = 5
+	ModuleTypes_Lights            ModuleTypes = 6
+	ModuleTypes_Expression        ModuleTypes = 7
+	ModuleTypes_Navigator         ModuleTypes = 8
+	ModuleTypes_Motion            ModuleTypes = 9
+	ModuleTypes_Amplifier         ModuleTypes = 10
+)
+
+var ModuleTypes_name = map[int32]string{
+	0:  "UnknownModuleType",
+	1:  "Main",
+	2:  "EscPos",
+	3:  "Screen",
+	4:  "Sensor",
+	5:  "Speech",
+	6:  "Lights",
+	7:  "Expression",
+	8:  "Navigator",
+	9:  "Motion",
+	10: "Amplifier",
+}
+
+var ModuleTypes_value = map[string]int32{
+	"UnknownModuleType": 0,
+	"Main":              1,
+	"EscPos":            2,
+	"Screen":            3,
+	"Sensor":            4,
+	"Speech":            5,
+	"Lights":            6,
+	"Expression":        7,
+	"Navigator":         8,
+	"Motion":            9,
+	"Amplifier":         10,
+}
+
+func (x ModuleTypes) String() string {
+	return proto.EnumName(ModuleTypes_name, int32(x))
+}
+
+func (ModuleTypes) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{0}
+}
+
 type PowerStatus struct {
-	Level                uint32          `protobuf:"varint,1,opt,name=level,proto3" json:"level,omitempty"`
-	IsCharging           bool            `protobuf:"varint,2,opt,name=is_charging,json=isCharging,proto3" json:"is_charging,omitempty"`
-	Devices              map[string]bool `protobuf:"bytes,3,rep,name=devices,proto3" json:"devices,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
+	Level      uint32 `protobuf:"varint,1,opt,name=level,proto3" json:"level,omitempty"`
+	IsCharging bool   `protobuf:"varint,2,opt,name=is_charging,json=isCharging,proto3" json:"is_charging,omitempty"`
+	// 设备状态
+	// 此字段已作废，请使用States方法获取
+	Devices              map[string]bool `protobuf:"bytes,3,rep,name=devices,proto3" json:"devices,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"` // Deprecated: Do not use.
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -73,6 +128,7 @@ func (m *PowerStatus) GetIsCharging() bool {
 	return false
 }
 
+// Deprecated: Do not use.
 func (m *PowerStatus) GetDevices() map[string]bool {
 	if m != nil {
 		return m.Devices
@@ -221,43 +277,346 @@ func (m *RebootResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_RebootResponse proto.InternalMessageInfo
 
+type State struct {
+	// 模块类型
+	Module ModuleTypes `protobuf:"varint,1,opt,name=module,proto3,enum=powerService.ModuleTypes" json:"module,omitempty"`
+	// 当前模块是否供电
+	IsOn bool `protobuf:"varint,2,opt,name=is_on,json=isOn,proto3" json:"is_on,omitempty"`
+	// 触发关闭供电倒计时（秒）
+	// -1为未配置或已失效
+	OffAfter int32 `protobuf:"varint,4,opt,name=off_after,json=offAfter,proto3" json:"off_after,omitempty"`
+	// 触发恢复供电倒计时（秒）
+	// -1为未配置或已失效
+	OnAfter              int32    `protobuf:"varint,3,opt,name=on_after,json=onAfter,proto3" json:"on_after,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *State) Reset()         { *m = State{} }
+func (m *State) String() string { return proto.CompactTextString(m) }
+func (*State) ProtoMessage()    {}
+func (*State) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{5}
+}
+
+func (m *State) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_State.Unmarshal(m, b)
+}
+func (m *State) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_State.Marshal(b, m, deterministic)
+}
+func (m *State) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_State.Merge(m, src)
+}
+func (m *State) XXX_Size() int {
+	return xxx_messageInfo_State.Size(m)
+}
+func (m *State) XXX_DiscardUnknown() {
+	xxx_messageInfo_State.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_State proto.InternalMessageInfo
+
+func (m *State) GetModule() ModuleTypes {
+	if m != nil {
+		return m.Module
+	}
+	return ModuleTypes_UnknownModuleType
+}
+
+func (m *State) GetIsOn() bool {
+	if m != nil {
+		return m.IsOn
+	}
+	return false
+}
+
+func (m *State) GetOffAfter() int32 {
+	if m != nil {
+		return m.OffAfter
+	}
+	return 0
+}
+
+func (m *State) GetOnAfter() int32 {
+	if m != nil {
+		return m.OnAfter
+	}
+	return 0
+}
+
+type StatesRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StatesRequest) Reset()         { *m = StatesRequest{} }
+func (m *StatesRequest) String() string { return proto.CompactTextString(m) }
+func (*StatesRequest) ProtoMessage()    {}
+func (*StatesRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{6}
+}
+
+func (m *StatesRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StatesRequest.Unmarshal(m, b)
+}
+func (m *StatesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StatesRequest.Marshal(b, m, deterministic)
+}
+func (m *StatesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatesRequest.Merge(m, src)
+}
+func (m *StatesRequest) XXX_Size() int {
+	return xxx_messageInfo_StatesRequest.Size(m)
+}
+func (m *StatesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatesRequest proto.InternalMessageInfo
+
+type StatesResponse struct {
+	States               []*State `protobuf:"bytes,1,rep,name=states,proto3" json:"states,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StatesResponse) Reset()         { *m = StatesResponse{} }
+func (m *StatesResponse) String() string { return proto.CompactTextString(m) }
+func (*StatesResponse) ProtoMessage()    {}
+func (*StatesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{7}
+}
+
+func (m *StatesResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StatesResponse.Unmarshal(m, b)
+}
+func (m *StatesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StatesResponse.Marshal(b, m, deterministic)
+}
+func (m *StatesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatesResponse.Merge(m, src)
+}
+func (m *StatesResponse) XXX_Size() int {
+	return xxx_messageInfo_StatesResponse.Size(m)
+}
+func (m *StatesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatesResponse proto.InternalMessageInfo
+
+func (m *StatesResponse) GetStates() []*State {
+	if m != nil {
+		return m.States
+	}
+	return nil
+}
+
+type SwitchRequest struct {
+	Requests             []*SwitchRequestRequest `protobuf:"bytes,1,rep,name=requests,proto3" json:"requests,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *SwitchRequest) Reset()         { *m = SwitchRequest{} }
+func (m *SwitchRequest) String() string { return proto.CompactTextString(m) }
+func (*SwitchRequest) ProtoMessage()    {}
+func (*SwitchRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{8}
+}
+
+func (m *SwitchRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SwitchRequest.Unmarshal(m, b)
+}
+func (m *SwitchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SwitchRequest.Marshal(b, m, deterministic)
+}
+func (m *SwitchRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchRequest.Merge(m, src)
+}
+func (m *SwitchRequest) XXX_Size() int {
+	return xxx_messageInfo_SwitchRequest.Size(m)
+}
+func (m *SwitchRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchRequest proto.InternalMessageInfo
+
+func (m *SwitchRequest) GetRequests() []*SwitchRequestRequest {
+	if m != nil {
+		return m.Requests
+	}
+	return nil
+}
+
+type SwitchRequestRequest struct {
+	// 模块类型
+	Module ModuleTypes `protobuf:"varint,1,opt,name=module,proto3,enum=powerService.ModuleTypes" json:"module,omitempty"`
+	// 若干秒后关闭该模块供电
+	// -1为未配置 0为立即
+	OffAfter int32 `protobuf:"varint,4,opt,name=off_after,json=offAfter,proto3" json:"off_after,omitempty"`
+	// 若干秒后恢复该模块供电
+	// -1为未配置 0为立即
+	OnAfter              int32    `protobuf:"varint,3,opt,name=on_after,json=onAfter,proto3" json:"on_after,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchRequestRequest) Reset()         { *m = SwitchRequestRequest{} }
+func (m *SwitchRequestRequest) String() string { return proto.CompactTextString(m) }
+func (*SwitchRequestRequest) ProtoMessage()    {}
+func (*SwitchRequestRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{8, 0}
+}
+
+func (m *SwitchRequestRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SwitchRequestRequest.Unmarshal(m, b)
+}
+func (m *SwitchRequestRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SwitchRequestRequest.Marshal(b, m, deterministic)
+}
+func (m *SwitchRequestRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchRequestRequest.Merge(m, src)
+}
+func (m *SwitchRequestRequest) XXX_Size() int {
+	return xxx_messageInfo_SwitchRequestRequest.Size(m)
+}
+func (m *SwitchRequestRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchRequestRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchRequestRequest proto.InternalMessageInfo
+
+func (m *SwitchRequestRequest) GetModule() ModuleTypes {
+	if m != nil {
+		return m.Module
+	}
+	return ModuleTypes_UnknownModuleType
+}
+
+func (m *SwitchRequestRequest) GetOffAfter() int32 {
+	if m != nil {
+		return m.OffAfter
+	}
+	return 0
+}
+
+func (m *SwitchRequestRequest) GetOnAfter() int32 {
+	if m != nil {
+		return m.OnAfter
+	}
+	return 0
+}
+
+type SwitchResponse struct {
+	States               []*State `protobuf:"bytes,1,rep,name=states,proto3" json:"states,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchResponse) Reset()         { *m = SwitchResponse{} }
+func (m *SwitchResponse) String() string { return proto.CompactTextString(m) }
+func (*SwitchResponse) ProtoMessage()    {}
+func (*SwitchResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{9}
+}
+
+func (m *SwitchResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SwitchResponse.Unmarshal(m, b)
+}
+func (m *SwitchResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SwitchResponse.Marshal(b, m, deterministic)
+}
+func (m *SwitchResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchResponse.Merge(m, src)
+}
+func (m *SwitchResponse) XXX_Size() int {
+	return xxx_messageInfo_SwitchResponse.Size(m)
+}
+func (m *SwitchResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchResponse proto.InternalMessageInfo
+
+func (m *SwitchResponse) GetStates() []*State {
+	if m != nil {
+		return m.States
+	}
+	return nil
+}
+
 func init() {
+	proto.RegisterEnum("powerService.ModuleTypes", ModuleTypes_name, ModuleTypes_value)
 	proto.RegisterType((*PowerStatus)(nil), "powerService.PowerStatus")
 	proto.RegisterMapType((map[string]bool)(nil), "powerService.PowerStatus.DevicesEntry")
 	proto.RegisterType((*GetPowerStatusRequest)(nil), "powerService.GetPowerStatusRequest")
 	proto.RegisterType((*GetPowerStatusResponse)(nil), "powerService.GetPowerStatusResponse")
 	proto.RegisterType((*RebootRequest)(nil), "powerService.RebootRequest")
 	proto.RegisterType((*RebootResponse)(nil), "powerService.RebootResponse")
+	proto.RegisterType((*State)(nil), "powerService.State")
+	proto.RegisterType((*StatesRequest)(nil), "powerService.StatesRequest")
+	proto.RegisterType((*StatesResponse)(nil), "powerService.StatesResponse")
+	proto.RegisterType((*SwitchRequest)(nil), "powerService.SwitchRequest")
+	proto.RegisterType((*SwitchRequestRequest)(nil), "powerService.SwitchRequest.request")
+	proto.RegisterType((*SwitchResponse)(nil), "powerService.SwitchResponse")
 }
 
 func init() { proto.RegisterFile("power.proto", fileDescriptor_a4fab2da8ea5416b) }
 
 var fileDescriptor_a4fab2da8ea5416b = []byte{
-	// 371 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0xc1, 0x4a, 0xeb, 0x40,
-	0x14, 0x86, 0x99, 0x96, 0xdb, 0xdb, 0x7b, 0xd2, 0x96, 0x32, 0xf4, 0xde, 0xdb, 0xe6, 0x96, 0xdb,
-	0x18, 0xa5, 0x14, 0x17, 0x89, 0xc4, 0x8d, 0x14, 0x17, 0x82, 0x8a, 0xdb, 0x32, 0x82, 0xdb, 0x92,
-	0xb6, 0x87, 0x18, 0x0c, 0x99, 0x98, 0x99, 0x46, 0xba, 0x15, 0x7c, 0x02, 0xdf, 0xc8, 0x57, 0xf0,
-	0x15, 0x7c, 0x0c, 0x17, 0x92, 0x99, 0x14, 0x12, 0xa9, 0xee, 0xe6, 0x9f, 0xf3, 0xcf, 0xf9, 0xfe,
-	0x73, 0x12, 0x30, 0x12, 0xfe, 0x80, 0xa9, 0x93, 0xa4, 0x5c, 0x72, 0xda, 0x52, 0xe2, 0x1a, 0xd3,
-	0x2c, 0x5c, 0xa2, 0x39, 0x0c, 0x38, 0x0f, 0x22, 0x74, 0xfd, 0x24, 0x74, 0xfd, 0x38, 0xe6, 0xd2,
-	0x97, 0x21, 0x8f, 0x85, 0xf6, 0xda, 0x2f, 0x04, 0x8c, 0x99, 0xb2, 0x4b, 0x5f, 0xae, 0x05, 0xed,
-	0xc1, 0x8f, 0x08, 0x33, 0x8c, 0xfa, 0xc4, 0x22, 0x93, 0x36, 0xd3, 0x82, 0x8e, 0xc0, 0x08, 0xc5,
-	0x7c, 0x79, 0xeb, 0xa7, 0x41, 0x18, 0x07, 0xfd, 0x9a, 0x45, 0x26, 0x4d, 0x06, 0xa1, 0x38, 0x2f,
-	0x6e, 0xe8, 0x19, 0xfc, 0x5c, 0x61, 0x8e, 0x13, 0xfd, 0xba, 0x55, 0x9f, 0x18, 0xde, 0xd8, 0x29,
-	0x87, 0x70, 0x4a, 0x08, 0xe7, 0x42, 0x1b, 0x2f, 0x63, 0x99, 0x6e, 0xd8, 0xf6, 0x99, 0x39, 0x85,
-	0x56, 0xb9, 0x40, 0xbb, 0x50, 0xbf, 0xc3, 0x8d, 0x8a, 0xf1, 0x8b, 0xe5, 0xc7, 0x3c, 0x5a, 0xe6,
-	0x47, 0x6b, 0x2c, 0xf0, 0x5a, 0x4c, 0x6b, 0x27, 0xc4, 0xfe, 0x0b, 0xbf, 0xaf, 0x50, 0x96, 0x18,
-	0x0c, 0xef, 0xd7, 0x28, 0xa4, 0x7d, 0x03, 0x7f, 0x3e, 0x17, 0x44, 0xc2, 0x63, 0x81, 0xf4, 0x14,
-	0xf4, 0x96, 0xe6, 0x42, 0xdd, 0x2b, 0x8e, 0xe1, 0x0d, 0xbe, 0x4c, 0xcd, 0xf4, 0x86, 0xb5, 0xb0,
-	0xf7, 0xa0, 0xcd, 0x70, 0xc1, 0xb9, 0x2c, 0x40, 0x79, 0x5a, 0x3f, 0xd2, 0x4b, 0x6b, 0xb2, 0xfc,
-	0x68, 0x77, 0xa1, 0xb3, 0xb5, 0x68, 0xa4, 0xf7, 0x4e, 0xa0, 0x35, 0x2b, 0xb5, 0xa7, 0x4f, 0x04,
-	0x3a, 0xd5, 0x78, 0x74, 0xbf, 0x1a, 0x60, 0xe7, 0x54, 0xe6, 0xc1, 0xf7, 0x26, 0x8d, 0xb3, 0xc7,
-	0x8f, 0xaf, 0x6f, 0xcf, 0x35, 0x8b, 0xfe, 0x57, 0x5f, 0x3e, 0xf3, 0x5c, 0xf5, 0xc8, 0x0d, 0x50,
-	0xce, 0xcb, 0x93, 0x1f, 0x11, 0xba, 0x82, 0x86, 0x8e, 0x4a, 0xff, 0x55, 0x3b, 0x57, 0x66, 0x34,
-	0x87, 0xbb, 0x8b, 0x05, 0x6e, 0xa4, 0x70, 0x03, 0xbb, 0x57, 0xc5, 0xa5, 0xca, 0x35, 0x25, 0x87,
-	0x8b, 0x86, 0xfa, 0xe1, 0x8e, 0x3f, 0x02, 0x00, 0x00, 0xff, 0xff, 0xc5, 0xf4, 0x13, 0x0c, 0xab,
-	0x02, 0x00, 0x00,
+	// 676 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x54, 0xcd, 0x6e, 0xd3, 0x4c,
+	0x14, 0xfd, 0x26, 0xbf, 0xce, 0x4d, 0x93, 0xcf, 0x4c, 0x7f, 0x48, 0xd3, 0x8a, 0x06, 0x83, 0xaa,
+	0xa8, 0x48, 0x09, 0x84, 0x0d, 0xaa, 0x40, 0xa8, 0xd0, 0x8a, 0x0d, 0x85, 0xca, 0x05, 0xb6, 0x91,
+	0x9b, 0xde, 0x38, 0xa3, 0xba, 0x33, 0xc6, 0x33, 0x49, 0xe9, 0x16, 0x09, 0xf1, 0x00, 0xbc, 0x02,
+	0x4f, 0xc2, 0x82, 0x17, 0xe0, 0x15, 0x78, 0x10, 0x34, 0x63, 0xa7, 0xd8, 0x6e, 0xcb, 0xa2, 0xbb,
+	0xfb, 0x73, 0xae, 0xcf, 0xf1, 0xf1, 0xbd, 0x86, 0x7a, 0x28, 0xce, 0x30, 0xea, 0x85, 0x91, 0x50,
+	0x82, 0x2e, 0x98, 0xe4, 0x10, 0xa3, 0x19, 0x1b, 0x61, 0x7b, 0xdd, 0x17, 0xc2, 0x0f, 0xb0, 0xef,
+	0x85, 0xac, 0xef, 0x71, 0x2e, 0x94, 0xa7, 0x98, 0xe0, 0x32, 0xc6, 0x3a, 0x3f, 0x09, 0xd4, 0x0f,
+	0x0c, 0x5c, 0x79, 0x6a, 0x2a, 0xe9, 0x12, 0x94, 0x03, 0x9c, 0x61, 0xd0, 0x22, 0x1d, 0xd2, 0x6d,
+	0xb8, 0x71, 0x42, 0x37, 0xa0, 0xce, 0xe4, 0x70, 0x34, 0xf1, 0x22, 0x9f, 0x71, 0xbf, 0x55, 0xe8,
+	0x90, 0xae, 0xe5, 0x02, 0x93, 0x2f, 0x93, 0x0a, 0xdd, 0x85, 0xea, 0x31, 0x6a, 0x3a, 0xd9, 0x2a,
+	0x76, 0x8a, 0xdd, 0xfa, 0x60, 0xb3, 0x97, 0x16, 0xd1, 0x4b, 0x51, 0xf4, 0x76, 0x63, 0xe0, 0x1e,
+	0x57, 0xd1, 0xf9, 0x8b, 0x42, 0x8b, 0xb8, 0xf3, 0xd1, 0xf6, 0x36, 0x2c, 0xa4, 0x9b, 0xd4, 0x86,
+	0xe2, 0x09, 0x9e, 0x1b, 0x29, 0x35, 0x57, 0x87, 0x5a, 0xde, 0xcc, 0x0b, 0xa6, 0x98, 0x48, 0x88,
+	0x93, 0xed, 0xc2, 0x13, 0xe2, 0xdc, 0x86, 0xe5, 0x57, 0xa8, 0x52, 0x3c, 0x2e, 0x7e, 0x9c, 0xa2,
+	0x54, 0xce, 0x07, 0x58, 0xc9, 0x37, 0x64, 0x28, 0xb8, 0x44, 0xfa, 0x14, 0x62, 0xa7, 0x86, 0xd2,
+	0xd4, 0x0d, 0x4f, 0x7d, 0xb0, 0x7a, 0xad, 0x72, 0x37, 0x76, 0x39, 0x4e, 0x9c, 0xbb, 0xd0, 0x70,
+	0xf1, 0x48, 0x08, 0x95, 0x10, 0x69, 0xb5, 0x5e, 0x10, 0x1b, 0x67, 0xb9, 0x3a, 0x74, 0x6c, 0x68,
+	0xce, 0x21, 0x31, 0xa5, 0xf3, 0x95, 0x40, 0x59, 0xcf, 0x23, 0x7d, 0x04, 0x95, 0x53, 0x71, 0x3c,
+	0x0d, 0xd0, 0x0c, 0x34, 0xf3, 0xb4, 0xfb, 0xa6, 0xf7, 0xee, 0x3c, 0x44, 0xe9, 0x26, 0x40, 0xba,
+	0x08, 0x65, 0x26, 0x87, 0x82, 0x27, 0x2f, 0x5f, 0x62, 0xf2, 0x2d, 0xa7, 0x6b, 0x50, 0x13, 0xe3,
+	0xf1, 0xd0, 0x1b, 0x2b, 0x8c, 0x5a, 0xa5, 0x0e, 0xe9, 0x96, 0x5d, 0x4b, 0x8c, 0xc7, 0x3b, 0x3a,
+	0xa7, 0xab, 0x60, 0x09, 0x9e, 0xf4, 0x8a, 0xa6, 0x57, 0x15, 0xdc, 0xb4, 0x9c, 0xff, 0xa1, 0x61,
+	0x84, 0x5c, 0xf8, 0xf4, 0x0c, 0x9a, 0xf3, 0x42, 0xe2, 0xcf, 0x03, 0xa8, 0x48, 0x53, 0x69, 0x11,
+	0xf3, 0x4d, 0x17, 0xb3, 0x12, 0x0d, 0xda, 0x4d, 0x20, 0x7a, 0x91, 0x1a, 0x87, 0x67, 0x4c, 0x8d,
+	0x26, 0x73, 0x3f, 0x9e, 0x83, 0x15, 0xc5, 0xe1, 0xfc, 0x01, 0xf7, 0x72, 0x0f, 0x48, 0xc3, 0x7b,
+	0x09, 0xd6, 0xbd, 0x18, 0x6a, 0x2b, 0xa8, 0x26, 0xf1, 0x4d, 0xdc, 0xba, 0xa9, 0x31, 0xda, 0x87,
+	0x44, 0xd8, 0x0d, 0x7c, 0xd8, 0xfa, 0x4e, 0xa0, 0x9e, 0x92, 0x43, 0x97, 0xe1, 0xd6, 0x7b, 0x7e,
+	0xc2, 0xc5, 0x19, 0xff, 0x5b, 0xb5, 0xff, 0xa3, 0x16, 0x94, 0xf6, 0x3d, 0xc6, 0x6d, 0x42, 0x01,
+	0x2a, 0x7b, 0x72, 0x74, 0x20, 0xa4, 0x5d, 0xd0, 0xf1, 0xe1, 0x28, 0x42, 0xe4, 0x76, 0xd1, 0xc4,
+	0xc8, 0xa5, 0x88, 0xec, 0x92, 0x89, 0x43, 0xc4, 0xd1, 0xc4, 0x2e, 0xeb, 0xf8, 0x35, 0xf3, 0x27,
+	0x4a, 0xda, 0x15, 0xda, 0x04, 0xd8, 0xfb, 0x14, 0x46, 0x28, 0x25, 0x13, 0xdc, 0xae, 0xd2, 0x06,
+	0xd4, 0xde, 0x78, 0x33, 0xe6, 0x7b, 0x4a, 0x44, 0xb6, 0xa5, 0xa1, 0xfb, 0x42, 0x5f, 0xbb, 0x5d,
+	0xd3, 0xad, 0x9d, 0xd3, 0x30, 0x60, 0x63, 0x86, 0x91, 0x0d, 0x83, 0x1f, 0x45, 0x58, 0x38, 0x48,
+	0xbd, 0x05, 0xfd, 0x42, 0xa0, 0x99, 0xbd, 0x13, 0x9a, 0xfb, 0x5c, 0x57, 0x9e, 0x57, 0xfb, 0xfe,
+	0xbf, 0x41, 0xc9, 0xde, 0x6f, 0x7e, 0xfe, 0xf5, 0xfb, 0x5b, 0xa1, 0x43, 0xef, 0x98, 0xdf, 0xd0,
+	0x6c, 0xd0, 0x37, 0x43, 0x7d, 0x1f, 0xd5, 0x30, 0x7d, 0x82, 0x0f, 0x09, 0x3d, 0x86, 0x4a, 0x7c,
+	0x33, 0x74, 0x2d, 0xfb, 0xe4, 0xcc, 0xb1, 0xb5, 0xd7, 0xaf, 0x6e, 0x26, 0x74, 0x1b, 0x86, 0x6e,
+	0xd5, 0x59, 0xca, 0xd2, 0x45, 0x06, 0xb5, 0x4d, 0xb6, 0xa8, 0x07, 0x95, 0x78, 0xd9, 0xf3, 0x2c,
+	0x99, 0x9b, 0xc8, 0xb3, 0x64, 0xef, 0xc3, 0x59, 0x37, 0x2c, 0x2b, 0x34, 0xc7, 0x12, 0x2f, 0x82,
+	0xa1, 0x30, 0x7b, 0x74, 0x89, 0x22, 0xbd, 0xf6, 0x97, 0x28, 0x32, 0xab, 0x77, 0x2d, 0x85, 0x41,
+	0x1d, 0x55, 0xcc, 0x3f, 0xfc, 0xf1, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x10, 0x58, 0xb0, 0xcc,
+	0xfe, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -276,6 +635,10 @@ type PowerServiceClient interface {
 	GetPowerStatus(ctx context.Context, in *GetPowerStatusRequest, opts ...grpc.CallOption) (PowerService_GetPowerStatusClient, error)
 	// 对各模块的电源进行断电方式重启
 	Reboot(ctx context.Context, in *RebootRequest, opts ...grpc.CallOption) (*RebootResponse, error)
+	// 获取所有电源模块状态
+	States(ctx context.Context, in *StatesRequest, opts ...grpc.CallOption) (*StatesResponse, error)
+	// 控制模块供电开关
+	Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error)
 }
 
 type powerServiceClient struct {
@@ -327,12 +690,34 @@ func (c *powerServiceClient) Reboot(ctx context.Context, in *RebootRequest, opts
 	return out, nil
 }
 
+func (c *powerServiceClient) States(ctx context.Context, in *StatesRequest, opts ...grpc.CallOption) (*StatesResponse, error) {
+	out := new(StatesResponse)
+	err := c.cc.Invoke(ctx, "/powerService.PowerService/States", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error) {
+	out := new(SwitchResponse)
+	err := c.cc.Invoke(ctx, "/powerService.PowerService/Switch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PowerServiceServer is the server API for PowerService service.
 type PowerServiceServer interface {
 	// 获取电源状态数据流
 	GetPowerStatus(*GetPowerStatusRequest, PowerService_GetPowerStatusServer) error
 	// 对各模块的电源进行断电方式重启
 	Reboot(context.Context, *RebootRequest) (*RebootResponse, error)
+	// 获取所有电源模块状态
+	States(context.Context, *StatesRequest) (*StatesResponse, error)
+	// 控制模块供电开关
+	Switch(context.Context, *SwitchRequest) (*SwitchResponse, error)
 }
 
 // UnimplementedPowerServiceServer can be embedded to have forward compatible implementations.
@@ -344,6 +729,12 @@ func (*UnimplementedPowerServiceServer) GetPowerStatus(req *GetPowerStatusReques
 }
 func (*UnimplementedPowerServiceServer) Reboot(ctx context.Context, req *RebootRequest) (*RebootResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Reboot not implemented")
+}
+func (*UnimplementedPowerServiceServer) States(ctx context.Context, req *StatesRequest) (*StatesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method States not implemented")
+}
+func (*UnimplementedPowerServiceServer) Switch(ctx context.Context, req *SwitchRequest) (*SwitchResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Switch not implemented")
 }
 
 func RegisterPowerServiceServer(s *grpc.Server, srv PowerServiceServer) {
@@ -389,6 +780,42 @@ func _PowerService_Reboot_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PowerService_States_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).States(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/powerService.PowerService/States",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).States(ctx, req.(*StatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_Switch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwitchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).Switch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/powerService.PowerService/Switch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).Switch(ctx, req.(*SwitchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _PowerService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "powerService.PowerService",
 	HandlerType: (*PowerServiceServer)(nil),
@@ -396,6 +823,14 @@ var _PowerService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Reboot",
 			Handler:    _PowerService_Reboot_Handler,
+		},
+		{
+			MethodName: "States",
+			Handler:    _PowerService_States_Handler,
+		},
+		{
+			MethodName: "Switch",
+			Handler:    _PowerService_Switch_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

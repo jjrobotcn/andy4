@@ -27,10 +27,65 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
+// 模块类型枚举
+type ModuleTypes int32
+
+const (
+	ModuleTypes_UnknownModuleType ModuleTypes = 0
+	ModuleTypes_Main              ModuleTypes = 1
+	ModuleTypes_EscPos            ModuleTypes = 2
+	ModuleTypes_Screen            ModuleTypes = 3
+	ModuleTypes_Sensor            ModuleTypes = 4
+	ModuleTypes_Speech            ModuleTypes = 5
+	ModuleTypes_Lights            ModuleTypes = 6
+	ModuleTypes_Expression        ModuleTypes = 7
+	ModuleTypes_Navigator         ModuleTypes = 8
+	ModuleTypes_Motion            ModuleTypes = 9
+	ModuleTypes_Amplifier         ModuleTypes = 10
+)
+
+var ModuleTypes_name = map[int32]string{
+	0:  "UnknownModuleType",
+	1:  "Main",
+	2:  "EscPos",
+	3:  "Screen",
+	4:  "Sensor",
+	5:  "Speech",
+	6:  "Lights",
+	7:  "Expression",
+	8:  "Navigator",
+	9:  "Motion",
+	10: "Amplifier",
+}
+
+var ModuleTypes_value = map[string]int32{
+	"UnknownModuleType": 0,
+	"Main":              1,
+	"EscPos":            2,
+	"Screen":            3,
+	"Sensor":            4,
+	"Speech":            5,
+	"Lights":            6,
+	"Expression":        7,
+	"Navigator":         8,
+	"Motion":            9,
+	"Amplifier":         10,
+}
+
+func (x ModuleTypes) String() string {
+	return proto.EnumName(ModuleTypes_name, int32(x))
+}
+
+func (ModuleTypes) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{0}
+}
+
 type PowerStatus struct {
-	Level                uint32          `protobuf:"varint,1,opt,name=level,proto3" json:"level,omitempty"`
-	IsCharging           bool            `protobuf:"varint,2,opt,name=is_charging,json=isCharging,proto3" json:"is_charging,omitempty"`
-	Devices              map[string]bool `protobuf:"bytes,3,rep,name=devices,proto3" json:"devices,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
+	Level      uint32 `protobuf:"varint,1,opt,name=level,proto3" json:"level,omitempty"`
+	IsCharging bool   `protobuf:"varint,2,opt,name=is_charging,json=isCharging,proto3" json:"is_charging,omitempty"`
+	// 设备状态
+	// 此字段已作废，请使用States方法获取
+	Devices              map[string]bool `protobuf:"bytes,3,rep,name=devices,proto3" json:"devices,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"` // Deprecated: Do not use.
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -83,6 +138,7 @@ func (m *PowerStatus) GetIsCharging() bool {
 	return false
 }
 
+// Deprecated: Do not use.
 func (m *PowerStatus) GetDevices() map[string]bool {
 	if m != nil {
 		return m.Devices
@@ -263,44 +319,395 @@ func (m *RebootResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_RebootResponse proto.InternalMessageInfo
 
+type State struct {
+	// 模块类型
+	Module ModuleTypes `protobuf:"varint,1,opt,name=module,proto3,enum=powerService.ModuleTypes" json:"module,omitempty"`
+	// 当前模块是否供电
+	IsOn bool `protobuf:"varint,2,opt,name=is_on,json=isOn,proto3" json:"is_on,omitempty"`
+	// 触发关闭供电倒计时（秒）
+	// -1为未配置或已失效
+	OffAfter int32 `protobuf:"varint,4,opt,name=off_after,json=offAfter,proto3" json:"off_after,omitempty"`
+	// 触发恢复供电倒计时（秒）
+	// -1为未配置或已失效
+	OnAfter              int32    `protobuf:"varint,3,opt,name=on_after,json=onAfter,proto3" json:"on_after,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *State) Reset()         { *m = State{} }
+func (m *State) String() string { return proto.CompactTextString(m) }
+func (*State) ProtoMessage()    {}
+func (*State) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{5}
+}
+func (m *State) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *State) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_State.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *State) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_State.Merge(m, src)
+}
+func (m *State) XXX_Size() int {
+	return m.Size()
+}
+func (m *State) XXX_DiscardUnknown() {
+	xxx_messageInfo_State.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_State proto.InternalMessageInfo
+
+func (m *State) GetModule() ModuleTypes {
+	if m != nil {
+		return m.Module
+	}
+	return ModuleTypes_UnknownModuleType
+}
+
+func (m *State) GetIsOn() bool {
+	if m != nil {
+		return m.IsOn
+	}
+	return false
+}
+
+func (m *State) GetOffAfter() int32 {
+	if m != nil {
+		return m.OffAfter
+	}
+	return 0
+}
+
+func (m *State) GetOnAfter() int32 {
+	if m != nil {
+		return m.OnAfter
+	}
+	return 0
+}
+
+type StatesRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StatesRequest) Reset()         { *m = StatesRequest{} }
+func (m *StatesRequest) String() string { return proto.CompactTextString(m) }
+func (*StatesRequest) ProtoMessage()    {}
+func (*StatesRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{6}
+}
+func (m *StatesRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StatesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StatesRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StatesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatesRequest.Merge(m, src)
+}
+func (m *StatesRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *StatesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatesRequest proto.InternalMessageInfo
+
+type StatesResponse struct {
+	States               []*State `protobuf:"bytes,1,rep,name=states,proto3" json:"states,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StatesResponse) Reset()         { *m = StatesResponse{} }
+func (m *StatesResponse) String() string { return proto.CompactTextString(m) }
+func (*StatesResponse) ProtoMessage()    {}
+func (*StatesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{7}
+}
+func (m *StatesResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StatesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StatesResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StatesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StatesResponse.Merge(m, src)
+}
+func (m *StatesResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *StatesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StatesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StatesResponse proto.InternalMessageInfo
+
+func (m *StatesResponse) GetStates() []*State {
+	if m != nil {
+		return m.States
+	}
+	return nil
+}
+
+type SwitchRequest struct {
+	Requests             []*SwitchRequestRequest `protobuf:"bytes,1,rep,name=requests,proto3" json:"requests,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
+	XXX_unrecognized     []byte                  `json:"-"`
+	XXX_sizecache        int32                   `json:"-"`
+}
+
+func (m *SwitchRequest) Reset()         { *m = SwitchRequest{} }
+func (m *SwitchRequest) String() string { return proto.CompactTextString(m) }
+func (*SwitchRequest) ProtoMessage()    {}
+func (*SwitchRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{8}
+}
+func (m *SwitchRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchRequest.Merge(m, src)
+}
+func (m *SwitchRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchRequest proto.InternalMessageInfo
+
+func (m *SwitchRequest) GetRequests() []*SwitchRequestRequest {
+	if m != nil {
+		return m.Requests
+	}
+	return nil
+}
+
+type SwitchRequestRequest struct {
+	// 模块类型
+	Module ModuleTypes `protobuf:"varint,1,opt,name=module,proto3,enum=powerService.ModuleTypes" json:"module,omitempty"`
+	// 若干秒后关闭该模块供电
+	// -1为未配置 0为立即
+	OffAfter int32 `protobuf:"varint,4,opt,name=off_after,json=offAfter,proto3" json:"off_after,omitempty"`
+	// 若干秒后恢复该模块供电
+	// -1为未配置 0为立即
+	OnAfter              int32    `protobuf:"varint,3,opt,name=on_after,json=onAfter,proto3" json:"on_after,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchRequestRequest) Reset()         { *m = SwitchRequestRequest{} }
+func (m *SwitchRequestRequest) String() string { return proto.CompactTextString(m) }
+func (*SwitchRequestRequest) ProtoMessage()    {}
+func (*SwitchRequestRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{8, 0}
+}
+func (m *SwitchRequestRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchRequestRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchRequestRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchRequestRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchRequestRequest.Merge(m, src)
+}
+func (m *SwitchRequestRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchRequestRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchRequestRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchRequestRequest proto.InternalMessageInfo
+
+func (m *SwitchRequestRequest) GetModule() ModuleTypes {
+	if m != nil {
+		return m.Module
+	}
+	return ModuleTypes_UnknownModuleType
+}
+
+func (m *SwitchRequestRequest) GetOffAfter() int32 {
+	if m != nil {
+		return m.OffAfter
+	}
+	return 0
+}
+
+func (m *SwitchRequestRequest) GetOnAfter() int32 {
+	if m != nil {
+		return m.OnAfter
+	}
+	return 0
+}
+
+type SwitchResponse struct {
+	States               []*State `protobuf:"bytes,1,rep,name=states,proto3" json:"states,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchResponse) Reset()         { *m = SwitchResponse{} }
+func (m *SwitchResponse) String() string { return proto.CompactTextString(m) }
+func (*SwitchResponse) ProtoMessage()    {}
+func (*SwitchResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a4fab2da8ea5416b, []int{9}
+}
+func (m *SwitchResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchResponse.Merge(m, src)
+}
+func (m *SwitchResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchResponse proto.InternalMessageInfo
+
+func (m *SwitchResponse) GetStates() []*State {
+	if m != nil {
+		return m.States
+	}
+	return nil
+}
+
 func init() {
+	proto.RegisterEnum("powerService.ModuleTypes", ModuleTypes_name, ModuleTypes_value)
 	proto.RegisterType((*PowerStatus)(nil), "powerService.PowerStatus")
 	proto.RegisterMapType((map[string]bool)(nil), "powerService.PowerStatus.DevicesEntry")
 	proto.RegisterType((*GetPowerStatusRequest)(nil), "powerService.GetPowerStatusRequest")
 	proto.RegisterType((*GetPowerStatusResponse)(nil), "powerService.GetPowerStatusResponse")
 	proto.RegisterType((*RebootRequest)(nil), "powerService.RebootRequest")
 	proto.RegisterType((*RebootResponse)(nil), "powerService.RebootResponse")
+	proto.RegisterType((*State)(nil), "powerService.State")
+	proto.RegisterType((*StatesRequest)(nil), "powerService.StatesRequest")
+	proto.RegisterType((*StatesResponse)(nil), "powerService.StatesResponse")
+	proto.RegisterType((*SwitchRequest)(nil), "powerService.SwitchRequest")
+	proto.RegisterType((*SwitchRequestRequest)(nil), "powerService.SwitchRequest.request")
+	proto.RegisterType((*SwitchResponse)(nil), "powerService.SwitchResponse")
 }
 
 func init() { proto.RegisterFile("power.proto", fileDescriptor_a4fab2da8ea5416b) }
 
 var fileDescriptor_a4fab2da8ea5416b = []byte{
-	// 388 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0xcf, 0x6a, 0xdb, 0x40,
-	0x10, 0xc6, 0x59, 0x9b, 0xba, 0xee, 0x48, 0x36, 0x66, 0x71, 0x5b, 0x5b, 0x35, 0xb2, 0xaa, 0x16,
-	0x63, 0x7a, 0x90, 0x8a, 0x7a, 0x29, 0x26, 0x87, 0x90, 0x3f, 0xe4, 0x6a, 0x36, 0x90, 0xab, 0x91,
-	0xed, 0x45, 0x11, 0x11, 0x5a, 0x45, 0xbb, 0x56, 0xf0, 0x35, 0x90, 0x27, 0xc8, 0x1b, 0xe5, 0x94,
-	0x63, 0x20, 0x2f, 0x10, 0x4c, 0x1e, 0x23, 0x87, 0xa0, 0x5d, 0x19, 0xa4, 0xe0, 0xe4, 0xb6, 0xdf,
-	0xce, 0xb7, 0xf3, 0xfb, 0x66, 0x24, 0xd0, 0x12, 0x76, 0x45, 0x53, 0x27, 0x49, 0x99, 0x60, 0x58,
-	0x97, 0xe2, 0x94, 0xa6, 0x59, 0xb8, 0xa0, 0xc6, 0x20, 0x60, 0x2c, 0x88, 0xa8, 0xeb, 0x27, 0xa1,
-	0xeb, 0xc7, 0x31, 0x13, 0xbe, 0x08, 0x59, 0xcc, 0x95, 0xd7, 0xbe, 0x43, 0xa0, 0x4d, 0xa5, 0x5d,
-	0xf8, 0x62, 0xc5, 0x71, 0x17, 0x3e, 0x45, 0x34, 0xa3, 0x51, 0x0f, 0x59, 0x68, 0xdc, 0x22, 0x4a,
-	0xe0, 0x21, 0x68, 0x21, 0x9f, 0x2d, 0xce, 0xfd, 0x34, 0x08, 0xe3, 0xa0, 0x57, 0xb3, 0xd0, 0xb8,
-	0x49, 0x20, 0xe4, 0x87, 0xc5, 0x0d, 0xde, 0x87, 0xcf, 0x4b, 0x9a, 0xe3, 0x78, 0xaf, 0x6e, 0xd5,
-	0xc7, 0x9a, 0x37, 0x72, 0xca, 0x21, 0x9c, 0x12, 0xc2, 0x39, 0x52, 0xc6, 0xe3, 0x58, 0xa4, 0x6b,
-	0xb2, 0x7d, 0x66, 0x4c, 0x40, 0x2f, 0x17, 0x70, 0x07, 0xea, 0x17, 0x74, 0x2d, 0x63, 0x7c, 0x21,
-	0xf9, 0x31, 0x8f, 0x96, 0xf9, 0xd1, 0x8a, 0x16, 0x78, 0x25, 0x26, 0xb5, 0xff, 0xc8, 0xfe, 0x0e,
-	0x5f, 0x4f, 0xa8, 0x28, 0x31, 0x08, 0xbd, 0x5c, 0x51, 0x2e, 0xec, 0x33, 0xf8, 0xf6, 0xb6, 0xc0,
-	0x13, 0x16, 0x73, 0x8a, 0xf7, 0x40, 0x6d, 0x69, 0xc6, 0xe5, 0xbd, 0xe4, 0x68, 0x5e, 0xff, 0xdd,
-	0xd4, 0x44, 0x6d, 0x58, 0x09, 0xfb, 0x27, 0xb4, 0x08, 0x9d, 0x33, 0x26, 0x0a, 0x50, 0x9e, 0xd6,
-	0x8f, 0xd4, 0xd2, 0x9a, 0x24, 0x3f, 0xda, 0x1d, 0x68, 0x6f, 0x2d, 0x0a, 0xe9, 0xbd, 0x20, 0xd0,
-	0xa7, 0xa5, 0xf6, 0xf8, 0x06, 0x41, 0xbb, 0x1a, 0x0f, 0xff, 0xaa, 0x06, 0xd8, 0x39, 0x95, 0xf1,
-	0xfb, 0x63, 0x93, 0xc2, 0xd9, 0xa3, 0xeb, 0xc7, 0xe7, 0xdb, 0x9a, 0x85, 0x4d, 0xf9, 0xe5, 0x33,
-	0xcf, 0x95, 0x8f, 0xdc, 0x80, 0x8a, 0x59, 0x79, 0xf2, 0xbf, 0x08, 0x2f, 0xa1, 0xa1, 0xa2, 0xe2,
-	0x1f, 0xd5, 0xce, 0x95, 0x19, 0x8d, 0xc1, 0xee, 0x62, 0x81, 0x1b, 0x4a, 0x5c, 0xdf, 0xee, 0x56,
-	0x71, 0xa9, 0x74, 0x4d, 0xd0, 0x9f, 0x03, 0xfd, 0x7e, 0x63, 0xa2, 0x87, 0x8d, 0x89, 0x9e, 0x36,
-	0x26, 0x9a, 0x37, 0xe4, 0xef, 0xf7, 0xef, 0x35, 0x00, 0x00, 0xff, 0xff, 0x85, 0x94, 0x00, 0x61,
-	0xb9, 0x02, 0x00, 0x00,
+	// 691 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x54, 0xcb, 0x6e, 0xd3, 0x40,
+	0x14, 0x65, 0xf2, 0x70, 0x9c, 0x9b, 0x07, 0x66, 0xfa, 0x20, 0x4d, 0xab, 0x34, 0x18, 0x54, 0x45,
+	0x45, 0x4a, 0x20, 0x6c, 0x50, 0x05, 0x42, 0x2d, 0xad, 0xd8, 0x50, 0xa8, 0x5c, 0x60, 0x1b, 0xb9,
+	0xe9, 0xc4, 0x19, 0xd5, 0x9d, 0x31, 0x9e, 0x49, 0x4a, 0xb7, 0x48, 0x88, 0x0f, 0xe0, 0x17, 0xf8,
+	0x12, 0x16, 0x88, 0x25, 0x12, 0x3f, 0x80, 0x2a, 0x3e, 0x04, 0xcd, 0xd8, 0x29, 0xb6, 0xdb, 0xb2,
+	0xe8, 0xee, 0x3e, 0xce, 0xf5, 0x39, 0x3e, 0xbe, 0xd7, 0x50, 0x09, 0xf8, 0x09, 0x09, 0xbb, 0x41,
+	0xc8, 0x25, 0xc7, 0x55, 0x9d, 0xec, 0x93, 0x70, 0x4a, 0x87, 0xa4, 0xb9, 0xe2, 0x71, 0xee, 0xf9,
+	0xa4, 0xe7, 0x06, 0xb4, 0xe7, 0x32, 0xc6, 0xa5, 0x2b, 0x29, 0x67, 0x22, 0xc2, 0xda, 0xdf, 0x11,
+	0x54, 0xf6, 0x34, 0x5c, 0xba, 0x72, 0x22, 0xf0, 0x3c, 0x14, 0x7d, 0x32, 0x25, 0x7e, 0x03, 0xb5,
+	0x51, 0xa7, 0xe6, 0x44, 0x09, 0x5e, 0x85, 0x0a, 0x15, 0x83, 0xe1, 0xd8, 0x0d, 0x3d, 0xca, 0xbc,
+	0x46, 0xae, 0x8d, 0x3a, 0xa6, 0x03, 0x54, 0x3c, 0x8f, 0x2b, 0x78, 0x1b, 0x4a, 0x87, 0x44, 0xd1,
+	0x89, 0x46, 0xbe, 0x9d, 0xef, 0x54, 0xfa, 0x6b, 0xdd, 0xa4, 0x88, 0x6e, 0x82, 0xa2, 0xbb, 0x1d,
+	0x01, 0x77, 0x98, 0x0c, 0x4f, 0xb7, 0x72, 0x0d, 0xe4, 0xcc, 0x46, 0x9b, 0x1b, 0x50, 0x4d, 0x36,
+	0xb1, 0x05, 0xf9, 0x23, 0x72, 0xaa, 0xa5, 0x94, 0x1d, 0x15, 0x2a, 0x79, 0x53, 0xd7, 0x9f, 0x90,
+	0x58, 0x42, 0x94, 0x6c, 0xe4, 0x1e, 0x23, 0xfb, 0x36, 0x2c, 0xbc, 0x20, 0x32, 0xc1, 0xe3, 0x90,
+	0xf7, 0x13, 0x22, 0xa4, 0xfd, 0x0e, 0x16, 0xb3, 0x0d, 0x11, 0x70, 0x26, 0x08, 0x7e, 0x02, 0x91,
+	0x53, 0x03, 0xa1, 0xeb, 0x9a, 0xa7, 0xd2, 0x5f, 0xba, 0x52, 0xb9, 0x13, 0xb9, 0x1c, 0x25, 0xf6,
+	0x1d, 0xa8, 0x39, 0xe4, 0x80, 0x73, 0x19, 0x13, 0x29, 0xb5, 0xae, 0x1f, 0x19, 0x67, 0x3a, 0x2a,
+	0xb4, 0x2d, 0xa8, 0xcf, 0x20, 0x11, 0xa5, 0xfd, 0x19, 0x41, 0x51, 0xcd, 0x13, 0xfc, 0x10, 0x8c,
+	0x63, 0x7e, 0x38, 0xf1, 0x89, 0x1e, 0xa8, 0x67, 0x69, 0x77, 0x75, 0xef, 0xcd, 0x69, 0x40, 0x84,
+	0x13, 0x03, 0xf1, 0x1c, 0x14, 0xa9, 0x18, 0x70, 0x16, 0xbf, 0x7c, 0x81, 0x8a, 0xd7, 0x0c, 0x2f,
+	0x43, 0x99, 0x8f, 0x46, 0x03, 0x77, 0x24, 0x49, 0xd8, 0x28, 0xb4, 0x51, 0xa7, 0xe8, 0x98, 0x7c,
+	0x34, 0xda, 0x54, 0x39, 0x5e, 0x02, 0x93, 0xb3, 0xb8, 0x97, 0xd7, 0xbd, 0x12, 0x67, 0xba, 0x65,
+	0xdf, 0x84, 0x9a, 0x16, 0x72, 0xee, 0xd3, 0x53, 0xa8, 0xcf, 0x0a, 0xb1, 0x3f, 0xf7, 0xc1, 0x10,
+	0xba, 0xd2, 0x40, 0xfa, 0x9b, 0xce, 0xa5, 0x25, 0x6a, 0xb4, 0x13, 0x43, 0xd4, 0x22, 0xd5, 0xf6,
+	0x4f, 0xa8, 0x1c, 0x8e, 0x67, 0x7e, 0x3c, 0x03, 0x33, 0x8c, 0xc2, 0xd9, 0x03, 0xee, 0x66, 0x1e,
+	0x90, 0x84, 0x77, 0x63, 0xac, 0x73, 0x3e, 0xd4, 0x94, 0x50, 0x8a, 0xe3, 0xeb, 0xb8, 0x75, 0x5d,
+	0x63, 0x94, 0x0f, 0xb1, 0xb0, 0x6b, 0xf8, 0xb0, 0xfe, 0x15, 0x41, 0x25, 0x21, 0x07, 0x2f, 0xc0,
+	0xad, 0xb7, 0xec, 0x88, 0xf1, 0x13, 0xf6, 0xaf, 0x6a, 0xdd, 0xc0, 0x26, 0x14, 0x76, 0x5d, 0xca,
+	0x2c, 0x84, 0x01, 0x8c, 0x1d, 0x31, 0xdc, 0xe3, 0xc2, 0xca, 0xa9, 0x78, 0x7f, 0x18, 0x12, 0xc2,
+	0xac, 0xbc, 0x8e, 0x09, 0x13, 0x3c, 0xb4, 0x0a, 0x3a, 0x0e, 0x08, 0x19, 0x8e, 0xad, 0xa2, 0x8a,
+	0x5f, 0x52, 0x6f, 0x2c, 0x85, 0x65, 0xe0, 0x3a, 0xc0, 0xce, 0x87, 0x20, 0x24, 0x42, 0x50, 0xce,
+	0xac, 0x12, 0xae, 0x41, 0xf9, 0x95, 0x3b, 0xa5, 0x9e, 0x2b, 0x79, 0x68, 0x99, 0x0a, 0xba, 0xcb,
+	0xd5, 0xb5, 0x5b, 0x65, 0xd5, 0xda, 0x3c, 0x0e, 0x7c, 0x3a, 0xa2, 0x24, 0xb4, 0xa0, 0xff, 0x2d,
+	0x0f, 0xd5, 0xbd, 0xc4, 0x5b, 0xe0, 0x4f, 0x08, 0xea, 0xe9, 0x3b, 0xc1, 0x99, 0xcf, 0x75, 0xe9,
+	0x79, 0x35, 0xef, 0xfd, 0x1f, 0x14, 0xef, 0xfd, 0xda, 0xc7, 0x5f, 0x7f, 0xbe, 0xe4, 0xda, 0xb8,
+	0xa5, 0x7f, 0x43, 0xd3, 0x7e, 0x4f, 0x0f, 0xf5, 0x3c, 0x22, 0x07, 0xc9, 0x13, 0x7c, 0x80, 0xf0,
+	0x21, 0x18, 0xd1, 0xcd, 0xe0, 0xe5, 0xf4, 0x93, 0x53, 0xc7, 0xd6, 0x5c, 0xb9, 0xbc, 0x19, 0xd3,
+	0xad, 0x6a, 0xba, 0x25, 0x7b, 0x3e, 0x4d, 0x17, 0x6a, 0xd4, 0x06, 0x5a, 0xc7, 0x2e, 0x18, 0xd1,
+	0xb2, 0x67, 0x59, 0x52, 0x37, 0x91, 0x65, 0x49, 0xdf, 0x87, 0xbd, 0xa2, 0x59, 0x16, 0x71, 0x86,
+	0x25, 0x5a, 0x04, 0x4d, 0xa1, 0xf7, 0xe8, 0x02, 0x45, 0x72, 0xed, 0x2f, 0x50, 0xa4, 0x56, 0xef,
+	0x4a, 0x0a, 0x8d, 0xda, 0xaa, 0xfe, 0x38, 0x6b, 0xa1, 0x9f, 0x67, 0x2d, 0xf4, 0xfb, 0xac, 0x85,
+	0x0e, 0x0c, 0xfd, 0x47, 0x7f, 0xf4, 0x37, 0x00, 0x00, 0xff, 0xff, 0x16, 0x43, 0xb4, 0x66, 0x0c,
+	0x06, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -319,6 +726,10 @@ type PowerServiceClient interface {
 	GetPowerStatus(ctx context.Context, in *GetPowerStatusRequest, opts ...grpc.CallOption) (PowerService_GetPowerStatusClient, error)
 	// 对各模块的电源进行断电方式重启
 	Reboot(ctx context.Context, in *RebootRequest, opts ...grpc.CallOption) (*RebootResponse, error)
+	// 获取所有电源模块状态
+	States(ctx context.Context, in *StatesRequest, opts ...grpc.CallOption) (*StatesResponse, error)
+	// 控制模块供电开关
+	Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error)
 }
 
 type powerServiceClient struct {
@@ -370,12 +781,34 @@ func (c *powerServiceClient) Reboot(ctx context.Context, in *RebootRequest, opts
 	return out, nil
 }
 
+func (c *powerServiceClient) States(ctx context.Context, in *StatesRequest, opts ...grpc.CallOption) (*StatesResponse, error) {
+	out := new(StatesResponse)
+	err := c.cc.Invoke(ctx, "/powerService.PowerService/States", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error) {
+	out := new(SwitchResponse)
+	err := c.cc.Invoke(ctx, "/powerService.PowerService/Switch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PowerServiceServer is the server API for PowerService service.
 type PowerServiceServer interface {
 	// 获取电源状态数据流
 	GetPowerStatus(*GetPowerStatusRequest, PowerService_GetPowerStatusServer) error
 	// 对各模块的电源进行断电方式重启
 	Reboot(context.Context, *RebootRequest) (*RebootResponse, error)
+	// 获取所有电源模块状态
+	States(context.Context, *StatesRequest) (*StatesResponse, error)
+	// 控制模块供电开关
+	Switch(context.Context, *SwitchRequest) (*SwitchResponse, error)
 }
 
 // UnimplementedPowerServiceServer can be embedded to have forward compatible implementations.
@@ -387,6 +820,12 @@ func (*UnimplementedPowerServiceServer) GetPowerStatus(req *GetPowerStatusReques
 }
 func (*UnimplementedPowerServiceServer) Reboot(ctx context.Context, req *RebootRequest) (*RebootResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Reboot not implemented")
+}
+func (*UnimplementedPowerServiceServer) States(ctx context.Context, req *StatesRequest) (*StatesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method States not implemented")
+}
+func (*UnimplementedPowerServiceServer) Switch(ctx context.Context, req *SwitchRequest) (*SwitchResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Switch not implemented")
 }
 
 func RegisterPowerServiceServer(s *grpc.Server, srv PowerServiceServer) {
@@ -432,6 +871,42 @@ func _PowerService_Reboot_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PowerService_States_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).States(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/powerService.PowerService/States",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).States(ctx, req.(*StatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_Switch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwitchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).Switch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/powerService.PowerService/Switch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).Switch(ctx, req.(*SwitchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _PowerService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "powerService.PowerService",
 	HandlerType: (*PowerServiceServer)(nil),
@@ -439,6 +914,14 @@ var _PowerService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Reboot",
 			Handler:    _PowerService_Reboot_Handler,
+		},
+		{
+			MethodName: "States",
+			Handler:    _PowerService_States_Handler,
+		},
+		{
+			MethodName: "Switch",
+			Handler:    _PowerService_Switch_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
@@ -645,6 +1128,250 @@ func (m *RebootResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *State) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *State) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *State) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.OffAfter != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.OffAfter))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.OnAfter != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.OnAfter))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.IsOn {
+		i--
+		if m.IsOn {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.Module != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.Module))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *StatesRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StatesRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StatesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *StatesResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StatesResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StatesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.States) > 0 {
+		for iNdEx := len(m.States) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.States[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintPower(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.Requests) > 0 {
+		for iNdEx := len(m.Requests) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Requests[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintPower(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchRequestRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchRequestRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchRequestRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.OffAfter != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.OffAfter))
+		i--
+		dAtA[i] = 0x20
+	}
+	if m.OnAfter != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.OnAfter))
+		i--
+		dAtA[i] = 0x18
+	}
+	if m.Module != 0 {
+		i = encodeVarintPower(dAtA, i, uint64(m.Module))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if len(m.States) > 0 {
+		for iNdEx := len(m.States) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.States[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintPower(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintPower(dAtA []byte, offset int, v uint64) int {
 	offset -= sovPower(v)
 	base := offset
@@ -731,6 +1458,117 @@ func (m *RebootResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *State) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Module != 0 {
+		n += 1 + sovPower(uint64(m.Module))
+	}
+	if m.IsOn {
+		n += 2
+	}
+	if m.OnAfter != 0 {
+		n += 1 + sovPower(uint64(m.OnAfter))
+	}
+	if m.OffAfter != 0 {
+		n += 1 + sovPower(uint64(m.OffAfter))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *StatesRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *StatesResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.States) > 0 {
+		for _, e := range m.States {
+			l = e.Size()
+			n += 1 + l + sovPower(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Requests) > 0 {
+		for _, e := range m.Requests {
+			l = e.Size()
+			n += 1 + l + sovPower(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchRequestRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Module != 0 {
+		n += 1 + sovPower(uint64(m.Module))
+	}
+	if m.OnAfter != 0 {
+		n += 1 + sovPower(uint64(m.OnAfter))
+	}
+	if m.OffAfter != 0 {
+		n += 1 + sovPower(uint64(m.OffAfter))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.States) > 0 {
+		for _, e := range m.States {
+			l = e.Size()
+			n += 1 + l + sovPower(uint64(l))
+		}
+	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
 	}
@@ -1198,6 +2036,566 @@ func (m *RebootResponse) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: RebootResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *State) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: State: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: State: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Module", wireType)
+			}
+			m.Module = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Module |= ModuleTypes(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsOn", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsOn = bool(v != 0)
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field OnAfter", wireType)
+			}
+			m.OnAfter = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.OnAfter |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field OffAfter", wireType)
+			}
+			m.OffAfter = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.OffAfter |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StatesRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StatesRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StatesRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StatesResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StatesResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StatesResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field States", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthPower
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthPower
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.States = append(m.States, &State{})
+			if err := m.States[len(m.States)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SwitchRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SwitchRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Requests", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthPower
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthPower
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Requests = append(m.Requests, &SwitchRequestRequest{})
+			if err := m.Requests[len(m.Requests)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchRequestRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: request: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: request: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Module", wireType)
+			}
+			m.Module = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Module |= ModuleTypes(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field OnAfter", wireType)
+			}
+			m.OnAfter = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.OnAfter |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 4:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field OffAfter", wireType)
+			}
+			m.OffAfter = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.OffAfter |= int32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipPower(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthPower
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowPower
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SwitchResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SwitchResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field States", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPower
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthPower
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthPower
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.States = append(m.States, &State{})
+			if err := m.States[len(m.States)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipPower(dAtA[iNdEx:])

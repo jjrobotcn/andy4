@@ -61,6 +61,22 @@ class PowerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::RebootResponse>> PrepareAsyncReboot(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::RebootResponse>>(PrepareAsyncRebootRaw(context, request, cq));
     }
+    // 获取所有电源模块状态
+    virtual ::grpc::Status States(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::powerService::StatesResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::StatesResponse>> AsyncStates(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::StatesResponse>>(AsyncStatesRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::StatesResponse>> PrepareAsyncStates(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::StatesResponse>>(PrepareAsyncStatesRaw(context, request, cq));
+    }
+    // 控制模块供电开关
+    virtual ::grpc::Status Switch(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::powerService::SwitchResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::SwitchResponse>> AsyncSwitch(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::SwitchResponse>>(AsyncSwitchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::SwitchResponse>> PrepareAsyncSwitch(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::powerService::SwitchResponse>>(PrepareAsyncSwitchRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -71,6 +87,16 @@ class PowerService final {
       virtual void Reboot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::RebootResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Reboot(::grpc::ClientContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void Reboot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::RebootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 获取所有电源模块状态
+      virtual void States(::grpc::ClientContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void States(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::StatesResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void States(::grpc::ClientContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void States(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::StatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 控制模块供电开关
+      virtual void Switch(::grpc::ClientContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::SwitchResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -79,6 +105,10 @@ class PowerService final {
     virtual ::grpc::ClientAsyncReaderInterface< ::powerService::GetPowerStatusResponse>* PrepareAsyncGetPowerStatusRaw(::grpc::ClientContext* context, const ::powerService::GetPowerStatusRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::powerService::RebootResponse>* AsyncRebootRaw(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::powerService::RebootResponse>* PrepareAsyncRebootRaw(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::powerService::StatesResponse>* AsyncStatesRaw(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::powerService::StatesResponse>* PrepareAsyncStatesRaw(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::powerService::SwitchResponse>* AsyncSwitchRaw(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::powerService::SwitchResponse>* PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -99,6 +129,20 @@ class PowerService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::RebootResponse>> PrepareAsyncReboot(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::RebootResponse>>(PrepareAsyncRebootRaw(context, request, cq));
     }
+    ::grpc::Status States(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::powerService::StatesResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::StatesResponse>> AsyncStates(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::StatesResponse>>(AsyncStatesRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::StatesResponse>> PrepareAsyncStates(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::StatesResponse>>(PrepareAsyncStatesRaw(context, request, cq));
+    }
+    ::grpc::Status Switch(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::powerService::SwitchResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::SwitchResponse>> AsyncSwitch(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::SwitchResponse>>(AsyncSwitchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::SwitchResponse>> PrepareAsyncSwitch(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::powerService::SwitchResponse>>(PrepareAsyncSwitchRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -107,6 +151,14 @@ class PowerService final {
       void Reboot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::RebootResponse* response, std::function<void(::grpc::Status)>) override;
       void Reboot(::grpc::ClientContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void Reboot(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::RebootResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void States(::grpc::ClientContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response, std::function<void(::grpc::Status)>) override;
+      void States(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::StatesResponse* response, std::function<void(::grpc::Status)>) override;
+      void States(::grpc::ClientContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void States(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::StatesResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Switch(::grpc::ClientContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response, std::function<void(::grpc::Status)>) override;
+      void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::SwitchResponse* response, std::function<void(::grpc::Status)>) override;
+      void Switch(::grpc::ClientContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::powerService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -123,8 +175,14 @@ class PowerService final {
     ::grpc::ClientAsyncReader< ::powerService::GetPowerStatusResponse>* PrepareAsyncGetPowerStatusRaw(::grpc::ClientContext* context, const ::powerService::GetPowerStatusRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::powerService::RebootResponse>* AsyncRebootRaw(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::powerService::RebootResponse>* PrepareAsyncRebootRaw(::grpc::ClientContext* context, const ::powerService::RebootRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::powerService::StatesResponse>* AsyncStatesRaw(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::powerService::StatesResponse>* PrepareAsyncStatesRaw(::grpc::ClientContext* context, const ::powerService::StatesRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::powerService::SwitchResponse>* AsyncSwitchRaw(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::powerService::SwitchResponse>* PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::powerService::SwitchRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetPowerStatus_;
     const ::grpc::internal::RpcMethod rpcmethod_Reboot_;
+    const ::grpc::internal::RpcMethod rpcmethod_States_;
+    const ::grpc::internal::RpcMethod rpcmethod_Switch_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -136,6 +194,10 @@ class PowerService final {
     virtual ::grpc::Status GetPowerStatus(::grpc::ServerContext* context, const ::powerService::GetPowerStatusRequest* request, ::grpc::ServerWriter< ::powerService::GetPowerStatusResponse>* writer);
     // 对各模块的电源进行断电方式重启
     virtual ::grpc::Status Reboot(::grpc::ServerContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response);
+    // 获取所有电源模块状态
+    virtual ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response);
+    // 控制模块供电开关
+    virtual ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetPowerStatus : public BaseClass {
@@ -177,7 +239,47 @@ class PowerService final {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetPowerStatus<WithAsyncMethod_Reboot<Service > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_States : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_States() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_States() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStates(::grpc::ServerContext* context, ::powerService::StatesRequest* request, ::grpc::ServerAsyncResponseWriter< ::powerService::StatesResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Switch() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSwitch(::grpc::ServerContext* context, ::powerService::SwitchRequest* request, ::grpc::ServerAsyncResponseWriter< ::powerService::SwitchResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetPowerStatus<WithAsyncMethod_Reboot<WithAsyncMethod_States<WithAsyncMethod_Switch<Service > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetPowerStatus : public BaseClass {
    private:
@@ -231,7 +333,69 @@ class PowerService final {
     }
     virtual void Reboot(::grpc::ServerContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_GetPowerStatus<ExperimentalWithCallbackMethod_Reboot<Service > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_States : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_States() {
+      ::grpc::Service::experimental().MarkMethodCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::powerService::StatesRequest, ::powerService::StatesResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::powerService::StatesRequest* request,
+                 ::powerService::StatesResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->States(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_States(
+        ::grpc::experimental::MessageAllocator< ::powerService::StatesRequest, ::powerService::StatesResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::powerService::StatesRequest, ::powerService::StatesResponse>*>(
+          ::grpc::Service::experimental().GetHandler(2))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_States() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_Switch() {
+      ::grpc::Service::experimental().MarkMethodCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::powerService::SwitchRequest, ::powerService::SwitchResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::powerService::SwitchRequest* request,
+                 ::powerService::SwitchResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Switch(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_Switch(
+        ::grpc::experimental::MessageAllocator< ::powerService::SwitchRequest, ::powerService::SwitchResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::powerService::SwitchRequest, ::powerService::SwitchResponse>*>(
+          ::grpc::Service::experimental().GetHandler(3))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_GetPowerStatus<ExperimentalWithCallbackMethod_Reboot<ExperimentalWithCallbackMethod_States<ExperimentalWithCallbackMethod_Switch<Service > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetPowerStatus : public BaseClass {
    private:
@@ -262,6 +426,40 @@ class PowerService final {
     }
     // disable synchronous version of this method
     ::grpc::Status Reboot(::grpc::ServerContext* context, const ::powerService::RebootRequest* request, ::powerService::RebootResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_States : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_States() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_States() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Switch() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -304,6 +502,46 @@ class PowerService final {
     }
     void RequestReboot(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_States : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_States() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_States() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestStates(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_Switch() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSwitch(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -354,6 +592,56 @@ class PowerService final {
     virtual void Reboot(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_States : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_States() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(2,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->States(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_States() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void States(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Switch() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Switch(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Switch(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_Reboot : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -373,7 +661,47 @@ class PowerService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedReboot(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::powerService::RebootRequest,::powerService::RebootResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Reboot<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_States : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_States() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler< ::powerService::StatesRequest, ::powerService::StatesResponse>(std::bind(&WithStreamedUnaryMethod_States<BaseClass>::StreamedStates, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_States() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status States(::grpc::ServerContext* context, const ::powerService::StatesRequest* request, ::powerService::StatesResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedStates(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::powerService::StatesRequest,::powerService::StatesResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Switch() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler< ::powerService::SwitchRequest, ::powerService::SwitchResponse>(std::bind(&WithStreamedUnaryMethod_Switch<BaseClass>::StreamedSwitch, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::powerService::SwitchRequest* request, ::powerService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSwitch(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::powerService::SwitchRequest,::powerService::SwitchResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_Reboot<WithStreamedUnaryMethod_States<WithStreamedUnaryMethod_Switch<Service > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_GetPowerStatus : public BaseClass {
    private:
@@ -395,7 +723,7 @@ class PowerService final {
     virtual ::grpc::Status StreamedGetPowerStatus(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::powerService::GetPowerStatusRequest,::powerService::GetPowerStatusResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_GetPowerStatus<Service > SplitStreamedService;
-  typedef WithSplitStreamingMethod_GetPowerStatus<WithStreamedUnaryMethod_Reboot<Service > > StreamedService;
+  typedef WithSplitStreamingMethod_GetPowerStatus<WithStreamedUnaryMethod_Reboot<WithStreamedUnaryMethod_States<WithStreamedUnaryMethod_Switch<Service > > > > StreamedService;
 };
 
 }  // namespace powerService

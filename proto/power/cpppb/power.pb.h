@@ -34,6 +34,7 @@
 #include <google/protobuf/map.h>  // IWYU pragma: export
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "google/api/annotations.pb.h"
 // @@protoc_insertion_point(includes)
@@ -51,7 +52,7 @@ struct TableStruct_power_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -77,6 +78,24 @@ extern RebootRequestDefaultTypeInternal _RebootRequest_default_instance_;
 class RebootResponse;
 class RebootResponseDefaultTypeInternal;
 extern RebootResponseDefaultTypeInternal _RebootResponse_default_instance_;
+class State;
+class StateDefaultTypeInternal;
+extern StateDefaultTypeInternal _State_default_instance_;
+class StatesRequest;
+class StatesRequestDefaultTypeInternal;
+extern StatesRequestDefaultTypeInternal _StatesRequest_default_instance_;
+class StatesResponse;
+class StatesResponseDefaultTypeInternal;
+extern StatesResponseDefaultTypeInternal _StatesResponse_default_instance_;
+class SwitchRequest;
+class SwitchRequestDefaultTypeInternal;
+extern SwitchRequestDefaultTypeInternal _SwitchRequest_default_instance_;
+class SwitchRequest_request;
+class SwitchRequest_requestDefaultTypeInternal;
+extern SwitchRequest_requestDefaultTypeInternal _SwitchRequest_request_default_instance_;
+class SwitchResponse;
+class SwitchResponseDefaultTypeInternal;
+extern SwitchResponseDefaultTypeInternal _SwitchResponse_default_instance_;
 }  // namespace powerService
 PROTOBUF_NAMESPACE_OPEN
 template<> ::powerService::GetPowerStatusRequest* Arena::CreateMaybeMessage<::powerService::GetPowerStatusRequest>(Arena*);
@@ -85,9 +104,49 @@ template<> ::powerService::PowerStatus* Arena::CreateMaybeMessage<::powerService
 template<> ::powerService::PowerStatus_DevicesEntry_DoNotUse* Arena::CreateMaybeMessage<::powerService::PowerStatus_DevicesEntry_DoNotUse>(Arena*);
 template<> ::powerService::RebootRequest* Arena::CreateMaybeMessage<::powerService::RebootRequest>(Arena*);
 template<> ::powerService::RebootResponse* Arena::CreateMaybeMessage<::powerService::RebootResponse>(Arena*);
+template<> ::powerService::State* Arena::CreateMaybeMessage<::powerService::State>(Arena*);
+template<> ::powerService::StatesRequest* Arena::CreateMaybeMessage<::powerService::StatesRequest>(Arena*);
+template<> ::powerService::StatesResponse* Arena::CreateMaybeMessage<::powerService::StatesResponse>(Arena*);
+template<> ::powerService::SwitchRequest* Arena::CreateMaybeMessage<::powerService::SwitchRequest>(Arena*);
+template<> ::powerService::SwitchRequest_request* Arena::CreateMaybeMessage<::powerService::SwitchRequest_request>(Arena*);
+template<> ::powerService::SwitchResponse* Arena::CreateMaybeMessage<::powerService::SwitchResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace powerService {
 
+enum ModuleTypes : int {
+  UnknownModuleType = 0,
+  Main = 1,
+  EscPos = 2,
+  Screen = 3,
+  Sensor = 4,
+  Speech = 5,
+  Lights = 6,
+  Expression = 7,
+  Navigator = 8,
+  Motion = 9,
+  Amplifier = 10,
+  ModuleTypes_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ModuleTypes_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool ModuleTypes_IsValid(int value);
+constexpr ModuleTypes ModuleTypes_MIN = UnknownModuleType;
+constexpr ModuleTypes ModuleTypes_MAX = Amplifier;
+constexpr int ModuleTypes_ARRAYSIZE = ModuleTypes_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModuleTypes_descriptor();
+template<typename T>
+inline const std::string& ModuleTypes_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ModuleTypes>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ModuleTypes_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ModuleTypes_descriptor(), enum_t_value);
+}
+inline bool ModuleTypes_Parse(
+    const std::string& name, ModuleTypes* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ModuleTypes>(
+    ModuleTypes_descriptor(), name, value);
+}
 // ===================================================================
 
 class PowerStatus_DevicesEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PowerStatus_DevicesEntry_DoNotUse, 
@@ -232,13 +291,13 @@ class PowerStatus :
 
   // accessors -------------------------------------------------------
 
-  // map<string, bool> devices = 3;
-  int devices_size() const;
-  void clear_devices();
-  static const int kDevicesFieldNumber = 3;
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >&
+  // map<string, bool> devices = 3 [deprecated = true];
+  PROTOBUF_DEPRECATED int devices_size() const;
+  PROTOBUF_DEPRECATED void clear_devices();
+  PROTOBUF_DEPRECATED static const int kDevicesFieldNumber = 3;
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >&
       devices() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >*
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::Map< std::string, bool >*
       mutable_devices();
 
   // uint32 level = 1;
@@ -762,6 +821,810 @@ class RebootResponse :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_power_2eproto;
 };
+// -------------------------------------------------------------------
+
+class State :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:powerService.State) */ {
+ public:
+  State();
+  virtual ~State();
+
+  State(const State& from);
+  State(State&& from) noexcept
+    : State() {
+    *this = ::std::move(from);
+  }
+
+  inline State& operator=(const State& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline State& operator=(State&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const State& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const State* internal_default_instance() {
+    return reinterpret_cast<const State*>(
+               &_State_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  void Swap(State* other);
+  friend void swap(State& a, State& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline State* New() const final {
+    return CreateMaybeMessage<State>(nullptr);
+  }
+
+  State* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<State>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const State& from);
+  void MergeFrom(const State& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(State* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "powerService.State";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_power_2eproto);
+    return ::descriptor_table_power_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .powerService.ModuleTypes module = 1;
+  void clear_module();
+  static const int kModuleFieldNumber = 1;
+  ::powerService::ModuleTypes module() const;
+  void set_module(::powerService::ModuleTypes value);
+
+  // bool is_on = 2;
+  void clear_is_on();
+  static const int kIsOnFieldNumber = 2;
+  bool is_on() const;
+  void set_is_on(bool value);
+
+  // int32 on_after = 3;
+  void clear_on_after();
+  static const int kOnAfterFieldNumber = 3;
+  ::PROTOBUF_NAMESPACE_ID::int32 on_after() const;
+  void set_on_after(::PROTOBUF_NAMESPACE_ID::int32 value);
+
+  // int32 off_after = 4;
+  void clear_off_after();
+  static const int kOffAfterFieldNumber = 4;
+  ::PROTOBUF_NAMESPACE_ID::int32 off_after() const;
+  void set_off_after(::PROTOBUF_NAMESPACE_ID::int32 value);
+
+  // @@protoc_insertion_point(class_scope:powerService.State)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  int module_;
+  bool is_on_;
+  ::PROTOBUF_NAMESPACE_ID::int32 on_after_;
+  ::PROTOBUF_NAMESPACE_ID::int32 off_after_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_power_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StatesRequest :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:powerService.StatesRequest) */ {
+ public:
+  StatesRequest();
+  virtual ~StatesRequest();
+
+  StatesRequest(const StatesRequest& from);
+  StatesRequest(StatesRequest&& from) noexcept
+    : StatesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline StatesRequest& operator=(const StatesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StatesRequest& operator=(StatesRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StatesRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StatesRequest* internal_default_instance() {
+    return reinterpret_cast<const StatesRequest*>(
+               &_StatesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(StatesRequest* other);
+  friend void swap(StatesRequest& a, StatesRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StatesRequest* New() const final {
+    return CreateMaybeMessage<StatesRequest>(nullptr);
+  }
+
+  StatesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StatesRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StatesRequest& from);
+  void MergeFrom(const StatesRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StatesRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "powerService.StatesRequest";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_power_2eproto);
+    return ::descriptor_table_power_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:powerService.StatesRequest)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_power_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StatesResponse :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:powerService.StatesResponse) */ {
+ public:
+  StatesResponse();
+  virtual ~StatesResponse();
+
+  StatesResponse(const StatesResponse& from);
+  StatesResponse(StatesResponse&& from) noexcept
+    : StatesResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline StatesResponse& operator=(const StatesResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StatesResponse& operator=(StatesResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StatesResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const StatesResponse* internal_default_instance() {
+    return reinterpret_cast<const StatesResponse*>(
+               &_StatesResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(StatesResponse* other);
+  friend void swap(StatesResponse& a, StatesResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StatesResponse* New() const final {
+    return CreateMaybeMessage<StatesResponse>(nullptr);
+  }
+
+  StatesResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StatesResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StatesResponse& from);
+  void MergeFrom(const StatesResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StatesResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "powerService.StatesResponse";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_power_2eproto);
+    return ::descriptor_table_power_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .powerService.State states = 1;
+  int states_size() const;
+  void clear_states();
+  static const int kStatesFieldNumber = 1;
+  ::powerService::State* mutable_states(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >*
+      mutable_states();
+  const ::powerService::State& states(int index) const;
+  ::powerService::State* add_states();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >&
+      states() const;
+
+  // @@protoc_insertion_point(class_scope:powerService.StatesResponse)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State > states_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_power_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SwitchRequest_request :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:powerService.SwitchRequest.request) */ {
+ public:
+  SwitchRequest_request();
+  virtual ~SwitchRequest_request();
+
+  SwitchRequest_request(const SwitchRequest_request& from);
+  SwitchRequest_request(SwitchRequest_request&& from) noexcept
+    : SwitchRequest_request() {
+    *this = ::std::move(from);
+  }
+
+  inline SwitchRequest_request& operator=(const SwitchRequest_request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SwitchRequest_request& operator=(SwitchRequest_request&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SwitchRequest_request& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SwitchRequest_request* internal_default_instance() {
+    return reinterpret_cast<const SwitchRequest_request*>(
+               &_SwitchRequest_request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  void Swap(SwitchRequest_request* other);
+  friend void swap(SwitchRequest_request& a, SwitchRequest_request& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SwitchRequest_request* New() const final {
+    return CreateMaybeMessage<SwitchRequest_request>(nullptr);
+  }
+
+  SwitchRequest_request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SwitchRequest_request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SwitchRequest_request& from);
+  void MergeFrom(const SwitchRequest_request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SwitchRequest_request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "powerService.SwitchRequest.request";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_power_2eproto);
+    return ::descriptor_table_power_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .powerService.ModuleTypes module = 1;
+  void clear_module();
+  static const int kModuleFieldNumber = 1;
+  ::powerService::ModuleTypes module() const;
+  void set_module(::powerService::ModuleTypes value);
+
+  // int32 on_after = 3;
+  void clear_on_after();
+  static const int kOnAfterFieldNumber = 3;
+  ::PROTOBUF_NAMESPACE_ID::int32 on_after() const;
+  void set_on_after(::PROTOBUF_NAMESPACE_ID::int32 value);
+
+  // int32 off_after = 4;
+  void clear_off_after();
+  static const int kOffAfterFieldNumber = 4;
+  ::PROTOBUF_NAMESPACE_ID::int32 off_after() const;
+  void set_off_after(::PROTOBUF_NAMESPACE_ID::int32 value);
+
+  // @@protoc_insertion_point(class_scope:powerService.SwitchRequest.request)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  int module_;
+  ::PROTOBUF_NAMESPACE_ID::int32 on_after_;
+  ::PROTOBUF_NAMESPACE_ID::int32 off_after_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_power_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SwitchRequest :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:powerService.SwitchRequest) */ {
+ public:
+  SwitchRequest();
+  virtual ~SwitchRequest();
+
+  SwitchRequest(const SwitchRequest& from);
+  SwitchRequest(SwitchRequest&& from) noexcept
+    : SwitchRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SwitchRequest& operator=(const SwitchRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SwitchRequest& operator=(SwitchRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SwitchRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SwitchRequest* internal_default_instance() {
+    return reinterpret_cast<const SwitchRequest*>(
+               &_SwitchRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  void Swap(SwitchRequest* other);
+  friend void swap(SwitchRequest& a, SwitchRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SwitchRequest* New() const final {
+    return CreateMaybeMessage<SwitchRequest>(nullptr);
+  }
+
+  SwitchRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SwitchRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SwitchRequest& from);
+  void MergeFrom(const SwitchRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SwitchRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "powerService.SwitchRequest";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_power_2eproto);
+    return ::descriptor_table_power_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  typedef SwitchRequest_request request;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .powerService.SwitchRequest.request requests = 1;
+  int requests_size() const;
+  void clear_requests();
+  static const int kRequestsFieldNumber = 1;
+  ::powerService::SwitchRequest_request* mutable_requests(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::SwitchRequest_request >*
+      mutable_requests();
+  const ::powerService::SwitchRequest_request& requests(int index) const;
+  ::powerService::SwitchRequest_request* add_requests();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::SwitchRequest_request >&
+      requests() const;
+
+  // @@protoc_insertion_point(class_scope:powerService.SwitchRequest)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::SwitchRequest_request > requests_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_power_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SwitchResponse :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:powerService.SwitchResponse) */ {
+ public:
+  SwitchResponse();
+  virtual ~SwitchResponse();
+
+  SwitchResponse(const SwitchResponse& from);
+  SwitchResponse(SwitchResponse&& from) noexcept
+    : SwitchResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SwitchResponse& operator=(const SwitchResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SwitchResponse& operator=(SwitchResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const SwitchResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SwitchResponse* internal_default_instance() {
+    return reinterpret_cast<const SwitchResponse*>(
+               &_SwitchResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  void Swap(SwitchResponse* other);
+  friend void swap(SwitchResponse& a, SwitchResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SwitchResponse* New() const final {
+    return CreateMaybeMessage<SwitchResponse>(nullptr);
+  }
+
+  SwitchResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SwitchResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const SwitchResponse& from);
+  void MergeFrom(const SwitchResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SwitchResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "powerService.SwitchResponse";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_power_2eproto);
+    return ::descriptor_table_power_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .powerService.State states = 1;
+  int states_size() const;
+  void clear_states();
+  static const int kStatesFieldNumber = 1;
+  ::powerService::State* mutable_states(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >*
+      mutable_states();
+  const ::powerService::State& states(int index) const;
+  ::powerService::State* add_states();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >&
+      states() const;
+
+  // @@protoc_insertion_point(class_scope:powerService.SwitchResponse)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State > states_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_power_2eproto;
+};
 // ===================================================================
 
 
@@ -803,7 +1666,7 @@ inline void PowerStatus::set_is_charging(bool value) {
   // @@protoc_insertion_point(field_set:powerService.PowerStatus.is_charging)
 }
 
-// map<string, bool> devices = 3;
+// map<string, bool> devices = 3 [deprecated = true];
 inline int PowerStatus::devices_size() const {
   return devices_.size();
 }
@@ -902,9 +1765,233 @@ inline void RebootRequest::set_all(bool value) {
 
 // RebootResponse
 
+// -------------------------------------------------------------------
+
+// State
+
+// .powerService.ModuleTypes module = 1;
+inline void State::clear_module() {
+  module_ = 0;
+}
+inline ::powerService::ModuleTypes State::module() const {
+  // @@protoc_insertion_point(field_get:powerService.State.module)
+  return static_cast< ::powerService::ModuleTypes >(module_);
+}
+inline void State::set_module(::powerService::ModuleTypes value) {
+  
+  module_ = value;
+  // @@protoc_insertion_point(field_set:powerService.State.module)
+}
+
+// bool is_on = 2;
+inline void State::clear_is_on() {
+  is_on_ = false;
+}
+inline bool State::is_on() const {
+  // @@protoc_insertion_point(field_get:powerService.State.is_on)
+  return is_on_;
+}
+inline void State::set_is_on(bool value) {
+  
+  is_on_ = value;
+  // @@protoc_insertion_point(field_set:powerService.State.is_on)
+}
+
+// int32 off_after = 4;
+inline void State::clear_off_after() {
+  off_after_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 State::off_after() const {
+  // @@protoc_insertion_point(field_get:powerService.State.off_after)
+  return off_after_;
+}
+inline void State::set_off_after(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  off_after_ = value;
+  // @@protoc_insertion_point(field_set:powerService.State.off_after)
+}
+
+// int32 on_after = 3;
+inline void State::clear_on_after() {
+  on_after_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 State::on_after() const {
+  // @@protoc_insertion_point(field_get:powerService.State.on_after)
+  return on_after_;
+}
+inline void State::set_on_after(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  on_after_ = value;
+  // @@protoc_insertion_point(field_set:powerService.State.on_after)
+}
+
+// -------------------------------------------------------------------
+
+// StatesRequest
+
+// -------------------------------------------------------------------
+
+// StatesResponse
+
+// repeated .powerService.State states = 1;
+inline int StatesResponse::states_size() const {
+  return states_.size();
+}
+inline void StatesResponse::clear_states() {
+  states_.Clear();
+}
+inline ::powerService::State* StatesResponse::mutable_states(int index) {
+  // @@protoc_insertion_point(field_mutable:powerService.StatesResponse.states)
+  return states_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >*
+StatesResponse::mutable_states() {
+  // @@protoc_insertion_point(field_mutable_list:powerService.StatesResponse.states)
+  return &states_;
+}
+inline const ::powerService::State& StatesResponse::states(int index) const {
+  // @@protoc_insertion_point(field_get:powerService.StatesResponse.states)
+  return states_.Get(index);
+}
+inline ::powerService::State* StatesResponse::add_states() {
+  // @@protoc_insertion_point(field_add:powerService.StatesResponse.states)
+  return states_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >&
+StatesResponse::states() const {
+  // @@protoc_insertion_point(field_list:powerService.StatesResponse.states)
+  return states_;
+}
+
+// -------------------------------------------------------------------
+
+// SwitchRequest_request
+
+// .powerService.ModuleTypes module = 1;
+inline void SwitchRequest_request::clear_module() {
+  module_ = 0;
+}
+inline ::powerService::ModuleTypes SwitchRequest_request::module() const {
+  // @@protoc_insertion_point(field_get:powerService.SwitchRequest.request.module)
+  return static_cast< ::powerService::ModuleTypes >(module_);
+}
+inline void SwitchRequest_request::set_module(::powerService::ModuleTypes value) {
+  
+  module_ = value;
+  // @@protoc_insertion_point(field_set:powerService.SwitchRequest.request.module)
+}
+
+// int32 off_after = 4;
+inline void SwitchRequest_request::clear_off_after() {
+  off_after_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 SwitchRequest_request::off_after() const {
+  // @@protoc_insertion_point(field_get:powerService.SwitchRequest.request.off_after)
+  return off_after_;
+}
+inline void SwitchRequest_request::set_off_after(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  off_after_ = value;
+  // @@protoc_insertion_point(field_set:powerService.SwitchRequest.request.off_after)
+}
+
+// int32 on_after = 3;
+inline void SwitchRequest_request::clear_on_after() {
+  on_after_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 SwitchRequest_request::on_after() const {
+  // @@protoc_insertion_point(field_get:powerService.SwitchRequest.request.on_after)
+  return on_after_;
+}
+inline void SwitchRequest_request::set_on_after(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  on_after_ = value;
+  // @@protoc_insertion_point(field_set:powerService.SwitchRequest.request.on_after)
+}
+
+// -------------------------------------------------------------------
+
+// SwitchRequest
+
+// repeated .powerService.SwitchRequest.request requests = 1;
+inline int SwitchRequest::requests_size() const {
+  return requests_.size();
+}
+inline void SwitchRequest::clear_requests() {
+  requests_.Clear();
+}
+inline ::powerService::SwitchRequest_request* SwitchRequest::mutable_requests(int index) {
+  // @@protoc_insertion_point(field_mutable:powerService.SwitchRequest.requests)
+  return requests_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::SwitchRequest_request >*
+SwitchRequest::mutable_requests() {
+  // @@protoc_insertion_point(field_mutable_list:powerService.SwitchRequest.requests)
+  return &requests_;
+}
+inline const ::powerService::SwitchRequest_request& SwitchRequest::requests(int index) const {
+  // @@protoc_insertion_point(field_get:powerService.SwitchRequest.requests)
+  return requests_.Get(index);
+}
+inline ::powerService::SwitchRequest_request* SwitchRequest::add_requests() {
+  // @@protoc_insertion_point(field_add:powerService.SwitchRequest.requests)
+  return requests_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::SwitchRequest_request >&
+SwitchRequest::requests() const {
+  // @@protoc_insertion_point(field_list:powerService.SwitchRequest.requests)
+  return requests_;
+}
+
+// -------------------------------------------------------------------
+
+// SwitchResponse
+
+// repeated .powerService.State states = 1;
+inline int SwitchResponse::states_size() const {
+  return states_.size();
+}
+inline void SwitchResponse::clear_states() {
+  states_.Clear();
+}
+inline ::powerService::State* SwitchResponse::mutable_states(int index) {
+  // @@protoc_insertion_point(field_mutable:powerService.SwitchResponse.states)
+  return states_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >*
+SwitchResponse::mutable_states() {
+  // @@protoc_insertion_point(field_mutable_list:powerService.SwitchResponse.states)
+  return &states_;
+}
+inline const ::powerService::State& SwitchResponse::states(int index) const {
+  // @@protoc_insertion_point(field_get:powerService.SwitchResponse.states)
+  return states_.Get(index);
+}
+inline ::powerService::State* SwitchResponse::add_states() {
+  // @@protoc_insertion_point(field_add:powerService.SwitchResponse.states)
+  return states_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::powerService::State >&
+SwitchResponse::states() const {
+  // @@protoc_insertion_point(field_list:powerService.SwitchResponse.states)
+  return states_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -919,6 +2006,16 @@ inline void RebootRequest::set_all(bool value) {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace powerService
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::powerService::ModuleTypes> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::powerService::ModuleTypes>() {
+  return ::powerService::ModuleTypes_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

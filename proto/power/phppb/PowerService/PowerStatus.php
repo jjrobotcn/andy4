@@ -27,8 +27,9 @@ class PowerStatus extends \Google\Protobuf\Internal\Message
     private $is_charging = false;
     /**
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      *
-     * Generated from protobuf field <code>map<string, bool> devices = 3;</code>
+     * Generated from protobuf field <code>map<string, bool> devices = 3 [deprecated = true];</code>
      */
     private $devices;
 
@@ -44,6 +45,7 @@ class PowerStatus extends \Google\Protobuf\Internal\Message
      *           是否充电中
      *     @type array|\Google\Protobuf\Internal\MapField $devices
      *           设备状态
+     *           此字段已作废，请使用States方法获取
      * }
      */
     public function __construct($data = NULL) {
@@ -105,8 +107,9 @@ class PowerStatus extends \Google\Protobuf\Internal\Message
 
     /**
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      *
-     * Generated from protobuf field <code>map<string, bool> devices = 3;</code>
+     * Generated from protobuf field <code>map<string, bool> devices = 3 [deprecated = true];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getDevices()
@@ -116,8 +119,9 @@ class PowerStatus extends \Google\Protobuf\Internal\Message
 
     /**
      * 设备状态
+     * 此字段已作废，请使用States方法获取
      *
-     * Generated from protobuf field <code>map<string, bool> devices = 3;</code>
+     * Generated from protobuf field <code>map<string, bool> devices = 3 [deprecated = true];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */

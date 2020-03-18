@@ -28,8 +28,61 @@
 CF_EXTERN_C_BEGIN
 
 @class PowerStatus;
+@class State;
+@class SwitchRequest_request;
 
 NS_ASSUME_NONNULL_BEGIN
+
+#pragma mark - Enum ModuleTypes
+
+/** 模块类型枚举 */
+typedef GPB_ENUM(ModuleTypes) {
+  /**
+   * Value used if any message's field encounters a value that is not defined
+   * by this enum. The message will also have C functions to get/set the rawValue
+   * of the field.
+   **/
+  ModuleTypes_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  ModuleTypes_UnknownModuleType = 0,
+
+  /** 工控、路由、摄像头 */
+  ModuleTypes_Main = 1,
+
+  /** 小票打印机 */
+  ModuleTypes_EscPos = 2,
+
+  /** 屏幕/平板 */
+  ModuleTypes_Screen = 3,
+
+  /** 传感器 */
+  ModuleTypes_Sensor = 4,
+
+  /** 语音模块 */
+  ModuleTypes_Speech = 5,
+
+  /** 灯光模块（目前与表情模块为同一供电） */
+  ModuleTypes_Lights = 6,
+
+  /** 表情模块（目前与灯光模块为同一供电） */
+  ModuleTypes_Expression = 7,
+
+  /** 导航模块 */
+  ModuleTypes_Navigator = 8,
+
+  /** 运动模块 */
+  ModuleTypes_Motion = 9,
+
+  /** 功放 */
+  ModuleTypes_Amplifier = 10,
+};
+
+GPBEnumDescriptor *ModuleTypes_EnumDescriptor(void);
+
+/**
+ * Checks to see if the given value is defined by the enum or was not known at
+ * the time this source was generated.
+ **/
+BOOL ModuleTypes_IsValidValue(int32_t value);
 
 #pragma mark - PowerRoot
 
@@ -62,10 +115,13 @@ typedef GPB_ENUM(PowerStatus_FieldNumber) {
 /** 是否充电中 */
 @property(nonatomic, readwrite) BOOL isCharging;
 
-/** 设备状态 */
-@property(nonatomic, readwrite, strong, null_resettable) GPBStringBoolDictionary *devices;
+/**
+ * 设备状态
+ * 此字段已作废，请使用States方法获取
+ **/
+@property(nonatomic, readwrite, strong, null_resettable) GPBStringBoolDictionary *devices GPB_DEPRECATED_MSG("powerService.PowerStatus.devices is deprecated (see power.proto).");
 /** The number of items in @c devices without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger devices_Count;
+@property(nonatomic, readonly) NSUInteger devices_Count GPB_DEPRECATED_MSG("powerService.PowerStatus.devices is deprecated (see power.proto).");
 
 @end
 
@@ -105,6 +161,136 @@ typedef GPB_ENUM(RebootRequest_FieldNumber) {
 #pragma mark - RebootResponse
 
 @interface RebootResponse : GPBMessage
+
+@end
+
+#pragma mark - State
+
+typedef GPB_ENUM(State_FieldNumber) {
+  State_FieldNumber_Module = 1,
+  State_FieldNumber_IsOn = 2,
+  State_FieldNumber_OnAfter = 3,
+  State_FieldNumber_OffAfter = 4,
+};
+
+@interface State : GPBMessage
+
+/** 模块类型 */
+@property(nonatomic, readwrite) ModuleTypes module;
+
+/** 当前模块是否供电 */
+@property(nonatomic, readwrite) BOOL isOn;
+
+/**
+ * 触发关闭供电倒计时（秒）
+ * -1为未配置或已失效
+ **/
+@property(nonatomic, readwrite) int32_t offAfter;
+
+/**
+ * 触发恢复供电倒计时（秒）
+ * -1为未配置或已失效
+ **/
+@property(nonatomic, readwrite) int32_t onAfter;
+
+@end
+
+/**
+ * Fetches the raw value of a @c State's @c module property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t State_Module_RawValue(State *message);
+/**
+ * Sets the raw value of an @c State's @c module property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetState_Module_RawValue(State *message, int32_t value);
+
+#pragma mark - StatesRequest
+
+@interface StatesRequest : GPBMessage
+
+@end
+
+#pragma mark - StatesResponse
+
+typedef GPB_ENUM(StatesResponse_FieldNumber) {
+  StatesResponse_FieldNumber_StatesArray = 1,
+};
+
+@interface StatesResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<State*> *statesArray;
+/** The number of items in @c statesArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger statesArray_Count;
+
+@end
+
+#pragma mark - SwitchRequest
+
+typedef GPB_ENUM(SwitchRequest_FieldNumber) {
+  SwitchRequest_FieldNumber_RequestsArray = 1,
+};
+
+@interface SwitchRequest : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<SwitchRequest_request*> *requestsArray;
+/** The number of items in @c requestsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger requestsArray_Count;
+
+@end
+
+#pragma mark - SwitchRequest_request
+
+typedef GPB_ENUM(SwitchRequest_request_FieldNumber) {
+  SwitchRequest_request_FieldNumber_Module = 1,
+  SwitchRequest_request_FieldNumber_OnAfter = 3,
+  SwitchRequest_request_FieldNumber_OffAfter = 4,
+};
+
+@interface SwitchRequest_request : GPBMessage
+
+/** 模块类型 */
+@property(nonatomic, readwrite) ModuleTypes module;
+
+/**
+ * 若干秒后关闭该模块供电
+ * -1为未配置 0为立即
+ **/
+@property(nonatomic, readwrite) int32_t offAfter;
+
+/**
+ * 若干秒后恢复该模块供电
+ * -1为未配置 0为立即
+ **/
+@property(nonatomic, readwrite) int32_t onAfter;
+
+@end
+
+/**
+ * Fetches the raw value of a @c SwitchRequest_request's @c module property, even
+ * if the value was not defined by the enum at the time the code was generated.
+ **/
+int32_t SwitchRequest_request_Module_RawValue(SwitchRequest_request *message);
+/**
+ * Sets the raw value of an @c SwitchRequest_request's @c module property, allowing
+ * it to be set to a value that was not defined by the enum at the time the code
+ * was generated.
+ **/
+void SetSwitchRequest_request_Module_RawValue(SwitchRequest_request *message, int32_t value);
+
+#pragma mark - SwitchResponse
+
+typedef GPB_ENUM(SwitchResponse_FieldNumber) {
+  SwitchResponse_FieldNumber_StatesArray = 1,
+};
+
+@interface SwitchResponse : GPBMessage
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<State*> *statesArray;
+/** The number of items in @c statesArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger statesArray_Count;
 
 @end
 

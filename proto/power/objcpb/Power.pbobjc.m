@@ -13,6 +13,8 @@
  #import "GPBProtocolBuffers_RuntimeSupport.h"
 #endif
 
+#import <stdatomic.h>
+
 #import "Power.pbobjc.h"
 #import "google/api/Annotations.pbobjc.h"
 // @@protoc_insertion_point(imports)
@@ -51,6 +53,63 @@ static GPBFileDescriptor *PowerRoot_FileDescriptor(void) {
                                                      syntax:GPBFileSyntaxProto3];
   }
   return descriptor;
+}
+
+#pragma mark - Enum ModuleTypes
+
+GPBEnumDescriptor *ModuleTypes_EnumDescriptor(void) {
+  static _Atomic(GPBEnumDescriptor*) descriptor = nil;
+  if (!descriptor) {
+    static const char *valueNames =
+        "UnknownModuleType\000Main\000EscPos\000Screen\000Sen"
+        "sor\000Speech\000Lights\000Expression\000Navigator\000M"
+        "otion\000Amplifier\000";
+    static const int32_t values[] = {
+        ModuleTypes_UnknownModuleType,
+        ModuleTypes_Main,
+        ModuleTypes_EscPos,
+        ModuleTypes_Screen,
+        ModuleTypes_Sensor,
+        ModuleTypes_Speech,
+        ModuleTypes_Lights,
+        ModuleTypes_Expression,
+        ModuleTypes_Navigator,
+        ModuleTypes_Motion,
+        ModuleTypes_Amplifier,
+    };
+    static const char *extraTextFormatInfo = "\013\000\021\000\001\004\000\002\006\000\003\006\000\004\006\000\005\006\000\006\006\000\007\n\000\010\t\000\t\006\000\n\t\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(ModuleTypes)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:ModuleTypes_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    GPBEnumDescriptor *expected = nil;
+    if (!atomic_compare_exchange_strong(&descriptor, &expected, worker)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL ModuleTypes_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case ModuleTypes_UnknownModuleType:
+    case ModuleTypes_Main:
+    case ModuleTypes_EscPos:
+    case ModuleTypes_Screen:
+    case ModuleTypes_Sensor:
+    case ModuleTypes_Speech:
+    case ModuleTypes_Lights:
+    case ModuleTypes_Expression:
+    case ModuleTypes_Navigator:
+    case ModuleTypes_Motion:
+    case ModuleTypes_Amplifier:
+      return YES;
+    default:
+      return NO;
+  }
 }
 
 #pragma mark - PowerStatus
@@ -261,6 +320,342 @@ typedef struct RebootResponse__storage_ {
                                         fields:NULL
                                     fieldCount:0
                                    storageSize:sizeof(RebootResponse__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - State
+
+@implementation State
+
+@dynamic module;
+@dynamic isOn;
+@dynamic offAfter;
+@dynamic onAfter;
+
+typedef struct State__storage_ {
+  uint32_t _has_storage_[1];
+  ModuleTypes module;
+  int32_t onAfter;
+  int32_t offAfter;
+} State__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "module",
+        .dataTypeSpecific.enumDescFunc = ModuleTypes_EnumDescriptor,
+        .number = State_FieldNumber_Module,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(State__storage_, module),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .dataType = GPBDataTypeEnum,
+      },
+      {
+        .name = "isOn",
+        .dataTypeSpecific.className = NULL,
+        .number = State_FieldNumber_IsOn,
+        .hasIndex = 1,
+        .offset = 2,  // Stored in _has_storage_ to save space.
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "onAfter",
+        .dataTypeSpecific.className = NULL,
+        .number = State_FieldNumber_OnAfter,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(State__storage_, onAfter),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
+      },
+      {
+        .name = "offAfter",
+        .dataTypeSpecific.className = NULL,
+        .number = State_FieldNumber_OffAfter,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(State__storage_, offAfter),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[State class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(State__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+int32_t State_Module_RawValue(State *message) {
+  GPBDescriptor *descriptor = [State descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:State_FieldNumber_Module];
+  return GPBGetMessageInt32Field(message, field);
+}
+
+void SetState_Module_RawValue(State *message, int32_t value) {
+  GPBDescriptor *descriptor = [State descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:State_FieldNumber_Module];
+  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+}
+
+#pragma mark - StatesRequest
+
+@implementation StatesRequest
+
+
+typedef struct StatesRequest__storage_ {
+  uint32_t _has_storage_[1];
+} StatesRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[StatesRequest class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:NULL
+                                    fieldCount:0
+                                   storageSize:sizeof(StatesRequest__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - StatesResponse
+
+@implementation StatesResponse
+
+@dynamic statesArray, statesArray_Count;
+
+typedef struct StatesResponse__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *statesArray;
+} StatesResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "statesArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(State),
+        .number = StatesResponse_FieldNumber_StatesArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(StatesResponse__storage_, statesArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[StatesResponse class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(StatesResponse__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - SwitchRequest
+
+@implementation SwitchRequest
+
+@dynamic requestsArray, requestsArray_Count;
+
+typedef struct SwitchRequest__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *requestsArray;
+} SwitchRequest__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "requestsArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(SwitchRequest_request),
+        .number = SwitchRequest_FieldNumber_RequestsArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(SwitchRequest__storage_, requestsArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[SwitchRequest class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(SwitchRequest__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - SwitchRequest_request
+
+@implementation SwitchRequest_request
+
+@dynamic module;
+@dynamic offAfter;
+@dynamic onAfter;
+
+typedef struct SwitchRequest_request__storage_ {
+  uint32_t _has_storage_[1];
+  ModuleTypes module;
+  int32_t onAfter;
+  int32_t offAfter;
+} SwitchRequest_request__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "module",
+        .dataTypeSpecific.enumDescFunc = ModuleTypes_EnumDescriptor,
+        .number = SwitchRequest_request_FieldNumber_Module,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(SwitchRequest_request__storage_, module),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .dataType = GPBDataTypeEnum,
+      },
+      {
+        .name = "onAfter",
+        .dataTypeSpecific.className = NULL,
+        .number = SwitchRequest_request_FieldNumber_OnAfter,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(SwitchRequest_request__storage_, onAfter),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
+      },
+      {
+        .name = "offAfter",
+        .dataTypeSpecific.className = NULL,
+        .number = SwitchRequest_request_FieldNumber_OffAfter,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(SwitchRequest_request__storage_, offAfter),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt32,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[SwitchRequest_request class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(SwitchRequest_request__storage_)
+                                         flags:GPBDescriptorInitializationFlag_None];
+    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(SwitchRequest)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+int32_t SwitchRequest_request_Module_RawValue(SwitchRequest_request *message) {
+  GPBDescriptor *descriptor = [SwitchRequest_request descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:SwitchRequest_request_FieldNumber_Module];
+  return GPBGetMessageInt32Field(message, field);
+}
+
+void SetSwitchRequest_request_Module_RawValue(SwitchRequest_request *message, int32_t value) {
+  GPBDescriptor *descriptor = [SwitchRequest_request descriptor];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:SwitchRequest_request_FieldNumber_Module];
+  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+}
+
+#pragma mark - SwitchResponse
+
+@implementation SwitchResponse
+
+@dynamic statesArray, statesArray_Count;
+
+typedef struct SwitchResponse__storage_ {
+  uint32_t _has_storage_[1];
+  NSMutableArray *statesArray;
+} SwitchResponse__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "statesArray",
+        .dataTypeSpecific.className = GPBStringifySymbol(State),
+        .number = SwitchResponse_FieldNumber_StatesArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(SwitchResponse__storage_, statesArray),
+        .flags = GPBFieldRepeated,
+        .dataType = GPBDataTypeMessage,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[SwitchResponse class]
+                                     rootClass:[PowerRoot class]
+                                          file:PowerRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(SwitchResponse__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
