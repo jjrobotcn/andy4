@@ -31,7 +31,8 @@ service PowerService {
     // 控制模块供电开关
     rpc Switch (SwitchRequest) returns (SwitchResponse) {
         option (google.api.http) = {
-            get: "/api/v2/power/switch"
+            post: "/api/v2/power/switch"
+            body: "*"
         };
     }
 }
