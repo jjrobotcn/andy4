@@ -384,6 +384,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PreviewLightRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -396,7 +403,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -958,6 +964,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PreviewLightResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1437,6 +1450,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PlayLightRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1449,7 +1469,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2291,6 +2310,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PlayLightResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2750,6 +2776,13 @@ public final class Lights {
     }
     private StopLightRequest() {
       ltypes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StopLightRequest();
     }
 
     @java.lang.Override
@@ -3475,6 +3508,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StopLightResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3995,6 +4035,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LightInfo();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4037,9 +4084,9 @@ public final class Lights {
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 frames_ = new java.util.ArrayList<lightsService.Lights.LightFrame>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000001;
               }
               frames_.add(
                   input.readMessage(lightsService.Lights.LightFrame.parser(), extensionRegistry));
@@ -4060,7 +4107,7 @@ public final class Lights {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           frames_ = java.util.Collections.unmodifiableList(frames_);
         }
         this.unknownFields = unknownFields.build();
@@ -4080,7 +4127,6 @@ public final class Lights {
               lightsService.Lights.LightInfo.class, lightsService.Lights.LightInfo.Builder.class);
     }
 
-    private int bitField0_;
     public static final int LTYPE_FIELD_NUMBER = 1;
     private int ltype_;
     /**
@@ -4483,7 +4529,7 @@ public final class Lights {
 
         if (framesBuilder_ == null) {
           frames_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           framesBuilder_.clear();
         }
@@ -4514,20 +4560,18 @@ public final class Lights {
       public lightsService.Lights.LightInfo buildPartial() {
         lightsService.Lights.LightInfo result = new lightsService.Lights.LightInfo(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.ltype_ = ltype_;
         result.id_ = id_;
         result.name_ = name_;
         if (framesBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             frames_ = java.util.Collections.unmodifiableList(frames_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.frames_ = frames_;
         } else {
           result.frames_ = framesBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4591,7 +4635,7 @@ public final class Lights {
           if (!other.frames_.isEmpty()) {
             if (frames_.isEmpty()) {
               frames_ = other.frames_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureFramesIsMutable();
               frames_.addAll(other.frames_);
@@ -4604,7 +4648,7 @@ public final class Lights {
               framesBuilder_.dispose();
               framesBuilder_ = null;
               frames_ = other.frames_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
               framesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFramesFieldBuilder() : null;
@@ -4889,9 +4933,9 @@ public final class Lights {
       private java.util.List<lightsService.Lights.LightFrame> frames_ =
         java.util.Collections.emptyList();
       private void ensureFramesIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           frames_ = new java.util.ArrayList<lightsService.Lights.LightFrame>(frames_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -5085,7 +5129,7 @@ public final class Lights {
       public Builder clearFrames() {
         if (framesBuilder_ == null) {
           frames_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           framesBuilder_.clear();
@@ -5190,7 +5234,7 @@ public final class Lights {
           framesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               lightsService.Lights.LightFrame, lightsService.Lights.LightFrame.Builder, lightsService.Lights.LightFrameOrBuilder>(
                   frames_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           frames_ = null;
@@ -5341,6 +5385,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LightFrame();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5419,7 +5470,6 @@ public final class Lights {
               lightsService.Lights.LightFrame.class, lightsService.Lights.LightFrame.Builder.class);
     }
 
-    private int bitField0_;
     public static final int COLORS_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList colors_;
     /**
@@ -5764,7 +5814,6 @@ public final class Lights {
       public lightsService.Lights.LightFrame buildPartial() {
         lightsService.Lights.LightFrame result = new lightsService.Lights.LightFrame(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) != 0)) {
           colors_ = colors_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -5772,7 +5821,6 @@ public final class Lights {
         result.colors_ = colors_;
         result.speed_ = speed_;
         result.mode_ = mode_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -6203,6 +6251,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListLightsRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6215,7 +6270,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -6777,6 +6831,13 @@ public final class Lights {
     }
     private ListLightsResponse() {
       lightsInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListLightsResponse();
     }
 
     @java.lang.Override
@@ -7661,6 +7722,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NewLightRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7673,7 +7741,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -8335,6 +8402,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NewLightResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8347,7 +8421,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9009,6 +9082,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateLightRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9021,7 +9101,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9683,6 +9762,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateLightResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9695,7 +9781,6 @@ public final class Lights {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -10368,6 +10453,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteLightsRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -11011,6 +11103,13 @@ public final class Lights {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteLightsResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -11406,6 +11505,2010 @@ public final class Lights {
 
   }
 
+  public interface StateRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:lightsService.StateRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code lightsService.StateRequest}
+   */
+  public  static final class StateRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:lightsService.StateRequest)
+      StateRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StateRequest.newBuilder() to construct.
+    private StateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StateRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StateRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return lightsService.Lights.internal_static_lightsService_StateRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return lightsService.Lights.internal_static_lightsService_StateRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              lightsService.Lights.StateRequest.class, lightsService.Lights.StateRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof lightsService.Lights.StateRequest)) {
+        return super.equals(obj);
+      }
+      lightsService.Lights.StateRequest other = (lightsService.Lights.StateRequest) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static lightsService.Lights.StateRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.StateRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.StateRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.StateRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(lightsService.Lights.StateRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code lightsService.StateRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:lightsService.StateRequest)
+        lightsService.Lights.StateRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return lightsService.Lights.internal_static_lightsService_StateRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return lightsService.Lights.internal_static_lightsService_StateRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                lightsService.Lights.StateRequest.class, lightsService.Lights.StateRequest.Builder.class);
+      }
+
+      // Construct using lightsService.Lights.StateRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return lightsService.Lights.internal_static_lightsService_StateRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.StateRequest getDefaultInstanceForType() {
+        return lightsService.Lights.StateRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.StateRequest build() {
+        lightsService.Lights.StateRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.StateRequest buildPartial() {
+        lightsService.Lights.StateRequest result = new lightsService.Lights.StateRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof lightsService.Lights.StateRequest) {
+          return mergeFrom((lightsService.Lights.StateRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(lightsService.Lights.StateRequest other) {
+        if (other == lightsService.Lights.StateRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        lightsService.Lights.StateRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (lightsService.Lights.StateRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:lightsService.StateRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:lightsService.StateRequest)
+    private static final lightsService.Lights.StateRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new lightsService.Lights.StateRequest();
+    }
+
+    public static lightsService.Lights.StateRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StateRequest>
+        PARSER = new com.google.protobuf.AbstractParser<StateRequest>() {
+      @java.lang.Override
+      public StateRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StateRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StateRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StateRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public lightsService.Lights.StateRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StateResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:lightsService.StateResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 当前是否启用
+     * </pre>
+     *
+     * <code>bool is_active = 1;</code>
+     */
+    boolean getIsActive();
+
+    /**
+     * <pre>
+     * 当前是否在播放中
+     * </pre>
+     *
+     * <code>bool is_playing = 2;</code>
+     */
+    boolean getIsPlaying();
+  }
+  /**
+   * Protobuf type {@code lightsService.StateResponse}
+   */
+  public  static final class StateResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:lightsService.StateResponse)
+      StateResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StateResponse.newBuilder() to construct.
+    private StateResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StateResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StateResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StateResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              isActive_ = input.readBool();
+              break;
+            }
+            case 16: {
+
+              isPlaying_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return lightsService.Lights.internal_static_lightsService_StateResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return lightsService.Lights.internal_static_lightsService_StateResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              lightsService.Lights.StateResponse.class, lightsService.Lights.StateResponse.Builder.class);
+    }
+
+    public static final int IS_ACTIVE_FIELD_NUMBER = 1;
+    private boolean isActive_;
+    /**
+     * <pre>
+     * 当前是否启用
+     * </pre>
+     *
+     * <code>bool is_active = 1;</code>
+     */
+    public boolean getIsActive() {
+      return isActive_;
+    }
+
+    public static final int IS_PLAYING_FIELD_NUMBER = 2;
+    private boolean isPlaying_;
+    /**
+     * <pre>
+     * 当前是否在播放中
+     * </pre>
+     *
+     * <code>bool is_playing = 2;</code>
+     */
+    public boolean getIsPlaying() {
+      return isPlaying_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (isActive_ != false) {
+        output.writeBool(1, isActive_);
+      }
+      if (isPlaying_ != false) {
+        output.writeBool(2, isPlaying_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (isActive_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isActive_);
+      }
+      if (isPlaying_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isPlaying_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof lightsService.Lights.StateResponse)) {
+        return super.equals(obj);
+      }
+      lightsService.Lights.StateResponse other = (lightsService.Lights.StateResponse) obj;
+
+      if (getIsActive()
+          != other.getIsActive()) return false;
+      if (getIsPlaying()
+          != other.getIsPlaying()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + IS_ACTIVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsActive());
+      hash = (37 * hash) + IS_PLAYING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsPlaying());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static lightsService.Lights.StateResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.StateResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.StateResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.StateResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(lightsService.Lights.StateResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code lightsService.StateResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:lightsService.StateResponse)
+        lightsService.Lights.StateResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return lightsService.Lights.internal_static_lightsService_StateResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return lightsService.Lights.internal_static_lightsService_StateResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                lightsService.Lights.StateResponse.class, lightsService.Lights.StateResponse.Builder.class);
+      }
+
+      // Construct using lightsService.Lights.StateResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        isActive_ = false;
+
+        isPlaying_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return lightsService.Lights.internal_static_lightsService_StateResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.StateResponse getDefaultInstanceForType() {
+        return lightsService.Lights.StateResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.StateResponse build() {
+        lightsService.Lights.StateResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.StateResponse buildPartial() {
+        lightsService.Lights.StateResponse result = new lightsService.Lights.StateResponse(this);
+        result.isActive_ = isActive_;
+        result.isPlaying_ = isPlaying_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof lightsService.Lights.StateResponse) {
+          return mergeFrom((lightsService.Lights.StateResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(lightsService.Lights.StateResponse other) {
+        if (other == lightsService.Lights.StateResponse.getDefaultInstance()) return this;
+        if (other.getIsActive() != false) {
+          setIsActive(other.getIsActive());
+        }
+        if (other.getIsPlaying() != false) {
+          setIsPlaying(other.getIsPlaying());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        lightsService.Lights.StateResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (lightsService.Lights.StateResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean isActive_ ;
+      /**
+       * <pre>
+       * 当前是否启用
+       * </pre>
+       *
+       * <code>bool is_active = 1;</code>
+       */
+      public boolean getIsActive() {
+        return isActive_;
+      }
+      /**
+       * <pre>
+       * 当前是否启用
+       * </pre>
+       *
+       * <code>bool is_active = 1;</code>
+       */
+      public Builder setIsActive(boolean value) {
+        
+        isActive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 当前是否启用
+       * </pre>
+       *
+       * <code>bool is_active = 1;</code>
+       */
+      public Builder clearIsActive() {
+        
+        isActive_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean isPlaying_ ;
+      /**
+       * <pre>
+       * 当前是否在播放中
+       * </pre>
+       *
+       * <code>bool is_playing = 2;</code>
+       */
+      public boolean getIsPlaying() {
+        return isPlaying_;
+      }
+      /**
+       * <pre>
+       * 当前是否在播放中
+       * </pre>
+       *
+       * <code>bool is_playing = 2;</code>
+       */
+      public Builder setIsPlaying(boolean value) {
+        
+        isPlaying_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 当前是否在播放中
+       * </pre>
+       *
+       * <code>bool is_playing = 2;</code>
+       */
+      public Builder clearIsPlaying() {
+        
+        isPlaying_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:lightsService.StateResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:lightsService.StateResponse)
+    private static final lightsService.Lights.StateResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new lightsService.Lights.StateResponse();
+    }
+
+    public static lightsService.Lights.StateResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StateResponse>
+        PARSER = new com.google.protobuf.AbstractParser<StateResponse>() {
+      @java.lang.Override
+      public StateResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StateResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StateResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StateResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public lightsService.Lights.StateResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SwitchRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:lightsService.SwitchRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 启用与关闭
+     * </pre>
+     *
+     * <code>bool active = 1;</code>
+     */
+    boolean getActive();
+  }
+  /**
+   * Protobuf type {@code lightsService.SwitchRequest}
+   */
+  public  static final class SwitchRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:lightsService.SwitchRequest)
+      SwitchRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SwitchRequest.newBuilder() to construct.
+    private SwitchRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SwitchRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SwitchRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SwitchRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              active_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return lightsService.Lights.internal_static_lightsService_SwitchRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return lightsService.Lights.internal_static_lightsService_SwitchRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              lightsService.Lights.SwitchRequest.class, lightsService.Lights.SwitchRequest.Builder.class);
+    }
+
+    public static final int ACTIVE_FIELD_NUMBER = 1;
+    private boolean active_;
+    /**
+     * <pre>
+     * 启用与关闭
+     * </pre>
+     *
+     * <code>bool active = 1;</code>
+     */
+    public boolean getActive() {
+      return active_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (active_ != false) {
+        output.writeBool(1, active_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (active_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, active_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof lightsService.Lights.SwitchRequest)) {
+        return super.equals(obj);
+      }
+      lightsService.Lights.SwitchRequest other = (lightsService.Lights.SwitchRequest) obj;
+
+      if (getActive()
+          != other.getActive()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ACTIVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getActive());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.SwitchRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.SwitchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(lightsService.Lights.SwitchRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code lightsService.SwitchRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:lightsService.SwitchRequest)
+        lightsService.Lights.SwitchRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return lightsService.Lights.internal_static_lightsService_SwitchRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return lightsService.Lights.internal_static_lightsService_SwitchRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                lightsService.Lights.SwitchRequest.class, lightsService.Lights.SwitchRequest.Builder.class);
+      }
+
+      // Construct using lightsService.Lights.SwitchRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        active_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return lightsService.Lights.internal_static_lightsService_SwitchRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.SwitchRequest getDefaultInstanceForType() {
+        return lightsService.Lights.SwitchRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.SwitchRequest build() {
+        lightsService.Lights.SwitchRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.SwitchRequest buildPartial() {
+        lightsService.Lights.SwitchRequest result = new lightsService.Lights.SwitchRequest(this);
+        result.active_ = active_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof lightsService.Lights.SwitchRequest) {
+          return mergeFrom((lightsService.Lights.SwitchRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(lightsService.Lights.SwitchRequest other) {
+        if (other == lightsService.Lights.SwitchRequest.getDefaultInstance()) return this;
+        if (other.getActive() != false) {
+          setActive(other.getActive());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        lightsService.Lights.SwitchRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (lightsService.Lights.SwitchRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean active_ ;
+      /**
+       * <pre>
+       * 启用与关闭
+       * </pre>
+       *
+       * <code>bool active = 1;</code>
+       */
+      public boolean getActive() {
+        return active_;
+      }
+      /**
+       * <pre>
+       * 启用与关闭
+       * </pre>
+       *
+       * <code>bool active = 1;</code>
+       */
+      public Builder setActive(boolean value) {
+        
+        active_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 启用与关闭
+       * </pre>
+       *
+       * <code>bool active = 1;</code>
+       */
+      public Builder clearActive() {
+        
+        active_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:lightsService.SwitchRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:lightsService.SwitchRequest)
+    private static final lightsService.Lights.SwitchRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new lightsService.Lights.SwitchRequest();
+    }
+
+    public static lightsService.Lights.SwitchRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SwitchRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SwitchRequest>() {
+      @java.lang.Override
+      public SwitchRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SwitchRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SwitchRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SwitchRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public lightsService.Lights.SwitchRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SwitchResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:lightsService.SwitchResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 当前是否启用
+     * </pre>
+     *
+     * <code>bool is_active = 1;</code>
+     */
+    boolean getIsActive();
+  }
+  /**
+   * Protobuf type {@code lightsService.SwitchResponse}
+   */
+  public  static final class SwitchResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:lightsService.SwitchResponse)
+      SwitchResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SwitchResponse.newBuilder() to construct.
+    private SwitchResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SwitchResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SwitchResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SwitchResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              isActive_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return lightsService.Lights.internal_static_lightsService_SwitchResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return lightsService.Lights.internal_static_lightsService_SwitchResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              lightsService.Lights.SwitchResponse.class, lightsService.Lights.SwitchResponse.Builder.class);
+    }
+
+    public static final int IS_ACTIVE_FIELD_NUMBER = 1;
+    private boolean isActive_;
+    /**
+     * <pre>
+     * 当前是否启用
+     * </pre>
+     *
+     * <code>bool is_active = 1;</code>
+     */
+    public boolean getIsActive() {
+      return isActive_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (isActive_ != false) {
+        output.writeBool(1, isActive_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (isActive_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isActive_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof lightsService.Lights.SwitchResponse)) {
+        return super.equals(obj);
+      }
+      lightsService.Lights.SwitchResponse other = (lightsService.Lights.SwitchResponse) obj;
+
+      if (getIsActive()
+          != other.getIsActive()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + IS_ACTIVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsActive());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.SwitchResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static lightsService.Lights.SwitchResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(lightsService.Lights.SwitchResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code lightsService.SwitchResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:lightsService.SwitchResponse)
+        lightsService.Lights.SwitchResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return lightsService.Lights.internal_static_lightsService_SwitchResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return lightsService.Lights.internal_static_lightsService_SwitchResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                lightsService.Lights.SwitchResponse.class, lightsService.Lights.SwitchResponse.Builder.class);
+      }
+
+      // Construct using lightsService.Lights.SwitchResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        isActive_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return lightsService.Lights.internal_static_lightsService_SwitchResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.SwitchResponse getDefaultInstanceForType() {
+        return lightsService.Lights.SwitchResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.SwitchResponse build() {
+        lightsService.Lights.SwitchResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public lightsService.Lights.SwitchResponse buildPartial() {
+        lightsService.Lights.SwitchResponse result = new lightsService.Lights.SwitchResponse(this);
+        result.isActive_ = isActive_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof lightsService.Lights.SwitchResponse) {
+          return mergeFrom((lightsService.Lights.SwitchResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(lightsService.Lights.SwitchResponse other) {
+        if (other == lightsService.Lights.SwitchResponse.getDefaultInstance()) return this;
+        if (other.getIsActive() != false) {
+          setIsActive(other.getIsActive());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        lightsService.Lights.SwitchResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (lightsService.Lights.SwitchResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean isActive_ ;
+      /**
+       * <pre>
+       * 当前是否启用
+       * </pre>
+       *
+       * <code>bool is_active = 1;</code>
+       */
+      public boolean getIsActive() {
+        return isActive_;
+      }
+      /**
+       * <pre>
+       * 当前是否启用
+       * </pre>
+       *
+       * <code>bool is_active = 1;</code>
+       */
+      public Builder setIsActive(boolean value) {
+        
+        isActive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 当前是否启用
+       * </pre>
+       *
+       * <code>bool is_active = 1;</code>
+       */
+      public Builder clearIsActive() {
+        
+        isActive_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:lightsService.SwitchResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:lightsService.SwitchResponse)
+    private static final lightsService.Lights.SwitchResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new lightsService.Lights.SwitchResponse();
+    }
+
+    public static lightsService.Lights.SwitchResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SwitchResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SwitchResponse>() {
+      @java.lang.Override
+      public SwitchResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SwitchResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SwitchResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SwitchResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public lightsService.Lights.SwitchResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_lightsService_PreviewLightRequest_descriptor;
   private static final 
@@ -11486,6 +13589,26 @@ public final class Lights {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_lightsService_DeleteLightsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_lightsService_StateRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_lightsService_StateRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_lightsService_StateResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_lightsService_StateResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_lightsService_SwitchRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_lightsService_SwitchRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_lightsService_SwitchResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_lightsService_SwitchResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11519,47 +13642,47 @@ public final class Lights {
       "htInfo\"C\n\023UpdateLightResponse\022,\n\nlight_i" +
       "nfo\030\001 \001(\0132\030.lightsService.LightInfo\"(\n\023D" +
       "eleteLightsRequest\022\021\n\tlights_id\030\001 \003(\t\"\026\n" +
-      "\024DeleteLightsResponse*:\n\tLightType\022\r\n\tUN" +
-      "DEFINED\020\000\022\t\n\005MOUTH\020\001\022\t\n\005HANDS\020\002\022\010\n\004EARS\020" +
-      "\003*H\n\010PlayMode\022\n\n\006PRESET\020\000\022\n\n\006ALWAYS\020\001\022\013\n" +
-      "\007MARQUEE\020\002\022\t\n\005FLASH\020\003\022\014\n\010TICKTOCK\020\0042\353\006\n\r" +
-      "LightsService\022\200\001\n\014PreviewLight\022\".lightsS" +
-      "ervice.PreviewLightRequest\032#.lightsServi" +
-      "ce.PreviewLightResponse\"\'\202\323\344\223\002!\"\034/api/v2" +
-      "/lights/preview_light:\001*\022t\n\tPlayLight\022\037." +
-      "lightsService.PlayLightRequest\032 .lightsS" +
-      "ervice.PlayLightResponse\"$\202\323\344\223\002\036\"\031/api/v" +
-      "2/lights/play_light:\001*\022t\n\tStopLight\022\037.li" +
-      "ghtsService.StopLightRequest\032 .lightsSer" +
-      "vice.StopLightResponse\"$\202\323\344\223\002\036\"\031/api/v2/" +
-      "lights/stop_light:\001*\022x\n\nListLights\022 .lig" +
-      "htsService.ListLightsRequest\032!.lightsSer" +
-      "vice.ListLightsResponse\"%\202\323\344\223\002\037\"\032/api/v2" +
-      "/lights/list_lights:\001*\022p\n\010NewLight\022\036.lig" +
-      "htsService.NewLightRequest\032\037.lightsServi" +
-      "ce.NewLightResponse\"#\202\323\344\223\002\035\"\030/api/v2/lig" +
-      "hts/new_light:\001*\022|\n\013UpdateLight\022!.lights" +
-      "Service.UpdateLightRequest\032\".lightsServi" +
-      "ce.UpdateLightResponse\"&\202\323\344\223\002 \"\033/api/v2/" +
-      "lights/update_light:\001*\022\200\001\n\014DeleteLights\022" +
-      "\".lightsService.DeleteLightsRequest\032#.li" +
-      "ghtsService.DeleteLightsResponse\"\'\202\323\344\223\002!" +
-      "\"\034/api/v2/lights/delete_lights:\001*b\006proto" +
-      "3"
+      "\024DeleteLightsResponse\"\016\n\014StateRequest\"6\n" +
+      "\rStateResponse\022\021\n\tis_active\030\001 \001(\010\022\022\n\nis_" +
+      "playing\030\002 \001(\010\"\037\n\rSwitchRequest\022\016\n\006active" +
+      "\030\001 \001(\010\"#\n\016SwitchResponse\022\021\n\tis_active\030\001 " +
+      "\001(\010*:\n\tLightType\022\r\n\tUNDEFINED\020\000\022\t\n\005MOUTH" +
+      "\020\001\022\t\n\005HANDS\020\002\022\010\n\004EARS\020\003*H\n\010PlayMode\022\n\n\006P" +
+      "RESET\020\000\022\n\n\006ALWAYS\020\001\022\013\n\007MARQUEE\020\002\022\t\n\005FLAS" +
+      "H\020\003\022\014\n\010TICKTOCK\020\0042\266\010\n\rLightsService\022\200\001\n\014" +
+      "PreviewLight\022\".lightsService.PreviewLigh" +
+      "tRequest\032#.lightsService.PreviewLightRes" +
+      "ponse\"\'\202\323\344\223\002!\"\034/api/v2/lights/preview_li" +
+      "ght:\001*\022t\n\tPlayLight\022\037.lightsService.Play" +
+      "LightRequest\032 .lightsService.PlayLightRe" +
+      "sponse\"$\202\323\344\223\002\036\"\031/api/v2/lights/play_ligh" +
+      "t:\001*\022t\n\tStopLight\022\037.lightsService.StopLi" +
+      "ghtRequest\032 .lightsService.StopLightResp" +
+      "onse\"$\202\323\344\223\002\036\"\031/api/v2/lights/stop_light:" +
+      "\001*\022x\n\nListLights\022 .lightsService.ListLig" +
+      "htsRequest\032!.lightsService.ListLightsRes" +
+      "ponse\"%\202\323\344\223\002\037\"\032/api/v2/lights/list_light" +
+      "s:\001*\022p\n\010NewLight\022\036.lightsService.NewLigh" +
+      "tRequest\032\037.lightsService.NewLightRespons" +
+      "e\"#\202\323\344\223\002\035\"\030/api/v2/lights/new_light:\001*\022|" +
+      "\n\013UpdateLight\022!.lightsService.UpdateLigh" +
+      "tRequest\032\".lightsService.UpdateLightResp" +
+      "onse\"&\202\323\344\223\002 \"\033/api/v2/lights/update_ligh" +
+      "t:\001*\022\200\001\n\014DeleteLights\022\".lightsService.De" +
+      "leteLightsRequest\032#.lightsService.Delete" +
+      "LightsResponse\"\'\202\323\344\223\002!\"\034/api/v2/lights/d" +
+      "elete_lights:\001*\022`\n\005State\022\033.lightsService" +
+      ".StateRequest\032\034.lightsService.StateRespo" +
+      "nse\"\034\202\323\344\223\002\026\022\024/api/v2/lights/state\022g\n\006Swi" +
+      "tch\022\034.lightsService.SwitchRequest\032\035.ligh" +
+      "tsService.SwitchResponse\" \202\323\344\223\002\032\"\025/api/v" +
+      "2/lights/switch:\001*b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-        }, assigner);
+        });
     internal_static_lightsService_PreviewLightRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_lightsService_PreviewLightRequest_fieldAccessorTable = new
@@ -11656,6 +13779,30 @@ public final class Lights {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_lightsService_DeleteLightsResponse_descriptor,
         new java.lang.String[] { });
+    internal_static_lightsService_StateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_lightsService_StateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_lightsService_StateRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_lightsService_StateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_lightsService_StateResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_lightsService_StateResponse_descriptor,
+        new java.lang.String[] { "IsActive", "IsPlaying", });
+    internal_static_lightsService_SwitchRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_lightsService_SwitchRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_lightsService_SwitchRequest_descriptor,
+        new java.lang.String[] { "Active", });
+    internal_static_lightsService_SwitchResponse_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_lightsService_SwitchResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_lightsService_SwitchResponse_descriptor,
+        new java.lang.String[] { "IsActive", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.AnnotationsProto.http);

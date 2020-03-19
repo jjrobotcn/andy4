@@ -19,8 +19,12 @@
 @class PlayLightResponse;
 @class PreviewLightRequest;
 @class PreviewLightResponse;
+@class StateRequest;
+@class StateResponse;
 @class StopLightRequest;
 @class StopLightResponse;
+@class SwitchRequest;
+@class SwitchResponse;
 @class UpdateLightRequest;
 @class UpdateLightResponse;
 
@@ -90,6 +94,20 @@ NS_ASSUME_NONNULL_BEGIN
  * 删除灯光
  */
 - (GRPCUnaryProtoCall *)deleteLightsWithMessage:(DeleteLightsRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark State(StateRequest) returns (StateResponse)
+
+/**
+ * 获取当前灯光模块状态
+ */
+- (GRPCUnaryProtoCall *)stateWithMessage:(StateRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+/**
+ * 控制灯光的开关
+ */
+- (GRPCUnaryProtoCall *)switchWithMessage:(SwitchRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 @end
 
@@ -222,6 +240,40 @@ NS_ASSUME_NONNULL_BEGIN
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (GRPCProtoCall *)RPCToDeleteLightsWithRequest:(DeleteLightsRequest *)request handler:(void(^)(DeleteLightsResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark State(StateRequest) returns (StateResponse)
+
+/**
+ * 获取当前灯光模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)stateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 获取当前灯光模块状态
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToStateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler;
+
+
+#pragma mark Switch(SwitchRequest) returns (SwitchResponse)
+
+/**
+ * 控制灯光的开关
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (void)switchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler;
+
+/**
+ * 控制灯光的开关
+ *
+ * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
+ */
+- (GRPCProtoCall *)RPCToSwitchWithRequest:(SwitchRequest *)request handler:(void(^)(SwitchResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 @end

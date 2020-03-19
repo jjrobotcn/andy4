@@ -57,6 +57,18 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "lightsService.DeleteLightsResponse" do
     end
+    add_message "lightsService.StateRequest" do
+    end
+    add_message "lightsService.StateResponse" do
+      optional :is_active, :bool, 1
+      optional :is_playing, :bool, 2
+    end
+    add_message "lightsService.SwitchRequest" do
+      optional :active, :bool, 1
+    end
+    add_message "lightsService.SwitchResponse" do
+      optional :is_active, :bool, 1
+    end
     add_enum "lightsService.LightType" do
       value :UNDEFINED, 0
       value :MOUTH, 1
@@ -90,6 +102,10 @@ module LightsService
   UpdateLightResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.UpdateLightResponse").msgclass
   DeleteLightsRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.DeleteLightsRequest").msgclass
   DeleteLightsResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.DeleteLightsResponse").msgclass
+  StateRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.StateRequest").msgclass
+  StateResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.StateResponse").msgclass
+  SwitchRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.SwitchRequest").msgclass
+  SwitchResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.SwitchResponse").msgclass
   LightType = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.LightType").enummodule
   PlayMode = Google::Protobuf::DescriptorPool.generated_pool.lookup("lightsService.PlayMode").enummodule
 end

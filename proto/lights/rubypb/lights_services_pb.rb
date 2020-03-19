@@ -31,6 +31,10 @@ module LightsService
       rpc :UpdateLight, UpdateLightRequest, UpdateLightResponse
       # 删除灯光
       rpc :DeleteLights, DeleteLightsRequest, DeleteLightsResponse
+      # 获取当前灯光模块状态
+      rpc :State, StateRequest, StateResponse
+      # 控制灯光的开关
+      rpc :Switch, SwitchRequest, SwitchResponse
     end
 
     Stub = Service.rpc_stub_class

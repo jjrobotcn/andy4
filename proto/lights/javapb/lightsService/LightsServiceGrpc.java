@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.21.1-SNAPSHOT)",
+    value = "by gRPC proto compiler (version 1.22.2-SNAPSHOT)",
     comments = "Source: lights.proto")
 public final class LightsServiceGrpc {
 
@@ -251,6 +251,70 @@ public final class LightsServiceGrpc {
      return getDeleteLightsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<lightsService.Lights.StateRequest,
+      lightsService.Lights.StateResponse> getStateMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "State",
+      requestType = lightsService.Lights.StateRequest.class,
+      responseType = lightsService.Lights.StateResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<lightsService.Lights.StateRequest,
+      lightsService.Lights.StateResponse> getStateMethod() {
+    io.grpc.MethodDescriptor<lightsService.Lights.StateRequest, lightsService.Lights.StateResponse> getStateMethod;
+    if ((getStateMethod = LightsServiceGrpc.getStateMethod) == null) {
+      synchronized (LightsServiceGrpc.class) {
+        if ((getStateMethod = LightsServiceGrpc.getStateMethod) == null) {
+          LightsServiceGrpc.getStateMethod = getStateMethod = 
+              io.grpc.MethodDescriptor.<lightsService.Lights.StateRequest, lightsService.Lights.StateResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "lightsService.LightsService", "State"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  lightsService.Lights.StateRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  lightsService.Lights.StateResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new LightsServiceMethodDescriptorSupplier("State"))
+                  .build();
+          }
+        }
+     }
+     return getStateMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<lightsService.Lights.SwitchRequest,
+      lightsService.Lights.SwitchResponse> getSwitchMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Switch",
+      requestType = lightsService.Lights.SwitchRequest.class,
+      responseType = lightsService.Lights.SwitchResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<lightsService.Lights.SwitchRequest,
+      lightsService.Lights.SwitchResponse> getSwitchMethod() {
+    io.grpc.MethodDescriptor<lightsService.Lights.SwitchRequest, lightsService.Lights.SwitchResponse> getSwitchMethod;
+    if ((getSwitchMethod = LightsServiceGrpc.getSwitchMethod) == null) {
+      synchronized (LightsServiceGrpc.class) {
+        if ((getSwitchMethod = LightsServiceGrpc.getSwitchMethod) == null) {
+          LightsServiceGrpc.getSwitchMethod = getSwitchMethod = 
+              io.grpc.MethodDescriptor.<lightsService.Lights.SwitchRequest, lightsService.Lights.SwitchResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "lightsService.LightsService", "Switch"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  lightsService.Lights.SwitchRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  lightsService.Lights.SwitchResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new LightsServiceMethodDescriptorSupplier("Switch"))
+                  .build();
+          }
+        }
+     }
+     return getSwitchMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -351,6 +415,26 @@ public final class LightsServiceGrpc {
       asyncUnimplementedUnaryCall(getDeleteLightsMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * 获取当前灯光模块状态
+     * </pre>
+     */
+    public void state(lightsService.Lights.StateRequest request,
+        io.grpc.stub.StreamObserver<lightsService.Lights.StateResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getStateMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 控制灯光的开关
+     * </pre>
+     */
+    public void switch_(lightsService.Lights.SwitchRequest request,
+        io.grpc.stub.StreamObserver<lightsService.Lights.SwitchResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSwitchMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -402,6 +486,20 @@ public final class LightsServiceGrpc {
                 lightsService.Lights.DeleteLightsRequest,
                 lightsService.Lights.DeleteLightsResponse>(
                   this, METHODID_DELETE_LIGHTS)))
+          .addMethod(
+            getStateMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                lightsService.Lights.StateRequest,
+                lightsService.Lights.StateResponse>(
+                  this, METHODID_STATE)))
+          .addMethod(
+            getSwitchMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                lightsService.Lights.SwitchRequest,
+                lightsService.Lights.SwitchResponse>(
+                  this, METHODID_SWITCH)))
           .build();
     }
   }
@@ -503,6 +601,28 @@ public final class LightsServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getDeleteLightsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * 获取当前灯光模块状态
+     * </pre>
+     */
+    public void state(lightsService.Lights.StateRequest request,
+        io.grpc.stub.StreamObserver<lightsService.Lights.StateResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getStateMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * 控制灯光的开关
+     * </pre>
+     */
+    public void switch_(lightsService.Lights.SwitchRequest request,
+        io.grpc.stub.StreamObserver<lightsService.Lights.SwitchResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSwitchMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -594,6 +714,26 @@ public final class LightsServiceGrpc {
     public lightsService.Lights.DeleteLightsResponse deleteLights(lightsService.Lights.DeleteLightsRequest request) {
       return blockingUnaryCall(
           getChannel(), getDeleteLightsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 获取当前灯光模块状态
+     * </pre>
+     */
+    public lightsService.Lights.StateResponse state(lightsService.Lights.StateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getStateMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 控制灯光的开关
+     * </pre>
+     */
+    public lightsService.Lights.SwitchResponse switch_(lightsService.Lights.SwitchRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getSwitchMethod(), getCallOptions(), request);
     }
   }
 
@@ -694,6 +834,28 @@ public final class LightsServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getDeleteLightsMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * 获取当前灯光模块状态
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<lightsService.Lights.StateResponse> state(
+        lightsService.Lights.StateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getStateMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * 控制灯光的开关
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<lightsService.Lights.SwitchResponse> switch_(
+        lightsService.Lights.SwitchRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSwitchMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_PREVIEW_LIGHT = 0;
@@ -703,6 +865,8 @@ public final class LightsServiceGrpc {
   private static final int METHODID_NEW_LIGHT = 4;
   private static final int METHODID_UPDATE_LIGHT = 5;
   private static final int METHODID_DELETE_LIGHTS = 6;
+  private static final int METHODID_STATE = 7;
+  private static final int METHODID_SWITCH = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -748,6 +912,14 @@ public final class LightsServiceGrpc {
         case METHODID_DELETE_LIGHTS:
           serviceImpl.deleteLights((lightsService.Lights.DeleteLightsRequest) request,
               (io.grpc.stub.StreamObserver<lightsService.Lights.DeleteLightsResponse>) responseObserver);
+          break;
+        case METHODID_STATE:
+          serviceImpl.state((lightsService.Lights.StateRequest) request,
+              (io.grpc.stub.StreamObserver<lightsService.Lights.StateResponse>) responseObserver);
+          break;
+        case METHODID_SWITCH:
+          serviceImpl.switch_((lightsService.Lights.SwitchRequest) request,
+              (io.grpc.stub.StreamObserver<lightsService.Lights.SwitchResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -817,6 +989,8 @@ public final class LightsServiceGrpc {
               .addMethod(getNewLightMethod())
               .addMethod(getUpdateLightMethod())
               .addMethod(getDeleteLightsMethod())
+              .addMethod(getStateMethod())
+              .addMethod(getSwitchMethod())
               .build();
         }
       }

@@ -26,6 +26,10 @@ namespace LightsService {
     static readonly grpc::Marshaller<global::LightsService.UpdateLightResponse> __Marshaller_lightsService_UpdateLightResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.UpdateLightResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::LightsService.DeleteLightsRequest> __Marshaller_lightsService_DeleteLightsRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.DeleteLightsRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::LightsService.DeleteLightsResponse> __Marshaller_lightsService_DeleteLightsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.DeleteLightsResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::LightsService.StateRequest> __Marshaller_lightsService_StateRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.StateRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::LightsService.StateResponse> __Marshaller_lightsService_StateResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.StateResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::LightsService.SwitchRequest> __Marshaller_lightsService_SwitchRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.SwitchRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::LightsService.SwitchResponse> __Marshaller_lightsService_SwitchResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::LightsService.SwitchResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::LightsService.PreviewLightRequest, global::LightsService.PreviewLightResponse> __Method_PreviewLight = new grpc::Method<global::LightsService.PreviewLightRequest, global::LightsService.PreviewLightResponse>(
         grpc::MethodType.Unary,
@@ -75,6 +79,20 @@ namespace LightsService {
         "DeleteLights",
         __Marshaller_lightsService_DeleteLightsRequest,
         __Marshaller_lightsService_DeleteLightsResponse);
+
+    static readonly grpc::Method<global::LightsService.StateRequest, global::LightsService.StateResponse> __Method_State = new grpc::Method<global::LightsService.StateRequest, global::LightsService.StateResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "State",
+        __Marshaller_lightsService_StateRequest,
+        __Marshaller_lightsService_StateResponse);
+
+    static readonly grpc::Method<global::LightsService.SwitchRequest, global::LightsService.SwitchResponse> __Method_Switch = new grpc::Method<global::LightsService.SwitchRequest, global::LightsService.SwitchResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Switch",
+        __Marshaller_lightsService_SwitchRequest,
+        __Marshaller_lightsService_SwitchResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -162,6 +180,28 @@ namespace LightsService {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::LightsService.DeleteLightsResponse> DeleteLights(global::LightsService.DeleteLightsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 获取当前灯光模块状态
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::LightsService.StateResponse> State(global::LightsService.StateRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// 控制灯光的开关
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::LightsService.SwitchResponse> Switch(global::LightsService.SwitchRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -511,6 +551,94 @@ namespace LightsService {
       {
         return CallInvoker.AsyncUnaryCall(__Method_DeleteLights, null, options, request);
       }
+      /// <summary>
+      /// 获取当前灯光模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::LightsService.StateResponse State(global::LightsService.StateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return State(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 获取当前灯光模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::LightsService.StateResponse State(global::LightsService.StateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_State, null, options, request);
+      }
+      /// <summary>
+      /// 获取当前灯光模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::LightsService.StateResponse> StateAsync(global::LightsService.StateRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return StateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 获取当前灯光模块状态
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::LightsService.StateResponse> StateAsync(global::LightsService.StateRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_State, null, options, request);
+      }
+      /// <summary>
+      /// 控制灯光的开关
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::LightsService.SwitchResponse Switch(global::LightsService.SwitchRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Switch(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 控制灯光的开关
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::LightsService.SwitchResponse Switch(global::LightsService.SwitchRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Switch, null, options, request);
+      }
+      /// <summary>
+      /// 控制灯光的开关
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::LightsService.SwitchResponse> SwitchAsync(global::LightsService.SwitchRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SwitchAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// 控制灯光的开关
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::LightsService.SwitchResponse> SwitchAsync(global::LightsService.SwitchRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Switch, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override LightsServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -529,7 +657,9 @@ namespace LightsService {
           .AddMethod(__Method_ListLights, serviceImpl.ListLights)
           .AddMethod(__Method_NewLight, serviceImpl.NewLight)
           .AddMethod(__Method_UpdateLight, serviceImpl.UpdateLight)
-          .AddMethod(__Method_DeleteLights, serviceImpl.DeleteLights).Build();
+          .AddMethod(__Method_DeleteLights, serviceImpl.DeleteLights)
+          .AddMethod(__Method_State, serviceImpl.State)
+          .AddMethod(__Method_Switch, serviceImpl.Switch).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -545,6 +675,8 @@ namespace LightsService {
       serviceBinder.AddMethod(__Method_NewLight, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::LightsService.NewLightRequest, global::LightsService.NewLightResponse>(serviceImpl.NewLight));
       serviceBinder.AddMethod(__Method_UpdateLight, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::LightsService.UpdateLightRequest, global::LightsService.UpdateLightResponse>(serviceImpl.UpdateLight));
       serviceBinder.AddMethod(__Method_DeleteLights, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::LightsService.DeleteLightsRequest, global::LightsService.DeleteLightsResponse>(serviceImpl.DeleteLights));
+      serviceBinder.AddMethod(__Method_State, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::LightsService.StateRequest, global::LightsService.StateResponse>(serviceImpl.State));
+      serviceBinder.AddMethod(__Method_Switch, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::LightsService.SwitchRequest, global::LightsService.SwitchResponse>(serviceImpl.Switch));
     }
 
   }

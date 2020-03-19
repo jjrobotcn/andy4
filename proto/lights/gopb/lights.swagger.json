@@ -150,6 +150,23 @@
         ]
       }
     },
+    "/api/v2/lights/state": {
+      "get": {
+        "summary": "获取当前灯光模块状态",
+        "operationId": "State",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/lightsServiceStateResponse"
+            }
+          }
+        },
+        "tags": [
+          "LightsService"
+        ]
+      }
+    },
     "/api/v2/lights/stop_light": {
       "post": {
         "summary": "停止灯光",
@@ -169,6 +186,33 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/lightsServiceStopLightRequest"
+            }
+          }
+        ],
+        "tags": [
+          "LightsService"
+        ]
+      }
+    },
+    "/api/v2/lights/switch": {
+      "post": {
+        "summary": "控制灯光的开关",
+        "operationId": "Switch",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/lightsServiceSwitchResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/lightsServiceSwitchRequest"
             }
           }
         ],
@@ -374,6 +418,21 @@
       "type": "object",
       "title": "预览灯光结果"
     },
+    "lightsServiceStateResponse": {
+      "type": "object",
+      "properties": {
+        "is_active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前是否启用"
+        },
+        "is_playing": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前是否在播放中"
+        }
+      }
+    },
     "lightsServiceStopLightRequest": {
       "type": "object",
       "properties": {
@@ -390,6 +449,26 @@
     "lightsServiceStopLightResponse": {
       "type": "object",
       "title": "停止灯光结果"
+    },
+    "lightsServiceSwitchRequest": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "启用与关闭"
+        }
+      }
+    },
+    "lightsServiceSwitchResponse": {
+      "type": "object",
+      "properties": {
+        "is_active": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "当前是否启用"
+        }
+      }
     },
     "lightsServiceUpdateLightRequest": {
       "type": "object",

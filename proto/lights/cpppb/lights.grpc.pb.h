@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace grpc_impl {
-class Channel;
 class CompletionQueue;
 class ServerCompletionQueue;
+class ServerContext;
 }  // namespace grpc_impl
 
 namespace grpc {
@@ -31,10 +31,6 @@ namespace experimental {
 template <typename RequestT, typename ResponseT>
 class MessageAllocator;
 }  // namespace experimental
-}  // namespace grpc_impl
-
-namespace grpc {
-class ServerContext;
 }  // namespace grpc
 
 namespace lightsService {
@@ -106,6 +102,22 @@ class LightsService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::DeleteLightsResponse>> PrepareAsyncDeleteLights(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::DeleteLightsResponse>>(PrepareAsyncDeleteLightsRaw(context, request, cq));
     }
+    // 获取当前灯光模块状态
+    virtual ::grpc::Status State(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::lightsService::StateResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::StateResponse>> AsyncState(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::StateResponse>>(AsyncStateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::StateResponse>> PrepareAsyncState(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::StateResponse>>(PrepareAsyncStateRaw(context, request, cq));
+    }
+    // 控制灯光的开关
+    virtual ::grpc::Status Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::lightsService::SwitchResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::SwitchResponse>> AsyncSwitch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::SwitchResponse>>(AsyncSwitchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::SwitchResponse>> PrepareAsyncSwitch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::SwitchResponse>>(PrepareAsyncSwitchRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -147,6 +159,16 @@ class LightsService final {
       virtual void DeleteLights(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::DeleteLightsResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DeleteLights(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest* request, ::lightsService::DeleteLightsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void DeleteLights(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::DeleteLightsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 获取当前灯光模块状态
+      virtual void State(::grpc::ClientContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::StateResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void State(::grpc::ClientContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      // 控制灯光的开关
+      virtual void Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::SwitchResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -164,6 +186,10 @@ class LightsService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::UpdateLightResponse>* PrepareAsyncUpdateLightRaw(::grpc::ClientContext* context, const ::lightsService::UpdateLightRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::DeleteLightsResponse>* AsyncDeleteLightsRaw(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::DeleteLightsResponse>* PrepareAsyncDeleteLightsRaw(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::StateResponse>* AsyncStateRaw(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::StateResponse>* PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::SwitchResponse>* AsyncSwitchRaw(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::lightsService::SwitchResponse>* PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -217,6 +243,20 @@ class LightsService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::DeleteLightsResponse>> PrepareAsyncDeleteLights(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::DeleteLightsResponse>>(PrepareAsyncDeleteLightsRaw(context, request, cq));
     }
+    ::grpc::Status State(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::lightsService::StateResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>> AsyncState(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>>(AsyncStateRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>> PrepareAsyncState(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>>(PrepareAsyncStateRaw(context, request, cq));
+    }
+    ::grpc::Status Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::lightsService::SwitchResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>> AsyncSwitch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>>(AsyncSwitchRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>> PrepareAsyncSwitch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>>(PrepareAsyncSwitchRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -248,6 +288,14 @@ class LightsService final {
       void DeleteLights(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::DeleteLightsResponse* response, std::function<void(::grpc::Status)>) override;
       void DeleteLights(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest* request, ::lightsService::DeleteLightsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void DeleteLights(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::DeleteLightsResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void State(::grpc::ClientContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, std::function<void(::grpc::Status)>) override;
+      void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::StateResponse* response, std::function<void(::grpc::Status)>) override;
+      void State(::grpc::ClientContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, std::function<void(::grpc::Status)>) override;
+      void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::SwitchResponse* response, std::function<void(::grpc::Status)>) override;
+      void Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -273,6 +321,10 @@ class LightsService final {
     ::grpc::ClientAsyncResponseReader< ::lightsService::UpdateLightResponse>* PrepareAsyncUpdateLightRaw(::grpc::ClientContext* context, const ::lightsService::UpdateLightRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::lightsService::DeleteLightsResponse>* AsyncDeleteLightsRaw(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::lightsService::DeleteLightsResponse>* PrepareAsyncDeleteLightsRaw(::grpc::ClientContext* context, const ::lightsService::DeleteLightsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>* AsyncStateRaw(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>* PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>* AsyncSwitchRaw(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>* PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_PreviewLight_;
     const ::grpc::internal::RpcMethod rpcmethod_PlayLight_;
     const ::grpc::internal::RpcMethod rpcmethod_StopLight_;
@@ -280,6 +332,8 @@ class LightsService final {
     const ::grpc::internal::RpcMethod rpcmethod_NewLight_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateLight_;
     const ::grpc::internal::RpcMethod rpcmethod_DeleteLights_;
+    const ::grpc::internal::RpcMethod rpcmethod_State_;
+    const ::grpc::internal::RpcMethod rpcmethod_Switch_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -304,6 +358,10 @@ class LightsService final {
     virtual ::grpc::Status UpdateLight(::grpc::ServerContext* context, const ::lightsService::UpdateLightRequest* request, ::lightsService::UpdateLightResponse* response);
     // 删除灯光
     virtual ::grpc::Status DeleteLights(::grpc::ServerContext* context, const ::lightsService::DeleteLightsRequest* request, ::lightsService::DeleteLightsResponse* response);
+    // 获取当前灯光模块状态
+    virtual ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response);
+    // 控制灯光的开关
+    virtual ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_PreviewLight : public BaseClass {
@@ -445,7 +503,47 @@ class LightsService final {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_PreviewLight<WithAsyncMethod_PlayLight<WithAsyncMethod_StopLight<WithAsyncMethod_ListLights<WithAsyncMethod_NewLight<WithAsyncMethod_UpdateLight<WithAsyncMethod_DeleteLights<Service > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_State() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestState(::grpc::ServerContext* context, ::lightsService::StateRequest* request, ::grpc::ServerAsyncResponseWriter< ::lightsService::StateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_Switch() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSwitch(::grpc::ServerContext* context, ::lightsService::SwitchRequest* request, ::grpc::ServerAsyncResponseWriter< ::lightsService::SwitchResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_PreviewLight<WithAsyncMethod_PlayLight<WithAsyncMethod_StopLight<WithAsyncMethod_ListLights<WithAsyncMethod_NewLight<WithAsyncMethod_UpdateLight<WithAsyncMethod_DeleteLights<WithAsyncMethod_State<WithAsyncMethod_Switch<Service > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_PreviewLight : public BaseClass {
    private:
@@ -663,7 +761,69 @@ class LightsService final {
     }
     virtual void DeleteLights(::grpc::ServerContext* context, const ::lightsService::DeleteLightsRequest* request, ::lightsService::DeleteLightsResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_PreviewLight<ExperimentalWithCallbackMethod_PlayLight<ExperimentalWithCallbackMethod_StopLight<ExperimentalWithCallbackMethod_ListLights<ExperimentalWithCallbackMethod_NewLight<ExperimentalWithCallbackMethod_UpdateLight<ExperimentalWithCallbackMethod_DeleteLights<Service > > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_State() {
+      ::grpc::Service::experimental().MarkMethodCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::lightsService::StateRequest, ::lightsService::StateResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::lightsService::StateRequest* request,
+                 ::lightsService::StateResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->State(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_State(
+        ::grpc::experimental::MessageAllocator< ::lightsService::StateRequest, ::lightsService::StateResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::lightsService::StateRequest, ::lightsService::StateResponse>*>(
+          ::grpc::Service::experimental().GetHandler(7))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_Switch() {
+      ::grpc::Service::experimental().MarkMethodCallback(8,
+        new ::grpc::internal::CallbackUnaryHandler< ::lightsService::SwitchRequest, ::lightsService::SwitchResponse>(
+          [this](::grpc::ServerContext* context,
+                 const ::lightsService::SwitchRequest* request,
+                 ::lightsService::SwitchResponse* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->Switch(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_Switch(
+        ::grpc::experimental::MessageAllocator< ::lightsService::SwitchRequest, ::lightsService::SwitchResponse>* allocator) {
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::lightsService::SwitchRequest, ::lightsService::SwitchResponse>*>(
+          ::grpc::Service::experimental().GetHandler(8))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_PreviewLight<ExperimentalWithCallbackMethod_PlayLight<ExperimentalWithCallbackMethod_StopLight<ExperimentalWithCallbackMethod_ListLights<ExperimentalWithCallbackMethod_NewLight<ExperimentalWithCallbackMethod_UpdateLight<ExperimentalWithCallbackMethod_DeleteLights<ExperimentalWithCallbackMethod_State<ExperimentalWithCallbackMethod_Switch<Service > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_PreviewLight : public BaseClass {
    private:
@@ -779,6 +939,40 @@ class LightsService final {
     }
     // disable synchronous version of this method
     ::grpc::Status DeleteLights(::grpc::ServerContext* context, const ::lightsService::DeleteLightsRequest* request, ::lightsService::DeleteLightsResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_State() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_Switch() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -921,6 +1115,46 @@ class LightsService final {
     }
     void RequestDeleteLights(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_State() {
+      ::grpc::Service::MarkMethodRaw(7);
+    }
+    ~WithRawMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestState(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_Switch() {
+      ::grpc::Service::MarkMethodRaw(8);
+    }
+    ~WithRawMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSwitch(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1099,6 +1333,56 @@ class LightsService final {
     virtual void DeleteLights(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_State() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->State(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void State(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_Switch() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(8,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->Switch(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void Switch(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_PreviewLight : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -1238,9 +1522,49 @@ class LightsService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDeleteLights(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::lightsService::DeleteLightsRequest,::lightsService::DeleteLightsResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_PreviewLight<WithStreamedUnaryMethod_PlayLight<WithStreamedUnaryMethod_StopLight<WithStreamedUnaryMethod_ListLights<WithStreamedUnaryMethod_NewLight<WithStreamedUnaryMethod_UpdateLight<WithStreamedUnaryMethod_DeleteLights<Service > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_State : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_State() {
+      ::grpc::Service::MarkMethodStreamed(7,
+        new ::grpc::internal::StreamedUnaryHandler< ::lightsService::StateRequest, ::lightsService::StateResponse>(std::bind(&WithStreamedUnaryMethod_State<BaseClass>::StreamedState, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_State() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedState(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::lightsService::StateRequest,::lightsService::StateResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_Switch : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_Switch() {
+      ::grpc::Service::MarkMethodStreamed(8,
+        new ::grpc::internal::StreamedUnaryHandler< ::lightsService::SwitchRequest, ::lightsService::SwitchResponse>(std::bind(&WithStreamedUnaryMethod_Switch<BaseClass>::StreamedSwitch, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_Switch() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSwitch(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::lightsService::SwitchRequest,::lightsService::SwitchResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_PreviewLight<WithStreamedUnaryMethod_PlayLight<WithStreamedUnaryMethod_StopLight<WithStreamedUnaryMethod_ListLights<WithStreamedUnaryMethod_NewLight<WithStreamedUnaryMethod_UpdateLight<WithStreamedUnaryMethod_DeleteLights<WithStreamedUnaryMethod_State<WithStreamedUnaryMethod_Switch<Service > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_PreviewLight<WithStreamedUnaryMethod_PlayLight<WithStreamedUnaryMethod_StopLight<WithStreamedUnaryMethod_ListLights<WithStreamedUnaryMethod_NewLight<WithStreamedUnaryMethod_UpdateLight<WithStreamedUnaryMethod_DeleteLights<Service > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_PreviewLight<WithStreamedUnaryMethod_PlayLight<WithStreamedUnaryMethod_StopLight<WithStreamedUnaryMethod_ListLights<WithStreamedUnaryMethod_NewLight<WithStreamedUnaryMethod_UpdateLight<WithStreamedUnaryMethod_DeleteLights<WithStreamedUnaryMethod_State<WithStreamedUnaryMethod_Switch<Service > > > > > > > > > StreamedService;
 };
 
 }  // namespace lightsService

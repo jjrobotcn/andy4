@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='lightsService',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0clights.proto\x12\rlightsService\x1a\x1cgoogle/api/annotations.proto\"!\n\x13PreviewLightRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x16\n\x14PreviewLightResponse\"U\n\x10PlayLightRequest\x12\'\n\x05ltype\x18\x01 \x01(\x0e\x32\x18.lightsService.LightType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x13\n\x11PlayLightResponse\"<\n\x10StopLightRequest\x12(\n\x06ltypes\x18\x01 \x03(\x0e\x32\x18.lightsService.LightType\"\x13\n\x11StopLightResponse\"y\n\tLightInfo\x12\'\n\x05ltype\x18\x01 \x01(\x0e\x32\x18.lightsService.LightType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12)\n\x06\x66rames\x18\x04 \x03(\x0b\x32\x19.lightsService.LightFrame\"R\n\nLightFrame\x12\x0e\n\x06\x63olors\x18\x01 \x03(\t\x12\r\n\x05speed\x18\x02 \x01(\r\x12%\n\x04mode\x18\x03 \x01(\x0e\x32\x17.lightsService.PlayMode\"<\n\x11ListLightsRequest\x12\'\n\x05ltype\x18\x01 \x01(\x0e\x32\x18.lightsService.LightType\"C\n\x12ListLightsResponse\x12-\n\x0blights_info\x18\x01 \x03(\x0b\x32\x18.lightsService.LightInfo\"?\n\x0fNewLightRequest\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"@\n\x10NewLightResponse\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"B\n\x12UpdateLightRequest\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"C\n\x13UpdateLightResponse\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"(\n\x13\x44\x65leteLightsRequest\x12\x11\n\tlights_id\x18\x01 \x03(\t\"\x16\n\x14\x44\x65leteLightsResponse*:\n\tLightType\x12\r\n\tUNDEFINED\x10\x00\x12\t\n\x05MOUTH\x10\x01\x12\t\n\x05HANDS\x10\x02\x12\x08\n\x04\x45\x41RS\x10\x03*H\n\x08PlayMode\x12\n\n\x06PRESET\x10\x00\x12\n\n\x06\x41LWAYS\x10\x01\x12\x0b\n\x07MARQUEE\x10\x02\x12\t\n\x05\x46LASH\x10\x03\x12\x0c\n\x08TICKTOCK\x10\x04\x32\xeb\x06\n\rLightsService\x12\x80\x01\n\x0cPreviewLight\x12\".lightsService.PreviewLightRequest\x1a#.lightsService.PreviewLightResponse\"\'\x82\xd3\xe4\x93\x02!\"\x1c/api/v2/lights/preview_light:\x01*\x12t\n\tPlayLight\x12\x1f.lightsService.PlayLightRequest\x1a .lightsService.PlayLightResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/lights/play_light:\x01*\x12t\n\tStopLight\x12\x1f.lightsService.StopLightRequest\x1a .lightsService.StopLightResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/lights/stop_light:\x01*\x12x\n\nListLights\x12 .lightsService.ListLightsRequest\x1a!.lightsService.ListLightsResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v2/lights/list_lights:\x01*\x12p\n\x08NewLight\x12\x1e.lightsService.NewLightRequest\x1a\x1f.lightsService.NewLightResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/api/v2/lights/new_light:\x01*\x12|\n\x0bUpdateLight\x12!.lightsService.UpdateLightRequest\x1a\".lightsService.UpdateLightResponse\"&\x82\xd3\xe4\x93\x02 \"\x1b/api/v2/lights/update_light:\x01*\x12\x80\x01\n\x0c\x44\x65leteLights\x12\".lightsService.DeleteLightsRequest\x1a#.lightsService.DeleteLightsResponse\"\'\x82\xd3\xe4\x93\x02!\"\x1c/api/v2/lights/delete_lights:\x01*b\x06proto3')
+  serialized_pb=_b('\n\x0clights.proto\x12\rlightsService\x1a\x1cgoogle/api/annotations.proto\"!\n\x13PreviewLightRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x16\n\x14PreviewLightResponse\"U\n\x10PlayLightRequest\x12\'\n\x05ltype\x18\x01 \x01(\x0e\x32\x18.lightsService.LightType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x13\n\x11PlayLightResponse\"<\n\x10StopLightRequest\x12(\n\x06ltypes\x18\x01 \x03(\x0e\x32\x18.lightsService.LightType\"\x13\n\x11StopLightResponse\"y\n\tLightInfo\x12\'\n\x05ltype\x18\x01 \x01(\x0e\x32\x18.lightsService.LightType\x12\n\n\x02id\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12)\n\x06\x66rames\x18\x04 \x03(\x0b\x32\x19.lightsService.LightFrame\"R\n\nLightFrame\x12\x0e\n\x06\x63olors\x18\x01 \x03(\t\x12\r\n\x05speed\x18\x02 \x01(\r\x12%\n\x04mode\x18\x03 \x01(\x0e\x32\x17.lightsService.PlayMode\"<\n\x11ListLightsRequest\x12\'\n\x05ltype\x18\x01 \x01(\x0e\x32\x18.lightsService.LightType\"C\n\x12ListLightsResponse\x12-\n\x0blights_info\x18\x01 \x03(\x0b\x32\x18.lightsService.LightInfo\"?\n\x0fNewLightRequest\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"@\n\x10NewLightResponse\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"B\n\x12UpdateLightRequest\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"C\n\x13UpdateLightResponse\x12,\n\nlight_info\x18\x01 \x01(\x0b\x32\x18.lightsService.LightInfo\"(\n\x13\x44\x65leteLightsRequest\x12\x11\n\tlights_id\x18\x01 \x03(\t\"\x16\n\x14\x44\x65leteLightsResponse\"\x0e\n\x0cStateRequest\"6\n\rStateResponse\x12\x11\n\tis_active\x18\x01 \x01(\x08\x12\x12\n\nis_playing\x18\x02 \x01(\x08\"\x1f\n\rSwitchRequest\x12\x0e\n\x06\x61\x63tive\x18\x01 \x01(\x08\"#\n\x0eSwitchResponse\x12\x11\n\tis_active\x18\x01 \x01(\x08*:\n\tLightType\x12\r\n\tUNDEFINED\x10\x00\x12\t\n\x05MOUTH\x10\x01\x12\t\n\x05HANDS\x10\x02\x12\x08\n\x04\x45\x41RS\x10\x03*H\n\x08PlayMode\x12\n\n\x06PRESET\x10\x00\x12\n\n\x06\x41LWAYS\x10\x01\x12\x0b\n\x07MARQUEE\x10\x02\x12\t\n\x05\x46LASH\x10\x03\x12\x0c\n\x08TICKTOCK\x10\x04\x32\xb6\x08\n\rLightsService\x12\x80\x01\n\x0cPreviewLight\x12\".lightsService.PreviewLightRequest\x1a#.lightsService.PreviewLightResponse\"\'\x82\xd3\xe4\x93\x02!\"\x1c/api/v2/lights/preview_light:\x01*\x12t\n\tPlayLight\x12\x1f.lightsService.PlayLightRequest\x1a .lightsService.PlayLightResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/lights/play_light:\x01*\x12t\n\tStopLight\x12\x1f.lightsService.StopLightRequest\x1a .lightsService.StopLightResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/lights/stop_light:\x01*\x12x\n\nListLights\x12 .lightsService.ListLightsRequest\x1a!.lightsService.ListLightsResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v2/lights/list_lights:\x01*\x12p\n\x08NewLight\x12\x1e.lightsService.NewLightRequest\x1a\x1f.lightsService.NewLightResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/api/v2/lights/new_light:\x01*\x12|\n\x0bUpdateLight\x12!.lightsService.UpdateLightRequest\x1a\".lightsService.UpdateLightResponse\"&\x82\xd3\xe4\x93\x02 \"\x1b/api/v2/lights/update_light:\x01*\x12\x80\x01\n\x0c\x44\x65leteLights\x12\".lightsService.DeleteLightsRequest\x1a#.lightsService.DeleteLightsResponse\"\'\x82\xd3\xe4\x93\x02!\"\x1c/api/v2/lights/delete_lights:\x01*\x12`\n\x05State\x12\x1b.lightsService.StateRequest\x1a\x1c.lightsService.StateResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/api/v2/lights/state\x12g\n\x06Switch\x12\x1c.lightsService.SwitchRequest\x1a\x1d.lightsService.SwitchResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v2/lights/switch:\x01*b\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -51,8 +51,8 @@ _LIGHTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=983,
-  serialized_end=1041,
+  serialized_start=1125,
+  serialized_end=1183,
 )
 _sym_db.RegisterEnumDescriptor(_LIGHTTYPE)
 
@@ -86,8 +86,8 @@ _PLAYMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1043,
-  serialized_end=1115,
+  serialized_start=1185,
+  serialized_end=1257,
 )
 _sym_db.RegisterEnumDescriptor(_PLAYMODE)
 
@@ -620,6 +620,130 @@ _DELETELIGHTSRESPONSE = _descriptor.Descriptor(
   serialized_end=981,
 )
 
+
+_STATEREQUEST = _descriptor.Descriptor(
+  name='StateRequest',
+  full_name='lightsService.StateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=983,
+  serialized_end=997,
+)
+
+
+_STATERESPONSE = _descriptor.Descriptor(
+  name='StateResponse',
+  full_name='lightsService.StateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='is_active', full_name='lightsService.StateResponse.is_active', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_playing', full_name='lightsService.StateResponse.is_playing', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=999,
+  serialized_end=1053,
+)
+
+
+_SWITCHREQUEST = _descriptor.Descriptor(
+  name='SwitchRequest',
+  full_name='lightsService.SwitchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='active', full_name='lightsService.SwitchRequest.active', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1055,
+  serialized_end=1086,
+)
+
+
+_SWITCHRESPONSE = _descriptor.Descriptor(
+  name='SwitchResponse',
+  full_name='lightsService.SwitchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='is_active', full_name='lightsService.SwitchResponse.is_active', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1088,
+  serialized_end=1123,
+)
+
 _PLAYLIGHTREQUEST.fields_by_name['ltype'].enum_type = _LIGHTTYPE
 _STOPLIGHTREQUEST.fields_by_name['ltypes'].enum_type = _LIGHTTYPE
 _LIGHTINFO.fields_by_name['ltype'].enum_type = _LIGHTTYPE
@@ -647,121 +771,153 @@ DESCRIPTOR.message_types_by_name['UpdateLightRequest'] = _UPDATELIGHTREQUEST
 DESCRIPTOR.message_types_by_name['UpdateLightResponse'] = _UPDATELIGHTRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteLightsRequest'] = _DELETELIGHTSREQUEST
 DESCRIPTOR.message_types_by_name['DeleteLightsResponse'] = _DELETELIGHTSRESPONSE
+DESCRIPTOR.message_types_by_name['StateRequest'] = _STATEREQUEST
+DESCRIPTOR.message_types_by_name['StateResponse'] = _STATERESPONSE
+DESCRIPTOR.message_types_by_name['SwitchRequest'] = _SWITCHREQUEST
+DESCRIPTOR.message_types_by_name['SwitchResponse'] = _SWITCHRESPONSE
 DESCRIPTOR.enum_types_by_name['LightType'] = _LIGHTTYPE
 DESCRIPTOR.enum_types_by_name['PlayMode'] = _PLAYMODE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-PreviewLightRequest = _reflection.GeneratedProtocolMessageType('PreviewLightRequest', (_message.Message,), dict(
-  DESCRIPTOR = _PREVIEWLIGHTREQUEST,
-  __module__ = 'lights_pb2'
+PreviewLightRequest = _reflection.GeneratedProtocolMessageType('PreviewLightRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PREVIEWLIGHTREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.PreviewLightRequest)
-  ))
+  })
 _sym_db.RegisterMessage(PreviewLightRequest)
 
-PreviewLightResponse = _reflection.GeneratedProtocolMessageType('PreviewLightResponse', (_message.Message,), dict(
-  DESCRIPTOR = _PREVIEWLIGHTRESPONSE,
-  __module__ = 'lights_pb2'
+PreviewLightResponse = _reflection.GeneratedProtocolMessageType('PreviewLightResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PREVIEWLIGHTRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.PreviewLightResponse)
-  ))
+  })
 _sym_db.RegisterMessage(PreviewLightResponse)
 
-PlayLightRequest = _reflection.GeneratedProtocolMessageType('PlayLightRequest', (_message.Message,), dict(
-  DESCRIPTOR = _PLAYLIGHTREQUEST,
-  __module__ = 'lights_pb2'
+PlayLightRequest = _reflection.GeneratedProtocolMessageType('PlayLightRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PLAYLIGHTREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.PlayLightRequest)
-  ))
+  })
 _sym_db.RegisterMessage(PlayLightRequest)
 
-PlayLightResponse = _reflection.GeneratedProtocolMessageType('PlayLightResponse', (_message.Message,), dict(
-  DESCRIPTOR = _PLAYLIGHTRESPONSE,
-  __module__ = 'lights_pb2'
+PlayLightResponse = _reflection.GeneratedProtocolMessageType('PlayLightResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PLAYLIGHTRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.PlayLightResponse)
-  ))
+  })
 _sym_db.RegisterMessage(PlayLightResponse)
 
-StopLightRequest = _reflection.GeneratedProtocolMessageType('StopLightRequest', (_message.Message,), dict(
-  DESCRIPTOR = _STOPLIGHTREQUEST,
-  __module__ = 'lights_pb2'
+StopLightRequest = _reflection.GeneratedProtocolMessageType('StopLightRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STOPLIGHTREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.StopLightRequest)
-  ))
+  })
 _sym_db.RegisterMessage(StopLightRequest)
 
-StopLightResponse = _reflection.GeneratedProtocolMessageType('StopLightResponse', (_message.Message,), dict(
-  DESCRIPTOR = _STOPLIGHTRESPONSE,
-  __module__ = 'lights_pb2'
+StopLightResponse = _reflection.GeneratedProtocolMessageType('StopLightResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STOPLIGHTRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.StopLightResponse)
-  ))
+  })
 _sym_db.RegisterMessage(StopLightResponse)
 
-LightInfo = _reflection.GeneratedProtocolMessageType('LightInfo', (_message.Message,), dict(
-  DESCRIPTOR = _LIGHTINFO,
-  __module__ = 'lights_pb2'
+LightInfo = _reflection.GeneratedProtocolMessageType('LightInfo', (_message.Message,), {
+  'DESCRIPTOR' : _LIGHTINFO,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.LightInfo)
-  ))
+  })
 _sym_db.RegisterMessage(LightInfo)
 
-LightFrame = _reflection.GeneratedProtocolMessageType('LightFrame', (_message.Message,), dict(
-  DESCRIPTOR = _LIGHTFRAME,
-  __module__ = 'lights_pb2'
+LightFrame = _reflection.GeneratedProtocolMessageType('LightFrame', (_message.Message,), {
+  'DESCRIPTOR' : _LIGHTFRAME,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.LightFrame)
-  ))
+  })
 _sym_db.RegisterMessage(LightFrame)
 
-ListLightsRequest = _reflection.GeneratedProtocolMessageType('ListLightsRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LISTLIGHTSREQUEST,
-  __module__ = 'lights_pb2'
+ListLightsRequest = _reflection.GeneratedProtocolMessageType('ListLightsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTLIGHTSREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.ListLightsRequest)
-  ))
+  })
 _sym_db.RegisterMessage(ListLightsRequest)
 
-ListLightsResponse = _reflection.GeneratedProtocolMessageType('ListLightsResponse', (_message.Message,), dict(
-  DESCRIPTOR = _LISTLIGHTSRESPONSE,
-  __module__ = 'lights_pb2'
+ListLightsResponse = _reflection.GeneratedProtocolMessageType('ListLightsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTLIGHTSRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.ListLightsResponse)
-  ))
+  })
 _sym_db.RegisterMessage(ListLightsResponse)
 
-NewLightRequest = _reflection.GeneratedProtocolMessageType('NewLightRequest', (_message.Message,), dict(
-  DESCRIPTOR = _NEWLIGHTREQUEST,
-  __module__ = 'lights_pb2'
+NewLightRequest = _reflection.GeneratedProtocolMessageType('NewLightRequest', (_message.Message,), {
+  'DESCRIPTOR' : _NEWLIGHTREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.NewLightRequest)
-  ))
+  })
 _sym_db.RegisterMessage(NewLightRequest)
 
-NewLightResponse = _reflection.GeneratedProtocolMessageType('NewLightResponse', (_message.Message,), dict(
-  DESCRIPTOR = _NEWLIGHTRESPONSE,
-  __module__ = 'lights_pb2'
+NewLightResponse = _reflection.GeneratedProtocolMessageType('NewLightResponse', (_message.Message,), {
+  'DESCRIPTOR' : _NEWLIGHTRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.NewLightResponse)
-  ))
+  })
 _sym_db.RegisterMessage(NewLightResponse)
 
-UpdateLightRequest = _reflection.GeneratedProtocolMessageType('UpdateLightRequest', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATELIGHTREQUEST,
-  __module__ = 'lights_pb2'
+UpdateLightRequest = _reflection.GeneratedProtocolMessageType('UpdateLightRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATELIGHTREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.UpdateLightRequest)
-  ))
+  })
 _sym_db.RegisterMessage(UpdateLightRequest)
 
-UpdateLightResponse = _reflection.GeneratedProtocolMessageType('UpdateLightResponse', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATELIGHTRESPONSE,
-  __module__ = 'lights_pb2'
+UpdateLightResponse = _reflection.GeneratedProtocolMessageType('UpdateLightResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATELIGHTRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.UpdateLightResponse)
-  ))
+  })
 _sym_db.RegisterMessage(UpdateLightResponse)
 
-DeleteLightsRequest = _reflection.GeneratedProtocolMessageType('DeleteLightsRequest', (_message.Message,), dict(
-  DESCRIPTOR = _DELETELIGHTSREQUEST,
-  __module__ = 'lights_pb2'
+DeleteLightsRequest = _reflection.GeneratedProtocolMessageType('DeleteLightsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETELIGHTSREQUEST,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.DeleteLightsRequest)
-  ))
+  })
 _sym_db.RegisterMessage(DeleteLightsRequest)
 
-DeleteLightsResponse = _reflection.GeneratedProtocolMessageType('DeleteLightsResponse', (_message.Message,), dict(
-  DESCRIPTOR = _DELETELIGHTSRESPONSE,
-  __module__ = 'lights_pb2'
+DeleteLightsResponse = _reflection.GeneratedProtocolMessageType('DeleteLightsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DELETELIGHTSRESPONSE,
+  '__module__' : 'lights_pb2'
   # @@protoc_insertion_point(class_scope:lightsService.DeleteLightsResponse)
-  ))
+  })
 _sym_db.RegisterMessage(DeleteLightsResponse)
+
+StateRequest = _reflection.GeneratedProtocolMessageType('StateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _STATEREQUEST,
+  '__module__' : 'lights_pb2'
+  # @@protoc_insertion_point(class_scope:lightsService.StateRequest)
+  })
+_sym_db.RegisterMessage(StateRequest)
+
+StateResponse = _reflection.GeneratedProtocolMessageType('StateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _STATERESPONSE,
+  '__module__' : 'lights_pb2'
+  # @@protoc_insertion_point(class_scope:lightsService.StateResponse)
+  })
+_sym_db.RegisterMessage(StateResponse)
+
+SwitchRequest = _reflection.GeneratedProtocolMessageType('SwitchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SWITCHREQUEST,
+  '__module__' : 'lights_pb2'
+  # @@protoc_insertion_point(class_scope:lightsService.SwitchRequest)
+  })
+_sym_db.RegisterMessage(SwitchRequest)
+
+SwitchResponse = _reflection.GeneratedProtocolMessageType('SwitchResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SWITCHRESPONSE,
+  '__module__' : 'lights_pb2'
+  # @@protoc_insertion_point(class_scope:lightsService.SwitchResponse)
+  })
+_sym_db.RegisterMessage(SwitchResponse)
 
 
 
@@ -771,8 +927,8 @@ _LIGHTSSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1118,
-  serialized_end=1993,
+  serialized_start=1260,
+  serialized_end=2338,
   methods=[
   _descriptor.MethodDescriptor(
     name='PreviewLight',
@@ -836,6 +992,24 @@ _LIGHTSSERVICE = _descriptor.ServiceDescriptor(
     input_type=_DELETELIGHTSREQUEST,
     output_type=_DELETELIGHTSRESPONSE,
     serialized_options=_b('\202\323\344\223\002!\"\034/api/v2/lights/delete_lights:\001*'),
+  ),
+  _descriptor.MethodDescriptor(
+    name='State',
+    full_name='lightsService.LightsService.State',
+    index=7,
+    containing_service=None,
+    input_type=_STATEREQUEST,
+    output_type=_STATERESPONSE,
+    serialized_options=_b('\202\323\344\223\002\026\022\024/api/v2/lights/state'),
+  ),
+  _descriptor.MethodDescriptor(
+    name='Switch',
+    full_name='lightsService.LightsService.Switch',
+    index=8,
+    containing_service=None,
+    input_type=_SWITCHREQUEST,
+    output_type=_SWITCHRESPONSE,
+    serialized_options=_b('\202\323\344\223\002\032\"\025/api/v2/lights/switch:\001*'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_LIGHTSSERVICE)

@@ -49,6 +49,16 @@ class LightsServiceStub(object):
         request_serializer=lights__pb2.DeleteLightsRequest.SerializeToString,
         response_deserializer=lights__pb2.DeleteLightsResponse.FromString,
         )
+    self.State = channel.unary_unary(
+        '/lightsService.LightsService/State',
+        request_serializer=lights__pb2.StateRequest.SerializeToString,
+        response_deserializer=lights__pb2.StateResponse.FromString,
+        )
+    self.Switch = channel.unary_unary(
+        '/lightsService.LightsService/Switch',
+        request_serializer=lights__pb2.SwitchRequest.SerializeToString,
+        response_deserializer=lights__pb2.SwitchResponse.FromString,
+        )
 
 
 class LightsServiceServicer(object):
@@ -107,6 +117,20 @@ class LightsServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def State(self, request, context):
+    """获取当前灯光模块状态
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Switch(self, request, context):
+    """控制灯光的开关
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_LightsServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -144,6 +168,16 @@ def add_LightsServiceServicer_to_server(servicer, server):
           servicer.DeleteLights,
           request_deserializer=lights__pb2.DeleteLightsRequest.FromString,
           response_serializer=lights__pb2.DeleteLightsResponse.SerializeToString,
+      ),
+      'State': grpc.unary_unary_rpc_method_handler(
+          servicer.State,
+          request_deserializer=lights__pb2.StateRequest.FromString,
+          response_serializer=lights__pb2.StateResponse.SerializeToString,
+      ),
+      'Switch': grpc.unary_unary_rpc_method_handler(
+          servicer.Switch,
+          request_deserializer=lights__pb2.SwitchRequest.FromString,
+          response_serializer=lights__pb2.SwitchResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

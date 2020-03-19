@@ -26,6 +26,8 @@ static const char* LightsService_method_names[] = {
   "/lightsService.LightsService/NewLight",
   "/lightsService.LightsService/UpdateLight",
   "/lightsService.LightsService/DeleteLights",
+  "/lightsService.LightsService/State",
+  "/lightsService.LightsService/Switch",
 };
 
 std::unique_ptr< LightsService::Stub> LightsService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -42,6 +44,8 @@ LightsService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   , rpcmethod_NewLight_(LightsService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateLight_(LightsService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteLights_(LightsService_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_State_(LightsService_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_Switch_(LightsService_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status LightsService::Stub::PreviewLight(::grpc::ClientContext* context, const ::lightsService::PreviewLightRequest& request, ::lightsService::PreviewLightResponse* response) {
@@ -240,6 +244,62 @@ void LightsService::Stub::experimental_async::DeleteLights(::grpc::ClientContext
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lightsService::DeleteLightsResponse>::Create(channel_.get(), cq, rpcmethod_DeleteLights_, context, request, false);
 }
 
+::grpc::Status LightsService::Stub::State(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::lightsService::StateResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_State_, context, request, response);
+}
+
+void LightsService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, std::move(f));
+}
+
+void LightsService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::StateResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, std::move(f));
+}
+
+void LightsService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, reactor);
+}
+
+void LightsService::Stub::experimental_async::State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_State_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>* LightsService::Stub::AsyncStateRaw(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lightsService::StateResponse>::Create(channel_.get(), cq, rpcmethod_State_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::lightsService::StateResponse>* LightsService::Stub::PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::lightsService::StateRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lightsService::StateResponse>::Create(channel_.get(), cq, rpcmethod_State_, context, request, false);
+}
+
+::grpc::Status LightsService::Stub::Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::lightsService::SwitchResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Switch_, context, request, response);
+}
+
+void LightsService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, std::move(f));
+}
+
+void LightsService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::SwitchResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, std::move(f));
+}
+
+void LightsService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, reactor);
+}
+
+void LightsService::Stub::experimental_async::Switch(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::lightsService::SwitchResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Switch_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>* LightsService::Stub::AsyncSwitchRaw(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lightsService::SwitchResponse>::Create(channel_.get(), cq, rpcmethod_Switch_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::lightsService::SwitchResponse>* LightsService::Stub::PrepareAsyncSwitchRaw(::grpc::ClientContext* context, const ::lightsService::SwitchRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::lightsService::SwitchResponse>::Create(channel_.get(), cq, rpcmethod_Switch_, context, request, false);
+}
+
 LightsService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       LightsService_method_names[0],
@@ -276,6 +336,16 @@ LightsService::Service::Service() {
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< LightsService::Service, ::lightsService::DeleteLightsRequest, ::lightsService::DeleteLightsResponse>(
           std::mem_fn(&LightsService::Service::DeleteLights), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      LightsService_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< LightsService::Service, ::lightsService::StateRequest, ::lightsService::StateResponse>(
+          std::mem_fn(&LightsService::Service::State), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      LightsService_method_names[8],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< LightsService::Service, ::lightsService::SwitchRequest, ::lightsService::SwitchResponse>(
+          std::mem_fn(&LightsService::Service::Switch), this)));
 }
 
 LightsService::Service::~Service() {
@@ -324,6 +394,20 @@ LightsService::Service::~Service() {
 }
 
 ::grpc::Status LightsService::Service::DeleteLights(::grpc::ServerContext* context, const ::lightsService::DeleteLightsRequest* request, ::lightsService::DeleteLightsResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status LightsService::Service::State(::grpc::ServerContext* context, const ::lightsService::StateRequest* request, ::lightsService::StateResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status LightsService::Service::Switch(::grpc::ServerContext* context, const ::lightsService::SwitchRequest* request, ::lightsService::SwitchResponse* response) {
   (void) context;
   (void) request;
   (void) response;

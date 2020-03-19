@@ -129,7 +129,7 @@ func (m *PreviewLightRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return xxx_messageInfo_PreviewLightRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -176,7 +176,7 @@ func (m *PreviewLightResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return xxx_messageInfo_PreviewLightResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -224,7 +224,7 @@ func (m *PlayLightRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return xxx_messageInfo_PlayLightRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -285,7 +285,7 @@ func (m *PlayLightResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return xxx_messageInfo_PlayLightResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -327,7 +327,7 @@ func (m *StopLightRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return xxx_messageInfo_StopLightRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -374,7 +374,7 @@ func (m *StopLightResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return xxx_messageInfo_StopLightResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -422,7 +422,7 @@ func (m *LightInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_LightInfo.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -497,7 +497,7 @@ func (m *LightFrame) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_LightFrame.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -560,7 +560,7 @@ func (m *ListLightsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return xxx_messageInfo_ListLightsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -609,7 +609,7 @@ func (m *ListLightsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return xxx_messageInfo_ListLightsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -658,7 +658,7 @@ func (m *NewLightRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return xxx_messageInfo_NewLightRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -707,7 +707,7 @@ func (m *NewLightResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return xxx_messageInfo_NewLightResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -756,7 +756,7 @@ func (m *UpdateLightRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return xxx_messageInfo_UpdateLightRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -805,7 +805,7 @@ func (m *UpdateLightResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return xxx_messageInfo_UpdateLightResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -854,7 +854,7 @@ func (m *DeleteLightsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return xxx_messageInfo_DeleteLightsRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -901,7 +901,7 @@ func (m *DeleteLightsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return xxx_messageInfo_DeleteLightsResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -919,6 +919,198 @@ func (m *DeleteLightsResponse) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_DeleteLightsResponse proto.InternalMessageInfo
+
+type StateRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StateRequest) Reset()         { *m = StateRequest{} }
+func (m *StateRequest) String() string { return proto.CompactTextString(m) }
+func (*StateRequest) ProtoMessage()    {}
+func (*StateRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8e08e6632b915473, []int{16}
+}
+func (m *StateRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StateRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StateRequest.Merge(m, src)
+}
+func (m *StateRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *StateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StateRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StateRequest proto.InternalMessageInfo
+
+type StateResponse struct {
+	// 当前是否启用
+	IsActive bool `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	// 当前是否在播放中
+	IsPlaying            bool     `protobuf:"varint,2,opt,name=is_playing,json=isPlaying,proto3" json:"is_playing,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StateResponse) Reset()         { *m = StateResponse{} }
+func (m *StateResponse) String() string { return proto.CompactTextString(m) }
+func (*StateResponse) ProtoMessage()    {}
+func (*StateResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8e08e6632b915473, []int{17}
+}
+func (m *StateResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StateResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StateResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StateResponse.Merge(m, src)
+}
+func (m *StateResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *StateResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StateResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StateResponse proto.InternalMessageInfo
+
+func (m *StateResponse) GetIsActive() bool {
+	if m != nil {
+		return m.IsActive
+	}
+	return false
+}
+
+func (m *StateResponse) GetIsPlaying() bool {
+	if m != nil {
+		return m.IsPlaying
+	}
+	return false
+}
+
+type SwitchRequest struct {
+	// 启用与关闭
+	Active               bool     `protobuf:"varint,1,opt,name=active,proto3" json:"active,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchRequest) Reset()         { *m = SwitchRequest{} }
+func (m *SwitchRequest) String() string { return proto.CompactTextString(m) }
+func (*SwitchRequest) ProtoMessage()    {}
+func (*SwitchRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8e08e6632b915473, []int{18}
+}
+func (m *SwitchRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchRequest.Merge(m, src)
+}
+func (m *SwitchRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchRequest proto.InternalMessageInfo
+
+func (m *SwitchRequest) GetActive() bool {
+	if m != nil {
+		return m.Active
+	}
+	return false
+}
+
+type SwitchResponse struct {
+	// 当前是否启用
+	IsActive             bool     `protobuf:"varint,1,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SwitchResponse) Reset()         { *m = SwitchResponse{} }
+func (m *SwitchResponse) String() string { return proto.CompactTextString(m) }
+func (*SwitchResponse) ProtoMessage()    {}
+func (*SwitchResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8e08e6632b915473, []int{19}
+}
+func (m *SwitchResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SwitchResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SwitchResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SwitchResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SwitchResponse.Merge(m, src)
+}
+func (m *SwitchResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *SwitchResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SwitchResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SwitchResponse proto.InternalMessageInfo
+
+func (m *SwitchResponse) GetIsActive() bool {
+	if m != nil {
+		return m.IsActive
+	}
+	return false
+}
 
 func init() {
 	proto.RegisterEnum("lightsService.LightType", LightType_name, LightType_value)
@@ -939,60 +1131,72 @@ func init() {
 	proto.RegisterType((*UpdateLightResponse)(nil), "lightsService.UpdateLightResponse")
 	proto.RegisterType((*DeleteLightsRequest)(nil), "lightsService.DeleteLightsRequest")
 	proto.RegisterType((*DeleteLightsResponse)(nil), "lightsService.DeleteLightsResponse")
+	proto.RegisterType((*StateRequest)(nil), "lightsService.StateRequest")
+	proto.RegisterType((*StateResponse)(nil), "lightsService.StateResponse")
+	proto.RegisterType((*SwitchRequest)(nil), "lightsService.SwitchRequest")
+	proto.RegisterType((*SwitchResponse)(nil), "lightsService.SwitchResponse")
 }
 
 func init() { proto.RegisterFile("lights.proto", fileDescriptor_8e08e6632b915473) }
 
 var fileDescriptor_8e08e6632b915473 = []byte{
-	// 764 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x96, 0x5f, 0x6f, 0x12, 0x4d,
-	0x14, 0xc6, 0xbb, 0x40, 0x79, 0xd9, 0x03, 0xf4, 0xdd, 0x0e, 0x4d, 0x5f, 0x4a, 0xfb, 0x52, 0x3a,
-	0xb5, 0xda, 0xd4, 0x04, 0x14, 0x2f, 0x8c, 0xbd, 0xc3, 0x42, 0x43, 0x2d, 0xd0, 0xba, 0x40, 0x8c,
-	0x57, 0xcd, 0x5a, 0x06, 0xdc, 0x64, 0xbb, 0xb3, 0xb2, 0xdb, 0x2a, 0x89, 0x17, 0xc6, 0x8f, 0xa0,
-	0x5f, 0xca, 0x4b, 0x13, 0xbf, 0x80, 0x69, 0xbc, 0xf3, 0x4b, 0x98, 0x9d, 0x19, 0xca, 0xfe, 0x01,
-	0x2e, 0xaa, 0xde, 0xcd, 0x2c, 0xcf, 0x79, 0x7e, 0x67, 0x66, 0xce, 0x39, 0x01, 0x52, 0x86, 0x3e,
-	0x78, 0xed, 0xd8, 0x45, 0x6b, 0x48, 0x1d, 0x8a, 0xd2, 0x7c, 0xd7, 0x26, 0xc3, 0x2b, 0xfd, 0x9c,
-	0xe4, 0x36, 0x06, 0x94, 0x0e, 0x0c, 0x52, 0xd2, 0x2c, 0xbd, 0xa4, 0x99, 0x26, 0x75, 0x34, 0x47,
-	0xa7, 0xa6, 0x10, 0xe3, 0x1d, 0xc8, 0x9c, 0x0e, 0xc9, 0x95, 0x4e, 0xde, 0x36, 0xdc, 0x28, 0x95,
-	0xbc, 0xb9, 0x24, 0xb6, 0x83, 0x96, 0x20, 0xa2, 0xf7, 0xb2, 0x52, 0x41, 0xda, 0x95, 0xd5, 0x88,
-	0xde, 0xc3, 0xab, 0xb0, 0xe2, 0x97, 0xd9, 0x16, 0x35, 0x6d, 0x82, 0xfb, 0xa0, 0x9c, 0x1a, 0xda,
-	0xc8, 0x17, 0x5b, 0x84, 0x45, 0xc3, 0x19, 0x59, 0x84, 0x85, 0x2f, 0x95, 0xb3, 0x45, 0x5f, 0x3e,
-	0x45, 0xa6, 0xed, 0x8c, 0x2c, 0xa2, 0x72, 0x99, 0x60, 0x45, 0xc6, 0x2c, 0x84, 0x20, 0x66, 0x6a,
-	0x17, 0x24, 0x1b, 0x65, 0x5f, 0xd8, 0x1a, 0x67, 0x60, 0xd9, 0xc3, 0x11, 0xf0, 0x2a, 0x28, 0x6d,
-	0x87, 0x5a, 0x3e, 0xf8, 0x03, 0x88, 0x33, 0x57, 0x3b, 0x2b, 0x15, 0xa2, 0x73, 0xe9, 0x42, 0xe7,
-	0x5a, 0x7b, 0x5c, 0x84, 0xf5, 0x27, 0x09, 0x64, 0xf6, 0xe5, 0xc8, 0xec, 0xd3, 0xbf, 0x71, 0x22,
-	0xf4, 0x10, 0xe2, 0xfd, 0xa1, 0x76, 0x41, 0xec, 0x6c, 0xac, 0x10, 0xdd, 0x4d, 0x96, 0xd7, 0xa6,
-	0x99, 0x1e, 0xba, 0x0a, 0x55, 0x08, 0xf1, 0x00, 0x60, 0xf2, 0x15, 0xad, 0x42, 0xfc, 0x9c, 0x1a,
-	0x74, 0xc8, 0x4f, 0x2a, 0xab, 0x62, 0x87, 0x56, 0x60, 0xd1, 0xb6, 0x08, 0xe1, 0xfc, 0xb4, 0xca,
-	0x37, 0xe8, 0x3e, 0xc4, 0x2e, 0x68, 0x8f, 0xa7, 0xb0, 0x54, 0xfe, 0x2f, 0x00, 0x73, 0xef, 0xb6,
-	0x49, 0x7b, 0x44, 0x65, 0x22, 0x7c, 0x00, 0xcb, 0x0d, 0xdd, 0x76, 0x18, 0xcc, 0xbe, 0xe5, 0xb3,
-	0xe2, 0x13, 0x40, 0x5e, 0x13, 0x7e, 0xb1, 0xe8, 0x09, 0x24, 0x79, 0xdc, 0x99, 0x6e, 0xf6, 0x29,
-	0x4b, 0x3d, 0x39, 0xdd, 0xcb, 0xbd, 0x79, 0x15, 0xf8, 0x0f, 0xee, 0x1a, 0x3f, 0x83, 0x7f, 0x5b,
-	0x81, 0x32, 0x7d, 0x0c, 0x5c, 0x30, 0x36, 0x93, 0xe6, 0x9a, 0xc9, 0xc6, 0x78, 0x89, 0x8f, 0x41,
-	0x69, 0x05, 0x6a, 0xf9, 0xf6, 0x66, 0x4d, 0x40, 0x5d, 0xab, 0xa7, 0x39, 0xe4, 0xcf, 0xe4, 0xd6,
-	0x82, 0x8c, 0xcf, 0xee, 0x77, 0xd3, 0x2b, 0x43, 0xa6, 0x4a, 0x0c, 0x22, 0xfc, 0x6e, 0xde, 0x73,
-	0x1d, 0xe4, 0xf1, 0x4b, 0xf4, 0x44, 0x09, 0x25, 0xc4, 0x6d, 0xb3, 0x7e, 0xf7, 0xc7, 0xf0, 0x24,
-	0xf6, 0xf6, 0x45, 0x5b, 0xb8, 0x0f, 0x8d, 0xd2, 0x20, 0x77, 0x5b, 0xd5, 0xda, 0xe1, 0x51, 0xab,
-	0x56, 0x55, 0x16, 0x90, 0x0c, 0x8b, 0xcd, 0x93, 0x6e, 0xa7, 0xae, 0x48, 0xee, 0xb2, 0x5e, 0x69,
-	0x55, 0xdb, 0x4a, 0x04, 0x25, 0x20, 0x56, 0xab, 0xa8, 0x6d, 0x25, 0xba, 0x57, 0x87, 0xc4, 0xb8,
-	0xce, 0x10, 0x40, 0xfc, 0x54, 0xad, 0xb5, 0x6b, 0x1d, 0x65, 0xc1, 0x5d, 0x57, 0x1a, 0x2f, 0x2a,
-	0x2f, 0xdb, 0x8a, 0x84, 0x92, 0xf0, 0x4f, 0xb3, 0xa2, 0x3e, 0xef, 0xd6, 0x6a, 0x4a, 0xc4, 0x75,
-	0x39, 0x6c, 0x54, 0xda, 0x75, 0x25, 0x8a, 0x52, 0x90, 0xe8, 0x1c, 0x1d, 0x1c, 0x77, 0x4e, 0x0e,
-	0x8e, 0x95, 0x58, 0xf9, 0x67, 0x1c, 0xd2, 0x0d, 0xef, 0xc1, 0xd1, 0x07, 0x09, 0x52, 0xde, 0x01,
-	0x85, 0x70, 0xb0, 0xc2, 0xc3, 0x43, 0x2e, 0xb7, 0x3d, 0x57, 0x23, 0x26, 0xc1, 0xbd, 0x8f, 0xdf,
-	0x7e, 0x7c, 0x8e, 0x6c, 0xe1, 0x0d, 0x36, 0x40, 0xaf, 0xca, 0x25, 0x1e, 0x53, 0xb2, 0xb8, 0xf8,
-	0x8c, 0x6d, 0xf7, 0xa5, 0x3d, 0xe4, 0x80, 0x7c, 0x33, 0xa2, 0xd0, 0xe6, 0x94, 0x06, 0xf3, 0xb1,
-	0x0b, 0xb3, 0x05, 0x02, 0x7c, 0x87, 0x81, 0xf3, 0x78, 0x2d, 0x08, 0x36, 0xb4, 0x91, 0x8f, 0x7a,
-	0x33, 0xbd, 0x42, 0xd4, 0xe0, 0x74, 0x0c, 0x51, 0xc3, 0x83, 0x6f, 0x16, 0xd5, 0x76, 0xa8, 0x35,
-	0xa1, 0xbe, 0x73, 0x27, 0xd1, 0xb8, 0xb7, 0x51, 0x21, 0x54, 0x85, 0x81, 0xd9, 0x91, 0xdb, 0x9a,
-	0xa3, 0x10, 0xe0, 0x1d, 0x06, 0xde, 0xc4, 0xb9, 0x00, 0xd8, 0xd0, 0x6d, 0x87, 0x83, 0x6d, 0x97,
-	0x6c, 0x41, 0x62, 0xdc, 0xb8, 0x28, 0x1f, 0x70, 0x0d, 0x4c, 0x87, 0xdc, 0xe6, 0xcc, 0xdf, 0x05,
-	0x73, 0x9b, 0x31, 0xff, 0xc7, 0xd9, 0x00, 0xd3, 0xf4, 0xbe, 0xeb, 0x7b, 0x48, 0x7a, 0xda, 0x11,
-	0x05, 0x8f, 0x12, 0xee, 0xfc, 0x1c, 0x9e, 0x27, 0x11, 0xe8, 0xbb, 0x0c, 0x5d, 0xc0, 0xeb, 0x01,
-	0xf4, 0x25, 0xd3, 0x4e, 0xe8, 0x6e, 0x61, 0x7b, 0x3b, 0x31, 0x54, 0xd8, 0x53, 0x5a, 0x3b, 0x54,
-	0xd8, 0xd3, 0x5a, 0x79, 0x66, 0x61, 0xf7, 0x98, 0x78, 0x72, 0xe5, 0x4f, 0x53, 0x5f, 0xae, 0xf3,
-	0xd2, 0xd7, 0xeb, 0xbc, 0xf4, 0xfd, 0x3a, 0x2f, 0xbd, 0x8a, 0xb3, 0xff, 0x0d, 0x8f, 0x7e, 0x05,
-	0x00, 0x00, 0xff, 0xff, 0xf7, 0xfe, 0xcc, 0x6c, 0x74, 0x08, 0x00, 0x00,
+	// 894 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x96, 0xdb, 0x6e, 0xe3, 0x44,
+	0x1c, 0xc6, 0xd7, 0x49, 0x1a, 0xec, 0x7f, 0x0e, 0x78, 0xa7, 0xa5, 0x64, 0xdd, 0x36, 0xcd, 0xce,
+	0xb2, 0xec, 0xaa, 0x88, 0x16, 0xc2, 0x05, 0xa2, 0x77, 0xa1, 0x49, 0xd5, 0xd2, 0x34, 0x2d, 0x76,
+	0x2a, 0xc4, 0x55, 0x31, 0xcd, 0x34, 0x3b, 0x92, 0x6b, 0x9b, 0xcc, 0x6c, 0x97, 0x48, 0x5c, 0x20,
+	0x1e, 0x01, 0xde, 0x85, 0x67, 0xe0, 0x12, 0x89, 0x17, 0x40, 0x15, 0x0f, 0x82, 0x3c, 0x33, 0x6e,
+	0x7c, 0x48, 0x22, 0x54, 0xe0, 0x6e, 0x0e, 0xdf, 0x7c, 0xbf, 0xf1, 0xcc, 0x7f, 0x3e, 0x19, 0xaa,
+	0x1e, 0x1d, 0xbf, 0xe2, 0x6c, 0x37, 0x9c, 0x04, 0x3c, 0x40, 0x35, 0xd9, 0x73, 0xc8, 0xe4, 0x96,
+	0x5e, 0x11, 0x6b, 0x73, 0x1c, 0x04, 0x63, 0x8f, 0xec, 0xb9, 0x21, 0xdd, 0x73, 0x7d, 0x3f, 0xe0,
+	0x2e, 0xa7, 0x81, 0xaf, 0xc4, 0xf8, 0x39, 0xac, 0x9e, 0x4f, 0xc8, 0x2d, 0x25, 0x6f, 0xfa, 0xd1,
+	0x2a, 0x9b, 0x7c, 0xf7, 0x9a, 0x30, 0x8e, 0xea, 0x50, 0xa0, 0xa3, 0x86, 0xd6, 0xd2, 0x5e, 0x1a,
+	0x76, 0x81, 0x8e, 0xf0, 0x3a, 0xac, 0xa5, 0x65, 0x2c, 0x0c, 0x7c, 0x46, 0xf0, 0x35, 0x98, 0xe7,
+	0x9e, 0x3b, 0x4d, 0xad, 0xdd, 0x85, 0x15, 0x8f, 0x4f, 0x43, 0x22, 0x96, 0xd7, 0xdb, 0x8d, 0xdd,
+	0xd4, 0x7e, 0x76, 0x85, 0x76, 0x38, 0x0d, 0x89, 0x2d, 0x65, 0x8a, 0x55, 0x88, 0x59, 0x08, 0x41,
+	0xc9, 0x77, 0x6f, 0x48, 0xa3, 0x28, 0x46, 0x44, 0x1b, 0xaf, 0xc2, 0xe3, 0x04, 0x47, 0xc1, 0xbb,
+	0x60, 0x3a, 0x3c, 0x08, 0x53, 0xf0, 0x8f, 0xa0, 0x2c, 0x5c, 0x59, 0x43, 0x6b, 0x15, 0x97, 0xd2,
+	0x95, 0x2e, 0xb2, 0x4e, 0xb8, 0x28, 0xeb, 0x9f, 0x35, 0x30, 0xc4, 0xc8, 0xb1, 0x7f, 0x1d, 0xfc,
+	0x1f, 0x5f, 0x84, 0x3e, 0x86, 0xf2, 0xf5, 0xc4, 0xbd, 0x21, 0xac, 0x51, 0x6a, 0x15, 0x5f, 0x56,
+	0xda, 0x4f, 0xe6, 0x99, 0x1e, 0x46, 0x0a, 0x5b, 0x09, 0xf1, 0x18, 0x60, 0x36, 0x8a, 0xd6, 0xa1,
+	0x7c, 0x15, 0x78, 0xc1, 0x44, 0x7e, 0xa9, 0x61, 0xab, 0x1e, 0x5a, 0x83, 0x15, 0x16, 0x12, 0x22,
+	0xf9, 0x35, 0x5b, 0x76, 0xd0, 0x07, 0x50, 0xba, 0x09, 0x46, 0x72, 0x0b, 0xf5, 0xf6, 0xbb, 0x19,
+	0x58, 0x74, 0xb6, 0xa7, 0xc1, 0x88, 0xd8, 0x42, 0x84, 0x0f, 0xe0, 0x71, 0x9f, 0x32, 0x2e, 0x60,
+	0xec, 0x81, 0xd7, 0x8a, 0xcf, 0x00, 0x25, 0x4d, 0xe4, 0xc1, 0xa2, 0xcf, 0xa0, 0x22, 0xd7, 0x5d,
+	0x52, 0xff, 0x3a, 0x10, 0x5b, 0xaf, 0xcc, 0xf7, 0x8a, 0x4e, 0xde, 0x06, 0x39, 0x11, 0xb5, 0xf1,
+	0x17, 0xf0, 0xf6, 0x20, 0x53, 0xa6, 0x9f, 0x82, 0x14, 0xc4, 0x66, 0xda, 0x52, 0x33, 0xc3, 0x8b,
+	0x9b, 0xf8, 0x04, 0xcc, 0x41, 0xa6, 0x96, 0x1f, 0x6e, 0x76, 0x0a, 0xe8, 0x22, 0x1c, 0xb9, 0x9c,
+	0xfc, 0x37, 0x7b, 0x1b, 0xc0, 0x6a, 0xca, 0xee, 0xdf, 0x6e, 0xaf, 0x0d, 0xab, 0x5d, 0xe2, 0x11,
+	0xe5, 0x77, 0x7f, 0x9f, 0x1b, 0x60, 0xc4, 0x37, 0x31, 0x52, 0x25, 0xa4, 0xab, 0xd3, 0x16, 0xef,
+	0x3d, 0xbd, 0x46, 0xbd, 0x8b, 0x3a, 0x54, 0x1d, 0xee, 0x72, 0xa2, 0x4c, 0xf0, 0x09, 0xd4, 0x54,
+	0x5f, 0xed, 0x72, 0x03, 0x0c, 0xca, 0x2e, 0xdd, 0x2b, 0x4e, 0x6f, 0x65, 0xa5, 0xe8, 0xb6, 0x4e,
+	0x59, 0x47, 0xf4, 0xd1, 0x16, 0x00, 0x65, 0x97, 0xa1, 0xe7, 0x4e, 0xa9, 0x3f, 0x16, 0xf5, 0xa9,
+	0xdb, 0x06, 0x65, 0xe7, 0x72, 0x00, 0xbf, 0x80, 0x9a, 0xf3, 0x86, 0xf2, 0xab, 0x57, 0xf1, 0x16,
+	0xd7, 0xa1, 0x9c, 0x72, 0x52, 0x3d, 0xfc, 0x21, 0xd4, 0x63, 0xe1, 0x3f, 0xc0, 0xee, 0xec, 0xab,
+	0xb7, 0x1c, 0x55, 0x27, 0xaa, 0x81, 0x71, 0x31, 0xe8, 0xf6, 0x0e, 0x8f, 0x07, 0xbd, 0xae, 0xf9,
+	0x08, 0x19, 0xb0, 0x72, 0x7a, 0x76, 0x31, 0x3c, 0x32, 0xb5, 0xa8, 0x79, 0xd4, 0x19, 0x74, 0x1d,
+	0xb3, 0x80, 0x74, 0x28, 0xf5, 0x3a, 0xb6, 0x63, 0x16, 0x77, 0x8e, 0x40, 0x8f, 0x1f, 0x07, 0x02,
+	0x28, 0x9f, 0xdb, 0x3d, 0xa7, 0x37, 0x34, 0x1f, 0x45, 0xed, 0x4e, 0xff, 0xab, 0xce, 0xd7, 0x8e,
+	0xa9, 0xa1, 0x0a, 0xbc, 0x75, 0xda, 0xb1, 0xbf, 0xbc, 0xe8, 0xf5, 0xcc, 0x42, 0xe4, 0x72, 0xd8,
+	0xef, 0x38, 0x47, 0x66, 0x11, 0x55, 0x41, 0x1f, 0x1e, 0x1f, 0x9c, 0x0c, 0xcf, 0x0e, 0x4e, 0xcc,
+	0x52, 0xfb, 0x57, 0x1d, 0x6a, 0xfd, 0xe4, 0x6d, 0xa1, 0x1f, 0x35, 0xa8, 0x26, 0x53, 0x15, 0xe1,
+	0xec, 0xb3, 0xcc, 0x27, 0xb3, 0xf5, 0x6c, 0xa9, 0x46, 0x5d, 0xd3, 0x8b, 0x9f, 0xfe, 0xf8, 0xeb,
+	0x97, 0xc2, 0x53, 0xbc, 0x29, 0x52, 0xff, 0xb6, 0xbd, 0x27, 0xd7, 0xec, 0x85, 0x52, 0x7c, 0x29,
+	0xba, 0xfb, 0xda, 0x0e, 0xe2, 0x60, 0xdc, 0xe7, 0x2a, 0xda, 0x9e, 0x93, 0x0a, 0x29, 0x76, 0x6b,
+	0xb1, 0x40, 0x81, 0xdf, 0x13, 0xe0, 0x26, 0x7e, 0x92, 0x05, 0x7b, 0xee, 0x34, 0x45, 0xbd, 0x8f,
+	0xdc, 0x1c, 0x35, 0x1b, 0xe9, 0x39, 0x6a, 0x3e, 0xad, 0x17, 0x51, 0x19, 0x0f, 0xc2, 0x19, 0xf5,
+	0xfb, 0x28, 0x3e, 0xe3, 0x40, 0x42, 0xad, 0xdc, 0xd3, 0xc9, 0x04, 0x9e, 0xf5, 0x74, 0x89, 0x42,
+	0x81, 0x9f, 0x0b, 0xf0, 0x36, 0xb6, 0x32, 0x60, 0x8f, 0x32, 0x2e, 0xc1, 0x2c, 0x22, 0x87, 0xa0,
+	0xc7, 0x69, 0x83, 0x9a, 0x19, 0xd7, 0x4c, 0xa4, 0x59, 0xdb, 0x0b, 0xe7, 0x15, 0xf3, 0x99, 0x60,
+	0x6e, 0xe1, 0x46, 0x86, 0xe9, 0x27, 0xef, 0xf5, 0x07, 0xa8, 0x24, 0x32, 0x04, 0x65, 0x3f, 0x25,
+	0x1f, 0x57, 0x16, 0x5e, 0x26, 0x51, 0xe8, 0xf7, 0x05, 0xba, 0x85, 0x37, 0x32, 0xe8, 0xd7, 0x42,
+	0x3b, 0xa3, 0x47, 0x85, 0x9d, 0x8c, 0x8f, 0x5c, 0x61, 0xcf, 0xc9, 0xa3, 0x5c, 0x61, 0xcf, 0xcd,
+	0x9f, 0x45, 0x85, 0x3d, 0x12, 0xe2, 0xc4, 0x91, 0x7f, 0x03, 0x2b, 0x22, 0x98, 0xd0, 0x46, 0xae,
+	0x7a, 0x66, 0xf1, 0x65, 0x6d, 0xce, 0x9f, 0x54, 0xb0, 0x4d, 0x01, 0x5b, 0x47, 0x6b, 0xb9, 0xb2,
+	0x8a, 0x8c, 0xc7, 0x50, 0x96, 0x21, 0x84, 0x72, 0x2e, 0xc9, 0x10, 0xb3, 0xb6, 0x16, 0xcc, 0x2a,
+	0x48, 0x4b, 0x40, 0x2c, 0xfc, 0x4e, 0x16, 0x22, 0x64, 0xfb, 0xda, 0xce, 0xe7, 0xd5, 0xdf, 0xee,
+	0x9a, 0xda, 0xef, 0x77, 0x4d, 0xed, 0xcf, 0xbb, 0xa6, 0xf6, 0x6d, 0x59, 0xfc, 0xb7, 0x7d, 0xf2,
+	0x77, 0x00, 0x00, 0x00, 0xff, 0xff, 0x98, 0x94, 0x7c, 0x03, 0xf4, 0x09, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -1024,6 +1228,10 @@ type LightsServiceClient interface {
 	UpdateLight(ctx context.Context, in *UpdateLightRequest, opts ...grpc.CallOption) (*UpdateLightResponse, error)
 	// 删除灯光
 	DeleteLights(ctx context.Context, in *DeleteLightsRequest, opts ...grpc.CallOption) (*DeleteLightsResponse, error)
+	// 获取当前灯光模块状态
+	State(ctx context.Context, in *StateRequest, opts ...grpc.CallOption) (*StateResponse, error)
+	// 控制灯光的开关
+	Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error)
 }
 
 type lightsServiceClient struct {
@@ -1097,6 +1305,24 @@ func (c *lightsServiceClient) DeleteLights(ctx context.Context, in *DeleteLights
 	return out, nil
 }
 
+func (c *lightsServiceClient) State(ctx context.Context, in *StateRequest, opts ...grpc.CallOption) (*StateResponse, error) {
+	out := new(StateResponse)
+	err := c.cc.Invoke(ctx, "/lightsService.LightsService/State", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lightsServiceClient) Switch(ctx context.Context, in *SwitchRequest, opts ...grpc.CallOption) (*SwitchResponse, error) {
+	out := new(SwitchResponse)
+	err := c.cc.Invoke(ctx, "/lightsService.LightsService/Switch", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // LightsServiceServer is the server API for LightsService service.
 type LightsServiceServer interface {
 	// 预览灯光
@@ -1116,6 +1342,10 @@ type LightsServiceServer interface {
 	UpdateLight(context.Context, *UpdateLightRequest) (*UpdateLightResponse, error)
 	// 删除灯光
 	DeleteLights(context.Context, *DeleteLightsRequest) (*DeleteLightsResponse, error)
+	// 获取当前灯光模块状态
+	State(context.Context, *StateRequest) (*StateResponse, error)
+	// 控制灯光的开关
+	Switch(context.Context, *SwitchRequest) (*SwitchResponse, error)
 }
 
 // UnimplementedLightsServiceServer can be embedded to have forward compatible implementations.
@@ -1142,6 +1372,12 @@ func (*UnimplementedLightsServiceServer) UpdateLight(ctx context.Context, req *U
 }
 func (*UnimplementedLightsServiceServer) DeleteLights(ctx context.Context, req *DeleteLightsRequest) (*DeleteLightsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteLights not implemented")
+}
+func (*UnimplementedLightsServiceServer) State(ctx context.Context, req *StateRequest) (*StateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method State not implemented")
+}
+func (*UnimplementedLightsServiceServer) Switch(ctx context.Context, req *SwitchRequest) (*SwitchResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Switch not implemented")
 }
 
 func RegisterLightsServiceServer(s *grpc.Server, srv LightsServiceServer) {
@@ -1274,6 +1510,42 @@ func _LightsService_DeleteLights_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _LightsService_State_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LightsServiceServer).State(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/lightsService.LightsService/State",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LightsServiceServer).State(ctx, req.(*StateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LightsService_Switch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SwitchRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LightsServiceServer).Switch(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/lightsService.LightsService/Switch",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LightsServiceServer).Switch(ctx, req.(*SwitchRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _LightsService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "lightsService.LightsService",
 	HandlerType: (*LightsServiceServer)(nil),
@@ -1306,6 +1578,14 @@ var _LightsService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "DeleteLights",
 			Handler:    _LightsService_DeleteLights_Handler,
 		},
+		{
+			MethodName: "State",
+			Handler:    _LightsService_State_Handler,
+		},
+		{
+			MethodName: "Switch",
+			Handler:    _LightsService_Switch_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "lights.proto",
@@ -1314,7 +1594,7 @@ var _LightsService_serviceDesc = grpc.ServiceDesc{
 func (m *PreviewLightRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1322,26 +1602,33 @@ func (m *PreviewLightRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PreviewLightRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PreviewLightRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintLights(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *PreviewLightResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1349,20 +1636,26 @@ func (m *PreviewLightResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PreviewLightResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PreviewLightResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *PlayLightRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1370,37 +1663,45 @@ func (m *PlayLightRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PlayLightRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PlayLightRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Ltype != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.Ltype))
-	}
-	if len(m.Id) > 0 {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Name) > 0 {
-		dAtA[i] = 0x1a
-		i++
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
 		i = encodeVarintLights(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+		i--
+		dAtA[i] = 0x1a
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintLights(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0x12
 	}
-	return i, nil
+	if m.Ltype != 0 {
+		i = encodeVarintLights(dAtA, i, uint64(m.Ltype))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *PlayLightResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1408,20 +1709,26 @@ func (m *PlayLightResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *PlayLightResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *PlayLightResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *StopLightRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1429,10 +1736,19 @@ func (m *StopLightRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *StopLightRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StopLightRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.Ltypes) > 0 {
 		dAtA2 := make([]byte, len(m.Ltypes)*10)
 		var j1 int
@@ -1445,21 +1761,19 @@ func (m *StopLightRequest) MarshalTo(dAtA []byte) (int, error) {
 			dAtA2[j1] = uint8(num)
 			j1++
 		}
-		dAtA[i] = 0xa
-		i++
+		i -= j1
+		copy(dAtA[i:], dAtA2[:j1])
 		i = encodeVarintLights(dAtA, i, uint64(j1))
-		i += copy(dAtA[i:], dAtA2[:j1])
+		i--
+		dAtA[i] = 0xa
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *StopLightResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1467,20 +1781,26 @@ func (m *StopLightResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *StopLightResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StopLightResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *LightInfo) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1488,49 +1808,59 @@ func (m *LightInfo) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *LightInfo) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *LightInfo) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Ltype != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.Ltype))
-	}
-	if len(m.Id) > 0 {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
-	}
-	if len(m.Name) > 0 {
-		dAtA[i] = 0x1a
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Frames) > 0 {
-		for _, msg := range m.Frames {
-			dAtA[i] = 0x22
-			i++
-			i = encodeVarintLights(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
+		for iNdEx := len(m.Frames) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Frames[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintLights(dAtA, i, uint64(size))
 			}
-			i += n
+			i--
+			dAtA[i] = 0x22
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintLights(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x1a
 	}
-	return i, nil
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintLights(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Ltype != 0 {
+		i = encodeVarintLights(dAtA, i, uint64(m.Ltype))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *LightFrame) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1538,45 +1868,45 @@ func (m *LightFrame) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *LightFrame) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *LightFrame) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Colors) > 0 {
-		for _, s := range m.Colors {
-			dAtA[i] = 0xa
-			i++
-			l = len(s)
-			for l >= 1<<7 {
-				dAtA[i] = uint8(uint64(l)&0x7f | 0x80)
-				l >>= 7
-				i++
-			}
-			dAtA[i] = uint8(l)
-			i++
-			i += copy(dAtA[i:], s)
-		}
-	}
-	if m.Speed != 0 {
-		dAtA[i] = 0x10
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.Speed))
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.Mode != 0 {
-		dAtA[i] = 0x18
-		i++
 		i = encodeVarintLights(dAtA, i, uint64(m.Mode))
+		i--
+		dAtA[i] = 0x18
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.Speed != 0 {
+		i = encodeVarintLights(dAtA, i, uint64(m.Speed))
+		i--
+		dAtA[i] = 0x10
 	}
-	return i, nil
+	if len(m.Colors) > 0 {
+		for iNdEx := len(m.Colors) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.Colors[iNdEx])
+			copy(dAtA[i:], m.Colors[iNdEx])
+			i = encodeVarintLights(dAtA, i, uint64(len(m.Colors[iNdEx])))
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *ListLightsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1584,25 +1914,31 @@ func (m *ListLightsRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ListLightsRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ListLightsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Ltype != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.Ltype))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.Ltype != 0 {
+		i = encodeVarintLights(dAtA, i, uint64(m.Ltype))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *ListLightsResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1610,32 +1946,40 @@ func (m *ListLightsResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ListLightsResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ListLightsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.LightsInfo) > 0 {
-		for _, msg := range m.LightsInfo {
-			dAtA[i] = 0xa
-			i++
-			i = encodeVarintLights(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
+		for iNdEx := len(m.LightsInfo) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.LightsInfo[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintLights(dAtA, i, uint64(size))
 			}
-			i += n
+			i--
+			dAtA[i] = 0xa
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *NewLightRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1643,30 +1987,38 @@ func (m *NewLightRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NewLightRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NewLightRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.LightInfo != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.LightInfo.Size()))
-		n3, err3 := m.LightInfo.MarshalTo(dAtA[i:])
-		if err3 != nil {
-			return 0, err3
-		}
-		i += n3
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.LightInfo != nil {
+		{
+			size, err := m.LightInfo.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintLights(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *NewLightResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1674,30 +2026,38 @@ func (m *NewLightResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NewLightResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NewLightResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.LightInfo != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.LightInfo.Size()))
-		n4, err4 := m.LightInfo.MarshalTo(dAtA[i:])
-		if err4 != nil {
-			return 0, err4
-		}
-		i += n4
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.LightInfo != nil {
+		{
+			size, err := m.LightInfo.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintLights(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *UpdateLightRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1705,30 +2065,38 @@ func (m *UpdateLightRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *UpdateLightRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UpdateLightRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.LightInfo != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.LightInfo.Size()))
-		n5, err5 := m.LightInfo.MarshalTo(dAtA[i:])
-		if err5 != nil {
-			return 0, err5
-		}
-		i += n5
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.LightInfo != nil {
+		{
+			size, err := m.LightInfo.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintLights(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *UpdateLightResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1736,30 +2104,38 @@ func (m *UpdateLightResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *UpdateLightResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UpdateLightResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.LightInfo != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintLights(dAtA, i, uint64(m.LightInfo.Size()))
-		n6, err6 := m.LightInfo.MarshalTo(dAtA[i:])
-		if err6 != nil {
-			return 0, err6
-		}
-		i += n6
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.LightInfo != nil {
+		{
+			size, err := m.LightInfo.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintLights(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *DeleteLightsRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1767,35 +2143,35 @@ func (m *DeleteLightsRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *DeleteLightsRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *DeleteLightsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.LightsId) > 0 {
-		for _, s := range m.LightsId {
+		for iNdEx := len(m.LightsId) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.LightsId[iNdEx])
+			copy(dAtA[i:], m.LightsId[iNdEx])
+			i = encodeVarintLights(dAtA, i, uint64(len(m.LightsId[iNdEx])))
+			i--
 			dAtA[i] = 0xa
-			i++
-			l = len(s)
-			for l >= 1<<7 {
-				dAtA[i] = uint8(uint64(l)&0x7f | 0x80)
-				l >>= 7
-				i++
-			}
-			dAtA[i] = uint8(l)
-			i++
-			i += copy(dAtA[i:], s)
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *DeleteLightsResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -1803,24 +2179,180 @@ func (m *DeleteLightsResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *DeleteLightsResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *DeleteLightsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
+}
+
+func (m *StateRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StateRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StateRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *StateResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StateResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.IsPlaying {
+		i--
+		if m.IsPlaying {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.IsActive {
+		i--
+		if m.IsActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Active {
+		i--
+		if m.Active {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SwitchResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SwitchResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SwitchResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.IsActive {
+		i--
+		if m.IsActive {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func encodeVarintLights(dAtA []byte, offset int, v uint64) int {
+	offset -= sovLights(v)
+	base := offset
 	for v >= 1<<7 {
 		dAtA[offset] = uint8(v&0x7f | 0x80)
 		v >>= 7
 		offset++
 	}
 	dAtA[offset] = uint8(v)
-	return offset + 1
+	return base
 }
 func (m *PreviewLightRequest) Size() (n int) {
 	if m == nil {
@@ -2090,6 +2622,66 @@ func (m *DeleteLightsResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *StateRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *StateResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.IsActive {
+		n += 2
+	}
+	if m.IsPlaying {
+		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Active {
+		n += 2
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SwitchResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.IsActive {
+		n += 2
+	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
 	}
@@ -3541,6 +4133,302 @@ func (m *DeleteLightsResponse) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: DeleteLightsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLights(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StateRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLights
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StateRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StateRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLights(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StateResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLights
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StateResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StateResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLights
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsActive = bool(v != 0)
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsPlaying", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLights
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsPlaying = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLights(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLights
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SwitchRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SwitchRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Active", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLights
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.Active = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLights(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthLights
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SwitchResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLights
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SwitchResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SwitchResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field IsActive", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLights
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.IsActive = bool(v != 0)
 		default:
 			iNdEx = preIndex
 			skippy, err := skipLights(dAtA[iNdEx:])

@@ -63,6 +63,22 @@ service LightsService {
             body: "*"
         };
     }
+
+    // 获取当前灯光模块状态
+    rpc State(StateRequest) returns (StateResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/lights/state"
+        };
+    }
+
+    // 控制灯光的开关
+    rpc Switch(SwitchRequest) returns (SwitchResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/switch"
+            body: "*"
+        };
+    }
+
 }
 
 // 灯光类型
@@ -211,4 +227,25 @@ message DeleteLightsRequest {
 
 // 删除灯光结果
 message DeleteLightsResponse {
+}
+
+message StateRequest {
+
+}
+
+message StateResponse {
+    // 当前是否启用
+    bool is_active = 1;
+    // 当前是否在播放中
+    bool is_playing = 2;
+}
+
+message SwitchRequest {
+    // 启用与关闭
+    bool active = 1;
+}
+
+message SwitchResponse {
+    // 当前是否启用
+    bool is_active = 1;
 }

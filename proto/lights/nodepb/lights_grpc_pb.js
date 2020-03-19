@@ -115,6 +115,28 @@ function deserialize_lightsService_PreviewLightResponse(buffer_arg) {
   return lights_pb.PreviewLightResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_lightsService_StateRequest(arg) {
+  if (!(arg instanceof lights_pb.StateRequest)) {
+    throw new Error('Expected argument of type lightsService.StateRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_lightsService_StateRequest(buffer_arg) {
+  return lights_pb.StateRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_lightsService_StateResponse(arg) {
+  if (!(arg instanceof lights_pb.StateResponse)) {
+    throw new Error('Expected argument of type lightsService.StateResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_lightsService_StateResponse(buffer_arg) {
+  return lights_pb.StateResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_lightsService_StopLightRequest(arg) {
   if (!(arg instanceof lights_pb.StopLightRequest)) {
     throw new Error('Expected argument of type lightsService.StopLightRequest');
@@ -135,6 +157,28 @@ function serialize_lightsService_StopLightResponse(arg) {
 
 function deserialize_lightsService_StopLightResponse(buffer_arg) {
   return lights_pb.StopLightResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_lightsService_SwitchRequest(arg) {
+  if (!(arg instanceof lights_pb.SwitchRequest)) {
+    throw new Error('Expected argument of type lightsService.SwitchRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_lightsService_SwitchRequest(buffer_arg) {
+  return lights_pb.SwitchRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_lightsService_SwitchResponse(arg) {
+  if (!(arg instanceof lights_pb.SwitchResponse)) {
+    throw new Error('Expected argument of type lightsService.SwitchResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_lightsService_SwitchResponse(buffer_arg) {
+  return lights_pb.SwitchResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_lightsService_UpdateLightRequest(arg) {
@@ -247,6 +291,30 @@ var LightsServiceService = exports.LightsServiceService = {
     requestDeserialize: deserialize_lightsService_DeleteLightsRequest,
     responseSerialize: serialize_lightsService_DeleteLightsResponse,
     responseDeserialize: deserialize_lightsService_DeleteLightsResponse,
+  },
+  // 获取当前灯光模块状态
+  state: {
+    path: '/lightsService.LightsService/State',
+    requestStream: false,
+    responseStream: false,
+    requestType: lights_pb.StateRequest,
+    responseType: lights_pb.StateResponse,
+    requestSerialize: serialize_lightsService_StateRequest,
+    requestDeserialize: deserialize_lightsService_StateRequest,
+    responseSerialize: serialize_lightsService_StateResponse,
+    responseDeserialize: deserialize_lightsService_StateResponse,
+  },
+  // 控制灯光的开关
+  switch: {
+    path: '/lightsService.LightsService/Switch',
+    requestStream: false,
+    responseStream: false,
+    requestType: lights_pb.SwitchRequest,
+    responseType: lights_pb.SwitchResponse,
+    requestSerialize: serialize_lightsService_SwitchRequest,
+    requestDeserialize: deserialize_lightsService_SwitchRequest,
+    responseSerialize: serialize_lightsService_SwitchResponse,
+    responseDeserialize: deserialize_lightsService_SwitchResponse,
   },
 };
 

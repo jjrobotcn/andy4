@@ -117,4 +117,32 @@ class LightsServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * 获取当前灯光模块状态
+     * @param \LightsService\StateRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function State(\LightsService\StateRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/lightsService.LightsService/State',
+        $argument,
+        ['\LightsService\StateResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * 控制灯光的开关
+     * @param \LightsService\SwitchRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function Switch(\LightsService\SwitchRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/lightsService.LightsService/Switch',
+        $argument,
+        ['\LightsService\SwitchResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

@@ -45,30 +45,38 @@ namespace LightsService {
             "aW5mbxgBIAEoCzIYLmxpZ2h0c1NlcnZpY2UuTGlnaHRJbmZvIkMKE1VwZGF0",
             "ZUxpZ2h0UmVzcG9uc2USLAoKbGlnaHRfaW5mbxgBIAEoCzIYLmxpZ2h0c1Nl",
             "cnZpY2UuTGlnaHRJbmZvIigKE0RlbGV0ZUxpZ2h0c1JlcXVlc3QSEQoJbGln",
-            "aHRzX2lkGAEgAygJIhYKFERlbGV0ZUxpZ2h0c1Jlc3BvbnNlKjoKCUxpZ2h0",
-            "VHlwZRINCglVTkRFRklORUQQABIJCgVNT1VUSBABEgkKBUhBTkRTEAISCAoE",
-            "RUFSUxADKkgKCFBsYXlNb2RlEgoKBlBSRVNFVBAAEgoKBkFMV0FZUxABEgsK",
-            "B01BUlFVRUUQAhIJCgVGTEFTSBADEgwKCFRJQ0tUT0NLEAQy6wYKDUxpZ2h0",
-            "c1NlcnZpY2USgAEKDFByZXZpZXdMaWdodBIiLmxpZ2h0c1NlcnZpY2UuUHJl",
-            "dmlld0xpZ2h0UmVxdWVzdBojLmxpZ2h0c1NlcnZpY2UuUHJldmlld0xpZ2h0",
-            "UmVzcG9uc2UiJ4LT5JMCISIcL2FwaS92Mi9saWdodHMvcHJldmlld19saWdo",
-            "dDoBKhJ0CglQbGF5TGlnaHQSHy5saWdodHNTZXJ2aWNlLlBsYXlMaWdodFJl",
-            "cXVlc3QaIC5saWdodHNTZXJ2aWNlLlBsYXlMaWdodFJlc3BvbnNlIiSC0+ST",
-            "Ah4iGS9hcGkvdjIvbGlnaHRzL3BsYXlfbGlnaHQ6ASoSdAoJU3RvcExpZ2h0",
-            "Eh8ubGlnaHRzU2VydmljZS5TdG9wTGlnaHRSZXF1ZXN0GiAubGlnaHRzU2Vy",
-            "dmljZS5TdG9wTGlnaHRSZXNwb25zZSIkgtPkkwIeIhkvYXBpL3YyL2xpZ2h0",
-            "cy9zdG9wX2xpZ2h0OgEqEngKCkxpc3RMaWdodHMSIC5saWdodHNTZXJ2aWNl",
-            "Lkxpc3RMaWdodHNSZXF1ZXN0GiEubGlnaHRzU2VydmljZS5MaXN0TGlnaHRz",
-            "UmVzcG9uc2UiJYLT5JMCHyIaL2FwaS92Mi9saWdodHMvbGlzdF9saWdodHM6",
-            "ASoScAoITmV3TGlnaHQSHi5saWdodHNTZXJ2aWNlLk5ld0xpZ2h0UmVxdWVz",
-            "dBofLmxpZ2h0c1NlcnZpY2UuTmV3TGlnaHRSZXNwb25zZSIjgtPkkwIdIhgv",
-            "YXBpL3YyL2xpZ2h0cy9uZXdfbGlnaHQ6ASoSfAoLVXBkYXRlTGlnaHQSIS5s",
-            "aWdodHNTZXJ2aWNlLlVwZGF0ZUxpZ2h0UmVxdWVzdBoiLmxpZ2h0c1NlcnZp",
-            "Y2UuVXBkYXRlTGlnaHRSZXNwb25zZSImgtPkkwIgIhsvYXBpL3YyL2xpZ2h0",
-            "cy91cGRhdGVfbGlnaHQ6ASoSgAEKDERlbGV0ZUxpZ2h0cxIiLmxpZ2h0c1Nl",
-            "cnZpY2UuRGVsZXRlTGlnaHRzUmVxdWVzdBojLmxpZ2h0c1NlcnZpY2UuRGVs",
-            "ZXRlTGlnaHRzUmVzcG9uc2UiJ4LT5JMCISIcL2FwaS92Mi9saWdodHMvZGVs",
-            "ZXRlX2xpZ2h0czoBKmIGcHJvdG8z"));
+            "aHRzX2lkGAEgAygJIhYKFERlbGV0ZUxpZ2h0c1Jlc3BvbnNlIg4KDFN0YXRl",
+            "UmVxdWVzdCI2Cg1TdGF0ZVJlc3BvbnNlEhEKCWlzX2FjdGl2ZRgBIAEoCBIS",
+            "Cgppc19wbGF5aW5nGAIgASgIIh8KDVN3aXRjaFJlcXVlc3QSDgoGYWN0aXZl",
+            "GAEgASgIIiMKDlN3aXRjaFJlc3BvbnNlEhEKCWlzX2FjdGl2ZRgBIAEoCCo6",
+            "CglMaWdodFR5cGUSDQoJVU5ERUZJTkVEEAASCQoFTU9VVEgQARIJCgVIQU5E",
+            "UxACEggKBEVBUlMQAypICghQbGF5TW9kZRIKCgZQUkVTRVQQABIKCgZBTFdB",
+            "WVMQARILCgdNQVJRVUVFEAISCQoFRkxBU0gQAxIMCghUSUNLVE9DSxAEMrYI",
+            "Cg1MaWdodHNTZXJ2aWNlEoABCgxQcmV2aWV3TGlnaHQSIi5saWdodHNTZXJ2",
+            "aWNlLlByZXZpZXdMaWdodFJlcXVlc3QaIy5saWdodHNTZXJ2aWNlLlByZXZp",
+            "ZXdMaWdodFJlc3BvbnNlIieC0+STAiEiHC9hcGkvdjIvbGlnaHRzL3ByZXZp",
+            "ZXdfbGlnaHQ6ASoSdAoJUGxheUxpZ2h0Eh8ubGlnaHRzU2VydmljZS5QbGF5",
+            "TGlnaHRSZXF1ZXN0GiAubGlnaHRzU2VydmljZS5QbGF5TGlnaHRSZXNwb25z",
+            "ZSIkgtPkkwIeIhkvYXBpL3YyL2xpZ2h0cy9wbGF5X2xpZ2h0OgEqEnQKCVN0",
+            "b3BMaWdodBIfLmxpZ2h0c1NlcnZpY2UuU3RvcExpZ2h0UmVxdWVzdBogLmxp",
+            "Z2h0c1NlcnZpY2UuU3RvcExpZ2h0UmVzcG9uc2UiJILT5JMCHiIZL2FwaS92",
+            "Mi9saWdodHMvc3RvcF9saWdodDoBKhJ4CgpMaXN0TGlnaHRzEiAubGlnaHRz",
+            "U2VydmljZS5MaXN0TGlnaHRzUmVxdWVzdBohLmxpZ2h0c1NlcnZpY2UuTGlz",
+            "dExpZ2h0c1Jlc3BvbnNlIiWC0+STAh8iGi9hcGkvdjIvbGlnaHRzL2xpc3Rf",
+            "bGlnaHRzOgEqEnAKCE5ld0xpZ2h0Eh4ubGlnaHRzU2VydmljZS5OZXdMaWdo",
+            "dFJlcXVlc3QaHy5saWdodHNTZXJ2aWNlLk5ld0xpZ2h0UmVzcG9uc2UiI4LT",
+            "5JMCHSIYL2FwaS92Mi9saWdodHMvbmV3X2xpZ2h0OgEqEnwKC1VwZGF0ZUxp",
+            "Z2h0EiEubGlnaHRzU2VydmljZS5VcGRhdGVMaWdodFJlcXVlc3QaIi5saWdo",
+            "dHNTZXJ2aWNlLlVwZGF0ZUxpZ2h0UmVzcG9uc2UiJoLT5JMCICIbL2FwaS92",
+            "Mi9saWdodHMvdXBkYXRlX2xpZ2h0OgEqEoABCgxEZWxldGVMaWdodHMSIi5s",
+            "aWdodHNTZXJ2aWNlLkRlbGV0ZUxpZ2h0c1JlcXVlc3QaIy5saWdodHNTZXJ2",
+            "aWNlLkRlbGV0ZUxpZ2h0c1Jlc3BvbnNlIieC0+STAiEiHC9hcGkvdjIvbGln",
+            "aHRzL2RlbGV0ZV9saWdodHM6ASoSYAoFU3RhdGUSGy5saWdodHNTZXJ2aWNl",
+            "LlN0YXRlUmVxdWVzdBocLmxpZ2h0c1NlcnZpY2UuU3RhdGVSZXNwb25zZSIc",
+            "gtPkkwIWEhQvYXBpL3YyL2xpZ2h0cy9zdGF0ZRJnCgZTd2l0Y2gSHC5saWdo",
+            "dHNTZXJ2aWNlLlN3aXRjaFJlcXVlc3QaHS5saWdodHNTZXJ2aWNlLlN3aXRj",
+            "aFJlc3BvbnNlIiCC0+STAhoiFS9hcGkvdjIvbGlnaHRzL3N3aXRjaDoBKmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LightsService.LightType), typeof(global::LightsService.PlayMode), }, new pbr::GeneratedClrTypeInfo[] {
@@ -87,7 +95,11 @@ namespace LightsService {
             new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.UpdateLightRequest), global::LightsService.UpdateLightRequest.Parser, new[]{ "LightInfo" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.UpdateLightResponse), global::LightsService.UpdateLightResponse.Parser, new[]{ "LightInfo" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.DeleteLightsRequest), global::LightsService.DeleteLightsRequest.Parser, new[]{ "LightsId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.DeleteLightsResponse), global::LightsService.DeleteLightsResponse.Parser, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.DeleteLightsResponse), global::LightsService.DeleteLightsResponse.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.StateRequest), global::LightsService.StateRequest.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.StateResponse), global::LightsService.StateResponse.Parser, new[]{ "IsActive", "IsPlaying" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.SwitchRequest), global::LightsService.SwitchRequest.Parser, new[]{ "Active" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LightsService.SwitchResponse), global::LightsService.SwitchResponse.Parser, new[]{ "IsActive" }, null, null, null)
           }));
     }
     #endregion
@@ -2383,6 +2395,534 @@ namespace LightsService {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class StateRequest : pb::IMessage<StateRequest> {
+    private static readonly pb::MessageParser<StateRequest> _parser = new pb::MessageParser<StateRequest>(() => new StateRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<StateRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LightsService.LightsReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StateRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StateRequest(StateRequest other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StateRequest Clone() {
+      return new StateRequest(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as StateRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(StateRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(StateRequest other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class StateResponse : pb::IMessage<StateResponse> {
+    private static readonly pb::MessageParser<StateResponse> _parser = new pb::MessageParser<StateResponse>(() => new StateResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<StateResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LightsService.LightsReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StateResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StateResponse(StateResponse other) : this() {
+      isActive_ = other.isActive_;
+      isPlaying_ = other.isPlaying_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public StateResponse Clone() {
+      return new StateResponse(this);
+    }
+
+    /// <summary>Field number for the "is_active" field.</summary>
+    public const int IsActiveFieldNumber = 1;
+    private bool isActive_;
+    /// <summary>
+    /// 当前是否启用
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsActive {
+      get { return isActive_; }
+      set {
+        isActive_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_playing" field.</summary>
+    public const int IsPlayingFieldNumber = 2;
+    private bool isPlaying_;
+    /// <summary>
+    /// 当前是否在播放中
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsPlaying {
+      get { return isPlaying_; }
+      set {
+        isPlaying_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as StateResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(StateResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IsActive != other.IsActive) return false;
+      if (IsPlaying != other.IsPlaying) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IsActive != false) hash ^= IsActive.GetHashCode();
+      if (IsPlaying != false) hash ^= IsPlaying.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (IsActive != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(IsActive);
+      }
+      if (IsPlaying != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IsPlaying);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IsActive != false) {
+        size += 1 + 1;
+      }
+      if (IsPlaying != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(StateResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IsActive != false) {
+        IsActive = other.IsActive;
+      }
+      if (other.IsPlaying != false) {
+        IsPlaying = other.IsPlaying;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            IsActive = input.ReadBool();
+            break;
+          }
+          case 16: {
+            IsPlaying = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SwitchRequest : pb::IMessage<SwitchRequest> {
+    private static readonly pb::MessageParser<SwitchRequest> _parser = new pb::MessageParser<SwitchRequest>(() => new SwitchRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SwitchRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LightsService.LightsReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SwitchRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SwitchRequest(SwitchRequest other) : this() {
+      active_ = other.active_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SwitchRequest Clone() {
+      return new SwitchRequest(this);
+    }
+
+    /// <summary>Field number for the "active" field.</summary>
+    public const int ActiveFieldNumber = 1;
+    private bool active_;
+    /// <summary>
+    /// 启用与关闭
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Active {
+      get { return active_; }
+      set {
+        active_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SwitchRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SwitchRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Active != other.Active) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Active != false) hash ^= Active.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Active != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Active);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Active != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SwitchRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Active != false) {
+        Active = other.Active;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Active = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class SwitchResponse : pb::IMessage<SwitchResponse> {
+    private static readonly pb::MessageParser<SwitchResponse> _parser = new pb::MessageParser<SwitchResponse>(() => new SwitchResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<SwitchResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LightsService.LightsReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SwitchResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SwitchResponse(SwitchResponse other) : this() {
+      isActive_ = other.isActive_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public SwitchResponse Clone() {
+      return new SwitchResponse(this);
+    }
+
+    /// <summary>Field number for the "is_active" field.</summary>
+    public const int IsActiveFieldNumber = 1;
+    private bool isActive_;
+    /// <summary>
+    /// 当前是否启用
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsActive {
+      get { return isActive_; }
+      set {
+        isActive_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as SwitchResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(SwitchResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IsActive != other.IsActive) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IsActive != false) hash ^= IsActive.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (IsActive != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(IsActive);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IsActive != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(SwitchResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IsActive != false) {
+        IsActive = other.IsActive;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            IsActive = input.ReadBool();
+            break;
+          }
         }
       }
     }
