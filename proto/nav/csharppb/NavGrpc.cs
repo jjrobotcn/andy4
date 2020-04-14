@@ -24,8 +24,6 @@ namespace NavService {
     static readonly grpc::Marshaller<global::NavService.RotateResponse> __Marshaller_navService_RotateResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.RotateResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NavService.OnNavEventChangeRequest> __Marshaller_navService_OnNavEventChangeRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.OnNavEventChangeRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NavService.OnNavEventChangeResponse> __Marshaller_navService_OnNavEventChangeResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.OnNavEventChangeResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::NavService.LocationResetRequest> __Marshaller_navService_LocationResetRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.LocationResetRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::NavService.LocationResetResponse> __Marshaller_navService_LocationResetResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.LocationResetResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NavService.NewRouteRequest> __Marshaller_navService_NewRouteRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.NewRouteRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NavService.NewRouteResponse> __Marshaller_navService_NewRouteResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.NewRouteResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NavService.ListRoutesRequest> __Marshaller_navService_ListRoutesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NavService.ListRoutesRequest.Parser.ParseFrom);
@@ -76,13 +74,6 @@ namespace NavService {
         "OnNavEventChange",
         __Marshaller_navService_OnNavEventChangeRequest,
         __Marshaller_navService_OnNavEventChangeResponse);
-
-    static readonly grpc::Method<global::NavService.LocationResetRequest, global::NavService.LocationResetResponse> __Method_LocationReset = new grpc::Method<global::NavService.LocationResetRequest, global::NavService.LocationResetResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "LocationReset",
-        __Marshaller_navService_LocationResetRequest,
-        __Marshaller_navService_LocationResetResponse);
 
     static readonly grpc::Method<global::NavService.NewRouteRequest, global::NavService.NewRouteResponse> __Method_NewRoute = new grpc::Method<global::NavService.NewRouteRequest, global::NavService.NewRouteResponse>(
         grpc::MethodType.Unary,
@@ -206,22 +197,6 @@ namespace NavService {
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
       public virtual global::System.Threading.Tasks.Task OnNavEventChange(global::NavService.OnNavEventChangeRequest request, grpc::IServerStreamWriter<global::NavService.OnNavEventChangeResponse> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
-      /// >=2.2.0
-      /// 重置当前定位
-      /// 用于发生定位异常/错误状态，重新初始化导航定位
-      /// 重定位错误：定位状态超时|无地图|UWB错误
-      /// 重定位超时判断: 默认3s，仅在非错误状态下重置
-      /// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::NavService.LocationResetResponse> LocationReset(global::NavService.LocationResetRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -582,70 +557,6 @@ namespace NavService {
         return CallInvoker.AsyncServerStreamingCall(__Method_OnNavEventChange, null, options, request);
       }
       /// <summary>
-      /// >=2.2.0
-      /// 重置当前定位
-      /// 用于发生定位异常/错误状态，重新初始化导航定位
-      /// 重定位错误：定位状态超时|无地图|UWB错误
-      /// 重定位超时判断: 默认3s，仅在非错误状态下重置
-      /// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::NavService.LocationResetResponse LocationReset(global::NavService.LocationResetRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return LocationReset(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// >=2.2.0
-      /// 重置当前定位
-      /// 用于发生定位异常/错误状态，重新初始化导航定位
-      /// 重定位错误：定位状态超时|无地图|UWB错误
-      /// 重定位超时判断: 默认3s，仅在非错误状态下重置
-      /// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::NavService.LocationResetResponse LocationReset(global::NavService.LocationResetRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_LocationReset, null, options, request);
-      }
-      /// <summary>
-      /// >=2.2.0
-      /// 重置当前定位
-      /// 用于发生定位异常/错误状态，重新初始化导航定位
-      /// 重定位错误：定位状态超时|无地图|UWB错误
-      /// 重定位超时判断: 默认3s，仅在非错误状态下重置
-      /// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::NavService.LocationResetResponse> LocationResetAsync(global::NavService.LocationResetRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return LocationResetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// >=2.2.0
-      /// 重置当前定位
-      /// 用于发生定位异常/错误状态，重新初始化导航定位
-      /// 重定位错误：定位状态超时|无地图|UWB错误
-      /// 重定位超时判断: 默认3s，仅在非错误状态下重置
-      /// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::NavService.LocationResetResponse> LocationResetAsync(global::NavService.LocationResetRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_LocationReset, null, options, request);
-      }
-      /// <summary>
       /// 新建线路
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -839,7 +750,6 @@ namespace NavService {
           .AddMethod(__Method_AutoCharge, serviceImpl.AutoCharge)
           .AddMethod(__Method_Rotate, serviceImpl.Rotate)
           .AddMethod(__Method_OnNavEventChange, serviceImpl.OnNavEventChange)
-          .AddMethod(__Method_LocationReset, serviceImpl.LocationReset)
           .AddMethod(__Method_NewRoute, serviceImpl.NewRoute)
           .AddMethod(__Method_ListRoutes, serviceImpl.ListRoutes)
           .AddMethod(__Method_UpdateRoute, serviceImpl.UpdateRoute)
@@ -858,7 +768,6 @@ namespace NavService {
       serviceBinder.AddMethod(__Method_AutoCharge, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NavService.AutoChargeRequest, global::NavService.AutoChargeResponse>(serviceImpl.AutoCharge));
       serviceBinder.AddMethod(__Method_Rotate, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NavService.RotateRequest, global::NavService.RotateResponse>(serviceImpl.Rotate));
       serviceBinder.AddMethod(__Method_OnNavEventChange, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::NavService.OnNavEventChangeRequest, global::NavService.OnNavEventChangeResponse>(serviceImpl.OnNavEventChange));
-      serviceBinder.AddMethod(__Method_LocationReset, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NavService.LocationResetRequest, global::NavService.LocationResetResponse>(serviceImpl.LocationReset));
       serviceBinder.AddMethod(__Method_NewRoute, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NavService.NewRouteRequest, global::NavService.NewRouteResponse>(serviceImpl.NewRoute));
       serviceBinder.AddMethod(__Method_ListRoutes, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NavService.ListRoutesRequest, global::NavService.ListRoutesResponse>(serviceImpl.ListRoutes));
       serviceBinder.AddMethod(__Method_UpdateRoute, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NavService.UpdateRouteRequest, global::NavService.UpdateRouteResponse>(serviceImpl.UpdateRoute));

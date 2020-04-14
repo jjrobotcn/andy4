@@ -15,8 +15,6 @@
 @class DeleteRoutesResponse;
 @class ListRoutesRequest;
 @class ListRoutesResponse;
-@class LocationResetRequest;
-@class LocationResetResponse;
 @class MoveRequest;
 @class MoveResponse;
 @class NavStopRequest;
@@ -34,6 +32,7 @@
 
 #if !defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) || !GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
   #import "google/api/Annotations.pbobjc.h"
+  #import "Map.pbobjc.h"
 #endif
 
 @class GRPCProtoCall;
@@ -108,18 +107,6 @@ NS_ASSUME_NONNULL_BEGIN
  * 监听导航模块中各类事件的变动更新
  */
 - (GRPCUnaryProtoCall *)onNavEventChangeWithMessage:(OnNavEventChangeRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
-
-#pragma mark LocationReset(LocationResetRequest) returns (LocationResetResponse)
-
-/**
- * >=2.2.0
- * 重置当前定位
- * 用于发生定位异常/错误状态，重新初始化导航定位
- * 重定位错误：定位状态超时|无地图|UWB错误
- * 重定位超时判断: 默认3s，仅在非错误状态下重置
- * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
- */
-- (GRPCUnaryProtoCall *)locationResetWithMessage:(LocationResetRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 #pragma mark NewRoute(NewRouteRequest) returns (NewRouteResponse)
 
@@ -297,33 +284,6 @@ NS_ASSUME_NONNULL_BEGIN
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (GRPCProtoCall *)RPCToOnNavEventChangeWithRequest:(OnNavEventChangeRequest *)request eventHandler:(void(^)(BOOL done, OnNavEventChangeResponse *_Nullable response, NSError *_Nullable error))eventHandler;
-
-
-#pragma mark LocationReset(LocationResetRequest) returns (LocationResetResponse)
-
-/**
- * >=2.2.0
- * 重置当前定位
- * 用于发生定位异常/错误状态，重新初始化导航定位
- * 重定位错误：定位状态超时|无地图|UWB错误
- * 重定位超时判断: 默认3s，仅在非错误状态下重置
- * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (void)locationResetWithRequest:(LocationResetRequest *)request handler:(void(^)(LocationResetResponse *_Nullable response, NSError *_Nullable error))handler;
-
-/**
- * >=2.2.0
- * 重置当前定位
- * 用于发生定位异常/错误状态，重新初始化导航定位
- * 重定位错误：定位状态超时|无地图|UWB错误
- * 重定位超时判断: 默认3s，仅在非错误状态下重置
- * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (GRPCProtoCall *)RPCToLocationResetWithRequest:(LocationResetRequest *)request handler:(void(^)(LocationResetResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
 #pragma mark NewRoute(NewRouteRequest) returns (NewRouteResponse)

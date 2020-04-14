@@ -5,6 +5,7 @@
 #import <RxLibrary/GRXWriter+Immediate.h>
 
 #import "google/api/Annotations.pbobjc.h"
+#import "Map.pbobjc.h"
 
 @implementation NavController
 
@@ -314,55 +315,6 @@
            responseHandler:handler
                callOptions:callOptions
              responseClass:[OnNavEventChangeResponse class]];
-}
-
-#pragma mark LocationReset(LocationResetRequest) returns (LocationResetResponse)
-
-// Deprecated methods.
-/**
- * >=2.2.0
- * 重置当前定位
- * 用于发生定位异常/错误状态，重新初始化导航定位
- * 重定位错误：定位状态超时|无地图|UWB错误
- * 重定位超时判断: 默认3s，仅在非错误状态下重置
- * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (void)locationResetWithRequest:(LocationResetRequest *)request handler:(void(^)(LocationResetResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToLocationResetWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-/**
- * >=2.2.0
- * 重置当前定位
- * 用于发生定位异常/错误状态，重新初始化导航定位
- * 重定位错误：定位状态超时|无地图|UWB错误
- * 重定位超时判断: 默认3s，仅在非错误状态下重置
- * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (GRPCProtoCall *)RPCToLocationResetWithRequest:(LocationResetRequest *)request handler:(void(^)(LocationResetResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"LocationReset"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[LocationResetResponse class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-/**
- * >=2.2.0
- * 重置当前定位
- * 用于发生定位异常/错误状态，重新初始化导航定位
- * 重定位错误：定位状态超时|无地图|UWB错误
- * 重定位超时判断: 默认3s，仅在非错误状态下重置
- * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
- */
-- (GRPCUnaryProtoCall *)locationResetWithMessage:(LocationResetRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
-  return [self RPCToMethod:@"LocationReset"
-                   message:message
-           responseHandler:handler
-               callOptions:callOptions
-             responseClass:[LocationResetResponse class]];
 }
 
 #pragma mark NewRoute(NewRouteRequest) returns (NewRouteResponse)

@@ -44,11 +44,6 @@ class NavControllerStub(object):
         request_serializer=nav__pb2.OnNavEventChangeRequest.SerializeToString,
         response_deserializer=nav__pb2.OnNavEventChangeResponse.FromString,
         )
-    self.LocationReset = channel.unary_unary(
-        '/navService.NavController/LocationReset',
-        request_serializer=nav__pb2.LocationResetRequest.SerializeToString,
-        response_deserializer=nav__pb2.LocationResetResponse.FromString,
-        )
     self.NewRoute = channel.unary_unary(
         '/navService.NavController/NewRoute',
         request_serializer=nav__pb2.NewRouteRequest.SerializeToString,
@@ -137,18 +132,6 @@ class NavControllerServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def LocationReset(self, request, context):
-    """>=2.2.0
-    重置当前定位
-    用于发生定位异常/错误状态，重新初始化导航定位
-    重定位错误：定位状态超时|无地图|UWB错误
-    重定位超时判断: 默认3s，仅在非错误状态下重置
-    *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
   def NewRoute(self, request, context):
     """新建线路
     """
@@ -209,11 +192,6 @@ def add_NavControllerServicer_to_server(servicer, server):
           servicer.OnNavEventChange,
           request_deserializer=nav__pb2.OnNavEventChangeRequest.FromString,
           response_serializer=nav__pb2.OnNavEventChangeResponse.SerializeToString,
-      ),
-      'LocationReset': grpc.unary_unary_rpc_method_handler(
-          servicer.LocationReset,
-          request_deserializer=nav__pb2.LocationResetRequest.FromString,
-          response_serializer=nav__pb2.LocationResetResponse.SerializeToString,
       ),
       'NewRoute': grpc.unary_unary_rpc_method_handler(
           servicer.NewRoute,

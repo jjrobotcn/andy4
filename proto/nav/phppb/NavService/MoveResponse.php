@@ -7,7 +7,6 @@ namespace NavService;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
-use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * Generated from protobuf message <code>navService.MoveResponse</code>

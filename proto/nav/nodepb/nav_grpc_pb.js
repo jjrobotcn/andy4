@@ -4,6 +4,7 @@
 var grpc = require('grpc');
 var nav_pb = require('./nav_pb.js');
 var google_api_annotations_pb = require('./google/api/annotations_pb.js');
+var map_pb = require('./map_pb.js');
 
 function serialize_navService_AutoChargeRequest(arg) {
   if (!(arg instanceof nav_pb.AutoChargeRequest)) {
@@ -69,28 +70,6 @@ function serialize_navService_ListRoutesResponse(arg) {
 
 function deserialize_navService_ListRoutesResponse(buffer_arg) {
   return nav_pb.ListRoutesResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_navService_LocationResetRequest(arg) {
-  if (!(arg instanceof nav_pb.LocationResetRequest)) {
-    throw new Error('Expected argument of type navService.LocationResetRequest');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_navService_LocationResetRequest(buffer_arg) {
-  return nav_pb.LocationResetRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_navService_LocationResetResponse(arg) {
-  if (!(arg instanceof nav_pb.LocationResetResponse)) {
-    throw new Error('Expected argument of type navService.LocationResetResponse');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_navService_LocationResetResponse(buffer_arg) {
-  return nav_pb.LocationResetResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_navService_MoveRequest(arg) {
@@ -340,23 +319,6 @@ var NavControllerService = exports.NavControllerService = {
     requestDeserialize: deserialize_navService_OnNavEventChangeRequest,
     responseSerialize: serialize_navService_OnNavEventChangeResponse,
     responseDeserialize: deserialize_navService_OnNavEventChangeResponse,
-  },
-  // >=2.2.0
-  // 重置当前定位
-  // 用于发生定位异常/错误状态，重新初始化导航定位
-  // 重定位错误：定位状态超时|无地图|UWB错误
-  // 重定位超时判断: 默认3s，仅在非错误状态下重置
-  // *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-  locationReset: {
-    path: '/navService.NavController/LocationReset',
-    requestStream: false,
-    responseStream: false,
-    requestType: nav_pb.LocationResetRequest,
-    responseType: nav_pb.LocationResetResponse,
-    requestSerialize: serialize_navService_LocationResetRequest,
-    requestDeserialize: deserialize_navService_LocationResetRequest,
-    responseSerialize: serialize_navService_LocationResetResponse,
-    responseDeserialize: deserialize_navService_LocationResetResponse,
   },
   // 新建线路
   newRoute: {

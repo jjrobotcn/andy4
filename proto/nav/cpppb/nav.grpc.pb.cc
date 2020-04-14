@@ -25,7 +25,6 @@ static const char* NavController_method_names[] = {
   "/navService.NavController/AutoCharge",
   "/navService.NavController/Rotate",
   "/navService.NavController/OnNavEventChange",
-  "/navService.NavController/LocationReset",
   "/navService.NavController/NewRoute",
   "/navService.NavController/ListRoutes",
   "/navService.NavController/UpdateRoute",
@@ -45,11 +44,10 @@ NavController::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   , rpcmethod_AutoCharge_(NavController_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Rotate_(NavController_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_OnNavEventChange_(NavController_method_names[5], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_LocationReset_(NavController_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_NewRoute_(NavController_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ListRoutes_(NavController_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateRoute_(NavController_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DeleteRoutes_(NavController_method_names[10], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_NewRoute_(NavController_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ListRoutes_(NavController_method_names[7], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateRoute_(NavController_method_names[8], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DeleteRoutes_(NavController_method_names[9], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReaderWriter< ::navService::MoveRequest, ::navService::MoveResponse>* NavController::Stub::MoveRaw(::grpc::ClientContext* context) {
@@ -194,34 +192,6 @@ void NavController::Stub::experimental_async::OnNavEventChange(::grpc::ClientCon
 
 ::grpc::ClientAsyncReader< ::navService::OnNavEventChangeResponse>* NavController::Stub::PrepareAsyncOnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncReaderFactory< ::navService::OnNavEventChangeResponse>::Create(channel_.get(), cq, rpcmethod_OnNavEventChange_, context, request, false, nullptr);
-}
-
-::grpc::Status NavController::Stub::LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::navService::LocationResetResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_LocationReset_, context, request, response);
-}
-
-void NavController::Stub::experimental_async::LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_LocationReset_, context, request, response, std::move(f));
-}
-
-void NavController::Stub::experimental_async::LocationReset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::LocationResetResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_LocationReset_, context, request, response, std::move(f));
-}
-
-void NavController::Stub::experimental_async::LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_LocationReset_, context, request, response, reactor);
-}
-
-void NavController::Stub::experimental_async::LocationReset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_LocationReset_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>* NavController::Stub::AsyncLocationResetRaw(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::navService::LocationResetResponse>::Create(channel_.get(), cq, rpcmethod_LocationReset_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>* NavController::Stub::PrepareAsyncLocationResetRaw(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::navService::LocationResetResponse>::Create(channel_.get(), cq, rpcmethod_LocationReset_, context, request, false);
 }
 
 ::grpc::Status NavController::Stub::NewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::navService::NewRouteResponse* response) {
@@ -370,25 +340,20 @@ NavController::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       NavController_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< NavController::Service, ::navService::LocationResetRequest, ::navService::LocationResetResponse>(
-          std::mem_fn(&NavController::Service::LocationReset), this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      NavController_method_names[7],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< NavController::Service, ::navService::NewRouteRequest, ::navService::NewRouteResponse>(
           std::mem_fn(&NavController::Service::NewRoute), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      NavController_method_names[8],
+      NavController_method_names[7],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< NavController::Service, ::navService::ListRoutesRequest, ::navService::ListRoutesResponse>(
           std::mem_fn(&NavController::Service::ListRoutes), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      NavController_method_names[9],
+      NavController_method_names[8],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< NavController::Service, ::navService::UpdateRouteRequest, ::navService::UpdateRouteResponse>(
           std::mem_fn(&NavController::Service::UpdateRoute), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      NavController_method_names[10],
+      NavController_method_names[9],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< NavController::Service, ::navService::DeleteRoutesRequest, ::navService::DeleteRoutesResponse>(
           std::mem_fn(&NavController::Service::DeleteRoutes), this)));
@@ -435,13 +400,6 @@ NavController::Service::~Service() {
   (void) context;
   (void) request;
   (void) writer;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status NavController::Service::LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace grpc_impl {
-class Channel;
 class CompletionQueue;
 class ServerCompletionQueue;
+class ServerContext;
 }  // namespace grpc_impl
 
 namespace grpc {
@@ -31,10 +31,6 @@ namespace experimental {
 template <typename RequestT, typename ResponseT>
 class MessageAllocator;
 }  // namespace experimental
-}  // namespace grpc_impl
-
-namespace grpc {
-class ServerContext;
 }  // namespace grpc
 
 namespace navService {
@@ -119,19 +115,6 @@ class NavController final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::navService::OnNavEventChangeResponse>> PrepareAsyncOnNavEventChange(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::navService::OnNavEventChangeResponse>>(PrepareAsyncOnNavEventChangeRaw(context, request, cq));
     }
-    // >=2.2.0
-    // 重置当前定位
-    // 用于发生定位异常/错误状态，重新初始化导航定位
-    // 重定位错误：定位状态超时|无地图|UWB错误
-    // 重定位超时判断: 默认3s，仅在非错误状态下重置
-    // *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-    virtual ::grpc::Status LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::navService::LocationResetResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::navService::LocationResetResponse>> AsyncLocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::navService::LocationResetResponse>>(AsyncLocationResetRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::navService::LocationResetResponse>> PrepareAsyncLocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::navService::LocationResetResponse>>(PrepareAsyncLocationResetRaw(context, request, cq));
-    }
     // 新建线路
     virtual ::grpc::Status NewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::navService::NewRouteResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::navService::NewRouteResponse>> AsyncNewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::grpc::CompletionQueue* cq) {
@@ -211,16 +194,6 @@ class NavController final {
       // 导航事件监听
       // 监听导航模块中各类事件的变动更新
       virtual void OnNavEventChange(::grpc::ClientContext* context, ::navService::OnNavEventChangeRequest* request, ::grpc::experimental::ClientReadReactor< ::navService::OnNavEventChangeResponse>* reactor) = 0;
-      // >=2.2.0
-      // 重置当前定位
-      // 用于发生定位异常/错误状态，重新初始化导航定位
-      // 重定位错误：定位状态超时|无地图|UWB错误
-      // 重定位超时判断: 默认3s，仅在非错误状态下重置
-      // *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      virtual void LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void LocationReset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::LocationResetResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void LocationReset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       // 新建线路
       virtual void NewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest* request, ::navService::NewRouteResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void NewRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::NewRouteResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -258,8 +231,6 @@ class NavController final {
     virtual ::grpc::ClientReaderInterface< ::navService::OnNavEventChangeResponse>* OnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::navService::OnNavEventChangeResponse>* AsyncOnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::navService::OnNavEventChangeResponse>* PrepareAsyncOnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::navService::LocationResetResponse>* AsyncLocationResetRaw(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::navService::LocationResetResponse>* PrepareAsyncLocationResetRaw(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::navService::NewRouteResponse>* AsyncNewRouteRaw(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::navService::NewRouteResponse>* PrepareAsyncNewRouteRaw(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::navService::ListRoutesResponse>* AsyncListRoutesRaw(::grpc::ClientContext* context, const ::navService::ListRoutesRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -318,13 +289,6 @@ class NavController final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::navService::OnNavEventChangeResponse>> PrepareAsyncOnNavEventChange(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::navService::OnNavEventChangeResponse>>(PrepareAsyncOnNavEventChangeRaw(context, request, cq));
     }
-    ::grpc::Status LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::navService::LocationResetResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>> AsyncLocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>>(AsyncLocationResetRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>> PrepareAsyncLocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>>(PrepareAsyncLocationResetRaw(context, request, cq));
-    }
     ::grpc::Status NewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::navService::NewRouteResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::navService::NewRouteResponse>> AsyncNewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::navService::NewRouteResponse>>(AsyncNewRouteRaw(context, request, cq));
@@ -374,10 +338,6 @@ class NavController final {
       void Rotate(::grpc::ClientContext* context, const ::navService::RotateRequest* request, ::navService::RotateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void Rotate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::RotateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void OnNavEventChange(::grpc::ClientContext* context, ::navService::OnNavEventChangeRequest* request, ::grpc::experimental::ClientReadReactor< ::navService::OnNavEventChangeResponse>* reactor) override;
-      void LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, std::function<void(::grpc::Status)>) override;
-      void LocationReset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::LocationResetResponse* response, std::function<void(::grpc::Status)>) override;
-      void LocationReset(::grpc::ClientContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void LocationReset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void NewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest* request, ::navService::NewRouteResponse* response, std::function<void(::grpc::Status)>) override;
       void NewRoute(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::navService::NewRouteResponse* response, std::function<void(::grpc::Status)>) override;
       void NewRoute(::grpc::ClientContext* context, const ::navService::NewRouteRequest* request, ::navService::NewRouteResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
@@ -419,8 +379,6 @@ class NavController final {
     ::grpc::ClientReader< ::navService::OnNavEventChangeResponse>* OnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request) override;
     ::grpc::ClientAsyncReader< ::navService::OnNavEventChangeResponse>* AsyncOnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::navService::OnNavEventChangeResponse>* PrepareAsyncOnNavEventChangeRaw(::grpc::ClientContext* context, const ::navService::OnNavEventChangeRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>* AsyncLocationResetRaw(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::navService::LocationResetResponse>* PrepareAsyncLocationResetRaw(::grpc::ClientContext* context, const ::navService::LocationResetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::navService::NewRouteResponse>* AsyncNewRouteRaw(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::navService::NewRouteResponse>* PrepareAsyncNewRouteRaw(::grpc::ClientContext* context, const ::navService::NewRouteRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::navService::ListRoutesResponse>* AsyncListRoutesRaw(::grpc::ClientContext* context, const ::navService::ListRoutesRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -435,7 +393,6 @@ class NavController final {
     const ::grpc::internal::RpcMethod rpcmethod_AutoCharge_;
     const ::grpc::internal::RpcMethod rpcmethod_Rotate_;
     const ::grpc::internal::RpcMethod rpcmethod_OnNavEventChange_;
-    const ::grpc::internal::RpcMethod rpcmethod_LocationReset_;
     const ::grpc::internal::RpcMethod rpcmethod_NewRoute_;
     const ::grpc::internal::RpcMethod rpcmethod_ListRoutes_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateRoute_;
@@ -479,13 +436,6 @@ class NavController final {
     // 导航事件监听
     // 监听导航模块中各类事件的变动更新
     virtual ::grpc::Status OnNavEventChange(::grpc::ServerContext* context, const ::navService::OnNavEventChangeRequest* request, ::grpc::ServerWriter< ::navService::OnNavEventChangeResponse>* writer);
-    // >=2.2.0
-    // 重置当前定位
-    // 用于发生定位异常/错误状态，重新初始化导航定位
-    // 重定位错误：定位状态超时|无地图|UWB错误
-    // 重定位超时判断: 默认3s，仅在非错误状态下重置
-    // *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-    virtual ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response);
     // 新建线路
     virtual ::grpc::Status NewRoute(::grpc::ServerContext* context, const ::navService::NewRouteRequest* request, ::navService::NewRouteResponse* response);
     // 获取线路
@@ -616,32 +566,12 @@ class NavController final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_LocationReset : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_LocationReset() {
-      ::grpc::Service::MarkMethodAsync(6);
-    }
-    ~WithAsyncMethod_LocationReset() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestLocationReset(::grpc::ServerContext* context, ::navService::LocationResetRequest* request, ::grpc::ServerAsyncResponseWriter< ::navService::LocationResetResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithAsyncMethod_NewRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_NewRoute() {
-      ::grpc::Service::MarkMethodAsync(7);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_NewRoute() override {
       BaseClassMustBeDerivedFromService(this);
@@ -652,7 +582,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestNewRoute(::grpc::ServerContext* context, ::navService::NewRouteRequest* request, ::grpc::ServerAsyncResponseWriter< ::navService::NewRouteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -661,7 +591,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_ListRoutes() {
-      ::grpc::Service::MarkMethodAsync(8);
+      ::grpc::Service::MarkMethodAsync(7);
     }
     ~WithAsyncMethod_ListRoutes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -672,7 +602,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListRoutes(::grpc::ServerContext* context, ::navService::ListRoutesRequest* request, ::grpc::ServerAsyncResponseWriter< ::navService::ListRoutesResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -681,7 +611,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_UpdateRoute() {
-      ::grpc::Service::MarkMethodAsync(9);
+      ::grpc::Service::MarkMethodAsync(8);
     }
     ~WithAsyncMethod_UpdateRoute() override {
       BaseClassMustBeDerivedFromService(this);
@@ -692,7 +622,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateRoute(::grpc::ServerContext* context, ::navService::UpdateRouteRequest* request, ::grpc::ServerAsyncResponseWriter< ::navService::UpdateRouteResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -701,7 +631,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_DeleteRoutes() {
-      ::grpc::Service::MarkMethodAsync(10);
+      ::grpc::Service::MarkMethodAsync(9);
     }
     ~WithAsyncMethod_DeleteRoutes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -712,10 +642,10 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteRoutes(::grpc::ServerContext* context, ::navService::DeleteRoutesRequest* request, ::grpc::ServerAsyncResponseWriter< ::navService::DeleteRoutesResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Move<WithAsyncMethod_NavTo<WithAsyncMethod_NavStop<WithAsyncMethod_AutoCharge<WithAsyncMethod_Rotate<WithAsyncMethod_OnNavEventChange<WithAsyncMethod_LocationReset<WithAsyncMethod_NewRoute<WithAsyncMethod_ListRoutes<WithAsyncMethod_UpdateRoute<WithAsyncMethod_DeleteRoutes<Service > > > > > > > > > > > AsyncService;
+  typedef WithAsyncMethod_Move<WithAsyncMethod_NavTo<WithAsyncMethod_NavStop<WithAsyncMethod_AutoCharge<WithAsyncMethod_Rotate<WithAsyncMethod_OnNavEventChange<WithAsyncMethod_NewRoute<WithAsyncMethod_ListRoutes<WithAsyncMethod_UpdateRoute<WithAsyncMethod_DeleteRoutes<Service > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Move : public BaseClass {
    private:
@@ -885,43 +815,12 @@ class NavController final {
         ::navService::OnNavEventChangeRequest, ::navService::OnNavEventChangeResponse>;}
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_LocationReset : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithCallbackMethod_LocationReset() {
-      ::grpc::Service::experimental().MarkMethodCallback(6,
-        new ::grpc::internal::CallbackUnaryHandler< ::navService::LocationResetRequest, ::navService::LocationResetResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::navService::LocationResetRequest* request,
-                 ::navService::LocationResetResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->LocationReset(context, request, response, controller);
-                 }));
-    }
-    void SetMessageAllocatorFor_LocationReset(
-        ::grpc::experimental::MessageAllocator< ::navService::LocationResetRequest, ::navService::LocationResetResponse>* allocator) {
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::navService::LocationResetRequest, ::navService::LocationResetResponse>*>(
-          ::grpc::Service::experimental().GetHandler(6))
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_LocationReset() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
   class ExperimentalWithCallbackMethod_NewRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_NewRoute() {
-      ::grpc::Service::experimental().MarkMethodCallback(7,
+      ::grpc::Service::experimental().MarkMethodCallback(6,
         new ::grpc::internal::CallbackUnaryHandler< ::navService::NewRouteRequest, ::navService::NewRouteResponse>(
           [this](::grpc::ServerContext* context,
                  const ::navService::NewRouteRequest* request,
@@ -933,7 +832,7 @@ class NavController final {
     void SetMessageAllocatorFor_NewRoute(
         ::grpc::experimental::MessageAllocator< ::navService::NewRouteRequest, ::navService::NewRouteResponse>* allocator) {
       static_cast<::grpc::internal::CallbackUnaryHandler< ::navService::NewRouteRequest, ::navService::NewRouteResponse>*>(
-          ::grpc::Service::experimental().GetHandler(7))
+          ::grpc::Service::experimental().GetHandler(6))
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_NewRoute() override {
@@ -952,7 +851,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_ListRoutes() {
-      ::grpc::Service::experimental().MarkMethodCallback(8,
+      ::grpc::Service::experimental().MarkMethodCallback(7,
         new ::grpc::internal::CallbackUnaryHandler< ::navService::ListRoutesRequest, ::navService::ListRoutesResponse>(
           [this](::grpc::ServerContext* context,
                  const ::navService::ListRoutesRequest* request,
@@ -964,7 +863,7 @@ class NavController final {
     void SetMessageAllocatorFor_ListRoutes(
         ::grpc::experimental::MessageAllocator< ::navService::ListRoutesRequest, ::navService::ListRoutesResponse>* allocator) {
       static_cast<::grpc::internal::CallbackUnaryHandler< ::navService::ListRoutesRequest, ::navService::ListRoutesResponse>*>(
-          ::grpc::Service::experimental().GetHandler(8))
+          ::grpc::Service::experimental().GetHandler(7))
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_ListRoutes() override {
@@ -983,7 +882,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_UpdateRoute() {
-      ::grpc::Service::experimental().MarkMethodCallback(9,
+      ::grpc::Service::experimental().MarkMethodCallback(8,
         new ::grpc::internal::CallbackUnaryHandler< ::navService::UpdateRouteRequest, ::navService::UpdateRouteResponse>(
           [this](::grpc::ServerContext* context,
                  const ::navService::UpdateRouteRequest* request,
@@ -995,7 +894,7 @@ class NavController final {
     void SetMessageAllocatorFor_UpdateRoute(
         ::grpc::experimental::MessageAllocator< ::navService::UpdateRouteRequest, ::navService::UpdateRouteResponse>* allocator) {
       static_cast<::grpc::internal::CallbackUnaryHandler< ::navService::UpdateRouteRequest, ::navService::UpdateRouteResponse>*>(
-          ::grpc::Service::experimental().GetHandler(9))
+          ::grpc::Service::experimental().GetHandler(8))
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_UpdateRoute() override {
@@ -1014,7 +913,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_DeleteRoutes() {
-      ::grpc::Service::experimental().MarkMethodCallback(10,
+      ::grpc::Service::experimental().MarkMethodCallback(9,
         new ::grpc::internal::CallbackUnaryHandler< ::navService::DeleteRoutesRequest, ::navService::DeleteRoutesResponse>(
           [this](::grpc::ServerContext* context,
                  const ::navService::DeleteRoutesRequest* request,
@@ -1026,7 +925,7 @@ class NavController final {
     void SetMessageAllocatorFor_DeleteRoutes(
         ::grpc::experimental::MessageAllocator< ::navService::DeleteRoutesRequest, ::navService::DeleteRoutesResponse>* allocator) {
       static_cast<::grpc::internal::CallbackUnaryHandler< ::navService::DeleteRoutesRequest, ::navService::DeleteRoutesResponse>*>(
-          ::grpc::Service::experimental().GetHandler(10))
+          ::grpc::Service::experimental().GetHandler(9))
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_DeleteRoutes() override {
@@ -1039,7 +938,7 @@ class NavController final {
     }
     virtual void DeleteRoutes(::grpc::ServerContext* context, const ::navService::DeleteRoutesRequest* request, ::navService::DeleteRoutesResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_Move<ExperimentalWithCallbackMethod_NavTo<ExperimentalWithCallbackMethod_NavStop<ExperimentalWithCallbackMethod_AutoCharge<ExperimentalWithCallbackMethod_Rotate<ExperimentalWithCallbackMethod_OnNavEventChange<ExperimentalWithCallbackMethod_LocationReset<ExperimentalWithCallbackMethod_NewRoute<ExperimentalWithCallbackMethod_ListRoutes<ExperimentalWithCallbackMethod_UpdateRoute<ExperimentalWithCallbackMethod_DeleteRoutes<Service > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Move<ExperimentalWithCallbackMethod_NavTo<ExperimentalWithCallbackMethod_NavStop<ExperimentalWithCallbackMethod_AutoCharge<ExperimentalWithCallbackMethod_Rotate<ExperimentalWithCallbackMethod_OnNavEventChange<ExperimentalWithCallbackMethod_NewRoute<ExperimentalWithCallbackMethod_ListRoutes<ExperimentalWithCallbackMethod_UpdateRoute<ExperimentalWithCallbackMethod_DeleteRoutes<Service > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Move : public BaseClass {
    private:
@@ -1143,29 +1042,12 @@ class NavController final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_LocationReset : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_LocationReset() {
-      ::grpc::Service::MarkMethodGeneric(6);
-    }
-    ~WithGenericMethod_LocationReset() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
   class WithGenericMethod_NewRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_NewRoute() {
-      ::grpc::Service::MarkMethodGeneric(7);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_NewRoute() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1182,7 +1064,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_ListRoutes() {
-      ::grpc::Service::MarkMethodGeneric(8);
+      ::grpc::Service::MarkMethodGeneric(7);
     }
     ~WithGenericMethod_ListRoutes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1199,7 +1081,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_UpdateRoute() {
-      ::grpc::Service::MarkMethodGeneric(9);
+      ::grpc::Service::MarkMethodGeneric(8);
     }
     ~WithGenericMethod_UpdateRoute() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1216,7 +1098,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_DeleteRoutes() {
-      ::grpc::Service::MarkMethodGeneric(10);
+      ::grpc::Service::MarkMethodGeneric(9);
     }
     ~WithGenericMethod_DeleteRoutes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1348,32 +1230,12 @@ class NavController final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_LocationReset : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithRawMethod_LocationReset() {
-      ::grpc::Service::MarkMethodRaw(6);
-    }
-    ~WithRawMethod_LocationReset() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestLocationReset(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawMethod_NewRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_NewRoute() {
-      ::grpc::Service::MarkMethodRaw(7);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_NewRoute() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1384,7 +1246,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestNewRoute(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1393,7 +1255,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_ListRoutes() {
-      ::grpc::Service::MarkMethodRaw(8);
+      ::grpc::Service::MarkMethodRaw(7);
     }
     ~WithRawMethod_ListRoutes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1404,7 +1266,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestListRoutes(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1413,7 +1275,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_UpdateRoute() {
-      ::grpc::Service::MarkMethodRaw(9);
+      ::grpc::Service::MarkMethodRaw(8);
     }
     ~WithRawMethod_UpdateRoute() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1424,7 +1286,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestUpdateRoute(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1433,7 +1295,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_DeleteRoutes() {
-      ::grpc::Service::MarkMethodRaw(10);
+      ::grpc::Service::MarkMethodRaw(9);
     }
     ~WithRawMethod_DeleteRoutes() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1444,7 +1306,7 @@ class NavController final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDeleteRoutes(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(10, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(9, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1592,37 +1454,12 @@ class NavController final {
         ::grpc::ByteBuffer, ::grpc::ByteBuffer>;}
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_LocationReset : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithRawCallbackMethod_LocationReset() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(6,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->LocationReset(context, request, response, controller);
-                 }));
-    }
-    ~ExperimentalWithRawCallbackMethod_LocationReset() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void LocationReset(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_NewRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_NewRoute() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(7,
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -1647,7 +1484,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_ListRoutes() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(8,
+      ::grpc::Service::experimental().MarkMethodRawCallback(7,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -1672,7 +1509,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_UpdateRoute() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(9,
+      ::grpc::Service::experimental().MarkMethodRawCallback(8,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -1697,7 +1534,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_DeleteRoutes() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(10,
+      ::grpc::Service::experimental().MarkMethodRawCallback(9,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -1797,32 +1634,12 @@ class NavController final {
     virtual ::grpc::Status StreamedRotate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::navService::RotateRequest,::navService::RotateResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_LocationReset : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithStreamedUnaryMethod_LocationReset() {
-      ::grpc::Service::MarkMethodStreamed(6,
-        new ::grpc::internal::StreamedUnaryHandler< ::navService::LocationResetRequest, ::navService::LocationResetResponse>(std::bind(&WithStreamedUnaryMethod_LocationReset<BaseClass>::StreamedLocationReset, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_LocationReset() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status LocationReset(::grpc::ServerContext* context, const ::navService::LocationResetRequest* request, ::navService::LocationResetResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedLocationReset(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::navService::LocationResetRequest,::navService::LocationResetResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_NewRoute : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_NewRoute() {
-      ::grpc::Service::MarkMethodStreamed(7,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler< ::navService::NewRouteRequest, ::navService::NewRouteResponse>(std::bind(&WithStreamedUnaryMethod_NewRoute<BaseClass>::StreamedNewRoute, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_NewRoute() override {
@@ -1842,7 +1659,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_ListRoutes() {
-      ::grpc::Service::MarkMethodStreamed(8,
+      ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler< ::navService::ListRoutesRequest, ::navService::ListRoutesResponse>(std::bind(&WithStreamedUnaryMethod_ListRoutes<BaseClass>::StreamedListRoutes, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_ListRoutes() override {
@@ -1862,7 +1679,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_UpdateRoute() {
-      ::grpc::Service::MarkMethodStreamed(9,
+      ::grpc::Service::MarkMethodStreamed(8,
         new ::grpc::internal::StreamedUnaryHandler< ::navService::UpdateRouteRequest, ::navService::UpdateRouteResponse>(std::bind(&WithStreamedUnaryMethod_UpdateRoute<BaseClass>::StreamedUpdateRoute, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_UpdateRoute() override {
@@ -1882,7 +1699,7 @@ class NavController final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_DeleteRoutes() {
-      ::grpc::Service::MarkMethodStreamed(10,
+      ::grpc::Service::MarkMethodStreamed(9,
         new ::grpc::internal::StreamedUnaryHandler< ::navService::DeleteRoutesRequest, ::navService::DeleteRoutesResponse>(std::bind(&WithStreamedUnaryMethod_DeleteRoutes<BaseClass>::StreamedDeleteRoutes, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_DeleteRoutes() override {
@@ -1896,7 +1713,7 @@ class NavController final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDeleteRoutes(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::navService::DeleteRoutesRequest,::navService::DeleteRoutesResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_NavTo<WithStreamedUnaryMethod_NavStop<WithStreamedUnaryMethod_AutoCharge<WithStreamedUnaryMethod_Rotate<WithStreamedUnaryMethod_LocationReset<WithStreamedUnaryMethod_NewRoute<WithStreamedUnaryMethod_ListRoutes<WithStreamedUnaryMethod_UpdateRoute<WithStreamedUnaryMethod_DeleteRoutes<Service > > > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_NavTo<WithStreamedUnaryMethod_NavStop<WithStreamedUnaryMethod_AutoCharge<WithStreamedUnaryMethod_Rotate<WithStreamedUnaryMethod_NewRoute<WithStreamedUnaryMethod_ListRoutes<WithStreamedUnaryMethod_UpdateRoute<WithStreamedUnaryMethod_DeleteRoutes<Service > > > > > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_OnNavEventChange : public BaseClass {
    private:
@@ -1918,7 +1735,7 @@ class NavController final {
     virtual ::grpc::Status StreamedOnNavEventChange(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::navService::OnNavEventChangeRequest,::navService::OnNavEventChangeResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_OnNavEventChange<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_NavTo<WithStreamedUnaryMethod_NavStop<WithStreamedUnaryMethod_AutoCharge<WithStreamedUnaryMethod_Rotate<WithSplitStreamingMethod_OnNavEventChange<WithStreamedUnaryMethod_LocationReset<WithStreamedUnaryMethod_NewRoute<WithStreamedUnaryMethod_ListRoutes<WithStreamedUnaryMethod_UpdateRoute<WithStreamedUnaryMethod_DeleteRoutes<Service > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_NavTo<WithStreamedUnaryMethod_NavStop<WithStreamedUnaryMethod_AutoCharge<WithStreamedUnaryMethod_Rotate<WithSplitStreamingMethod_OnNavEventChange<WithStreamedUnaryMethod_NewRoute<WithStreamedUnaryMethod_ListRoutes<WithStreamedUnaryMethod_UpdateRoute<WithStreamedUnaryMethod_DeleteRoutes<Service > > > > > > > > > StreamedService;
 };
 
 }  // namespace navService

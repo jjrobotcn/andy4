@@ -46,13 +46,6 @@ module NavService
       # 导航事件监听
       # 监听导航模块中各类事件的变动更新
       rpc :OnNavEventChange, OnNavEventChangeRequest, stream(OnNavEventChangeResponse)
-      # >=2.2.0
-      # 重置当前定位
-      # 用于发生定位异常/错误状态，重新初始化导航定位
-      # 重定位错误：定位状态超时|无地图|UWB错误
-      # 重定位超时判断: 默认3s，仅在非错误状态下重置
-      # *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-      rpc :LocationReset, LocationResetRequest, LocationResetResponse
       # 新建线路
       rpc :NewRoute, NewRouteRequest, NewRouteResponse
       # 获取线路

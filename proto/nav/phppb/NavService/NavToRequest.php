@@ -7,7 +7,6 @@ namespace NavService;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
-use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * 导航请求
@@ -42,6 +41,8 @@ class NavToRequest extends \Google\Protobuf\Internal\Message
      *           导航请求目标
      *     @type \NavService\NavRoaming $roaming
      *           导航漫游(需底盘类型支持)
+     *     @type \NavService\MapPosition $map_position
+     *           导航地图坐标(仅支持无线导航类型)
      *     @type int $speed
      *           导航移动速度(需底盘类型支持)
      *     @type bool $sync_mode
@@ -103,6 +104,32 @@ class NavToRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \NavService\NavRoaming::class);
         $this->writeOneof(3, $var);
+
+        return $this;
+    }
+
+    /**
+     * 导航地图坐标(仅支持无线导航类型)
+     *
+     * Generated from protobuf field <code>.navService.MapPosition map_position = 5;</code>
+     * @return \NavService\MapPosition
+     */
+    public function getMapPosition()
+    {
+        return $this->readOneof(5);
+    }
+
+    /**
+     * 导航地图坐标(仅支持无线导航类型)
+     *
+     * Generated from protobuf field <code>.navService.MapPosition map_position = 5;</code>
+     * @param \NavService\MapPosition $var
+     * @return $this
+     */
+    public function setMapPosition($var)
+    {
+        GPBUtil::checkMessage($var, \NavService\MapPosition::class);
+        $this->writeOneof(5, $var);
 
         return $this;
     }

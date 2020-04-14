@@ -4,6 +4,7 @@
 require 'google/protobuf'
 
 require 'google/api/annotations_pb'
+require 'map_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("nav.proto", :syntax => :proto3) do
     add_message "navService.MoveRequest" do
@@ -31,6 +32,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       oneof :target_oneof do
         optional :target, :message, 1, "navService.NavTarget"
         optional :roaming, :message, 3, "navService.NavRoaming"
+        optional :map_position, :message, 5, "navService.MapPosition"
       end
     end
     add_message "navService.NavToResponse" do
@@ -38,6 +40,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       oneof :target_oneof do
         optional :target, :message, 2, "navService.NavTarget"
         optional :is_roaming, :bool, 3
+        optional :map_position, :message, 4, "navService.MapPosition"
       end
     end
     add_message "navService.NavStopRequest" do
@@ -88,10 +91,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
         optional :rotate_event, :message, 4, "navService.RotateEvent"
         optional :auto_charge_event, :message, 5, "navService.AutoChargeEvent"
       end
-    end
-    add_message "navService.LocationResetRequest" do
-    end
-    add_message "navService.LocationResetResponse" do
     end
     add_message "navService.Route" do
       optional :id, :string, 1
@@ -202,8 +201,6 @@ module NavService
   AutoChargeEvent = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.AutoChargeEvent").msgclass
   RotateEvent = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.RotateEvent").msgclass
   OnNavEventChangeResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.OnNavEventChangeResponse").msgclass
-  LocationResetRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.LocationResetRequest").msgclass
-  LocationResetResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.LocationResetResponse").msgclass
   Route = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.Route").msgclass
   RoutePoint = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.RoutePoint").msgclass
   NewRouteRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("navService.NewRouteRequest").msgclass

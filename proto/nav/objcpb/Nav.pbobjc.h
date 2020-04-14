@@ -28,6 +28,7 @@
 CF_EXTERN_C_BEGIN
 
 @class AutoChargeEvent;
+@class MapPosition;
 @class MoveEvent;
 @class NavEvent;
 @class NavRoaming;
@@ -411,12 +412,14 @@ typedef GPB_ENUM(NavToRequest_FieldNumber) {
   NavToRequest_FieldNumber_Speed = 2,
   NavToRequest_FieldNumber_Roaming = 3,
   NavToRequest_FieldNumber_SyncMode = 4,
+  NavToRequest_FieldNumber_MapPosition = 5,
 };
 
 typedef GPB_ENUM(NavToRequest_TargetOneof_OneOfCase) {
   NavToRequest_TargetOneof_OneOfCase_GPBUnsetOneOfCase = 0,
   NavToRequest_TargetOneof_OneOfCase_Target = 1,
   NavToRequest_TargetOneof_OneOfCase_Roaming = 3,
+  NavToRequest_TargetOneof_OneOfCase_MapPosition = 5,
 };
 
 /**
@@ -431,6 +434,9 @@ typedef GPB_ENUM(NavToRequest_TargetOneof_OneOfCase) {
 
 /** 导航漫游(需底盘类型支持) */
 @property(nonatomic, readwrite, strong, null_resettable) NavRoaming *roaming;
+
+/** 导航地图坐标(仅支持无线导航类型) */
+@property(nonatomic, readwrite, strong, null_resettable) MapPosition *mapPosition;
 
 /** 导航移动速度(需底盘类型支持) */
 @property(nonatomic, readwrite) uint32_t speed;
@@ -455,12 +461,14 @@ typedef GPB_ENUM(NavToResponse_FieldNumber) {
   NavToResponse_FieldNumber_StatusCode = 1,
   NavToResponse_FieldNumber_Target = 2,
   NavToResponse_FieldNumber_IsRoaming = 3,
+  NavToResponse_FieldNumber_MapPosition = 4,
 };
 
 typedef GPB_ENUM(NavToResponse_TargetOneof_OneOfCase) {
   NavToResponse_TargetOneof_OneOfCase_GPBUnsetOneOfCase = 0,
   NavToResponse_TargetOneof_OneOfCase_Target = 2,
   NavToResponse_TargetOneof_OneOfCase_IsRoaming = 3,
+  NavToResponse_TargetOneof_OneOfCase_MapPosition = 4,
 };
 
 /**
@@ -477,6 +485,9 @@ typedef GPB_ENUM(NavToResponse_TargetOneof_OneOfCase) {
 
 /** 漫游模式 */
 @property(nonatomic, readwrite) BOOL isRoaming;
+
+/** 地图位置目标 */
+@property(nonatomic, readwrite, strong, null_resettable) MapPosition *mapPosition;
 
 @end
 
@@ -820,18 +831,6 @@ void SetOnNavEventChangeResponse_NavEventType_RawValue(OnNavEventChangeResponse 
  * Clears whatever value was set for the oneof 'changeOneof'.
  **/
 void OnNavEventChangeResponse_ClearChangeOneofOneOfCase(OnNavEventChangeResponse *message);
-
-#pragma mark - LocationResetRequest
-
-@interface LocationResetRequest : GPBMessage
-
-@end
-
-#pragma mark - LocationResetResponse
-
-@interface LocationResetResponse : GPBMessage
-
-@end
 
 #pragma mark - Route
 

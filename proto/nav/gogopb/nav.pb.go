@@ -307,7 +307,7 @@ func (m *MoveRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return xxx_messageInfo_MoveRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -375,7 +375,7 @@ func (m *MoveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)
 		return xxx_messageInfo_MoveResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -425,7 +425,7 @@ func (m *NavTarget) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_NavTarget.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -482,7 +482,7 @@ func (m *NavRoaming) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_NavRoaming.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -534,6 +534,7 @@ type NavToRequest struct {
 	// Types that are valid to be assigned to TargetOneof:
 	//	*NavToRequest_Target
 	//	*NavToRequest_Roaming
+	//	*NavToRequest_MapPosition
 	TargetOneof isNavToRequest_TargetOneof `protobuf_oneof:"target_oneof"`
 	Speed       uint32                     `protobuf:"varint,2,opt,name=speed,proto3" json:"speed,omitempty"`
 	// 同步模式标识
@@ -559,7 +560,7 @@ func (m *NavToRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)
 		return xxx_messageInfo_NavToRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -590,9 +591,13 @@ type NavToRequest_Target struct {
 type NavToRequest_Roaming struct {
 	Roaming *NavRoaming `protobuf:"bytes,3,opt,name=roaming,proto3,oneof"`
 }
+type NavToRequest_MapPosition struct {
+	MapPosition *MapPosition `protobuf:"bytes,5,opt,name=map_position,json=mapPosition,proto3,oneof"`
+}
 
-func (*NavToRequest_Target) isNavToRequest_TargetOneof()  {}
-func (*NavToRequest_Roaming) isNavToRequest_TargetOneof() {}
+func (*NavToRequest_Target) isNavToRequest_TargetOneof()      {}
+func (*NavToRequest_Roaming) isNavToRequest_TargetOneof()     {}
+func (*NavToRequest_MapPosition) isNavToRequest_TargetOneof() {}
 
 func (m *NavToRequest) GetTargetOneof() isNavToRequest_TargetOneof {
 	if m != nil {
@@ -611,6 +616,13 @@ func (m *NavToRequest) GetTarget() *NavTarget {
 func (m *NavToRequest) GetRoaming() *NavRoaming {
 	if x, ok := m.GetTargetOneof().(*NavToRequest_Roaming); ok {
 		return x.Roaming
+	}
+	return nil
+}
+
+func (m *NavToRequest) GetMapPosition() *MapPosition {
+	if x, ok := m.GetTargetOneof().(*NavToRequest_MapPosition); ok {
+		return x.MapPosition
 	}
 	return nil
 }
@@ -634,6 +646,7 @@ func (*NavToRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) 
 	return _NavToRequest_OneofMarshaler, _NavToRequest_OneofUnmarshaler, _NavToRequest_OneofSizer, []interface{}{
 		(*NavToRequest_Target)(nil),
 		(*NavToRequest_Roaming)(nil),
+		(*NavToRequest_MapPosition)(nil),
 	}
 }
 
@@ -649,6 +662,11 @@ func _NavToRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 	case *NavToRequest_Roaming:
 		_ = b.EncodeVarint(3<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Roaming); err != nil {
+			return err
+		}
+	case *NavToRequest_MapPosition:
+		_ = b.EncodeVarint(5<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.MapPosition); err != nil {
 			return err
 		}
 	case nil:
@@ -677,6 +695,14 @@ func _NavToRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.B
 		err := b.DecodeMessage(msg)
 		m.TargetOneof = &NavToRequest_Roaming{msg}
 		return true, err
+	case 5: // target_oneof.map_position
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(MapPosition)
+		err := b.DecodeMessage(msg)
+		m.TargetOneof = &NavToRequest_MapPosition{msg}
+		return true, err
 	default:
 		return false, nil
 	}
@@ -696,6 +722,11 @@ func _NavToRequest_OneofSizer(msg proto.Message) (n int) {
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
+	case *NavToRequest_MapPosition:
+		s := proto.Size(x.MapPosition)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
 	case nil:
 	default:
 		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
@@ -709,6 +740,7 @@ type NavToResponse struct {
 	// Types that are valid to be assigned to TargetOneof:
 	//	*NavToResponse_Target
 	//	*NavToResponse_IsRoaming
+	//	*NavToResponse_MapPosition
 	TargetOneof          isNavToResponse_TargetOneof `protobuf_oneof:"target_oneof"`
 	XXX_NoUnkeyedLiteral struct{}                    `json:"-"`
 	XXX_unrecognized     []byte                      `json:"-"`
@@ -729,7 +761,7 @@ func (m *NavToResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error
 		return xxx_messageInfo_NavToResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -760,9 +792,13 @@ type NavToResponse_Target struct {
 type NavToResponse_IsRoaming struct {
 	IsRoaming bool `protobuf:"varint,3,opt,name=is_roaming,json=isRoaming,proto3,oneof"`
 }
+type NavToResponse_MapPosition struct {
+	MapPosition *MapPosition `protobuf:"bytes,4,opt,name=map_position,json=mapPosition,proto3,oneof"`
+}
 
-func (*NavToResponse_Target) isNavToResponse_TargetOneof()    {}
-func (*NavToResponse_IsRoaming) isNavToResponse_TargetOneof() {}
+func (*NavToResponse_Target) isNavToResponse_TargetOneof()      {}
+func (*NavToResponse_IsRoaming) isNavToResponse_TargetOneof()   {}
+func (*NavToResponse_MapPosition) isNavToResponse_TargetOneof() {}
 
 func (m *NavToResponse) GetTargetOneof() isNavToResponse_TargetOneof {
 	if m != nil {
@@ -792,11 +828,19 @@ func (m *NavToResponse) GetIsRoaming() bool {
 	return false
 }
 
+func (m *NavToResponse) GetMapPosition() *MapPosition {
+	if x, ok := m.GetTargetOneof().(*NavToResponse_MapPosition); ok {
+		return x.MapPosition
+	}
+	return nil
+}
+
 // XXX_OneofFuncs is for the internal use of the proto package.
 func (*NavToResponse) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
 	return _NavToResponse_OneofMarshaler, _NavToResponse_OneofUnmarshaler, _NavToResponse_OneofSizer, []interface{}{
 		(*NavToResponse_Target)(nil),
 		(*NavToResponse_IsRoaming)(nil),
+		(*NavToResponse_MapPosition)(nil),
 	}
 }
 
@@ -816,6 +860,11 @@ func _NavToResponse_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 		}
 		_ = b.EncodeVarint(3<<3 | proto.WireVarint)
 		_ = b.EncodeVarint(t)
+	case *NavToResponse_MapPosition:
+		_ = b.EncodeVarint(4<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.MapPosition); err != nil {
+			return err
+		}
 	case nil:
 	default:
 		return fmt.Errorf("NavToResponse.TargetOneof has unexpected type %T", x)
@@ -841,6 +890,14 @@ func _NavToResponse_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 		x, err := b.DecodeVarint()
 		m.TargetOneof = &NavToResponse_IsRoaming{x != 0}
 		return true, err
+	case 4: // target_oneof.map_position
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(MapPosition)
+		err := b.DecodeMessage(msg)
+		m.TargetOneof = &NavToResponse_MapPosition{msg}
+		return true, err
 	default:
 		return false, nil
 	}
@@ -858,6 +915,11 @@ func _NavToResponse_OneofSizer(msg proto.Message) (n int) {
 	case *NavToResponse_IsRoaming:
 		n += 1 // tag and wire
 		n += 1
+	case *NavToResponse_MapPosition:
+		s := proto.Size(x.MapPosition)
+		n += 1 // tag and wire
+		n += proto.SizeVarint(uint64(s))
+		n += s
 	case nil:
 	default:
 		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
@@ -886,7 +948,7 @@ func (m *NavStopRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, erro
 		return xxx_messageInfo_NavStopRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -927,7 +989,7 @@ func (m *NavStopResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return xxx_messageInfo_NavStopResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -981,7 +1043,7 @@ func (m *AutoChargeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return xxx_messageInfo_AutoChargeRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1167,7 +1229,7 @@ func (m *AutoChargeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return xxx_messageInfo_AutoChargeResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1218,7 +1280,7 @@ func (m *RotateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error
 		return xxx_messageInfo_RotateRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1363,7 +1425,7 @@ func (m *RotateResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, erro
 		return xxx_messageInfo_RotateResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1409,7 +1471,7 @@ func (m *OnNavEventChangeRequest) XXX_Marshal(b []byte, deterministic bool) ([]b
 		return xxx_messageInfo_OnNavEventChangeRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1449,7 +1511,7 @@ func (m *MoveEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_MoveEvent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1497,7 +1559,7 @@ func (m *NavEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_NavEvent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1551,7 +1613,7 @@ func (m *AutoChargeEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return xxx_messageInfo_AutoChargeEvent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1598,7 +1660,7 @@ func (m *RotateEvent) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return xxx_messageInfo_RotateEvent.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1651,7 +1713,7 @@ func (m *OnNavEventChangeResponse) XXX_Marshal(b []byte, deterministic bool) ([]
 		return xxx_messageInfo_OnNavEventChangeResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -1848,84 +1910,6 @@ func _OnNavEventChangeResponse_OneofSizer(msg proto.Message) (n int) {
 	return n
 }
 
-type LocationResetRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *LocationResetRequest) Reset()         { *m = LocationResetRequest{} }
-func (m *LocationResetRequest) String() string { return proto.CompactTextString(m) }
-func (*LocationResetRequest) ProtoMessage()    {}
-func (*LocationResetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{18}
-}
-func (m *LocationResetRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *LocationResetRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_LocationResetRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *LocationResetRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_LocationResetRequest.Merge(m, src)
-}
-func (m *LocationResetRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *LocationResetRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_LocationResetRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_LocationResetRequest proto.InternalMessageInfo
-
-type LocationResetResponse struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *LocationResetResponse) Reset()         { *m = LocationResetResponse{} }
-func (m *LocationResetResponse) String() string { return proto.CompactTextString(m) }
-func (*LocationResetResponse) ProtoMessage()    {}
-func (*LocationResetResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{19}
-}
-func (m *LocationResetResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *LocationResetResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_LocationResetResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *LocationResetResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_LocationResetResponse.Merge(m, src)
-}
-func (m *LocationResetResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *LocationResetResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_LocationResetResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_LocationResetResponse proto.InternalMessageInfo
-
 // 线路数据
 type Route struct {
 	Id                   string        `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -1941,7 +1925,7 @@ func (m *Route) Reset()         { *m = Route{} }
 func (m *Route) String() string { return proto.CompactTextString(m) }
 func (*Route) ProtoMessage()    {}
 func (*Route) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{20}
+	return fileDescriptor_e03fef413b705070, []int{18}
 }
 func (m *Route) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -1951,7 +1935,7 @@ func (m *Route) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_Route.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2011,7 +1995,7 @@ func (m *RoutePoint) Reset()         { *m = RoutePoint{} }
 func (m *RoutePoint) String() string { return proto.CompactTextString(m) }
 func (*RoutePoint) ProtoMessage()    {}
 func (*RoutePoint) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{21}
+	return fileDescriptor_e03fef413b705070, []int{19}
 }
 func (m *RoutePoint) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2021,7 +2005,7 @@ func (m *RoutePoint) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return xxx_messageInfo_RoutePoint.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2069,7 +2053,7 @@ func (m *NewRouteRequest) Reset()         { *m = NewRouteRequest{} }
 func (m *NewRouteRequest) String() string { return proto.CompactTextString(m) }
 func (*NewRouteRequest) ProtoMessage()    {}
 func (*NewRouteRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{22}
+	return fileDescriptor_e03fef413b705070, []int{20}
 }
 func (m *NewRouteRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2079,7 +2063,7 @@ func (m *NewRouteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return xxx_messageInfo_NewRouteRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2116,7 +2100,7 @@ func (m *NewRouteResponse) Reset()         { *m = NewRouteResponse{} }
 func (m *NewRouteResponse) String() string { return proto.CompactTextString(m) }
 func (*NewRouteResponse) ProtoMessage()    {}
 func (*NewRouteResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{23}
+	return fileDescriptor_e03fef413b705070, []int{21}
 }
 func (m *NewRouteResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2126,7 +2110,7 @@ func (m *NewRouteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return xxx_messageInfo_NewRouteResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2162,7 +2146,7 @@ func (m *ListRoutesRequest) Reset()         { *m = ListRoutesRequest{} }
 func (m *ListRoutesRequest) String() string { return proto.CompactTextString(m) }
 func (*ListRoutesRequest) ProtoMessage()    {}
 func (*ListRoutesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{24}
+	return fileDescriptor_e03fef413b705070, []int{22}
 }
 func (m *ListRoutesRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2172,7 +2156,7 @@ func (m *ListRoutesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return xxx_messageInfo_ListRoutesRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2202,7 +2186,7 @@ func (m *ListRoutesResponse) Reset()         { *m = ListRoutesResponse{} }
 func (m *ListRoutesResponse) String() string { return proto.CompactTextString(m) }
 func (*ListRoutesResponse) ProtoMessage()    {}
 func (*ListRoutesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{25}
+	return fileDescriptor_e03fef413b705070, []int{23}
 }
 func (m *ListRoutesResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2212,7 +2196,7 @@ func (m *ListRoutesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return xxx_messageInfo_ListRoutesResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2249,7 +2233,7 @@ func (m *GetRouteRequest) Reset()         { *m = GetRouteRequest{} }
 func (m *GetRouteRequest) String() string { return proto.CompactTextString(m) }
 func (*GetRouteRequest) ProtoMessage()    {}
 func (*GetRouteRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{26}
+	return fileDescriptor_e03fef413b705070, []int{24}
 }
 func (m *GetRouteRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2259,7 +2243,7 @@ func (m *GetRouteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return xxx_messageInfo_GetRouteRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2296,7 +2280,7 @@ func (m *GetRouteResponse) Reset()         { *m = GetRouteResponse{} }
 func (m *GetRouteResponse) String() string { return proto.CompactTextString(m) }
 func (*GetRouteResponse) ProtoMessage()    {}
 func (*GetRouteResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{27}
+	return fileDescriptor_e03fef413b705070, []int{25}
 }
 func (m *GetRouteResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2306,7 +2290,7 @@ func (m *GetRouteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return xxx_messageInfo_GetRouteResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2347,7 +2331,7 @@ func (m *UpdateRouteRequest) Reset()         { *m = UpdateRouteRequest{} }
 func (m *UpdateRouteRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateRouteRequest) ProtoMessage()    {}
 func (*UpdateRouteRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{28}
+	return fileDescriptor_e03fef413b705070, []int{26}
 }
 func (m *UpdateRouteRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2357,7 +2341,7 @@ func (m *UpdateRouteRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return xxx_messageInfo_UpdateRouteRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2394,7 +2378,7 @@ func (m *UpdateRouteResponse) Reset()         { *m = UpdateRouteResponse{} }
 func (m *UpdateRouteResponse) String() string { return proto.CompactTextString(m) }
 func (*UpdateRouteResponse) ProtoMessage()    {}
 func (*UpdateRouteResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{29}
+	return fileDescriptor_e03fef413b705070, []int{27}
 }
 func (m *UpdateRouteResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2404,7 +2388,7 @@ func (m *UpdateRouteResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return xxx_messageInfo_UpdateRouteResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2441,7 +2425,7 @@ func (m *DeleteRoutesRequest) Reset()         { *m = DeleteRoutesRequest{} }
 func (m *DeleteRoutesRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteRoutesRequest) ProtoMessage()    {}
 func (*DeleteRoutesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{30}
+	return fileDescriptor_e03fef413b705070, []int{28}
 }
 func (m *DeleteRoutesRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2451,7 +2435,7 @@ func (m *DeleteRoutesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte,
 		return xxx_messageInfo_DeleteRoutesRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2487,7 +2471,7 @@ func (m *DeleteRoutesResponse) Reset()         { *m = DeleteRoutesResponse{} }
 func (m *DeleteRoutesResponse) String() string { return proto.CompactTextString(m) }
 func (*DeleteRoutesResponse) ProtoMessage()    {}
 func (*DeleteRoutesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_e03fef413b705070, []int{31}
+	return fileDescriptor_e03fef413b705070, []int{29}
 }
 func (m *DeleteRoutesResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -2497,7 +2481,7 @@ func (m *DeleteRoutesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return xxx_messageInfo_DeleteRoutesResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
+		n, err := m.MarshalToSizedBuffer(b)
 		if err != nil {
 			return nil, err
 		}
@@ -2540,8 +2524,6 @@ func init() {
 	proto.RegisterType((*AutoChargeEvent)(nil), "navService.AutoChargeEvent")
 	proto.RegisterType((*RotateEvent)(nil), "navService.RotateEvent")
 	proto.RegisterType((*OnNavEventChangeResponse)(nil), "navService.OnNavEventChangeResponse")
-	proto.RegisterType((*LocationResetRequest)(nil), "navService.LocationResetRequest")
-	proto.RegisterType((*LocationResetResponse)(nil), "navService.LocationResetResponse")
 	proto.RegisterType((*Route)(nil), "navService.Route")
 	proto.RegisterType((*RoutePoint)(nil), "navService.RoutePoint")
 	proto.RegisterType((*NewRouteRequest)(nil), "navService.NewRouteRequest")
@@ -2559,122 +2541,121 @@ func init() {
 func init() { proto.RegisterFile("nav.proto", fileDescriptor_e03fef413b705070) }
 
 var fileDescriptor_e03fef413b705070 = []byte{
-	// 1829 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x58, 0xcd, 0x6e, 0x23, 0x59,
-	0xf5, 0x77, 0x39, 0x76, 0x62, 0x1f, 0xdb, 0x49, 0xe5, 0x26, 0xb1, 0x1d, 0x27, 0x9d, 0x64, 0x6a,
-	0x7a, 0xf4, 0xcf, 0x3f, 0x8b, 0xce, 0x28, 0x33, 0x30, 0xd0, 0xc0, 0x8c, 0x2a, 0x76, 0x75, 0xe2,
-	0x9e, 0xa4, 0x2a, 0xba, 0x76, 0xd2, 0x6a, 0x21, 0x28, 0x6a, 0xec, 0x4b, 0xa6, 0x84, 0x53, 0x65,
-	0x5c, 0x15, 0x37, 0x2d, 0x76, 0xb0, 0x41, 0x62, 0xc9, 0x86, 0x27, 0x60, 0xc1, 0x03, 0xcc, 0x96,
-	0x2d, 0x4b, 0x24, 0x5e, 0x60, 0xd4, 0x62, 0xcd, 0x03, 0xb0, 0x42, 0xe7, 0xde, 0x5b, 0x5f, 0xb6,
-	0xbb, 0xd5, 0xd3, 0xcd, 0x2e, 0xe7, 0xf3, 0x77, 0xbe, 0xea, 0x9e, 0xe3, 0x40, 0xd9, 0x73, 0xa6,
-	0x8f, 0xc6, 0x13, 0x3f, 0xf4, 0x09, 0x78, 0xce, 0xb4, 0xc7, 0x26, 0x53, 0x77, 0xc0, 0x5a, 0xbb,
-	0xb7, 0xbe, 0x7f, 0x3b, 0x62, 0xc7, 0xce, 0xd8, 0x3d, 0x76, 0x3c, 0xcf, 0x0f, 0x9d, 0xd0, 0xf5,
-	0xbd, 0x40, 0x68, 0x6a, 0x7f, 0x50, 0xa0, 0x72, 0xe9, 0x4f, 0x19, 0x65, 0xbf, 0xbe, 0x67, 0x41,
-	0x48, 0x36, 0xa1, 0x18, 0x8c, 0x19, 0x1b, 0x36, 0x95, 0x03, 0xe5, 0xb0, 0x46, 0x05, 0x41, 0xea,
-	0xb0, 0x3c, 0x11, 0xec, 0x3c, 0x67, 0x4b, 0x8a, 0x7c, 0x06, 0xe5, 0xa1, 0x3b, 0x61, 0x03, 0xf4,
-	0xd8, 0x5c, 0x3a, 0x50, 0x0e, 0x57, 0x4f, 0xb6, 0x1f, 0x25, 0xd8, 0x8f, 0xd0, 0x73, 0x27, 0x52,
-	0xa0, 0x89, 0x2e, 0x21, 0x50, 0xb8, 0xf3, 0x87, 0xac, 0x59, 0x38, 0x50, 0x0e, 0xcb, 0x94, 0xff,
-	0xad, 0x9d, 0x41, 0x55, 0x44, 0x12, 0x8c, 0x7d, 0x2f, 0x60, 0xe4, 0x33, 0xa8, 0x04, 0xa1, 0x13,
-	0xde, 0x07, 0xf6, 0x00, 0x55, 0x15, 0xee, 0xbe, 0x9e, 0x76, 0xdf, 0xe3, 0xe2, 0xb6, 0x3f, 0x64,
-	0x14, 0x82, 0xf8, 0x6f, 0xed, 0x7b, 0x50, 0x36, 0x9d, 0x69, 0xdf, 0x99, 0xdc, 0x32, 0x9e, 0x90,
-	0xeb, 0x0d, 0xd9, 0x6f, 0xb8, 0x7d, 0x99, 0x0a, 0x02, 0xf1, 0x3d, 0xe7, 0x8e, 0xf1, 0x74, 0xca,
-	0x94, 0xff, 0xad, 0xfd, 0x4d, 0x01, 0x30, 0x9d, 0x29, 0xf5, 0x9d, 0x3b, 0xd7, 0xbb, 0x25, 0x3a,
-	0xa8, 0x9e, 0x33, 0xb5, 0x27, 0x82, 0xb4, 0xc3, 0x97, 0xe3, 0x28, 0x86, 0x46, 0x3a, 0x06, 0xa9,
-	0xde, 0x7f, 0x39, 0x66, 0x74, 0xd5, 0x8b, 0xcd, 0x91, 0x26, 0xdb, 0x50, 0x7a, 0xe1, 0xb8, 0xa1,
-	0x1d, 0xb0, 0x01, 0x47, 0x2a, 0xd2, 0x15, 0xa4, 0x7b, 0x6c, 0x40, 0x3e, 0x85, 0x7a, 0xec, 0x99,
-	0x07, 0x6a, 0xf3, 0xc0, 0x58, 0xd0, 0x5c, 0x3a, 0x58, 0x3a, 0x2c, 0xd3, 0x4d, 0x29, 0x15, 0x59,
-	0x74, 0x85, 0x8c, 0x3c, 0x00, 0xf0, 0x27, 0x43, 0x36, 0xb1, 0x47, 0xbe, 0x3f, 0xe6, 0xc5, 0x2b,
-	0xd1, 0x32, 0xe7, 0x5c, 0xf8, 0xfe, 0x58, 0xfb, 0x46, 0x81, 0x2a, 0x66, 0xee, 0x47, 0xdd, 0x3c,
-	0x86, 0x65, 0xe1, 0x9d, 0x47, 0x5e, 0x39, 0xd9, 0x4a, 0x47, 0x1e, 0xd7, 0xe8, 0x3c, 0x47, 0xa5,
-	0x1a, 0x39, 0x81, 0x15, 0x09, 0xcc, 0xdb, 0x59, 0xc9, 0xd6, 0x3b, 0xa9, 0xce, 0x79, 0x8e, 0x46,
-	0x8a, 0xc9, 0xc8, 0xe4, 0xd3, 0x23, 0xb3, 0x03, 0xe5, 0xe0, 0xa5, 0x37, 0xb0, 0xe3, 0x36, 0x97,
-	0x68, 0x09, 0x19, 0x97, 0xfe, 0x90, 0x9d, 0xae, 0x42, 0x55, 0x66, 0xed, 0x7b, 0xcc, 0xff, 0xa5,
-	0xf6, 0x57, 0x05, 0x6a, 0x32, 0xf0, 0xf7, 0x6c, 0x7e, 0x2a, 0xe5, 0xfc, 0xdb, 0xa5, 0xbc, 0x0f,
-	0xe0, 0x06, 0x76, 0x3a, 0xeb, 0xd2, 0x79, 0x8e, 0x96, 0xdd, 0x40, 0xa6, 0x3a, 0x17, 0xac, 0x0a,
-	0xab, 0xa6, 0x33, 0xed, 0x85, 0xfe, 0x58, 0x96, 0x59, 0x7b, 0x0a, 0x6b, 0x31, 0xe7, 0x7d, 0x87,
-	0xf7, 0x2f, 0x0a, 0xac, 0xeb, 0xf7, 0xa1, 0xdf, 0xfe, 0x1a, 0x31, 0xa3, 0x46, 0x36, 0x61, 0x79,
-	0xc0, 0x19, 0xdc, 0x13, 0x06, 0x28, 0x69, 0x2e, 0x71, 0xbc, 0x01, 0x1b, 0xf1, 0x7c, 0x85, 0x84,
-	0xd3, 0xe4, 0x23, 0xa8, 0x09, 0x1d, 0x7b, 0x3c, 0x61, 0x01, 0x0b, 0xe3, 0xdc, 0xaa, 0x82, 0x7d,
-	0xc5, 0xb9, 0x64, 0x1f, 0x2a, 0xa1, 0x7b, 0xc7, 0xfc, 0x7b, 0x31, 0xa7, 0x05, 0xde, 0x44, 0x90,
-	0xac, 0x1e, 0x1b, 0x9c, 0x6e, 0xc1, 0x86, 0xf4, 0xe3, 0x8f, 0xf1, 0xe3, 0x95, 0x65, 0xf8, 0x05,
-	0x90, 0x74, 0x9c, 0x32, 0xef, 0xa7, 0x40, 0xa4, 0xf2, 0x7c, 0xfa, 0xbb, 0xe9, 0xf4, 0x85, 0x5d,
-	0xaa, 0x08, 0xea, 0x60, 0x86, 0xa3, 0x5d, 0x43, 0x8d, 0xe2, 0x73, 0x15, 0x57, 0xa1, 0x0e, 0x45,
-	0xc7, 0xbb, 0x1d, 0x09, 0x7f, 0xc5, 0xf3, 0x1c, 0x15, 0x24, 0xd9, 0x85, 0xd2, 0xc4, 0x1f, 0x8d,
-	0xbe, 0x72, 0x06, 0xbf, 0x8a, 0xab, 0x10, 0x73, 0xb0, 0x7f, 0x13, 0xee, 0x46, 0x06, 0xde, 0x85,
-	0xd5, 0xc8, 0xed, 0xfb, 0x36, 0x6b, 0x1b, 0x1a, 0x96, 0x67, 0x3a, 0x53, 0x63, 0xca, 0xbc, 0xb0,
-	0xfd, 0xb5, 0xe3, 0xc5, 0x1d, 0xd3, 0x3a, 0x50, 0xc6, 0xd7, 0x8c, 0x4b, 0xde, 0x1d, 0xe0, 0x25,
-	0x94, 0x22, 0xf7, 0xef, 0xfe, 0x49, 0x7c, 0x0a, 0xb8, 0x0f, 0xec, 0xb7, 0xf8, 0x2c, 0x28, 0xee,
-	0x10, 0xf1, 0xa7, 0xf6, 0x33, 0x58, 0x4b, 0xfa, 0x2b, 0x22, 0xf8, 0x5f, 0x36, 0xf7, 0x09, 0x54,
-	0x44, 0x17, 0xde, 0xb3, 0x42, 0xdf, 0xe6, 0xa1, 0x39, 0xdf, 0x03, 0xd9, 0xd8, 0xcf, 0x01, 0x9f,
-	0x64, 0x9b, 0xa1, 0x28, 0xfd, 0x82, 0x37, 0x67, 0xb2, 0xe7, 0xb6, 0xfc, 0x09, 0xaf, 0x7a, 0x29,
-	0x8a, 0x7c, 0x1f, 0xe0, 0xce, 0x9f, 0x32, 0xe1, 0x60, 0x51, 0xe5, 0xe2, 0x16, 0xe3, 0x93, 0x71,
-	0x17, 0xf7, 0xfb, 0x13, 0xbe, 0x8c, 0xa5, 0x99, 0x78, 0x48, 0x37, 0x17, 0x41, 0xe2, 0x9c, 0x46,
-	0x80, 0xe4, 0xc7, 0xf1, 0x9c, 0x0a, 0xbb, 0x02, 0xb7, 0x9b, 0x59, 0x36, 0x71, 0xc5, 0xce, 0x73,
-	0xb4, 0x32, 0x49, 0x15, 0xb0, 0x0b, 0xeb, 0xce, 0x7d, 0xe8, 0xdb, 0xb2, 0x41, 0xc2, 0x45, 0x91,
-	0xbb, 0xd8, 0x49, 0xbb, 0x98, 0xe9, 0xe9, 0x79, 0x8e, 0xae, 0x39, 0x59, 0x16, 0x7e, 0x30, 0x03,
-	0x5e, 0x47, 0xf9, 0xc1, 0xd4, 0x61, 0xf3, 0xc2, 0x1f, 0xf0, 0xb3, 0x81, 0xe2, 0x93, 0x11, 0x8d,
-	0x78, 0x03, 0xb6, 0x66, 0xf8, 0xa2, 0xec, 0xda, 0xef, 0x15, 0x28, 0x52, 0xff, 0x3e, 0x64, 0x64,
-	0x15, 0xf2, 0xee, 0x50, 0xae, 0xde, 0xbc, 0x3b, 0x5c, 0xb4, 0x77, 0x71, 0x53, 0xb8, 0x81, 0xed,
-	0x0c, 0x42, 0x77, 0xca, 0xc4, 0x1b, 0x45, 0x4b, 0x6e, 0xa0, 0x73, 0x9a, 0xfc, 0x10, 0x8b, 0x72,
-	0x1f, 0x32, 0x7b, 0xec, 0xbb, 0x5e, 0x18, 0x34, 0x0b, 0x07, 0x4b, 0xb3, 0x5b, 0x89, 0x23, 0x5d,
-	0xa1, 0x18, 0x2b, 0x12, 0xfd, 0x1d, 0x68, 0x3f, 0x00, 0x48, 0x44, 0x31, 0xb2, 0x92, 0x42, 0xc6,
-	0xb3, 0x86, 0x97, 0x30, 0x3e, 0x6b, 0x38, 0xa5, 0x3d, 0x86, 0x35, 0x93, 0xbd, 0xe0, 0xc6, 0xd1,
-	0xd3, 0xf3, 0x7f, 0x50, 0xe4, 0xbe, 0xe5, 0x22, 0x5d, 0x9f, 0x0b, 0x80, 0x0a, 0xb9, 0xf6, 0x23,
-	0x50, 0x13, 0x5b, 0x39, 0x86, 0x6f, 0x6d, 0xbc, 0x01, 0xeb, 0x17, 0x6e, 0x10, 0x72, 0x5e, 0x10,
-	0x95, 0xf9, 0x0b, 0x20, 0x69, 0xa6, 0xf4, 0xf9, 0xff, 0x18, 0x3b, 0x72, 0x9a, 0x0a, 0x2f, 0xc9,
-	0x02, 0xa7, 0x52, 0x41, 0xfb, 0x00, 0xd6, 0xce, 0x58, 0x98, 0x49, 0x67, 0xa6, 0x2f, 0x18, 0x75,
-	0xa2, 0xf2, 0x5d, 0xa3, 0xfe, 0x09, 0x90, 0xeb, 0xf1, 0x10, 0x1f, 0xd4, 0x77, 0xaa, 0xd8, 0xe7,
-	0xb0, 0x91, 0x31, 0xff, 0xae, 0xf0, 0x27, 0xb0, 0xd1, 0x61, 0x23, 0x26, 0xed, 0xa3, 0xb2, 0xe1,
-	0x58, 0x89, 0xfc, 0x6d, 0x9e, 0x29, 0x1e, 0x55, 0x25, 0xc1, 0xe8, 0x0e, 0x71, 0xa4, 0xb3, 0x36,
-	0x02, 0xf4, 0xe8, 0xdf, 0x0a, 0x40, 0xf2, 0xd0, 0x90, 0x0a, 0xac, 0x5c, 0x9b, 0x5f, 0x9a, 0xd6,
-	0x33, 0x53, 0xcd, 0x21, 0xd1, 0xeb, 0x5b, 0x57, 0x57, 0x46, 0x47, 0x55, 0x08, 0xc0, 0xf2, 0xa5,
-	0x75, 0xd3, 0x35, 0xcf, 0xd4, 0x3c, 0xa9, 0x41, 0xf9, 0x8a, 0x1a, 0x57, 0x3a, 0x45, 0x72, 0x09,
-	0x45, 0x6d, 0xdd, 0x6c, 0x1b, 0x17, 0x6a, 0x81, 0x54, 0xa1, 0x44, 0x8d, 0x0b, 0x43, 0xef, 0x19,
-	0x1d, 0xb5, 0x48, 0x54, 0xa8, 0x1a, 0x94, 0xda, 0xd6, 0x69, 0xaf, 0xaf, 0xb7, 0x2f, 0x0c, 0x15,
-	0xc8, 0x3a, 0xd4, 0x90, 0x63, 0x5a, 0x7d, 0x9b, 0x1a, 0x7a, 0xe7, 0xb9, 0x5a, 0x21, 0x04, 0x56,
-	0x91, 0x75, 0x69, 0xf5, 0x2d, 0x6a, 0x3f, 0xd1, 0xbb, 0x17, 0x6a, 0x95, 0x6c, 0x82, 0x8a, 0xbc,
-	0x67, 0xd4, 0x32, 0xcf, 0xec, 0xbe, 0x4e, 0xcf, 0x8c, 0xbe, 0x5a, 0x23, 0xab, 0x00, 0xd4, 0x78,
-	0x6a, 0xcb, 0x38, 0x36, 0x23, 0xda, 0xd4, 0x39, 0xbd, 0x85, 0x70, 0x48, 0xb7, 0xcf, 0x75, 0x7a,
-	0x86, 0x9c, 0x7a, 0xc4, 0xa1, 0x56, 0x5f, 0xef, 0x23, 0xa7, 0x71, 0xf4, 0x67, 0x05, 0x6a, 0x99,
-	0x2b, 0x1d, 0xd3, 0x94, 0x21, 0x8b, 0x9c, 0x9f, 0x58, 0xf4, 0x99, 0x4e, 0x31, 0xe7, 0x2a, 0x94,
-	0x4e, 0xf5, 0xf6, 0x97, 0x9c, 0xca, 0x93, 0x12, 0x14, 0x2e, 0x8c, 0x27, 0x7d, 0x75, 0x89, 0x94,
-	0xa1, 0x48, 0xbb, 0x67, 0xe7, 0x7d, 0xb5, 0x80, 0x00, 0xc8, 0xb4, 0x23, 0xa3, 0x22, 0x66, 0xc8,
-	0x85, 0x31, 0x6b, 0x19, 0x59, 0x5c, 0x29, 0x76, 0xb6, 0x82, 0x49, 0x0b, 0xad, 0x98, 0x57, 0x3a,
-	0x7a, 0x8e, 0x1b, 0x22, 0x7d, 0x4c, 0x6f, 0x51, 0x4b, 0xbf, 0xec, 0x62, 0x05, 0x9e, 0x5f, 0x19,
-	0x76, 0xdb, 0x32, 0xfb, 0x5d, 0xf3, 0x1a, 0xa3, 0xac, 0x03, 0xc9, 0x88, 0x2c, 0xda, 0x31, 0xa8,
-	0xaa, 0x90, 0x06, 0x6c, 0x64, 0xf8, 0x54, 0x37, 0x3b, 0xd6, 0xa5, 0x9a, 0x3f, 0xfa, 0x8f, 0x02,
-	0xea, 0xec, 0x8e, 0x42, 0x00, 0x5e, 0x2a, 0xc3, 0xee, 0xf5, 0xf5, 0xfe, 0x75, 0xcf, 0x4e, 0x5a,
-	0xbf, 0x03, 0x8d, 0xac, 0x28, 0xe9, 0xb7, 0x42, 0x5a, 0x50, 0xcf, 0x0a, 0xe3, 0x8e, 0xe7, 0xc9,
-	0x2e, 0x34, 0xb3, 0xb2, 0xb6, 0x65, 0x9a, 0x46, 0xbb, 0x2f, 0x26, 0x65, 0xce, 0x32, 0x6e, 0x55,
-	0x81, 0xec, 0xc3, 0x4e, 0x56, 0xd6, 0xe9, 0xf6, 0x52, 0xc6, 0x45, 0x4c, 0x4e, 0x2a, 0x48, 0xb6,
-	0x18, 0x96, 0x65, 0xb2, 0x07, 0xad, 0xac, 0xa5, 0xa9, 0xdf, 0x24, 0x33, 0xb7, 0x72, 0xe4, 0xf1,
-	0x1f, 0x09, 0xc9, 0x92, 0xab, 0x03, 0x41, 0x0d, 0xe3, 0xc6, 0x30, 0x71, 0x0a, 0x6f, 0x0c, 0x8a,
-	0xb1, 0xe7, 0x70, 0x9c, 0x2e, 0xad, 0x1b, 0x43, 0x08, 0x54, 0x05, 0xc7, 0x3c, 0xd6, 0x53, 0xf3,
-	0x64, 0x0b, 0xd6, 0xf5, 0xeb, 0xbe, 0x65, 0x4b, 0x2c, 0xc1, 0x5e, 0xe2, 0x23, 0x86, 0xe3, 0x15,
-	0x71, 0x0a, 0x27, 0xdf, 0x94, 0xf9, 0x71, 0xdf, 0xf6, 0xbd, 0x10, 0x6f, 0x32, 0x36, 0x21, 0x5f,
-	0x40, 0x01, 0x67, 0x8e, 0x34, 0x66, 0x57, 0xa9, 0xfc, 0x76, 0x5b, 0xcd, 0x79, 0x81, 0x5c, 0x2d,
-	0xb9, 0x43, 0xe5, 0x63, 0x85, 0xfc, 0x14, 0x8a, 0xfc, 0xe7, 0x02, 0x99, 0x5d, 0xe4, 0xf1, 0x4f,
-	0x9f, 0xd6, 0xf6, 0x02, 0x89, 0xf4, 0xf1, 0xe0, 0x77, 0xff, 0xfc, 0xd7, 0x9f, 0xf2, 0x0d, 0x8d,
-	0xf0, 0xdf, 0xc4, 0xd3, 0x93, 0x63, 0xcf, 0x99, 0x1e, 0xf3, 0x0b, 0xc9, 0x7f, 0xac, 0x1c, 0x91,
-	0x01, 0xac, 0xc8, 0x6b, 0x9e, 0xb4, 0x66, 0x9c, 0xa4, 0x8e, 0xfe, 0xd6, 0xce, 0x42, 0x99, 0x84,
-	0xd8, 0xe7, 0x10, 0xdb, 0xda, 0xe6, 0x2c, 0x44, 0x10, 0xfa, 0x63, 0x04, 0xf1, 0x01, 0x92, 0x4d,
-	0x4c, 0x1e, 0x2c, 0xde, 0xd0, 0x11, 0xd4, 0xde, 0xeb, 0xc4, 0x12, 0x4d, 0xe3, 0x68, 0xbb, 0x5a,
-	0x23, 0x8d, 0x96, 0xba, 0x06, 0x10, 0xf0, 0xe7, 0xb0, 0x2c, 0xae, 0x07, 0xb2, 0x3d, 0x7f, 0x51,
-	0x44, 0x40, 0xad, 0x45, 0xa2, 0x37, 0x55, 0x4d, 0x2c, 0x4c, 0xf4, 0xff, 0x47, 0x05, 0xd4, 0xd9,
-	0x3b, 0x8c, 0x7c, 0x98, 0xf6, 0xf7, 0x9a, 0x4b, 0xb9, 0xf5, 0xf0, 0xcd, 0x4a, 0x12, 0xfe, 0x88,
-	0xc3, 0x3f, 0xd4, 0xf6, 0xd3, 0xf0, 0xbe, 0x67, 0x27, 0xf7, 0x9d, 0xb8, 0x59, 0x1e, 0x2b, 0x47,
-	0x1f, 0x2b, 0xe4, 0xb7, 0x50, 0xcb, 0x9c, 0x26, 0xe4, 0x20, 0x0d, 0xb2, 0xe8, 0x9a, 0x69, 0x7d,
-	0xf0, 0x06, 0x0d, 0x19, 0xc3, 0x47, 0x3c, 0x86, 0x7d, 0xad, 0x95, 0x8e, 0x61, 0x24, 0x55, 0x6d,
-	0xfe, 0x73, 0x0a, 0x4b, 0x71, 0x0b, 0xa5, 0xe8, 0x04, 0x20, 0xd9, 0x29, 0xc9, 0x1e, 0x15, 0xad,
-	0xdd, 0xc5, 0x42, 0x89, 0x76, 0xc0, 0xd1, 0x5a, 0xda, 0x56, 0x66, 0x86, 0xd8, 0x0b, 0x9b, 0x6f,
-	0x31, 0x39, 0x44, 0xc9, 0x65, 0x90, 0x1d, 0xa2, 0xb9, 0x33, 0x22, 0x3b, 0x44, 0xf3, 0x07, 0xc5,
-	0xe2, 0x21, 0x1a, 0xb9, 0x41, 0x28, 0xf0, 0x02, 0x04, 0x0c, 0xa0, 0x92, 0x5a, 0xd5, 0x24, 0xe3,
-	0x72, 0xfe, 0x04, 0x68, 0xed, 0xbf, 0x56, 0x2e, 0x31, 0x3f, 0xe4, 0x98, 0x0f, 0xb4, 0x66, 0x1a,
-	0xf3, 0x9e, 0x2b, 0x26, 0x59, 0xbe, 0x80, 0x6a, 0x7a, 0x57, 0x93, 0x8c, 0xd7, 0x05, 0x9b, 0xbf,
-	0x75, 0xf0, 0x7a, 0x05, 0x89, 0xfb, 0x90, 0xe3, 0xee, 0x69, 0xdb, 0x69, 0xdc, 0x21, 0xd7, 0x4c,
-	0xb2, 0x3d, 0xad, 0xfe, 0xfd, 0xd5, 0x9e, 0xf2, 0x8f, 0x57, 0x7b, 0xca, 0xb7, 0xaf, 0xf6, 0x94,
-	0xaf, 0x96, 0xf9, 0x3f, 0xcc, 0x3e, 0xf9, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xe2, 0x04, 0x87,
-	0xab, 0x67, 0x13, 0x00, 0x00,
+	// 1814 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x58, 0xcd, 0x73, 0x23, 0x47,
+	0x15, 0xf7, 0xc8, 0x92, 0x2d, 0x3d, 0xc9, 0xf6, 0xb8, 0xfd, 0x25, 0xcb, 0x5e, 0xdb, 0x99, 0x84,
+	0x8a, 0xf1, 0x61, 0x9d, 0x72, 0x02, 0x81, 0x00, 0xa1, 0xc6, 0xf2, 0xac, 0xad, 0x8d, 0x3d, 0xe3,
+	0x6a, 0xc9, 0xde, 0xda, 0xa2, 0x60, 0x98, 0x48, 0x8d, 0x33, 0x85, 0x3d, 0x3d, 0x68, 0xc6, 0x5a,
+	0xf6, 0x0a, 0x97, 0xdc, 0xb9, 0xf0, 0x17, 0xf0, 0x6f, 0x70, 0xe5, 0x44, 0x51, 0xc5, 0x3f, 0x90,
+	0xda, 0xe2, 0xc0, 0x89, 0x13, 0x27, 0x4e, 0xd4, 0xeb, 0xee, 0xf9, 0x92, 0xe4, 0xd4, 0x7e, 0xe4,
+	0x36, 0xef, 0xa3, 0xdf, 0xef, 0x7d, 0x75, 0xbf, 0x27, 0x41, 0x2d, 0xf0, 0x46, 0x8f, 0xc3, 0x21,
+	0x8f, 0x39, 0x81, 0xc0, 0x1b, 0x75, 0xd9, 0x70, 0xe4, 0xf7, 0x59, 0x6b, 0xfb, 0x86, 0xf3, 0x9b,
+	0x5b, 0x76, 0xe8, 0x85, 0xfe, 0xa1, 0x17, 0x04, 0x3c, 0xf6, 0x62, 0x9f, 0x07, 0x91, 0xd4, 0x6c,
+	0xd5, 0xee, 0xbc, 0x50, 0x7e, 0x1a, 0x5f, 0x6b, 0x50, 0xbf, 0xe0, 0x23, 0x46, 0xd9, 0xef, 0xee,
+	0x59, 0x14, 0x93, 0x55, 0xa8, 0x44, 0x21, 0x63, 0x83, 0xa6, 0xb6, 0xa7, 0xed, 0x2f, 0x50, 0x49,
+	0x90, 0x75, 0x98, 0x1b, 0x4a, 0x76, 0x49, 0xb0, 0x15, 0x45, 0x3e, 0x85, 0xda, 0xc0, 0x1f, 0xb2,
+	0x3e, 0x1a, 0x6f, 0xce, 0xee, 0x69, 0xfb, 0x8b, 0x47, 0x9b, 0x8f, 0x33, 0x37, 0x1e, 0xa3, 0xe5,
+	0x93, 0x44, 0x81, 0x66, 0xba, 0x84, 0x40, 0xf9, 0x8e, 0x0f, 0x58, 0xb3, 0xbc, 0xa7, 0xed, 0xd7,
+	0xa8, 0xf8, 0x36, 0x4e, 0xa1, 0x21, 0x3d, 0x89, 0x42, 0x1e, 0x44, 0x8c, 0x7c, 0x0a, 0xf5, 0x28,
+	0xf6, 0xe2, 0xfb, 0xc8, 0xed, 0xa3, 0xaa, 0x26, 0xcc, 0xaf, 0xe7, 0xcd, 0x77, 0x85, 0xb8, 0xcd,
+	0x07, 0x8c, 0x42, 0x94, 0x7e, 0x1b, 0x3f, 0x80, 0x9a, 0xed, 0x8d, 0x7a, 0xde, 0xf0, 0x86, 0x89,
+	0x80, 0xfc, 0x60, 0xc0, 0x7e, 0x2f, 0xce, 0xd7, 0xa8, 0x24, 0x10, 0x3f, 0xf0, 0xee, 0x98, 0x08,
+	0xa7, 0x46, 0xc5, 0xb7, 0xf1, 0x57, 0x0d, 0xc0, 0xf6, 0x46, 0x94, 0x7b, 0x77, 0x7e, 0x70, 0x43,
+	0x4c, 0xd0, 0x03, 0x6f, 0xe4, 0x0e, 0x25, 0xe9, 0xc6, 0x2f, 0xc3, 0xc4, 0x87, 0x8d, 0xbc, 0x0f,
+	0x4a, 0xbd, 0xf7, 0x32, 0x64, 0x74, 0x31, 0x48, 0x8f, 0x23, 0x4d, 0x36, 0xa1, 0xfa, 0xc2, 0xf3,
+	0x63, 0x37, 0x62, 0x7d, 0x81, 0x54, 0xa1, 0xf3, 0x48, 0x77, 0x59, 0x9f, 0x7c, 0x02, 0xeb, 0xa9,
+	0x65, 0xe1, 0xa8, 0x2b, 0x1c, 0x63, 0x51, 0x73, 0x76, 0x6f, 0x76, 0xbf, 0x46, 0x57, 0x95, 0x54,
+	0x46, 0xd1, 0x91, 0x32, 0xf2, 0x08, 0x80, 0x0f, 0x07, 0x6c, 0xe8, 0xde, 0x72, 0x1e, 0x8a, 0xe4,
+	0x55, 0x69, 0x4d, 0x70, 0xce, 0x39, 0x0f, 0x8d, 0xff, 0x6a, 0xd0, 0xc0, 0xc8, 0x79, 0x52, 0xcd,
+	0x43, 0x98, 0x93, 0xd6, 0x85, 0xe7, 0xf5, 0xa3, 0xb5, 0xbc, 0xe7, 0x69, 0x8e, 0xce, 0x66, 0xa8,
+	0x52, 0x23, 0x47, 0x30, 0xaf, 0x80, 0x45, 0x39, 0xeb, 0xc5, 0x7c, 0x67, 0xd9, 0x39, 0x9b, 0xa1,
+	0x89, 0x22, 0xf9, 0x29, 0x34, 0xee, 0xbc, 0xd0, 0x0d, 0x79, 0xe4, 0x8b, 0x3e, 0xa8, 0x88, 0x83,
+	0x85, 0x24, 0x5d, 0x78, 0xe1, 0xa5, 0x12, 0x9f, 0xcd, 0xd0, 0xfa, 0x5d, 0x46, 0x66, 0x0d, 0x57,
+	0xca, 0x37, 0xdc, 0x16, 0xd4, 0xa2, 0x97, 0x41, 0xdf, 0x4d, 0x9b, 0xa4, 0x4a, 0xab, 0xc8, 0xb8,
+	0xe0, 0x03, 0x76, 0xbc, 0x08, 0x0d, 0x95, 0x33, 0x1e, 0x30, 0xfe, 0x1b, 0xe3, 0xdf, 0x1a, 0x2c,
+	0xa8, 0xb0, 0xdf, 0xb1, 0x75, 0x72, 0x09, 0x2b, 0xbd, 0x5e, 0xc2, 0x76, 0x01, 0xfc, 0xc8, 0xcd,
+	0xe7, 0xac, 0x7a, 0x36, 0x43, 0x6b, 0x7e, 0x44, 0x1f, 0xc8, 0x4e, 0xf9, 0x4d, 0xb2, 0x33, 0x11,
+	0xaa, 0x0e, 0x8b, 0xb6, 0x37, 0xea, 0xc6, 0x3c, 0x54, 0x25, 0x36, 0x9e, 0xc2, 0x52, 0xca, 0x79,
+	0xd7, 0x8b, 0xf3, 0x17, 0x0d, 0x96, 0xcd, 0xfb, 0x98, 0xb7, 0xbf, 0x42, 0xcc, 0xa4, 0x89, 0x9a,
+	0x30, 0xd7, 0x17, 0x0c, 0x61, 0x09, 0xc3, 0x53, 0xb4, 0x90, 0x78, 0x41, 0x9f, 0xdd, 0x8a, 0x6c,
+	0x49, 0x89, 0xa0, 0xc9, 0xf7, 0x60, 0x41, 0xea, 0xb8, 0xe1, 0x90, 0x45, 0x2c, 0x4e, 0x33, 0xd3,
+	0x90, 0xec, 0x4b, 0xc1, 0x25, 0xbb, 0x50, 0x8f, 0xfd, 0x3b, 0xc6, 0xef, 0xe5, 0x1d, 0x29, 0x8b,
+	0x16, 0x00, 0xc5, 0xea, 0xb2, 0xfe, 0xf1, 0x1a, 0xac, 0x28, 0x3b, 0x3c, 0xc4, 0x84, 0xa8, 0x34,
+	0xfc, 0x1a, 0x48, 0xde, 0x4f, 0x15, 0xf7, 0x53, 0x20, 0x4a, 0x79, 0x32, 0xfc, 0xed, 0x7c, 0xf8,
+	0xf2, 0x5c, 0x2e, 0x09, 0x7a, 0x7f, 0x8c, 0x63, 0x5c, 0xc1, 0x02, 0xc5, 0x57, 0x33, 0xcd, 0xc2,
+	0x3a, 0x54, 0xbc, 0xe0, 0xe6, 0x56, 0xda, 0xab, 0x9c, 0xcd, 0x50, 0x49, 0x92, 0x6d, 0xa8, 0x0e,
+	0xf9, 0xed, 0xed, 0x97, 0x5e, 0xff, 0xb7, 0x69, 0x16, 0x52, 0x0e, 0xd6, 0x6f, 0x28, 0xcc, 0x28,
+	0xc7, 0x3b, 0xb0, 0x98, 0x98, 0x7d, 0xd7, 0x62, 0x6d, 0xc2, 0x86, 0x13, 0xd8, 0xde, 0xc8, 0x1a,
+	0xb1, 0x20, 0x6e, 0x7f, 0xe5, 0x05, 0x69, 0xc5, 0x8c, 0x13, 0xa8, 0xe1, 0x4b, 0x2a, 0x24, 0x6f,
+	0x0f, 0xf0, 0x12, 0xaa, 0x89, 0xf9, 0xb7, 0xbf, 0x50, 0x9f, 0x00, 0x8e, 0x25, 0xf7, 0x35, 0x2e,
+	0x15, 0xc5, 0x51, 0x26, 0x3f, 0x8d, 0x5f, 0xc2, 0x52, 0x56, 0x5f, 0xe9, 0xc1, 0x77, 0x59, 0xdc,
+	0x27, 0x50, 0x97, 0x55, 0x78, 0xc7, 0x0c, 0x7d, 0x53, 0x82, 0xe6, 0x64, 0x0d, 0x54, 0x61, 0x3f,
+	0x07, 0x1c, 0x07, 0x2e, 0x43, 0x51, 0x7e, 0x7a, 0x34, 0xc7, 0xa2, 0x17, 0x67, 0xc5, 0xf8, 0x68,
+	0x04, 0x39, 0x8a, 0xfc, 0x10, 0xe0, 0x8e, 0x8f, 0x98, 0x34, 0x30, 0x2d, 0x73, 0x69, 0x89, 0xf1,
+	0xc1, 0xb9, 0x4b, 0xeb, 0xfd, 0xb1, 0xd8, 0x09, 0xd4, 0x31, 0xf9, 0x88, 0xaf, 0x4e, 0x83, 0xc4,
+	0x3e, 0x4d, 0x00, 0xf1, 0x95, 0x52, 0x7d, 0x2a, 0xcf, 0x4d, 0x79, 0xa5, 0x72, 0x19, 0xc3, 0x57,
+	0x6a, 0x98, 0x4b, 0x60, 0x07, 0x96, 0xbd, 0xfb, 0x98, 0xbb, 0xaa, 0x40, 0xd2, 0x84, 0x1c, 0x03,
+	0x5b, 0x79, 0x13, 0x63, 0x35, 0x3d, 0x9b, 0xa1, 0x4b, 0x5e, 0x91, 0x85, 0x17, 0xa6, 0x2f, 0xf2,
+	0xa8, 0x2e, 0xcc, 0x1f, 0x35, 0xa8, 0x50, 0x7e, 0x1f, 0x33, 0xb2, 0x08, 0x25, 0x7f, 0xa0, 0xa6,
+	0x78, 0xc9, 0x1f, 0x4c, 0x1b, 0xe1, 0x38, 0x36, 0xfc, 0xc8, 0xf5, 0xfa, 0xb1, 0x3f, 0x62, 0xf2,
+	0xc9, 0xa1, 0x55, 0x3f, 0x32, 0x05, 0x4d, 0x7e, 0x8c, 0x31, 0xde, 0xc7, 0xcc, 0x0d, 0xb9, 0x1f,
+	0xc4, 0x51, 0xb3, 0xbc, 0x37, 0x3b, 0x3e, 0xe0, 0x04, 0xd2, 0x25, 0x8a, 0x31, 0xc0, 0xe4, 0x3b,
+	0x32, 0x7e, 0x04, 0x90, 0x89, 0x52, 0x64, 0x2d, 0x87, 0x8c, 0x1b, 0x92, 0xc8, 0x48, 0xba, 0x21,
+	0x09, 0xca, 0xf8, 0x0c, 0x96, 0x6c, 0xf6, 0x42, 0x1c, 0x4e, 0x5e, 0x92, 0x0f, 0xa1, 0x22, 0x6c,
+	0xab, 0x99, 0xbc, 0x3c, 0xe1, 0x00, 0x95, 0x72, 0xe3, 0x27, 0xa0, 0x67, 0x67, 0x55, 0x57, 0xbd,
+	0xf6, 0xe1, 0x15, 0x58, 0x3e, 0xf7, 0xa3, 0x58, 0xf0, 0xa2, 0xe4, 0x61, 0xf8, 0x39, 0x90, 0x3c,
+	0x53, 0xd9, 0xfc, 0x3e, 0xfa, 0x8e, 0x9c, 0xa6, 0x26, 0x52, 0x32, 0xc5, 0xa8, 0x52, 0x30, 0xde,
+	0x83, 0xa5, 0x53, 0x16, 0x17, 0xc2, 0x19, 0xab, 0x0b, 0x7a, 0x9d, 0xa9, 0xbc, 0xa9, 0xd7, 0x3f,
+	0x03, 0x72, 0x15, 0x0e, 0xf0, 0x7d, 0x7c, 0xab, 0x8c, 0x7d, 0x0e, 0x2b, 0x85, 0xe3, 0x6f, 0x0a,
+	0x7f, 0x04, 0x2b, 0x27, 0xec, 0x96, 0xa9, 0xf3, 0x49, 0xda, 0xb0, 0xad, 0x64, 0xfc, 0xae, 0x88,
+	0x14, 0xf7, 0xb3, 0xaa, 0x64, 0x74, 0x06, 0xc6, 0x3a, 0xac, 0x16, 0xcf, 0x48, 0xd0, 0x83, 0xff,
+	0x68, 0x00, 0xd9, 0xbb, 0x41, 0xea, 0x30, 0x7f, 0x65, 0x7f, 0x61, 0x3b, 0xcf, 0x6c, 0x7d, 0x06,
+	0x89, 0x6e, 0xcf, 0xb9, 0xbc, 0xb4, 0x4e, 0x74, 0x8d, 0x00, 0xcc, 0x5d, 0x38, 0xd7, 0x1d, 0xfb,
+	0x54, 0x2f, 0x91, 0x05, 0xa8, 0x5d, 0x52, 0xeb, 0xd2, 0xa4, 0x48, 0xce, 0xa2, 0xa8, 0x6d, 0xda,
+	0x6d, 0xeb, 0x5c, 0x2f, 0x93, 0x06, 0x54, 0xa9, 0x75, 0x6e, 0x99, 0x5d, 0xeb, 0x44, 0xaf, 0x10,
+	0x1d, 0x1a, 0x16, 0xa5, 0xae, 0x73, 0xdc, 0xed, 0x99, 0xed, 0x73, 0x4b, 0x07, 0xb2, 0x0c, 0x0b,
+	0xc8, 0xb1, 0x9d, 0x9e, 0x4b, 0x2d, 0xf3, 0xe4, 0xb9, 0x5e, 0x27, 0x04, 0x16, 0x91, 0x75, 0xe1,
+	0xf4, 0x1c, 0xea, 0x3e, 0x31, 0x3b, 0xe7, 0x7a, 0x83, 0xac, 0x82, 0x8e, 0xbc, 0x67, 0xd4, 0xb1,
+	0x4f, 0xdd, 0x9e, 0x49, 0x4f, 0xad, 0x9e, 0xbe, 0x40, 0x16, 0x01, 0xa8, 0xf5, 0xd4, 0x55, 0x7e,
+	0xac, 0x26, 0xb4, 0x6d, 0x0a, 0x7a, 0x0d, 0xe1, 0x90, 0x6e, 0x9f, 0x99, 0xf4, 0x14, 0x39, 0xeb,
+	0x09, 0x87, 0x3a, 0x3d, 0xb3, 0x87, 0x9c, 0x8d, 0x83, 0x3f, 0x6b, 0xb0, 0x50, 0x58, 0xf8, 0x31,
+	0x4c, 0xe5, 0xb2, 0x8c, 0xf9, 0x89, 0x43, 0x9f, 0x99, 0x14, 0x63, 0x6e, 0x40, 0xf5, 0xd8, 0x6c,
+	0x7f, 0x21, 0xa8, 0x12, 0xa9, 0x42, 0xf9, 0xdc, 0x7a, 0xd2, 0xd3, 0x67, 0x49, 0x0d, 0x2a, 0xb4,
+	0x73, 0x7a, 0xd6, 0xd3, 0xcb, 0x08, 0x80, 0x4c, 0x37, 0x39, 0x54, 0xc1, 0x08, 0x85, 0x30, 0x65,
+	0xcd, 0x21, 0x4b, 0x28, 0xa5, 0xc6, 0xe6, 0x31, 0x68, 0xa9, 0x95, 0xf2, 0xaa, 0x07, 0xcf, 0xf1,
+	0xc1, 0xcf, 0xef, 0xe5, 0x6b, 0xd4, 0x31, 0x2f, 0x3a, 0x98, 0x81, 0xe7, 0x97, 0x96, 0xdb, 0x76,
+	0xec, 0x5e, 0xc7, 0xbe, 0x42, 0x2f, 0xd7, 0x81, 0x14, 0x44, 0x0e, 0x3d, 0xb1, 0xa8, 0xae, 0x91,
+	0x0d, 0x58, 0x29, 0xf0, 0xa9, 0x69, 0x9f, 0x38, 0x17, 0x7a, 0xe9, 0xe0, 0x7f, 0x1a, 0xe8, 0xe3,
+	0x23, 0x07, 0x01, 0x44, 0xaa, 0x2c, 0xb7, 0xdb, 0x33, 0x7b, 0x57, 0x5d, 0x37, 0x2b, 0xfd, 0x16,
+	0x6c, 0x14, 0x45, 0x59, 0xbd, 0x35, 0xd2, 0x82, 0xf5, 0xa2, 0x30, 0xad, 0x78, 0x89, 0x6c, 0x43,
+	0xb3, 0x28, 0x6b, 0x3b, 0xb6, 0x6d, 0xb5, 0x7b, 0xb2, 0x53, 0x26, 0x4e, 0xa6, 0xa5, 0x2a, 0x93,
+	0x5d, 0xd8, 0x2a, 0xca, 0x4e, 0x3a, 0xdd, 0xdc, 0xe1, 0x0a, 0x06, 0xa7, 0x14, 0x14, 0x5b, 0x36,
+	0xcb, 0x1c, 0xd9, 0x81, 0x56, 0xf1, 0xa4, 0x6d, 0x5e, 0x67, 0x3d, 0x37, 0x7f, 0x10, 0x88, 0xdf,
+	0x1b, 0xd9, 0xcc, 0x5a, 0x07, 0x82, 0x1a, 0xd6, 0xb5, 0x65, 0x63, 0x17, 0x5e, 0x5b, 0x14, 0x7d,
+	0x9f, 0xc1, 0x76, 0xba, 0x70, 0xae, 0x2d, 0x29, 0xd0, 0x35, 0x6c, 0xf3, 0x54, 0x4f, 0x2f, 0x91,
+	0x35, 0x58, 0x36, 0xaf, 0x7a, 0x8e, 0xab, 0xb0, 0x24, 0x7b, 0x56, 0xb4, 0x18, 0xb6, 0x57, 0xc2,
+	0x29, 0x1f, 0xfd, 0xbd, 0x2a, 0x36, 0xfd, 0x36, 0x0f, 0x62, 0x5c, 0xb1, 0xd8, 0x90, 0x3c, 0x83,
+	0x32, 0xf6, 0x1c, 0xd9, 0x18, 0x9f, 0x8c, 0xea, 0xee, 0xb6, 0x9a, 0x93, 0x02, 0x79, 0x41, 0x8d,
+	0xe6, 0x1f, 0xfe, 0xf9, 0xaf, 0x3f, 0x95, 0x08, 0xd1, 0xc5, 0xaf, 0xe4, 0xd1, 0xd1, 0x61, 0xe0,
+	0x8d, 0x0e, 0x71, 0x8e, 0xee, 0x6b, 0x1f, 0x69, 0xe4, 0x17, 0x50, 0x11, 0xbf, 0x29, 0xc8, 0xf8,
+	0xbc, 0x4e, 0x7f, 0x5d, 0xb5, 0x36, 0xa7, 0x48, 0x94, 0xed, 0x47, 0xc2, 0xf6, 0x86, 0x41, 0xf2,
+	0xb6, 0xc5, 0x22, 0xc4, 0x3f, 0xd3, 0x0e, 0x48, 0x1f, 0xe6, 0xd5, 0xd2, 0x4e, 0x5a, 0x63, 0x46,
+	0x72, 0xbb, 0x7d, 0x6b, 0x6b, 0xaa, 0x4c, 0x41, 0xec, 0x0a, 0x88, 0x4d, 0x63, 0x75, 0x1c, 0x22,
+	0x8a, 0x79, 0x88, 0x20, 0x1c, 0x20, 0x1b, 0xb8, 0xe4, 0xd1, 0xf4, 0x41, 0x9c, 0x40, 0xed, 0x3c,
+	0x24, 0x56, 0x68, 0x86, 0x40, 0xdb, 0x36, 0x36, 0xf2, 0x68, 0xb9, 0xa1, 0x8f, 0x80, 0xbf, 0x82,
+	0x39, 0xb9, 0x24, 0x90, 0xcd, 0xc9, 0xc5, 0x21, 0x01, 0x6a, 0x4d, 0x13, 0x7d, 0x5b, 0xd6, 0xe4,
+	0x20, 0x45, 0xfb, 0x5f, 0x6b, 0xa0, 0x8f, 0xaf, 0x5b, 0xe4, 0xfd, 0xbc, 0xbd, 0x07, 0x16, 0xe2,
+	0xd6, 0x07, 0xdf, 0xae, 0xa4, 0xe0, 0x3f, 0x14, 0xf0, 0xef, 0x91, 0xdd, 0x3c, 0x3c, 0x0f, 0xdc,
+	0x6c, 0x8d, 0x93, 0xab, 0xc9, 0x47, 0x1a, 0xb9, 0x81, 0x6a, 0x32, 0x9a, 0x49, 0xb1, 0x4a, 0xc5,
+	0x61, 0xdf, 0xda, 0x9e, 0x2e, 0x54, 0x88, 0x7b, 0x02, 0xb1, 0x65, 0xac, 0x15, 0x6a, 0xc8, 0x5e,
+	0xb8, 0x62, 0xba, 0xa8, 0x22, 0x66, 0x13, 0xbb, 0x58, 0xc4, 0x89, 0xf1, 0x5e, 0x2c, 0xe2, 0xe4,
+	0xa0, 0x9f, 0x5e, 0xc4, 0x5b, 0x3f, 0x8a, 0x25, 0x5e, 0x84, 0x80, 0x11, 0xd4, 0x73, 0x23, 0x94,
+	0x14, 0x4c, 0x4e, 0x8e, 0xe6, 0xd6, 0xee, 0x83, 0x72, 0x85, 0xf9, 0xbe, 0xc0, 0x7c, 0x64, 0x34,
+	0xf3, 0x98, 0xf7, 0x42, 0x31, 0x8b, 0xf2, 0x05, 0x34, 0xf2, 0x33, 0x94, 0x14, 0xac, 0x4e, 0x99,
+	0xc8, 0xad, 0xbd, 0x87, 0x15, 0x14, 0xee, 0x07, 0x02, 0x77, 0xc7, 0xd8, 0xcc, 0xe3, 0x0e, 0x84,
+	0x66, 0x16, 0xed, 0x71, 0xe3, 0x6f, 0xaf, 0x76, 0xb4, 0x7f, 0xbc, 0xda, 0xd1, 0xbe, 0x79, 0xb5,
+	0xa3, 0x7d, 0x39, 0x27, 0xfe, 0x13, 0xfb, 0xf8, 0xff, 0x01, 0x00, 0x00, 0xff, 0xff, 0x60, 0x70,
+	0x8d, 0xf5, 0x55, 0x13, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -2721,13 +2702,6 @@ type NavControllerClient interface {
 	// 导航事件监听
 	// 监听导航模块中各类事件的变动更新
 	OnNavEventChange(ctx context.Context, in *OnNavEventChangeRequest, opts ...grpc.CallOption) (NavController_OnNavEventChangeClient, error)
-	// >=2.2.0
-	// 重置当前定位
-	// 用于发生定位异常/错误状态，重新初始化导航定位
-	// 重定位错误：定位状态超时|无地图|UWB错误
-	// 重定位超时判断: 默认3s，仅在非错误状态下重置
-	// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-	LocationReset(ctx context.Context, in *LocationResetRequest, opts ...grpc.CallOption) (*LocationResetResponse, error)
 	// 新建线路
 	NewRoute(ctx context.Context, in *NewRouteRequest, opts ...grpc.CallOption) (*NewRouteResponse, error)
 	// 获取线路
@@ -2845,15 +2819,6 @@ func (x *navControllerOnNavEventChangeClient) Recv() (*OnNavEventChangeResponse,
 	return m, nil
 }
 
-func (c *navControllerClient) LocationReset(ctx context.Context, in *LocationResetRequest, opts ...grpc.CallOption) (*LocationResetResponse, error) {
-	out := new(LocationResetResponse)
-	err := c.cc.Invoke(ctx, "/navService.NavController/LocationReset", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *navControllerClient) NewRoute(ctx context.Context, in *NewRouteRequest, opts ...grpc.CallOption) (*NewRouteResponse, error) {
 	out := new(NewRouteResponse)
 	err := c.cc.Invoke(ctx, "/navService.NavController/NewRoute", in, out, opts...)
@@ -2924,13 +2889,6 @@ type NavControllerServer interface {
 	// 导航事件监听
 	// 监听导航模块中各类事件的变动更新
 	OnNavEventChange(*OnNavEventChangeRequest, NavController_OnNavEventChangeServer) error
-	// >=2.2.0
-	// 重置当前定位
-	// 用于发生定位异常/错误状态，重新初始化导航定位
-	// 重定位错误：定位状态超时|无地图|UWB错误
-	// 重定位超时判断: 默认3s，仅在非错误状态下重置
-	// *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-	LocationReset(context.Context, *LocationResetRequest) (*LocationResetResponse, error)
 	// 新建线路
 	NewRoute(context.Context, *NewRouteRequest) (*NewRouteResponse, error)
 	// 获取线路
@@ -2962,9 +2920,6 @@ func (*UnimplementedNavControllerServer) Rotate(ctx context.Context, req *Rotate
 }
 func (*UnimplementedNavControllerServer) OnNavEventChange(req *OnNavEventChangeRequest, srv NavController_OnNavEventChangeServer) error {
 	return status.Errorf(codes.Unimplemented, "method OnNavEventChange not implemented")
-}
-func (*UnimplementedNavControllerServer) LocationReset(ctx context.Context, req *LocationResetRequest) (*LocationResetResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method LocationReset not implemented")
 }
 func (*UnimplementedNavControllerServer) NewRoute(ctx context.Context, req *NewRouteRequest) (*NewRouteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method NewRoute not implemented")
@@ -3102,24 +3057,6 @@ func (x *navControllerOnNavEventChangeServer) Send(m *OnNavEventChangeResponse) 
 	return x.ServerStream.SendMsg(m)
 }
 
-func _NavController_LocationReset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LocationResetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NavControllerServer).LocationReset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/navService.NavController/LocationReset",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NavControllerServer).LocationReset(ctx, req.(*LocationResetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NavController_NewRoute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NewRouteRequest)
 	if err := dec(in); err != nil {
@@ -3213,10 +3150,6 @@ var _NavController_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NavController_Rotate_Handler,
 		},
 		{
-			MethodName: "LocationReset",
-			Handler:    _NavController_LocationReset_Handler,
-		},
-		{
 			MethodName: "NewRoute",
 			Handler:    _NavController_NewRoute_Handler,
 		},
@@ -3252,7 +3185,7 @@ var _NavController_serviceDesc = grpc.ServiceDesc{
 func (m *MoveRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3260,41 +3193,48 @@ func (m *MoveRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *MoveRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MoveRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Speed != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Speed))
-	}
-	if m.Rspeed != 0 {
-		dAtA[i] = 0x10
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Rspeed))
-	}
-	if m.Direction != 0 {
-		dAtA[i] = 0x18
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Direction))
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Mode) > 0 {
-		dAtA[i] = 0x22
-		i++
+		i -= len(m.Mode)
+		copy(dAtA[i:], m.Mode)
 		i = encodeVarintNav(dAtA, i, uint64(len(m.Mode)))
-		i += copy(dAtA[i:], m.Mode)
+		i--
+		dAtA[i] = 0x22
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.Direction != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.Direction))
+		i--
+		dAtA[i] = 0x18
 	}
-	return i, nil
+	if m.Rspeed != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.Rspeed))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.Speed != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.Speed))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *MoveResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3302,25 +3242,31 @@ func (m *MoveResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *MoveResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MoveResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *NavTarget) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3328,32 +3274,40 @@ func (m *NavTarget) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavTarget) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavTarget) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Index) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(len(m.Index)))
-		i += copy(dAtA[i:], m.Index)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if len(m.Name) > 0 {
-		dAtA[i] = 0x12
-		i++
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
 		i = encodeVarintNav(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+		i--
+		dAtA[i] = 0x12
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Index) > 0 {
+		i -= len(m.Index)
+		copy(dAtA[i:], m.Index)
+		i = encodeVarintNav(dAtA, i, uint64(len(m.Index)))
+		i--
+		dAtA[i] = 0xa
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *NavRoaming) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3361,55 +3315,55 @@ func (m *NavRoaming) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavRoaming) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavRoaming) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.NavRoamingType != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.NavRoamingType))
-	}
-	if m.WaitSec != 0 {
-		dAtA[i] = 0x10
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.WaitSec))
-	}
-	if len(m.RoamingTargetIndexes) > 0 {
-		for _, s := range m.RoamingTargetIndexes {
-			dAtA[i] = 0x1a
-			i++
-			l = len(s)
-			for l >= 1<<7 {
-				dAtA[i] = uint8(uint64(l)&0x7f | 0x80)
-				l >>= 7
-				i++
-			}
-			dAtA[i] = uint8(l)
-			i++
-			i += copy(dAtA[i:], s)
-		}
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.OrderLoop {
-		dAtA[i] = 0x20
-		i++
+		i--
 		if m.OrderLoop {
 			dAtA[i] = 1
 		} else {
 			dAtA[i] = 0
 		}
-		i++
+		i--
+		dAtA[i] = 0x20
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.RoamingTargetIndexes) > 0 {
+		for iNdEx := len(m.RoamingTargetIndexes) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.RoamingTargetIndexes[iNdEx])
+			copy(dAtA[i:], m.RoamingTargetIndexes[iNdEx])
+			i = encodeVarintNav(dAtA, i, uint64(len(m.RoamingTargetIndexes[iNdEx])))
+			i--
+			dAtA[i] = 0x1a
+		}
 	}
-	return i, nil
+	if m.WaitSec != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.WaitSec))
+		i--
+		dAtA[i] = 0x10
+	}
+	if m.NavRoamingType != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.NavRoamingType))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *NavToRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3417,70 +3371,110 @@ func (m *NavToRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavToRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavToRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.TargetOneof != nil {
-		nn1, err1 := m.TargetOneof.MarshalTo(dAtA[i:])
-		if err1 != nil {
-			return 0, err1
-		}
-		i += nn1
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	if m.Speed != 0 {
-		dAtA[i] = 0x10
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Speed))
+	if m.TargetOneof != nil {
+		{
+			size := m.TargetOneof.Size()
+			i -= size
+			if _, err := m.TargetOneof.MarshalTo(dAtA[i:]); err != nil {
+				return 0, err
+			}
+		}
 	}
 	if m.SyncMode {
-		dAtA[i] = 0x20
-		i++
+		i--
 		if m.SyncMode {
 			dAtA[i] = 1
 		} else {
 			dAtA[i] = 0
 		}
-		i++
+		i--
+		dAtA[i] = 0x20
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.Speed != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.Speed))
+		i--
+		dAtA[i] = 0x10
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *NavToRequest_Target) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *NavToRequest_Target) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.Target != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Target.Size()))
-		n2, err2 := m.Target.MarshalTo(dAtA[i:])
-		if err2 != nil {
-			return 0, err2
+		{
+			size, err := m.Target.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n2
+		i--
+		dAtA[i] = 0xa
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 func (m *NavToRequest_Roaming) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *NavToRequest_Roaming) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.Roaming != nil {
-		dAtA[i] = 0x1a
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Roaming.Size()))
-		n3, err3 := m.Roaming.MarshalTo(dAtA[i:])
-		if err3 != nil {
-			return 0, err3
+		{
+			size, err := m.Roaming.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n3
+		i--
+		dAtA[i] = 0x1a
 	}
-	return i, nil
+	return len(dAtA) - i, nil
+}
+func (m *NavToRequest_MapPosition) MarshalTo(dAtA []byte) (int, error) {
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *NavToRequest_MapPosition) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	if m.MapPosition != nil {
+		{
+			size, err := m.MapPosition.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x2a
+	}
+	return len(dAtA) - i, nil
 }
 func (m *NavToResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3488,58 +3482,96 @@ func (m *NavToResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavToResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavToResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.TargetOneof != nil {
-		nn4, err4 := m.TargetOneof.MarshalTo(dAtA[i:])
-		if err4 != nil {
-			return 0, err4
+		{
+			size := m.TargetOneof.Size()
+			i -= size
+			if _, err := m.TargetOneof.MarshalTo(dAtA[i:]); err != nil {
+				return 0, err
+			}
 		}
-		i += nn4
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *NavToResponse_Target) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *NavToResponse_Target) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.Target != nil {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Target.Size()))
-		n5, err5 := m.Target.MarshalTo(dAtA[i:])
-		if err5 != nil {
-			return 0, err5
+		{
+			size, err := m.Target.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n5
+		i--
+		dAtA[i] = 0x12
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 func (m *NavToResponse_IsRoaming) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
-	dAtA[i] = 0x18
-	i++
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *NavToResponse_IsRoaming) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	i--
 	if m.IsRoaming {
 		dAtA[i] = 1
 	} else {
 		dAtA[i] = 0
 	}
-	i++
-	return i, nil
+	i--
+	dAtA[i] = 0x18
+	return len(dAtA) - i, nil
+}
+func (m *NavToResponse_MapPosition) MarshalTo(dAtA []byte) (int, error) {
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *NavToResponse_MapPosition) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	if m.MapPosition != nil {
+		{
+			size, err := m.MapPosition.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x22
+	}
+	return len(dAtA) - i, nil
 }
 func (m *NavStopRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3547,20 +3579,26 @@ func (m *NavStopRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavStopRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavStopRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *NavStopResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3568,25 +3606,31 @@ func (m *NavStopResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavStopResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavStopResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *AutoChargeRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3594,68 +3638,88 @@ func (m *AutoChargeRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *AutoChargeRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *AutoChargeRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.ChargeOptionOneof != nil {
-		nn6, err6 := m.ChargeOptionOneof.MarshalTo(dAtA[i:])
-		if err6 != nil {
-			return 0, err6
-		}
-		i += nn6
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.TimeoutSec != 0 {
-		dAtA[i] = 0x20
-		i++
 		i = encodeVarintNav(dAtA, i, uint64(m.TimeoutSec))
+		i--
+		dAtA[i] = 0x20
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.ChargeOptionOneof != nil {
+		{
+			size := m.ChargeOptionOneof.Size()
+			i -= size
+			if _, err := m.ChargeOptionOneof.MarshalTo(dAtA[i:]); err != nil {
+				return 0, err
+			}
+		}
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *AutoChargeRequest_Charge) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
-	dAtA[i] = 0x8
-	i++
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *AutoChargeRequest_Charge) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	i--
 	if m.Charge {
 		dAtA[i] = 1
 	} else {
 		dAtA[i] = 0
 	}
-	i++
-	return i, nil
+	i--
+	dAtA[i] = 0x8
+	return len(dAtA) - i, nil
 }
 func (m *AutoChargeRequest_Cancel) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
-	dAtA[i] = 0x10
-	i++
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *AutoChargeRequest_Cancel) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	i--
 	if m.Cancel {
 		dAtA[i] = 1
 	} else {
 		dAtA[i] = 0
 	}
-	i++
-	return i, nil
+	i--
+	dAtA[i] = 0x10
+	return len(dAtA) - i, nil
 }
 func (m *AutoChargeRequest_ChargePreset) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
-	dAtA[i] = 0x18
-	i++
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *AutoChargeRequest_ChargePreset) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	i--
 	if m.ChargePreset {
 		dAtA[i] = 1
 	} else {
 		dAtA[i] = 0
 	}
-	i++
-	return i, nil
+	i--
+	dAtA[i] = 0x18
+	return len(dAtA) - i, nil
 }
 func (m *AutoChargeResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3663,25 +3727,31 @@ func (m *AutoChargeResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *AutoChargeResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *AutoChargeResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.ChargeStatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.ChargeStatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.ChargeStatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.ChargeStatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *RotateRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3689,46 +3759,62 @@ func (m *RotateRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *RotateRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RotateRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.RotateOneof != nil {
-		nn7, err7 := m.RotateOneof.MarshalTo(dAtA[i:])
-		if err7 != nil {
-			return 0, err7
-		}
-		i += nn7
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.RotateOneof != nil {
+		{
+			size := m.RotateOneof.Size()
+			i -= size
+			if _, err := m.RotateOneof.MarshalTo(dAtA[i:]); err != nil {
+				return 0, err
+			}
+		}
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *RotateRequest_Angle) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
-	dAtA[i] = 0x8
-	i++
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *RotateRequest_Angle) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	i = encodeVarintNav(dAtA, i, uint64(m.Angle))
-	return i, nil
+	i--
+	dAtA[i] = 0x8
+	return len(dAtA) - i, nil
 }
 func (m *RotateRequest_Rollback) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
-	dAtA[i] = 0x10
-	i++
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *RotateRequest_Rollback) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	i--
 	if m.Rollback {
 		dAtA[i] = 1
 	} else {
 		dAtA[i] = 0
 	}
-	i++
-	return i, nil
+	i--
+	dAtA[i] = 0x10
+	return len(dAtA) - i, nil
 }
 func (m *RotateResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3736,25 +3822,31 @@ func (m *RotateResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *RotateResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RotateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *OnNavEventChangeRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3762,20 +3854,26 @@ func (m *OnNavEventChangeRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *OnNavEventChangeRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *OnNavEventChangeRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *MoveEvent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3783,25 +3881,31 @@ func (m *MoveEvent) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *MoveEvent) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MoveEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *NavEvent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3809,35 +3913,43 @@ func (m *NavEvent) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NavEvent) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NavEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.NavTarget != nil {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.NavTarget.Size()))
-		n8, err8 := m.NavTarget.MarshalTo(dAtA[i:])
-		if err8 != nil {
-			return 0, err8
+		{
+			size, err := m.NavTarget.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n8
+		i--
+		dAtA[i] = 0x12
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *AutoChargeEvent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3845,25 +3957,31 @@ func (m *AutoChargeEvent) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *AutoChargeEvent) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *AutoChargeEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.ChargeStatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.ChargeStatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.ChargeStatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.ChargeStatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *RotateEvent) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3871,25 +3989,31 @@ func (m *RotateEvent) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *RotateEvent) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RotateEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.StatusCode != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.StatusCode != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.StatusCode))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *OnNavEventChangeResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -3897,130 +4021,120 @@ func (m *OnNavEventChangeResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *OnNavEventChangeResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *OnNavEventChangeResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.NavEventType != 0 {
-		dAtA[i] = 0x8
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.NavEventType))
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.ChangeOneof != nil {
-		nn9, err9 := m.ChangeOneof.MarshalTo(dAtA[i:])
-		if err9 != nil {
-			return 0, err9
+		{
+			size := m.ChangeOneof.Size()
+			i -= size
+			if _, err := m.ChangeOneof.MarshalTo(dAtA[i:]); err != nil {
+				return 0, err
+			}
 		}
-		i += nn9
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if m.NavEventType != 0 {
+		i = encodeVarintNav(dAtA, i, uint64(m.NavEventType))
+		i--
+		dAtA[i] = 0x8
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *OnNavEventChangeResponse_MoveEvent) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *OnNavEventChangeResponse_MoveEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.MoveEvent != nil {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.MoveEvent.Size()))
-		n10, err10 := m.MoveEvent.MarshalTo(dAtA[i:])
-		if err10 != nil {
-			return 0, err10
+		{
+			size, err := m.MoveEvent.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n10
+		i--
+		dAtA[i] = 0x12
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 func (m *OnNavEventChangeResponse_NavEvent) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *OnNavEventChangeResponse_NavEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.NavEvent != nil {
-		dAtA[i] = 0x1a
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.NavEvent.Size()))
-		n11, err11 := m.NavEvent.MarshalTo(dAtA[i:])
-		if err11 != nil {
-			return 0, err11
+		{
+			size, err := m.NavEvent.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n11
+		i--
+		dAtA[i] = 0x1a
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 func (m *OnNavEventChangeResponse_RotateEvent) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *OnNavEventChangeResponse_RotateEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.RotateEvent != nil {
-		dAtA[i] = 0x22
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.RotateEvent.Size()))
-		n12, err12 := m.RotateEvent.MarshalTo(dAtA[i:])
-		if err12 != nil {
-			return 0, err12
+		{
+			size, err := m.RotateEvent.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n12
+		i--
+		dAtA[i] = 0x22
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 func (m *OnNavEventChangeResponse_AutoChargeEvent) MarshalTo(dAtA []byte) (int, error) {
-	i := 0
+	return m.MarshalToSizedBuffer(dAtA[:m.Size()])
+}
+
+func (m *OnNavEventChangeResponse_AutoChargeEvent) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	if m.AutoChargeEvent != nil {
-		dAtA[i] = 0x2a
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.AutoChargeEvent.Size()))
-		n13, err13 := m.AutoChargeEvent.MarshalTo(dAtA[i:])
-		if err13 != nil {
-			return 0, err13
+		{
+			size, err := m.AutoChargeEvent.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
 		}
-		i += n13
+		i--
+		dAtA[i] = 0x2a
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
-func (m *LocationResetRequest) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *LocationResetRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
-func (m *LocationResetResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *LocationResetResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
-}
-
 func (m *Route) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4028,54 +4142,64 @@ func (m *Route) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *Route) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *Route) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	if len(m.Name) > 0 {
-		dAtA[i] = 0x12
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+	if len(m.RoutePoints) > 0 {
+		for iNdEx := len(m.RoutePoints) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.RoutePoints[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintNav(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x22
+		}
 	}
 	if m.IsActive {
-		dAtA[i] = 0x18
-		i++
+		i--
 		if m.IsActive {
 			dAtA[i] = 1
 		} else {
 			dAtA[i] = 0
 		}
-		i++
+		i--
+		dAtA[i] = 0x18
 	}
-	if len(m.RoutePoints) > 0 {
-		for _, msg := range m.RoutePoints {
-			dAtA[i] = 0x22
-			i++
-			i = encodeVarintNav(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
-			}
-			i += n
-		}
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintNav(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0x12
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintNav(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0xa
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *RoutePoint) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4083,31 +4207,38 @@ func (m *RoutePoint) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *RoutePoint) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RoutePoint) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Name) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(len(m.Name)))
-		i += copy(dAtA[i:], m.Name)
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
 	if m.Rotate != 0 {
-		dAtA[i] = 0x10
-		i++
 		i = encodeVarintNav(dAtA, i, uint64(m.Rotate))
+		i--
+		dAtA[i] = 0x10
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+	if len(m.Name) > 0 {
+		i -= len(m.Name)
+		copy(dAtA[i:], m.Name)
+		i = encodeVarintNav(dAtA, i, uint64(len(m.Name)))
+		i--
+		dAtA[i] = 0xa
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *NewRouteRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4115,30 +4246,38 @@ func (m *NewRouteRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NewRouteRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NewRouteRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Route != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Route.Size()))
-		n14, err14 := m.Route.MarshalTo(dAtA[i:])
-		if err14 != nil {
-			return 0, err14
-		}
-		i += n14
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.Route != nil {
+		{
+			size, err := m.Route.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *NewRouteResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4146,30 +4285,38 @@ func (m *NewRouteResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *NewRouteResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *NewRouteResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Route != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Route.Size()))
-		n15, err15 := m.Route.MarshalTo(dAtA[i:])
-		if err15 != nil {
-			return 0, err15
-		}
-		i += n15
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.Route != nil {
+		{
+			size, err := m.Route.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *ListRoutesRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4177,20 +4324,26 @@ func (m *ListRoutesRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ListRoutesRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ListRoutesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *ListRoutesResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4198,32 +4351,40 @@ func (m *ListRoutesResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *ListRoutesResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *ListRoutesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.Routes) > 0 {
-		for _, msg := range m.Routes {
-			dAtA[i] = 0xa
-			i++
-			i = encodeVarintNav(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
+		for iNdEx := len(m.Routes) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Routes[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintNav(dAtA, i, uint64(size))
 			}
-			i += n
+			i--
+			dAtA[i] = 0xa
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *GetRouteRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4231,26 +4392,33 @@ func (m *GetRouteRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *GetRouteRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetRouteRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if len(m.Id) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(len(m.Id)))
-		i += copy(dAtA[i:], m.Id)
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if len(m.Id) > 0 {
+		i -= len(m.Id)
+		copy(dAtA[i:], m.Id)
+		i = encodeVarintNav(dAtA, i, uint64(len(m.Id)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *GetRouteResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4258,30 +4426,38 @@ func (m *GetRouteResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *GetRouteResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *GetRouteResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Route != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Route.Size()))
-		n16, err16 := m.Route.MarshalTo(dAtA[i:])
-		if err16 != nil {
-			return 0, err16
-		}
-		i += n16
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.Route != nil {
+		{
+			size, err := m.Route.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *UpdateRouteRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4289,30 +4465,38 @@ func (m *UpdateRouteRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *UpdateRouteRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UpdateRouteRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Route != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Route.Size()))
-		n17, err17 := m.Route.MarshalTo(dAtA[i:])
-		if err17 != nil {
-			return 0, err17
-		}
-		i += n17
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.Route != nil {
+		{
+			size, err := m.Route.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *UpdateRouteResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4320,30 +4504,38 @@ func (m *UpdateRouteResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *UpdateRouteResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *UpdateRouteResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.Route != nil {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintNav(dAtA, i, uint64(m.Route.Size()))
-		n18, err18 := m.Route.MarshalTo(dAtA[i:])
-		if err18 != nil {
-			return 0, err18
-		}
-		i += n18
-	}
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	if m.Route != nil {
+		{
+			size, err := m.Route.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintNav(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
 }
 
 func (m *DeleteRoutesRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4351,35 +4543,35 @@ func (m *DeleteRoutesRequest) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *DeleteRoutesRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *DeleteRoutesRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
 	if len(m.RoutesId) > 0 {
-		for _, s := range m.RoutesId {
+		for iNdEx := len(m.RoutesId) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.RoutesId[iNdEx])
+			copy(dAtA[i:], m.RoutesId[iNdEx])
+			i = encodeVarintNav(dAtA, i, uint64(len(m.RoutesId[iNdEx])))
+			i--
 			dAtA[i] = 0xa
-			i++
-			l = len(s)
-			for l >= 1<<7 {
-				dAtA[i] = uint8(uint64(l)&0x7f | 0x80)
-				l >>= 7
-				i++
-			}
-			dAtA[i] = uint8(l)
-			i++
-			i += copy(dAtA[i:], s)
 		}
 	}
-	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func (m *DeleteRoutesResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
 	if err != nil {
 		return nil, err
 	}
@@ -4387,24 +4579,32 @@ func (m *DeleteRoutesResponse) Marshal() (dAtA []byte, err error) {
 }
 
 func (m *DeleteRoutesResponse) MarshalTo(dAtA []byte) (int, error) {
-	var i int
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *DeleteRoutesResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
 	if m.XXX_unrecognized != nil {
-		i += copy(dAtA[i:], m.XXX_unrecognized)
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
 	}
-	return i, nil
+	return len(dAtA) - i, nil
 }
 
 func encodeVarintNav(dAtA []byte, offset int, v uint64) int {
+	offset -= sovNav(v)
+	base := offset
 	for v >= 1<<7 {
 		dAtA[offset] = uint8(v&0x7f | 0x80)
 		v >>= 7
 		offset++
 	}
 	dAtA[offset] = uint8(v)
-	return offset + 1
+	return base
 }
 func (m *MoveRequest) Size() (n int) {
 	if m == nil {
@@ -4538,6 +4738,18 @@ func (m *NavToRequest_Roaming) Size() (n int) {
 	}
 	return n
 }
+func (m *NavToRequest_MapPosition) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.MapPosition != nil {
+		l = m.MapPosition.Size()
+		n += 1 + l + sovNav(uint64(l))
+	}
+	return n
+}
 func (m *NavToResponse) Size() (n int) {
 	if m == nil {
 		return 0
@@ -4575,6 +4787,18 @@ func (m *NavToResponse_IsRoaming) Size() (n int) {
 	var l int
 	_ = l
 	n += 2
+	return n
+}
+func (m *NavToResponse_MapPosition) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.MapPosition != nil {
+		l = m.MapPosition.Size()
+		n += 1 + l + sovNav(uint64(l))
+	}
 	return n
 }
 func (m *NavStopRequest) Size() (n int) {
@@ -4854,30 +5078,6 @@ func (m *OnNavEventChangeResponse_AutoChargeEvent) Size() (n int) {
 	}
 	return n
 }
-func (m *LocationResetRequest) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
-func (m *LocationResetResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
-
 func (m *Route) Size() (n int) {
 	if m == nil {
 		return 0
@@ -5704,6 +5904,41 @@ func (m *NavToRequest) Unmarshal(dAtA []byte) error {
 				}
 			}
 			m.SyncMode = bool(v != 0)
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MapPosition", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowNav
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthNav
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthNav
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			v := &MapPosition{}
+			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			m.TargetOneof = &NavToRequest_MapPosition{v}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipNav(dAtA[iNdEx:])
@@ -5833,6 +6068,41 @@ func (m *NavToResponse) Unmarshal(dAtA []byte) error {
 			}
 			b := bool(v != 0)
 			m.TargetOneof = &NavToResponse_IsRoaming{b}
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MapPosition", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowNav
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthNav
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthNav
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			v := &MapPosition{}
+			if err := v.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			m.TargetOneof = &NavToResponse_MapPosition{v}
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipNav(dAtA[iNdEx:])
@@ -6932,114 +7202,6 @@ func (m *OnNavEventChangeResponse) Unmarshal(dAtA []byte) error {
 			}
 			m.ChangeOneof = &OnNavEventChangeResponse_AutoChargeEvent{v}
 			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipNav(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthNav
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthNav
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *LocationResetRequest) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowNav
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: LocationResetRequest: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: LocationResetRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		default:
-			iNdEx = preIndex
-			skippy, err := skipNav(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthNav
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthNav
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *LocationResetResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowNav
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: LocationResetResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: LocationResetResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
 		default:
 			iNdEx = preIndex
 			skippy, err := skipNav(dAtA[iNdEx:])

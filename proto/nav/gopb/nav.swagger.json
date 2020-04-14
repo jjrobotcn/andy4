@@ -96,33 +96,6 @@
         ]
       }
     },
-    "/api/v2/nav/location_reset": {
-      "post": {
-        "summary": "\u003e=2.2.0\n重置当前定位\n用于发生定位异常/错误状态，重新初始化导航定位\n重定位错误：定位状态超时|无地图|UWB错误\n重定位超时判断: 默认3s，仅在非错误状态下重置\n*目前仅支持无线导航版本，磁导航版本中将直接返回成功状态",
-        "operationId": "LocationReset",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/navServiceLocationResetResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/navServiceLocationResetRequest"
-            }
-          }
-        ],
-        "tags": [
-          "NavController"
-        ]
-      }
-    },
     "/api/v2/nav/move": {
       "get": {
         "summary": "遥控移动\n当机器人处于非空闲及遥控移动状态时， 当前链接将被强制关闭, 错误描述为: \"[naving|charging|rotating] reject\"\n当机器人处于 *其它用户* 的遥控移动状态时， *你* 将收到MoveStatusResponse状态码REJ_MOVING\n当机器人处于 *你* 的遥控移动状态时, 请在500ms内持续发送遥控指令， 超时将自动停止移动\n当机器人处于 *你* 的遥控移动状态时, 若5秒后无遥控指令的更新, *你* 将接收到MoveStatusResponse状态码RELEASED，\n此时遥控移动控制权交由抢占的 *其它用户* 或其它类型目标的操作",
@@ -421,11 +394,25 @@
         }
       }
     },
-    "navServiceLocationResetRequest": {
-      "type": "object"
-    },
-    "navServiceLocationResetResponse": {
-      "type": "object"
+    "navServiceMapPosition": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer",
+          "format": "int64",
+          "title": "水平坐标 [0: mapWidth]"
+        },
+        "y": {
+          "type": "integer",
+          "format": "int64",
+          "title": "垂直坐标 [0: mapHeight]"
+        },
+        "angle": {
+          "type": "integer",
+          "format": "int64",
+          "title": "角度 水平右方向为0, 顺时针\n    270\n180  ----0\n    90"
+        }
+      }
     },
     "navServiceMoveDirection": {
       "type": "string",
@@ -538,6 +525,9 @@
         "roaming": {
           "$ref": "#/definitions/navServiceNavRoaming"
         },
+        "map_position": {
+          "$ref": "#/definitions/navServiceMapPosition"
+        },
         "speed": {
           "type": "integer",
           "format": "int64"
@@ -562,6 +552,9 @@
         "is_roaming": {
           "type": "boolean",
           "format": "boolean"
+        },
+        "map_position": {
+          "$ref": "#/definitions/navServiceMapPosition"
         }
       },
       "title": "导航状态"

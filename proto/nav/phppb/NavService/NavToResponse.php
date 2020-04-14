@@ -7,7 +7,6 @@ namespace NavService;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
-use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * 导航状态
@@ -33,6 +32,8 @@ class NavToResponse extends \Google\Protobuf\Internal\Message
      *           导航请求目标
      *     @type bool $is_roaming
      *           漫游模式
+     *     @type \NavService\MapPosition $map_position
+     *           地图位置目标
      * }
      */
     public function __construct($data = NULL) {
@@ -110,6 +111,32 @@ class NavToResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->writeOneof(3, $var);
+
+        return $this;
+    }
+
+    /**
+     * 地图位置目标
+     *
+     * Generated from protobuf field <code>.navService.MapPosition map_position = 4;</code>
+     * @return \NavService\MapPosition
+     */
+    public function getMapPosition()
+    {
+        return $this->readOneof(4);
+    }
+
+    /**
+     * 地图位置目标
+     *
+     * Generated from protobuf field <code>.navService.MapPosition map_position = 4;</code>
+     * @param \NavService\MapPosition $var
+     * @return $this
+     */
+    public function setMapPosition($var)
+    {
+        GPBUtil::checkMessage($var, \NavService\MapPosition::class);
+        $this->writeOneof(4, $var);
 
         return $this;
     }

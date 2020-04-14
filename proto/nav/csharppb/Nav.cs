@@ -25,113 +25,112 @@ namespace NavService {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgluYXYucHJvdG8SCm5hdlNlcnZpY2UaHGdvb2dsZS9hcGkvYW5ub3RhdGlv",
-            "bnMucHJvdG8iaAoLTW92ZVJlcXVlc3QSDQoFc3BlZWQYASABKA0SDgoGcnNw",
-            "ZWVkGAIgASgNEiwKCWRpcmVjdGlvbhgDIAEoDjIZLm5hdlNlcnZpY2UuTW92",
-            "ZURpcmVjdGlvbhIMCgRtb2RlGAQgASgJIjsKDE1vdmVSZXNwb25zZRIrCgtz",
-            "dGF0dXNfY29kZRgBIAEoDjIWLm5hdlNlcnZpY2UuU3RhdHVzQ29kZSIoCglO",
-            "YXZUYXJnZXQSDQoFaW5kZXgYASABKAkSDAoEbmFtZRgCIAEoCSKFAQoKTmF2",
-            "Um9hbWluZxIxChBuYXZfcm9hbWluZ190eXBlGAEgASgOMhcubmF2U2Vydmlj",
-            "ZS5Sb2FtaW5nVHlwZRIQCgh3YWl0X3NlYxgCIAEoBRIeChZyb2FtaW5nX3Rh",
-            "cmdldF9pbmRleGVzGAMgAygJEhIKCm9yZGVyX2xvb3AYBCABKAgilAEKDE5h",
-            "dlRvUmVxdWVzdBInCgZ0YXJnZXQYASABKAsyFS5uYXZTZXJ2aWNlLk5hdlRh",
-            "cmdldEgAEikKB3JvYW1pbmcYAyABKAsyFi5uYXZTZXJ2aWNlLk5hdlJvYW1p",
-            "bmdIABINCgVzcGVlZBgCIAEoDRIRCglzeW5jX21vZGUYBCABKAhCDgoMdGFy",
-            "Z2V0X29uZW9mIosBCg1OYXZUb1Jlc3BvbnNlEisKC3N0YXR1c19jb2RlGAEg",
-            "ASgOMhYubmF2U2VydmljZS5TdGF0dXNDb2RlEicKBnRhcmdldBgCIAEoCzIV",
-            "Lm5hdlNlcnZpY2UuTmF2VGFyZ2V0SAASFAoKaXNfcm9hbWluZxgDIAEoCEgA",
-            "Qg4KDHRhcmdldF9vbmVvZiIQCg5OYXZTdG9wUmVxdWVzdCI+Cg9OYXZTdG9w",
-            "UmVzcG9uc2USKwoLc3RhdHVzX2NvZGUYASABKA4yFi5uYXZTZXJ2aWNlLlN0",
-            "YXR1c0NvZGUifAoRQXV0b0NoYXJnZVJlcXVlc3QSEAoGY2hhcmdlGAEgASgI",
-            "SAASEAoGY2FuY2VsGAIgASgISAASFwoNY2hhcmdlX3ByZXNldBgDIAEoCEgA",
-            "EhMKC3RpbWVvdXRfc2VjGAQgASgNQhUKE2NoYXJnZV9vcHRpb25fb25lb2Yi",
-            "TgoSQXV0b0NoYXJnZVJlc3BvbnNlEjgKEmNoYXJnZV9zdGF0dXNfY29kZRgB",
-            "IAEoDjIcLm5hdlNlcnZpY2UuQ2hhcmdlU3RhdHVzQ29kZSJECg1Sb3RhdGVS",
-            "ZXF1ZXN0Eg8KBWFuZ2xlGAEgASgFSAASEgoIcm9sbGJhY2sYAiABKAhIAEIO",
-            "Cgxyb3RhdGVfb25lb2YiPQoOUm90YXRlUmVzcG9uc2USKwoLc3RhdHVzX2Nv",
-            "ZGUYASABKA4yFi5uYXZTZXJ2aWNlLlN0YXR1c0NvZGUiGQoXT25OYXZFdmVu",
-            "dENoYW5nZVJlcXVlc3QiOAoJTW92ZUV2ZW50EisKC3N0YXR1c19jb2RlGAEg",
-            "ASgOMhYubmF2U2VydmljZS5TdGF0dXNDb2RlImIKCE5hdkV2ZW50EisKC3N0",
-            "YXR1c19jb2RlGAEgASgOMhYubmF2U2VydmljZS5TdGF0dXNDb2RlEikKCm5h",
-            "dl90YXJnZXQYAiABKAsyFS5uYXZTZXJ2aWNlLk5hdlRhcmdldCJLCg9BdXRv",
-            "Q2hhcmdlRXZlbnQSOAoSY2hhcmdlX3N0YXR1c19jb2RlGAEgASgOMhwubmF2",
-            "U2VydmljZS5DaGFyZ2VTdGF0dXNDb2RlIjoKC1JvdGF0ZUV2ZW50EisKC3N0",
-            "YXR1c19jb2RlGAEgASgOMhYubmF2U2VydmljZS5TdGF0dXNDb2RlIp8CChhP",
-            "bk5hdkV2ZW50Q2hhbmdlUmVzcG9uc2USMAoObmF2X2V2ZW50X3R5cGUYASAB",
-            "KA4yGC5uYXZTZXJ2aWNlLk5hdkV2ZW50VHlwZRIrCgptb3ZlX2V2ZW50GAIg",
-            "ASgLMhUubmF2U2VydmljZS5Nb3ZlRXZlbnRIABIpCgluYXZfZXZlbnQYAyAB",
-            "KAsyFC5uYXZTZXJ2aWNlLk5hdkV2ZW50SAASLwoMcm90YXRlX2V2ZW50GAQg",
-            "ASgLMhcubmF2U2VydmljZS5Sb3RhdGVFdmVudEgAEjgKEWF1dG9fY2hhcmdl",
-            "X2V2ZW50GAUgASgLMhsubmF2U2VydmljZS5BdXRvQ2hhcmdlRXZlbnRIAEIO",
-            "CgxjaGFuZ2Vfb25lb2YiFgoUTG9jYXRpb25SZXNldFJlcXVlc3QiFwoVTG9j",
-            "YXRpb25SZXNldFJlc3BvbnNlImIKBVJvdXRlEgoKAmlkGAEgASgJEgwKBG5h",
-            "bWUYAiABKAkSEQoJaXNfYWN0aXZlGAMgASgIEiwKDHJvdXRlX3BvaW50cxgE",
-            "IAMoCzIWLm5hdlNlcnZpY2UuUm91dGVQb2ludCIqCgpSb3V0ZVBvaW50EgwK",
-            "BG5hbWUYASABKAkSDgoGcm90YXRlGAIgASgNIjMKD05ld1JvdXRlUmVxdWVz",
-            "dBIgCgVyb3V0ZRgBIAEoCzIRLm5hdlNlcnZpY2UuUm91dGUiNAoQTmV3Um91",
-            "dGVSZXNwb25zZRIgCgVyb3V0ZRgBIAEoCzIRLm5hdlNlcnZpY2UuUm91dGUi",
-            "EwoRTGlzdFJvdXRlc1JlcXVlc3QiNwoSTGlzdFJvdXRlc1Jlc3BvbnNlEiEK",
-            "BnJvdXRlcxgBIAMoCzIRLm5hdlNlcnZpY2UuUm91dGUiHQoPR2V0Um91dGVS",
-            "ZXF1ZXN0EgoKAmlkGAEgASgJIjQKEEdldFJvdXRlUmVzcG9uc2USIAoFcm91",
-            "dGUYASABKAsyES5uYXZTZXJ2aWNlLlJvdXRlIjYKElVwZGF0ZVJvdXRlUmVx",
-            "dWVzdBIgCgVyb3V0ZRgBIAEoCzIRLm5hdlNlcnZpY2UuUm91dGUiNwoTVXBk",
-            "YXRlUm91dGVSZXNwb25zZRIgCgVyb3V0ZRgBIAEoCzIRLm5hdlNlcnZpY2Uu",
-            "Um91dGUiKAoTRGVsZXRlUm91dGVzUmVxdWVzdBIRCglyb3V0ZXNfaWQYASAD",
-            "KAkiFgoURGVsZXRlUm91dGVzUmVzcG9uc2Uq7gEKClN0YXR1c0NvZGUSCwoH",
-            "VU5LTk9XThAAEgsKB1NUT1BQRUQQARIKCgZNT1ZJTkcQAhINCglQUkVQQVJJ",
-            "TkcQAxIKCgZDQU5DRUwQBBIMCghSRUxFQVNFRBAFEhAKDEVSUl9PQlNUQUNM",
-            "RRAKEhEKDUVSUl9OT1RfUkVBRFkQCxISCg5FUlJfTU9UT1JfRkFJTBAMEhQK",
-            "EEVSUl9XUk9OR19UQVJHRVQQDRIOCgpSRUpfTU9WSU5HEBQSDgoKUkVKX05B",
-            "VklORxAVEhAKDFJFSl9DSEFSR0lORxAWEhAKDFJFSl9ST1RBVElORxAXKpgB",
-            "Cg1Nb3ZlRGlyZWN0aW9uEgsKB1JFTEVBU0UQABILCgdGT1JXQVJEEAESDAoI",
-            "QkFDS1dBUkQQAhIICgRMRUZUEAMSCQoFUklHSFQQBBIQCgxMRUZUX0ZPUldB",
-            "UkQQBRIRCg1SSUdIVF9GT1JXQVJEEAYSEQoNTEVGVF9CQUNLV0FSRBAHEhIK",
-            "DlJJR0hUX0JBQ0tXQVJEEAgqWQoLUm9hbWluZ1R5cGUSGQoVUk9BTUlOR19U",
-            "WVBFX0NPTlRJTlVFEAASFgoSUk9BTUlOR19UWVBFX09SREVSEAESFwoTUk9B",
-            "TUlOR19UWVBFX1JBTkRPTRACKvoBChBDaGFyZ2VTdGF0dXNDb2RlEhkKFUNI",
-            "QVJHRV9TVEFUVVNfVU5LTk9XThAAEhsKF0NIQVJHRV9TVEFUVVNfUFJFUEFS",
-            "SU5HEAESGgoWQ0hBUkdFX1NUQVRVU19SRUxFQVNFRBACEhwKGENIQVJHRV9T",
-            "VEFUVVNfQ09OTkVDVElORxADEhoKFkNIQVJHRV9TVEFUVVNfQ0hBUkdJTkcQ",
-            "BBIfChtDSEFSR0VfU1RBVFVTX0RJU0NPTk5FQ1RJTkcQBRIXChNDSEFSR0Vf",
-            "Q09OTkVDVF9GQUlMEAYSHgoaQ0hBUkdFX1NUQVRVU19OQVZfT0JTVEFDTEUQ",
-            "BypuCgxOYXZFdmVudFR5cGUSFgoSTkFWX0VWRU5UX1JFVkVSU0VEEAASDgoK",
-            "TU9WRV9FVkVOVBABEg0KCU5BVl9FVkVOVBACEhUKEUFVVE9fQ0hBUkdFX0VW",
-            "RU5UEAMSEAoMUk9UQVRFX0VWRU5UEAQytgkKDU5hdkNvbnRyb2xsZXISPwoE",
-            "TW92ZRIXLm5hdlNlcnZpY2UuTW92ZVJlcXVlc3QaGC5uYXZTZXJ2aWNlLk1v",
-            "dmVSZXNwb25zZSIAKAEwARJbCgVOYXZUbxIYLm5hdlNlcnZpY2UuTmF2VG9S",
-            "ZXF1ZXN0GhkubmF2U2VydmljZS5OYXZUb1Jlc3BvbnNlIh2C0+STAhciEi9h",
-            "cGkvdjIvbmF2L25hdl90bzoBKhJjCgdOYXZTdG9wEhoubmF2U2VydmljZS5O",
-            "YXZTdG9wUmVxdWVzdBobLm5hdlNlcnZpY2UuTmF2U3RvcFJlc3BvbnNlIh+C",
-            "0+STAhkiFC9hcGkvdjIvbmF2L25hdl9zdG9wOgEqEm8KCkF1dG9DaGFyZ2US",
-            "HS5uYXZTZXJ2aWNlLkF1dG9DaGFyZ2VSZXF1ZXN0Gh4ubmF2U2VydmljZS5B",
-            "dXRvQ2hhcmdlUmVzcG9uc2UiIoLT5JMCHCIXL2FwaS92Mi9uYXYvYXV0b19j",
-            "aGFyZ2U6ASoSXgoGUm90YXRlEhkubmF2U2VydmljZS5Sb3RhdGVSZXF1ZXN0",
-            "GhoubmF2U2VydmljZS5Sb3RhdGVSZXNwb25zZSIdgtPkkwIXIhIvYXBpL3Yy",
-            "L25hdi9yb3RhdGU6ASoSiwEKEE9uTmF2RXZlbnRDaGFuZ2USIy5uYXZTZXJ2",
-            "aWNlLk9uTmF2RXZlbnRDaGFuZ2VSZXF1ZXN0GiQubmF2U2VydmljZS5Pbk5h",
-            "dkV2ZW50Q2hhbmdlUmVzcG9uc2UiKoLT5JMCJCIfL2FwaS92Mi9uYXYvb25f",
-            "bmF2X2V2ZW50X2NoYW5nZToBKjABEnsKDUxvY2F0aW9uUmVzZXQSIC5uYXZT",
-            "ZXJ2aWNlLkxvY2F0aW9uUmVzZXRSZXF1ZXN0GiEubmF2U2VydmljZS5Mb2Nh",
-            "dGlvblJlc2V0UmVzcG9uc2UiJYLT5JMCHyIaL2FwaS92Mi9uYXYvbG9jYXRp",
-            "b25fcmVzZXQ6ASoSZwoITmV3Um91dGUSGy5uYXZTZXJ2aWNlLk5ld1JvdXRl",
-            "UmVxdWVzdBocLm5hdlNlcnZpY2UuTmV3Um91dGVSZXNwb25zZSIggtPkkwIa",
-            "IhUvYXBpL3YyL25hdi9uZXdfcm91dGU6ASoSbwoKTGlzdFJvdXRlcxIdLm5h",
-            "dlNlcnZpY2UuTGlzdFJvdXRlc1JlcXVlc3QaHi5uYXZTZXJ2aWNlLkxpc3RS",
-            "b3V0ZXNSZXNwb25zZSIigtPkkwIcIhcvYXBpL3YyL25hdi9saXN0X3JvdXRl",
-            "czoBKhJzCgtVcGRhdGVSb3V0ZRIeLm5hdlNlcnZpY2UuVXBkYXRlUm91dGVS",
-            "ZXF1ZXN0Gh8ubmF2U2VydmljZS5VcGRhdGVSb3V0ZVJlc3BvbnNlIiOC0+ST",
-            "Ah0iGC9hcGkvdjIvbmF2L3VwZGF0ZV9yb3V0ZToBKhJ3CgxEZWxldGVSb3V0",
-            "ZXMSHy5uYXZTZXJ2aWNlLkRlbGV0ZVJvdXRlc1JlcXVlc3QaIC5uYXZTZXJ2",
-            "aWNlLkRlbGV0ZVJvdXRlc1Jlc3BvbnNlIiSC0+STAh4iGS9hcGkvdjIvbmF2",
-            "L2RlbGV0ZV9yb3V0ZXM6ASpiBnByb3RvMw=="));
+            "bnMucHJvdG8aCW1hcC5wcm90byJoCgtNb3ZlUmVxdWVzdBINCgVzcGVlZBgB",
+            "IAEoDRIOCgZyc3BlZWQYAiABKA0SLAoJZGlyZWN0aW9uGAMgASgOMhkubmF2",
+            "U2VydmljZS5Nb3ZlRGlyZWN0aW9uEgwKBG1vZGUYBCABKAkiOwoMTW92ZVJl",
+            "c3BvbnNlEisKC3N0YXR1c19jb2RlGAEgASgOMhYubmF2U2VydmljZS5TdGF0",
+            "dXNDb2RlIigKCU5hdlRhcmdldBINCgVpbmRleBgBIAEoCRIMCgRuYW1lGAIg",
+            "ASgJIoUBCgpOYXZSb2FtaW5nEjEKEG5hdl9yb2FtaW5nX3R5cGUYASABKA4y",
+            "Fy5uYXZTZXJ2aWNlLlJvYW1pbmdUeXBlEhAKCHdhaXRfc2VjGAIgASgFEh4K",
+            "FnJvYW1pbmdfdGFyZ2V0X2luZGV4ZXMYAyADKAkSEgoKb3JkZXJfbG9vcBgE",
+            "IAEoCCLFAQoMTmF2VG9SZXF1ZXN0EicKBnRhcmdldBgBIAEoCzIVLm5hdlNl",
+            "cnZpY2UuTmF2VGFyZ2V0SAASKQoHcm9hbWluZxgDIAEoCzIWLm5hdlNlcnZp",
+            "Y2UuTmF2Um9hbWluZ0gAEi8KDG1hcF9wb3NpdGlvbhgFIAEoCzIXLm5hdlNl",
+            "cnZpY2UuTWFwUG9zaXRpb25IABINCgVzcGVlZBgCIAEoDRIRCglzeW5jX21v",
+            "ZGUYBCABKAhCDgoMdGFyZ2V0X29uZW9mIrwBCg1OYXZUb1Jlc3BvbnNlEisK",
+            "C3N0YXR1c19jb2RlGAEgASgOMhYubmF2U2VydmljZS5TdGF0dXNDb2RlEicK",
+            "BnRhcmdldBgCIAEoCzIVLm5hdlNlcnZpY2UuTmF2VGFyZ2V0SAASFAoKaXNf",
+            "cm9hbWluZxgDIAEoCEgAEi8KDG1hcF9wb3NpdGlvbhgEIAEoCzIXLm5hdlNl",
+            "cnZpY2UuTWFwUG9zaXRpb25IAEIOCgx0YXJnZXRfb25lb2YiEAoOTmF2U3Rv",
+            "cFJlcXVlc3QiPgoPTmF2U3RvcFJlc3BvbnNlEisKC3N0YXR1c19jb2RlGAEg",
+            "ASgOMhYubmF2U2VydmljZS5TdGF0dXNDb2RlInwKEUF1dG9DaGFyZ2VSZXF1",
+            "ZXN0EhAKBmNoYXJnZRgBIAEoCEgAEhAKBmNhbmNlbBgCIAEoCEgAEhcKDWNo",
+            "YXJnZV9wcmVzZXQYAyABKAhIABITCgt0aW1lb3V0X3NlYxgEIAEoDUIVChNj",
+            "aGFyZ2Vfb3B0aW9uX29uZW9mIk4KEkF1dG9DaGFyZ2VSZXNwb25zZRI4ChJj",
+            "aGFyZ2Vfc3RhdHVzX2NvZGUYASABKA4yHC5uYXZTZXJ2aWNlLkNoYXJnZVN0",
+            "YXR1c0NvZGUiRAoNUm90YXRlUmVxdWVzdBIPCgVhbmdsZRgBIAEoBUgAEhIK",
+            "CHJvbGxiYWNrGAIgASgISABCDgoMcm90YXRlX29uZW9mIj0KDlJvdGF0ZVJl",
+            "c3BvbnNlEisKC3N0YXR1c19jb2RlGAEgASgOMhYubmF2U2VydmljZS5TdGF0",
+            "dXNDb2RlIhkKF09uTmF2RXZlbnRDaGFuZ2VSZXF1ZXN0IjgKCU1vdmVFdmVu",
+            "dBIrCgtzdGF0dXNfY29kZRgBIAEoDjIWLm5hdlNlcnZpY2UuU3RhdHVzQ29k",
+            "ZSJiCghOYXZFdmVudBIrCgtzdGF0dXNfY29kZRgBIAEoDjIWLm5hdlNlcnZp",
+            "Y2UuU3RhdHVzQ29kZRIpCgpuYXZfdGFyZ2V0GAIgASgLMhUubmF2U2Vydmlj",
+            "ZS5OYXZUYXJnZXQiSwoPQXV0b0NoYXJnZUV2ZW50EjgKEmNoYXJnZV9zdGF0",
+            "dXNfY29kZRgBIAEoDjIcLm5hdlNlcnZpY2UuQ2hhcmdlU3RhdHVzQ29kZSI6",
+            "CgtSb3RhdGVFdmVudBIrCgtzdGF0dXNfY29kZRgBIAEoDjIWLm5hdlNlcnZp",
+            "Y2UuU3RhdHVzQ29kZSKfAgoYT25OYXZFdmVudENoYW5nZVJlc3BvbnNlEjAK",
+            "Dm5hdl9ldmVudF90eXBlGAEgASgOMhgubmF2U2VydmljZS5OYXZFdmVudFR5",
+            "cGUSKwoKbW92ZV9ldmVudBgCIAEoCzIVLm5hdlNlcnZpY2UuTW92ZUV2ZW50",
+            "SAASKQoJbmF2X2V2ZW50GAMgASgLMhQubmF2U2VydmljZS5OYXZFdmVudEgA",
+            "Ei8KDHJvdGF0ZV9ldmVudBgEIAEoCzIXLm5hdlNlcnZpY2UuUm90YXRlRXZl",
+            "bnRIABI4ChFhdXRvX2NoYXJnZV9ldmVudBgFIAEoCzIbLm5hdlNlcnZpY2Uu",
+            "QXV0b0NoYXJnZUV2ZW50SABCDgoMY2hhbmdlX29uZW9mImIKBVJvdXRlEgoK",
+            "AmlkGAEgASgJEgwKBG5hbWUYAiABKAkSEQoJaXNfYWN0aXZlGAMgASgIEiwK",
+            "DHJvdXRlX3BvaW50cxgEIAMoCzIWLm5hdlNlcnZpY2UuUm91dGVQb2ludCIq",
+            "CgpSb3V0ZVBvaW50EgwKBG5hbWUYASABKAkSDgoGcm90YXRlGAIgASgNIjMK",
+            "D05ld1JvdXRlUmVxdWVzdBIgCgVyb3V0ZRgBIAEoCzIRLm5hdlNlcnZpY2Uu",
+            "Um91dGUiNAoQTmV3Um91dGVSZXNwb25zZRIgCgVyb3V0ZRgBIAEoCzIRLm5h",
+            "dlNlcnZpY2UuUm91dGUiEwoRTGlzdFJvdXRlc1JlcXVlc3QiNwoSTGlzdFJv",
+            "dXRlc1Jlc3BvbnNlEiEKBnJvdXRlcxgBIAMoCzIRLm5hdlNlcnZpY2UuUm91",
+            "dGUiHQoPR2V0Um91dGVSZXF1ZXN0EgoKAmlkGAEgASgJIjQKEEdldFJvdXRl",
+            "UmVzcG9uc2USIAoFcm91dGUYASABKAsyES5uYXZTZXJ2aWNlLlJvdXRlIjYK",
+            "ElVwZGF0ZVJvdXRlUmVxdWVzdBIgCgVyb3V0ZRgBIAEoCzIRLm5hdlNlcnZp",
+            "Y2UuUm91dGUiNwoTVXBkYXRlUm91dGVSZXNwb25zZRIgCgVyb3V0ZRgBIAEo",
+            "CzIRLm5hdlNlcnZpY2UuUm91dGUiKAoTRGVsZXRlUm91dGVzUmVxdWVzdBIR",
+            "Cglyb3V0ZXNfaWQYASADKAkiFgoURGVsZXRlUm91dGVzUmVzcG9uc2Uq7gEK",
+            "ClN0YXR1c0NvZGUSCwoHVU5LTk9XThAAEgsKB1NUT1BQRUQQARIKCgZNT1ZJ",
+            "TkcQAhINCglQUkVQQVJJTkcQAxIKCgZDQU5DRUwQBBIMCghSRUxFQVNFRBAF",
+            "EhAKDEVSUl9PQlNUQUNMRRAKEhEKDUVSUl9OT1RfUkVBRFkQCxISCg5FUlJf",
+            "TU9UT1JfRkFJTBAMEhQKEEVSUl9XUk9OR19UQVJHRVQQDRIOCgpSRUpfTU9W",
+            "SU5HEBQSDgoKUkVKX05BVklORxAVEhAKDFJFSl9DSEFSR0lORxAWEhAKDFJF",
+            "Sl9ST1RBVElORxAXKpgBCg1Nb3ZlRGlyZWN0aW9uEgsKB1JFTEVBU0UQABIL",
+            "CgdGT1JXQVJEEAESDAoIQkFDS1dBUkQQAhIICgRMRUZUEAMSCQoFUklHSFQQ",
+            "BBIQCgxMRUZUX0ZPUldBUkQQBRIRCg1SSUdIVF9GT1JXQVJEEAYSEQoNTEVG",
+            "VF9CQUNLV0FSRBAHEhIKDlJJR0hUX0JBQ0tXQVJEEAgqWQoLUm9hbWluZ1R5",
+            "cGUSGQoVUk9BTUlOR19UWVBFX0NPTlRJTlVFEAASFgoSUk9BTUlOR19UWVBF",
+            "X09SREVSEAESFwoTUk9BTUlOR19UWVBFX1JBTkRPTRACKvoBChBDaGFyZ2VT",
+            "dGF0dXNDb2RlEhkKFUNIQVJHRV9TVEFUVVNfVU5LTk9XThAAEhsKF0NIQVJH",
+            "RV9TVEFUVVNfUFJFUEFSSU5HEAESGgoWQ0hBUkdFX1NUQVRVU19SRUxFQVNF",
+            "RBACEhwKGENIQVJHRV9TVEFUVVNfQ09OTkVDVElORxADEhoKFkNIQVJHRV9T",
+            "VEFUVVNfQ0hBUkdJTkcQBBIfChtDSEFSR0VfU1RBVFVTX0RJU0NPTk5FQ1RJ",
+            "TkcQBRIXChNDSEFSR0VfQ09OTkVDVF9GQUlMEAYSHgoaQ0hBUkdFX1NUQVRV",
+            "U19OQVZfT0JTVEFDTEUQBypuCgxOYXZFdmVudFR5cGUSFgoSTkFWX0VWRU5U",
+            "X1JFVkVSU0VEEAASDgoKTU9WRV9FVkVOVBABEg0KCU5BVl9FVkVOVBACEhUK",
+            "EUFVVE9fQ0hBUkdFX0VWRU5UEAMSEAoMUk9UQVRFX0VWRU5UEAQyzggKDU5h",
+            "dkNvbnRyb2xsZXISVwoETW92ZRIXLm5hdlNlcnZpY2UuTW92ZVJlcXVlc3Qa",
+            "GC5uYXZTZXJ2aWNlLk1vdmVSZXNwb25zZSIYgtPkkwISEhAvYXBpL3YyL25h",
+            "di9tb3ZlKAEwARJbCgVOYXZUbxIYLm5hdlNlcnZpY2UuTmF2VG9SZXF1ZXN0",
+            "GhkubmF2U2VydmljZS5OYXZUb1Jlc3BvbnNlIh2C0+STAhciEi9hcGkvdjIv",
+            "bmF2L25hdl90bzoBKhJjCgdOYXZTdG9wEhoubmF2U2VydmljZS5OYXZTdG9w",
+            "UmVxdWVzdBobLm5hdlNlcnZpY2UuTmF2U3RvcFJlc3BvbnNlIh+C0+STAhki",
+            "FC9hcGkvdjIvbmF2L25hdl9zdG9wOgEqEm8KCkF1dG9DaGFyZ2USHS5uYXZT",
+            "ZXJ2aWNlLkF1dG9DaGFyZ2VSZXF1ZXN0Gh4ubmF2U2VydmljZS5BdXRvQ2hh",
+            "cmdlUmVzcG9uc2UiIoLT5JMCHCIXL2FwaS92Mi9uYXYvYXV0b19jaGFyZ2U6",
+            "ASoSXgoGUm90YXRlEhkubmF2U2VydmljZS5Sb3RhdGVSZXF1ZXN0GhoubmF2",
+            "U2VydmljZS5Sb3RhdGVSZXNwb25zZSIdgtPkkwIXIhIvYXBpL3YyL25hdi9y",
+            "b3RhdGU6ASoSiAEKEE9uTmF2RXZlbnRDaGFuZ2USIy5uYXZTZXJ2aWNlLk9u",
+            "TmF2RXZlbnRDaGFuZ2VSZXF1ZXN0GiQubmF2U2VydmljZS5Pbk5hdkV2ZW50",
+            "Q2hhbmdlUmVzcG9uc2UiJ4LT5JMCIRIfL2FwaS92Mi9uYXYvb25fbmF2X2V2",
+            "ZW50X2NoYW5nZTABEmcKCE5ld1JvdXRlEhsubmF2U2VydmljZS5OZXdSb3V0",
+            "ZVJlcXVlc3QaHC5uYXZTZXJ2aWNlLk5ld1JvdXRlUmVzcG9uc2UiIILT5JMC",
+            "GiIVL2FwaS92Mi9uYXYvbmV3X3JvdXRlOgEqEm8KCkxpc3RSb3V0ZXMSHS5u",
+            "YXZTZXJ2aWNlLkxpc3RSb3V0ZXNSZXF1ZXN0Gh4ubmF2U2VydmljZS5MaXN0",
+            "Um91dGVzUmVzcG9uc2UiIoLT5JMCHCIXL2FwaS92Mi9uYXYvbGlzdF9yb3V0",
+            "ZXM6ASoScwoLVXBkYXRlUm91dGUSHi5uYXZTZXJ2aWNlLlVwZGF0ZVJvdXRl",
+            "UmVxdWVzdBofLm5hdlNlcnZpY2UuVXBkYXRlUm91dGVSZXNwb25zZSIjgtPk",
+            "kwIdIhgvYXBpL3YyL25hdi91cGRhdGVfcm91dGU6ASoSdwoMRGVsZXRlUm91",
+            "dGVzEh8ubmF2U2VydmljZS5EZWxldGVSb3V0ZXNSZXF1ZXN0GiAubmF2U2Vy",
+            "dmljZS5EZWxldGVSb3V0ZXNSZXNwb25zZSIkgtPkkwIeIhkvYXBpL3YyL25h",
+            "di9kZWxldGVfcm91dGVzOgEqYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, global::NavService.MapReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::NavService.StatusCode), typeof(global::NavService.MoveDirection), typeof(global::NavService.RoamingType), typeof(global::NavService.ChargeStatusCode), typeof(global::NavService.NavEventType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.MoveRequest), global::NavService.MoveRequest.Parser, new[]{ "Speed", "Rspeed", "Direction", "Mode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.MoveResponse), global::NavService.MoveResponse.Parser, new[]{ "StatusCode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavTarget), global::NavService.NavTarget.Parser, new[]{ "Index", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavRoaming), global::NavService.NavRoaming.Parser, new[]{ "NavRoamingType", "WaitSec", "RoamingTargetIndexes", "OrderLoop" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavToRequest), global::NavService.NavToRequest.Parser, new[]{ "Target", "Roaming", "Speed", "SyncMode" }, new[]{ "TargetOneof" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavToResponse), global::NavService.NavToResponse.Parser, new[]{ "StatusCode", "Target", "IsRoaming" }, new[]{ "TargetOneof" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavToRequest), global::NavService.NavToRequest.Parser, new[]{ "Target", "Roaming", "MapPosition", "Speed", "SyncMode" }, new[]{ "TargetOneof" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavToResponse), global::NavService.NavToResponse.Parser, new[]{ "StatusCode", "Target", "IsRoaming", "MapPosition" }, new[]{ "TargetOneof" }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavStopRequest), global::NavService.NavStopRequest.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NavStopResponse), global::NavService.NavStopResponse.Parser, new[]{ "StatusCode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.AutoChargeRequest), global::NavService.AutoChargeRequest.Parser, new[]{ "Charge", "Cancel", "ChargePreset", "TimeoutSec" }, new[]{ "ChargeOptionOneof" }, null, null),
@@ -144,8 +143,6 @@ namespace NavService {
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.AutoChargeEvent), global::NavService.AutoChargeEvent.Parser, new[]{ "ChargeStatusCode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.RotateEvent), global::NavService.RotateEvent.Parser, new[]{ "StatusCode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.OnNavEventChangeResponse), global::NavService.OnNavEventChangeResponse.Parser, new[]{ "NavEventType", "MoveEvent", "NavEvent", "RotateEvent", "AutoChargeEvent" }, new[]{ "ChangeOneof" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NavService.LocationResetRequest), global::NavService.LocationResetRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NavService.LocationResetResponse), global::NavService.LocationResetResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.Route), global::NavService.Route.Parser, new[]{ "Id", "Name", "IsActive", "RoutePoints" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.RoutePoint), global::NavService.RoutePoint.Parser, new[]{ "Name", "Rotate" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NavService.NewRouteRequest), global::NavService.NewRouteRequest.Parser, new[]{ "Route" }, null, null, null),
@@ -1116,6 +1113,9 @@ namespace NavService {
         case TargetOneofOneofCase.Roaming:
           Roaming = other.Roaming.Clone();
           break;
+        case TargetOneofOneofCase.MapPosition:
+          MapPosition = other.MapPosition.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1151,6 +1151,20 @@ namespace NavService {
       set {
         targetOneof_ = value;
         targetOneofCase_ = value == null ? TargetOneofOneofCase.None : TargetOneofOneofCase.Roaming;
+      }
+    }
+
+    /// <summary>Field number for the "map_position" field.</summary>
+    public const int MapPositionFieldNumber = 5;
+    /// <summary>
+    /// 导航地图坐标(仅支持无线导航类型)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::NavService.MapPosition MapPosition {
+      get { return targetOneofCase_ == TargetOneofOneofCase.MapPosition ? (global::NavService.MapPosition) targetOneof_ : null; }
+      set {
+        targetOneof_ = value;
+        targetOneofCase_ = value == null ? TargetOneofOneofCase.None : TargetOneofOneofCase.MapPosition;
       }
     }
 
@@ -1190,6 +1204,7 @@ namespace NavService {
       None = 0,
       Target = 1,
       Roaming = 3,
+      MapPosition = 5,
     }
     private TargetOneofOneofCase targetOneofCase_ = TargetOneofOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1218,6 +1233,7 @@ namespace NavService {
       }
       if (!object.Equals(Target, other.Target)) return false;
       if (!object.Equals(Roaming, other.Roaming)) return false;
+      if (!object.Equals(MapPosition, other.MapPosition)) return false;
       if (Speed != other.Speed) return false;
       if (SyncMode != other.SyncMode) return false;
       if (TargetOneofCase != other.TargetOneofCase) return false;
@@ -1229,6 +1245,7 @@ namespace NavService {
       int hash = 1;
       if (targetOneofCase_ == TargetOneofOneofCase.Target) hash ^= Target.GetHashCode();
       if (targetOneofCase_ == TargetOneofOneofCase.Roaming) hash ^= Roaming.GetHashCode();
+      if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) hash ^= MapPosition.GetHashCode();
       if (Speed != 0) hash ^= Speed.GetHashCode();
       if (SyncMode != false) hash ^= SyncMode.GetHashCode();
       hash ^= (int) targetOneofCase_;
@@ -1261,6 +1278,10 @@ namespace NavService {
         output.WriteRawTag(32);
         output.WriteBool(SyncMode);
       }
+      if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) {
+        output.WriteRawTag(42);
+        output.WriteMessage(MapPosition);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1274,6 +1295,9 @@ namespace NavService {
       }
       if (targetOneofCase_ == TargetOneofOneofCase.Roaming) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Roaming);
+      }
+      if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MapPosition);
       }
       if (Speed != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Speed);
@@ -1310,6 +1334,12 @@ namespace NavService {
             Roaming = new global::NavService.NavRoaming();
           }
           Roaming.MergeFrom(other.Roaming);
+          break;
+        case TargetOneofOneofCase.MapPosition:
+          if (MapPosition == null) {
+            MapPosition = new global::NavService.MapPosition();
+          }
+          MapPosition.MergeFrom(other.MapPosition);
           break;
       }
 
@@ -1348,6 +1378,15 @@ namespace NavService {
           }
           case 32: {
             SyncMode = input.ReadBool();
+            break;
+          }
+          case 42: {
+            global::NavService.MapPosition subBuilder = new global::NavService.MapPosition();
+            if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) {
+              subBuilder.MergeFrom(MapPosition);
+            }
+            input.ReadMessage(subBuilder);
+            MapPosition = subBuilder;
             break;
           }
         }
@@ -1391,6 +1430,9 @@ namespace NavService {
           break;
         case TargetOneofOneofCase.IsRoaming:
           IsRoaming = other.IsRoaming;
+          break;
+        case TargetOneofOneofCase.MapPosition:
+          MapPosition = other.MapPosition.Clone();
           break;
       }
 
@@ -1441,12 +1483,27 @@ namespace NavService {
       }
     }
 
+    /// <summary>Field number for the "map_position" field.</summary>
+    public const int MapPositionFieldNumber = 4;
+    /// <summary>
+    /// 地图位置目标
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::NavService.MapPosition MapPosition {
+      get { return targetOneofCase_ == TargetOneofOneofCase.MapPosition ? (global::NavService.MapPosition) targetOneof_ : null; }
+      set {
+        targetOneof_ = value;
+        targetOneofCase_ = value == null ? TargetOneofOneofCase.None : TargetOneofOneofCase.MapPosition;
+      }
+    }
+
     private object targetOneof_;
     /// <summary>Enum of possible cases for the "target_oneof" oneof.</summary>
     public enum TargetOneofOneofCase {
       None = 0,
       Target = 2,
       IsRoaming = 3,
+      MapPosition = 4,
     }
     private TargetOneofOneofCase targetOneofCase_ = TargetOneofOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1476,6 +1533,7 @@ namespace NavService {
       if (StatusCode != other.StatusCode) return false;
       if (!object.Equals(Target, other.Target)) return false;
       if (IsRoaming != other.IsRoaming) return false;
+      if (!object.Equals(MapPosition, other.MapPosition)) return false;
       if (TargetOneofCase != other.TargetOneofCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1486,6 +1544,7 @@ namespace NavService {
       if (StatusCode != 0) hash ^= StatusCode.GetHashCode();
       if (targetOneofCase_ == TargetOneofOneofCase.Target) hash ^= Target.GetHashCode();
       if (targetOneofCase_ == TargetOneofOneofCase.IsRoaming) hash ^= IsRoaming.GetHashCode();
+      if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) hash ^= MapPosition.GetHashCode();
       hash ^= (int) targetOneofCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1512,6 +1571,10 @@ namespace NavService {
         output.WriteRawTag(24);
         output.WriteBool(IsRoaming);
       }
+      if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) {
+        output.WriteRawTag(34);
+        output.WriteMessage(MapPosition);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1528,6 +1591,9 @@ namespace NavService {
       }
       if (targetOneofCase_ == TargetOneofOneofCase.IsRoaming) {
         size += 1 + 1;
+      }
+      if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MapPosition);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1552,6 +1618,12 @@ namespace NavService {
           break;
         case TargetOneofOneofCase.IsRoaming:
           IsRoaming = other.IsRoaming;
+          break;
+        case TargetOneofOneofCase.MapPosition:
+          if (MapPosition == null) {
+            MapPosition = new global::NavService.MapPosition();
+          }
+          MapPosition.MergeFrom(other.MapPosition);
           break;
       }
 
@@ -1581,6 +1653,15 @@ namespace NavService {
           }
           case 24: {
             IsRoaming = input.ReadBool();
+            break;
+          }
+          case 34: {
+            global::NavService.MapPosition subBuilder = new global::NavService.MapPosition();
+            if (targetOneofCase_ == TargetOneofOneofCase.MapPosition) {
+              subBuilder.MergeFrom(MapPosition);
+            }
+            input.ReadMessage(subBuilder);
+            MapPosition = subBuilder;
             break;
           }
         }
@@ -3508,208 +3589,6 @@ namespace NavService {
 
   }
 
-  public sealed partial class LocationResetRequest : pb::IMessage<LocationResetRequest> {
-    private static readonly pb::MessageParser<LocationResetRequest> _parser = new pb::MessageParser<LocationResetRequest>(() => new LocationResetRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<LocationResetRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[18]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LocationResetRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LocationResetRequest(LocationResetRequest other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LocationResetRequest Clone() {
-      return new LocationResetRequest(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as LocationResetRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(LocationResetRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(LocationResetRequest other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class LocationResetResponse : pb::IMessage<LocationResetResponse> {
-    private static readonly pb::MessageParser<LocationResetResponse> _parser = new pb::MessageParser<LocationResetResponse>(() => new LocationResetResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<LocationResetResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[19]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LocationResetResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LocationResetResponse(LocationResetResponse other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LocationResetResponse Clone() {
-      return new LocationResetResponse(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as LocationResetResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(LocationResetResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(LocationResetResponse other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
   /// <summary>
   /// 线路数据
   /// </summary>
@@ -3721,7 +3600,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[20]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3941,7 +3820,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[21]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4110,7 +3989,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[22]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4245,7 +4124,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[23]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4380,7 +4259,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[24]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4481,7 +4360,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[25]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4602,7 +4481,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[26]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4731,7 +4610,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[27]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4872,7 +4751,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[28]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5007,7 +4886,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[29]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5142,7 +5021,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[30]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5263,7 +5142,7 @@ namespace NavService {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NavService.NavReflection.Descriptor.MessageTypes[31]; }
+      get { return global::NavService.NavReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

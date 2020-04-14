@@ -1,0 +1,235 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "map.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/nav/get_map_info": {
+      "get": {
+        "operationId": "GetMapInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/navServiceGetMapInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "no_map_image",
+            "description": "true: 不返回map_image信息.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "no_map_points",
+            "description": "true: 不返回map_points信息.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          }
+        ],
+        "tags": [
+          "Map"
+        ]
+      }
+    },
+    "/api/v2/nav/location_reset": {
+      "post": {
+        "summary": "重置当前定位\n用于发生定位异常/错误状态，重新初始化导航定位\n重定位错误：定位状态超时|无地图|UWB错误\n重定位超时判断: 默认10s，仅在非错误状态下重置",
+        "operationId": "LocationReset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/navServiceLocationResetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/navServiceLocationResetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Map"
+        ]
+      }
+    },
+    "/api/v2/nav/map_position_stream": {
+      "get": {
+        "operationId": "MapPositionStream",
+        "responses": {
+          "200": {
+            "description": "A successful response.(streaming responses)",
+            "schema": {
+              "$ref": "#/x-stream-definitions/navServiceMapPositionStreamResponse"
+            }
+          }
+        },
+        "tags": [
+          "Map"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GetMapInfoResponseMapImage": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "image": {
+          "type": "string",
+          "format": "byte"
+        }
+      },
+      "title": "地图图片信息"
+    },
+    "GetMapInfoResponseMapPoint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/definitions/navServiceMapPosition"
+        }
+      },
+      "title": "地图点数据\n与nav.RoutePoint信息一致，\n区别为包含地图坐标信息"
+    },
+    "navServiceGetMapInfoResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "地图id"
+        },
+        "name": {
+          "type": "string",
+          "title": "地图名"
+        },
+        "map_image": {
+          "$ref": "#/definitions/GetMapInfoResponseMapImage"
+        },
+        "map_points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GetMapInfoResponseMapPoint"
+          }
+        }
+      }
+    },
+    "navServiceLocationResetRequest": {
+      "type": "object"
+    },
+    "navServiceLocationResetResponse": {
+      "type": "object"
+    },
+    "navServiceMapPosition": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer",
+          "format": "int64",
+          "title": "水平坐标 [0: mapWidth]"
+        },
+        "y": {
+          "type": "integer",
+          "format": "int64",
+          "title": "垂直坐标 [0: mapHeight]"
+        },
+        "angle": {
+          "type": "integer",
+          "format": "int64",
+          "title": "角度 水平右方向为0, 顺时针\n    270\n180  ----0\n    90"
+        }
+      }
+    },
+    "navServiceMapPositionStreamResponse": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "$ref": "#/definitions/navServiceMapPosition"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpc_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "http_code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "http_status": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "x-stream-definitions": {
+    "navServiceMapPositionStreamResponse": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/navServiceMapPositionStreamResponse"
+        },
+        "error": {
+          "$ref": "#/definitions/runtimeStreamError"
+        }
+      },
+      "title": "Stream result of navServiceMapPositionStreamResponse"
+    }
+  }
+}

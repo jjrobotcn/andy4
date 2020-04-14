@@ -118,25 +118,6 @@ class NavControllerClient extends \Grpc\BaseStub {
     }
 
     /**
-     * >=2.2.0
-     * 重置当前定位
-     * 用于发生定位异常/错误状态，重新初始化导航定位
-     * 重定位错误：定位状态超时|无地图|UWB错误
-     * 重定位超时判断: 默认3s，仅在非错误状态下重置
-     * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-     * @param \NavService\LocationResetRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function LocationReset(\NavService\LocationResetRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/navService.NavController/LocationReset',
-        $argument,
-        ['\NavService\LocationResetResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
      * 新建线路
      * @param \NavService\NewRouteRequest $argument input argument
      * @param array $metadata metadata

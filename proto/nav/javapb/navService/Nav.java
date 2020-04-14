@@ -1140,6 +1140,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MoveRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1152,7 +1159,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1974,6 +1980,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MoveResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1986,7 +1999,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2513,6 +2525,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavTarget();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2525,7 +2544,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3302,6 +3320,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavRoaming();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3338,9 +3363,9 @@ public final class Nav {
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 roamingTargetIndexes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000001;
               }
               roamingTargetIndexes_.add(s);
               break;
@@ -3365,7 +3390,7 @@ public final class Nav {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           roamingTargetIndexes_ = roamingTargetIndexes_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -3385,7 +3410,6 @@ public final class Nav {
               navService.Nav.NavRoaming.class, navService.Nav.NavRoaming.Builder.class);
     }
 
-    private int bitField0_;
     public static final int NAV_ROAMING_TYPE_FIELD_NUMBER = 1;
     private int navRoamingType_;
     /**
@@ -3711,7 +3735,7 @@ public final class Nav {
         waitSec_ = 0;
 
         roamingTargetIndexes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         orderLoop_ = false;
 
         return this;
@@ -3741,16 +3765,14 @@ public final class Nav {
       public navService.Nav.NavRoaming buildPartial() {
         navService.Nav.NavRoaming result = new navService.Nav.NavRoaming(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.navRoamingType_ = navRoamingType_;
         result.waitSec_ = waitSec_;
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000001) != 0)) {
           roamingTargetIndexes_ = roamingTargetIndexes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.roamingTargetIndexes_ = roamingTargetIndexes_;
         result.orderLoop_ = orderLoop_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3808,7 +3830,7 @@ public final class Nav {
         if (!other.roamingTargetIndexes_.isEmpty()) {
           if (roamingTargetIndexes_.isEmpty()) {
             roamingTargetIndexes_ = other.roamingTargetIndexes_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureRoamingTargetIndexesIsMutable();
             roamingTargetIndexes_.addAll(other.roamingTargetIndexes_);
@@ -3933,9 +3955,9 @@ public final class Nav {
 
       private com.google.protobuf.LazyStringList roamingTargetIndexes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRoamingTargetIndexesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           roamingTargetIndexes_ = new com.google.protobuf.LazyStringArrayList(roamingTargetIndexes_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
@@ -4038,7 +4060,7 @@ public final class Nav {
        */
       public Builder clearRoamingTargetIndexes() {
         roamingTargetIndexes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4207,6 +4229,31 @@ public final class Nav {
 
     /**
      * <pre>
+     * 导航地图坐标(仅支持无线导航类型)
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 5;</code>
+     */
+    boolean hasMapPosition();
+    /**
+     * <pre>
+     * 导航地图坐标(仅支持无线导航类型)
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 5;</code>
+     */
+    navService.MapOuterClass.MapPosition getMapPosition();
+    /**
+     * <pre>
+     * 导航地图坐标(仅支持无线导航类型)
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 5;</code>
+     */
+    navService.MapOuterClass.MapPositionOrBuilder getMapPositionOrBuilder();
+
+    /**
+     * <pre>
      * 导航移动速度(需底盘类型支持)
      * </pre>
      *
@@ -4247,6 +4294,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavToRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4259,7 +4313,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4308,6 +4361,20 @@ public final class Nav {
               syncMode_ = input.readBool();
               break;
             }
+            case 42: {
+              navService.MapOuterClass.MapPosition.Builder subBuilder = null;
+              if (targetOneofCase_ == 5) {
+                subBuilder = ((navService.MapOuterClass.MapPosition) targetOneof_).toBuilder();
+              }
+              targetOneof_ =
+                  input.readMessage(navService.MapOuterClass.MapPosition.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((navService.MapOuterClass.MapPosition) targetOneof_);
+                targetOneof_ = subBuilder.buildPartial();
+              }
+              targetOneofCase_ = 5;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4346,6 +4413,7 @@ public final class Nav {
         implements com.google.protobuf.Internal.EnumLite {
       TARGET(1),
       ROAMING(3),
+      MAP_POSITION(5),
       TARGETONEOF_NOT_SET(0);
       private final int value;
       private TargetOneofCase(int value) {
@@ -4363,6 +4431,7 @@ public final class Nav {
         switch (value) {
           case 1: return TARGET;
           case 3: return ROAMING;
+          case 5: return MAP_POSITION;
           case 0: return TARGETONEOF_NOT_SET;
           default: return null;
         }
@@ -4454,6 +4523,44 @@ public final class Nav {
       return navService.Nav.NavRoaming.getDefaultInstance();
     }
 
+    public static final int MAP_POSITION_FIELD_NUMBER = 5;
+    /**
+     * <pre>
+     * 导航地图坐标(仅支持无线导航类型)
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 5;</code>
+     */
+    public boolean hasMapPosition() {
+      return targetOneofCase_ == 5;
+    }
+    /**
+     * <pre>
+     * 导航地图坐标(仅支持无线导航类型)
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 5;</code>
+     */
+    public navService.MapOuterClass.MapPosition getMapPosition() {
+      if (targetOneofCase_ == 5) {
+         return (navService.MapOuterClass.MapPosition) targetOneof_;
+      }
+      return navService.MapOuterClass.MapPosition.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * 导航地图坐标(仅支持无线导航类型)
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 5;</code>
+     */
+    public navService.MapOuterClass.MapPositionOrBuilder getMapPositionOrBuilder() {
+      if (targetOneofCase_ == 5) {
+         return (navService.MapOuterClass.MapPosition) targetOneof_;
+      }
+      return navService.MapOuterClass.MapPosition.getDefaultInstance();
+    }
+
     public static final int SPEED_FIELD_NUMBER = 2;
     private int speed_;
     /**
@@ -4508,6 +4615,9 @@ public final class Nav {
       if (syncMode_ != false) {
         output.writeBool(4, syncMode_);
       }
+      if (targetOneofCase_ == 5) {
+        output.writeMessage(5, (navService.MapOuterClass.MapPosition) targetOneof_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4532,6 +4642,10 @@ public final class Nav {
       if (syncMode_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, syncMode_);
+      }
+      if (targetOneofCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (navService.MapOuterClass.MapPosition) targetOneof_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4562,6 +4676,10 @@ public final class Nav {
           if (!getRoaming()
               .equals(other.getRoaming())) return false;
           break;
+        case 5:
+          if (!getMapPosition()
+              .equals(other.getMapPosition())) return false;
+          break;
         case 0:
         default:
       }
@@ -4589,6 +4707,10 @@ public final class Nav {
         case 3:
           hash = (37 * hash) + ROAMING_FIELD_NUMBER;
           hash = (53 * hash) + getRoaming().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + MAP_POSITION_FIELD_NUMBER;
+          hash = (53 * hash) + getMapPosition().hashCode();
           break;
         case 0:
         default:
@@ -4776,6 +4898,13 @@ public final class Nav {
             result.targetOneof_ = roamingBuilder_.build();
           }
         }
+        if (targetOneofCase_ == 5) {
+          if (mapPositionBuilder_ == null) {
+            result.targetOneof_ = targetOneof_;
+          } else {
+            result.targetOneof_ = mapPositionBuilder_.build();
+          }
+        }
         result.speed_ = speed_;
         result.syncMode_ = syncMode_;
         result.targetOneofCase_ = targetOneofCase_;
@@ -4840,6 +4969,10 @@ public final class Nav {
           }
           case ROAMING: {
             mergeRoaming(other.getRoaming());
+            break;
+          }
+          case MAP_POSITION: {
+            mergeMapPosition(other.getMapPosition());
             break;
           }
           case TARGETONEOF_NOT_SET: {
@@ -5234,6 +5367,178 @@ public final class Nav {
         return roamingBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilderV3<
+          navService.MapOuterClass.MapPosition, navService.MapOuterClass.MapPosition.Builder, navService.MapOuterClass.MapPositionOrBuilder> mapPositionBuilder_;
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public boolean hasMapPosition() {
+        return targetOneofCase_ == 5;
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public navService.MapOuterClass.MapPosition getMapPosition() {
+        if (mapPositionBuilder_ == null) {
+          if (targetOneofCase_ == 5) {
+            return (navService.MapOuterClass.MapPosition) targetOneof_;
+          }
+          return navService.MapOuterClass.MapPosition.getDefaultInstance();
+        } else {
+          if (targetOneofCase_ == 5) {
+            return mapPositionBuilder_.getMessage();
+          }
+          return navService.MapOuterClass.MapPosition.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public Builder setMapPosition(navService.MapOuterClass.MapPosition value) {
+        if (mapPositionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          targetOneof_ = value;
+          onChanged();
+        } else {
+          mapPositionBuilder_.setMessage(value);
+        }
+        targetOneofCase_ = 5;
+        return this;
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public Builder setMapPosition(
+          navService.MapOuterClass.MapPosition.Builder builderForValue) {
+        if (mapPositionBuilder_ == null) {
+          targetOneof_ = builderForValue.build();
+          onChanged();
+        } else {
+          mapPositionBuilder_.setMessage(builderForValue.build());
+        }
+        targetOneofCase_ = 5;
+        return this;
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public Builder mergeMapPosition(navService.MapOuterClass.MapPosition value) {
+        if (mapPositionBuilder_ == null) {
+          if (targetOneofCase_ == 5 &&
+              targetOneof_ != navService.MapOuterClass.MapPosition.getDefaultInstance()) {
+            targetOneof_ = navService.MapOuterClass.MapPosition.newBuilder((navService.MapOuterClass.MapPosition) targetOneof_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            targetOneof_ = value;
+          }
+          onChanged();
+        } else {
+          if (targetOneofCase_ == 5) {
+            mapPositionBuilder_.mergeFrom(value);
+          }
+          mapPositionBuilder_.setMessage(value);
+        }
+        targetOneofCase_ = 5;
+        return this;
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public Builder clearMapPosition() {
+        if (mapPositionBuilder_ == null) {
+          if (targetOneofCase_ == 5) {
+            targetOneofCase_ = 0;
+            targetOneof_ = null;
+            onChanged();
+          }
+        } else {
+          if (targetOneofCase_ == 5) {
+            targetOneofCase_ = 0;
+            targetOneof_ = null;
+          }
+          mapPositionBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public navService.MapOuterClass.MapPosition.Builder getMapPositionBuilder() {
+        return getMapPositionFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      public navService.MapOuterClass.MapPositionOrBuilder getMapPositionOrBuilder() {
+        if ((targetOneofCase_ == 5) && (mapPositionBuilder_ != null)) {
+          return mapPositionBuilder_.getMessageOrBuilder();
+        } else {
+          if (targetOneofCase_ == 5) {
+            return (navService.MapOuterClass.MapPosition) targetOneof_;
+          }
+          return navService.MapOuterClass.MapPosition.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * 导航地图坐标(仅支持无线导航类型)
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          navService.MapOuterClass.MapPosition, navService.MapOuterClass.MapPosition.Builder, navService.MapOuterClass.MapPositionOrBuilder> 
+          getMapPositionFieldBuilder() {
+        if (mapPositionBuilder_ == null) {
+          if (!(targetOneofCase_ == 5)) {
+            targetOneof_ = navService.MapOuterClass.MapPosition.getDefaultInstance();
+          }
+          mapPositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              navService.MapOuterClass.MapPosition, navService.MapOuterClass.MapPosition.Builder, navService.MapOuterClass.MapPositionOrBuilder>(
+                  (navService.MapOuterClass.MapPosition) targetOneof_,
+                  getParentForChildren(),
+                  isClean());
+          targetOneof_ = null;
+        }
+        targetOneofCase_ = 5;
+        onChanged();;
+        return mapPositionBuilder_;
+      }
+
       private int speed_ ;
       /**
        * <pre>
@@ -5415,6 +5720,31 @@ public final class Nav {
      */
     boolean getIsRoaming();
 
+    /**
+     * <pre>
+     * 地图位置目标
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 4;</code>
+     */
+    boolean hasMapPosition();
+    /**
+     * <pre>
+     * 地图位置目标
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 4;</code>
+     */
+    navService.MapOuterClass.MapPosition getMapPosition();
+    /**
+     * <pre>
+     * 地图位置目标
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 4;</code>
+     */
+    navService.MapOuterClass.MapPositionOrBuilder getMapPositionOrBuilder();
+
     public navService.Nav.NavToResponse.TargetOneofCase getTargetOneofCase();
   }
   /**
@@ -5438,6 +5768,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavToResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5450,7 +5787,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -5484,6 +5820,20 @@ public final class Nav {
             case 24: {
               targetOneofCase_ = 3;
               targetOneof_ = input.readBool();
+              break;
+            }
+            case 34: {
+              navService.MapOuterClass.MapPosition.Builder subBuilder = null;
+              if (targetOneofCase_ == 4) {
+                subBuilder = ((navService.MapOuterClass.MapPosition) targetOneof_).toBuilder();
+              }
+              targetOneof_ =
+                  input.readMessage(navService.MapOuterClass.MapPosition.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((navService.MapOuterClass.MapPosition) targetOneof_);
+                targetOneof_ = subBuilder.buildPartial();
+              }
+              targetOneofCase_ = 4;
               break;
             }
             default: {
@@ -5524,6 +5874,7 @@ public final class Nav {
         implements com.google.protobuf.Internal.EnumLite {
       TARGET(2),
       IS_ROAMING(3),
+      MAP_POSITION(4),
       TARGETONEOF_NOT_SET(0);
       private final int value;
       private TargetOneofCase(int value) {
@@ -5541,6 +5892,7 @@ public final class Nav {
         switch (value) {
           case 2: return TARGET;
           case 3: return IS_ROAMING;
+          case 4: return MAP_POSITION;
           case 0: return TARGETONEOF_NOT_SET;
           default: return null;
         }
@@ -5626,6 +5978,44 @@ public final class Nav {
       return false;
     }
 
+    public static final int MAP_POSITION_FIELD_NUMBER = 4;
+    /**
+     * <pre>
+     * 地图位置目标
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 4;</code>
+     */
+    public boolean hasMapPosition() {
+      return targetOneofCase_ == 4;
+    }
+    /**
+     * <pre>
+     * 地图位置目标
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 4;</code>
+     */
+    public navService.MapOuterClass.MapPosition getMapPosition() {
+      if (targetOneofCase_ == 4) {
+         return (navService.MapOuterClass.MapPosition) targetOneof_;
+      }
+      return navService.MapOuterClass.MapPosition.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * 地图位置目标
+     * </pre>
+     *
+     * <code>.navService.MapPosition map_position = 4;</code>
+     */
+    public navService.MapOuterClass.MapPositionOrBuilder getMapPositionOrBuilder() {
+      if (targetOneofCase_ == 4) {
+         return (navService.MapOuterClass.MapPosition) targetOneof_;
+      }
+      return navService.MapOuterClass.MapPosition.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5650,6 +6040,9 @@ public final class Nav {
         output.writeBool(
             3, (boolean)((java.lang.Boolean) targetOneof_));
       }
+      if (targetOneofCase_ == 4) {
+        output.writeMessage(4, (navService.MapOuterClass.MapPosition) targetOneof_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5671,6 +6064,10 @@ public final class Nav {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(
               3, (boolean)((java.lang.Boolean) targetOneof_));
+      }
+      if (targetOneofCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (navService.MapOuterClass.MapPosition) targetOneof_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5698,6 +6095,10 @@ public final class Nav {
           if (getIsRoaming()
               != other.getIsRoaming()) return false;
           break;
+        case 4:
+          if (!getMapPosition()
+              .equals(other.getMapPosition())) return false;
+          break;
         case 0:
         default:
       }
@@ -5723,6 +6124,10 @@ public final class Nav {
           hash = (37 * hash) + IS_ROAMING_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
               getIsRoaming());
+          break;
+        case 4:
+          hash = (37 * hash) + MAP_POSITION_FIELD_NUMBER;
+          hash = (53 * hash) + getMapPosition().hashCode();
           break;
         case 0:
         default:
@@ -5905,6 +6310,13 @@ public final class Nav {
         if (targetOneofCase_ == 3) {
           result.targetOneof_ = targetOneof_;
         }
+        if (targetOneofCase_ == 4) {
+          if (mapPositionBuilder_ == null) {
+            result.targetOneof_ = targetOneof_;
+          } else {
+            result.targetOneof_ = mapPositionBuilder_.build();
+          }
+        }
         result.targetOneofCase_ = targetOneofCase_;
         onBuilt();
         return result;
@@ -5964,6 +6376,10 @@ public final class Nav {
           }
           case IS_ROAMING: {
             setIsRoaming(other.getIsRoaming());
+            break;
+          }
+          case MAP_POSITION: {
+            mergeMapPosition(other.getMapPosition());
             break;
           }
           case TARGETONEOF_NOT_SET: {
@@ -6272,6 +6688,178 @@ public final class Nav {
         }
         return this;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          navService.MapOuterClass.MapPosition, navService.MapOuterClass.MapPosition.Builder, navService.MapOuterClass.MapPositionOrBuilder> mapPositionBuilder_;
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public boolean hasMapPosition() {
+        return targetOneofCase_ == 4;
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public navService.MapOuterClass.MapPosition getMapPosition() {
+        if (mapPositionBuilder_ == null) {
+          if (targetOneofCase_ == 4) {
+            return (navService.MapOuterClass.MapPosition) targetOneof_;
+          }
+          return navService.MapOuterClass.MapPosition.getDefaultInstance();
+        } else {
+          if (targetOneofCase_ == 4) {
+            return mapPositionBuilder_.getMessage();
+          }
+          return navService.MapOuterClass.MapPosition.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public Builder setMapPosition(navService.MapOuterClass.MapPosition value) {
+        if (mapPositionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          targetOneof_ = value;
+          onChanged();
+        } else {
+          mapPositionBuilder_.setMessage(value);
+        }
+        targetOneofCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public Builder setMapPosition(
+          navService.MapOuterClass.MapPosition.Builder builderForValue) {
+        if (mapPositionBuilder_ == null) {
+          targetOneof_ = builderForValue.build();
+          onChanged();
+        } else {
+          mapPositionBuilder_.setMessage(builderForValue.build());
+        }
+        targetOneofCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public Builder mergeMapPosition(navService.MapOuterClass.MapPosition value) {
+        if (mapPositionBuilder_ == null) {
+          if (targetOneofCase_ == 4 &&
+              targetOneof_ != navService.MapOuterClass.MapPosition.getDefaultInstance()) {
+            targetOneof_ = navService.MapOuterClass.MapPosition.newBuilder((navService.MapOuterClass.MapPosition) targetOneof_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            targetOneof_ = value;
+          }
+          onChanged();
+        } else {
+          if (targetOneofCase_ == 4) {
+            mapPositionBuilder_.mergeFrom(value);
+          }
+          mapPositionBuilder_.setMessage(value);
+        }
+        targetOneofCase_ = 4;
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public Builder clearMapPosition() {
+        if (mapPositionBuilder_ == null) {
+          if (targetOneofCase_ == 4) {
+            targetOneofCase_ = 0;
+            targetOneof_ = null;
+            onChanged();
+          }
+        } else {
+          if (targetOneofCase_ == 4) {
+            targetOneofCase_ = 0;
+            targetOneof_ = null;
+          }
+          mapPositionBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public navService.MapOuterClass.MapPosition.Builder getMapPositionBuilder() {
+        return getMapPositionFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      public navService.MapOuterClass.MapPositionOrBuilder getMapPositionOrBuilder() {
+        if ((targetOneofCase_ == 4) && (mapPositionBuilder_ != null)) {
+          return mapPositionBuilder_.getMessageOrBuilder();
+        } else {
+          if (targetOneofCase_ == 4) {
+            return (navService.MapOuterClass.MapPosition) targetOneof_;
+          }
+          return navService.MapOuterClass.MapPosition.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * 地图位置目标
+       * </pre>
+       *
+       * <code>.navService.MapPosition map_position = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          navService.MapOuterClass.MapPosition, navService.MapOuterClass.MapPosition.Builder, navService.MapOuterClass.MapPositionOrBuilder> 
+          getMapPositionFieldBuilder() {
+        if (mapPositionBuilder_ == null) {
+          if (!(targetOneofCase_ == 4)) {
+            targetOneof_ = navService.MapOuterClass.MapPosition.getDefaultInstance();
+          }
+          mapPositionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              navService.MapOuterClass.MapPosition, navService.MapOuterClass.MapPosition.Builder, navService.MapOuterClass.MapPositionOrBuilder>(
+                  (navService.MapOuterClass.MapPosition) targetOneof_,
+                  getParentForChildren(),
+                  isClean());
+          targetOneof_ = null;
+        }
+        targetOneofCase_ = 4;
+        onChanged();;
+        return mapPositionBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6346,6 +6934,13 @@ public final class Nav {
       super(builder);
     }
     private NavStopRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavStopRequest();
     }
 
     @java.lang.Override
@@ -6778,6 +7373,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavStopResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6790,7 +7392,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -7320,6 +7921,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AutoChargeRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7332,7 +7940,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -8156,6 +8763,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AutoChargeResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8168,7 +8782,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -8682,6 +9295,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RotateRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8694,7 +9314,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9359,6 +9978,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RotateResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9371,7 +9997,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -9855,6 +10480,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new OnNavEventChangeRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -10276,6 +10908,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MoveEvent();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -10288,7 +10927,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -10795,6 +11433,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NavEvent();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -10807,7 +11452,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -11482,6 +12126,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AutoChargeEvent();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -11494,7 +12145,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -11988,6 +12638,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RotateEvent();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -12000,7 +12657,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -12548,6 +13204,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new OnNavEventChangeResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -12560,7 +13223,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -13906,828 +14568,6 @@ public final class Nav {
 
   }
 
-  public interface LocationResetRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:navService.LocationResetRequest)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * Protobuf type {@code navService.LocationResetRequest}
-   */
-  public  static final class LocationResetRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:navService.LocationResetRequest)
-      LocationResetRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use LocationResetRequest.newBuilder() to construct.
-    private LocationResetRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private LocationResetRequest() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private LocationResetRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return navService.Nav.internal_static_navService_LocationResetRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return navService.Nav.internal_static_navService_LocationResetRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              navService.Nav.LocationResetRequest.class, navService.Nav.LocationResetRequest.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof navService.Nav.LocationResetRequest)) {
-        return super.equals(obj);
-      }
-      navService.Nav.LocationResetRequest other = (navService.Nav.LocationResetRequest) obj;
-
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static navService.Nav.LocationResetRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static navService.Nav.LocationResetRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static navService.Nav.LocationResetRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(navService.Nav.LocationResetRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code navService.LocationResetRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:navService.LocationResetRequest)
-        navService.Nav.LocationResetRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return navService.Nav.internal_static_navService_LocationResetRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return navService.Nav.internal_static_navService_LocationResetRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                navService.Nav.LocationResetRequest.class, navService.Nav.LocationResetRequest.Builder.class);
-      }
-
-      // Construct using navService.Nav.LocationResetRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return navService.Nav.internal_static_navService_LocationResetRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public navService.Nav.LocationResetRequest getDefaultInstanceForType() {
-        return navService.Nav.LocationResetRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public navService.Nav.LocationResetRequest build() {
-        navService.Nav.LocationResetRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public navService.Nav.LocationResetRequest buildPartial() {
-        navService.Nav.LocationResetRequest result = new navService.Nav.LocationResetRequest(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof navService.Nav.LocationResetRequest) {
-          return mergeFrom((navService.Nav.LocationResetRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(navService.Nav.LocationResetRequest other) {
-        if (other == navService.Nav.LocationResetRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        navService.Nav.LocationResetRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (navService.Nav.LocationResetRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:navService.LocationResetRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:navService.LocationResetRequest)
-    private static final navService.Nav.LocationResetRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new navService.Nav.LocationResetRequest();
-    }
-
-    public static navService.Nav.LocationResetRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<LocationResetRequest>
-        PARSER = new com.google.protobuf.AbstractParser<LocationResetRequest>() {
-      @java.lang.Override
-      public LocationResetRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocationResetRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<LocationResetRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<LocationResetRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public navService.Nav.LocationResetRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface LocationResetResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:navService.LocationResetResponse)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * Protobuf type {@code navService.LocationResetResponse}
-   */
-  public  static final class LocationResetResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:navService.LocationResetResponse)
-      LocationResetResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use LocationResetResponse.newBuilder() to construct.
-    private LocationResetResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private LocationResetResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private LocationResetResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return navService.Nav.internal_static_navService_LocationResetResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return navService.Nav.internal_static_navService_LocationResetResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              navService.Nav.LocationResetResponse.class, navService.Nav.LocationResetResponse.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof navService.Nav.LocationResetResponse)) {
-        return super.equals(obj);
-      }
-      navService.Nav.LocationResetResponse other = (navService.Nav.LocationResetResponse) obj;
-
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static navService.Nav.LocationResetResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static navService.Nav.LocationResetResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static navService.Nav.LocationResetResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(navService.Nav.LocationResetResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code navService.LocationResetResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:navService.LocationResetResponse)
-        navService.Nav.LocationResetResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return navService.Nav.internal_static_navService_LocationResetResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return navService.Nav.internal_static_navService_LocationResetResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                navService.Nav.LocationResetResponse.class, navService.Nav.LocationResetResponse.Builder.class);
-      }
-
-      // Construct using navService.Nav.LocationResetResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return navService.Nav.internal_static_navService_LocationResetResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public navService.Nav.LocationResetResponse getDefaultInstanceForType() {
-        return navService.Nav.LocationResetResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public navService.Nav.LocationResetResponse build() {
-        navService.Nav.LocationResetResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public navService.Nav.LocationResetResponse buildPartial() {
-        navService.Nav.LocationResetResponse result = new navService.Nav.LocationResetResponse(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof navService.Nav.LocationResetResponse) {
-          return mergeFrom((navService.Nav.LocationResetResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(navService.Nav.LocationResetResponse other) {
-        if (other == navService.Nav.LocationResetResponse.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        navService.Nav.LocationResetResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (navService.Nav.LocationResetResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:navService.LocationResetResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:navService.LocationResetResponse)
-    private static final navService.Nav.LocationResetResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new navService.Nav.LocationResetResponse();
-    }
-
-    public static navService.Nav.LocationResetResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<LocationResetResponse>
-        PARSER = new com.google.protobuf.AbstractParser<LocationResetResponse>() {
-      @java.lang.Override
-      public LocationResetResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocationResetResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<LocationResetResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<LocationResetResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public navService.Nav.LocationResetResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface RouteOrBuilder extends
       // @@protoc_insertion_point(interface_extends:navService.Route)
       com.google.protobuf.MessageOrBuilder {
@@ -14844,6 +14684,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Route();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -14885,9 +14732,9 @@ public final class Nav {
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 routePoints_ = new java.util.ArrayList<navService.Nav.RoutePoint>();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000001;
               }
               routePoints_.add(
                   input.readMessage(navService.Nav.RoutePoint.parser(), extensionRegistry));
@@ -14908,7 +14755,7 @@ public final class Nav {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           routePoints_ = java.util.Collections.unmodifiableList(routePoints_);
         }
         this.unknownFields = unknownFields.build();
@@ -14928,7 +14775,6 @@ public final class Nav {
               navService.Nav.Route.class, navService.Nav.Route.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
@@ -15321,7 +15167,7 @@ public final class Nav {
 
         if (routePointsBuilder_ == null) {
           routePoints_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           routePointsBuilder_.clear();
         }
@@ -15352,20 +15198,18 @@ public final class Nav {
       public navService.Nav.Route buildPartial() {
         navService.Nav.Route result = new navService.Nav.Route(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.id_ = id_;
         result.name_ = name_;
         result.isActive_ = isActive_;
         if (routePointsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             routePoints_ = java.util.Collections.unmodifiableList(routePoints_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.routePoints_ = routePoints_;
         } else {
           result.routePoints_ = routePointsBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -15429,7 +15273,7 @@ public final class Nav {
           if (!other.routePoints_.isEmpty()) {
             if (routePoints_.isEmpty()) {
               routePoints_ = other.routePoints_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureRoutePointsIsMutable();
               routePoints_.addAll(other.routePoints_);
@@ -15442,7 +15286,7 @@ public final class Nav {
               routePointsBuilder_.dispose();
               routePointsBuilder_ = null;
               routePoints_ = other.routePoints_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
               routePointsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getRoutePointsFieldBuilder() : null;
@@ -15700,9 +15544,9 @@ public final class Nav {
       private java.util.List<navService.Nav.RoutePoint> routePoints_ =
         java.util.Collections.emptyList();
       private void ensureRoutePointsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           routePoints_ = new java.util.ArrayList<navService.Nav.RoutePoint>(routePoints_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -15896,7 +15740,7 @@ public final class Nav {
       public Builder clearRoutePoints() {
         if (routePointsBuilder_ == null) {
           routePoints_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           routePointsBuilder_.clear();
@@ -16001,7 +15845,7 @@ public final class Nav {
           routePointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               navService.Nav.RoutePoint, navService.Nav.RoutePoint.Builder, navService.Nav.RoutePointOrBuilder>(
                   routePoints_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           routePoints_ = null;
@@ -16113,6 +15957,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RoutePoint();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -16125,7 +15976,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -16776,6 +16626,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NewRouteRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -16788,7 +16645,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -17389,6 +17245,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NewRouteResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -17401,7 +17264,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -17982,6 +17844,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListRoutesRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -18415,6 +18284,13 @@ public final class Nav {
     }
     private ListRoutesResponse() {
       routes_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListRoutesResponse();
     }
 
     @java.lang.Override
@@ -19185,6 +19061,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetRouteRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -19197,7 +19080,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -19736,6 +19618,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetRouteResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -19748,7 +19637,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -20349,6 +20237,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateRouteRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -20361,7 +20256,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -20962,6 +20856,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UpdateRouteResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -20974,7 +20875,6 @@ public final class Nav {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -21575,6 +21475,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteRoutesRequest();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -22158,6 +22065,13 @@ public final class Nav {
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeleteRoutesResponse();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -22640,16 +22554,6 @@ public final class Nav {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_navService_OnNavEventChangeResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_navService_LocationResetRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_navService_LocationResetRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_navService_LocationResetResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_navService_LocationResetResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_navService_Route_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -22719,130 +22623,122 @@ public final class Nav {
   static {
     java.lang.String[] descriptorData = {
       "\n\tnav.proto\022\nnavService\032\034google/api/anno" +
-      "tations.proto\"h\n\013MoveRequest\022\r\n\005speed\030\001 " +
-      "\001(\r\022\016\n\006rspeed\030\002 \001(\r\022,\n\tdirection\030\003 \001(\0162\031" +
-      ".navService.MoveDirection\022\014\n\004mode\030\004 \001(\t\"" +
-      ";\n\014MoveResponse\022+\n\013status_code\030\001 \001(\0162\026.n" +
-      "avService.StatusCode\"(\n\tNavTarget\022\r\n\005ind" +
-      "ex\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"\205\001\n\nNavRoaming\0221\n" +
-      "\020nav_roaming_type\030\001 \001(\0162\027.navService.Roa" +
-      "mingType\022\020\n\010wait_sec\030\002 \001(\005\022\036\n\026roaming_ta" +
-      "rget_indexes\030\003 \003(\t\022\022\n\norder_loop\030\004 \001(\010\"\224" +
-      "\001\n\014NavToRequest\022\'\n\006target\030\001 \001(\0132\025.navSer" +
-      "vice.NavTargetH\000\022)\n\007roaming\030\003 \001(\0132\026.navS" +
-      "ervice.NavRoamingH\000\022\r\n\005speed\030\002 \001(\r\022\021\n\tsy" +
-      "nc_mode\030\004 \001(\010B\016\n\014target_oneof\"\213\001\n\rNavToR" +
-      "esponse\022+\n\013status_code\030\001 \001(\0162\026.navServic" +
-      "e.StatusCode\022\'\n\006target\030\002 \001(\0132\025.navServic" +
-      "e.NavTargetH\000\022\024\n\nis_roaming\030\003 \001(\010H\000B\016\n\014t" +
-      "arget_oneof\"\020\n\016NavStopRequest\">\n\017NavStop" +
-      "Response\022+\n\013status_code\030\001 \001(\0162\026.navServi" +
-      "ce.StatusCode\"|\n\021AutoChargeRequest\022\020\n\006ch" +
-      "arge\030\001 \001(\010H\000\022\020\n\006cancel\030\002 \001(\010H\000\022\027\n\rcharge" +
-      "_preset\030\003 \001(\010H\000\022\023\n\013timeout_sec\030\004 \001(\rB\025\n\023" +
-      "charge_option_oneof\"N\n\022AutoChargeRespons" +
-      "e\0228\n\022charge_status_code\030\001 \001(\0162\034.navServi" +
-      "ce.ChargeStatusCode\"D\n\rRotateRequest\022\017\n\005" +
-      "angle\030\001 \001(\005H\000\022\022\n\010rollback\030\002 \001(\010H\000B\016\n\014rot" +
-      "ate_oneof\"=\n\016RotateResponse\022+\n\013status_co" +
-      "de\030\001 \001(\0162\026.navService.StatusCode\"\031\n\027OnNa" +
-      "vEventChangeRequest\"8\n\tMoveEvent\022+\n\013stat" +
-      "us_code\030\001 \001(\0162\026.navService.StatusCode\"b\n" +
-      "\010NavEvent\022+\n\013status_code\030\001 \001(\0162\026.navServ" +
-      "ice.StatusCode\022)\n\nnav_target\030\002 \001(\0132\025.nav" +
-      "Service.NavTarget\"K\n\017AutoChargeEvent\0228\n\022" +
-      "charge_status_code\030\001 \001(\0162\034.navService.Ch" +
-      "argeStatusCode\":\n\013RotateEvent\022+\n\013status_" +
-      "code\030\001 \001(\0162\026.navService.StatusCode\"\237\002\n\030O" +
-      "nNavEventChangeResponse\0220\n\016nav_event_typ" +
-      "e\030\001 \001(\0162\030.navService.NavEventType\022+\n\nmov" +
-      "e_event\030\002 \001(\0132\025.navService.MoveEventH\000\022)" +
-      "\n\tnav_event\030\003 \001(\0132\024.navService.NavEventH" +
-      "\000\022/\n\014rotate_event\030\004 \001(\0132\027.navService.Rot" +
-      "ateEventH\000\0228\n\021auto_charge_event\030\005 \001(\0132\033." +
-      "navService.AutoChargeEventH\000B\016\n\014change_o" +
-      "neof\"\026\n\024LocationResetRequest\"\027\n\025Location" +
-      "ResetResponse\"b\n\005Route\022\n\n\002id\030\001 \001(\t\022\014\n\004na" +
-      "me\030\002 \001(\t\022\021\n\tis_active\030\003 \001(\010\022,\n\014route_poi" +
-      "nts\030\004 \003(\0132\026.navService.RoutePoint\"*\n\nRou" +
-      "tePoint\022\014\n\004name\030\001 \001(\t\022\016\n\006rotate\030\002 \001(\r\"3\n" +
-      "\017NewRouteRequest\022 \n\005route\030\001 \001(\0132\021.navSer" +
-      "vice.Route\"4\n\020NewRouteResponse\022 \n\005route\030" +
-      "\001 \001(\0132\021.navService.Route\"\023\n\021ListRoutesRe" +
-      "quest\"7\n\022ListRoutesResponse\022!\n\006routes\030\001 " +
-      "\003(\0132\021.navService.Route\"\035\n\017GetRouteReques" +
-      "t\022\n\n\002id\030\001 \001(\t\"4\n\020GetRouteResponse\022 \n\005rou" +
-      "te\030\001 \001(\0132\021.navService.Route\"6\n\022UpdateRou" +
-      "teRequest\022 \n\005route\030\001 \001(\0132\021.navService.Ro" +
-      "ute\"7\n\023UpdateRouteResponse\022 \n\005route\030\001 \001(" +
-      "\0132\021.navService.Route\"(\n\023DeleteRoutesRequ" +
-      "est\022\021\n\troutes_id\030\001 \003(\t\"\026\n\024DeleteRoutesRe" +
-      "sponse*\356\001\n\nStatusCode\022\013\n\007UNKNOWN\020\000\022\013\n\007ST" +
-      "OPPED\020\001\022\n\n\006MOVING\020\002\022\r\n\tPREPARING\020\003\022\n\n\006CA" +
-      "NCEL\020\004\022\014\n\010RELEASED\020\005\022\020\n\014ERR_OBSTACLE\020\n\022\021" +
-      "\n\rERR_NOT_READY\020\013\022\022\n\016ERR_MOTOR_FAIL\020\014\022\024\n" +
-      "\020ERR_WRONG_TARGET\020\r\022\016\n\nREJ_MOVING\020\024\022\016\n\nR" +
-      "EJ_NAVING\020\025\022\020\n\014REJ_CHARGING\020\026\022\020\n\014REJ_ROT" +
-      "ATING\020\027*\230\001\n\rMoveDirection\022\013\n\007RELEASE\020\000\022\013" +
-      "\n\007FORWARD\020\001\022\014\n\010BACKWARD\020\002\022\010\n\004LEFT\020\003\022\t\n\005R" +
-      "IGHT\020\004\022\020\n\014LEFT_FORWARD\020\005\022\021\n\rRIGHT_FORWAR" +
-      "D\020\006\022\021\n\rLEFT_BACKWARD\020\007\022\022\n\016RIGHT_BACKWARD" +
-      "\020\010*Y\n\013RoamingType\022\031\n\025ROAMING_TYPE_CONTIN" +
-      "UE\020\000\022\026\n\022ROAMING_TYPE_ORDER\020\001\022\027\n\023ROAMING_" +
-      "TYPE_RANDOM\020\002*\372\001\n\020ChargeStatusCode\022\031\n\025CH" +
-      "ARGE_STATUS_UNKNOWN\020\000\022\033\n\027CHARGE_STATUS_P" +
-      "REPARING\020\001\022\032\n\026CHARGE_STATUS_RELEASED\020\002\022\034" +
-      "\n\030CHARGE_STATUS_CONNECTING\020\003\022\032\n\026CHARGE_S" +
-      "TATUS_CHARGING\020\004\022\037\n\033CHARGE_STATUS_DISCON" +
-      "NECTING\020\005\022\027\n\023CHARGE_CONNECT_FAIL\020\006\022\036\n\032CH" +
-      "ARGE_STATUS_NAV_OBSTACLE\020\007*n\n\014NavEventTy" +
-      "pe\022\026\n\022NAV_EVENT_REVERSED\020\000\022\016\n\nMOVE_EVENT" +
-      "\020\001\022\r\n\tNAV_EVENT\020\002\022\025\n\021AUTO_CHARGE_EVENT\020\003" +
-      "\022\020\n\014ROTATE_EVENT\020\0042\266\t\n\rNavController\022?\n\004" +
-      "Move\022\027.navService.MoveRequest\032\030.navServi" +
-      "ce.MoveResponse\"\000(\0010\001\022[\n\005NavTo\022\030.navServ" +
-      "ice.NavToRequest\032\031.navService.NavToRespo" +
-      "nse\"\035\202\323\344\223\002\027\"\022/api/v2/nav/nav_to:\001*\022c\n\007Na" +
-      "vStop\022\032.navService.NavStopRequest\032\033.navS" +
-      "ervice.NavStopResponse\"\037\202\323\344\223\002\031\"\024/api/v2/" +
-      "nav/nav_stop:\001*\022o\n\nAutoCharge\022\035.navServi" +
-      "ce.AutoChargeRequest\032\036.navService.AutoCh" +
-      "argeResponse\"\"\202\323\344\223\002\034\"\027/api/v2/nav/auto_c" +
-      "harge:\001*\022^\n\006Rotate\022\031.navService.RotateRe" +
-      "quest\032\032.navService.RotateResponse\"\035\202\323\344\223\002" +
-      "\027\"\022/api/v2/nav/rotate:\001*\022\213\001\n\020OnNavEventC" +
-      "hange\022#.navService.OnNavEventChangeReque" +
-      "st\032$.navService.OnNavEventChangeResponse" +
-      "\"*\202\323\344\223\002$\"\037/api/v2/nav/on_nav_event_chang" +
-      "e:\001*0\001\022{\n\rLocationReset\022 .navService.Loc" +
-      "ationResetRequest\032!.navService.LocationR" +
-      "esetResponse\"%\202\323\344\223\002\037\"\032/api/v2/nav/locati" +
-      "on_reset:\001*\022g\n\010NewRoute\022\033.navService.New" +
-      "RouteRequest\032\034.navService.NewRouteRespon" +
-      "se\" \202\323\344\223\002\032\"\025/api/v2/nav/new_route:\001*\022o\n\n" +
-      "ListRoutes\022\035.navService.ListRoutesReques" +
-      "t\032\036.navService.ListRoutesResponse\"\"\202\323\344\223\002" +
-      "\034\"\027/api/v2/nav/list_routes:\001*\022s\n\013UpdateR" +
-      "oute\022\036.navService.UpdateRouteRequest\032\037.n" +
-      "avService.UpdateRouteResponse\"#\202\323\344\223\002\035\"\030/" +
-      "api/v2/nav/update_route:\001*\022w\n\014DeleteRout" +
-      "es\022\037.navService.DeleteRoutesRequest\032 .na" +
-      "vService.DeleteRoutesResponse\"$\202\323\344\223\002\036\"\031/" +
-      "api/v2/nav/delete_routes:\001*b\006proto3"
+      "tations.proto\032\tmap.proto\"h\n\013MoveRequest\022" +
+      "\r\n\005speed\030\001 \001(\r\022\016\n\006rspeed\030\002 \001(\r\022,\n\tdirect" +
+      "ion\030\003 \001(\0162\031.navService.MoveDirection\022\014\n\004" +
+      "mode\030\004 \001(\t\";\n\014MoveResponse\022+\n\013status_cod" +
+      "e\030\001 \001(\0162\026.navService.StatusCode\"(\n\tNavTa" +
+      "rget\022\r\n\005index\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"\205\001\n\nNa" +
+      "vRoaming\0221\n\020nav_roaming_type\030\001 \001(\0162\027.nav" +
+      "Service.RoamingType\022\020\n\010wait_sec\030\002 \001(\005\022\036\n" +
+      "\026roaming_target_indexes\030\003 \003(\t\022\022\n\norder_l" +
+      "oop\030\004 \001(\010\"\305\001\n\014NavToRequest\022\'\n\006target\030\001 \001" +
+      "(\0132\025.navService.NavTargetH\000\022)\n\007roaming\030\003" +
+      " \001(\0132\026.navService.NavRoamingH\000\022/\n\014map_po" +
+      "sition\030\005 \001(\0132\027.navService.MapPositionH\000\022" +
+      "\r\n\005speed\030\002 \001(\r\022\021\n\tsync_mode\030\004 \001(\010B\016\n\014tar" +
+      "get_oneof\"\274\001\n\rNavToResponse\022+\n\013status_co" +
+      "de\030\001 \001(\0162\026.navService.StatusCode\022\'\n\006targ" +
+      "et\030\002 \001(\0132\025.navService.NavTargetH\000\022\024\n\nis_" +
+      "roaming\030\003 \001(\010H\000\022/\n\014map_position\030\004 \001(\0132\027." +
+      "navService.MapPositionH\000B\016\n\014target_oneof" +
+      "\"\020\n\016NavStopRequest\">\n\017NavStopResponse\022+\n" +
+      "\013status_code\030\001 \001(\0162\026.navService.StatusCo" +
+      "de\"|\n\021AutoChargeRequest\022\020\n\006charge\030\001 \001(\010H" +
+      "\000\022\020\n\006cancel\030\002 \001(\010H\000\022\027\n\rcharge_preset\030\003 \001" +
+      "(\010H\000\022\023\n\013timeout_sec\030\004 \001(\rB\025\n\023charge_opti" +
+      "on_oneof\"N\n\022AutoChargeResponse\0228\n\022charge" +
+      "_status_code\030\001 \001(\0162\034.navService.ChargeSt" +
+      "atusCode\"D\n\rRotateRequest\022\017\n\005angle\030\001 \001(\005" +
+      "H\000\022\022\n\010rollback\030\002 \001(\010H\000B\016\n\014rotate_oneof\"=" +
+      "\n\016RotateResponse\022+\n\013status_code\030\001 \001(\0162\026." +
+      "navService.StatusCode\"\031\n\027OnNavEventChang" +
+      "eRequest\"8\n\tMoveEvent\022+\n\013status_code\030\001 \001" +
+      "(\0162\026.navService.StatusCode\"b\n\010NavEvent\022+" +
+      "\n\013status_code\030\001 \001(\0162\026.navService.StatusC" +
+      "ode\022)\n\nnav_target\030\002 \001(\0132\025.navService.Nav" +
+      "Target\"K\n\017AutoChargeEvent\0228\n\022charge_stat" +
+      "us_code\030\001 \001(\0162\034.navService.ChargeStatusC" +
+      "ode\":\n\013RotateEvent\022+\n\013status_code\030\001 \001(\0162" +
+      "\026.navService.StatusCode\"\237\002\n\030OnNavEventCh" +
+      "angeResponse\0220\n\016nav_event_type\030\001 \001(\0162\030.n" +
+      "avService.NavEventType\022+\n\nmove_event\030\002 \001" +
+      "(\0132\025.navService.MoveEventH\000\022)\n\tnav_event" +
+      "\030\003 \001(\0132\024.navService.NavEventH\000\022/\n\014rotate" +
+      "_event\030\004 \001(\0132\027.navService.RotateEventH\000\022" +
+      "8\n\021auto_charge_event\030\005 \001(\0132\033.navService." +
+      "AutoChargeEventH\000B\016\n\014change_oneof\"b\n\005Rou" +
+      "te\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\021\n\tis_activ" +
+      "e\030\003 \001(\010\022,\n\014route_points\030\004 \003(\0132\026.navServi" +
+      "ce.RoutePoint\"*\n\nRoutePoint\022\014\n\004name\030\001 \001(" +
+      "\t\022\016\n\006rotate\030\002 \001(\r\"3\n\017NewRouteRequest\022 \n\005" +
+      "route\030\001 \001(\0132\021.navService.Route\"4\n\020NewRou" +
+      "teResponse\022 \n\005route\030\001 \001(\0132\021.navService.R" +
+      "oute\"\023\n\021ListRoutesRequest\"7\n\022ListRoutesR" +
+      "esponse\022!\n\006routes\030\001 \003(\0132\021.navService.Rou" +
+      "te\"\035\n\017GetRouteRequest\022\n\n\002id\030\001 \001(\t\"4\n\020Get" +
+      "RouteResponse\022 \n\005route\030\001 \001(\0132\021.navServic" +
+      "e.Route\"6\n\022UpdateRouteRequest\022 \n\005route\030\001" +
+      " \001(\0132\021.navService.Route\"7\n\023UpdateRouteRe" +
+      "sponse\022 \n\005route\030\001 \001(\0132\021.navService.Route" +
+      "\"(\n\023DeleteRoutesRequest\022\021\n\troutes_id\030\001 \003" +
+      "(\t\"\026\n\024DeleteRoutesResponse*\356\001\n\nStatusCod" +
+      "e\022\013\n\007UNKNOWN\020\000\022\013\n\007STOPPED\020\001\022\n\n\006MOVING\020\002\022" +
+      "\r\n\tPREPARING\020\003\022\n\n\006CANCEL\020\004\022\014\n\010RELEASED\020\005" +
+      "\022\020\n\014ERR_OBSTACLE\020\n\022\021\n\rERR_NOT_READY\020\013\022\022\n" +
+      "\016ERR_MOTOR_FAIL\020\014\022\024\n\020ERR_WRONG_TARGET\020\r\022" +
+      "\016\n\nREJ_MOVING\020\024\022\016\n\nREJ_NAVING\020\025\022\020\n\014REJ_C" +
+      "HARGING\020\026\022\020\n\014REJ_ROTATING\020\027*\230\001\n\rMoveDire" +
+      "ction\022\013\n\007RELEASE\020\000\022\013\n\007FORWARD\020\001\022\014\n\010BACKW" +
+      "ARD\020\002\022\010\n\004LEFT\020\003\022\t\n\005RIGHT\020\004\022\020\n\014LEFT_FORWA" +
+      "RD\020\005\022\021\n\rRIGHT_FORWARD\020\006\022\021\n\rLEFT_BACKWARD" +
+      "\020\007\022\022\n\016RIGHT_BACKWARD\020\010*Y\n\013RoamingType\022\031\n" +
+      "\025ROAMING_TYPE_CONTINUE\020\000\022\026\n\022ROAMING_TYPE" +
+      "_ORDER\020\001\022\027\n\023ROAMING_TYPE_RANDOM\020\002*\372\001\n\020Ch" +
+      "argeStatusCode\022\031\n\025CHARGE_STATUS_UNKNOWN\020" +
+      "\000\022\033\n\027CHARGE_STATUS_PREPARING\020\001\022\032\n\026CHARGE" +
+      "_STATUS_RELEASED\020\002\022\034\n\030CHARGE_STATUS_CONN" +
+      "ECTING\020\003\022\032\n\026CHARGE_STATUS_CHARGING\020\004\022\037\n\033" +
+      "CHARGE_STATUS_DISCONNECTING\020\005\022\027\n\023CHARGE_" +
+      "CONNECT_FAIL\020\006\022\036\n\032CHARGE_STATUS_NAV_OBST" +
+      "ACLE\020\007*n\n\014NavEventType\022\026\n\022NAV_EVENT_REVE" +
+      "RSED\020\000\022\016\n\nMOVE_EVENT\020\001\022\r\n\tNAV_EVENT\020\002\022\025\n" +
+      "\021AUTO_CHARGE_EVENT\020\003\022\020\n\014ROTATE_EVENT\020\0042\316" +
+      "\010\n\rNavController\022W\n\004Move\022\027.navService.Mo" +
+      "veRequest\032\030.navService.MoveResponse\"\030\202\323\344" +
+      "\223\002\022\022\020/api/v2/nav/move(\0010\001\022[\n\005NavTo\022\030.nav" +
+      "Service.NavToRequest\032\031.navService.NavToR" +
+      "esponse\"\035\202\323\344\223\002\027\"\022/api/v2/nav/nav_to:\001*\022c" +
+      "\n\007NavStop\022\032.navService.NavStopRequest\032\033." +
+      "navService.NavStopResponse\"\037\202\323\344\223\002\031\"\024/api" +
+      "/v2/nav/nav_stop:\001*\022o\n\nAutoCharge\022\035.navS" +
+      "ervice.AutoChargeRequest\032\036.navService.Au" +
+      "toChargeResponse\"\"\202\323\344\223\002\034\"\027/api/v2/nav/au" +
+      "to_charge:\001*\022^\n\006Rotate\022\031.navService.Rota" +
+      "teRequest\032\032.navService.RotateResponse\"\035\202" +
+      "\323\344\223\002\027\"\022/api/v2/nav/rotate:\001*\022\210\001\n\020OnNavEv" +
+      "entChange\022#.navService.OnNavEventChangeR" +
+      "equest\032$.navService.OnNavEventChangeResp" +
+      "onse\"\'\202\323\344\223\002!\022\037/api/v2/nav/on_nav_event_c" +
+      "hange0\001\022g\n\010NewRoute\022\033.navService.NewRout" +
+      "eRequest\032\034.navService.NewRouteResponse\" " +
+      "\202\323\344\223\002\032\"\025/api/v2/nav/new_route:\001*\022o\n\nList" +
+      "Routes\022\035.navService.ListRoutesRequest\032\036." +
+      "navService.ListRoutesResponse\"\"\202\323\344\223\002\034\"\027/" +
+      "api/v2/nav/list_routes:\001*\022s\n\013UpdateRoute" +
+      "\022\036.navService.UpdateRouteRequest\032\037.navSe" +
+      "rvice.UpdateRouteResponse\"#\202\323\344\223\002\035\"\030/api/" +
+      "v2/nav/update_route:\001*\022w\n\014DeleteRoutes\022\037" +
+      ".navService.DeleteRoutesRequest\032 .navSer" +
+      "vice.DeleteRoutesResponse\"$\202\323\344\223\002\036\"\031/api/" +
+      "v2/nav/delete_routes:\001*b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-        }, assigner);
+          navService.MapOuterClass.getDescriptor(),
+        });
     internal_static_navService_MoveRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_navService_MoveRequest_fieldAccessorTable = new
@@ -22872,13 +22768,13 @@ public final class Nav {
     internal_static_navService_NavToRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_NavToRequest_descriptor,
-        new java.lang.String[] { "Target", "Roaming", "Speed", "SyncMode", "TargetOneof", });
+        new java.lang.String[] { "Target", "Roaming", "MapPosition", "Speed", "SyncMode", "TargetOneof", });
     internal_static_navService_NavToResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_navService_NavToResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_NavToResponse_descriptor,
-        new java.lang.String[] { "StatusCode", "Target", "IsRoaming", "TargetOneof", });
+        new java.lang.String[] { "StatusCode", "Target", "IsRoaming", "MapPosition", "TargetOneof", });
     internal_static_navService_NavStopRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_navService_NavStopRequest_fieldAccessorTable = new
@@ -22951,86 +22847,74 @@ public final class Nav {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_OnNavEventChangeResponse_descriptor,
         new java.lang.String[] { "NavEventType", "MoveEvent", "NavEvent", "RotateEvent", "AutoChargeEvent", "ChangeOneof", });
-    internal_static_navService_LocationResetRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
-    internal_static_navService_LocationResetRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_navService_LocationResetRequest_descriptor,
-        new java.lang.String[] { });
-    internal_static_navService_LocationResetResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
-    internal_static_navService_LocationResetResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_navService_LocationResetResponse_descriptor,
-        new java.lang.String[] { });
     internal_static_navService_Route_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_navService_Route_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_Route_descriptor,
         new java.lang.String[] { "Id", "Name", "IsActive", "RoutePoints", });
     internal_static_navService_RoutePoint_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_navService_RoutePoint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_RoutePoint_descriptor,
         new java.lang.String[] { "Name", "Rotate", });
     internal_static_navService_NewRouteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_navService_NewRouteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_NewRouteRequest_descriptor,
         new java.lang.String[] { "Route", });
     internal_static_navService_NewRouteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_navService_NewRouteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_NewRouteResponse_descriptor,
         new java.lang.String[] { "Route", });
     internal_static_navService_ListRoutesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_navService_ListRoutesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_ListRoutesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_navService_ListRoutesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_navService_ListRoutesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_ListRoutesResponse_descriptor,
         new java.lang.String[] { "Routes", });
     internal_static_navService_GetRouteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_navService_GetRouteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_GetRouteRequest_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_navService_GetRouteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_navService_GetRouteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_GetRouteResponse_descriptor,
         new java.lang.String[] { "Route", });
     internal_static_navService_UpdateRouteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_navService_UpdateRouteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_UpdateRouteRequest_descriptor,
         new java.lang.String[] { "Route", });
     internal_static_navService_UpdateRouteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_navService_UpdateRouteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_UpdateRouteResponse_descriptor,
         new java.lang.String[] { "Route", });
     internal_static_navService_DeleteRoutesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_navService_DeleteRoutesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_DeleteRoutesRequest_descriptor,
         new java.lang.String[] { "RoutesId", });
     internal_static_navService_DeleteRoutesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_navService_DeleteRoutesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_DeleteRoutesResponse_descriptor,
@@ -23041,6 +22925,7 @@ public final class Nav {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
+    navService.MapOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

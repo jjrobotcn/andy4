@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+import map_pb2 as map__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='navService',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tnav.proto\x12\nnavService\x1a\x1cgoogle/api/annotations.proto\"h\n\x0bMoveRequest\x12\r\n\x05speed\x18\x01 \x01(\r\x12\x0e\n\x06rspeed\x18\x02 \x01(\r\x12,\n\tdirection\x18\x03 \x01(\x0e\x32\x19.navService.MoveDirection\x12\x0c\n\x04mode\x18\x04 \x01(\t\";\n\x0cMoveResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"(\n\tNavTarget\x12\r\n\x05index\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x85\x01\n\nNavRoaming\x12\x31\n\x10nav_roaming_type\x18\x01 \x01(\x0e\x32\x17.navService.RoamingType\x12\x10\n\x08wait_sec\x18\x02 \x01(\x05\x12\x1e\n\x16roaming_target_indexes\x18\x03 \x03(\t\x12\x12\n\norder_loop\x18\x04 \x01(\x08\"\x94\x01\n\x0cNavToRequest\x12\'\n\x06target\x18\x01 \x01(\x0b\x32\x15.navService.NavTargetH\x00\x12)\n\x07roaming\x18\x03 \x01(\x0b\x32\x16.navService.NavRoamingH\x00\x12\r\n\x05speed\x18\x02 \x01(\r\x12\x11\n\tsync_mode\x18\x04 \x01(\x08\x42\x0e\n\x0ctarget_oneof\"\x8b\x01\n\rNavToResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\x12\'\n\x06target\x18\x02 \x01(\x0b\x32\x15.navService.NavTargetH\x00\x12\x14\n\nis_roaming\x18\x03 \x01(\x08H\x00\x42\x0e\n\x0ctarget_oneof\"\x10\n\x0eNavStopRequest\">\n\x0fNavStopResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"|\n\x11\x41utoChargeRequest\x12\x10\n\x06\x63harge\x18\x01 \x01(\x08H\x00\x12\x10\n\x06\x63\x61ncel\x18\x02 \x01(\x08H\x00\x12\x17\n\rcharge_preset\x18\x03 \x01(\x08H\x00\x12\x13\n\x0btimeout_sec\x18\x04 \x01(\rB\x15\n\x13\x63harge_option_oneof\"N\n\x12\x41utoChargeResponse\x12\x38\n\x12\x63harge_status_code\x18\x01 \x01(\x0e\x32\x1c.navService.ChargeStatusCode\"D\n\rRotateRequest\x12\x0f\n\x05\x61ngle\x18\x01 \x01(\x05H\x00\x12\x12\n\x08rollback\x18\x02 \x01(\x08H\x00\x42\x0e\n\x0crotate_oneof\"=\n\x0eRotateResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"\x19\n\x17OnNavEventChangeRequest\"8\n\tMoveEvent\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"b\n\x08NavEvent\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\x12)\n\nnav_target\x18\x02 \x01(\x0b\x32\x15.navService.NavTarget\"K\n\x0f\x41utoChargeEvent\x12\x38\n\x12\x63harge_status_code\x18\x01 \x01(\x0e\x32\x1c.navService.ChargeStatusCode\":\n\x0bRotateEvent\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"\x9f\x02\n\x18OnNavEventChangeResponse\x12\x30\n\x0enav_event_type\x18\x01 \x01(\x0e\x32\x18.navService.NavEventType\x12+\n\nmove_event\x18\x02 \x01(\x0b\x32\x15.navService.MoveEventH\x00\x12)\n\tnav_event\x18\x03 \x01(\x0b\x32\x14.navService.NavEventH\x00\x12/\n\x0crotate_event\x18\x04 \x01(\x0b\x32\x17.navService.RotateEventH\x00\x12\x38\n\x11\x61uto_charge_event\x18\x05 \x01(\x0b\x32\x1b.navService.AutoChargeEventH\x00\x42\x0e\n\x0c\x63hange_oneof\"\x16\n\x14LocationResetRequest\"\x17\n\x15LocationResetResponse\"b\n\x05Route\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tis_active\x18\x03 \x01(\x08\x12,\n\x0croute_points\x18\x04 \x03(\x0b\x32\x16.navService.RoutePoint\"*\n\nRoutePoint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06rotate\x18\x02 \x01(\r\"3\n\x0fNewRouteRequest\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"4\n\x10NewRouteResponse\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"\x13\n\x11ListRoutesRequest\"7\n\x12ListRoutesResponse\x12!\n\x06routes\x18\x01 \x03(\x0b\x32\x11.navService.Route\"\x1d\n\x0fGetRouteRequest\x12\n\n\x02id\x18\x01 \x01(\t\"4\n\x10GetRouteResponse\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"6\n\x12UpdateRouteRequest\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"7\n\x13UpdateRouteResponse\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"(\n\x13\x44\x65leteRoutesRequest\x12\x11\n\troutes_id\x18\x01 \x03(\t\"\x16\n\x14\x44\x65leteRoutesResponse*\xee\x01\n\nStatusCode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\n\n\x06MOVING\x10\x02\x12\r\n\tPREPARING\x10\x03\x12\n\n\x06\x43\x41NCEL\x10\x04\x12\x0c\n\x08RELEASED\x10\x05\x12\x10\n\x0c\x45RR_OBSTACLE\x10\n\x12\x11\n\rERR_NOT_READY\x10\x0b\x12\x12\n\x0e\x45RR_MOTOR_FAIL\x10\x0c\x12\x14\n\x10\x45RR_WRONG_TARGET\x10\r\x12\x0e\n\nREJ_MOVING\x10\x14\x12\x0e\n\nREJ_NAVING\x10\x15\x12\x10\n\x0cREJ_CHARGING\x10\x16\x12\x10\n\x0cREJ_ROTATING\x10\x17*\x98\x01\n\rMoveDirection\x12\x0b\n\x07RELEASE\x10\x00\x12\x0b\n\x07\x46ORWARD\x10\x01\x12\x0c\n\x08\x42\x41\x43KWARD\x10\x02\x12\x08\n\x04LEFT\x10\x03\x12\t\n\x05RIGHT\x10\x04\x12\x10\n\x0cLEFT_FORWARD\x10\x05\x12\x11\n\rRIGHT_FORWARD\x10\x06\x12\x11\n\rLEFT_BACKWARD\x10\x07\x12\x12\n\x0eRIGHT_BACKWARD\x10\x08*Y\n\x0bRoamingType\x12\x19\n\x15ROAMING_TYPE_CONTINUE\x10\x00\x12\x16\n\x12ROAMING_TYPE_ORDER\x10\x01\x12\x17\n\x13ROAMING_TYPE_RANDOM\x10\x02*\xfa\x01\n\x10\x43hargeStatusCode\x12\x19\n\x15\x43HARGE_STATUS_UNKNOWN\x10\x00\x12\x1b\n\x17\x43HARGE_STATUS_PREPARING\x10\x01\x12\x1a\n\x16\x43HARGE_STATUS_RELEASED\x10\x02\x12\x1c\n\x18\x43HARGE_STATUS_CONNECTING\x10\x03\x12\x1a\n\x16\x43HARGE_STATUS_CHARGING\x10\x04\x12\x1f\n\x1b\x43HARGE_STATUS_DISCONNECTING\x10\x05\x12\x17\n\x13\x43HARGE_CONNECT_FAIL\x10\x06\x12\x1e\n\x1a\x43HARGE_STATUS_NAV_OBSTACLE\x10\x07*n\n\x0cNavEventType\x12\x16\n\x12NAV_EVENT_REVERSED\x10\x00\x12\x0e\n\nMOVE_EVENT\x10\x01\x12\r\n\tNAV_EVENT\x10\x02\x12\x15\n\x11\x41UTO_CHARGE_EVENT\x10\x03\x12\x10\n\x0cROTATE_EVENT\x10\x04\x32\xb6\t\n\rNavController\x12?\n\x04Move\x12\x17.navService.MoveRequest\x1a\x18.navService.MoveResponse\"\x00(\x01\x30\x01\x12[\n\x05NavTo\x12\x18.navService.NavToRequest\x1a\x19.navService.NavToResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x12/api/v2/nav/nav_to:\x01*\x12\x63\n\x07NavStop\x12\x1a.navService.NavStopRequest\x1a\x1b.navService.NavStopResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x14/api/v2/nav/nav_stop:\x01*\x12o\n\nAutoCharge\x12\x1d.navService.AutoChargeRequest\x1a\x1e.navService.AutoChargeResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v2/nav/auto_charge:\x01*\x12^\n\x06Rotate\x12\x19.navService.RotateRequest\x1a\x1a.navService.RotateResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x12/api/v2/nav/rotate:\x01*\x12\x8b\x01\n\x10OnNavEventChange\x12#.navService.OnNavEventChangeRequest\x1a$.navService.OnNavEventChangeResponse\"*\x82\xd3\xe4\x93\x02$\"\x1f/api/v2/nav/on_nav_event_change:\x01*0\x01\x12{\n\rLocationReset\x12 .navService.LocationResetRequest\x1a!.navService.LocationResetResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/api/v2/nav/location_reset:\x01*\x12g\n\x08NewRoute\x12\x1b.navService.NewRouteRequest\x1a\x1c.navService.NewRouteResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v2/nav/new_route:\x01*\x12o\n\nListRoutes\x12\x1d.navService.ListRoutesRequest\x1a\x1e.navService.ListRoutesResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v2/nav/list_routes:\x01*\x12s\n\x0bUpdateRoute\x12\x1e.navService.UpdateRouteRequest\x1a\x1f.navService.UpdateRouteResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/api/v2/nav/update_route:\x01*\x12w\n\x0c\x44\x65leteRoutes\x12\x1f.navService.DeleteRoutesRequest\x1a .navService.DeleteRoutesResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/nav/delete_routes:\x01*b\x06proto3')
+  serialized_pb=_b('\n\tnav.proto\x12\nnavService\x1a\x1cgoogle/api/annotations.proto\x1a\tmap.proto\"h\n\x0bMoveRequest\x12\r\n\x05speed\x18\x01 \x01(\r\x12\x0e\n\x06rspeed\x18\x02 \x01(\r\x12,\n\tdirection\x18\x03 \x01(\x0e\x32\x19.navService.MoveDirection\x12\x0c\n\x04mode\x18\x04 \x01(\t\";\n\x0cMoveResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"(\n\tNavTarget\x12\r\n\x05index\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x85\x01\n\nNavRoaming\x12\x31\n\x10nav_roaming_type\x18\x01 \x01(\x0e\x32\x17.navService.RoamingType\x12\x10\n\x08wait_sec\x18\x02 \x01(\x05\x12\x1e\n\x16roaming_target_indexes\x18\x03 \x03(\t\x12\x12\n\norder_loop\x18\x04 \x01(\x08\"\xc5\x01\n\x0cNavToRequest\x12\'\n\x06target\x18\x01 \x01(\x0b\x32\x15.navService.NavTargetH\x00\x12)\n\x07roaming\x18\x03 \x01(\x0b\x32\x16.navService.NavRoamingH\x00\x12/\n\x0cmap_position\x18\x05 \x01(\x0b\x32\x17.navService.MapPositionH\x00\x12\r\n\x05speed\x18\x02 \x01(\r\x12\x11\n\tsync_mode\x18\x04 \x01(\x08\x42\x0e\n\x0ctarget_oneof\"\xbc\x01\n\rNavToResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\x12\'\n\x06target\x18\x02 \x01(\x0b\x32\x15.navService.NavTargetH\x00\x12\x14\n\nis_roaming\x18\x03 \x01(\x08H\x00\x12/\n\x0cmap_position\x18\x04 \x01(\x0b\x32\x17.navService.MapPositionH\x00\x42\x0e\n\x0ctarget_oneof\"\x10\n\x0eNavStopRequest\">\n\x0fNavStopResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"|\n\x11\x41utoChargeRequest\x12\x10\n\x06\x63harge\x18\x01 \x01(\x08H\x00\x12\x10\n\x06\x63\x61ncel\x18\x02 \x01(\x08H\x00\x12\x17\n\rcharge_preset\x18\x03 \x01(\x08H\x00\x12\x13\n\x0btimeout_sec\x18\x04 \x01(\rB\x15\n\x13\x63harge_option_oneof\"N\n\x12\x41utoChargeResponse\x12\x38\n\x12\x63harge_status_code\x18\x01 \x01(\x0e\x32\x1c.navService.ChargeStatusCode\"D\n\rRotateRequest\x12\x0f\n\x05\x61ngle\x18\x01 \x01(\x05H\x00\x12\x12\n\x08rollback\x18\x02 \x01(\x08H\x00\x42\x0e\n\x0crotate_oneof\"=\n\x0eRotateResponse\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"\x19\n\x17OnNavEventChangeRequest\"8\n\tMoveEvent\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"b\n\x08NavEvent\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\x12)\n\nnav_target\x18\x02 \x01(\x0b\x32\x15.navService.NavTarget\"K\n\x0f\x41utoChargeEvent\x12\x38\n\x12\x63harge_status_code\x18\x01 \x01(\x0e\x32\x1c.navService.ChargeStatusCode\":\n\x0bRotateEvent\x12+\n\x0bstatus_code\x18\x01 \x01(\x0e\x32\x16.navService.StatusCode\"\x9f\x02\n\x18OnNavEventChangeResponse\x12\x30\n\x0enav_event_type\x18\x01 \x01(\x0e\x32\x18.navService.NavEventType\x12+\n\nmove_event\x18\x02 \x01(\x0b\x32\x15.navService.MoveEventH\x00\x12)\n\tnav_event\x18\x03 \x01(\x0b\x32\x14.navService.NavEventH\x00\x12/\n\x0crotate_event\x18\x04 \x01(\x0b\x32\x17.navService.RotateEventH\x00\x12\x38\n\x11\x61uto_charge_event\x18\x05 \x01(\x0b\x32\x1b.navService.AutoChargeEventH\x00\x42\x0e\n\x0c\x63hange_oneof\"b\n\x05Route\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tis_active\x18\x03 \x01(\x08\x12,\n\x0croute_points\x18\x04 \x03(\x0b\x32\x16.navService.RoutePoint\"*\n\nRoutePoint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06rotate\x18\x02 \x01(\r\"3\n\x0fNewRouteRequest\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"4\n\x10NewRouteResponse\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"\x13\n\x11ListRoutesRequest\"7\n\x12ListRoutesResponse\x12!\n\x06routes\x18\x01 \x03(\x0b\x32\x11.navService.Route\"\x1d\n\x0fGetRouteRequest\x12\n\n\x02id\x18\x01 \x01(\t\"4\n\x10GetRouteResponse\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"6\n\x12UpdateRouteRequest\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"7\n\x13UpdateRouteResponse\x12 \n\x05route\x18\x01 \x01(\x0b\x32\x11.navService.Route\"(\n\x13\x44\x65leteRoutesRequest\x12\x11\n\troutes_id\x18\x01 \x03(\t\"\x16\n\x14\x44\x65leteRoutesResponse*\xee\x01\n\nStatusCode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\n\n\x06MOVING\x10\x02\x12\r\n\tPREPARING\x10\x03\x12\n\n\x06\x43\x41NCEL\x10\x04\x12\x0c\n\x08RELEASED\x10\x05\x12\x10\n\x0c\x45RR_OBSTACLE\x10\n\x12\x11\n\rERR_NOT_READY\x10\x0b\x12\x12\n\x0e\x45RR_MOTOR_FAIL\x10\x0c\x12\x14\n\x10\x45RR_WRONG_TARGET\x10\r\x12\x0e\n\nREJ_MOVING\x10\x14\x12\x0e\n\nREJ_NAVING\x10\x15\x12\x10\n\x0cREJ_CHARGING\x10\x16\x12\x10\n\x0cREJ_ROTATING\x10\x17*\x98\x01\n\rMoveDirection\x12\x0b\n\x07RELEASE\x10\x00\x12\x0b\n\x07\x46ORWARD\x10\x01\x12\x0c\n\x08\x42\x41\x43KWARD\x10\x02\x12\x08\n\x04LEFT\x10\x03\x12\t\n\x05RIGHT\x10\x04\x12\x10\n\x0cLEFT_FORWARD\x10\x05\x12\x11\n\rRIGHT_FORWARD\x10\x06\x12\x11\n\rLEFT_BACKWARD\x10\x07\x12\x12\n\x0eRIGHT_BACKWARD\x10\x08*Y\n\x0bRoamingType\x12\x19\n\x15ROAMING_TYPE_CONTINUE\x10\x00\x12\x16\n\x12ROAMING_TYPE_ORDER\x10\x01\x12\x17\n\x13ROAMING_TYPE_RANDOM\x10\x02*\xfa\x01\n\x10\x43hargeStatusCode\x12\x19\n\x15\x43HARGE_STATUS_UNKNOWN\x10\x00\x12\x1b\n\x17\x43HARGE_STATUS_PREPARING\x10\x01\x12\x1a\n\x16\x43HARGE_STATUS_RELEASED\x10\x02\x12\x1c\n\x18\x43HARGE_STATUS_CONNECTING\x10\x03\x12\x1a\n\x16\x43HARGE_STATUS_CHARGING\x10\x04\x12\x1f\n\x1b\x43HARGE_STATUS_DISCONNECTING\x10\x05\x12\x17\n\x13\x43HARGE_CONNECT_FAIL\x10\x06\x12\x1e\n\x1a\x43HARGE_STATUS_NAV_OBSTACLE\x10\x07*n\n\x0cNavEventType\x12\x16\n\x12NAV_EVENT_REVERSED\x10\x00\x12\x0e\n\nMOVE_EVENT\x10\x01\x12\r\n\tNAV_EVENT\x10\x02\x12\x15\n\x11\x41UTO_CHARGE_EVENT\x10\x03\x12\x10\n\x0cROTATE_EVENT\x10\x04\x32\xce\x08\n\rNavController\x12W\n\x04Move\x12\x17.navService.MoveRequest\x1a\x18.navService.MoveResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/api/v2/nav/move(\x01\x30\x01\x12[\n\x05NavTo\x12\x18.navService.NavToRequest\x1a\x19.navService.NavToResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x12/api/v2/nav/nav_to:\x01*\x12\x63\n\x07NavStop\x12\x1a.navService.NavStopRequest\x1a\x1b.navService.NavStopResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x14/api/v2/nav/nav_stop:\x01*\x12o\n\nAutoCharge\x12\x1d.navService.AutoChargeRequest\x1a\x1e.navService.AutoChargeResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v2/nav/auto_charge:\x01*\x12^\n\x06Rotate\x12\x19.navService.RotateRequest\x1a\x1a.navService.RotateResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x12/api/v2/nav/rotate:\x01*\x12\x88\x01\n\x10OnNavEventChange\x12#.navService.OnNavEventChangeRequest\x1a$.navService.OnNavEventChangeResponse\"\'\x82\xd3\xe4\x93\x02!\x12\x1f/api/v2/nav/on_nav_event_change0\x01\x12g\n\x08NewRoute\x12\x1b.navService.NewRouteRequest\x1a\x1c.navService.NewRouteResponse\" \x82\xd3\xe4\x93\x02\x1a\"\x15/api/v2/nav/new_route:\x01*\x12o\n\nListRoutes\x12\x1d.navService.ListRoutesRequest\x1a\x1e.navService.ListRoutesResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/api/v2/nav/list_routes:\x01*\x12s\n\x0bUpdateRoute\x12\x1e.navService.UpdateRouteRequest\x1a\x1f.navService.UpdateRouteResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/api/v2/nav/update_route:\x01*\x12w\n\x0c\x44\x65leteRoutes\x12\x1f.navService.DeleteRoutesRequest\x1a .navService.DeleteRoutesResponse\"$\x82\xd3\xe4\x93\x02\x1e\"\x19/api/v2/nav/delete_routes:\x01*b\x06proto3')
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,map__pb2.DESCRIPTOR,])
 
 _STATUSCODE = _descriptor.EnumDescriptor(
   name='StatusCode',
@@ -91,8 +92,8 @@ _STATUSCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2369,
-  serialized_end=2607,
+  serialized_start=2429,
+  serialized_end=2667,
 )
 _sym_db.RegisterEnumDescriptor(_STATUSCODE)
 
@@ -142,8 +143,8 @@ _MOVEDIRECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2610,
-  serialized_end=2762,
+  serialized_start=2670,
+  serialized_end=2822,
 )
 _sym_db.RegisterEnumDescriptor(_MOVEDIRECTION)
 
@@ -169,8 +170,8 @@ _ROAMINGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2764,
-  serialized_end=2853,
+  serialized_start=2824,
+  serialized_end=2913,
 )
 _sym_db.RegisterEnumDescriptor(_ROAMINGTYPE)
 
@@ -216,8 +217,8 @@ _CHARGESTATUSCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2856,
-  serialized_end=3106,
+  serialized_start=2916,
+  serialized_end=3166,
 )
 _sym_db.RegisterEnumDescriptor(_CHARGESTATUSCODE)
 
@@ -251,8 +252,8 @@ _NAVEVENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3108,
-  serialized_end=3218,
+  serialized_start=3168,
+  serialized_end=3278,
 )
 _sym_db.RegisterEnumDescriptor(_NAVEVENTTYPE)
 
@@ -346,8 +347,8 @@ _MOVEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=55,
-  serialized_end=159,
+  serialized_start=66,
+  serialized_end=170,
 )
 
 
@@ -377,8 +378,8 @@ _MOVERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=161,
-  serialized_end=220,
+  serialized_start=172,
+  serialized_end=231,
 )
 
 
@@ -415,8 +416,8 @@ _NAVTARGET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=262,
+  serialized_start=233,
+  serialized_end=273,
 )
 
 
@@ -467,8 +468,8 @@ _NAVROAMING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=265,
-  serialized_end=398,
+  serialized_start=276,
+  serialized_end=409,
 )
 
 
@@ -494,14 +495,21 @@ _NAVTOREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='speed', full_name='navService.NavToRequest.speed', index=2,
+      name='map_position', full_name='navService.NavToRequest.map_position', index=2,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='speed', full_name='navService.NavToRequest.speed', index=3,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='sync_mode', full_name='navService.NavToRequest.sync_mode', index=3,
+      name='sync_mode', full_name='navService.NavToRequest.sync_mode', index=4,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -522,8 +530,8 @@ _NAVTOREQUEST = _descriptor.Descriptor(
       name='target_oneof', full_name='navService.NavToRequest.target_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=401,
-  serialized_end=549,
+  serialized_start=412,
+  serialized_end=609,
 )
 
 
@@ -555,6 +563,13 @@ _NAVTORESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='map_position', full_name='navService.NavToResponse.map_position', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -570,8 +585,8 @@ _NAVTORESPONSE = _descriptor.Descriptor(
       name='target_oneof', full_name='navService.NavToResponse.target_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=552,
-  serialized_end=691,
+  serialized_start=612,
+  serialized_end=800,
 )
 
 
@@ -594,8 +609,8 @@ _NAVSTOPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=693,
-  serialized_end=709,
+  serialized_start=802,
+  serialized_end=818,
 )
 
 
@@ -625,8 +640,8 @@ _NAVSTOPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=711,
-  serialized_end=773,
+  serialized_start=820,
+  serialized_end=882,
 )
 
 
@@ -680,8 +695,8 @@ _AUTOCHARGEREQUEST = _descriptor.Descriptor(
       name='charge_option_oneof', full_name='navService.AutoChargeRequest.charge_option_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=775,
-  serialized_end=899,
+  serialized_start=884,
+  serialized_end=1008,
 )
 
 
@@ -711,8 +726,8 @@ _AUTOCHARGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=901,
-  serialized_end=979,
+  serialized_start=1010,
+  serialized_end=1088,
 )
 
 
@@ -752,8 +767,8 @@ _ROTATEREQUEST = _descriptor.Descriptor(
       name='rotate_oneof', full_name='navService.RotateRequest.rotate_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=981,
-  serialized_end=1049,
+  serialized_start=1090,
+  serialized_end=1158,
 )
 
 
@@ -783,8 +798,8 @@ _ROTATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1051,
-  serialized_end=1112,
+  serialized_start=1160,
+  serialized_end=1221,
 )
 
 
@@ -807,8 +822,8 @@ _ONNAVEVENTCHANGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1114,
-  serialized_end=1139,
+  serialized_start=1223,
+  serialized_end=1248,
 )
 
 
@@ -838,8 +853,8 @@ _MOVEEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1141,
-  serialized_end=1197,
+  serialized_start=1250,
+  serialized_end=1306,
 )
 
 
@@ -876,8 +891,8 @@ _NAVEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1199,
-  serialized_end=1297,
+  serialized_start=1308,
+  serialized_end=1406,
 )
 
 
@@ -907,8 +922,8 @@ _AUTOCHARGEEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1299,
-  serialized_end=1374,
+  serialized_start=1408,
+  serialized_end=1483,
 )
 
 
@@ -938,8 +953,8 @@ _ROTATEEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1376,
-  serialized_end=1434,
+  serialized_start=1485,
+  serialized_end=1543,
 )
 
 
@@ -1000,56 +1015,8 @@ _ONNAVEVENTCHANGERESPONSE = _descriptor.Descriptor(
       name='change_oneof', full_name='navService.OnNavEventChangeResponse.change_oneof',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=1437,
-  serialized_end=1724,
-)
-
-
-_LOCATIONRESETREQUEST = _descriptor.Descriptor(
-  name='LocationResetRequest',
-  full_name='navService.LocationResetRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1726,
-  serialized_end=1748,
-)
-
-
-_LOCATIONRESETRESPONSE = _descriptor.Descriptor(
-  name='LocationResetResponse',
-  full_name='navService.LocationResetResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1750,
-  serialized_end=1773,
+  serialized_start=1546,
+  serialized_end=1833,
 )
 
 
@@ -1100,8 +1067,8 @@ _ROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1775,
-  serialized_end=1873,
+  serialized_start=1835,
+  serialized_end=1933,
 )
 
 
@@ -1138,8 +1105,8 @@ _ROUTEPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1875,
-  serialized_end=1917,
+  serialized_start=1935,
+  serialized_end=1977,
 )
 
 
@@ -1169,8 +1136,8 @@ _NEWROUTEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1919,
-  serialized_end=1970,
+  serialized_start=1979,
+  serialized_end=2030,
 )
 
 
@@ -1200,8 +1167,8 @@ _NEWROUTERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1972,
-  serialized_end=2024,
+  serialized_start=2032,
+  serialized_end=2084,
 )
 
 
@@ -1224,8 +1191,8 @@ _LISTROUTESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2026,
-  serialized_end=2045,
+  serialized_start=2086,
+  serialized_end=2105,
 )
 
 
@@ -1255,8 +1222,8 @@ _LISTROUTESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2047,
-  serialized_end=2102,
+  serialized_start=2107,
+  serialized_end=2162,
 )
 
 
@@ -1286,8 +1253,8 @@ _GETROUTEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2104,
-  serialized_end=2133,
+  serialized_start=2164,
+  serialized_end=2193,
 )
 
 
@@ -1317,8 +1284,8 @@ _GETROUTERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2135,
-  serialized_end=2187,
+  serialized_start=2195,
+  serialized_end=2247,
 )
 
 
@@ -1348,8 +1315,8 @@ _UPDATEROUTEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2189,
-  serialized_end=2243,
+  serialized_start=2249,
+  serialized_end=2303,
 )
 
 
@@ -1379,8 +1346,8 @@ _UPDATEROUTERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2245,
-  serialized_end=2300,
+  serialized_start=2305,
+  serialized_end=2360,
 )
 
 
@@ -1410,8 +1377,8 @@ _DELETEROUTESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2302,
-  serialized_end=2342,
+  serialized_start=2362,
+  serialized_end=2402,
 )
 
 
@@ -1434,8 +1401,8 @@ _DELETEROUTESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2344,
-  serialized_end=2366,
+  serialized_start=2404,
+  serialized_end=2426,
 )
 
 _MOVEREQUEST.fields_by_name['direction'].enum_type = _MOVEDIRECTION
@@ -1443,20 +1410,28 @@ _MOVERESPONSE.fields_by_name['status_code'].enum_type = _STATUSCODE
 _NAVROAMING.fields_by_name['nav_roaming_type'].enum_type = _ROAMINGTYPE
 _NAVTOREQUEST.fields_by_name['target'].message_type = _NAVTARGET
 _NAVTOREQUEST.fields_by_name['roaming'].message_type = _NAVROAMING
+_NAVTOREQUEST.fields_by_name['map_position'].message_type = map__pb2._MAPPOSITION
 _NAVTOREQUEST.oneofs_by_name['target_oneof'].fields.append(
   _NAVTOREQUEST.fields_by_name['target'])
 _NAVTOREQUEST.fields_by_name['target'].containing_oneof = _NAVTOREQUEST.oneofs_by_name['target_oneof']
 _NAVTOREQUEST.oneofs_by_name['target_oneof'].fields.append(
   _NAVTOREQUEST.fields_by_name['roaming'])
 _NAVTOREQUEST.fields_by_name['roaming'].containing_oneof = _NAVTOREQUEST.oneofs_by_name['target_oneof']
+_NAVTOREQUEST.oneofs_by_name['target_oneof'].fields.append(
+  _NAVTOREQUEST.fields_by_name['map_position'])
+_NAVTOREQUEST.fields_by_name['map_position'].containing_oneof = _NAVTOREQUEST.oneofs_by_name['target_oneof']
 _NAVTORESPONSE.fields_by_name['status_code'].enum_type = _STATUSCODE
 _NAVTORESPONSE.fields_by_name['target'].message_type = _NAVTARGET
+_NAVTORESPONSE.fields_by_name['map_position'].message_type = map__pb2._MAPPOSITION
 _NAVTORESPONSE.oneofs_by_name['target_oneof'].fields.append(
   _NAVTORESPONSE.fields_by_name['target'])
 _NAVTORESPONSE.fields_by_name['target'].containing_oneof = _NAVTORESPONSE.oneofs_by_name['target_oneof']
 _NAVTORESPONSE.oneofs_by_name['target_oneof'].fields.append(
   _NAVTORESPONSE.fields_by_name['is_roaming'])
 _NAVTORESPONSE.fields_by_name['is_roaming'].containing_oneof = _NAVTORESPONSE.oneofs_by_name['target_oneof']
+_NAVTORESPONSE.oneofs_by_name['target_oneof'].fields.append(
+  _NAVTORESPONSE.fields_by_name['map_position'])
+_NAVTORESPONSE.fields_by_name['map_position'].containing_oneof = _NAVTORESPONSE.oneofs_by_name['target_oneof']
 _NAVSTOPRESPONSE.fields_by_name['status_code'].enum_type = _STATUSCODE
 _AUTOCHARGEREQUEST.oneofs_by_name['charge_option_oneof'].fields.append(
   _AUTOCHARGEREQUEST.fields_by_name['charge'])
@@ -1522,8 +1497,6 @@ DESCRIPTOR.message_types_by_name['NavEvent'] = _NAVEVENT
 DESCRIPTOR.message_types_by_name['AutoChargeEvent'] = _AUTOCHARGEEVENT
 DESCRIPTOR.message_types_by_name['RotateEvent'] = _ROTATEEVENT
 DESCRIPTOR.message_types_by_name['OnNavEventChangeResponse'] = _ONNAVEVENTCHANGERESPONSE
-DESCRIPTOR.message_types_by_name['LocationResetRequest'] = _LOCATIONRESETREQUEST
-DESCRIPTOR.message_types_by_name['LocationResetResponse'] = _LOCATIONRESETRESPONSE
 DESCRIPTOR.message_types_by_name['Route'] = _ROUTE
 DESCRIPTOR.message_types_by_name['RoutePoint'] = _ROUTEPOINT
 DESCRIPTOR.message_types_by_name['NewRouteRequest'] = _NEWROUTEREQUEST
@@ -1543,228 +1516,214 @@ DESCRIPTOR.enum_types_by_name['ChargeStatusCode'] = _CHARGESTATUSCODE
 DESCRIPTOR.enum_types_by_name['NavEventType'] = _NAVEVENTTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-MoveRequest = _reflection.GeneratedProtocolMessageType('MoveRequest', (_message.Message,), dict(
-  DESCRIPTOR = _MOVEREQUEST,
-  __module__ = 'nav_pb2'
+MoveRequest = _reflection.GeneratedProtocolMessageType('MoveRequest', (_message.Message,), {
+  'DESCRIPTOR' : _MOVEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.MoveRequest)
-  ))
+  })
 _sym_db.RegisterMessage(MoveRequest)
 
-MoveResponse = _reflection.GeneratedProtocolMessageType('MoveResponse', (_message.Message,), dict(
-  DESCRIPTOR = _MOVERESPONSE,
-  __module__ = 'nav_pb2'
+MoveResponse = _reflection.GeneratedProtocolMessageType('MoveResponse', (_message.Message,), {
+  'DESCRIPTOR' : _MOVERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.MoveResponse)
-  ))
+  })
 _sym_db.RegisterMessage(MoveResponse)
 
-NavTarget = _reflection.GeneratedProtocolMessageType('NavTarget', (_message.Message,), dict(
-  DESCRIPTOR = _NAVTARGET,
-  __module__ = 'nav_pb2'
+NavTarget = _reflection.GeneratedProtocolMessageType('NavTarget', (_message.Message,), {
+  'DESCRIPTOR' : _NAVTARGET,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavTarget)
-  ))
+  })
 _sym_db.RegisterMessage(NavTarget)
 
-NavRoaming = _reflection.GeneratedProtocolMessageType('NavRoaming', (_message.Message,), dict(
-  DESCRIPTOR = _NAVROAMING,
-  __module__ = 'nav_pb2'
+NavRoaming = _reflection.GeneratedProtocolMessageType('NavRoaming', (_message.Message,), {
+  'DESCRIPTOR' : _NAVROAMING,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavRoaming)
-  ))
+  })
 _sym_db.RegisterMessage(NavRoaming)
 
-NavToRequest = _reflection.GeneratedProtocolMessageType('NavToRequest', (_message.Message,), dict(
-  DESCRIPTOR = _NAVTOREQUEST,
-  __module__ = 'nav_pb2'
+NavToRequest = _reflection.GeneratedProtocolMessageType('NavToRequest', (_message.Message,), {
+  'DESCRIPTOR' : _NAVTOREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavToRequest)
-  ))
+  })
 _sym_db.RegisterMessage(NavToRequest)
 
-NavToResponse = _reflection.GeneratedProtocolMessageType('NavToResponse', (_message.Message,), dict(
-  DESCRIPTOR = _NAVTORESPONSE,
-  __module__ = 'nav_pb2'
+NavToResponse = _reflection.GeneratedProtocolMessageType('NavToResponse', (_message.Message,), {
+  'DESCRIPTOR' : _NAVTORESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavToResponse)
-  ))
+  })
 _sym_db.RegisterMessage(NavToResponse)
 
-NavStopRequest = _reflection.GeneratedProtocolMessageType('NavStopRequest', (_message.Message,), dict(
-  DESCRIPTOR = _NAVSTOPREQUEST,
-  __module__ = 'nav_pb2'
+NavStopRequest = _reflection.GeneratedProtocolMessageType('NavStopRequest', (_message.Message,), {
+  'DESCRIPTOR' : _NAVSTOPREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavStopRequest)
-  ))
+  })
 _sym_db.RegisterMessage(NavStopRequest)
 
-NavStopResponse = _reflection.GeneratedProtocolMessageType('NavStopResponse', (_message.Message,), dict(
-  DESCRIPTOR = _NAVSTOPRESPONSE,
-  __module__ = 'nav_pb2'
+NavStopResponse = _reflection.GeneratedProtocolMessageType('NavStopResponse', (_message.Message,), {
+  'DESCRIPTOR' : _NAVSTOPRESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavStopResponse)
-  ))
+  })
 _sym_db.RegisterMessage(NavStopResponse)
 
-AutoChargeRequest = _reflection.GeneratedProtocolMessageType('AutoChargeRequest', (_message.Message,), dict(
-  DESCRIPTOR = _AUTOCHARGEREQUEST,
-  __module__ = 'nav_pb2'
+AutoChargeRequest = _reflection.GeneratedProtocolMessageType('AutoChargeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOCHARGEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.AutoChargeRequest)
-  ))
+  })
 _sym_db.RegisterMessage(AutoChargeRequest)
 
-AutoChargeResponse = _reflection.GeneratedProtocolMessageType('AutoChargeResponse', (_message.Message,), dict(
-  DESCRIPTOR = _AUTOCHARGERESPONSE,
-  __module__ = 'nav_pb2'
+AutoChargeResponse = _reflection.GeneratedProtocolMessageType('AutoChargeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOCHARGERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.AutoChargeResponse)
-  ))
+  })
 _sym_db.RegisterMessage(AutoChargeResponse)
 
-RotateRequest = _reflection.GeneratedProtocolMessageType('RotateRequest', (_message.Message,), dict(
-  DESCRIPTOR = _ROTATEREQUEST,
-  __module__ = 'nav_pb2'
+RotateRequest = _reflection.GeneratedProtocolMessageType('RotateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ROTATEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.RotateRequest)
-  ))
+  })
 _sym_db.RegisterMessage(RotateRequest)
 
-RotateResponse = _reflection.GeneratedProtocolMessageType('RotateResponse', (_message.Message,), dict(
-  DESCRIPTOR = _ROTATERESPONSE,
-  __module__ = 'nav_pb2'
+RotateResponse = _reflection.GeneratedProtocolMessageType('RotateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ROTATERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.RotateResponse)
-  ))
+  })
 _sym_db.RegisterMessage(RotateResponse)
 
-OnNavEventChangeRequest = _reflection.GeneratedProtocolMessageType('OnNavEventChangeRequest', (_message.Message,), dict(
-  DESCRIPTOR = _ONNAVEVENTCHANGEREQUEST,
-  __module__ = 'nav_pb2'
+OnNavEventChangeRequest = _reflection.GeneratedProtocolMessageType('OnNavEventChangeRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ONNAVEVENTCHANGEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.OnNavEventChangeRequest)
-  ))
+  })
 _sym_db.RegisterMessage(OnNavEventChangeRequest)
 
-MoveEvent = _reflection.GeneratedProtocolMessageType('MoveEvent', (_message.Message,), dict(
-  DESCRIPTOR = _MOVEEVENT,
-  __module__ = 'nav_pb2'
+MoveEvent = _reflection.GeneratedProtocolMessageType('MoveEvent', (_message.Message,), {
+  'DESCRIPTOR' : _MOVEEVENT,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.MoveEvent)
-  ))
+  })
 _sym_db.RegisterMessage(MoveEvent)
 
-NavEvent = _reflection.GeneratedProtocolMessageType('NavEvent', (_message.Message,), dict(
-  DESCRIPTOR = _NAVEVENT,
-  __module__ = 'nav_pb2'
+NavEvent = _reflection.GeneratedProtocolMessageType('NavEvent', (_message.Message,), {
+  'DESCRIPTOR' : _NAVEVENT,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NavEvent)
-  ))
+  })
 _sym_db.RegisterMessage(NavEvent)
 
-AutoChargeEvent = _reflection.GeneratedProtocolMessageType('AutoChargeEvent', (_message.Message,), dict(
-  DESCRIPTOR = _AUTOCHARGEEVENT,
-  __module__ = 'nav_pb2'
+AutoChargeEvent = _reflection.GeneratedProtocolMessageType('AutoChargeEvent', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOCHARGEEVENT,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.AutoChargeEvent)
-  ))
+  })
 _sym_db.RegisterMessage(AutoChargeEvent)
 
-RotateEvent = _reflection.GeneratedProtocolMessageType('RotateEvent', (_message.Message,), dict(
-  DESCRIPTOR = _ROTATEEVENT,
-  __module__ = 'nav_pb2'
+RotateEvent = _reflection.GeneratedProtocolMessageType('RotateEvent', (_message.Message,), {
+  'DESCRIPTOR' : _ROTATEEVENT,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.RotateEvent)
-  ))
+  })
 _sym_db.RegisterMessage(RotateEvent)
 
-OnNavEventChangeResponse = _reflection.GeneratedProtocolMessageType('OnNavEventChangeResponse', (_message.Message,), dict(
-  DESCRIPTOR = _ONNAVEVENTCHANGERESPONSE,
-  __module__ = 'nav_pb2'
+OnNavEventChangeResponse = _reflection.GeneratedProtocolMessageType('OnNavEventChangeResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ONNAVEVENTCHANGERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.OnNavEventChangeResponse)
-  ))
+  })
 _sym_db.RegisterMessage(OnNavEventChangeResponse)
 
-LocationResetRequest = _reflection.GeneratedProtocolMessageType('LocationResetRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LOCATIONRESETREQUEST,
-  __module__ = 'nav_pb2'
-  # @@protoc_insertion_point(class_scope:navService.LocationResetRequest)
-  ))
-_sym_db.RegisterMessage(LocationResetRequest)
-
-LocationResetResponse = _reflection.GeneratedProtocolMessageType('LocationResetResponse', (_message.Message,), dict(
-  DESCRIPTOR = _LOCATIONRESETRESPONSE,
-  __module__ = 'nav_pb2'
-  # @@protoc_insertion_point(class_scope:navService.LocationResetResponse)
-  ))
-_sym_db.RegisterMessage(LocationResetResponse)
-
-Route = _reflection.GeneratedProtocolMessageType('Route', (_message.Message,), dict(
-  DESCRIPTOR = _ROUTE,
-  __module__ = 'nav_pb2'
+Route = _reflection.GeneratedProtocolMessageType('Route', (_message.Message,), {
+  'DESCRIPTOR' : _ROUTE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.Route)
-  ))
+  })
 _sym_db.RegisterMessage(Route)
 
-RoutePoint = _reflection.GeneratedProtocolMessageType('RoutePoint', (_message.Message,), dict(
-  DESCRIPTOR = _ROUTEPOINT,
-  __module__ = 'nav_pb2'
+RoutePoint = _reflection.GeneratedProtocolMessageType('RoutePoint', (_message.Message,), {
+  'DESCRIPTOR' : _ROUTEPOINT,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.RoutePoint)
-  ))
+  })
 _sym_db.RegisterMessage(RoutePoint)
 
-NewRouteRequest = _reflection.GeneratedProtocolMessageType('NewRouteRequest', (_message.Message,), dict(
-  DESCRIPTOR = _NEWROUTEREQUEST,
-  __module__ = 'nav_pb2'
+NewRouteRequest = _reflection.GeneratedProtocolMessageType('NewRouteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _NEWROUTEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NewRouteRequest)
-  ))
+  })
 _sym_db.RegisterMessage(NewRouteRequest)
 
-NewRouteResponse = _reflection.GeneratedProtocolMessageType('NewRouteResponse', (_message.Message,), dict(
-  DESCRIPTOR = _NEWROUTERESPONSE,
-  __module__ = 'nav_pb2'
+NewRouteResponse = _reflection.GeneratedProtocolMessageType('NewRouteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _NEWROUTERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.NewRouteResponse)
-  ))
+  })
 _sym_db.RegisterMessage(NewRouteResponse)
 
-ListRoutesRequest = _reflection.GeneratedProtocolMessageType('ListRoutesRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LISTROUTESREQUEST,
-  __module__ = 'nav_pb2'
+ListRoutesRequest = _reflection.GeneratedProtocolMessageType('ListRoutesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTROUTESREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.ListRoutesRequest)
-  ))
+  })
 _sym_db.RegisterMessage(ListRoutesRequest)
 
-ListRoutesResponse = _reflection.GeneratedProtocolMessageType('ListRoutesResponse', (_message.Message,), dict(
-  DESCRIPTOR = _LISTROUTESRESPONSE,
-  __module__ = 'nav_pb2'
+ListRoutesResponse = _reflection.GeneratedProtocolMessageType('ListRoutesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTROUTESRESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.ListRoutesResponse)
-  ))
+  })
 _sym_db.RegisterMessage(ListRoutesResponse)
 
-GetRouteRequest = _reflection.GeneratedProtocolMessageType('GetRouteRequest', (_message.Message,), dict(
-  DESCRIPTOR = _GETROUTEREQUEST,
-  __module__ = 'nav_pb2'
+GetRouteRequest = _reflection.GeneratedProtocolMessageType('GetRouteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETROUTEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.GetRouteRequest)
-  ))
+  })
 _sym_db.RegisterMessage(GetRouteRequest)
 
-GetRouteResponse = _reflection.GeneratedProtocolMessageType('GetRouteResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETROUTERESPONSE,
-  __module__ = 'nav_pb2'
+GetRouteResponse = _reflection.GeneratedProtocolMessageType('GetRouteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETROUTERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.GetRouteResponse)
-  ))
+  })
 _sym_db.RegisterMessage(GetRouteResponse)
 
-UpdateRouteRequest = _reflection.GeneratedProtocolMessageType('UpdateRouteRequest', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEROUTEREQUEST,
-  __module__ = 'nav_pb2'
+UpdateRouteRequest = _reflection.GeneratedProtocolMessageType('UpdateRouteRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEROUTEREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.UpdateRouteRequest)
-  ))
+  })
 _sym_db.RegisterMessage(UpdateRouteRequest)
 
-UpdateRouteResponse = _reflection.GeneratedProtocolMessageType('UpdateRouteResponse', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEROUTERESPONSE,
-  __module__ = 'nav_pb2'
+UpdateRouteResponse = _reflection.GeneratedProtocolMessageType('UpdateRouteResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEROUTERESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.UpdateRouteResponse)
-  ))
+  })
 _sym_db.RegisterMessage(UpdateRouteResponse)
 
-DeleteRoutesRequest = _reflection.GeneratedProtocolMessageType('DeleteRoutesRequest', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEROUTESREQUEST,
-  __module__ = 'nav_pb2'
+DeleteRoutesRequest = _reflection.GeneratedProtocolMessageType('DeleteRoutesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEROUTESREQUEST,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.DeleteRoutesRequest)
-  ))
+  })
 _sym_db.RegisterMessage(DeleteRoutesRequest)
 
-DeleteRoutesResponse = _reflection.GeneratedProtocolMessageType('DeleteRoutesResponse', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEROUTESRESPONSE,
-  __module__ = 'nav_pb2'
+DeleteRoutesResponse = _reflection.GeneratedProtocolMessageType('DeleteRoutesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEROUTESRESPONSE,
+  '__module__' : 'nav_pb2'
   # @@protoc_insertion_point(class_scope:navService.DeleteRoutesResponse)
-  ))
+  })
 _sym_db.RegisterMessage(DeleteRoutesResponse)
 
 
@@ -1775,8 +1734,8 @@ _NAVCONTROLLER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=3221,
-  serialized_end=4427,
+  serialized_start=3281,
+  serialized_end=4383,
   methods=[
   _descriptor.MethodDescriptor(
     name='Move',
@@ -1785,7 +1744,7 @@ _NAVCONTROLLER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_MOVEREQUEST,
     output_type=_MOVERESPONSE,
-    serialized_options=None,
+    serialized_options=_b('\202\323\344\223\002\022\022\020/api/v2/nav/move'),
   ),
   _descriptor.MethodDescriptor(
     name='NavTo',
@@ -1830,21 +1789,12 @@ _NAVCONTROLLER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_ONNAVEVENTCHANGEREQUEST,
     output_type=_ONNAVEVENTCHANGERESPONSE,
-    serialized_options=_b('\202\323\344\223\002$\"\037/api/v2/nav/on_nav_event_change:\001*'),
-  ),
-  _descriptor.MethodDescriptor(
-    name='LocationReset',
-    full_name='navService.NavController.LocationReset',
-    index=6,
-    containing_service=None,
-    input_type=_LOCATIONRESETREQUEST,
-    output_type=_LOCATIONRESETRESPONSE,
-    serialized_options=_b('\202\323\344\223\002\037\"\032/api/v2/nav/location_reset:\001*'),
+    serialized_options=_b('\202\323\344\223\002!\022\037/api/v2/nav/on_nav_event_change'),
   ),
   _descriptor.MethodDescriptor(
     name='NewRoute',
     full_name='navService.NavController.NewRoute',
-    index=7,
+    index=6,
     containing_service=None,
     input_type=_NEWROUTEREQUEST,
     output_type=_NEWROUTERESPONSE,
@@ -1853,7 +1803,7 @@ _NAVCONTROLLER = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListRoutes',
     full_name='navService.NavController.ListRoutes',
-    index=8,
+    index=7,
     containing_service=None,
     input_type=_LISTROUTESREQUEST,
     output_type=_LISTROUTESRESPONSE,
@@ -1862,7 +1812,7 @@ _NAVCONTROLLER = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateRoute',
     full_name='navService.NavController.UpdateRoute',
-    index=9,
+    index=8,
     containing_service=None,
     input_type=_UPDATEROUTEREQUEST,
     output_type=_UPDATEROUTERESPONSE,
@@ -1871,7 +1821,7 @@ _NAVCONTROLLER = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteRoutes',
     full_name='navService.NavController.DeleteRoutes',
-    index=10,
+    index=9,
     containing_service=None,
     input_type=_DELETEROUTESREQUEST,
     output_type=_DELETEROUTESRESPONSE,

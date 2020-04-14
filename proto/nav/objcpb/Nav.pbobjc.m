@@ -17,6 +17,7 @@
 
 #import "Nav.pbobjc.h"
 #import "google/api/Annotations.pbobjc.h"
+#import "Map.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
@@ -599,6 +600,7 @@ void SetNavRoaming_NavRoamingType_RawValue(NavRoaming *message, int32_t value) {
 @dynamic targetOneofOneOfCase;
 @dynamic target;
 @dynamic roaming;
+@dynamic mapPosition;
 @dynamic speed;
 @dynamic syncMode;
 
@@ -607,6 +609,7 @@ typedef struct NavToRequest__storage_ {
   uint32_t speed;
   NavTarget *target;
   NavRoaming *roaming;
+  MapPosition *mapPosition;
 } NavToRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -651,6 +654,15 @@ typedef struct NavToRequest__storage_ {
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
       },
+      {
+        .name = "mapPosition",
+        .dataTypeSpecific.className = GPBStringifySymbol(MapPosition),
+        .number = NavToRequest_FieldNumber_MapPosition,
+        .hasIndex = -1,
+        .offset = (uint32_t)offsetof(NavToRequest__storage_, mapPosition),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[NavToRequest class]
@@ -689,11 +701,13 @@ void NavToRequest_ClearTargetOneofOneOfCase(NavToRequest *message) {
 @dynamic statusCode;
 @dynamic target;
 @dynamic isRoaming;
+@dynamic mapPosition;
 
 typedef struct NavToResponse__storage_ {
   uint32_t _has_storage_[2];
   StatusCode statusCode;
   NavTarget *target;
+  MapPosition *mapPosition;
 } NavToResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -728,6 +742,15 @@ typedef struct NavToResponse__storage_ {
         .offset = 1,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBool,
+      },
+      {
+        .name = "mapPosition",
+        .dataTypeSpecific.className = GPBStringifySymbol(MapPosition),
+        .number = NavToResponse_FieldNumber_MapPosition,
+        .hasIndex = -1,
+        .offset = (uint32_t)offsetof(NavToResponse__storage_, mapPosition),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -1512,70 +1535,6 @@ void OnNavEventChangeResponse_ClearChangeOneofOneOfCase(OnNavEventChangeResponse
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
   GPBMaybeClearOneof(message, oneof, -1, 0);
 }
-#pragma mark - LocationResetRequest
-
-@implementation LocationResetRequest
-
-
-typedef struct LocationResetRequest__storage_ {
-  uint32_t _has_storage_[1];
-} LocationResetRequest__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[LocationResetRequest class]
-                                     rootClass:[NavRoot class]
-                                          file:NavRoot_FileDescriptor()
-                                        fields:NULL
-                                    fieldCount:0
-                                   storageSize:sizeof(LocationResetRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - LocationResetResponse
-
-@implementation LocationResetResponse
-
-
-typedef struct LocationResetResponse__storage_ {
-  uint32_t _has_storage_[1];
-} LocationResetResponse__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[LocationResetResponse class]
-                                     rootClass:[NavRoot class]
-                                          file:NavRoot_FileDescriptor()
-                                        fields:NULL
-                                    fieldCount:0
-                                   storageSize:sizeof(LocationResetResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
 #pragma mark - Route
 
 @implementation Route

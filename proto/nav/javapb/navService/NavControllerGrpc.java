@@ -18,7 +18,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.21.1-SNAPSHOT)",
+    value = "by gRPC proto compiler (version 1.22.2-SNAPSHOT)",
     comments = "Source: nav.proto")
 public final class NavControllerGrpc {
 
@@ -217,38 +217,6 @@ public final class NavControllerGrpc {
         }
      }
      return getOnNavEventChangeMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<navService.Nav.LocationResetRequest,
-      navService.Nav.LocationResetResponse> getLocationResetMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "LocationReset",
-      requestType = navService.Nav.LocationResetRequest.class,
-      responseType = navService.Nav.LocationResetResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<navService.Nav.LocationResetRequest,
-      navService.Nav.LocationResetResponse> getLocationResetMethod() {
-    io.grpc.MethodDescriptor<navService.Nav.LocationResetRequest, navService.Nav.LocationResetResponse> getLocationResetMethod;
-    if ((getLocationResetMethod = NavControllerGrpc.getLocationResetMethod) == null) {
-      synchronized (NavControllerGrpc.class) {
-        if ((getLocationResetMethod = NavControllerGrpc.getLocationResetMethod) == null) {
-          NavControllerGrpc.getLocationResetMethod = getLocationResetMethod = 
-              io.grpc.MethodDescriptor.<navService.Nav.LocationResetRequest, navService.Nav.LocationResetResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "navService.NavController", "LocationReset"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  navService.Nav.LocationResetRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  navService.Nav.LocationResetResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new NavControllerMethodDescriptorSupplier("LocationReset"))
-                  .build();
-          }
-        }
-     }
-     return getLocationResetMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<navService.Nav.NewRouteRequest,
@@ -488,21 +456,6 @@ public final class NavControllerGrpc {
 
     /**
      * <pre>
-     * &gt;=2.2.0
-     * 重置当前定位
-     * 用于发生定位异常/错误状态，重新初始化导航定位
-     * 重定位错误：定位状态超时|无地图|UWB错误
-     * 重定位超时判断: 默认3s，仅在非错误状态下重置
-     * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-     * </pre>
-     */
-    public void locationReset(navService.Nav.LocationResetRequest request,
-        io.grpc.stub.StreamObserver<navService.Nav.LocationResetResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getLocationResetMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
      * 新建线路
      * </pre>
      */
@@ -585,13 +538,6 @@ public final class NavControllerGrpc {
                 navService.Nav.OnNavEventChangeRequest,
                 navService.Nav.OnNavEventChangeResponse>(
                   this, METHODID_ON_NAV_EVENT_CHANGE)))
-          .addMethod(
-            getLocationResetMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                navService.Nav.LocationResetRequest,
-                navService.Nav.LocationResetResponse>(
-                  this, METHODID_LOCATION_RESET)))
           .addMethod(
             getNewRouteMethod(),
             asyncUnaryCall(
@@ -730,22 +676,6 @@ public final class NavControllerGrpc {
 
     /**
      * <pre>
-     * &gt;=2.2.0
-     * 重置当前定位
-     * 用于发生定位异常/错误状态，重新初始化导航定位
-     * 重定位错误：定位状态超时|无地图|UWB错误
-     * 重定位超时判断: 默认3s，仅在非错误状态下重置
-     * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-     * </pre>
-     */
-    public void locationReset(navService.Nav.LocationResetRequest request,
-        io.grpc.stub.StreamObserver<navService.Nav.LocationResetResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getLocationResetMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * 新建线路
      * </pre>
      */
@@ -875,21 +805,6 @@ public final class NavControllerGrpc {
 
     /**
      * <pre>
-     * &gt;=2.2.0
-     * 重置当前定位
-     * 用于发生定位异常/错误状态，重新初始化导航定位
-     * 重定位错误：定位状态超时|无地图|UWB错误
-     * 重定位超时判断: 默认3s，仅在非错误状态下重置
-     * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-     * </pre>
-     */
-    public navService.Nav.LocationResetResponse locationReset(navService.Nav.LocationResetRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getLocationResetMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
      * 新建线路
      * </pre>
      */
@@ -1007,22 +922,6 @@ public final class NavControllerGrpc {
 
     /**
      * <pre>
-     * &gt;=2.2.0
-     * 重置当前定位
-     * 用于发生定位异常/错误状态，重新初始化导航定位
-     * 重定位错误：定位状态超时|无地图|UWB错误
-     * 重定位超时判断: 默认3s，仅在非错误状态下重置
-     * *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<navService.Nav.LocationResetResponse> locationReset(
-        navService.Nav.LocationResetRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getLocationResetMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * 新建线路
      * </pre>
      */
@@ -1071,12 +970,11 @@ public final class NavControllerGrpc {
   private static final int METHODID_AUTO_CHARGE = 2;
   private static final int METHODID_ROTATE = 3;
   private static final int METHODID_ON_NAV_EVENT_CHANGE = 4;
-  private static final int METHODID_LOCATION_RESET = 5;
-  private static final int METHODID_NEW_ROUTE = 6;
-  private static final int METHODID_LIST_ROUTES = 7;
-  private static final int METHODID_UPDATE_ROUTE = 8;
-  private static final int METHODID_DELETE_ROUTES = 9;
-  private static final int METHODID_MOVE = 10;
+  private static final int METHODID_NEW_ROUTE = 5;
+  private static final int METHODID_LIST_ROUTES = 6;
+  private static final int METHODID_UPDATE_ROUTE = 7;
+  private static final int METHODID_DELETE_ROUTES = 8;
+  private static final int METHODID_MOVE = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1114,10 +1012,6 @@ public final class NavControllerGrpc {
         case METHODID_ON_NAV_EVENT_CHANGE:
           serviceImpl.onNavEventChange((navService.Nav.OnNavEventChangeRequest) request,
               (io.grpc.stub.StreamObserver<navService.Nav.OnNavEventChangeResponse>) responseObserver);
-          break;
-        case METHODID_LOCATION_RESET:
-          serviceImpl.locationReset((navService.Nav.LocationResetRequest) request,
-              (io.grpc.stub.StreamObserver<navService.Nav.LocationResetResponse>) responseObserver);
           break;
         case METHODID_NEW_ROUTE:
           serviceImpl.newRoute((navService.Nav.NewRouteRequest) request,
@@ -1205,7 +1099,6 @@ public final class NavControllerGrpc {
               .addMethod(getAutoChargeMethod())
               .addMethod(getRotateMethod())
               .addMethod(getOnNavEventChangeMethod())
-              .addMethod(getLocationResetMethod())
               .addMethod(getNewRouteMethod())
               .addMethod(getListRoutesMethod())
               .addMethod(getUpdateRouteMethod())

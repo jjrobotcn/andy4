@@ -3,6 +3,7 @@ syntax = "proto3";
 package navService;
 
 import "google/api/annotations.proto";
+import "map.proto";
 
 service NavController {
     // 遥控移动
@@ -70,19 +71,6 @@ service NavController {
         option (google.api.http) = {
             // e.g. [Websocket] ws://10.10.10.2:81/api/v2/nav/on_nav_event_change
             get: "/api/v2/nav/on_nav_event_change"
-        };
-}
-
-    // >=2.2.0
-    // 重置当前定位
-    // 用于发生定位异常/错误状态，重新初始化导航定位
-    // 重定位错误：定位状态超时|无地图|UWB错误
-    // 重定位超时判断: 默认3s，仅在非错误状态下重置
-    // *目前仅支持无线导航版本，磁导航版本中将直接返回成功状态
-    rpc LocationReset(LocationResetRequest) returns (LocationResetResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/location_reset"
-            body: "*"
         };
     }
 
@@ -229,6 +217,7 @@ message NavToRequest {
     oneof target_oneof {
         NavTarget target = 1; // 导航请求目标
         NavRoaming roaming = 3; // 导航漫游(需底盘类型支持)
+        MapPosition map_position = 5; // 导航地图坐标(仅支持无线导航类型)
     }
     uint32 speed = 2; // 导航移动速度(需底盘类型支持)
 
@@ -244,6 +233,7 @@ message NavToResponse {
     oneof target_oneof {
         NavTarget target = 2; // 导航请求目标
         bool is_roaming = 3; // 漫游模式
+        MapPosition map_position = 4; // 地图位置目标
     }
 }
 
@@ -332,7 +322,6 @@ enum NavEventType {
     ROTATE_EVENT = 4; // 旋转状态事件
 }
 
-
 message OnNavEventChangeRequest {
 
 }
@@ -362,14 +351,6 @@ message OnNavEventChangeResponse {
         RotateEvent rotate_event = 4;
         AutoChargeEvent auto_charge_event = 5;
     }
-}
-
-message LocationResetRequest {
-
-}
-
-message LocationResetResponse {
-
 }
 
 // 线路数据
