@@ -1,0 +1,434 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "faceset.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/face/face-set/add_face": {
+      "post": {
+        "summary": "AddFace将识别一张人脸图片并将结果添加至对应FaceSet中",
+        "operationId": "AddFace",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionAddFaceResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionAddFaceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/delete_face_set": {
+      "post": {
+        "summary": "DeleteFaceSet删除一个FaceSet",
+        "operationId": "DeleteFaceSet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionDeleteFaceSetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionDeleteFaceSetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/face_detail": {
+      "post": {
+        "summary": "FaceDetail通过face_token获取对应的FaceDetail",
+        "operationId": "FaceDetail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionFaceDetailResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionFaceDetailRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/list_face_details": {
+      "post": {
+        "summary": "ListFaceDetails返回指定FaceSet中的FaceDetails",
+        "operationId": "ListFaceDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionListFaceDetailsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionListFaceDetailsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/list_face_sets": {
+      "post": {
+        "summary": "ListFaceSets列举所有FaceSets",
+        "operationId": "ListFaceSets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionListFaceSetsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionListFaceSetsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/new_face_set": {
+      "post": {
+        "summary": "NewFaceSet创建一个FaceSet",
+        "operationId": "NewFaceSet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionNewFaceSetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionNewFaceSetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/remove_face": {
+      "post": {
+        "summary": "RemoveFace将从FaceSet中移除对应FaceToken",
+        "operationId": "RemoveFace",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionRemoveFaceResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionRemoveFaceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    },
+    "/api/v2/face/face-set/update_face_set": {
+      "post": {
+        "summary": "UpdateFaceSet更新一个FaceSet基础信息",
+        "operationId": "UpdateFaceSet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionUpdateFaceSetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionUpdateFaceSetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceSetService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "faceRecognitionAddFaceRequest": {
+      "type": "object",
+      "properties": {
+        "face_set_id": {
+          "type": "string",
+          "title": "FaceSet.id"
+        },
+        "face_img": {
+          "type": "string",
+          "format": "byte",
+          "title": "待识别添加的人脸图片"
+        },
+        "detail": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "自定义信息数据"
+        }
+      }
+    },
+    "faceRecognitionAddFaceResponse": {
+      "type": "object",
+      "properties": {
+        "face_token": {
+          "type": "string",
+          "title": "识别结果唯一值"
+        }
+      }
+    },
+    "faceRecognitionDeleteFaceSetRequest": {
+      "type": "object",
+      "properties": {
+        "face_set_id": {
+          "type": "string",
+          "title": "FaceSet.id"
+        }
+      }
+    },
+    "faceRecognitionDeleteFaceSetResponse": {
+      "type": "object"
+    },
+    "faceRecognitionFaceDetail": {
+      "type": "object",
+      "properties": {
+        "face_token": {
+          "type": "string"
+        },
+        "face_img": {
+          "type": "string",
+          "format": "byte"
+        },
+        "detail": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "自定义detail"
+        }
+      }
+    },
+    "faceRecognitionFaceDetailRequest": {
+      "type": "object",
+      "properties": {
+        "face_set_id": {
+          "type": "string",
+          "title": "FaceSet.id"
+        },
+        "face_token": {
+          "type": "string"
+        },
+        "with_face_img": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "是否返回face_img"
+        }
+      }
+    },
+    "faceRecognitionFaceDetailResponse": {
+      "type": "object",
+      "properties": {
+        "face_detail": {
+          "$ref": "#/definitions/faceRecognitionFaceDetail"
+        }
+      }
+    },
+    "faceRecognitionFaceSet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "faceRecognitionListFaceDetailsRequest": {
+      "type": "object",
+      "properties": {
+        "face_set_id": {
+          "type": "string",
+          "title": "FaceSet.id"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "title": "结果总数限制\n默认:10"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64",
+          "title": "结果匹配offset\n默认:0"
+        }
+      }
+    },
+    "faceRecognitionListFaceDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "face_set": {
+          "$ref": "#/definitions/faceRecognitionFaceSet"
+        },
+        "face_details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/faceRecognitionFaceDetail"
+          }
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "title": "FaceSet中Face总数"
+        }
+      }
+    },
+    "faceRecognitionListFaceSetsRequest": {
+      "type": "object"
+    },
+    "faceRecognitionListFaceSetsResponse": {
+      "type": "object",
+      "properties": {
+        "face_sets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/faceRecognitionFaceSet"
+          }
+        }
+      }
+    },
+    "faceRecognitionNewFaceSetRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "faceRecognitionNewFaceSetResponse": {
+      "type": "object",
+      "properties": {
+        "face_set": {
+          "$ref": "#/definitions/faceRecognitionFaceSet"
+        }
+      }
+    },
+    "faceRecognitionRemoveFaceRequest": {
+      "type": "object",
+      "properties": {
+        "face_set_id": {
+          "type": "string",
+          "title": "FaceSet.id"
+        },
+        "face_token": {
+          "type": "string",
+          "title": "FaceDetail.token"
+        }
+      }
+    },
+    "faceRecognitionRemoveFaceResponse": {
+      "type": "object"
+    },
+    "faceRecognitionUpdateFaceSetRequest": {
+      "type": "object",
+      "properties": {
+        "face_set": {
+          "$ref": "#/definitions/faceRecognitionFaceSet"
+        }
+      }
+    },
+    "faceRecognitionUpdateFaceSetResponse": {
+      "type": "object",
+      "properties": {
+        "face_set": {
+          "$ref": "#/definitions/faceRecognitionFaceSet"
+        }
+      }
+    }
+  }
+}

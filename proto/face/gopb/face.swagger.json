@@ -1,0 +1,126 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "face.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/face/compare": {
+      "post": {
+        "summary": "Compare方法实现了两张人脸图片对比识别，返回两图片的对比可信度",
+        "operationId": "Compare",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionCompareResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionCompareRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceService"
+        ]
+      }
+    },
+    "/api/v2/face/search": {
+      "post": {
+        "summary": "Search方法实现搜索FaceSet中近似人脸数据，\n若存在匹配数据时返回一个FaceDetail及其confidence",
+        "operationId": "Search",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionSearchResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/faceRecognitionSearchRequest"
+            }
+          }
+        ],
+        "tags": [
+          "FaceService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "faceRecognitionCompareRequest": {
+      "type": "object",
+      "properties": {
+        "face_img1": {
+          "type": "string",
+          "format": "byte"
+        },
+        "face_img2": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "faceRecognitionCompareResponse": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "number",
+          "format": "float",
+          "title": "对比结果信任值 [0, 1.0]"
+        }
+      }
+    },
+    "faceRecognitionSearchRequest": {
+      "type": "object",
+      "properties": {
+        "face_set_id": {
+          "type": "string",
+          "title": "FaceSet.id"
+        },
+        "face_img": {
+          "type": "string",
+          "format": "byte",
+          "title": "待搜索人脸图片"
+        }
+      }
+    },
+    "faceRecognitionSearchResponse": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "type": "number",
+          "format": "float",
+          "title": "搜索结果信任值 [0, 1.0]"
+        },
+        "face_token": {
+          "type": "string",
+          "title": "搜索结果FaceDetail.token"
+        }
+      }
+    }
+  }
+}
