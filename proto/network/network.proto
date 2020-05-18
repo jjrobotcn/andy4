@@ -1,0 +1,195 @@
+syntax = "proto3";
+
+package networkService;
+
+import "google/api/annotations.proto";
+
+service NetworkService {
+    // 获取网络扫描结果流
+    // api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
+    // 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
+    rpc ListNetworks (ListNetworksRequest) returns (stream ListNetworksResponse) {
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/network/list_networks
+            get: "/api/v2/network/list_networks"
+        };
+    }
+
+    // 连接至指定网络
+    // 连接失败将立即返回错误
+    // 若30秒后成功获取状态将返回超时失败
+    rpc Connect (ConnectRequest) returns (ConnectResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/network/connect"
+            body: "*"
+        };
+    }
+
+    // 获取连接状态流
+    // 在连接开始时立即返回当前最新的扫描数据
+    // 并持续在网络数据更新时接收新数据
+    rpc GetStatus (GetStatusRequest) returns (stream GetStatusResponse) {
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/network/get_status
+            get: "/api/v2/network/get_status"
+        };
+    }
+
+    // 获取网络设备相关信息
+    // v1.1.0
+    rpc GetNetworkDeviceInfo(GetNetworkDeviceInfoRequest) returns (GetNetworkDeviceInfoResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/network/get_network_device_info"
+            body: "*"
+        };
+    }
+
+    // 修改网络设备相关信息
+    // v1.1.0
+    rpc UpdateNetworkDeviceInfo(UpdateNetworkDeviceInfoRequest) returns (UpdateNetworkDeviceInfoResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/network/update_network_device_info"
+            body: "*"
+        };
+    }
+}
+
+// 网络信息
+message NetworkInfo {
+    // wifi名
+    string name = 1;
+
+    // mac地址
+    string mac = 2;
+
+    // 网络信道
+    uint32 channel = 3;
+
+    // 信号强度 0-100
+    uint32 rssi = 4;
+}
+
+// 获取网络扫描结果流请求
+message ListNetworksRequest {
+
+}
+
+// 获取网络扫描结果流结果
+message ListNetworksResponse {
+    // 网络信息列表
+    repeated NetworkInfo networks_info = 1;
+}
+
+// 连接至指定网络请求
+message ConnectRequest {
+    // !!! >=v1.2.0可不再使用此NetworkInfo请求，此参数声明作废，请使用更为精简的ssid作为连接目标参数
+    // 目标网络信息
+    // 此对象应由ListNetworks.ListNetworksResponse.NetworkInfo中获取
+    NetworkInfo network_info = 1 [deprecated=true];
+
+    // >=v1.2.0
+    // 目标网络ssid
+    // 自动获取当前的NetworkInfo信息中首个匹配ssid，
+    // 若匹配失败将直接返回连接错误
+    // 不支持隐藏ssid的链接
+    string ssid = 3;
+
+    // wifi密码
+    string pwd = 2;
+
+    // >=v1.2.0
+    // 保持当前外部连接
+    // 配置此参数后将立即启动状态监听。
+    // 若出现DISCONNECTED状态且keep_alive_interval间隔时间内，
+    // 状态持续为DISCONNECTED状态将自动发起ConnectRequest。
+    // 在等待期间出现非DISCONNECTED的任意状态切换，
+    // keep_alive_interval都将重新计算。
+    bool keep_alive = 4;
+
+    // >=v1.2.0
+    // 保持当前连接判断间隔, 默认及最小为30s
+    uint32 keep_alive_interval = 5;
+}
+
+// 连接状态
+enum Status {
+    // 保留数据
+    UNKNOWN = 0;
+
+    // 连接断开
+    DISCONNECTED = 1;
+
+    // 连接中
+    CONNECTING = 2;
+
+    // 已连接
+    CONNECTED = 3;
+}
+
+// 网络状态
+message NetworkStatus {
+    // 连接状态
+    Status status = 1;
+
+    // 连接的上级网络ssid
+    string name = 2;
+
+    // 连接的上级网络ip
+    string public_ip = 3;
+
+    // 当前信号强度
+    uint32 rssi = 4;
+
+    // 当前上传速度
+    uint32 upload = 5;
+
+    // 当前下载速度
+    uint32 download = 6;
+}
+
+// 连接至指定网络请求结果
+message ConnectResponse {
+}
+
+// 获取连接状态流请求
+message GetStatusRequest {
+}
+
+// 获取连接状态流结果
+message GetStatusResponse {
+    // 网络状态
+    NetworkStatus network_status = 1;
+}
+
+// 网络设备信息
+message NetworkDeviceInfo {
+    // wifi名
+    // 5G网络名为(2.4G)-5G
+    string ssid = 1;
+
+    // 密码
+    string credential = 2;
+}
+
+// 获取网络设备相关信息请求
+message GetNetworkDeviceInfoRequest {
+    // 是否获取密码
+    bool with_credential = 1;
+}
+
+// 获取网络设备相关信息结果
+message GetNetworkDeviceInfoResponse {
+    // 网络设备信息
+    NetworkDeviceInfo network_device_info = 1;
+}
+
+// 修改网络设备相关信息请求
+message UpdateNetworkDeviceInfoRequest {
+    // 网络设备信息
+    // NetworkInfo中留空为不更新
+    NetworkDeviceInfo network_device_info = 1;
+}
+
+// 修改网络设备相关信息结果
+message UpdateNetworkDeviceInfoResponse {
+}

@@ -1,0 +1,301 @@
+syntax = "proto3";
+
+package motionService;
+
+import "google/api/annotations.proto";
+
+service MotionService {
+    // 移动功能
+    rpc MoveTo (MoveToRequest) returns (MoveToResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/move_to"
+            body: "*"
+        };
+    }
+
+    // 持续监听位置消息
+    rpc PositioningData (PositioningDataRequest) returns (stream PositioningDataResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/motion/positioning_data
+            get: "/api/v2/motion/positioning_data"
+        };
+    }
+
+    // 获取当前位置信息
+    rpc GetPosition (GetPositionRequest) returns (GetPositionResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/get_position"
+            body: "*"
+        };
+    }
+
+    // 创建组
+    rpc NewGroup (NewGroupRequest) returns (NewGroupResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/new_group"
+            body: "*"
+        };
+    }
+
+    // 获取组列表
+    rpc ListGroups (ListGroupsRequest) returns (ListGroupsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/list_groups"
+            body: "*"
+        };
+    }
+
+    // 更新组信息
+    rpc UpdateGroup (UpdateGroupRequest) returns (UpdateGroupResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/update_group"
+            body: "*"
+        };
+    }
+
+    // 删除组列表
+    rpc DeleteGroups (DeleteGroupsRequest) returns (DeleteGroupsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/delete_groups"
+            body: "*"
+        };
+    }
+
+    // 获取组动作点列表
+    rpc ListGroupTargets (ListGroupTargetsRequest) returns (ListGroupTargetsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/list_group_targets"
+            body: "*"
+        };
+    }
+
+    // 更新组动作点列表
+    rpc UpdateGroupTargets (UpdateGroupTargetsRequest) returns (UpdateGroupTargetsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/update_group_targets"
+            body: "*"
+        };
+    }
+}
+
+// 功能类型
+enum MotionType {
+    // 保留
+    UNKNOWN_MOTION_TYPE = 0;
+
+    // 头部
+    HEAD = 1;
+
+    //    HANDS = 2;
+}
+
+// 位置坐标定义
+// 0值为默认居中
+message Position {
+    // x轴位置
+    // 正负值, 左值为负
+    int32 x_axis = 1;
+
+    // y轴位置
+    // 正负值, 底值为负
+    int32 y_axis = 2;
+}
+
+// 运动配置参数定义
+message MotionConfig {
+    // 运动速度
+    uint32 speed = 1;
+
+    // 移动到目标后等待时长(毫秒)
+    uint32 wait_millisecond = 2;
+}
+
+// 动作组
+message Group {
+    // 组信息
+    GroupInfo group_info = 1;
+
+    // 目标列表
+    repeated Target targets = 2;
+
+}
+
+// 组信息
+message GroupInfo {
+    // 组id
+    string id = 1;
+
+    // 组名
+    string name = 2;
+
+    // 功能类型
+    MotionType motion_type = 3;
+}
+
+// 目标点信息
+message Target {
+    // 位置坐标
+    Position position = 1;
+
+    // 功能类型
+    MotionConfig motion_config = 2;
+}
+
+// 组目标请求
+message GroupTargetRequest {
+    oneof group_id_name_oneof {
+        // 组id
+        // GroupInfo.id
+        string id = 1;
+
+        // 组名
+        // GroupInfo.name
+        string name = 2;
+    }
+}
+
+// 组目标列表请求
+message GroupsTargetRequest {
+    // 组目标列表
+    repeated GroupTargetRequest groups = 1;
+}
+
+// 单点目标请求
+message PositionTargetRequest {
+    oneof position_target_oneof {
+        // 绝对值目标
+        Target absolute_target = 1;
+
+        // 相对当前点目标
+        Target relative_target = 2;
+    }
+}
+
+// 移动功能请求
+message MoveToRequest {
+    MotionType motion_type = 1;
+    oneof target_request_oneof {
+        // 使用预设组方式
+        GroupsTargetRequest groups_target_request = 2;
+
+        // 使用定位方式
+        PositionTargetRequest position_target_request = 3;
+    }
+
+    // 清空请求队列， 立即执行
+    // 未处理完的动作列表将全部丢弃
+    bool immediately = 4;
+}
+
+// 移动功能结果
+message MoveToResponse {
+}
+
+// 获取当前位置信息请求
+message GetPositionRequest {
+    MotionType motion_type = 1;
+}
+
+// 获取当前位置信息结果
+message GetPositionResponse {
+    // 功能类型
+    MotionType motion_type = 1;
+
+    // 位置坐标
+    Position position = 2;
+}
+
+// 持续监听位置消息请求
+message PositioningDataRequest {
+    // 功能类型
+    MotionType motion_type = 1;
+
+    // 设备是否失能
+    // 需使用手动控制运动功能时启用
+    // 服务断开后将自动使能
+    bool disability = 2;
+}
+
+// 持续监听位置消息结果
+message PositioningDataResponse {
+    // 功能类型
+    MotionType motion_type = 1;
+
+    // 位置坐标
+    Position position = 2;
+}
+
+// 创建组请求
+message NewGroupRequest {
+    // 功能类型
+    MotionType motion_type = 1;
+
+    // 组名
+    string name = 2;
+}
+
+// 创建组结果
+message NewGroupResponse {
+    // 组信息
+    GroupInfo group_info = 1;
+}
+
+// 获取组列表请求
+message ListGroupsRequest {
+    // 功能类型
+    MotionType motion_type = 1;
+}
+
+// 获取组列表结果
+message ListGroupsResponse {
+    // 组信息列表
+    repeated GroupInfo groups_info = 1;
+}
+
+// 更新组信息请求
+message UpdateGroupRequest {
+    // 组id
+    string id = 1;
+
+    // 组名
+    string name = 2;
+}
+
+// 更新组信息结果
+message UpdateGroupResponse {
+}
+
+// 删除组列表请求
+message DeleteGroupsRequest {
+    // 组id列表
+    repeated string groups_id = 1;
+}
+
+// 删除组列表结果
+message DeleteGroupsResponse {
+}
+
+// 获取组动作点列表请求
+message ListGroupTargetsRequest {
+    // 组id
+    string group_id = 1;
+}
+
+// 获取组动作点列表结果
+message ListGroupTargetsResponse {
+    // 目标点列表
+    repeated Target targets = 1;
+}
+
+// 更新组动作点列表请求
+message UpdateGroupTargetsRequest {
+    // 组id
+    string group_id = 1;
+
+    // 目标点列表
+    repeated Target targets = 2;
+}
+
+// 更新组动作点列表结果
+message UpdateGroupTargetsResponse {
+}

@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package powerService;
+
+import "google/api/annotations.proto";
+
+service PowerService {
+    // 获取电源状态数据流
+    rpc GetPowerStatus (GetPowerStatusRequest) returns (stream GetPowerStatusResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/power/get_power_status
+            get: "/api/v2/power/get_power_status"
+        };
+    }
+
+    // 对各模块的电源进行断电方式重启
+    rpc Reboot(RebootRequest) returns (RebootResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/power/reboot"
+            body: "*"
+        };
+    }
+
+    // 获取所有电源模块状态
+    rpc States(StatesRequest) returns (StatesResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/power/states"
+        };
+    }
+
+    // 控制模块供电开关
+    rpc Switch (SwitchRequest) returns (SwitchResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/power/switch"
+            body: "*"
+        };
+    }
+}
+
+// 模块类型枚举
+enum ModuleTypes {
+    UnknownModuleType = 0;
+    Main = 1; // 工控、路由、摄像头
+    EscPos = 2; // 小票打印机
+    Screen = 3; // 屏幕/平板
+    Sensor = 4; // 传感器
+    Speech = 5; // 语音模块
+    Lights = 6; // 灯光模块（目前与表情模块为同一供电）
+    Expression = 7; // 表情模块（目前与灯光模块为同一供电）
+    Navigator = 8; // 导航模块
+    Motion = 9; // 运动模块
+    Amplifier = 10; // 功放
+}
+
+message PowerStatus {
+    uint32 level = 1; // 电量0-100
+    bool is_charging = 2; // 是否充电中
+
+    // 设备状态
+    // 此字段已作废，请使用States方法获取
+    map<string, bool> devices = 3 [deprecated=true];
+}
+
+message GetPowerStatusRequest {
+
+}
+
+message GetPowerStatusResponse {
+    PowerStatus power_status = 1;
+}
+
+message RebootRequest {
+    // 所有模块重启(目前仅支持整机重启)
+    bool all = 1;
+}
+
+message RebootResponse {
+
+}
+
+message State {
+    // 模块类型
+    ModuleTypes module = 1;
+    // 当前模块是否供电
+    bool is_on = 2;
+    // 触发关闭供电倒计时（秒）
+    // -1为未配置或已失效
+    int32 off_after = 4;
+    // 触发恢复供电倒计时（秒）
+    // -1为未配置或已失效
+    int32 on_after = 3;
+}
+
+message StatesRequest {
+
+}
+
+message StatesResponse {
+    repeated State states = 1;
+}
+
+message SwitchRequest {
+    message request {
+        // 模块类型
+        ModuleTypes module = 1;
+        // 若干秒后关闭该模块供电
+        // -1为未配置 0为立即
+        int32 off_after = 4;
+        // 若干秒后恢复该模块供电
+        // -1为未配置 0为立即
+        int32 on_after = 3;
+    }
+
+    repeated request requests = 1;
+}
+
+message SwitchResponse {
+    repeated State states = 1;
+}

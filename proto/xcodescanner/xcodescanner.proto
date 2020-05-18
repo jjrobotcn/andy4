@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package xcScannerService;
+
+import "google/api/annotations.proto";
+
+service XCodeScannerService {
+    rpc GetScanData (GetScanDataRequest) returns (stream GetScanDataResponse) {
+        option (google.api.http) = {
+            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/xcodescanner/get_scan_data
+            get: "/api/v2/xcodescanner/get_scan_data"
+        };
+    }
+}
+
+message GetScanDataRequest {
+
+}
+
+// 扫码结果
+message GetScanDataResponse {
+    string content = 1;
+}

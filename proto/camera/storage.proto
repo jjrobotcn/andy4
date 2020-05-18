@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package cameraService;
+
+import "google/api/annotations.proto";
+
+service Storage {
+    // 获取监控视频日期列表
+    rpc ListDates(ListDatesRequest) returns (ListDatesResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/camera/storage/dates"
+        };
+    }
+
+    // 获取监控视频列表
+    rpc ListVideos(ListVideosRequest) returns (ListVideosResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/camera/storage/videos"
+
+            additional_bindings {
+                post: "/api/v1/camera/storage/videos"
+                body: "*"
+            }
+        };
+    }
+
+    // 获取监控视频文件
+    rpc GetVideoFile(GetVideoFileRequest) returns (stream GetVideoFileResponse) {}
+
+    // 删除监控视频文件
+    rpc DeleteVideoFiles(DeleteVideoFilesRequest) returns (DeleteVideoFilesResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/camera/storage/videos/delete"
+            body: "*"
+        };
+    }
+}
+
+message ListDatesRequest {}
+
+message ListDatesResponse {
+    // 日期 e.g. [2019-01-01, 2019-01-02]
+    repeated string dates = 1;
+}
+
+message ListVideosRequest {
+    // 开始时间
+    // 默认为当日00:00:00
+    // 格式 2019-01-02_03:04:05
+    string start = 1;
+
+    // 结束时间
+    // 默认为当日23:59:59
+    // 格式 2019-01-02_03:04:05
+    string end = 2;
+}
+
+message ListVideosResponse {
+    // e.g. [2019-01-01/00:00:00.mp4, 2019-01-01/00:10:00.mp4]
+    repeated string videos = 1;
+}
+
+message GetVideoFileRequest {
+    // e.g. 2019-01-01/00:00:00.mp4
+    string video = 1;
+}
+
+message GetVideoFileResponse {
+    bytes chunk = 1;
+}
+
+message DeleteVideoFilesRequest {
+    // e.g. [2019-01-01/00:00:00.mp4, 2019-12-01/22:10:00.mp4]
+    repeated string videos = 1;
+}
+
+message DeleteVideoFilesResponse {
+
+}

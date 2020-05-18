@@ -1,0 +1,251 @@
+syntax = "proto3";
+
+package lightsService;
+
+import "google/api/annotations.proto";
+
+service LightsService {
+    // 预览灯光
+    // 创建灯光后使用此方法生成灯光文件
+    // 在未生成灯光文件前调用PlayLight将无效
+    rpc PreviewLight (PreviewLightRequest) returns (PreviewLightResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/preview_light"
+            body: "*"
+        };
+    }
+
+    // 播放灯光
+    // 需在播放前执行PreviewLight生成灯光文件
+    rpc PlayLight (PlayLightRequest) returns (PlayLightResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/play_light"
+            body: "*"
+        };
+    }
+
+    // 停止灯光
+    rpc StopLight (StopLightRequest) returns (StopLightResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/stop_light"
+            body: "*"
+        };
+    }
+
+    // 获取灯光数据
+    rpc ListLights (ListLightsRequest) returns (ListLightsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/list_lights"
+            body: "*"
+        };
+    }
+
+    // 创建灯光
+    rpc NewLight (NewLightRequest) returns (NewLightResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/new_light"
+            body: "*"
+        };
+    }
+
+    // 更新灯光数据
+    rpc UpdateLight (UpdateLightRequest) returns (UpdateLightResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/update_light"
+            body: "*"
+        };
+    }
+
+    // 删除灯光
+    rpc DeleteLights (DeleteLightsRequest) returns (DeleteLightsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/delete_lights"
+            body: "*"
+        };
+    }
+
+    // 获取当前灯光模块状态
+    rpc State(StateRequest) returns (StateResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/lights/state"
+        };
+    }
+
+    // 控制灯光的开关
+    rpc Switch(SwitchRequest) returns (SwitchResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/lights/switch"
+            body: "*"
+        };
+    }
+
+}
+
+// 灯光类型
+enum LightType {
+    // 保留， 不使用
+    UNDEFINED = 0;
+
+    // 嘴部灯光
+    MOUTH = 1;
+
+    // 手臂灯光
+    HANDS = 2;
+
+    // 耳朵灯光
+    EARS = 3;
+}
+
+// 预览灯光请求
+message PreviewLightRequest {
+    // 灯光id
+    string id = 1;
+}
+
+// 预览灯光结果
+message PreviewLightResponse {
+}
+
+// 播放灯光请求
+message PlayLightRequest {
+    // 灯光类型
+    LightType ltype = 1;
+
+    // 灯光id
+    // name参数非空时将优先匹配
+    string id = 2;
+
+    // 灯光名
+    // 仅匹配
+    string name = 3;
+}
+
+// 播放灯光请求结果
+message PlayLightResponse {
+}
+
+// 停止灯光请求
+message StopLightRequest {
+    // 灯光类型列表
+    repeated LightType ltypes = 1; // ltypes: 停止类型列表零值时停止所有
+}
+
+// 停止灯光结果
+message StopLightResponse {
+}
+
+// 播放模式
+enum PlayMode {
+    // 预置模式 默认为ALWAYS
+    PRESET = 0;
+
+    // 常亮模式
+    ALWAYS = 1;
+
+    // 滚动模式
+    // [1,2,3] => [2,3,1] => [3,1,2]
+    MARQUEE = 2;
+
+    // 闪烁模式
+    // [true, true] => [false, false]
+    FLASH = 3;
+
+    // 跳动模式
+    // [true, false, true, false] => [false, true, false, true]
+    TICKTOCK = 4;
+}
+
+// 灯光数据明细
+message LightInfo {
+    // 灯光类型
+    LightType ltype = 1;
+
+    // 灯光id
+    string id = 2;
+
+    // 灯光名
+    string name = 3;
+
+    // 灯光帧列表
+    repeated LightFrame frames = 4;
+}
+
+// 灯光帧
+message LightFrame {
+    // 灯光hex数据列表
+    // e.g. #31ebd1
+    repeated string colors = 1;
+
+    // 播放速度
+    uint32 speed = 2;
+
+    // 播放模式
+    PlayMode mode = 3;
+}
+
+// 获取灯光数据请求
+message ListLightsRequest {
+    // 灯光类型
+    LightType ltype = 1;
+}
+
+// 获取灯光数据结果
+message ListLightsResponse {
+    // 灯光数据明细列表
+    repeated LightInfo lights_info = 1;
+}
+
+// 创建灯光请求
+message NewLightRequest {
+    // 灯光数据明细
+    LightInfo light_info = 1;
+}
+
+// 创建灯光结果
+message NewLightResponse {
+    // 灯光数据明细
+    LightInfo light_info = 1;
+}
+
+// 更新灯光数据请求
+message UpdateLightRequest {
+    // 灯光数据明细
+    LightInfo light_info = 1;
+}
+
+// 更新灯光数据结果
+message UpdateLightResponse {
+    // 灯光数据明细
+    LightInfo light_info = 1;
+}
+
+// 删除灯光请求
+message DeleteLightsRequest {
+    // 删除灯光id列表
+    repeated string lights_id = 1;
+}
+
+// 删除灯光结果
+message DeleteLightsResponse {
+}
+
+message StateRequest {
+
+}
+
+message StateResponse {
+    // 当前是否启用
+    bool is_active = 1;
+    // 当前是否在播放中
+    bool is_playing = 2;
+}
+
+message SwitchRequest {
+    // 启用与关闭
+    bool active = 1;
+}
+
+message SwitchResponse {
+    // 当前是否启用
+    bool is_active = 1;
+}

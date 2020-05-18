@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package messagingService;
+
+option java_package = "com.jj-robot.andy4srv.messaging";
+
+import "google/api/annotations.proto";
+
+// MessagingService消息服务便于开发者在不同设备或应用中实现消息通信广播
+service MessagingService {
+    // Messaging为消息发布订阅方法
+    rpc Messaging(stream MessagingRequest) returns(stream MessagingResponse) {
+        option (google.api.http) = {
+            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/messaging/messaging
+            get: "/api/v2/messaging/messaging"
+        };
+    }
+}
+
+// 订阅消息类型
+message Subscribe {
+    // 订阅的主题列表
+    repeated string topics = 1;
+}
+
+// 取消订阅消息类型
+message Unsubscribe {
+    // 取消订阅的主题列表
+    repeated string topics = 1;
+}
+
+// 消息类型
+message MessagePublish {
+    // 数据发布的主题列表
+    repeated string topics = 1;
+    // 消息内容
+    bytes payload = 2;
+}
+
+message MessagingRequest {
+    // 消息类型oneof
+    oneof messaging_oneof {
+        Subscribe subscribe = 1;
+        Unsubscribe unsubscribe = 2;
+        MessagePublish message_publish = 3;
+    }
+}
+
+message MessagingResponse {
+    // 消息主题
+    string topic = 1;
+    // 消息内容
+    bytes payload = 2;
+}
