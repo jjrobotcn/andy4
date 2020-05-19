@@ -1,0 +1,21 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # power.proto
+    - selector: powerService.PowerService.GetPowerStatus
+      # [http:, ws:]
+      get: "/api/v2/power/get_power_status"
+
+    - selector: powerService.PowerService.Reboot
+      post: "/api/v2/power/reboot"
+      body: "*"
+
+    - selector: powerService.PowerService.States
+      get: "/api/v2/power/states"
+
+    - selector: powerService.PowerService.Switch
+      post: "/api/v2/power/switch"
+      body: "*"

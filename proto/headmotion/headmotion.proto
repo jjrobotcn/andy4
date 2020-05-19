@@ -2,80 +2,38 @@ syntax = "proto3";
 
 package motionService;
 
-import "google/api/annotations.proto";
+option go_package = "headmotionpb";
+
+option java_package = "com.jjrobot.andy4.headmotionpb";
+option java_outer_classname = "MotionServicePB";
 
 service MotionService {
     // 移动功能
-    rpc MoveTo (MoveToRequest) returns (MoveToResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/move_to"
-            body: "*"
-        };
-    }
+    rpc MoveTo (MoveToRequest) returns (MoveToResponse) {}
 
     // 持续监听位置消息
-    rpc PositioningData (PositioningDataRequest) returns (stream PositioningDataResponse) {
-        option (google.api.http) = {
-            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/motion/positioning_data
-            get: "/api/v2/motion/positioning_data"
-        };
-    }
+    rpc PositioningData (PositioningDataRequest) returns (stream PositioningDataResponse) {}
 
     // 获取当前位置信息
-    rpc GetPosition (GetPositionRequest) returns (GetPositionResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/get_position"
-            body: "*"
-        };
-    }
+    rpc GetPosition (GetPositionRequest) returns (GetPositionResponse) {}
 
     // 创建组
-    rpc NewGroup (NewGroupRequest) returns (NewGroupResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/new_group"
-            body: "*"
-        };
-    }
+    rpc NewGroup (NewGroupRequest) returns (NewGroupResponse) {}
 
     // 获取组列表
-    rpc ListGroups (ListGroupsRequest) returns (ListGroupsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/list_groups"
-            body: "*"
-        };
-    }
+    rpc ListGroups (ListGroupsRequest) returns (ListGroupsResponse) {}
 
     // 更新组信息
-    rpc UpdateGroup (UpdateGroupRequest) returns (UpdateGroupResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/update_group"
-            body: "*"
-        };
-    }
+    rpc UpdateGroup (UpdateGroupRequest) returns (UpdateGroupResponse) {}
 
     // 删除组列表
-    rpc DeleteGroups (DeleteGroupsRequest) returns (DeleteGroupsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/delete_groups"
-            body: "*"
-        };
-    }
+    rpc DeleteGroups (DeleteGroupsRequest) returns (DeleteGroupsResponse) {}
 
     // 获取组动作点列表
-    rpc ListGroupTargets (ListGroupTargetsRequest) returns (ListGroupTargetsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/list_group_targets"
-            body: "*"
-        };
-    }
+    rpc ListGroupTargets (ListGroupTargetsRequest) returns (ListGroupTargetsResponse) {}
 
     // 更新组动作点列表
-    rpc UpdateGroupTargets (UpdateGroupTargetsRequest) returns (UpdateGroupTargetsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/update_group_targets"
-            body: "*"
-        };
-    }
+    rpc UpdateGroupTargets (UpdateGroupTargetsRequest) returns (UpdateGroupTargetsResponse) {}
 }
 
 // 功能类型

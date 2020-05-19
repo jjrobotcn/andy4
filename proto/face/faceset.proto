@@ -1,74 +1,36 @@
 syntax = "proto3";
 
 package faceRecognition;
-option java_outer_classname = "FaceSetPb";
 
-import "google/api/annotations.proto";
+option go_package = "facepb";
+
+option java_package = "com.jjrobot.andy4.facepb";
+option java_outer_classname = "FaceSetServicePB";
 
 service FaceSetService {
     // NewFaceSet创建一个FaceSet
-    rpc NewFaceSet(NewFaceSetRequest) returns (NewFaceSetResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/new_face_set"
-            body: "*"
-        };
-    }
+    rpc NewFaceSet(NewFaceSetRequest) returns (NewFaceSetResponse) {}
 
     // DeleteFaceSet删除一个FaceSet
-    rpc DeleteFaceSet(DeleteFaceSetRequest) returns (DeleteFaceSetResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/delete_face_set"
-            body: "*"
-        };
-    }
+    rpc DeleteFaceSet(DeleteFaceSetRequest) returns (DeleteFaceSetResponse) {}
 
     // UpdateFaceSet更新一个FaceSet基础信息
-    rpc UpdateFaceSet(UpdateFaceSetRequest) returns (UpdateFaceSetResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/update_face_set"
-            body: "*"
-        };
-    }
+    rpc UpdateFaceSet(UpdateFaceSetRequest) returns (UpdateFaceSetResponse) {}
 
     // ListFaceSets列举所有FaceSets
-    rpc ListFaceSets(ListFaceSetsRequest) returns (ListFaceSetsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/list_face_sets"
-            body: "*"
-        };
-    }
+    rpc ListFaceSets(ListFaceSetsRequest) returns (ListFaceSetsResponse) {}
 
     // AddFace将识别一张人脸图片并将结果添加至对应FaceSet中
-    rpc AddFace(AddFaceRequest) returns (AddFaceResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/add_face"
-            body: "*"
-        };
-    }
+    rpc AddFace(AddFaceRequest) returns (AddFaceResponse) {}
 
     // RemoveFace将从FaceSet中移除对应FaceToken
-    rpc RemoveFace(RemoveFaceRequest) returns (RemoveFaceResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/remove_face"
-            body: "*"
-        };
-    }
+    rpc RemoveFace(RemoveFaceRequest) returns (RemoveFaceResponse) {}
 
     // FaceDetail通过face_token获取对应的FaceDetail
-    rpc FaceDetail(FaceDetailRequest) returns (FaceDetailResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/face_detail"
-            body: "*"
-        };
-    }
+    rpc FaceDetail(FaceDetailRequest) returns (FaceDetailResponse) {}
 
     // ListFaceDetails返回指定FaceSet中的FaceDetails
-    rpc ListFaceDetails(ListFaceDetailsRequest) returns (ListFaceDetailsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/face-set/list_face_details"
-            body: "*"
-        };
-    }
+    rpc ListFaceDetails(ListFaceDetailsRequest) returns (ListFaceDetailsResponse) {}
 }
 
 message FaceSet {

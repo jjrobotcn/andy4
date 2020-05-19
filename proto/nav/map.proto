@@ -2,32 +2,21 @@ syntax = "proto3";
 
 package navService;
 
-import "google/api/annotations.proto";
+option go_package = "navpb";
+
+option java_package = "com.jjrobot.andy4.navpb";
+option java_outer_classname = "MapPB";
 
 service Map {
-    rpc GetMapInfo(GetMapInfoRequest) returns (GetMapInfoResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/nav/get_map_info"
-        };
-    }
+    rpc GetMapInfo(GetMapInfoRequest) returns (GetMapInfoResponse) {}
 
-    rpc MapPositionStream(MapPositionStreamRequest) returns (stream MapPositionStreamResponse) {
-        option (google.api.http) = {
-            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/nav/map_position_stream
-            get: "/api/v2/nav/map_position_stream"
-        };
-    }
+    rpc MapPositionStream(MapPositionStreamRequest) returns (stream MapPositionStreamResponse) {}
 
     // 重置当前定位
     // 用于发生定位异常/错误状态，重新初始化导航定位
     // 重定位错误：定位状态超时|无地图|UWB错误
     // 重定位超时判断: 默认10s，仅在非错误状态下重置
-    rpc LocationReset(LocationResetRequest) returns (LocationResetResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/location_reset"
-            body: "*"
-        };
-    }
+    rpc LocationReset(LocationResetRequest) returns (LocationResetResponse) {}
 }
 
 message MapPosition {

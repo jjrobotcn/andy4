@@ -1,0 +1,33 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # expression.proto
+    - selector: expressionService.ExpressionService.PlayExpressions
+      post: "/api/v2/expression/play_expressions"
+      body: "*"
+
+    - selector: expressionService.ExpressionService.StopExpression
+      post: "/api/v2/expression/stop_expression"
+      body: "*"
+
+    - selector: expressionService.ExpressionService.Rename
+      post: "/api/v2/expression/rename"
+      body: "*"
+
+    - selector: expressionService.ExpressionService.ListExpressions
+      post: "/api/v2/expression/list_expressions"
+      body: "*"
+
+    - selector: expressionService.ExpressionService.DeleteExpressions
+      post: "/api/v2/expression/delete_expressions"
+      body: "*"
+
+    - selector: expressionService.ExpressionService.State
+      get: "/api/v2/expression/state"
+
+    - selector: expressionService.ExpressionService.Switch
+      post: "/api/v2/expression/switch"
+      body: "*"

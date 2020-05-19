@@ -2,62 +2,28 @@ syntax = "proto3";
 
 package kvstore;
 
-option java_outer_classname = "KVStoreOuterClass";
+option go_package = "kvstorepb";
 
-import "google/api/annotations.proto";
+option java_package = "com.jjrobot.andy4.kvstorepb";
+option java_outer_classname = "KVStorePB";
 
 service KVStore {
     // Put 创建kv键值对
     // 若key已存在将更新value值
-    rpc Put(PutRequest) returns (PutResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/kvstore/put"
-            body: "*"
-        };
-    }
+    rpc Put(PutRequest) returns (PutResponse) {}
 
     // Get 获取key的value
     // 若key不存在则返回gRPC错误:NotFound
-    rpc Get(GetRequest) returns (GetResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/kvstore/get"
-            body: "*"
-
-            additional_bindings {
-                // e.g. GET http://10.10.10.2:81/api/v1/kvstore/get?key=
-                get: "/api/v2/kvstore/get"
-            }
-        };
-    }
+    rpc Get(GetRequest) returns (GetResponse) {}
 
     // GetPrefix 获取符合key_prefix的多个kv键值对
-    rpc GetPrefix(GetPrefixRequest) returns (GetPrefixResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/kvstore/get_prefix"
-            body: "*"
-
-            additional_bindings {
-                // e.g. GET http://10.10.10.2:81/api/v1/kvstore/get_prefix?key_prefix=
-                get: "/api/v2/kvstore/get_prefix"
-            }
-        };
-    }
+    rpc GetPrefix(GetPrefixRequest) returns (GetPrefixResponse) {}
 
     // GetPrefixStream gRPC stream方式获取符合key_prefix的多个kv键值对
-    rpc GetPrefixStream(GetPrefixStreamRequest) returns (stream GetPrefixStreamResponse) {
-        option (google.api.http) = {
-            // e.g. [WebSocket] ws://10.10.10.2:81/api/v1/kvstore/get_prefix_stream?key_prefix=
-            get: "/api/v2/kvstore/get_prefix_stream"
-        };
-    }
+    rpc GetPrefixStream(GetPrefixStreamRequest) returns (stream GetPrefixStreamResponse) {}
 
     // Delete 删除kv键值对
-    rpc Delete(DeleteRequest) returns (DeleteResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/kvstore/delete"
-            body: "*"
-        };
-    }
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {}
 }
 
 message PutRequest {

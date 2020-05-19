@@ -1,0 +1,38 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # speech.proto
+    - selector: speechService.SpeechService.ListenSpeechEvent
+      # [http:, ws:]
+      get: "/api/v2/speech/listen_speech_event"
+
+    - selector: speechService.SpeechService.TextToSpeech
+      post: "/api/v2/speech/text_to_speech"
+      body: "*"
+
+    - selector: speechService.SpeechService.SpeechStop
+      post: "/api/v2/speech/speech_stop"
+      body: "*"
+
+    - selector: speechService.SpeechService.WakeUp
+      post: "/api/v2/speech/wake_up"
+      body: "*"
+
+    - selector: speechService.SpeechService.Hibernate
+      post: "/api/v2/speech/hibernate"
+      body: "*"
+
+    - selector: speechService.SpeechService.SetVoiceVolume
+      post: "/api/v2/speech/set_voice_volume"
+      body: "*"
+
+    - selector: speechService.SpeechService.GetVoiceVolume
+      post: "/api/v2/speech/get_voice_volume"
+      body: "*"
+
+    - selector: speechService.SpeechService.SetParams
+      post: "/api/v2/speech/set_params"
+      body: "*"

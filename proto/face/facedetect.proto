@@ -1,34 +1,21 @@
 syntax = "proto3";
 
 package faceRecognition;
-option java_outer_classname = "FaceDetectPb";
 
-import "google/api/annotations.proto";
+option go_package = "facepb";
+
+option java_package = "com.jjrobot.andy4.facepb";
+option java_outer_classname = "FaceDetectPB";
 
 service FaceDetect {
     // FromImage实现对输入图片进行人脸检测，返回检测人脸图片列表
-    rpc FromImage (FromImageRequest) returns (FromImageResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/detect/from_image"
-            body: "*"
-        };
-    }
+    rpc FromImage (FromImageRequest) returns (FromImageResponse) {}
 
     // OnFaceDetect实现动态检测人脸，流式返回检测人脸图片戳列表
-    rpc OnFaceDetect (OnFaceDetectRequest) returns (stream OnFaceDetectResponse) {
-        option (google.api.http) = {
-            // e.g. ws://10.10.10.2:81/api/v2/face/detect/on_face_detect?interval_millisecond=800&with_age=true
-            get: "/api/v2/face/detect/on_face_detect"
-        };
-    }
+    rpc OnFaceDetect (OnFaceDetectRequest) returns (stream OnFaceDetectResponse) {}
 
     // OnFaceSetFaceDetect实现动态检测人脸并与指定FaceSet进行对比，流式返回检测结果
-    rpc OnFaceSetFaceDetect (OnFaceSetFaceDetectRequest) returns (stream OnFaceSetFaceDetectResponse) {
-        option (google.api.http) = {
-            // e.g. ws://10.10.10.2:81/api/v2/face/detect/on_face_set_face_detect?face_set_id=5d673097e9279288b8cfe5df&with_gender=true
-            get: "/api/v2/face/detect/on_face_set_face_detect"
-        };
-    }
+    rpc OnFaceSetFaceDetect (OnFaceSetFaceDetectRequest) returns (stream OnFaceSetFaceDetectResponse) {}
 }
 
 enum Gender {

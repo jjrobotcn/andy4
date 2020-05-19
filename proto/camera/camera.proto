@@ -2,18 +2,17 @@ syntax = "proto3";
 
 package cameraService;
 
-import "google/api/annotations.proto";
+option go_package = "camerapb";
+
+option java_package = "com.jjrobot.andy4.camerapb";
+option java_outer_classname = "CameraServicePB";
 
 service CameraService {
     // 直播流数据, 数据为h264 nal单元
     rpc LiveH264Stream (LiveH264StreamRequest) returns (stream LiveH264StreamResponse) {}
 
     // 获取实时当前最新图片jpg
-    rpc LatestImage(LatestImageRequest) returns (LatestImageResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/camera/image"
-        };
-    }
+    rpc LatestImage(LatestImageRequest) returns (LatestImageResponse) {}
 }
 
 message LiveH264StreamRequest {

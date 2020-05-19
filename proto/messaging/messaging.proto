@@ -2,19 +2,15 @@ syntax = "proto3";
 
 package messagingService;
 
-option java_package = "com.jj-robot.andy4srv.messaging";
+option go_package = "messagingpb";
 
-import "google/api/annotations.proto";
+option java_package = "com.jjrobot.andy4.messagingpb";
+option java_outer_classname = "MessagingServicePB";
 
 // MessagingService消息服务便于开发者在不同设备或应用中实现消息通信广播
 service MessagingService {
     // Messaging为消息发布订阅方法
-    rpc Messaging(stream MessagingRequest) returns(stream MessagingResponse) {
-        option (google.api.http) = {
-            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/messaging/messaging
-            get: "/api/v2/messaging/messaging"
-        };
-    }
+    rpc Messaging(stream MessagingRequest) returns(stream MessagingResponse) {}
 }
 
 // 订阅消息类型

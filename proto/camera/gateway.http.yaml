@@ -1,0 +1,24 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # camera.proto
+    - selector: cameraService.CameraService.LatestImage
+      get: "/api/v2/camera/image"
+
+    # storage.proto
+    - selector: cameraService.Storage.ListDates
+      get: "/api/v2/camera/storage/dates"
+
+    - selector: cameraService.Storage.ListVideos
+      get: "/api/v2/camera/storage/videos"
+
+    - selector: cameraService.Storage.ListVideos
+      post: "/api/v2/camera/storage/videos"
+      body: "*"
+
+    - selector: cameraService.Storage.DeleteVideoFiles
+      post: "/api/v2/camera/storage/videos/delete"
+      body: "*"

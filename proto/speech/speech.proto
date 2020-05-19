@@ -2,74 +2,40 @@ syntax = "proto3";
 
 package speechService;
 
-import "google/api/annotations.proto";
+option go_package = "speechpb";
+
+option java_package = "com.jjrobot.andy4.speechpb";
+option java_outer_classname = "SpeechServicePB";
 
 service SpeechService {
     // ListenSpeechEvent方法为监听语音事件变更状态流, 具体类型参考: SpeechEvent
     // ListenSpeechEventRequest中可配置相关状态消息过滤,
-    rpc ListenSpeechEvent (ListenSpeechEventRequest) returns (stream ListenSpeechEventResponse) {
-        option (google.api.http) = {
-            // e.g. [WebSocket] ws://10.10.10.2:81/api/v2/speech/listen_speech_event
-            get: "/api/v2/speech/listen_speech_event"
-        };
-    }
+    rpc ListenSpeechEvent (ListenSpeechEventRequest) returns (stream ListenSpeechEventResponse) {}
 
     // TextToSpeech(TTS)方法实现文本输入语音合成自动音频输出
-    rpc TextToSpeech (TextToSpeechRequest) returns (TextToSpeechResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/text_to_speech"
-            body: "*"
-        };
-    }
+    rpc TextToSpeech (TextToSpeechRequest) returns (TextToSpeechResponse) {}
 
     // SpeechStop方法实现打断语音功能
-    rpc SpeechStop (SpeechStopRequest) returns (SpeechStopResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/speech_stop"
-        };
-    }
+    rpc SpeechStop (SpeechStopRequest) returns (SpeechStopResponse) {}
 
     // 唤醒
-    rpc WakeUp (WakeUpRequest) returns (WakeUpResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/wake_up"
-            body: "*"
-        };
-    }
+    rpc WakeUp (WakeUpRequest) returns (WakeUpResponse) {}
 
     // 休眠
-    rpc Hibernate (HibernateRequest) returns (HibernateResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/hibernate"
-        };
-    }
+    rpc Hibernate (HibernateRequest) returns (HibernateResponse) {}
 
     // 设置语音音量
     // v2.1.0
-    rpc SetVoiceVolume(SetVoiceVolumeRequest) returns (SetVoiceVolumeResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/set_voice_volume"
-            body: "*"
-        };
-    }
+    rpc SetVoiceVolume(SetVoiceVolumeRequest) returns (SetVoiceVolumeResponse) {}
 
     // 查询语音音量
     // v2.1.0
-    rpc GetVoiceVolume(GetVoiceVolumeRequest) returns (GetVoiceVolumeResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/get_voice_volume"
-        };
-    }
+    rpc GetVoiceVolume(GetVoiceVolumeRequest) returns (GetVoiceVolumeResponse) {}
 
     // 配置参数(当前仅支持AIUI模块)
     // v2.1.0
     // AIUI模块参数配置参考: https://aiui.xfyun.cn/docs/access_docs (开发-评估板/量产板 => AIUI SDK => 参数配置)
-    rpc SetParams(SetParamsRequest) returns (SetParamsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/speech/set_params"
-            body: "*"
-        };
-    }
+    rpc SetParams(SetParamsRequest) returns (SetParamsResponse) {}
 }
 
 enum SpeechEvent {

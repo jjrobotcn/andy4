@@ -1,0 +1,22 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # sensor.proto
+    - selector: sensorService.SensorService.GetDetect
+      # [http:, ws:]
+      get: "/api/v2/sensor/get_detect"
+
+    - selector: sensorService.SensorService.GetMotionInduction
+      # [http:, ws:]
+      get: "/api/v2/sensor/get_motion_induction"
+
+    - selector: sensorService.SensorService.GetTouch
+      # [http:, ws:]
+      get: "/api/v2/sensor/get_touch"
+
+    - selector: sensorService.SensorService.Raw
+      # [http:, ws:]
+      get: "/api/v2/sensor/raw"

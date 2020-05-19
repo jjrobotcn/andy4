@@ -1,0 +1,60 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # face.proto
+    - selector: faceRecognition.FaceService.Compare
+      post: "/api/v2/face/compare"
+      body: "*"
+
+    - selector: faceRecognition.FaceService.Search
+      post: "/api/v2/face/search"
+      body: "*"
+
+    # facedetect.proto
+    - selector: faceRecognition.FaceDetect.FromImage
+      post: "/api/v2/face/detect/from_image"
+      body: "*"
+
+    - selector: faceRecognition.FaceDetect.OnFaceDetect
+      # [http:, ws:]
+      get: "/api/v2/face/detect/on_face_detect"
+
+    - selector: faceRecognition.FaceDetect.OnFaceSetFaceDetect
+      # [http:, ws:]
+      get: "/api/v2/face/detect/on_face_set_face_detect"
+
+    # faceset.proto
+    - selector: faceRecognition.FaceSetService.NewFaceSet
+      post: "/api/v2/face/face-set/new_face_set"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.DeleteFaceSet
+      post: "/api/v2/face/face-set/delete_face_set"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.UpdateFaceSet
+      post: "/api/v2/face/face-set/update_face_set"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.ListFaceSets
+      post: "/api/v2/face/face-set/list_face_sets"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.AddFace
+      post: "/api/v2/face/face-set/add_face"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.RemoveFace
+      post: "/api/v2/face/face-set/remove_face"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.FaceDetail
+      post: "/api/v2/face/face-set/face_detail"
+      body: "*"
+
+    - selector: faceRecognition.FaceSetService.ListFaceDetails
+      post: "/api/v2/face/face-set/list_face_details"
+      body: "*"

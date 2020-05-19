@@ -1,0 +1,10 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # messaging.proto
+    - selector: messagingService.MessagingService.Messaging
+      # [ws:]
+      get: "/api/v2/messaging/messaging"

@@ -2,69 +2,37 @@ syntax = "proto3";
 
 package expressionService;
 
-import "google/api/annotations.proto";
+option go_package = "expressionpb";
+
+option java_package = "com.jjrobot.andy4.expressionpb";
+option java_outer_classname = "ExpressionServicePB";
 
 service ExpressionService {
     // 播放表情
-    rpc PlayExpressions (PlayExpressionsRequest) returns (PlayExpressionsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/expression/play_expressions"
-            body: "*"
-        };
-    }
+    rpc PlayExpressions (PlayExpressionsRequest) returns (PlayExpressionsResponse) {}
 
     // 停止表情
-    rpc StopExpression (StopExpressionRequest) returns (StopExpressionResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/expression/stop_expression"
-            body: "*"
-        };
-    }
+    rpc StopExpression (StopExpressionRequest) returns (StopExpressionResponse) {}
 
     // 上传表情
-    rpc UploadExpressionFile (UploadExpressionFileRequest) returns (UploadExpressionFileResponse) {
-    }
+    rpc UploadExpressionFile (UploadExpressionFileRequest) returns (UploadExpressionFileResponse) {}
 
     // 表情重命名
     // >= v1.1.0
-    rpc Rename (RenameRequest) returns (RenameResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/expression/rename"
-            body: "*"
-        };
-    }
+    rpc Rename (RenameRequest) returns (RenameResponse) {}
 
     // 获取表情数据
-    rpc ListExpressions (ListExpressionsRequest) returns (ListExpressionsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/expression/list_expressions"
-            body: "*"
-        };
-    }
+    rpc ListExpressions (ListExpressionsRequest) returns (ListExpressionsResponse) {}
 
     // 删除表情
-    rpc DeleteExpressions (DeleteExpressionsRequest) returns (DeleteExpressionsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/expression/delete_expressions"
-            body: "*"
-        };
-    }
+    rpc DeleteExpressions (DeleteExpressionsRequest) returns (DeleteExpressionsResponse) {}
 
     // 获取当前表情模块状态
-    rpc State(StateRequest) returns (StateResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/expression/state"
-        };
-    }
+    rpc State(StateRequest) returns (StateResponse) {}
 
     // 控制表情的开关
     // 关闭时表现为黑屏
-    rpc Switch(SwitchRequest) returns (SwitchResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/expression/switch"
-            body: "*"
-        };
-    }
+    rpc Switch(SwitchRequest) returns (SwitchResponse) {}
 }
 
 // 表情对象

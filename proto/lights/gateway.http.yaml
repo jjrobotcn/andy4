@@ -1,0 +1,41 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # lights.proto
+    - selector: lightsService.LightsService.PreviewLight
+      post: "/api/v2/lights/preview_light"
+      body: "*"
+
+    - selector: lightsService.LightsService.PlayLight
+      post: "/api/v2/lights/play_light"
+      body: "*"
+
+    - selector: lightsService.LightsService.StopLight
+      post: "/api/v2/lights/stop_light"
+      body: "*"
+
+    - selector: lightsService.LightsService.ListLights
+      post: "/api/v2/lights/list_lights"
+      body: "*"
+
+    - selector: lightsService.LightsService.NewLight
+      post: "/api/v2/lights/new_light"
+      body: "*"
+
+    - selector: lightsService.LightsService.UpdateLight
+      post: "/api/v2/lights/update_light"
+      body: "*"
+
+    - selector: lightsService.LightsService.DeleteLights
+      post: "/api/v2/lights/delete_lights"
+      body: "*"
+
+    - selector: lightsService.LightsService.State
+      get: "/api/v2/lights/state"
+
+    - selector: lightsService.LightsService.Switch
+      post: "/api/v2/lights/switch"
+      body: "*"

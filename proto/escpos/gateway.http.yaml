@@ -1,0 +1,38 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # escpos.proto
+    - selector: escposService.EscPosService.PrintRaw
+      post: "/api/v2/esc_pos/print_raw"
+      body: "*"
+
+    - selector: escposService.EscPosService.PrintElements
+      post: "/api/v2/esc_pos/print_elements"
+      body: "*"
+
+    - selector: escposService.EscPosService.PrintHtmlTemplate
+      post: "/api/v2/esc_pos/print_html_template"
+      body: "*"
+
+    - selector: escposService.EscPosService.NewHtmlTemplate
+      post: "/api/v2/esc_pos/new_html_template"
+      body: "*"
+
+    - selector: escposService.EscPosService.ListHtmlTemplates
+      post: "/api/v2/esc_pos/list_html_templates"
+      body: "*"
+
+    - selector: escposService.EscPosService.GetHtmlTemplate
+      post: "/api/v2/esc_pos/get_html_template"
+      body: "*"
+
+    - selector: escposService.EscPosService.UpdateHtmlTemplate
+      post: "/api/v2/esc_pos/update_html_template"
+      body: "*"
+
+    - selector: escposService.EscPosService.DeleteHtmlTemplates
+      post: "/api/v2/esc_pos/delete_html_templates"
+      body: "*"

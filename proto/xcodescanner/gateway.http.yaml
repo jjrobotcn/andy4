@@ -1,0 +1,10 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # xcodescanner.proto
+    - selector: xcScannerService.XCodeScannerService.GetScanData
+      # [http:, ws:]
+      get: "/api/v2/xcodescanner/get_scan_data"

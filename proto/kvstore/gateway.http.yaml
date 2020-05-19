@@ -1,0 +1,34 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # kvstore.proto
+    - selector: kvstore.KVStore.Put
+      post: "/api/v2/kvstore/put"
+      body: "*"
+
+    - selector: kvstore.KVStore.Get
+      # [http:, ws:]
+      get: "/api/v2/kvstore/get"
+
+    - selector: kvstore.KVStore.Get
+      post: "/api/v2/kvstore/get"
+      body: "*"
+
+    - selector: kvstore.KVStore.GetPrefix
+      # [http:, ws:]
+      get: "/api/v2/kvstore/get_prefix"
+
+    - selector: kvstore.KVStore.GetPrefix
+      post: "/api/v2/kvstore/get_prefix"
+      body: "*"
+
+    - selector: kvstore.KVStore.GetPrefixStream
+      # [http:, ws:]
+      get: "/api/v2/kvstore/get_prefix_stream"
+
+    - selector: kvstore.KVStore.Delete
+      post: "/api/v2/kvstore/delete"
+      body: "*"

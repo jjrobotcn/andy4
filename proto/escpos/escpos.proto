@@ -2,75 +2,38 @@ syntax = "proto3";
 
 package escposService;
 
-import "google/api/annotations.proto";
+option go_package = "escpospb";
+
+option java_package = "com.jjrobot.andy4.escpospb";
+option java_outer_classname = "EscPosServicePB";
 
 service EscPosService {
     // 打印bytes数据
     // 打印模板与打印对象方式不满足业务需求
     // 或希望接入其它已外部业务实现的打印组件时, 可通过此方法直接
     // 传入打印内容
-    rpc PrintRaw (PrintRawRequest) returns (PrintRawResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/print_raw"
-            body: "*"
-        };
-    }
+    rpc PrintRaw (PrintRawRequest) returns (PrintRawResponse) {}
 
     // 打印对象
-    rpc PrintElements (PrintElementsRequest) returns (PrintElementsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/print_elements"
-            body: "*"
-        };
-    }
+    rpc PrintElements (PrintElementsRequest) returns (PrintElementsResponse) {}
 
     // 打印预设的html模板内容
-    rpc PrintHtmlTemplate (PrintHtmlTemplateRequest) returns (PrintHtmlTemplateResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/print_html_template"
-            body: "*"
-        };
-    }
+    rpc PrintHtmlTemplate (PrintHtmlTemplateRequest) returns (PrintHtmlTemplateResponse) {}
 
     // 创建html模板
-    rpc NewHtmlTemplate (NewHtmlTemplateRequest) returns (NewHtmlTemplateResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/new_html_template"
-            body: "*"
-        };
-    }
+    rpc NewHtmlTemplate (NewHtmlTemplateRequest) returns (NewHtmlTemplateResponse) {}
 
     // 获取html模板列表
-    rpc ListHtmlTemplates (ListHtmlTemplatesRequest) returns (ListHtmlTemplatesResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/list_html_templates"
-            body: "*"
-        };
-    }
+    rpc ListHtmlTemplates (ListHtmlTemplatesRequest) returns (ListHtmlTemplatesResponse) {}
 
     // 获取指定html模板内容
-    rpc GetHtmlTemplate (GetHtmlTemplateRequest) returns (GetHtmlTemplateResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/get_html_template"
-            body: "*"
-        };
-    }
+    rpc GetHtmlTemplate (GetHtmlTemplateRequest) returns (GetHtmlTemplateResponse) {}
 
     // 更新html模板
-    rpc UpdateHtmlTemplate (UpdateHtmlTemplateRequest) returns (UpdateHtmlTemplateResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/update_html_template"
-            body: "*"
-        };
-    }
+    rpc UpdateHtmlTemplate (UpdateHtmlTemplateRequest) returns (UpdateHtmlTemplateResponse) {}
 
     // 删除html模板
-    rpc DeleteHtmlTemplates (DeleteHtmlTemplatesRequest) returns (DeleteHtmlTemplatesResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/esc_pos/delete_html_templates"
-            body: "*"
-        };
-    }
+    rpc DeleteHtmlTemplates (DeleteHtmlTemplatesRequest) returns (DeleteHtmlTemplatesResponse) {}
 }
 
 // 打印bytes数据请求

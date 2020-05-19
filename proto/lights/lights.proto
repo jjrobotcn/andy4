@@ -2,83 +2,41 @@ syntax = "proto3";
 
 package lightsService;
 
-import "google/api/annotations.proto";
+option go_package = "lightspb";
+
+option java_package = "com.jjrobot.andy4.lightspb";
+option java_outer_classname = "LightsServicePB";
 
 service LightsService {
     // 预览灯光
     // 创建灯光后使用此方法生成灯光文件
     // 在未生成灯光文件前调用PlayLight将无效
-    rpc PreviewLight (PreviewLightRequest) returns (PreviewLightResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/preview_light"
-            body: "*"
-        };
-    }
+    rpc PreviewLight (PreviewLightRequest) returns (PreviewLightResponse) {}
 
     // 播放灯光
     // 需在播放前执行PreviewLight生成灯光文件
-    rpc PlayLight (PlayLightRequest) returns (PlayLightResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/play_light"
-            body: "*"
-        };
-    }
+    rpc PlayLight (PlayLightRequest) returns (PlayLightResponse) {}
 
     // 停止灯光
-    rpc StopLight (StopLightRequest) returns (StopLightResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/stop_light"
-            body: "*"
-        };
-    }
+    rpc StopLight (StopLightRequest) returns (StopLightResponse) {}
 
     // 获取灯光数据
-    rpc ListLights (ListLightsRequest) returns (ListLightsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/list_lights"
-            body: "*"
-        };
-    }
+    rpc ListLights (ListLightsRequest) returns (ListLightsResponse) {}
 
     // 创建灯光
-    rpc NewLight (NewLightRequest) returns (NewLightResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/new_light"
-            body: "*"
-        };
-    }
+    rpc NewLight (NewLightRequest) returns (NewLightResponse) {}
 
     // 更新灯光数据
-    rpc UpdateLight (UpdateLightRequest) returns (UpdateLightResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/update_light"
-            body: "*"
-        };
-    }
+    rpc UpdateLight (UpdateLightRequest) returns (UpdateLightResponse) {}
 
     // 删除灯光
-    rpc DeleteLights (DeleteLightsRequest) returns (DeleteLightsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/delete_lights"
-            body: "*"
-        };
-    }
+    rpc DeleteLights (DeleteLightsRequest) returns (DeleteLightsResponse) {}
 
     // 获取当前灯光模块状态
-    rpc State(StateRequest) returns (StateResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/lights/state"
-        };
-    }
+    rpc State(StateRequest) returns (StateResponse) {}
 
     // 控制灯光的开关
-    rpc Switch(SwitchRequest) returns (SwitchResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/lights/switch"
-            body: "*"
-        };
-    }
-
+    rpc Switch(SwitchRequest) returns (SwitchResponse) {}
 }
 
 // 灯光类型

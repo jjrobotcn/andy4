@@ -1,0 +1,58 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # nav.proto
+    - selector: navService.NavController.Move
+      # [ws:]
+      get: "/api/v2/nav/move"
+
+    - selector: navService.NavController.NavTo
+      post: "/api/v2/nav/nav_to"
+      body: "*"
+
+    - selector: navService.NavController.NavStop
+      post: "/api/v2/nav/nav_stop"
+      body: "*"
+
+    - selector: navService.NavController.AutoCharge
+      post: "/api/v2/nav/auto_charge"
+      body: "*"
+
+    - selector: navService.NavController.Rotate
+      post: "/api/v2/nav/rotate"
+      body: "*"
+
+    - selector: navService.NavController.OnNavEventChange
+      # [http:, ws:]
+      get: "/api/v2/nav/on_nav_event_change"
+
+    - selector: navService.NavController.NewRoute
+      post: "/api/v2/nav/new_route"
+      body: "*"
+
+    - selector: navService.NavController.ListRoutes
+      post: "/api/v2/nav/list_routes"
+      body: "*"
+
+    - selector: navService.NavController.UpdateRoute
+      post: "/api/v2/nav/update_route"
+      body: "*"
+
+    - selector: navService.NavController.DeleteRoutes
+      post: "/api/v2/nav/delete_routes"
+      body: "*"
+
+    # map.proto
+    - selector: navService.Map.GetMapInfo
+      get: "/api/v2/nav/get_map_info"
+
+    - selector: navService.Map.MapPositionStream
+      # [http:, ws:]
+      get: "/api/v2/nav/map_position_stream"
+
+    - selector: navService.Map.LocationReset
+      post: "/api/v2/nav/location_reset"
+      body: "*"

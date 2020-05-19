@@ -2,25 +2,18 @@ syntax = "proto3";
 
 package faceRecognition;
 
-import "google/api/annotations.proto";
+option go_package = "facepb";
+
+option java_package = "com.jjrobot.andy4.facepb";
+option java_outer_classname = "FaceServicePB";
 
 service FaceService {
     // Compare方法实现了两张人脸图片对比识别，返回两图片的对比可信度
-    rpc Compare(CompareRequest) returns (CompareResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/compare"
-            body: "*"
-        };
-    }
+    rpc Compare(CompareRequest) returns (CompareResponse) {}
 
     // Search方法实现搜索FaceSet中近似人脸数据，
     // 若存在匹配数据时返回一个FaceDetail及其confidence
-    rpc Search(SearchRequest) returns (SearchResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/face/search"
-            body: "*"
-        };
-    }
+    rpc Search(SearchRequest) returns (SearchResponse) {}
 }
 
 message CompareRequest {

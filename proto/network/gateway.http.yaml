@@ -1,0 +1,26 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # network.proto
+    - selector: networkService.NetworkService.ListNetworks
+      # [http:, ws:]
+      get: "/api/v2/network/list_networks"
+
+    - selector: networkService.NetworkService.Connect
+      post: "/api/v2/network/connect"
+      body: "*"
+
+    - selector: networkService.NetworkService.GetStatus
+      # [http:, ws:]
+      get: "/api/v2/network/get_status"
+
+    - selector: networkService.NetworkService.GetNetworkDeviceInfo
+      post: "/api/v2/network/get_network_device_info"
+      body: "*"
+
+    - selector: networkService.NetworkService.UpdateNetworkDeviceInfo
+      post: "/api/v2/network/update_network_device_info"
+      body: "*"

@@ -1,0 +1,42 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # headmotion.proto
+    - selector: motionService.MotionService.MoveTo
+      post: "/api/v2/motion/move_to"
+      body: "*"
+
+    - selector: motionService.MotionService.PositioningData
+      # [http:, ws:]
+      get: "/api/v2/motion/positioning_data"
+
+    - selector: motionService.MotionService.GetPosition
+      post: "/api/v2/motion/get_position"
+      body: "*"
+
+    - selector: motionService.MotionService.NewGroup
+      post: "/api/v2/motion/new_group"
+      body: "*"
+
+    - selector: motionService.MotionService.ListGroups
+      post: "/api/v2/motion/list_groups"
+      body: "*"
+
+    - selector: motionService.MotionService.UpdateGroup
+      post: "/api/v2/motion/update_group"
+      body: "*"
+
+    - selector: motionService.MotionService.DeleteGroups
+      post: "/api/v2/motion/delete_groups"
+      body: "*"
+
+    - selector: motionService.MotionService.ListGroupTargets
+      post: "/api/v2/motion/list_group_targets"
+      body: "*"
+
+    - selector: motionService.MotionService.UpdateGroupTargets
+      post: "/api/v2/motion/update_group_targets"
+      body: "*"

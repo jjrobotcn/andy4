@@ -2,7 +2,11 @@ syntax = "proto3";
 
 package navService;
 
-import "google/api/annotations.proto";
+option go_package = "navpb";
+
+option java_package = "com.jjrobot.andy4.navpb";
+option java_outer_classname = "NavControllerPB";
+
 import "map.proto";
 
 service NavController {
@@ -12,34 +16,19 @@ service NavController {
     // 当机器人处于 *你* 的遥控移动状态时, 请在500ms内持续发送遥控指令， 超时将自动停止移动
     // 当机器人处于 *你* 的遥控移动状态时, 若5秒后无遥控指令的更新, *你* 将接收到MoveStatusResponse状态码RELEASED，
     // 此时遥控移动控制权交由抢占的 *其它用户* 或其它类型目标的操作
-    rpc Move (stream MoveRequest) returns (stream MoveResponse) {
-        option (google.api.http) = {
-            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/nav/move
-            get: "/api/v2/nav/move"
-        };
-}
+    rpc Move (stream MoveRequest) returns (stream MoveResponse) {}
 
     // 导航
     // 当机器人处理遥控移动中|充电中|旋转中时, 错误描述为: "[moving|charging|rotating] reject"
     // 当机器人处理空闲或导航状态时, 将收到导航的目标NavTarget与导航或失败状态
     // 使用目标导航时支持同步异步模式, 参考NavToRequest.sync_mode的参数描述
-    rpc NavTo (NavToRequest) returns (NavToResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/nav_to"
-            body: "*"
-        };
-    }
+    rpc NavTo (NavToRequest) returns (NavToResponse) {}
 
     // 停止
     // 静止: 立即返回STOPPED
     // 旋转中: 返回旋转状态, STOPPED或CANCEL, 超时3秒
     // 其它: 错误描述为: "[moving|charging] reject"
-    rpc NavStop (NavStopRequest) returns (NavStopResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/nav_stop"
-            body: "*"
-        };
-    }
+    rpc NavStop (NavStopRequest) returns (NavStopResponse) {}
 
     // 自动充电
     // 当前为充电中|充电连接中: 请求类型为charge|charge_preset等待状态为CHARGE_STATUS_CHARGING|CHARGE_STATUS_CONNECTING|CHARGE_STATUS_RELEASED后返回
@@ -47,65 +36,29 @@ service NavController {
     // 当前为已释放: 请求类型为cancel将直接返回CHARGE_STATUS_RELEASED
     // 当前为已释放: 请求类型为charge|charge_preset等待状态为CHARGE_STATUS_CHARGING后返回
     // 超时错误: 发送请求后默认60秒后未收到状态更新返回错误描述, 超时时间可在AutoChargeRequest中自定义配置
-    rpc AutoCharge (AutoChargeRequest) returns (AutoChargeResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/auto_charge"
-            body: "*"
-        };
-    }
+    rpc AutoCharge (AutoChargeRequest) returns (AutoChargeResponse) {}
 
     // 原地旋转
     // 当旋转完成后返回STOPPED
     // 当用户使用NavStop中止时将返回CANCEL
     // 若超时30秒未执行完毕将返回超时错误
-    rpc Rotate (RotateRequest) returns (RotateResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/rotate"
-            body: "*"
-        };
-    }
+    rpc Rotate (RotateRequest) returns (RotateResponse) {}
 
     // 导航事件监听
     // 监听导航模块中各类事件的变动更新
-    rpc OnNavEventChange (OnNavEventChangeRequest) returns (stream OnNavEventChangeResponse) {
-        option (google.api.http) = {
-            // e.g. [Websocket] ws://10.10.10.2:81/api/v2/nav/on_nav_event_change
-            get: "/api/v2/nav/on_nav_event_change"
-        };
-    }
+    rpc OnNavEventChange (OnNavEventChangeRequest) returns (stream OnNavEventChangeResponse) {}
 
     // 新建线路
-    rpc NewRoute (NewRouteRequest) returns (NewRouteResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/new_route"
-            body: "*"
-        };
-    }
+    rpc NewRoute (NewRouteRequest) returns (NewRouteResponse) {}
 
     // 获取线路
-    rpc ListRoutes (ListRoutesRequest) returns (ListRoutesResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/list_routes"
-            body: "*"
-        };
-    }
+    rpc ListRoutes (ListRoutesRequest) returns (ListRoutesResponse) {}
 
     // 更新线路信息
-    rpc UpdateRoute (UpdateRouteRequest) returns (UpdateRouteResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/update_route"
-            body: "*"
-        };
-    }
+    rpc UpdateRoute (UpdateRouteRequest) returns (UpdateRouteResponse) {}
 
     // 删除线路
-    rpc DeleteRoutes (DeleteRoutesRequest) returns (DeleteRoutesResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/nav/delete_routes"
-            body: "*"
-        };
-    }
-
+    rpc DeleteRoutes (DeleteRoutesRequest) returns (DeleteRoutesResponse) {}
 }
 
 enum StatusCode {

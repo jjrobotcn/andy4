@@ -2,38 +2,23 @@ syntax = "proto3";
 
 package cameraService;
 
-import "google/api/annotations.proto";
+option go_package = "camerapb";
+
+option java_package = "com.jjrobot.andy4.camerapb";
+option java_outer_classname = "StoragePB";
 
 service Storage {
     // 获取监控视频日期列表
-    rpc ListDates(ListDatesRequest) returns (ListDatesResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/camera/storage/dates"
-        };
-    }
+    rpc ListDates(ListDatesRequest) returns (ListDatesResponse) {}
 
     // 获取监控视频列表
-    rpc ListVideos(ListVideosRequest) returns (ListVideosResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/camera/storage/videos"
-
-            additional_bindings {
-                post: "/api/v1/camera/storage/videos"
-                body: "*"
-            }
-        };
-    }
+    rpc ListVideos(ListVideosRequest) returns (ListVideosResponse) {}
 
     // 获取监控视频文件
     rpc GetVideoFile(GetVideoFileRequest) returns (stream GetVideoFileResponse) {}
 
     // 删除监控视频文件
-    rpc DeleteVideoFiles(DeleteVideoFilesRequest) returns (DeleteVideoFilesResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/camera/storage/videos/delete"
-            body: "*"
-        };
-    }
+    rpc DeleteVideoFiles(DeleteVideoFilesRequest) returns (DeleteVideoFilesResponse) {}
 }
 
 message ListDatesRequest {}
