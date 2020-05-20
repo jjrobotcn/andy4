@@ -7,34 +7,53 @@ option go_package = "speechpb";
 option java_package = "com.jjrobot.andy4.speechpb";
 option java_outer_classname = "SpeechServicePB";
 
+// speechService.SpeechService 语音服务
+//
+// 开发管理平台功能参考: http://10.10.10.2/speech
 service SpeechService {
-    // ListenSpeechEvent方法为监听语音事件变更状态流, 具体类型参考: SpeechEvent
-    // ListenSpeechEventRequest中可配置相关状态消息过滤,
+    // ListenSpeechEvent 监听语音事件
+    //
+    // 语音内容识别支持单句多次返回，请留意完整句标识
+    //
+    // 详见SpeechEvent
     rpc ListenSpeechEvent (ListenSpeechEventRequest) returns (stream ListenSpeechEventResponse) {}
 
-    // TextToSpeech(TTS)方法实现文本输入语音合成自动音频输出
+    // TextToSpeech 文本转语音
+    //
+    // 新的TTS请求将立即中断当前语音，
+    // 需要结束后播放新语音应监听TTS_END事件后再进行新的请求。
+    //
+    // TTS方法支持在休眠状态下调用
     rpc TextToSpeech (TextToSpeechRequest) returns (TextToSpeechResponse) {}
 
-    // SpeechStop方法实现打断语音功能
+    // SpeechStop 中止语音
+    //
+    // 通过此方法进行打断不会产生TTS_END事件
     rpc SpeechStop (SpeechStopRequest) returns (SpeechStopResponse) {}
 
-    // 唤醒
+    // WakeUp 唤醒
+    //
+    // 唤醒后开始监听语音输入
     rpc WakeUp (WakeUpRequest) returns (WakeUpResponse) {}
 
-    // 休眠
+    // Hibernate 休眠
+    //
+    // 休眠后不再监听语音输入
     rpc Hibernate (HibernateRequest) returns (HibernateResponse) {}
 
-    // 设置语音音量
-    // v2.1.0
+    // SetVoiceVolume 设置语音音量
     rpc SetVoiceVolume(SetVoiceVolumeRequest) returns (SetVoiceVolumeResponse) {}
 
-    // 查询语音音量
-    // v2.1.0
+    // GetVoiceVolume 查询语音音量
     rpc GetVoiceVolume(GetVoiceVolumeRequest) returns (GetVoiceVolumeResponse) {}
 
-    // 配置参数(当前仅支持AIUI模块)
-    // v2.1.0
-    // AIUI模块参数配置参考: https://aiui.xfyun.cn/docs/access_docs (开发-评估板/量产板 => AIUI SDK => 参数配置)
+    // SetParams 配置参数
+    //
+    // 此方法通常为开发用户在开发过程中进行一次性配置
+    // 不建议不了解该配置文件的用户进行参数设置
+    //
+    // AIUI模块参数配置参考:
+    //    https://doc.iflyos.cn/aiui/sdk/smart_doc/config_file.html#配置文件
     rpc SetParams(SetParamsRequest) returns (SetParamsResponse) {}
 }
 
@@ -62,103 +81,121 @@ enum ErrorType {
 
 message ErrorInfo {
     ErrorType error_type = 1; // 错误类型
-    string info = 2; // 错误描述（设备提供， 可能为空）
-    string code = 3; // 错误码（设备提供， 可能为空）
+    string info = 2; // 错误描述（设备提供，可为空）
+    string code = 3; // 错误码（设备提供，可为空）
 }
 
-// 语音检测
+// 语音检测类型
 enum VadType {
-    UNKNOWM_VAD_TYPE = 0;
+    UNKNOWN_VAD_TYPE = 0;
     START = 1; // 开始
     END = 2; // 结束
     TIMEOUT = 3; // 检测超时
     VOLUME_CHANGE = 4; // 音量改变
 }
 message VadInfo {
+    // 语音检测类型
     VadType vad_type = 1;
-    uint32 vol = 2; // 检测音量(VadType == VOLUME_CHANGE时此值有效) 0-100
+
+    // 检测音量
+    // VadType == VOLUME_CHANGE时此值有效
+    // 0-100
+    uint32 vol = 2;
 }
 
 // 唤醒相关数据
 message WakeUpInfo {
-    int32 angle = 1; // 唤醒角度, 麦克风朝向用户自身左(0)至右(180), 非语音唤醒为-1
-    int32 beam = 2; // 拾音波束号, 非语音唤醒为-1
+    // 唤醒角度
+    // 麦克风朝向用户自身左(0)至右(180),
+    // 非语音唤醒时此值为-1
+    int32 angle = 1;
+
+    // 拾音波束号
+    // 非语音唤醒时此值为-1
+    int32 beam = 2;
 }
 
 // 识别结果
 message ResultInfo {
-    repeated string words = 1; // 分词结果
-    bool sentence_complete = 2; // 是否为完整句
+    // 分词结果
+    repeated string words = 1;
+
+    // 是否为完整句
+    bool sentence_complete = 2;
 }
 
 message ListenSpeechEventRequest {
     // 是否获取vad状态传入语音音量动态变化
-    // 启用与否不影响获取Vad_START, Vad_END
+    // 启用与否不影响获取Vad_START, Vad_END，
     // 仅影响Vad_VOLUME_CHANGE
     bool with_vad_vol = 1;
 }
 
 message ListenSpeechEventResponse {
+    // 事件类型
     SpeechEvent event_type = 1;
+
     oneof speech_event_oneof {
+        // 唤醒
         WakeUpInfo wake_up_info = 2;
+        // 语音检测
         VadInfo vad_info = 3;
+        // 识别结果
         ResultInfo result_info = 4;
+        // 错误
         ErrorInfo error_info = 5;
     }
 }
 
 message TextToSpeechRequest {
+    // 语音内容
     string text = 1;
 }
 
-message TextToSpeechResponse {
-}
+message TextToSpeechResponse {}
 
-message SpeechStopRequest {
-}
+message SpeechStopRequest {}
 
-message SpeechStopResponse {
-}
+message SpeechStopResponse {}
 
 message WakeUpRequest {
     string after_wake_up_speech_text = 1; // 唤醒后语音文本
 }
 
-message WakeUpResponse {
-}
+message WakeUpResponse {}
 
-message HibernateRequest {
-}
+message HibernateRequest {}
 
-message HibernateResponse {
-}
+message HibernateResponse {}
 
 // 音量信息
 message VoiceVolumeInfo {
     // 音量值 0-10
-    // aiui模块硬件限制值: 2-10
+    //   AIUI限制值: 2-10
     uint32 vol = 1;
 }
 
 message SetVoiceVolumeRequest {
+    // 音量信息
     VoiceVolumeInfo voice_volume_info = 1;
 }
 
 message SetVoiceVolumeResponse {
+    // 音量信息
     VoiceVolumeInfo voice_volume_info = 1;
 }
 
-message GetVoiceVolumeRequest {
-}
+message GetVoiceVolumeRequest {}
 
 message GetVoiceVolumeResponse {
+    // 音量信息
     VoiceVolumeInfo voice_volume_info = 1;
 }
 
 message SetParamsRequest {
+    // 参数配置内容
+    // 此内容将进行透明转发，不会进行校验
     bytes params = 1;
 }
 
-message SetParamsResponse {
-}
+message SetParamsResponse {}

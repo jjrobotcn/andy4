@@ -7,9 +7,11 @@ option go_package = "messagingpb";
 option java_package = "com.jjrobot.andy4.messagingpb";
 option java_outer_classname = "MessagingServicePB";
 
-// MessagingService消息服务便于开发者在不同设备或应用中实现消息通信广播
+// messagingService.MessagingService 消息服务
+//
+// 用于扩展内部应用的消息通信广播
 service MessagingService {
-    // Messaging为消息发布订阅方法
+    // Messaging 消息的发布与订阅方法
     rpc Messaging(stream MessagingRequest) returns(stream MessagingResponse) {}
 }
 

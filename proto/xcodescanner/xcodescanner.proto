@@ -7,13 +7,17 @@ option go_package = "xcodescannerpb";
 option java_package = "com.jjrobot.andy4.xcodescannerpb";
 option java_outer_classname = "XCodeScannerServicePB";
 
+// xcScannerService.XCodeScannerService 扫码设备
 service XCodeScannerService {
+    // GetScanData 监听扫码设备数据
+    //
+    // 支持读取常用的二维码，BarCode
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/xcode_scanner
     rpc GetScanData (GetScanDataRequest) returns (stream GetScanDataResponse) {}
 }
 
-message GetScanDataRequest {
-
-}
+message GetScanDataRequest {}
 
 // 扫码结果
 message GetScanDataResponse {

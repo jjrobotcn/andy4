@@ -7,24 +7,33 @@ option go_package = "camerapb";
 option java_package = "com.jjrobot.andy4.camerapb";
 option java_outer_classname = "StoragePB";
 
+// cameraService.Storage 管理主摄像头监控数据存储
+// 此服务限制为仅内网使用
+//
+// 开发管理平台功能参考: http://10.10.10.2/camera/storage/dates
 service Storage {
-    // 获取监控视频日期列表
+    // ListDates 获取监控存储的视频日期列表
     rpc ListDates(ListDatesRequest) returns (ListDatesResponse) {}
 
-    // 获取监控视频列表
+    // ListVideos 获取时间范围内的监控视频列表
+    //
+    // 未配置时间范围将默认获取当日时间
     rpc ListVideos(ListVideosRequest) returns (ListVideosResponse) {}
 
-    // 获取监控视频文件
+    // GetVideoFile 获取监控视频文件
+    //
+    // HTTP中可使用文件服务器方法处理，支持HTTP Range
+    // http://10.10.10.2(:81)/api/v2/camera/storage/videos/2020-01-02/15:04:05.mp4(?token=)
     rpc GetVideoFile(GetVideoFileRequest) returns (stream GetVideoFileResponse) {}
 
-    // 删除监控视频文件
+    // DeleteVideoFiles 删除多个监控视频文件
     rpc DeleteVideoFiles(DeleteVideoFilesRequest) returns (DeleteVideoFilesResponse) {}
 }
 
 message ListDatesRequest {}
 
 message ListDatesResponse {
-    // 日期 e.g. [2019-01-01, 2019-01-02]
+    // 日期列表 e.g. [2019-01-01, 2019-01-02]
     repeated string dates = 1;
 }
 
@@ -41,7 +50,7 @@ message ListVideosRequest {
 }
 
 message ListVideosResponse {
-    // e.g. [2019-01-01/00:00:00.mp4, 2019-01-01/00:10:00.mp4]
+    // 视频列表 e.g. [2019-01-01/00:00:00.mp4, 2019-01-01/00:10:00.mp4]
     repeated string videos = 1;
 }
 
@@ -59,6 +68,4 @@ message DeleteVideoFilesRequest {
     repeated string videos = 1;
 }
 
-message DeleteVideoFilesResponse {
-
-}
+message DeleteVideoFilesResponse {}

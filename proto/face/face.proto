@@ -7,12 +7,17 @@ option go_package = "facepb";
 option java_package = "com.jjrobot.andy4.facepb";
 option java_outer_classname = "FaceServicePB";
 
+// faceRecognition.FaceService 人脸服务
 service FaceService {
-    // Compare方法实现了两张人脸图片对比识别，返回两图片的对比可信度
+    // Compare 实现两张人脸图片对比识别，返回两张人脸图片对比的可信度
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/face/compare
     rpc Compare(CompareRequest) returns (CompareResponse) {}
 
-    // Search方法实现搜索FaceSet中近似人脸数据，
-    // 若存在匹配数据时返回一个FaceDetail及其confidence
+    // Search 从FaceSet中搜索近似人脸数据
+    // 若存在匹配数据时返回一个FaceDetail及可信度
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/face/compare
     rpc Search(SearchRequest) returns (SearchResponse) {}
 }
 

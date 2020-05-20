@@ -9,55 +9,60 @@ option java_outer_classname = "NavControllerPB";
 
 import "map.proto";
 
+// navService.NavController 导航控制器
+//
+// 导航控制器以充电为最高优先级，处于充电相关时，一切其它控制请求均返回Reject错误，
+// 需取得控制权时，请取消充电以恢复控制。
+//
+// 开发管理平台功能参考: http://10.10.10.2/nav
 service NavController {
-    // 遥控移动
-    // 当机器人处于非空闲及遥控移动状态时， 当前链接将被强制关闭, 错误描述为: "[naving|charging|rotating] reject"
-    // 当机器人处于 *其它用户* 的遥控移动状态时， *你* 将收到MoveStatusResponse状态码REJ_MOVING
-    // 当机器人处于 *你* 的遥控移动状态时, 请在500ms内持续发送遥控指令， 超时将自动停止移动
-    // 当机器人处于 *你* 的遥控移动状态时, 若5秒后无遥控指令的更新, *你* 将接收到MoveStatusResponse状态码RELEASED，
-    // 此时遥控移动控制权交由抢占的 *其它用户* 或其它类型目标的操作
+    // Move 遥控移动
+    //
+    // 遥控移动需持续发送移动指令，通常为300ms
     rpc Move (stream MoveRequest) returns (stream MoveResponse) {}
 
-    // 导航
-    // 当机器人处理遥控移动中|充电中|旋转中时, 错误描述为: "[moving|charging|rotating] reject"
-    // 当机器人处理空闲或导航状态时, 将收到导航的目标NavTarget与导航或失败状态
-    // 使用目标导航时支持同步异步模式, 参考NavToRequest.sync_mode的参数描述
+    // NavTo 导航
     rpc NavTo (NavToRequest) returns (NavToResponse) {}
 
-    // 停止
-    // 静止: 立即返回STOPPED
-    // 旋转中: 返回旋转状态, STOPPED或CANCEL, 超时3秒
-    // 其它: 错误描述为: "[moving|charging] reject"
+    // NavStop 中止
+    //
+    // 支持导航、旋转的中止
+    //
+    // 导航中止后，可通过NavTo中CONTINUE恢复该目标导航
     rpc NavStop (NavStopRequest) returns (NavStopResponse) {}
 
-    // 自动充电
-    // 当前为充电中|充电连接中: 请求类型为charge|charge_preset等待状态为CHARGE_STATUS_CHARGING|CHARGE_STATUS_CONNECTING|CHARGE_STATUS_RELEASED后返回
-    // 当前为充电中|充电连接中: 请求类型为cancel等待状态为CHARGE_STATUS_RELEASED后返回
-    // 当前为已释放: 请求类型为cancel将直接返回CHARGE_STATUS_RELEASED
-    // 当前为已释放: 请求类型为charge|charge_preset等待状态为CHARGE_STATUS_CHARGING后返回
-    // 超时错误: 发送请求后默认60秒后未收到状态更新返回错误描述, 超时时间可在AutoChargeRequest中自定义配置
+    // AutoCharge 自动充电
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/power
     rpc AutoCharge (AutoChargeRequest) returns (AutoChargeResponse) {}
 
-    // 原地旋转
-    // 当旋转完成后返回STOPPED
-    // 当用户使用NavStop中止时将返回CANCEL
-    // 若超时30秒未执行完毕将返回超时错误
+    // Rotate 原地旋转
     rpc Rotate (RotateRequest) returns (RotateResponse) {}
 
-    // 导航事件监听
-    // 监听导航模块中各类事件的变动更新
+    // OnNavEventChange 导航事件监听
+    //
+    // 监听导航模块中各类事件的变动更新，详见OnNavEventChangeResponse
     rpc OnNavEventChange (OnNavEventChangeRequest) returns (stream OnNavEventChangeResponse) {}
 
-    // 新建线路
+    // NewRoute 新建线路
+    //
+    // 无线导航不支持通过此方法构建
     rpc NewRoute (NewRouteRequest) returns (NewRouteResponse) {}
 
-    // 获取线路
+    // ListRoutes 获取线路列表
+    //
+    // 无线导航此数据为地图数据的预设点数据，
+    // 可通过navService.Map获取更明细数据
     rpc ListRoutes (ListRoutesRequest) returns (ListRoutesResponse) {}
 
-    // 更新线路信息
+    // UpdateRoute 更新线路信息
+    //
+    // 无线导航不支持通过此方法更新
     rpc UpdateRoute (UpdateRouteRequest) returns (UpdateRouteResponse) {}
 
-    // 删除线路
+    // DeleteRoutes 删除多个线路
+    //
+    // 无线导航不支持通过此方法删除
     rpc DeleteRoutes (DeleteRoutesRequest) returns (DeleteRoutesResponse) {}
 }
 
@@ -122,22 +127,42 @@ enum StatusCode {
 
 // 移动方向
 enum MoveDirection {
-    RELEASE = 0; // 释放方向, 空值
+    // 释放, 空值
+    RELEASE = 0;
+    // 前进
     FORWARD = 1;
+    // 后退
     BACKWARD = 2;
+    // 左
     LEFT = 3;
+    // 右
     RIGHT = 4;
+    // 左前
     LEFT_FORWARD = 5;
+    // 右前
     RIGHT_FORWARD = 6;
+    // 左后
     LEFT_BACKWARD = 7;
+    // 右后
     RIGHT_BACKWARD = 8;
 }
 
 message MoveRequest {
-    uint32 speed = 1; // 移动速度 0-100
-    uint32 rspeed = 2; // 旋转速度 0-10 默认3* 仅前后方向时此数值无效
-    MoveDirection direction = 3; // 移动方向
-    string mode = 4; // 移动模式(safe*|force)
+    // 移动速度 0-100
+    uint32 speed = 1;
+
+    // 旋转速度 0-10 默认3* 仅前后方向时此数值无效
+    uint32 rspeed = 2;
+
+    // 移动方向
+    MoveDirection direction = 3;
+
+    // 移动模式(safe|force)
+    // 默认为safe
+    //
+    // 在移动过程中附近有障碍物时，移动指令可能无效，
+    // 使用force模式可强制移动，请自行确保移动安全
+    string mode = 4;
 }
 
 message MoveResponse {
@@ -145,38 +170,82 @@ message MoveResponse {
 }
 
 // 导航目标信息
-// 判断顺序为index>name
 message NavTarget {
     string index = 1; // 激活线路中线路点序号
     string name = 2; // 激活线路中线路点名
 }
 
 message NavRoaming {
+    // 漫游类型
     RoamingType nav_roaming_type = 1;
-    int32 wait_sec = 2; // 到达漫游点后等待时间， -1为无限等待可通过ROAMING_TYPE_CONTINUE继续， 0为不等待(默认)
-    repeated string roaming_target_indexes = 3; // 漫游点索引， 为空时将漫游全部点
-    bool order_loop = 4; // 是否循环(仅有序巡航)
+
+    // 到达漫游点后等待时间
+    // 0为不等待(默认)
+    // -1为无限等待可通过ROAMING_TYPE_CONTINUE继续
+    int32 wait_sec = 2;
+
+    // 漫游点索引， 为空时将漫游全部点
+    // 仅在有序漫游中有效
+    //
+    // 索引点配置后将根据配置的路径漫游
+    //    e.g. ["0", "3", "1", "2", "3", "0"]
+    repeated string roaming_target_indexes = 3;
+
+    // 是否循环漫游
+    //
+    // 仅在有序漫游中有效
+    //
+    // 此参数用于标识漫游的结束判断，
+    // e.g. ["0", "1", "2"]
+    // true: ["0", "1", "2", "0", "1", "2"...]
+    // false: ["0", "1", "2", "0"]
+    bool order_loop = 4;
 }
 
 // 导航漫游方式
 enum RoamingType {
-    ROAMING_TYPE_CONTINUE = 0; // 继续上次NavStop中断的漫游
-    ROAMING_TYPE_ORDER = 1; // 有序漫游
-    ROAMING_TYPE_RANDOM = 2; // 随机漫游
+    // 继续漫游
+    ROAMING_TYPE_CONTINUE = 0;
+
+    // 有序漫游
+    ROAMING_TYPE_ORDER = 1;
+
+    // 随机漫游
+    ROAMING_TYPE_RANDOM = 2;
 }
 
 // 导航请求
 message NavToRequest {
     oneof target_oneof {
-        NavTarget target = 1; // 导航请求目标
-        NavRoaming roaming = 3; // 导航漫游(需底盘类型支持)
-        MapPosition map_position = 5; // 导航地图坐标(仅支持无线导航类型)
+        // 导航请求目标
+        //
+        // 支持仅通过配置index或name进行请求
+        NavTarget target = 1;
+
+        // 导航漫游
+        NavRoaming roaming = 3;
+
+        // 导航地图坐标(仅支持无线导航类型)
+        //
+        // 详见navService.Map
+        MapPosition map_position = 5;
     }
-    uint32 speed = 2; // 导航移动速度(需底盘类型支持)
+
+    // 导航移动速度
+    //
+    // 无线导航不支持动态配置
+    uint32 speed = 2;
 
     // 同步模式标识
-    // *false: 当导航开始时立即返回PREPARING, 漫游模式强制为异步
-    // true: 目标模式下当导航STOPPED|CANCEL|ERR*时返回
+    //
+    // 此标识用于请求结果是否等待导航的结束（成功/失败）
+    // 漫游模式下此参数强制为false
+    //
+    // *false:
+    //    不等待导航结果，需关注导航过程应通过OnNavEventChange
+    //
+    // true:
+    //    等待导航完成结束（成功/失败）
     bool sync_mode = 4;
 }
 
@@ -184,15 +253,17 @@ message NavToRequest {
 message NavToResponse {
     StatusCode status_code = 1;
     oneof target_oneof {
-        NavTarget target = 2; // 导航请求目标
-        bool is_roaming = 3; // 漫游模式
-        MapPosition map_position = 4; // 地图位置目标
+        // 导航目标
+        NavTarget target = 2;
+        // 是否为漫游模式
+        bool is_roaming = 3;
+        // 地图位置目标
+        MapPosition map_position = 4;
     }
 }
 
 // 导航停止请求
-message NavStopRequest {
-}
+message NavStopRequest {}
 
 // 导航停止状态
 message NavStopResponse {
@@ -240,7 +311,6 @@ enum ChargeStatusCode {
     CHARGE_CONNECT_FAIL = 6;
 
     // 充电导航过程遇到障碍
-    // 2.2.7新增
     CHARGE_STATUS_NAV_OBSTACLE = 7;
 }
 
@@ -268,30 +338,37 @@ message RotateResponse {
 
 // 导航事件
 enum NavEventType {
-    NAV_EVENT_REVERSED = 0; // 事件零值(不使用)
-    MOVE_EVENT = 1; // 移动事件
-    NAV_EVENT = 2; // 导航事件
-    AUTO_CHARGE_EVENT = 3; // 自动充电事件
-    ROTATE_EVENT = 4; // 旋转状态事件
+    // 事件零值(不使用)
+    NAV_EVENT_REVERSED = 0;
+    // 移动事件
+    MOVE_EVENT = 1;
+    // 导航事件
+    NAV_EVENT = 2;
+    // 自动充电事件
+    AUTO_CHARGE_EVENT = 3;
+    // 旋转状态事件
+    ROTATE_EVENT = 4;
 }
 
-message OnNavEventChangeRequest {
+message OnNavEventChangeRequest {}
 
-}
-
+// 移动事件
 message MoveEvent {
     StatusCode status_code = 1;
 }
 
+// 导航事件
 message NavEvent {
     StatusCode status_code = 1;
     NavTarget nav_target = 2;
 }
 
+// 自动充电事件
 message AutoChargeEvent {
     ChargeStatusCode charge_status_code = 1;
 }
 
+// 旋转事件
 message RotateEvent {
     StatusCode status_code = 1;
 }
@@ -332,9 +409,7 @@ message NewRouteResponse {
     Route route = 1;
 }
 
-message ListRoutesRequest {
-
-}
+message ListRoutesRequest {}
 
 message ListRoutesResponse {
     repeated Route routes = 1;
@@ -364,6 +439,4 @@ message DeleteRoutesRequest {
     repeated string routes_id = 1;
 }
 
-message DeleteRoutesResponse {
-
-}
+message DeleteRoutesResponse {}

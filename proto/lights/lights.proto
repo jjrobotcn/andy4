@@ -7,35 +7,41 @@ option go_package = "lightspb";
 option java_package = "com.jjrobot.andy4.lightspb";
 option java_outer_classname = "LightsServicePB";
 
+// lightsService.LightsService 灯光管理
+//
+// 开发管理平台功能参考: http://10.10.10.2/lights/
 service LightsService {
-    // 预览灯光
-    // 创建灯光后使用此方法生成灯光文件
-    // 在未生成灯光文件前调用PlayLight将无效
+    // PreviewLight 灯光预览
+    //
+    // 灯光预览方法将根据配置的灯光数据生成目标数据写入硬件，
+    // 修改灯光数据后请使用此方法进行预览并更新，
+    // 否则PlayLight方法将继续使用之前的旧数据进行播放
     rpc PreviewLight (PreviewLightRequest) returns (PreviewLightResponse) {}
 
-    // 播放灯光
-    // 需在播放前执行PreviewLight生成灯光文件
+    // PlayLight 灯光播放
+    //
+    // 播放前请通过PreviewLight生成或更新数据实例
     rpc PlayLight (PlayLightRequest) returns (PlayLightResponse) {}
 
-    // 停止灯光
+    // StopLight 灯光停止
     rpc StopLight (StopLightRequest) returns (StopLightResponse) {}
 
-    // 获取灯光数据
+    // ListLights 获取灯光列表
     rpc ListLights (ListLightsRequest) returns (ListLightsResponse) {}
 
-    // 创建灯光
+    // NewLight 创建灯光
     rpc NewLight (NewLightRequest) returns (NewLightResponse) {}
 
-    // 更新灯光数据
+    // UpdateLight 更新灯光
     rpc UpdateLight (UpdateLightRequest) returns (UpdateLightResponse) {}
 
-    // 删除灯光
+    // DeleteLights 删除灯光列表
     rpc DeleteLights (DeleteLightsRequest) returns (DeleteLightsResponse) {}
 
-    // 获取当前灯光模块状态
+    // State 获取当前灯光模块状态
     rpc State(StateRequest) returns (StateResponse) {}
 
-    // 控制灯光的开关
+    // Switch 控制灯光的开关
     rpc Switch(SwitchRequest) returns (SwitchResponse) {}
 }
 
@@ -79,8 +85,7 @@ message PlayLightRequest {
 }
 
 // 播放灯光请求结果
-message PlayLightResponse {
-}
+message PlayLightResponse {}
 
 // 停止灯光请求
 message StopLightRequest {
@@ -89,8 +94,7 @@ message StopLightRequest {
 }
 
 // 停止灯光结果
-message StopLightResponse {
-}
+message StopLightResponse {}
 
 // 播放模式
 enum PlayMode {
@@ -184,12 +188,9 @@ message DeleteLightsRequest {
 }
 
 // 删除灯光结果
-message DeleteLightsResponse {
-}
+message DeleteLightsResponse {}
 
-message StateRequest {
-
-}
+message StateRequest {}
 
 message StateResponse {
     // 当前是否启用

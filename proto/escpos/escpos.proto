@@ -7,32 +7,51 @@ option go_package = "escpospb";
 option java_package = "com.jjrobot.andy4.escpospb";
 option java_outer_classname = "EscPosServicePB";
 
+// escposService.EscPosService 小票打印设备的打印与模板管理
+//
+// 开发管理平台功能参考: http://10.10.10.2/esc_pos
 service EscPosService {
-    // 打印bytes数据
-    // 打印模板与打印对象方式不满足业务需求
-    // 或希望接入其它已外部业务实现的打印组件时, 可通过此方法直接
-    // 传入打印内容
+    // PrintRaw 直接输入打印设备协议数据进行打印
+    //
+    // 用于支持外部程序直接通过协议方式打印
+    // 此方法为最底层与硬件设备通讯的方法
     rpc PrintRaw (PrintRawRequest) returns (PrintRawResponse) {}
 
-    // 打印对象
+    // PrintElements 通过Element对象描述内容进行打印
+    //
+    // Element基于行进行内容描述，通过描述每行的内容构建为打印数据
+    // 不支持单行中图片与文字混合打印
+    //
+    // 底层方法为PrintRaw
     rpc PrintElements (PrintElementsRequest) returns (PrintElementsResponse) {}
 
-    // 打印预设的html模板内容
+    // PrintHtmlTemplate 通过Html预设模板内容进行插值打印
+    //
+    // 模板中请使用"{{}}"符号标记占位符
+    // 如: 联系电话: {{tel}}
+    //     参数: {"params": {"tel": "123"}}
+    //
+    // 底层方法为PrintElements
     rpc PrintHtmlTemplate (PrintHtmlTemplateRequest) returns (PrintHtmlTemplateResponse) {}
 
-    // 创建html模板
+    // NewHtmlTemplate 新建一个Html模板
     rpc NewHtmlTemplate (NewHtmlTemplateRequest) returns (NewHtmlTemplateResponse) {}
 
-    // 获取html模板列表
+    // ListHtmlTemplates 获取Html模板列表
     rpc ListHtmlTemplates (ListHtmlTemplatesRequest) returns (ListHtmlTemplatesResponse) {}
 
-    // 获取指定html模板内容
+    // GetHtmlTemplate 获取Html模板
     rpc GetHtmlTemplate (GetHtmlTemplateRequest) returns (GetHtmlTemplateResponse) {}
 
-    // 更新html模板
+    // UpdateHtmlTemplate 更新Html模板
+    //
+    // HtmlTemplate基于(Quill)[https://quilljs.com]实现编辑部分
+    //
+    // 插值占位符为{{}}
+    // 插值使用请参考PrintHtmlTemplate及PrintHtmlTemplateRequest
     rpc UpdateHtmlTemplate (UpdateHtmlTemplateRequest) returns (UpdateHtmlTemplateResponse) {}
 
-    // 删除html模板
+    // DeleteHtmlTemplates 删除Html模板列表
     rpc DeleteHtmlTemplates (DeleteHtmlTemplatesRequest) returns (DeleteHtmlTemplatesResponse) {}
 }
 
@@ -43,10 +62,9 @@ message PrintRawRequest {
 }
 
 // 打印bytes数据结果
-message PrintRawResponse {
-}
+message PrintRawResponse {}
 
-// 内容类型
+// Element内容类型
 enum ElementType {
     // 文本类型
     TEXT = 0;
@@ -55,7 +73,7 @@ enum ElementType {
     IMAGE = 1;
 }
 
-// 文字尺寸
+// Element文字尺寸
 enum ElementSize {
     // DEFAULT = NORMAL
     DEFAULT = 0;
@@ -73,7 +91,7 @@ enum ElementSize {
     HUGE = 4;
 }
 
-// 行对齐方式
+// Element行内容对齐方式
 enum ElementAlign {
     // 左对齐
     LEFT = 0;
@@ -85,7 +103,7 @@ enum ElementAlign {
     RIGHT = 2;
 }
 
-// 打印对象
+// Element对象
 message Element {
     // 打印类型
     ElementType etype = 1;
@@ -123,10 +141,9 @@ message PrintElementsRequest {
 }
 
 // 打印对象结果
-message PrintElementsResponse {
-}
+message PrintElementsResponse {}
 
-// html模板打印请求
+// Html模板打印请求
 message PrintHtmlTemplateRequest {
     // 可与name选填
     string id = 1;
@@ -143,11 +160,10 @@ message PrintHtmlTemplateRequest {
     bool cut = 4;
 }
 
-// html模板打印结果
-message PrintHtmlTemplateResponse {
-}
+// Html模板打印结果
+message PrintHtmlTemplateResponse {}
 
-// html模板
+// Html模板
 message HtmlTemplate {
     // 创建时id将自动生成
     // 修改时根据此id获取模板数据
@@ -161,58 +177,56 @@ message HtmlTemplate {
     string content = 3;
 }
 
-// 创建html模板请求
+// 新建Html模板请求
 message NewHtmlTemplateRequest {
     // html模板
     HtmlTemplate html_template = 1;
 }
 
-// 创建html模板结果
+// 新建html模板结果
 message NewHtmlTemplateResponse {
     // html模板
     HtmlTemplate html_template = 1;
 }
 
 // 获取模板列表请求
-message ListHtmlTemplatesRequest {
-}
+message ListHtmlTemplatesRequest {}
 
 // 获取模板列表结果
 message ListHtmlTemplatesResponse {
-    // html模板列表
+    // Html模板列表
     repeated HtmlTemplate html_templates = 1;
 }
 
 // 获取指定模板内容请求
 message GetHtmlTemplateRequest {
-    // html模板id
+    // Html模板id
     string id = 1;
 }
 
 // 获取指定模板内容结果
 message GetHtmlTemplateResponse {
-    // html模板
+    // Html模板
     HtmlTemplate html_template = 1;
 }
 
-// 更新html模板请求
+// 更新Html模板请求
 message UpdateHtmlTemplateRequest {
-    // html模板
+    // Html模板
     HtmlTemplate html_template = 1;
 }
 
-// 更新html模板结果
+// 更新Html模板结果
 message UpdateHtmlTemplateResponse {
     // html模板
     HtmlTemplate html_template = 1;
 }
 
-// 删除html模板请求
+// 删除Html模板请求
 message DeleteHtmlTemplatesRequest {
-    // 删除模板id列表
+    // 删除Html模板id列表
     repeated string html_templates_id = 1;
 }
 
-// 删除html模板结果
-message DeleteHtmlTemplatesResponse {
-}
+// 删除Html模板结果
+message DeleteHtmlTemplatesResponse {}

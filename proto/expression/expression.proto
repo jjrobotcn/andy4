@@ -7,31 +7,69 @@ option go_package = "expressionpb";
 option java_package = "com.jjrobot.andy4.expressionpb";
 option java_outer_classname = "ExpressionServicePB";
 
+// expressionService.ExpressionService 表情管理
+//
+// 开发管理平台功能参考: http://10.10.10.2/expression/
 service ExpressionService {
-    // 播放表情
+    // PlayExpressions 播放表情组合
+    //
+    // 单套表情限制请参考UploadExpressionFile方法，
+    // 更为复杂的表情设计可基于多个最小化表情进行组合
     rpc PlayExpressions (PlayExpressionsRequest) returns (PlayExpressionsResponse) {}
 
-    // 停止表情
+    // StopExpression 停止表情播放
+    //
+    // 此方法将表现为播放至当前帧终止，不会恢复为当前表情的首帧
     rpc StopExpression (StopExpressionRequest) returns (StopExpressionResponse) {}
 
-    // 上传表情
+    // UploadExpressionFile 上传表情文件
+    //
+    // 上传表情图片zip文件，用于构建新的表情
+    //
+    // 表情文件为zip格式数据，如Example.zip文件上传后该表情将命名为"Example"，命名可通过Rename方法进行更改
+    //
+    // windows用户请在表情目录中选中preview.png, left目录，right目录，直接压缩为zip文件，不支持包含父目录
+    //
+    // 表情包目录示例：
+    // left与right目录图片数量最大限制为各10张
+    //├── preview.png # 表情预览文件，与表情数据无关，仅作为预览图用
+    //│
+    //├── left # 左眼表情数据
+    //│   ├── 1.png
+    //│   ├── 2.png
+    //│   ├── 3.png
+    //│   ├── 4.png
+    //│   └── 5.png
+    //│
+    //└── right # 右眼表情数据
+    //    ├── 1.png
+    //    ├── 2.png
+    //    ├── 3.png
+    //    ├── 4.png
+    //    └── 5.png
+    //
+    // 网关不包含当前方法，HTTP上传请使用以下接口
+    // POST /api/v2/expression/upload_expression_file
+    // Content-Type: application/x-www-form-urlencoded
+    // Body:
+    //   - name: String
+    //   - e: File, e.g. Example.zip
     rpc UploadExpressionFile (UploadExpressionFileRequest) returns (UploadExpressionFileResponse) {}
 
-    // 表情重命名
-    // >= v1.1.0
+    // Rename 对已上传的表情进行重命名
     rpc Rename (RenameRequest) returns (RenameResponse) {}
 
-    // 获取表情数据
+    // ListExpressions 获取表情列表
     rpc ListExpressions (ListExpressionsRequest) returns (ListExpressionsResponse) {}
 
-    // 删除表情
+    // DeleteExpressions 删除表情列表
     rpc DeleteExpressions (DeleteExpressionsRequest) returns (DeleteExpressionsResponse) {}
 
-    // 获取当前表情模块状态
+    // State 获取当前表情模块状态
     rpc State(StateRequest) returns (StateResponse) {}
 
-    // 控制表情的开关
-    // 关闭时表现为黑屏
+    // Switch 控制表情的开关
+    // 关闭时将表现为黑屏
     rpc Switch(SwitchRequest) returns (SwitchResponse) {}
 }
 
@@ -63,16 +101,13 @@ message PlayExpressionsRequest {
 }
 
 // 播放表情结果
-message PlayExpressionsResponse {
-}
+message PlayExpressionsResponse {}
 
 // 停止表情请求
-message StopExpressionRequest {
-}
+message StopExpressionRequest {}
 
 // 停止表情结果
-message StopExpressionResponse {
-}
+message StopExpressionResponse {}
 
 // 上传表情请求
 message UploadExpressionFileRequest {
@@ -91,8 +126,7 @@ message UploadExpressionFileResponse {
 }
 
 // 获取表情数据请求
-message ListExpressionsRequest {
-}
+message ListExpressionsRequest {}
 
 // 获取表情数据结果
 message ListExpressionsResponse {
@@ -107,8 +141,7 @@ message DeleteExpressionsRequest {
 }
 
 // 删除表情结果
-message DeleteExpressionsResponse {
-}
+message DeleteExpressionsResponse {}
 
 // 表情重命名请求
 message RenameRequest {
@@ -128,9 +161,7 @@ message RenameResponse {
     string name = 2;
 }
 
-message StateRequest {
-
-}
+message StateRequest {}
 
 message StateResponse {
     // 当前是否启用

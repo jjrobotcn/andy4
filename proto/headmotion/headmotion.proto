@@ -7,32 +7,48 @@ option go_package = "headmotionpb";
 option java_package = "com.jjrobot.andy4.headmotionpb";
 option java_outer_classname = "MotionServicePB";
 
+// motionService.MotionService 头部运动功能的管理
+//
+// motionService包含头部与手部（计划）的运动功能管理，
+// 目前手部运动功能将拆分为后续计划的handsmotion服务。
+// 为维护服务的一致性，保留motionService，但内部仅包含头部运动的设计。
+//
+// 开发管理平台功能参考: http://10.10.10.2/motion/head/
 service MotionService {
-    // 移动功能
+    // MoveTo 头部的移动
+    //
+    // 通过预设组或定位方式移动头部
     rpc MoveTo (MoveToRequest) returns (MoveToResponse) {}
 
-    // 持续监听位置消息
+    // PositioningData 监听头部实时定位数据
+    //
+    // 用于持续获取当前主轴与交叉轴的实时位置
+    //
+    // 需要通过外力控制头部位置时可通过PositioningDataRequest.disability=true调节，
+    // 详见PositioningDataRequest
     rpc PositioningData (PositioningDataRequest) returns (stream PositioningDataResponse) {}
 
-    // 获取当前位置信息
+    // GetPosition 获取当前头部定位数据
+    //
+    // 用于获取当前主轴与交叉轴的实时位置
     rpc GetPosition (GetPositionRequest) returns (GetPositionResponse) {}
 
-    // 创建组
+    // NewGroup 创建头部位置预设组
     rpc NewGroup (NewGroupRequest) returns (NewGroupResponse) {}
 
-    // 获取组列表
+    // ListGroups 获取头部位置预设组列表
     rpc ListGroups (ListGroupsRequest) returns (ListGroupsResponse) {}
 
-    // 更新组信息
+    // UpdateGroup 更新头部位置预设组
     rpc UpdateGroup (UpdateGroupRequest) returns (UpdateGroupResponse) {}
 
-    // 删除组列表
+    // DeleteGroups 删除头部位置预设组列表
     rpc DeleteGroups (DeleteGroupsRequest) returns (DeleteGroupsResponse) {}
 
-    // 获取组动作点列表
+    // ListGroupTargets 获取头部位置预设组动作点列表
     rpc ListGroupTargets (ListGroupTargetsRequest) returns (ListGroupTargetsResponse) {}
 
-    // 更新组动作点列表
+    // UpdateGroupTargets 更新头部位置预设组动作点列表
     rpc UpdateGroupTargets (UpdateGroupTargetsRequest) returns (UpdateGroupTargetsResponse) {}
 }
 
@@ -44,7 +60,10 @@ enum MotionType {
     // 头部
     HEAD = 1;
 
-    //    HANDS = 2;
+    // 手部
+    // 手部扩展支持设计已废弃，
+    // 后期将使用handsmotion服务进行手部运动管理
+    // HANDS = 2;
 }
 
 // 位置坐标定义
@@ -146,8 +165,7 @@ message MoveToRequest {
 }
 
 // 移动功能结果
-message MoveToResponse {
-}
+message MoveToResponse {}
 
 // 获取当前位置信息请求
 message GetPositionRequest {
@@ -220,8 +238,7 @@ message UpdateGroupRequest {
 }
 
 // 更新组信息结果
-message UpdateGroupResponse {
-}
+message UpdateGroupResponse {}
 
 // 删除组列表请求
 message DeleteGroupsRequest {
@@ -230,8 +247,7 @@ message DeleteGroupsRequest {
 }
 
 // 删除组列表结果
-message DeleteGroupsResponse {
-}
+message DeleteGroupsResponse {}
 
 // 获取组动作点列表请求
 message ListGroupTargetsRequest {
@@ -255,5 +271,4 @@ message UpdateGroupTargetsRequest {
 }
 
 // 更新组动作点列表结果
-message UpdateGroupTargetsResponse {
-}
+message UpdateGroupTargetsResponse {}

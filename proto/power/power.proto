@@ -7,17 +7,20 @@ option go_package = "powerpb";
 option java_package = "com.jjrobot.andy4.powerpb";
 option java_outer_classname = "PowerServicePB";
 
+// powerService.PowerService 电源控制管理
 service PowerService {
-    // 获取电源状态数据流
+    // GetPowerStatus 监听电源状态
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/power
     rpc GetPowerStatus (GetPowerStatusRequest) returns (stream GetPowerStatusResponse) {}
 
-    // 对各模块的电源进行断电方式重启
+    // Reboot 内部模块的电源进行断电方式重启
     rpc Reboot(RebootRequest) returns (RebootResponse) {}
 
-    // 获取所有电源模块状态
+    // States 获取电源模块状态
     rpc States(StatesRequest) returns (StatesResponse) {}
 
-    // 控制模块供电开关
+    // Switch 控制内部模块电源的开关
     rpc Switch (SwitchRequest) returns (SwitchResponse) {}
 }
 
@@ -41,13 +44,11 @@ message PowerStatus {
     bool is_charging = 2; // 是否充电中
 
     // 设备状态
-    // 此字段已作废，请使用States方法获取
+    // 已作废，请使用States方法获取
     map<string, bool> devices = 3 [deprecated=true];
 }
 
-message GetPowerStatusRequest {
-
-}
+message GetPowerStatusRequest {}
 
 message GetPowerStatusResponse {
     PowerStatus power_status = 1;
@@ -58,9 +59,7 @@ message RebootRequest {
     bool all = 1;
 }
 
-message RebootResponse {
-
-}
+message RebootResponse {}
 
 message State {
     // 模块类型
@@ -75,9 +74,7 @@ message State {
     int32 on_after = 3;
 }
 
-message StatesRequest {
-
-}
+message StatesRequest {}
 
 message StatesResponse {
     repeated State states = 1;

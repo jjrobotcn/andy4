@@ -7,28 +7,34 @@ option go_package = "networkpb";
 option java_package = "com.jjrobot.andy4.networkpb";
 option java_outer_classname = "NetworkServicePB";
 
+// networkService.NetworkService 网络管理
+//
+// 管理内部路由设备
+//
+// 开发管理平台功能参考: http://10.10.10.2/network
 service NetworkService {
-    // 获取网络扫描结果流
-    // api请求时将触发ssid扫描更新，该方法在同一时刻多个请求仅处理一次，向所有监听返回同一扫描结果
-    // 方法不主动进行更新，但监听用户可获取其它请求中返回的扫描结果
+    // ListNetworks 扫描附近无线信息
+    //
+    // 此方法在同一扫描时刻中为单例
+    //
+    // 360路由设备：
+    //    由于持续扫描可能造成内部网络的断流，因此该类型路由不会进行后续的自动持续扫描，
+    //    但持续监听支持后续新请求结果的同步返回
     rpc ListNetworks (ListNetworksRequest) returns (stream ListNetworksResponse) {}
 
-    // 连接至指定网络
+    // Connect 路由设备连接无线网络
+    //
     // 连接失败将立即返回错误
     // 若30秒后成功获取状态将返回超时失败
     rpc Connect (ConnectRequest) returns (ConnectResponse) {}
 
-    // 获取连接状态流
-    // 在连接开始时立即返回当前最新的扫描数据
-    // 并持续在网络数据更新时接收新数据
+    // GetStatus 获取路由连接状态
     rpc GetStatus (GetStatusRequest) returns (stream GetStatusResponse) {}
 
-    // 获取网络设备相关信息
-    // v1.1.0
+    // GetNetworkDeviceInfo 获取路由设备相关信息
     rpc GetNetworkDeviceInfo(GetNetworkDeviceInfoRequest) returns (GetNetworkDeviceInfoResponse) {}
 
-    // 修改网络设备相关信息
-    // v1.1.0
+    // UpdateNetworkDeviceInfo 修改网络设备相关信息
     rpc UpdateNetworkDeviceInfo(UpdateNetworkDeviceInfoRequest) returns (UpdateNetworkDeviceInfoResponse) {}
 }
 
@@ -60,12 +66,12 @@ message ListNetworksResponse {
 
 // 连接至指定网络请求
 message ConnectRequest {
-    // !!! >=v1.2.0可不再使用此NetworkInfo请求，此参数声明作废，请使用更为精简的ssid作为连接目标参数
     // 目标网络信息
     // 此对象应由ListNetworks.ListNetworksResponse.NetworkInfo中获取
+    //
+    // 已废弃，请使用ssid作为连接目标参数
     NetworkInfo network_info = 1 [deprecated=true];
 
-    // >=v1.2.0
     // 目标网络ssid
     // 自动获取当前的NetworkInfo信息中首个匹配ssid，
     // 若匹配失败将直接返回连接错误
@@ -75,7 +81,6 @@ message ConnectRequest {
     // wifi密码
     string pwd = 2;
 
-    // >=v1.2.0
     // 保持当前外部连接
     // 配置此参数后将立即启动状态监听。
     // 若出现DISCONNECTED状态且keep_alive_interval间隔时间内，
@@ -84,7 +89,6 @@ message ConnectRequest {
     // keep_alive_interval都将重新计算。
     bool keep_alive = 4;
 
-    // >=v1.2.0
     // 保持当前连接判断间隔, 默认及最小为30s
     uint32 keep_alive_interval = 5;
 }
@@ -126,12 +130,10 @@ message NetworkStatus {
 }
 
 // 连接至指定网络请求结果
-message ConnectResponse {
-}
+message ConnectResponse {}
 
 // 获取连接状态流请求
-message GetStatusRequest {
-}
+message GetStatusRequest {}
 
 // 获取连接状态流结果
 message GetStatusResponse {
@@ -169,5 +171,4 @@ message UpdateNetworkDeviceInfoRequest {
 }
 
 // 修改网络设备相关信息结果
-message UpdateNetworkDeviceInfoResponse {
-}
+message UpdateNetworkDeviceInfoResponse {}

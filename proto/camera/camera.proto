@@ -7,29 +7,38 @@ option go_package = "camerapb";
 option java_package = "com.jjrobot.andy4.camerapb";
 option java_outer_classname = "CameraServicePB";
 
+// cameraService.CameraService 主摄像头视频流与图片的获取
 service CameraService {
-    // 直播流数据, 数据为h264 nal单元
+    // LiveH264Stream 获取主摄像头视频流数据
+    //
+    // 输出数据为H264裸流，无音频，分辨率为960*720
+    //
+    // 网关不包含当前方法，WebSocket用户请使用独立接口
+    // ws://10.10.10.2(:81)/api/v2/camera/ws/h264/live(?token=)
+    // web应用中需调整数据类型: ws.binaryType = 'arraybuffer';
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/camera/live/ws
     rpc LiveH264Stream (LiveH264StreamRequest) returns (stream LiveH264StreamResponse) {}
 
-    // 获取实时当前最新图片jpg
+    // LatestImage 获取主摄像头实时图片数据
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/camera/live/image
     rpc LatestImage(LatestImageRequest) returns (LatestImageResponse) {}
 }
 
-message LiveH264StreamRequest {
-}
+message LiveH264StreamRequest {}
 
 message LiveH264StreamResponse {
+    // H264帧数据
     bytes frame = 1;
 }
 
-message LatestImageRequest {
-
-}
+message LatestImageRequest {}
 
 message LatestImageResponse {
-    // 图片时间
-    // 格式: 2019-01-02_03:04:05
+    // 截图时间
+    // e.g. "1577811723000"
     string time = 1;
-    // 图片数据
+    // 图片数据内容
     bytes image = 2;
 }

@@ -7,14 +7,16 @@ option go_package = "idcardpb";
 option java_package = "com.jjrobot.andy4.idcardpb";
 option java_outer_classname = "IDCardServicePB";
 
+// idCardService.IDCardService 身份证读卡服务
 service IDCardService {
-    // 获取读卡数据流
+    // GetIdInfo 监听读取身份证数据
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/id_card
     rpc GetIdInfo (GetIdInfoRequest) returns (stream GetIdInfoResponse) {}
 }
 
 // 获取读卡数据流请求
-message GetIdInfoRequest {
-}
+message GetIdInfoRequest {}
 
 // 身份证数据
 message IdInfo {

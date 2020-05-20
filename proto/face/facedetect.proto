@@ -7,14 +7,27 @@ option go_package = "facepb";
 option java_package = "com.jjrobot.andy4.facepb";
 option java_outer_classname = "FaceDetectPB";
 
+// faceRecognition.FaceDetect 人脸检测服务
 service FaceDetect {
-    // FromImage实现对输入图片进行人脸检测，返回检测人脸图片列表
+    // FromImage 检测人脸图片返回检测结果列表
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/face/compare
     rpc FromImage (FromImageRequest) returns (FromImageResponse) {}
 
-    // OnFaceDetect实现动态检测人脸，流式返回检测人脸图片戳列表
+    // OnFaceDetect 通过主摄像头动态检测人脸，持续返回检测结果列表
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/face/detect
     rpc OnFaceDetect (OnFaceDetectRequest) returns (stream OnFaceDetectResponse) {}
 
-    // OnFaceSetFaceDetect实现动态检测人脸并与指定FaceSet进行对比，流式返回检测结果
+    // OnFaceSetFaceDetect 通过主摄像头动态检测人脸并与指定FaceSet进行搜索，持续返回检测结果列表
+    //
+    // 为提搜索效率，FaceSet数据将在初始加载时获取快照数据，
+    // 因此在使用过程中修改FaceSet无法影响快照中的Face结果，
+    // 修改数据后可通过重新调用此方法以更新快照数据。
+
+    // 此方法为OnFaceDetect与Search的组合，用于内部FaceSet的识别搜索。
+    //
+    // 开发管理平台功能参考: http://10.10.10.2/face/face-set-detect
     rpc OnFaceSetFaceDetect (OnFaceSetFaceDetectRequest) returns (stream OnFaceSetFaceDetectResponse) {}
 }
 
