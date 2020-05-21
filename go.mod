@@ -1,9 +1,9 @@
 module github.com/jjrobotcn/andy4
 
-go 1.12
+go 1.13
 
 require (
-	github.com/gogo/protobuf v1.2.1
-	github.com/golang/protobuf v1.3.2
-	google.golang.org/grpc v1.22.1
+	github.com/golang/protobuf v1.4.2
+	github.com/grpc-ecosystem/grpc-gateway v1.14.5
+	google.golang.org/grpc v1.29.1
 )
