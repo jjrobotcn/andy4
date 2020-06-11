@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='faceRecognition',
   syntax='proto3',
   serialized_options=b'\n\030com.jjrobot.andy4.facepbB\014FaceDetectPBZ\006facepb',
-  serialized_pb=b'\n\x10\x66\x61\x63\x65\x64\x65tect.proto\x12\x0f\x66\x61\x63\x65Recognition\"$\n\x0c\x46\x61\x63\x65Position\x12\t\n\x01x\x18\x01 \x01(\r\x12\t\n\x01y\x18\x02 \x01(\r\"}\n\x10\x46romImageRequest\x12\r\n\x05image\x18\x01 \x01(\x0c\x12\x13\n\x0bwith_gender\x18\x02 \x01(\x08\x12\x10\n\x08with_age\x18\x03 \x01(\x08\x12\x15\n\rwith_position\x18\x04 \x01(\x08\x12\x1c\n\x14with_face_crop_width\x18\x05 \x01(\x08\"\xab\x01\n\x11\x46romImageResponse\x12\x12\n\nface_crops\x18\x01 \x03(\x0c\x12(\n\x07genders\x18\x02 \x03(\x0e\x32\x17.faceRecognition.Gender\x12\x0c\n\x04\x61ges\x18\x03 \x03(\x05\x12\x30\n\tpositions\x18\x04 \x03(\x0b\x32\x1d.faceRecognition.FacePosition\x12\x18\n\x10\x66\x61\x63\x65_crop_widths\x18\x05 \x03(\r\"\x8f\x01\n\x13OnFaceDetectRequest\x12\x1c\n\x14interval_millisecond\x18\x01 \x01(\r\x12\x13\n\x0bwith_gender\x18\x02 \x01(\x08\x12\x10\n\x08with_age\x18\x03 \x01(\x08\x12\x15\n\rwith_position\x18\x04 \x01(\x08\x12\x1c\n\x14with_face_crop_width\x18\x05 \x01(\x08\"\xae\x01\n\x14OnFaceDetectResponse\x12\x12\n\nface_crops\x18\x01 \x03(\x0c\x12(\n\x07genders\x18\x02 \x03(\x0e\x32\x17.faceRecognition.Gender\x12\x0c\n\x04\x61ges\x18\x03 \x03(\x05\x12\x30\n\tpositions\x18\x04 \x03(\x0b\x32\x1d.faceRecognition.FacePosition\x12\x18\n\x10\x66\x61\x63\x65_crop_widths\x18\x05 \x03(\r\"\xdb\x01\n\x1aOnFaceSetFaceDetectRequest\x12\x13\n\x0b\x66\x61\x63\x65_set_id\x18\x01 \x01(\t\x12\x16\n\x0ewith_face_crop\x18\x02 \x01(\x08\x12\x13\n\x0bwith_gender\x18\x03 \x01(\x08\x12\x10\n\x08with_age\x18\x04 \x01(\x08\x12\x15\n\rwith_position\x18\x05 \x01(\x08\x12\x1c\n\x14interval_millisecond\x18\x06 \x01(\r\x12\x16\n\x0e\x63onfidence_min\x18\x07 \x01(\x02\x12\x1c\n\x14with_face_crop_width\x18\x08 \x01(\x08\"\xdf\x01\n\x1bOnFaceSetFaceDetectResponse\x12\x13\n\x0b\x63onfidences\x18\x01 \x03(\x02\x12\x13\n\x0b\x66\x61\x63\x65_tokens\x18\x02 \x03(\t\x12\x12\n\nface_crops\x18\x03 \x03(\x0c\x12(\n\x07genders\x18\x04 \x03(\x0e\x32\x17.faceRecognition.Gender\x12\x0c\n\x04\x61ges\x18\x05 \x03(\x05\x12\x30\n\tpositions\x18\x06 \x03(\x0b\x32\x1d.faceRecognition.FacePosition\x12\x18\n\x10\x66\x61\x63\x65_crop_widths\x18\x07 \x03(\r*@\n\x06Gender\x12\x12\n\x0eGENDER_UNKNOWN\x10\x00\x12\x0f\n\x0bGENDER_MALE\x10\x01\x12\x11\n\rGENDER_FEMALE\x10\x02\x32\xb9\x02\n\nFaceDetect\x12T\n\tFromImage\x12!.faceRecognition.FromImageRequest\x1a\".faceRecognition.FromImageResponse\"\x00\x12_\n\x0cOnFaceDetect\x12$.faceRecognition.OnFaceDetectRequest\x1a%.faceRecognition.OnFaceDetectResponse\"\x00\x30\x01\x12t\n\x13OnFaceSetFaceDetect\x12+.faceRecognition.OnFaceSetFaceDetectRequest\x1a,.faceRecognition.OnFaceSetFaceDetectResponse\"\x00\x30\x01\x42\x30\n\x18\x63om.jjrobot.andy4.facepbB\x0c\x46\x61\x63\x65\x44\x65tectPBZ\x06\x66\x61\x63\x65pbb\x06proto3'
+  serialized_pb=b'\n\x10\x66\x61\x63\x65\x64\x65tect.proto\x12\x0f\x66\x61\x63\x65Recognition\"$\n\x0c\x46\x61\x63\x65Position\x12\t\n\x01x\x18\x01 \x01(\r\x12\t\n\x01y\x18\x02 \x01(\r\"}\n\x10\x46romImageRequest\x12\r\n\x05image\x18\x01 \x01(\x0c\x12\x13\n\x0bwith_gender\x18\x02 \x01(\x08\x12\x10\n\x08with_age\x18\x03 \x01(\x08\x12\x15\n\rwith_position\x18\x04 \x01(\x08\x12\x1c\n\x14with_face_crop_width\x18\x05 \x01(\x08\"\xab\x01\n\x11\x46romImageResponse\x12\x12\n\nface_crops\x18\x01 \x03(\x0c\x12(\n\x07genders\x18\x02 \x03(\x0e\x32\x17.faceRecognition.Gender\x12\x0c\n\x04\x61ges\x18\x03 \x03(\x05\x12\x30\n\tpositions\x18\x04 \x03(\x0b\x32\x1d.faceRecognition.FacePosition\x12\x18\n\x10\x66\x61\x63\x65_crop_widths\x18\x05 \x03(\r\"\xa9\x01\n\x13OnFaceDetectRequest\x12\x1c\n\x14interval_millisecond\x18\x01 \x01(\r\x12\x13\n\x0bwith_gender\x18\x02 \x01(\x08\x12\x10\n\x08with_age\x18\x03 \x01(\x08\x12\x15\n\rwith_position\x18\x04 \x01(\x08\x12\x1c\n\x14with_face_crop_width\x18\x05 \x01(\x08\x12\x18\n\x10with_live_detect\x18\x06 \x01(\x08\"\xe4\x01\n\x14OnFaceDetectResponse\x12\x12\n\nface_crops\x18\x01 \x03(\x0c\x12(\n\x07genders\x18\x02 \x03(\x0e\x32\x17.faceRecognition.Gender\x12\x0c\n\x04\x61ges\x18\x03 \x03(\x05\x12\x30\n\tpositions\x18\x04 \x03(\x0b\x32\x1d.faceRecognition.FacePosition\x12\x18\n\x10\x66\x61\x63\x65_crop_widths\x18\x05 \x03(\r\x12\x34\n\x0blive_detect\x18\x06 \x03(\x0e\x32\x1f.faceRecognition.LiveDetectType\"\xf5\x01\n\x1aOnFaceSetFaceDetectRequest\x12\x13\n\x0b\x66\x61\x63\x65_set_id\x18\x01 \x01(\t\x12\x16\n\x0ewith_face_crop\x18\x02 \x01(\x08\x12\x13\n\x0bwith_gender\x18\x03 \x01(\x08\x12\x10\n\x08with_age\x18\x04 \x01(\x08\x12\x15\n\rwith_position\x18\x05 \x01(\x08\x12\x1c\n\x14interval_millisecond\x18\x06 \x01(\r\x12\x16\n\x0e\x63onfidence_min\x18\x07 \x01(\x02\x12\x1c\n\x14with_face_crop_width\x18\x08 \x01(\x08\x12\x18\n\x10with_live_detect\x18\t \x01(\x08\"\x95\x02\n\x1bOnFaceSetFaceDetectResponse\x12\x13\n\x0b\x63onfidences\x18\x01 \x03(\x02\x12\x13\n\x0b\x66\x61\x63\x65_tokens\x18\x02 \x03(\t\x12\x12\n\nface_crops\x18\x03 \x03(\x0c\x12(\n\x07genders\x18\x04 \x03(\x0e\x32\x17.faceRecognition.Gender\x12\x0c\n\x04\x61ges\x18\x05 \x03(\x05\x12\x30\n\tpositions\x18\x06 \x03(\x0b\x32\x1d.faceRecognition.FacePosition\x12\x18\n\x10\x66\x61\x63\x65_crop_widths\x18\x07 \x03(\r\x12\x34\n\x0blive_detect\x18\x08 \x03(\x0e\x32\x1f.faceRecognition.LiveDetectType*@\n\x06Gender\x12\x12\n\x0eGENDER_UNKNOWN\x10\x00\x12\x0f\n\x0bGENDER_MALE\x10\x01\x12\x11\n\rGENDER_FEMALE\x10\x02*V\n\x0eLiveDetectType\x12\x17\n\x13LIVE_DETECT_UNKNOWN\x10\x00\x12\x14\n\x10LIVE_DETECT_TRUE\x10\x01\x12\x15\n\x11LIVE_DETECT_FALSE\x10\x02\x32\xb9\x02\n\nFaceDetect\x12T\n\tFromImage\x12!.faceRecognition.FromImageRequest\x1a\".faceRecognition.FromImageResponse\"\x00\x12_\n\x0cOnFaceDetect\x12$.faceRecognition.OnFaceDetectRequest\x1a%.faceRecognition.OnFaceDetectResponse\"\x00\x30\x01\x12t\n\x13OnFaceSetFaceDetect\x12+.faceRecognition.OnFaceSetFaceDetectRequest\x1a,.faceRecognition.OnFaceSetFaceDetectResponse\"\x00\x30\x01\x42\x30\n\x18\x63om.jjrobot.andy4.facepbB\x0c\x46\x61\x63\x65\x44\x65tectPBZ\x06\x66\x61\x63\x65pbb\x06proto3'
 )
 
 _GENDER = _descriptor.EnumDescriptor(
@@ -43,15 +43,45 @@ _GENDER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1147,
-  serialized_end=1211,
+  serialized_start=1307,
+  serialized_end=1371,
 )
 _sym_db.RegisterEnumDescriptor(_GENDER)
 
 Gender = enum_type_wrapper.EnumTypeWrapper(_GENDER)
+_LIVEDETECTTYPE = _descriptor.EnumDescriptor(
+  name='LiveDetectType',
+  full_name='faceRecognition.LiveDetectType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LIVE_DETECT_UNKNOWN', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LIVE_DETECT_TRUE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='LIVE_DETECT_FALSE', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1373,
+  serialized_end=1459,
+)
+_sym_db.RegisterEnumDescriptor(_LIVEDETECTTYPE)
+
+LiveDetectType = enum_type_wrapper.EnumTypeWrapper(_LIVEDETECTTYPE)
 GENDER_UNKNOWN = 0
 GENDER_MALE = 1
 GENDER_FEMALE = 2
+LIVE_DETECT_UNKNOWN = 0
+LIVE_DETECT_TRUE = 1
+LIVE_DETECT_FALSE = 2
 
 
 
@@ -253,6 +283,13 @@ _ONFACEDETECTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='with_live_detect', full_name='faceRecognition.OnFaceDetectRequest.with_live_detect', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -266,7 +303,7 @@ _ONFACEDETECTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=377,
-  serialized_end=520,
+  serialized_end=546,
 )
 
 
@@ -312,6 +349,13 @@ _ONFACEDETECTRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='live_detect', full_name='faceRecognition.OnFaceDetectResponse.live_detect', index=5,
+      number=6, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -324,8 +368,8 @@ _ONFACEDETECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=523,
-  serialized_end=697,
+  serialized_start=549,
+  serialized_end=777,
 )
 
 
@@ -392,6 +436,13 @@ _ONFACESETFACEDETECTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='with_live_detect', full_name='faceRecognition.OnFaceSetFaceDetectRequest.with_live_detect', index=8,
+      number=9, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -404,8 +455,8 @@ _ONFACESETFACEDETECTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=700,
-  serialized_end=919,
+  serialized_start=780,
+  serialized_end=1025,
 )
 
 
@@ -465,6 +516,13 @@ _ONFACESETFACEDETECTRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='live_detect', full_name='faceRecognition.OnFaceSetFaceDetectResponse.live_detect', index=7,
+      number=8, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -477,16 +535,18 @@ _ONFACESETFACEDETECTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=922,
-  serialized_end=1145,
+  serialized_start=1028,
+  serialized_end=1305,
 )
 
 _FROMIMAGERESPONSE.fields_by_name['genders'].enum_type = _GENDER
 _FROMIMAGERESPONSE.fields_by_name['positions'].message_type = _FACEPOSITION
 _ONFACEDETECTRESPONSE.fields_by_name['genders'].enum_type = _GENDER
 _ONFACEDETECTRESPONSE.fields_by_name['positions'].message_type = _FACEPOSITION
+_ONFACEDETECTRESPONSE.fields_by_name['live_detect'].enum_type = _LIVEDETECTTYPE
 _ONFACESETFACEDETECTRESPONSE.fields_by_name['genders'].enum_type = _GENDER
 _ONFACESETFACEDETECTRESPONSE.fields_by_name['positions'].message_type = _FACEPOSITION
+_ONFACESETFACEDETECTRESPONSE.fields_by_name['live_detect'].enum_type = _LIVEDETECTTYPE
 DESCRIPTOR.message_types_by_name['FacePosition'] = _FACEPOSITION
 DESCRIPTOR.message_types_by_name['FromImageRequest'] = _FROMIMAGEREQUEST
 DESCRIPTOR.message_types_by_name['FromImageResponse'] = _FROMIMAGERESPONSE
@@ -495,6 +555,7 @@ DESCRIPTOR.message_types_by_name['OnFaceDetectResponse'] = _ONFACEDETECTRESPONSE
 DESCRIPTOR.message_types_by_name['OnFaceSetFaceDetectRequest'] = _ONFACESETFACEDETECTREQUEST
 DESCRIPTOR.message_types_by_name['OnFaceSetFaceDetectResponse'] = _ONFACESETFACEDETECTRESPONSE
 DESCRIPTOR.enum_types_by_name['Gender'] = _GENDER
+DESCRIPTOR.enum_types_by_name['LiveDetectType'] = _LIVEDETECTTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 FacePosition = _reflection.GeneratedProtocolMessageType('FacePosition', (_message.Message,), {
@@ -555,8 +616,8 @@ _FACEDETECT = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1214,
-  serialized_end=1527,
+  serialized_start=1462,
+  serialized_end=1775,
   methods=[
   _descriptor.MethodDescriptor(
     name='FromImage',

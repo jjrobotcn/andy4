@@ -16,6 +16,7 @@ goog.exportSymbol('proto.faceRecognition.FacePosition', null, global);
 goog.exportSymbol('proto.faceRecognition.FromImageRequest', null, global);
 goog.exportSymbol('proto.faceRecognition.FromImageResponse', null, global);
 goog.exportSymbol('proto.faceRecognition.Gender', null, global);
+goog.exportSymbol('proto.faceRecognition.LiveDetectType', null, global);
 goog.exportSymbol('proto.faceRecognition.OnFaceDetectRequest', null, global);
 goog.exportSymbol('proto.faceRecognition.OnFaceDetectResponse', null, global);
 goog.exportSymbol('proto.faceRecognition.OnFaceSetFaceDetectRequest', null, global);
@@ -1017,7 +1018,8 @@ proto.faceRecognition.OnFaceDetectRequest.toObject = function(includeInstance, m
     withGender: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
     withAge: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
     withPosition: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
-    withFaceCropWidth: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
+    withFaceCropWidth: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+    withLiveDetect: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -1073,6 +1075,10 @@ proto.faceRecognition.OnFaceDetectRequest.deserializeBinaryFromReader = function
     case 5:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setWithFaceCropWidth(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setWithLiveDetect(value);
       break;
     default:
       reader.skipField();
@@ -1135,6 +1141,13 @@ proto.faceRecognition.OnFaceDetectRequest.serializeBinaryToWriter = function(mes
   if (f) {
     writer.writeBool(
       5,
+      f
+    );
+  }
+  f = message.getWithLiveDetect();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -1231,13 +1244,31 @@ proto.faceRecognition.OnFaceDetectRequest.prototype.setWithFaceCropWidth = funct
 };
 
 
+/**
+ * optional bool with_live_detect = 6;
+ * @return {boolean}
+ */
+proto.faceRecognition.OnFaceDetectRequest.prototype.getWithLiveDetect = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.faceRecognition.OnFaceDetectRequest} returns this
+ */
+proto.faceRecognition.OnFaceDetectRequest.prototype.setWithLiveDetect = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
+};
+
+
 
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.faceRecognition.OnFaceDetectResponse.repeatedFields_ = [1,2,3,4,5];
+proto.faceRecognition.OnFaceDetectResponse.repeatedFields_ = [1,2,3,4,5,6];
 
 
 
@@ -1275,7 +1306,8 @@ proto.faceRecognition.OnFaceDetectResponse.toObject = function(includeInstance, 
     agesList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
     positionsList: jspb.Message.toObjectList(msg.getPositionsList(),
     proto.faceRecognition.FacePosition.toObject, includeInstance),
-    faceCropWidthsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
+    faceCropWidthsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
+    liveDetectList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -1332,6 +1364,10 @@ proto.faceRecognition.OnFaceDetectResponse.deserializeBinaryFromReader = functio
     case 5:
       var value = /** @type {!Array<number>} */ (reader.readPackedUint32());
       msg.setFaceCropWidthsList(value);
+      break;
+    case 6:
+      var value = /** @type {!Array<!proto.faceRecognition.LiveDetectType>} */ (reader.readPackedEnum());
+      msg.setLiveDetectList(value);
       break;
     default:
       reader.skipField();
@@ -1395,6 +1431,13 @@ proto.faceRecognition.OnFaceDetectResponse.serializeBinaryToWriter = function(me
   if (f.length > 0) {
     writer.writePackedUint32(
       5,
+      f
+    );
+  }
+  f = message.getLiveDetectList();
+  if (f.length > 0) {
+    writer.writePackedEnum(
+      6,
       f
     );
   }
@@ -1611,6 +1654,43 @@ proto.faceRecognition.OnFaceDetectResponse.prototype.clearFaceCropWidthsList = f
 };
 
 
+/**
+ * repeated LiveDetectType live_detect = 6;
+ * @return {!Array<!proto.faceRecognition.LiveDetectType>}
+ */
+proto.faceRecognition.OnFaceDetectResponse.prototype.getLiveDetectList = function() {
+  return /** @type {!Array<!proto.faceRecognition.LiveDetectType>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
+
+/**
+ * @param {!Array<!proto.faceRecognition.LiveDetectType>} value
+ * @return {!proto.faceRecognition.OnFaceDetectResponse} returns this
+ */
+proto.faceRecognition.OnFaceDetectResponse.prototype.setLiveDetectList = function(value) {
+  return jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {!proto.faceRecognition.LiveDetectType} value
+ * @param {number=} opt_index
+ * @return {!proto.faceRecognition.OnFaceDetectResponse} returns this
+ */
+proto.faceRecognition.OnFaceDetectResponse.prototype.addLiveDetect = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.faceRecognition.OnFaceDetectResponse} returns this
+ */
+proto.faceRecognition.OnFaceDetectResponse.prototype.clearLiveDetectList = function() {
+  return this.setLiveDetectList([]);
+};
+
+
 
 
 
@@ -1650,7 +1730,8 @@ proto.faceRecognition.OnFaceSetFaceDetectRequest.toObject = function(includeInst
     withPosition: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     intervalMillisecond: jspb.Message.getFieldWithDefault(msg, 6, 0),
     confidenceMin: jspb.Message.getFloatingPointFieldWithDefault(msg, 7, 0.0),
-    withFaceCropWidth: jspb.Message.getBooleanFieldWithDefault(msg, 8, false)
+    withFaceCropWidth: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
+    withLiveDetect: jspb.Message.getBooleanFieldWithDefault(msg, 9, false)
   };
 
   if (includeInstance) {
@@ -1718,6 +1799,10 @@ proto.faceRecognition.OnFaceSetFaceDetectRequest.deserializeBinaryFromReader = f
     case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setWithFaceCropWidth(value);
+      break;
+    case 9:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setWithLiveDetect(value);
       break;
     default:
       reader.skipField();
@@ -1801,6 +1886,13 @@ proto.faceRecognition.OnFaceSetFaceDetectRequest.serializeBinaryToWriter = funct
   if (f) {
     writer.writeBool(
       8,
+      f
+    );
+  }
+  f = message.getWithLiveDetect();
+  if (f) {
+    writer.writeBool(
+      9,
       f
     );
   }
@@ -1951,13 +2043,31 @@ proto.faceRecognition.OnFaceSetFaceDetectRequest.prototype.setWithFaceCropWidth 
 };
 
 
+/**
+ * optional bool with_live_detect = 9;
+ * @return {boolean}
+ */
+proto.faceRecognition.OnFaceSetFaceDetectRequest.prototype.getWithLiveDetect = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.faceRecognition.OnFaceSetFaceDetectRequest} returns this
+ */
+proto.faceRecognition.OnFaceSetFaceDetectRequest.prototype.setWithLiveDetect = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 9, value);
+};
+
+
 
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.faceRecognition.OnFaceSetFaceDetectResponse.repeatedFields_ = [1,2,3,4,5,6,7];
+proto.faceRecognition.OnFaceSetFaceDetectResponse.repeatedFields_ = [1,2,3,4,5,6,7,8];
 
 
 
@@ -1997,7 +2107,8 @@ proto.faceRecognition.OnFaceSetFaceDetectResponse.toObject = function(includeIns
     agesList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
     positionsList: jspb.Message.toObjectList(msg.getPositionsList(),
     proto.faceRecognition.FacePosition.toObject, includeInstance),
-    faceCropWidthsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f
+    faceCropWidthsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f,
+    liveDetectList: (f = jspb.Message.getRepeatedField(msg, 8)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -2062,6 +2173,10 @@ proto.faceRecognition.OnFaceSetFaceDetectResponse.deserializeBinaryFromReader = 
     case 7:
       var value = /** @type {!Array<number>} */ (reader.readPackedUint32());
       msg.setFaceCropWidthsList(value);
+      break;
+    case 8:
+      var value = /** @type {!Array<!proto.faceRecognition.LiveDetectType>} */ (reader.readPackedEnum());
+      msg.setLiveDetectList(value);
       break;
     default:
       reader.skipField();
@@ -2139,6 +2254,13 @@ proto.faceRecognition.OnFaceSetFaceDetectResponse.serializeBinaryToWriter = func
   if (f.length > 0) {
     writer.writePackedUint32(
       7,
+      f
+    );
+  }
+  f = message.getLiveDetectList();
+  if (f.length > 0) {
+    writer.writePackedEnum(
+      8,
       f
     );
   }
@@ -2430,12 +2552,58 @@ proto.faceRecognition.OnFaceSetFaceDetectResponse.prototype.clearFaceCropWidthsL
 
 
 /**
+ * repeated LiveDetectType live_detect = 8;
+ * @return {!Array<!proto.faceRecognition.LiveDetectType>}
+ */
+proto.faceRecognition.OnFaceSetFaceDetectResponse.prototype.getLiveDetectList = function() {
+  return /** @type {!Array<!proto.faceRecognition.LiveDetectType>} */ (jspb.Message.getRepeatedField(this, 8));
+};
+
+
+/**
+ * @param {!Array<!proto.faceRecognition.LiveDetectType>} value
+ * @return {!proto.faceRecognition.OnFaceSetFaceDetectResponse} returns this
+ */
+proto.faceRecognition.OnFaceSetFaceDetectResponse.prototype.setLiveDetectList = function(value) {
+  return jspb.Message.setField(this, 8, value || []);
+};
+
+
+/**
+ * @param {!proto.faceRecognition.LiveDetectType} value
+ * @param {number=} opt_index
+ * @return {!proto.faceRecognition.OnFaceSetFaceDetectResponse} returns this
+ */
+proto.faceRecognition.OnFaceSetFaceDetectResponse.prototype.addLiveDetect = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 8, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.faceRecognition.OnFaceSetFaceDetectResponse} returns this
+ */
+proto.faceRecognition.OnFaceSetFaceDetectResponse.prototype.clearLiveDetectList = function() {
+  return this.setLiveDetectList([]);
+};
+
+
+/**
  * @enum {number}
  */
 proto.faceRecognition.Gender = {
   GENDER_UNKNOWN: 0,
   GENDER_MALE: 1,
   GENDER_FEMALE: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.faceRecognition.LiveDetectType = {
+  LIVE_DETECT_UNKNOWN: 0,
+  LIVE_DETECT_TRUE: 1,
+  LIVE_DETECT_FALSE: 2
 };
 
 goog.object.extend(exports, proto.faceRecognition);

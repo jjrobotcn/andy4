@@ -129,6 +129,9 @@ export class OnFaceDetectRequest extends jspb.Message {
   getWithFaceCropWidth(): boolean;
   setWithFaceCropWidth(value: boolean): void;
 
+  getWithLiveDetect(): boolean;
+  setWithLiveDetect(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OnFaceDetectRequest.AsObject;
   static toObject(includeInstance: boolean, msg: OnFaceDetectRequest): OnFaceDetectRequest.AsObject;
@@ -146,6 +149,7 @@ export namespace OnFaceDetectRequest {
     withAge: boolean,
     withPosition: boolean,
     withFaceCropWidth: boolean,
+    withLiveDetect: boolean,
   }
 }
 
@@ -177,6 +181,11 @@ export class OnFaceDetectResponse extends jspb.Message {
   setFaceCropWidthsList(value: Array<number>): void;
   addFaceCropWidths(value: number, index?: number): number;
 
+  clearLiveDetectList(): void;
+  getLiveDetectList(): Array<LiveDetectTypeMap[keyof LiveDetectTypeMap]>;
+  setLiveDetectList(value: Array<LiveDetectTypeMap[keyof LiveDetectTypeMap]>): void;
+  addLiveDetect(value: LiveDetectTypeMap[keyof LiveDetectTypeMap], index?: number): LiveDetectTypeMap[keyof LiveDetectTypeMap];
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OnFaceDetectResponse.AsObject;
   static toObject(includeInstance: boolean, msg: OnFaceDetectResponse): OnFaceDetectResponse.AsObject;
@@ -194,6 +203,7 @@ export namespace OnFaceDetectResponse {
     agesList: Array<number>,
     positionsList: Array<FacePosition.AsObject>,
     faceCropWidthsList: Array<number>,
+    liveDetectList: Array<LiveDetectTypeMap[keyof LiveDetectTypeMap]>,
   }
 }
 
@@ -222,6 +232,9 @@ export class OnFaceSetFaceDetectRequest extends jspb.Message {
   getWithFaceCropWidth(): boolean;
   setWithFaceCropWidth(value: boolean): void;
 
+  getWithLiveDetect(): boolean;
+  setWithLiveDetect(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OnFaceSetFaceDetectRequest.AsObject;
   static toObject(includeInstance: boolean, msg: OnFaceSetFaceDetectRequest): OnFaceSetFaceDetectRequest.AsObject;
@@ -242,6 +255,7 @@ export namespace OnFaceSetFaceDetectRequest {
     intervalMillisecond: number,
     confidenceMin: number,
     withFaceCropWidth: boolean,
+    withLiveDetect: boolean,
   }
 }
 
@@ -283,6 +297,11 @@ export class OnFaceSetFaceDetectResponse extends jspb.Message {
   setFaceCropWidthsList(value: Array<number>): void;
   addFaceCropWidths(value: number, index?: number): number;
 
+  clearLiveDetectList(): void;
+  getLiveDetectList(): Array<LiveDetectTypeMap[keyof LiveDetectTypeMap]>;
+  setLiveDetectList(value: Array<LiveDetectTypeMap[keyof LiveDetectTypeMap]>): void;
+  addLiveDetect(value: LiveDetectTypeMap[keyof LiveDetectTypeMap], index?: number): LiveDetectTypeMap[keyof LiveDetectTypeMap];
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OnFaceSetFaceDetectResponse.AsObject;
   static toObject(includeInstance: boolean, msg: OnFaceSetFaceDetectResponse): OnFaceSetFaceDetectResponse.AsObject;
@@ -302,6 +321,7 @@ export namespace OnFaceSetFaceDetectResponse {
     agesList: Array<number>,
     positionsList: Array<FacePosition.AsObject>,
     faceCropWidthsList: Array<number>,
+    liveDetectList: Array<LiveDetectTypeMap[keyof LiveDetectTypeMap]>,
   }
 }
 
@@ -312,4 +332,12 @@ export interface GenderMap {
 }
 
 export const Gender: GenderMap;
+
+export interface LiveDetectTypeMap {
+  LIVE_DETECT_UNKNOWN: 0;
+  LIVE_DETECT_TRUE: 1;
+  LIVE_DETECT_FALSE: 2;
+}
+
+export const LiveDetectType: LiveDetectTypeMap;
 

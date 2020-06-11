@@ -127,6 +127,123 @@ public final class FaceDetectPB {
     // @@protoc_insertion_point(enum_scope:faceRecognition.Gender)
   }
 
+  /**
+   * <pre>
+   * 2D检测静态活体类型
+   * </pre>
+   *
+   * Protobuf enum {@code faceRecognition.LiveDetectType}
+   */
+  public enum LiveDetectType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>LIVE_DETECT_UNKNOWN = 0;</code>
+     */
+    LIVE_DETECT_UNKNOWN(0),
+    /**
+     * <code>LIVE_DETECT_TRUE = 1;</code>
+     */
+    LIVE_DETECT_TRUE(1),
+    /**
+     * <code>LIVE_DETECT_FALSE = 2;</code>
+     */
+    LIVE_DETECT_FALSE(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>LIVE_DETECT_UNKNOWN = 0;</code>
+     */
+    public static final int LIVE_DETECT_UNKNOWN_VALUE = 0;
+    /**
+     * <code>LIVE_DETECT_TRUE = 1;</code>
+     */
+    public static final int LIVE_DETECT_TRUE_VALUE = 1;
+    /**
+     * <code>LIVE_DETECT_FALSE = 2;</code>
+     */
+    public static final int LIVE_DETECT_FALSE_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static LiveDetectType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static LiveDetectType forNumber(int value) {
+      switch (value) {
+        case 0: return LIVE_DETECT_UNKNOWN;
+        case 1: return LIVE_DETECT_TRUE;
+        case 2: return LIVE_DETECT_FALSE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<LiveDetectType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        LiveDetectType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<LiveDetectType>() {
+            public LiveDetectType findValueByNumber(int number) {
+              return LiveDetectType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.facepb.FaceDetectPB.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final LiveDetectType[] VALUES = values();
+
+    public static LiveDetectType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private LiveDetectType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:faceRecognition.LiveDetectType)
+  }
+
   public interface FacePositionOrBuilder extends
       // @@protoc_insertion_point(interface_extends:faceRecognition.FacePosition)
       com.google.protobuf.MessageOrBuilder {
@@ -3614,6 +3731,19 @@ public final class FaceDetectPB {
      * @return The withFaceCropWidth.
      */
     boolean getWithFaceCropWidth();
+
+    /**
+     * <pre>
+     * 2D静态活体检测
+     * 适用于检测照片、视频、纸张等类型，
+     * 对防攻击要求不高的场景，
+     * 人偶模型类型检测效果不佳。
+     * </pre>
+     *
+     * <code>bool with_live_detect = 6;</code>
+     * @return The withLiveDetect.
+     */
+    boolean getWithLiveDetect();
   }
   /**
    * Protobuf type {@code faceRecognition.OnFaceDetectRequest}
@@ -3683,6 +3813,11 @@ public final class FaceDetectPB {
             case 40: {
 
               withFaceCropWidth_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              withLiveDetect_ = input.readBool();
               break;
             }
             default: {
@@ -3787,6 +3922,23 @@ public final class FaceDetectPB {
       return withFaceCropWidth_;
     }
 
+    public static final int WITH_LIVE_DETECT_FIELD_NUMBER = 6;
+    private boolean withLiveDetect_;
+    /**
+     * <pre>
+     * 2D静态活体检测
+     * 适用于检测照片、视频、纸张等类型，
+     * 对防攻击要求不高的场景，
+     * 人偶模型类型检测效果不佳。
+     * </pre>
+     *
+     * <code>bool with_live_detect = 6;</code>
+     * @return The withLiveDetect.
+     */
+    public boolean getWithLiveDetect() {
+      return withLiveDetect_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3815,6 +3967,9 @@ public final class FaceDetectPB {
       }
       if (withFaceCropWidth_ != false) {
         output.writeBool(5, withFaceCropWidth_);
+      }
+      if (withLiveDetect_ != false) {
+        output.writeBool(6, withLiveDetect_);
       }
       unknownFields.writeTo(output);
     }
@@ -3845,6 +4000,10 @@ public final class FaceDetectPB {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, withFaceCropWidth_);
       }
+      if (withLiveDetect_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, withLiveDetect_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3870,6 +4029,8 @@ public final class FaceDetectPB {
           != other.getWithPosition()) return false;
       if (getWithFaceCropWidth()
           != other.getWithFaceCropWidth()) return false;
+      if (getWithLiveDetect()
+          != other.getWithLiveDetect()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3895,6 +4056,9 @@ public final class FaceDetectPB {
       hash = (37 * hash) + WITH_FACE_CROP_WIDTH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getWithFaceCropWidth());
+      hash = (37 * hash) + WITH_LIVE_DETECT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWithLiveDetect());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4038,6 +4202,8 @@ public final class FaceDetectPB {
 
         withFaceCropWidth_ = false;
 
+        withLiveDetect_ = false;
+
         return this;
       }
 
@@ -4069,6 +4235,7 @@ public final class FaceDetectPB {
         result.withAge_ = withAge_;
         result.withPosition_ = withPosition_;
         result.withFaceCropWidth_ = withFaceCropWidth_;
+        result.withLiveDetect_ = withLiveDetect_;
         onBuilt();
         return result;
       }
@@ -4131,6 +4298,9 @@ public final class FaceDetectPB {
         }
         if (other.getWithFaceCropWidth() != false) {
           setWithFaceCropWidth(other.getWithFaceCropWidth());
+        }
+        if (other.getWithLiveDetect() != false) {
+          setWithLiveDetect(other.getWithLiveDetect());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4370,6 +4540,57 @@ public final class FaceDetectPB {
         onChanged();
         return this;
       }
+
+      private boolean withLiveDetect_ ;
+      /**
+       * <pre>
+       * 2D静态活体检测
+       * 适用于检测照片、视频、纸张等类型，
+       * 对防攻击要求不高的场景，
+       * 人偶模型类型检测效果不佳。
+       * </pre>
+       *
+       * <code>bool with_live_detect = 6;</code>
+       * @return The withLiveDetect.
+       */
+      public boolean getWithLiveDetect() {
+        return withLiveDetect_;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测
+       * 适用于检测照片、视频、纸张等类型，
+       * 对防攻击要求不高的场景，
+       * 人偶模型类型检测效果不佳。
+       * </pre>
+       *
+       * <code>bool with_live_detect = 6;</code>
+       * @param value The withLiveDetect to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWithLiveDetect(boolean value) {
+        
+        withLiveDetect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测
+       * 适用于检测照片、视频、纸张等类型，
+       * 对防攻击要求不高的场景，
+       * 人偶模型类型检测效果不佳。
+       * </pre>
+       *
+       * <code>bool with_live_detect = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWithLiveDetect() {
+        
+        withLiveDetect_ = false;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4606,6 +4827,65 @@ public final class FaceDetectPB {
      * @return The faceCropWidths at the given index.
      */
     int getFaceCropWidths(int index);
+
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @return A list containing the liveDetect.
+     */
+    java.util.List<com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> getLiveDetectList();
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @return The count of liveDetect.
+     */
+    int getLiveDetectCount();
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @param index The index of the element to return.
+     * @return The liveDetect at the given index.
+     */
+    com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType getLiveDetect(int index);
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @return A list containing the enum numeric values on the wire for liveDetect.
+     */
+    java.util.List<java.lang.Integer>
+    getLiveDetectValueList();
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of liveDetect at the given index.
+     */
+    int getLiveDetectValue(int index);
   }
   /**
    * Protobuf type {@code faceRecognition.OnFaceDetectResponse}
@@ -4625,6 +4905,7 @@ public final class FaceDetectPB {
       ages_ = emptyIntList();
       positions_ = java.util.Collections.emptyList();
       faceCropWidths_ = emptyIntList();
+      liveDetect_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -4740,6 +5021,29 @@ public final class FaceDetectPB {
               input.popLimit(limit);
               break;
             }
+            case 48: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+                liveDetect_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              liveDetect_.add(rawValue);
+              break;
+            }
+            case 50: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+                  liveDetect_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000020;
+                }
+                liveDetect_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4769,6 +5073,9 @@ public final class FaceDetectPB {
         }
         if (((mutable_bitField0_ & 0x00000010) != 0)) {
           faceCropWidths_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
+          liveDetect_ = java.util.Collections.unmodifiableList(liveDetect_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5031,6 +5338,89 @@ public final class FaceDetectPB {
     }
     private int faceCropWidthsMemoizedSerializedSize = -1;
 
+    public static final int LIVE_DETECT_FIELD_NUMBER = 6;
+    private java.util.List<java.lang.Integer> liveDetect_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> liveDetect_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType>() {
+              public com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType convert(java.lang.Integer from) {
+                @SuppressWarnings("deprecation")
+                com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType result = com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType.valueOf(from);
+                return result == null ? com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @return A list containing the liveDetect.
+     */
+    public java.util.List<com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> getLiveDetectList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType>(liveDetect_, liveDetect_converter_);
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @return The count of liveDetect.
+     */
+    public int getLiveDetectCount() {
+      return liveDetect_.size();
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @param index The index of the element to return.
+     * @return The liveDetect at the given index.
+     */
+    public com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType getLiveDetect(int index) {
+      return liveDetect_converter_.convert(liveDetect_.get(index));
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @return A list containing the enum numeric values on the wire for liveDetect.
+     */
+    public java.util.List<java.lang.Integer>
+    getLiveDetectValueList() {
+      return liveDetect_;
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of liveDetect at the given index.
+     */
+    public int getLiveDetectValue(int index) {
+      return liveDetect_.get(index);
+    }
+    private int liveDetectMemoizedSerializedSize;
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5072,6 +5462,13 @@ public final class FaceDetectPB {
       }
       for (int i = 0; i < faceCropWidths_.size(); i++) {
         output.writeUInt32NoTag(faceCropWidths_.getInt(i));
+      }
+      if (getLiveDetectList().size() > 0) {
+        output.writeUInt32NoTag(50);
+        output.writeUInt32NoTag(liveDetectMemoizedSerializedSize);
+      }
+      for (int i = 0; i < liveDetect_.size(); i++) {
+        output.writeEnumNoTag(liveDetect_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5135,6 +5532,18 @@ public final class FaceDetectPB {
         }
         faceCropWidthsMemoizedSerializedSize = dataSize;
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < liveDetect_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(liveDetect_.get(i));
+        }
+        size += dataSize;
+        if (!getLiveDetectList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }liveDetectMemoizedSerializedSize = dataSize;
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5159,6 +5568,7 @@ public final class FaceDetectPB {
           .equals(other.getPositionsList())) return false;
       if (!getFaceCropWidthsList()
           .equals(other.getFaceCropWidthsList())) return false;
+      if (!liveDetect_.equals(other.liveDetect_)) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5189,6 +5599,10 @@ public final class FaceDetectPB {
       if (getFaceCropWidthsCount() > 0) {
         hash = (37 * hash) + FACE_CROP_WIDTHS_FIELD_NUMBER;
         hash = (53 * hash) + getFaceCropWidthsList().hashCode();
+      }
+      if (getLiveDetectCount() > 0) {
+        hash = (37 * hash) + LIVE_DETECT_FIELD_NUMBER;
+        hash = (53 * hash) + liveDetect_.hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5338,6 +5752,8 @@ public final class FaceDetectPB {
         }
         faceCropWidths_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000010);
+        liveDetect_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -5394,6 +5810,11 @@ public final class FaceDetectPB {
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.faceCropWidths_ = faceCropWidths_;
+        if (((bitField0_ & 0x00000020) != 0)) {
+          liveDetect_ = java.util.Collections.unmodifiableList(liveDetect_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.liveDetect_ = liveDetect_;
         onBuilt();
         return result;
       }
@@ -5505,6 +5926,16 @@ public final class FaceDetectPB {
           } else {
             ensureFaceCropWidthsIsMutable();
             faceCropWidths_.addAll(other.faceCropWidths_);
+          }
+          onChanged();
+        }
+        if (!other.liveDetect_.isEmpty()) {
+          if (liveDetect_.isEmpty()) {
+            liveDetect_ = other.liveDetect_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensureLiveDetectIsMutable();
+            liveDetect_.addAll(other.liveDetect_);
           }
           onChanged();
         }
@@ -6364,6 +6795,218 @@ public final class FaceDetectPB {
         onChanged();
         return this;
       }
+
+      private java.util.List<java.lang.Integer> liveDetect_ =
+        java.util.Collections.emptyList();
+      private void ensureLiveDetectIsMutable() {
+        if (!((bitField0_ & 0x00000020) != 0)) {
+          liveDetect_ = new java.util.ArrayList<java.lang.Integer>(liveDetect_);
+          bitField0_ |= 0x00000020;
+        }
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @return A list containing the liveDetect.
+       */
+      public java.util.List<com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> getLiveDetectList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType>(liveDetect_, liveDetect_converter_);
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @return The count of liveDetect.
+       */
+      public int getLiveDetectCount() {
+        return liveDetect_.size();
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param index The index of the element to return.
+       * @return The liveDetect at the given index.
+       */
+      public com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType getLiveDetect(int index) {
+        return liveDetect_converter_.convert(liveDetect_.get(index));
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The liveDetect to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLiveDetect(
+          int index, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLiveDetectIsMutable();
+        liveDetect_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param value The liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLiveDetect(com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLiveDetectIsMutable();
+        liveDetect_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param values The liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLiveDetect(
+          java.lang.Iterable<? extends com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> values) {
+        ensureLiveDetectIsMutable();
+        for (com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType value : values) {
+          liveDetect_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLiveDetect() {
+        liveDetect_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @return A list containing the enum numeric values on the wire for liveDetect.
+       */
+      public java.util.List<java.lang.Integer>
+      getLiveDetectValueList() {
+        return java.util.Collections.unmodifiableList(liveDetect_);
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of liveDetect at the given index.
+       */
+      public int getLiveDetectValue(int index) {
+        return liveDetect_.get(index);
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of liveDetect at the given index.
+       * @return This builder for chaining.
+       */
+      public Builder setLiveDetectValue(
+          int index, int value) {
+        ensureLiveDetectIsMutable();
+        liveDetect_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param value The enum numeric value on the wire for liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLiveDetectValue(int value) {
+        ensureLiveDetectIsMutable();
+        liveDetect_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 6;</code>
+       * @param values The enum numeric values on the wire for liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLiveDetectValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureLiveDetectIsMutable();
+        for (int value : values) {
+          liveDetect_.add(value);
+        }
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6511,6 +7154,19 @@ public final class FaceDetectPB {
      * @return The withFaceCropWidth.
      */
     boolean getWithFaceCropWidth();
+
+    /**
+     * <pre>
+     * 2D静态活体检测
+     * 适用于检测照片、视频、纸张等类型，
+     * 对防攻击要求不高的场景，
+     * 人偶模型类型检测效果不佳。
+     * </pre>
+     *
+     * <code>bool with_live_detect = 9;</code>
+     * @return The withLiveDetect.
+     */
+    boolean getWithLiveDetect();
   }
   /**
    * Protobuf type {@code faceRecognition.OnFaceSetFaceDetectRequest}
@@ -6597,6 +7253,11 @@ public final class FaceDetectPB {
             case 64: {
 
               withFaceCropWidth_ = input.readBool();
+              break;
+            }
+            case 72: {
+
+              withLiveDetect_ = input.readBool();
               break;
             }
             default: {
@@ -6774,6 +7435,23 @@ public final class FaceDetectPB {
       return withFaceCropWidth_;
     }
 
+    public static final int WITH_LIVE_DETECT_FIELD_NUMBER = 9;
+    private boolean withLiveDetect_;
+    /**
+     * <pre>
+     * 2D静态活体检测
+     * 适用于检测照片、视频、纸张等类型，
+     * 对防攻击要求不高的场景，
+     * 人偶模型类型检测效果不佳。
+     * </pre>
+     *
+     * <code>bool with_live_detect = 9;</code>
+     * @return The withLiveDetect.
+     */
+    public boolean getWithLiveDetect() {
+      return withLiveDetect_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6811,6 +7489,9 @@ public final class FaceDetectPB {
       }
       if (withFaceCropWidth_ != false) {
         output.writeBool(8, withFaceCropWidth_);
+      }
+      if (withLiveDetect_ != false) {
+        output.writeBool(9, withLiveDetect_);
       }
       unknownFields.writeTo(output);
     }
@@ -6852,6 +7533,10 @@ public final class FaceDetectPB {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(8, withFaceCropWidth_);
       }
+      if (withLiveDetect_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, withLiveDetect_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6884,6 +7569,8 @@ public final class FaceDetectPB {
               other.getConfidenceMin())) return false;
       if (getWithFaceCropWidth()
           != other.getWithFaceCropWidth()) return false;
+      if (getWithLiveDetect()
+          != other.getWithLiveDetect()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6917,6 +7604,9 @@ public final class FaceDetectPB {
       hash = (37 * hash) + WITH_FACE_CROP_WIDTH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getWithFaceCropWidth());
+      hash = (37 * hash) + WITH_LIVE_DETECT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWithLiveDetect());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7066,6 +7756,8 @@ public final class FaceDetectPB {
 
         withFaceCropWidth_ = false;
 
+        withLiveDetect_ = false;
+
         return this;
       }
 
@@ -7100,6 +7792,7 @@ public final class FaceDetectPB {
         result.intervalMillisecond_ = intervalMillisecond_;
         result.confidenceMin_ = confidenceMin_;
         result.withFaceCropWidth_ = withFaceCropWidth_;
+        result.withLiveDetect_ = withLiveDetect_;
         onBuilt();
         return result;
       }
@@ -7172,6 +7865,9 @@ public final class FaceDetectPB {
         }
         if (other.getWithFaceCropWidth() != false) {
           setWithFaceCropWidth(other.getWithFaceCropWidth());
+        }
+        if (other.getWithLiveDetect() != false) {
+          setWithLiveDetect(other.getWithLiveDetect());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7594,6 +8290,57 @@ public final class FaceDetectPB {
         onChanged();
         return this;
       }
+
+      private boolean withLiveDetect_ ;
+      /**
+       * <pre>
+       * 2D静态活体检测
+       * 适用于检测照片、视频、纸张等类型，
+       * 对防攻击要求不高的场景，
+       * 人偶模型类型检测效果不佳。
+       * </pre>
+       *
+       * <code>bool with_live_detect = 9;</code>
+       * @return The withLiveDetect.
+       */
+      public boolean getWithLiveDetect() {
+        return withLiveDetect_;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测
+       * 适用于检测照片、视频、纸张等类型，
+       * 对防攻击要求不高的场景，
+       * 人偶模型类型检测效果不佳。
+       * </pre>
+       *
+       * <code>bool with_live_detect = 9;</code>
+       * @param value The withLiveDetect to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWithLiveDetect(boolean value) {
+        
+        withLiveDetect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测
+       * 适用于检测照片、视频、纸张等类型，
+       * 对防攻击要求不高的场景，
+       * 人偶模型类型检测效果不佳。
+       * </pre>
+       *
+       * <code>bool with_live_detect = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWithLiveDetect() {
+        
+        withLiveDetect_ = false;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7900,6 +8647,65 @@ public final class FaceDetectPB {
      * @return The faceCropWidths at the given index.
      */
     int getFaceCropWidths(int index);
+
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @return A list containing the liveDetect.
+     */
+    java.util.List<com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> getLiveDetectList();
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @return The count of liveDetect.
+     */
+    int getLiveDetectCount();
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @param index The index of the element to return.
+     * @return The liveDetect at the given index.
+     */
+    com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType getLiveDetect(int index);
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @return A list containing the enum numeric values on the wire for liveDetect.
+     */
+    java.util.List<java.lang.Integer>
+    getLiveDetectValueList();
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of liveDetect at the given index.
+     */
+    int getLiveDetectValue(int index);
   }
   /**
    * Protobuf type {@code faceRecognition.OnFaceSetFaceDetectResponse}
@@ -7921,6 +8727,7 @@ public final class FaceDetectPB {
       ages_ = emptyIntList();
       positions_ = java.util.Collections.emptyList();
       faceCropWidths_ = emptyIntList();
+      liveDetect_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -8066,6 +8873,29 @@ public final class FaceDetectPB {
               input.popLimit(limit);
               break;
             }
+            case 64: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000080) != 0)) {
+                liveDetect_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              liveDetect_.add(rawValue);
+              break;
+            }
+            case 66: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000080) != 0)) {
+                  liveDetect_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000080;
+                }
+                liveDetect_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -8101,6 +8931,9 @@ public final class FaceDetectPB {
         }
         if (((mutable_bitField0_ & 0x00000040) != 0)) {
           faceCropWidths_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000080) != 0)) {
+          liveDetect_ = java.util.Collections.unmodifiableList(liveDetect_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8453,6 +9286,89 @@ public final class FaceDetectPB {
     }
     private int faceCropWidthsMemoizedSerializedSize = -1;
 
+    public static final int LIVE_DETECT_FIELD_NUMBER = 8;
+    private java.util.List<java.lang.Integer> liveDetect_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> liveDetect_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType>() {
+              public com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType convert(java.lang.Integer from) {
+                @SuppressWarnings("deprecation")
+                com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType result = com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType.valueOf(from);
+                return result == null ? com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @return A list containing the liveDetect.
+     */
+    public java.util.List<com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> getLiveDetectList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType>(liveDetect_, liveDetect_converter_);
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @return The count of liveDetect.
+     */
+    public int getLiveDetectCount() {
+      return liveDetect_.size();
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @param index The index of the element to return.
+     * @return The liveDetect at the given index.
+     */
+    public com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType getLiveDetect(int index) {
+      return liveDetect_converter_.convert(liveDetect_.get(index));
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @return A list containing the enum numeric values on the wire for liveDetect.
+     */
+    public java.util.List<java.lang.Integer>
+    getLiveDetectValueList() {
+      return liveDetect_;
+    }
+    /**
+     * <pre>
+     * 2D静态活体检测列表
+     * 目前仅检测人脸列表中首个人脸数据，
+     * 其余结果均为LIVE_DETECT_UNKNOWN
+     * </pre>
+     *
+     * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of liveDetect at the given index.
+     */
+    public int getLiveDetectValue(int index) {
+      return liveDetect_.get(index);
+    }
+    private int liveDetectMemoizedSerializedSize;
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8504,6 +9420,13 @@ public final class FaceDetectPB {
       }
       for (int i = 0; i < faceCropWidths_.size(); i++) {
         output.writeUInt32NoTag(faceCropWidths_.getInt(i));
+      }
+      if (getLiveDetectList().size() > 0) {
+        output.writeUInt32NoTag(66);
+        output.writeUInt32NoTag(liveDetectMemoizedSerializedSize);
+      }
+      for (int i = 0; i < liveDetect_.size(); i++) {
+        output.writeEnumNoTag(liveDetect_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -8586,6 +9509,18 @@ public final class FaceDetectPB {
         }
         faceCropWidthsMemoizedSerializedSize = dataSize;
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < liveDetect_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(liveDetect_.get(i));
+        }
+        size += dataSize;
+        if (!getLiveDetectList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }liveDetectMemoizedSerializedSize = dataSize;
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -8614,6 +9549,7 @@ public final class FaceDetectPB {
           .equals(other.getPositionsList())) return false;
       if (!getFaceCropWidthsList()
           .equals(other.getFaceCropWidthsList())) return false;
+      if (!liveDetect_.equals(other.liveDetect_)) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8652,6 +9588,10 @@ public final class FaceDetectPB {
       if (getFaceCropWidthsCount() > 0) {
         hash = (37 * hash) + FACE_CROP_WIDTHS_FIELD_NUMBER;
         hash = (53 * hash) + getFaceCropWidthsList().hashCode();
+      }
+      if (getLiveDetectCount() > 0) {
+        hash = (37 * hash) + LIVE_DETECT_FIELD_NUMBER;
+        hash = (53 * hash) + liveDetect_.hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8805,6 +9745,8 @@ public final class FaceDetectPB {
         }
         faceCropWidths_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000040);
+        liveDetect_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -8871,6 +9813,11 @@ public final class FaceDetectPB {
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.faceCropWidths_ = faceCropWidths_;
+        if (((bitField0_ & 0x00000080) != 0)) {
+          liveDetect_ = java.util.Collections.unmodifiableList(liveDetect_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.liveDetect_ = liveDetect_;
         onBuilt();
         return result;
       }
@@ -9002,6 +9949,16 @@ public final class FaceDetectPB {
           } else {
             ensureFaceCropWidthsIsMutable();
             faceCropWidths_.addAll(other.faceCropWidths_);
+          }
+          onChanged();
+        }
+        if (!other.liveDetect_.isEmpty()) {
+          if (liveDetect_.isEmpty()) {
+            liveDetect_ = other.liveDetect_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureLiveDetectIsMutable();
+            liveDetect_.addAll(other.liveDetect_);
           }
           onChanged();
         }
@@ -10114,6 +11071,218 @@ public final class FaceDetectPB {
         onChanged();
         return this;
       }
+
+      private java.util.List<java.lang.Integer> liveDetect_ =
+        java.util.Collections.emptyList();
+      private void ensureLiveDetectIsMutable() {
+        if (!((bitField0_ & 0x00000080) != 0)) {
+          liveDetect_ = new java.util.ArrayList<java.lang.Integer>(liveDetect_);
+          bitField0_ |= 0x00000080;
+        }
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @return A list containing the liveDetect.
+       */
+      public java.util.List<com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> getLiveDetectList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType>(liveDetect_, liveDetect_converter_);
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @return The count of liveDetect.
+       */
+      public int getLiveDetectCount() {
+        return liveDetect_.size();
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param index The index of the element to return.
+       * @return The liveDetect at the given index.
+       */
+      public com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType getLiveDetect(int index) {
+        return liveDetect_converter_.convert(liveDetect_.get(index));
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param index The index to set the value at.
+       * @param value The liveDetect to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLiveDetect(
+          int index, com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLiveDetectIsMutable();
+        liveDetect_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param value The liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLiveDetect(com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLiveDetectIsMutable();
+        liveDetect_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param values The liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLiveDetect(
+          java.lang.Iterable<? extends com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType> values) {
+        ensureLiveDetectIsMutable();
+        for (com.jjrobot.andy4.facepb.FaceDetectPB.LiveDetectType value : values) {
+          liveDetect_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLiveDetect() {
+        liveDetect_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @return A list containing the enum numeric values on the wire for liveDetect.
+       */
+      public java.util.List<java.lang.Integer>
+      getLiveDetectValueList() {
+        return java.util.Collections.unmodifiableList(liveDetect_);
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of liveDetect at the given index.
+       */
+      public int getLiveDetectValue(int index) {
+        return liveDetect_.get(index);
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of liveDetect at the given index.
+       * @return This builder for chaining.
+       */
+      public Builder setLiveDetectValue(
+          int index, int value) {
+        ensureLiveDetectIsMutable();
+        liveDetect_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param value The enum numeric value on the wire for liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addLiveDetectValue(int value) {
+        ensureLiveDetectIsMutable();
+        liveDetect_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 2D静态活体检测列表
+       * 目前仅检测人脸列表中首个人脸数据，
+       * 其余结果均为LIVE_DETECT_UNKNOWN
+       * </pre>
+       *
+       * <code>repeated .faceRecognition.LiveDetectType live_detect = 8;</code>
+       * @param values The enum numeric values on the wire for liveDetect to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllLiveDetectValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureLiveDetectIsMutable();
+        for (int value : values) {
+          liveDetect_.add(value);
+        }
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10220,37 +11389,43 @@ public final class FaceDetectPB {
       "(\014\022(\n\007genders\030\002 \003(\0162\027.faceRecognition.Ge" +
       "nder\022\014\n\004ages\030\003 \003(\005\0220\n\tpositions\030\004 \003(\0132\035." +
       "faceRecognition.FacePosition\022\030\n\020face_cro" +
-      "p_widths\030\005 \003(\r\"\217\001\n\023OnFaceDetectRequest\022\034" +
+      "p_widths\030\005 \003(\r\"\251\001\n\023OnFaceDetectRequest\022\034" +
       "\n\024interval_millisecond\030\001 \001(\r\022\023\n\013with_gen" +
       "der\030\002 \001(\010\022\020\n\010with_age\030\003 \001(\010\022\025\n\rwith_posi" +
       "tion\030\004 \001(\010\022\034\n\024with_face_crop_width\030\005 \001(\010" +
-      "\"\256\001\n\024OnFaceDetectResponse\022\022\n\nface_crops\030" +
-      "\001 \003(\014\022(\n\007genders\030\002 \003(\0162\027.faceRecognition" +
-      ".Gender\022\014\n\004ages\030\003 \003(\005\0220\n\tpositions\030\004 \003(\013" +
-      "2\035.faceRecognition.FacePosition\022\030\n\020face_" +
-      "crop_widths\030\005 \003(\r\"\333\001\n\032OnFaceSetFaceDetec" +
+      "\022\030\n\020with_live_detect\030\006 \001(\010\"\344\001\n\024OnFaceDet" +
+      "ectResponse\022\022\n\nface_crops\030\001 \003(\014\022(\n\007gende" +
+      "rs\030\002 \003(\0162\027.faceRecognition.Gender\022\014\n\004age" +
+      "s\030\003 \003(\005\0220\n\tpositions\030\004 \003(\0132\035.faceRecogni" +
+      "tion.FacePosition\022\030\n\020face_crop_widths\030\005 " +
+      "\003(\r\0224\n\013live_detect\030\006 \003(\0162\037.faceRecogniti" +
+      "on.LiveDetectType\"\365\001\n\032OnFaceSetFaceDetec" +
       "tRequest\022\023\n\013face_set_id\030\001 \001(\t\022\026\n\016with_fa" +
       "ce_crop\030\002 \001(\010\022\023\n\013with_gender\030\003 \001(\010\022\020\n\010wi" +
       "th_age\030\004 \001(\010\022\025\n\rwith_position\030\005 \001(\010\022\034\n\024i" +
       "nterval_millisecond\030\006 \001(\r\022\026\n\016confidence_" +
-      "min\030\007 \001(\002\022\034\n\024with_face_crop_width\030\010 \001(\010\"" +
-      "\337\001\n\033OnFaceSetFaceDetectResponse\022\023\n\013confi" +
-      "dences\030\001 \003(\002\022\023\n\013face_tokens\030\002 \003(\t\022\022\n\nfac" +
-      "e_crops\030\003 \003(\014\022(\n\007genders\030\004 \003(\0162\027.faceRec" +
-      "ognition.Gender\022\014\n\004ages\030\005 \003(\005\0220\n\tpositio" +
-      "ns\030\006 \003(\0132\035.faceRecognition.FacePosition\022" +
-      "\030\n\020face_crop_widths\030\007 \003(\r*@\n\006Gender\022\022\n\016G" +
+      "min\030\007 \001(\002\022\034\n\024with_face_crop_width\030\010 \001(\010\022" +
+      "\030\n\020with_live_detect\030\t \001(\010\"\225\002\n\033OnFaceSetF" +
+      "aceDetectResponse\022\023\n\013confidences\030\001 \003(\002\022\023" +
+      "\n\013face_tokens\030\002 \003(\t\022\022\n\nface_crops\030\003 \003(\014\022" +
+      "(\n\007genders\030\004 \003(\0162\027.faceRecognition.Gende" +
+      "r\022\014\n\004ages\030\005 \003(\005\0220\n\tpositions\030\006 \003(\0132\035.fac" +
+      "eRecognition.FacePosition\022\030\n\020face_crop_w" +
+      "idths\030\007 \003(\r\0224\n\013live_detect\030\010 \003(\0162\037.faceR" +
+      "ecognition.LiveDetectType*@\n\006Gender\022\022\n\016G" +
       "ENDER_UNKNOWN\020\000\022\017\n\013GENDER_MALE\020\001\022\021\n\rGEND" +
-      "ER_FEMALE\020\0022\271\002\n\nFaceDetect\022T\n\tFromImage\022" +
-      "!.faceRecognition.FromImageRequest\032\".fac" +
-      "eRecognition.FromImageResponse\"\000\022_\n\014OnFa" +
-      "ceDetect\022$.faceRecognition.OnFaceDetectR" +
-      "equest\032%.faceRecognition.OnFaceDetectRes" +
-      "ponse\"\0000\001\022t\n\023OnFaceSetFaceDetect\022+.faceR" +
-      "ecognition.OnFaceSetFaceDetectRequest\032,." +
-      "faceRecognition.OnFaceSetFaceDetectRespo" +
-      "nse\"\0000\001B0\n\030com.jjrobot.andy4.facepbB\014Fac" +
-      "eDetectPBZ\006facepbb\006proto3"
+      "ER_FEMALE\020\002*V\n\016LiveDetectType\022\027\n\023LIVE_DE" +
+      "TECT_UNKNOWN\020\000\022\024\n\020LIVE_DETECT_TRUE\020\001\022\025\n\021" +
+      "LIVE_DETECT_FALSE\020\0022\271\002\n\nFaceDetect\022T\n\tFr" +
+      "omImage\022!.faceRecognition.FromImageReque" +
+      "st\032\".faceRecognition.FromImageResponse\"\000" +
+      "\022_\n\014OnFaceDetect\022$.faceRecognition.OnFac" +
+      "eDetectRequest\032%.faceRecognition.OnFaceD" +
+      "etectResponse\"\0000\001\022t\n\023OnFaceSetFaceDetect" +
+      "\022+.faceRecognition.OnFaceSetFaceDetectRe" +
+      "quest\032,.faceRecognition.OnFaceSetFaceDet" +
+      "ectResponse\"\0000\001B0\n\030com.jjrobot.andy4.fac" +
+      "epbB\014FaceDetectPBZ\006facepbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10279,25 +11454,25 @@ public final class FaceDetectPB {
     internal_static_faceRecognition_OnFaceDetectRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_faceRecognition_OnFaceDetectRequest_descriptor,
-        new java.lang.String[] { "IntervalMillisecond", "WithGender", "WithAge", "WithPosition", "WithFaceCropWidth", });
+        new java.lang.String[] { "IntervalMillisecond", "WithGender", "WithAge", "WithPosition", "WithFaceCropWidth", "WithLiveDetect", });
     internal_static_faceRecognition_OnFaceDetectResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_faceRecognition_OnFaceDetectResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_faceRecognition_OnFaceDetectResponse_descriptor,
-        new java.lang.String[] { "FaceCrops", "Genders", "Ages", "Positions", "FaceCropWidths", });
+        new java.lang.String[] { "FaceCrops", "Genders", "Ages", "Positions", "FaceCropWidths", "LiveDetect", });
     internal_static_faceRecognition_OnFaceSetFaceDetectRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_faceRecognition_OnFaceSetFaceDetectRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_faceRecognition_OnFaceSetFaceDetectRequest_descriptor,
-        new java.lang.String[] { "FaceSetId", "WithFaceCrop", "WithGender", "WithAge", "WithPosition", "IntervalMillisecond", "ConfidenceMin", "WithFaceCropWidth", });
+        new java.lang.String[] { "FaceSetId", "WithFaceCrop", "WithGender", "WithAge", "WithPosition", "IntervalMillisecond", "ConfidenceMin", "WithFaceCropWidth", "WithLiveDetect", });
     internal_static_faceRecognition_OnFaceSetFaceDetectResponse_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_faceRecognition_OnFaceSetFaceDetectResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_faceRecognition_OnFaceSetFaceDetectResponse_descriptor,
-        new java.lang.String[] { "Confidences", "FaceTokens", "FaceCrops", "Genders", "Ages", "Positions", "FaceCropWidths", });
+        new java.lang.String[] { "Confidences", "FaceTokens", "FaceCrops", "Genders", "Ages", "Positions", "FaceCropWidths", "LiveDetect", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

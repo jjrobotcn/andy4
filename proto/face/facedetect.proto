@@ -77,6 +77,14 @@ message FromImageResponse {
     repeated uint32 face_crop_widths = 5;
 }
 
+// 2D静态活体检测结果类型
+enum LiveDetectType {
+    // 零值 | 无法确定
+    LIVE_DETECT_UNKNOWN = 0;
+    LIVE_DETECT_TRUE = 1;
+    LIVE_DETECT_FALSE = 2;
+}
+
 message OnFaceDetectRequest {
     // 检测间隔时间(毫秒)
     uint32 interval_millisecond = 1;
@@ -88,6 +96,12 @@ message OnFaceDetectRequest {
     bool with_position = 4;
     // 返回人脸图片戳宽度
     bool with_face_crop_width = 5;
+    // 2D静态活体检测
+    //
+    // 适用于检测照片、视频、纸张等类型，
+    // 对防攻击要求不高的场景，
+    // 人偶模型类型检测效果不佳。
+    bool with_live_detect = 6;
 }
 
 message OnFaceDetectResponse {
@@ -101,6 +115,11 @@ message OnFaceDetectResponse {
     repeated FacePosition positions = 4;
     // 人脸图片戳宽度列表
     repeated uint32 face_crop_widths = 5;
+    // 2D静态活体检测列表
+    //
+    // 目前仅检测人脸列表中首个人脸数据，
+    // 其余结果均为LIVE_DETECT_UNKNOWN
+    repeated LiveDetectType live_detect = 6;
 }
 
 message OnFaceSetFaceDetectRequest {
@@ -121,6 +140,12 @@ message OnFaceSetFaceDetectRequest {
     float confidence_min = 7;
     // 返回人脸图片戳宽度
     bool with_face_crop_width = 8;
+    // 2D静态活体检测
+    //
+    // 适用于检测照片、视频、纸张等类型，
+    // 对防攻击要求不高的场景，
+    // 人偶模型类型检测效果不佳。
+    bool with_live_detect = 9;
 }
 
 message OnFaceSetFaceDetectResponse {
@@ -138,4 +163,9 @@ message OnFaceSetFaceDetectResponse {
     repeated FacePosition positions = 6;
     // 人脸图片戳宽度列表
     repeated uint32 face_crop_widths = 7;
+    // 2D静态活体检测列表
+    //
+    // 目前仅检测人脸列表中首个人脸数据，
+    // 其余结果均为LIVE_DETECT_UNKNOWN
+    repeated LiveDetectType live_detect = 8;
 }
