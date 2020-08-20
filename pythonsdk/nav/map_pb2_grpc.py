@@ -145,3 +145,97 @@ class Map(object):
             map__pb2.LocationResetResponse.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class MapStorageStub(object):
+    """Missing associated documentation comment in .proto file"""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.UploadMapFile = channel.unary_unary(
+                '/navService.MapStorage/UploadMapFile',
+                request_serializer=map__pb2.UploadMapFileRequest.SerializeToString,
+                response_deserializer=map__pb2.UploadMapFileResponse.FromString,
+                )
+        self.DownloadMapFile = channel.unary_unary(
+                '/navService.MapStorage/DownloadMapFile',
+                request_serializer=map__pb2.DownloadMapFileRequest.SerializeToString,
+                response_deserializer=map__pb2.DownloadMapFileResponse.FromString,
+                )
+
+
+class MapStorageServicer(object):
+    """Missing associated documentation comment in .proto file"""
+
+    def UploadMapFile(self, request, context):
+        """上传地图文件
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DownloadMapFile(self, request, context):
+        """下载地图文件
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_MapStorageServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'UploadMapFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.UploadMapFile,
+                    request_deserializer=map__pb2.UploadMapFileRequest.FromString,
+                    response_serializer=map__pb2.UploadMapFileResponse.SerializeToString,
+            ),
+            'DownloadMapFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.DownloadMapFile,
+                    request_deserializer=map__pb2.DownloadMapFileRequest.FromString,
+                    response_serializer=map__pb2.DownloadMapFileResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'navService.MapStorage', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class MapStorage(object):
+    """Missing associated documentation comment in .proto file"""
+
+    @staticmethod
+    def UploadMapFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/navService.MapStorage/UploadMapFile',
+            map__pb2.UploadMapFileRequest.SerializeToString,
+            map__pb2.UploadMapFileResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DownloadMapFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/navService.MapStorage/DownloadMapFile',
+            map__pb2.DownloadMapFileRequest.SerializeToString,
+            map__pb2.DownloadMapFileResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)

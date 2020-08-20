@@ -217,3 +217,95 @@ export namespace LocationResetResponse {
   }
 }
 
+export class UploadMapFileRequest extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
+  getMapFile(): Uint8Array | string;
+  getMapFile_asU8(): Uint8Array;
+  getMapFile_asB64(): string;
+  setMapFile(value: Uint8Array | string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UploadMapFileRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UploadMapFileRequest): UploadMapFileRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UploadMapFileRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UploadMapFileRequest;
+  static deserializeBinaryFromReader(message: UploadMapFileRequest, reader: jspb.BinaryReader): UploadMapFileRequest;
+}
+
+export namespace UploadMapFileRequest {
+  export type AsObject = {
+    name: string,
+    mapFile: Uint8Array | string,
+  }
+}
+
+export class UploadMapFileResponse extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UploadMapFileResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UploadMapFileResponse): UploadMapFileResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UploadMapFileResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UploadMapFileResponse;
+  static deserializeBinaryFromReader(message: UploadMapFileResponse, reader: jspb.BinaryReader): UploadMapFileResponse;
+}
+
+export namespace UploadMapFileResponse {
+  export type AsObject = {
+    id: string,
+  }
+}
+
+export class DownloadMapFileRequest extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DownloadMapFileRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: DownloadMapFileRequest): DownloadMapFileRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DownloadMapFileRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DownloadMapFileRequest;
+  static deserializeBinaryFromReader(message: DownloadMapFileRequest, reader: jspb.BinaryReader): DownloadMapFileRequest;
+}
+
+export namespace DownloadMapFileRequest {
+  export type AsObject = {
+    id: string,
+  }
+}
+
+export class DownloadMapFileResponse extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
+  getMapFile(): Uint8Array | string;
+  getMapFile_asU8(): Uint8Array;
+  getMapFile_asB64(): string;
+  setMapFile(value: Uint8Array | string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DownloadMapFileResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: DownloadMapFileResponse): DownloadMapFileResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: DownloadMapFileResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DownloadMapFileResponse;
+  static deserializeBinaryFromReader(message: DownloadMapFileResponse, reader: jspb.BinaryReader): DownloadMapFileResponse;
+}
+
+export namespace DownloadMapFileResponse {
+  export type AsObject = {
+    name: string,
+    mapFile: Uint8Array | string,
+  }
+}
+

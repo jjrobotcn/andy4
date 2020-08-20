@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='navService',
   syntax='proto3',
   serialized_options=b'\n\027com.jjrobot.andy4.navpbB\005MapPBZ\005navpb',
-  serialized_pb=b'\n\tmap.proto\x12\nnavService\"2\n\x0bMapPosition\x12\t\n\x01x\x18\x01 \x01(\r\x12\t\n\x01y\x18\x02 \x01(\r\x12\r\n\x05\x61ngle\x18\x03 \x01(\r\"@\n\x11GetMapInfoRequest\x12\x14\n\x0cno_map_image\x18\x01 \x01(\x08\x12\x15\n\rno_map_points\x18\x02 \x01(\x08\"\xa6\x02\n\x12GetMapInfoResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12:\n\tmap_image\x18\x03 \x01(\x0b\x32\'.navService.GetMapInfoResponse.MapImage\x12;\n\nmap_points\x18\x04 \x03(\x0b\x32\'.navService.GetMapInfoResponse.MapPoint\x1a\x38\n\x08MapImage\x12\r\n\x05width\x18\x01 \x01(\r\x12\x0e\n\x06height\x18\x02 \x01(\r\x12\r\n\x05image\x18\x03 \x01(\x0c\x1a\x43\n\x08MapPoint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\x08position\x18\x02 \x01(\x0b\x32\x17.navService.MapPosition\"\x1a\n\x18MapPositionStreamRequest\"F\n\x19MapPositionStreamResponse\x12)\n\x08position\x18\x01 \x01(\x0b\x32\x17.navService.MapPosition\"\x16\n\x14LocationResetRequest\"\x17\n\x15LocationResetResponse2\x92\x02\n\x03Map\x12M\n\nGetMapInfo\x12\x1d.navService.GetMapInfoRequest\x1a\x1e.navService.GetMapInfoResponse\"\x00\x12\x64\n\x11MapPositionStream\x12$.navService.MapPositionStreamRequest\x1a%.navService.MapPositionStreamResponse\"\x00\x30\x01\x12V\n\rLocationReset\x12 .navService.LocationResetRequest\x1a!.navService.LocationResetResponse\"\x00\x42\'\n\x17\x63om.jjrobot.andy4.navpbB\x05MapPBZ\x05navpbb\x06proto3'
+  serialized_pb=b'\n\tmap.proto\x12\nnavService\"2\n\x0bMapPosition\x12\t\n\x01x\x18\x01 \x01(\r\x12\t\n\x01y\x18\x02 \x01(\r\x12\r\n\x05\x61ngle\x18\x03 \x01(\r\"@\n\x11GetMapInfoRequest\x12\x14\n\x0cno_map_image\x18\x01 \x01(\x08\x12\x15\n\rno_map_points\x18\x02 \x01(\x08\"\xa6\x02\n\x12GetMapInfoResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12:\n\tmap_image\x18\x03 \x01(\x0b\x32\'.navService.GetMapInfoResponse.MapImage\x12;\n\nmap_points\x18\x04 \x03(\x0b\x32\'.navService.GetMapInfoResponse.MapPoint\x1a\x38\n\x08MapImage\x12\r\n\x05width\x18\x01 \x01(\r\x12\x0e\n\x06height\x18\x02 \x01(\r\x12\r\n\x05image\x18\x03 \x01(\x0c\x1a\x43\n\x08MapPoint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\x08position\x18\x02 \x01(\x0b\x32\x17.navService.MapPosition\"\x1a\n\x18MapPositionStreamRequest\"F\n\x19MapPositionStreamResponse\x12)\n\x08position\x18\x01 \x01(\x0b\x32\x17.navService.MapPosition\"\x16\n\x14LocationResetRequest\"\x17\n\x15LocationResetResponse\"6\n\x14UploadMapFileRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08map_file\x18\x02 \x01(\x0c\"#\n\x15UploadMapFileResponse\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x16\x44ownloadMapFileRequest\x12\n\n\x02id\x18\x01 \x01(\t\"9\n\x17\x44ownloadMapFileResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08map_file\x18\x02 \x01(\x0c\x32\x92\x02\n\x03Map\x12M\n\nGetMapInfo\x12\x1d.navService.GetMapInfoRequest\x1a\x1e.navService.GetMapInfoResponse\"\x00\x12\x64\n\x11MapPositionStream\x12$.navService.MapPositionStreamRequest\x1a%.navService.MapPositionStreamResponse\"\x00\x30\x01\x12V\n\rLocationReset\x12 .navService.LocationResetRequest\x1a!.navService.LocationResetResponse\"\x00\x32\xbe\x01\n\nMapStorage\x12T\n\rUploadMapFile\x12 .navService.UploadMapFileRequest\x1a!.navService.UploadMapFileResponse\x12Z\n\x0f\x44ownloadMapFile\x12\".navService.DownloadMapFileRequest\x1a#.navService.DownloadMapFileResponseB\'\n\x17\x63om.jjrobot.andy4.navpbB\x05MapPBZ\x05navpbb\x06proto3'
 )
 
 
@@ -342,6 +342,144 @@ _LOCATIONRESETRESPONSE = _descriptor.Descriptor(
   serialized_end=587,
 )
 
+
+_UPLOADMAPFILEREQUEST = _descriptor.Descriptor(
+  name='UploadMapFileRequest',
+  full_name='navService.UploadMapFileRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='navService.UploadMapFileRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='map_file', full_name='navService.UploadMapFileRequest.map_file', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=589,
+  serialized_end=643,
+)
+
+
+_UPLOADMAPFILERESPONSE = _descriptor.Descriptor(
+  name='UploadMapFileResponse',
+  full_name='navService.UploadMapFileResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='navService.UploadMapFileResponse.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=645,
+  serialized_end=680,
+)
+
+
+_DOWNLOADMAPFILEREQUEST = _descriptor.Descriptor(
+  name='DownloadMapFileRequest',
+  full_name='navService.DownloadMapFileRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='navService.DownloadMapFileRequest.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=682,
+  serialized_end=718,
+)
+
+
+_DOWNLOADMAPFILERESPONSE = _descriptor.Descriptor(
+  name='DownloadMapFileResponse',
+  full_name='navService.DownloadMapFileResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='navService.DownloadMapFileResponse.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='map_file', full_name='navService.DownloadMapFileResponse.map_file', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=720,
+  serialized_end=777,
+)
+
 _GETMAPINFORESPONSE_MAPIMAGE.containing_type = _GETMAPINFORESPONSE
 _GETMAPINFORESPONSE_MAPPOINT.fields_by_name['position'].message_type = _MAPPOSITION
 _GETMAPINFORESPONSE_MAPPOINT.containing_type = _GETMAPINFORESPONSE
@@ -355,6 +493,10 @@ DESCRIPTOR.message_types_by_name['MapPositionStreamRequest'] = _MAPPOSITIONSTREA
 DESCRIPTOR.message_types_by_name['MapPositionStreamResponse'] = _MAPPOSITIONSTREAMRESPONSE
 DESCRIPTOR.message_types_by_name['LocationResetRequest'] = _LOCATIONRESETREQUEST
 DESCRIPTOR.message_types_by_name['LocationResetResponse'] = _LOCATIONRESETRESPONSE
+DESCRIPTOR.message_types_by_name['UploadMapFileRequest'] = _UPLOADMAPFILEREQUEST
+DESCRIPTOR.message_types_by_name['UploadMapFileResponse'] = _UPLOADMAPFILERESPONSE
+DESCRIPTOR.message_types_by_name['DownloadMapFileRequest'] = _DOWNLOADMAPFILEREQUEST
+DESCRIPTOR.message_types_by_name['DownloadMapFileResponse'] = _DOWNLOADMAPFILERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 MapPosition = _reflection.GeneratedProtocolMessageType('MapPosition', (_message.Message,), {
@@ -422,6 +564,34 @@ LocationResetResponse = _reflection.GeneratedProtocolMessageType('LocationResetR
   })
 _sym_db.RegisterMessage(LocationResetResponse)
 
+UploadMapFileRequest = _reflection.GeneratedProtocolMessageType('UploadMapFileRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPLOADMAPFILEREQUEST,
+  '__module__' : 'map_pb2'
+  # @@protoc_insertion_point(class_scope:navService.UploadMapFileRequest)
+  })
+_sym_db.RegisterMessage(UploadMapFileRequest)
+
+UploadMapFileResponse = _reflection.GeneratedProtocolMessageType('UploadMapFileResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPLOADMAPFILERESPONSE,
+  '__module__' : 'map_pb2'
+  # @@protoc_insertion_point(class_scope:navService.UploadMapFileResponse)
+  })
+_sym_db.RegisterMessage(UploadMapFileResponse)
+
+DownloadMapFileRequest = _reflection.GeneratedProtocolMessageType('DownloadMapFileRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DOWNLOADMAPFILEREQUEST,
+  '__module__' : 'map_pb2'
+  # @@protoc_insertion_point(class_scope:navService.DownloadMapFileRequest)
+  })
+_sym_db.RegisterMessage(DownloadMapFileRequest)
+
+DownloadMapFileResponse = _reflection.GeneratedProtocolMessageType('DownloadMapFileResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DOWNLOADMAPFILERESPONSE,
+  '__module__' : 'map_pb2'
+  # @@protoc_insertion_point(class_scope:navService.DownloadMapFileResponse)
+  })
+_sym_db.RegisterMessage(DownloadMapFileResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -431,8 +601,8 @@ _MAP = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=590,
-  serialized_end=864,
+  serialized_start=780,
+  serialized_end=1054,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetMapInfo',
@@ -465,5 +635,38 @@ _MAP = _descriptor.ServiceDescriptor(
 _sym_db.RegisterServiceDescriptor(_MAP)
 
 DESCRIPTOR.services_by_name['Map'] = _MAP
+
+
+_MAPSTORAGE = _descriptor.ServiceDescriptor(
+  name='MapStorage',
+  full_name='navService.MapStorage',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=None,
+  serialized_start=1057,
+  serialized_end=1247,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='UploadMapFile',
+    full_name='navService.MapStorage.UploadMapFile',
+    index=0,
+    containing_service=None,
+    input_type=_UPLOADMAPFILEREQUEST,
+    output_type=_UPLOADMAPFILERESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DownloadMapFile',
+    full_name='navService.MapStorage.DownloadMapFile',
+    index=1,
+    containing_service=None,
+    input_type=_DOWNLOADMAPFILEREQUEST,
+    output_type=_DOWNLOADMAPFILERESPONSE,
+    serialized_options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_MAPSTORAGE)
+
+DESCRIPTOR.services_by_name['MapStorage'] = _MAPSTORAGE
 
 # @@protoc_insertion_point(module_scope)

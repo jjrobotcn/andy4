@@ -80,3 +80,35 @@ message MapPositionStreamResponse {
 message LocationResetRequest {}
 
 message LocationResetResponse {}
+
+service MapStorage {
+    // 上传地图文件
+    rpc UploadMapFile(UploadMapFileRequest) returns (UploadMapFileResponse);
+
+    // 下载地图文件
+    rpc DownloadMapFile(DownloadMapFileRequest) returns (DownloadMapFileResponse);
+}
+
+message UploadMapFileRequest {
+    // 地图名
+    string name = 1;
+    // 地图文件
+    bytes map_file = 2;
+}
+
+message UploadMapFileResponse {
+    // 地图生成id
+    string id = 1;
+}
+
+message DownloadMapFileRequest {
+    // 下载地图id
+    string id = 1;
+}
+
+message DownloadMapFileResponse {
+    // 地图名
+    string name  =1;
+    // 地图文件
+    bytes map_file = 2;
+}

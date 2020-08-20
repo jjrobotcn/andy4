@@ -25,3 +25,20 @@ export class MapClient extends grpc.Client {
   locationReset(argument: map_pb.LocationResetRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<map_pb.LocationResetResponse>): grpc.ClientUnaryCall;
   locationReset(argument: map_pb.LocationResetRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<map_pb.LocationResetResponse>): grpc.ClientUnaryCall;
 }
+
+interface IMapStorageService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
+  uploadMapFile: grpc.MethodDefinition<map_pb.UploadMapFileRequest, map_pb.UploadMapFileResponse>;
+  downloadMapFile: grpc.MethodDefinition<map_pb.DownloadMapFileRequest, map_pb.DownloadMapFileResponse>;
+}
+
+export const MapStorageService: IMapStorageService;
+
+export class MapStorageClient extends grpc.Client {
+  constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+  uploadMapFile(argument: map_pb.UploadMapFileRequest, callback: grpc.requestCallback<map_pb.UploadMapFileResponse>): grpc.ClientUnaryCall;
+  uploadMapFile(argument: map_pb.UploadMapFileRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<map_pb.UploadMapFileResponse>): grpc.ClientUnaryCall;
+  uploadMapFile(argument: map_pb.UploadMapFileRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<map_pb.UploadMapFileResponse>): grpc.ClientUnaryCall;
+  downloadMapFile(argument: map_pb.DownloadMapFileRequest, callback: grpc.requestCallback<map_pb.DownloadMapFileResponse>): grpc.ClientUnaryCall;
+  downloadMapFile(argument: map_pb.DownloadMapFileRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<map_pb.DownloadMapFileResponse>): grpc.ClientUnaryCall;
+  downloadMapFile(argument: map_pb.DownloadMapFileRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<map_pb.DownloadMapFileResponse>): grpc.ClientUnaryCall;
+}

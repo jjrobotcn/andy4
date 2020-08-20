@@ -4,6 +4,28 @@
 var grpc = require('grpc');
 var map_pb = require('./map_pb.js');
 
+function serialize_navService_DownloadMapFileRequest(arg) {
+  if (!(arg instanceof map_pb.DownloadMapFileRequest)) {
+    throw new Error('Expected argument of type navService.DownloadMapFileRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_navService_DownloadMapFileRequest(buffer_arg) {
+  return map_pb.DownloadMapFileRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_navService_DownloadMapFileResponse(arg) {
+  if (!(arg instanceof map_pb.DownloadMapFileResponse)) {
+    throw new Error('Expected argument of type navService.DownloadMapFileResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_navService_DownloadMapFileResponse(buffer_arg) {
+  return map_pb.DownloadMapFileResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_navService_GetMapInfoRequest(arg) {
   if (!(arg instanceof map_pb.GetMapInfoRequest)) {
     throw new Error('Expected argument of type navService.GetMapInfoRequest');
@@ -70,6 +92,28 @@ function deserialize_navService_MapPositionStreamResponse(buffer_arg) {
   return map_pb.MapPositionStreamResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_navService_UploadMapFileRequest(arg) {
+  if (!(arg instanceof map_pb.UploadMapFileRequest)) {
+    throw new Error('Expected argument of type navService.UploadMapFileRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_navService_UploadMapFileRequest(buffer_arg) {
+  return map_pb.UploadMapFileRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_navService_UploadMapFileResponse(arg) {
+  if (!(arg instanceof map_pb.UploadMapFileResponse)) {
+    throw new Error('Expected argument of type navService.UploadMapFileResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_navService_UploadMapFileResponse(buffer_arg) {
+  return map_pb.UploadMapFileResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 // navService.Map 导航地图
 //
@@ -121,3 +165,31 @@ var MapService = exports.MapService = {
 };
 
 exports.MapClient = grpc.makeGenericClientConstructor(MapService);
+var MapStorageService = exports.MapStorageService = {
+  // 上传地图文件
+  uploadMapFile: {
+    path: '/navService.MapStorage/UploadMapFile',
+    requestStream: false,
+    responseStream: false,
+    requestType: map_pb.UploadMapFileRequest,
+    responseType: map_pb.UploadMapFileResponse,
+    requestSerialize: serialize_navService_UploadMapFileRequest,
+    requestDeserialize: deserialize_navService_UploadMapFileRequest,
+    responseSerialize: serialize_navService_UploadMapFileResponse,
+    responseDeserialize: deserialize_navService_UploadMapFileResponse,
+  },
+  // 下载地图文件
+  downloadMapFile: {
+    path: '/navService.MapStorage/DownloadMapFile',
+    requestStream: false,
+    responseStream: false,
+    requestType: map_pb.DownloadMapFileRequest,
+    responseType: map_pb.DownloadMapFileResponse,
+    requestSerialize: serialize_navService_DownloadMapFileRequest,
+    requestDeserialize: deserialize_navService_DownloadMapFileRequest,
+    responseSerialize: serialize_navService_DownloadMapFileResponse,
+    responseDeserialize: deserialize_navService_DownloadMapFileResponse,
+  },
+};
+
+exports.MapStorageClient = grpc.makeGenericClientConstructor(MapStorageService);

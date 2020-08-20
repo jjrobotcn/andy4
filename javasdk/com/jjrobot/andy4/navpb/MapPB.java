@@ -5947,6 +5947,2598 @@ public final class MapPB {
 
   }
 
+  public interface UploadMapFileRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:navService.UploadMapFileRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * 地图文件
+     * </pre>
+     *
+     * <code>bytes map_file = 2;</code>
+     * @return The mapFile.
+     */
+    com.google.protobuf.ByteString getMapFile();
+  }
+  /**
+   * Protobuf type {@code navService.UploadMapFileRequest}
+   */
+  public  static final class UploadMapFileRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:navService.UploadMapFileRequest)
+      UploadMapFileRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UploadMapFileRequest.newBuilder() to construct.
+    private UploadMapFileRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UploadMapFileRequest() {
+      name_ = "";
+      mapFile_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UploadMapFileRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UploadMapFileRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+
+              mapFile_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.class, com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MAP_FILE_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString mapFile_;
+    /**
+     * <pre>
+     * 地图文件
+     * </pre>
+     *
+     * <code>bytes map_file = 2;</code>
+     * @return The mapFile.
+     */
+    public com.google.protobuf.ByteString getMapFile() {
+      return mapFile_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!mapFile_.isEmpty()) {
+        output.writeBytes(2, mapFile_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!mapFile_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, mapFile_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest other = (com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest) obj;
+
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getMapFile()
+          .equals(other.getMapFile())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + MAP_FILE_FIELD_NUMBER;
+      hash = (53 * hash) + getMapFile().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code navService.UploadMapFileRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:navService.UploadMapFileRequest)
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.class, com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        mapFile_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest build() {
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest buildPartial() {
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest result = new com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest(this);
+        result.name_ = name_;
+        result.mapFile_ = mapFile_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest) {
+          return mergeFrom((com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest other) {
+        if (other == com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.getMapFile() != com.google.protobuf.ByteString.EMPTY) {
+          setMapFile(other.getMapFile());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString mapFile_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * 地图文件
+       * </pre>
+       *
+       * <code>bytes map_file = 2;</code>
+       * @return The mapFile.
+       */
+      public com.google.protobuf.ByteString getMapFile() {
+        return mapFile_;
+      }
+      /**
+       * <pre>
+       * 地图文件
+       * </pre>
+       *
+       * <code>bytes map_file = 2;</code>
+       * @param value The mapFile to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMapFile(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        mapFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图文件
+       * </pre>
+       *
+       * <code>bytes map_file = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMapFile() {
+        
+        mapFile_ = getDefaultInstance().getMapFile();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:navService.UploadMapFileRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:navService.UploadMapFileRequest)
+    private static final com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest();
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UploadMapFileRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UploadMapFileRequest>() {
+      @java.lang.Override
+      public UploadMapFileRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UploadMapFileRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UploadMapFileRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UploadMapFileRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.navpb.MapPB.UploadMapFileRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UploadMapFileResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:navService.UploadMapFileResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 地图生成id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     * 地图生成id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code navService.UploadMapFileResponse}
+   */
+  public  static final class UploadMapFileResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:navService.UploadMapFileResponse)
+      UploadMapFileResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UploadMapFileResponse.newBuilder() to construct.
+    private UploadMapFileResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UploadMapFileResponse() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UploadMapFileResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UploadMapFileResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.class, com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     * 地图生成id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 地图生成id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse other = (com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code navService.UploadMapFileResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:navService.UploadMapFileResponse)
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.class, com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_UploadMapFileResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse build() {
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse buildPartial() {
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse result = new com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse) {
+          return mergeFrom((com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse other) {
+        if (other == com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       * 地图生成id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 地图生成id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 地图生成id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图生成id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图生成id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:navService.UploadMapFileResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:navService.UploadMapFileResponse)
+    private static final com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse();
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UploadMapFileResponse>
+        PARSER = new com.google.protobuf.AbstractParser<UploadMapFileResponse>() {
+      @java.lang.Override
+      public UploadMapFileResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UploadMapFileResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UploadMapFileResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UploadMapFileResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.navpb.MapPB.UploadMapFileResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DownloadMapFileRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:navService.DownloadMapFileRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 下载地图id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     * 下载地图id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code navService.DownloadMapFileRequest}
+   */
+  public  static final class DownloadMapFileRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:navService.DownloadMapFileRequest)
+      DownloadMapFileRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DownloadMapFileRequest.newBuilder() to construct.
+    private DownloadMapFileRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DownloadMapFileRequest() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DownloadMapFileRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DownloadMapFileRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.class, com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     * 下载地图id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 下载地图id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest other = (com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code navService.DownloadMapFileRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:navService.DownloadMapFileRequest)
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.class, com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest build() {
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest buildPartial() {
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest result = new com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest) {
+          return mergeFrom((com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest other) {
+        if (other == com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       * 下载地图id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 下载地图id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 下载地图id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 下载地图id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 下载地图id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:navService.DownloadMapFileRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:navService.DownloadMapFileRequest)
+    private static final com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest();
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DownloadMapFileRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DownloadMapFileRequest>() {
+      @java.lang.Override
+      public DownloadMapFileRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DownloadMapFileRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DownloadMapFileRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DownloadMapFileRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DownloadMapFileResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:navService.DownloadMapFileResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * 地图文件
+     * </pre>
+     *
+     * <code>bytes map_file = 2;</code>
+     * @return The mapFile.
+     */
+    com.google.protobuf.ByteString getMapFile();
+  }
+  /**
+   * Protobuf type {@code navService.DownloadMapFileResponse}
+   */
+  public  static final class DownloadMapFileResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:navService.DownloadMapFileResponse)
+      DownloadMapFileResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DownloadMapFileResponse.newBuilder() to construct.
+    private DownloadMapFileResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DownloadMapFileResponse() {
+      name_ = "";
+      mapFile_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DownloadMapFileResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DownloadMapFileResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+
+              mapFile_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.class, com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.Builder.class);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 地图名
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MAP_FILE_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString mapFile_;
+    /**
+     * <pre>
+     * 地图文件
+     * </pre>
+     *
+     * <code>bytes map_file = 2;</code>
+     * @return The mapFile.
+     */
+    public com.google.protobuf.ByteString getMapFile() {
+      return mapFile_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (!mapFile_.isEmpty()) {
+        output.writeBytes(2, mapFile_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (!mapFile_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, mapFile_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse other = (com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse) obj;
+
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getMapFile()
+          .equals(other.getMapFile())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + MAP_FILE_FIELD_NUMBER;
+      hash = (53 * hash) + getMapFile().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code navService.DownloadMapFileResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:navService.DownloadMapFileResponse)
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.class, com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        mapFile_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.navpb.MapPB.internal_static_navService_DownloadMapFileResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse build() {
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse buildPartial() {
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse result = new com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse(this);
+        result.name_ = name_;
+        result.mapFile_ = mapFile_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse) {
+          return mergeFrom((com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse other) {
+        if (other == com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.getMapFile() != com.google.protobuf.ByteString.EMPTY) {
+          setMapFile(other.getMapFile());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图名
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString mapFile_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * 地图文件
+       * </pre>
+       *
+       * <code>bytes map_file = 2;</code>
+       * @return The mapFile.
+       */
+      public com.google.protobuf.ByteString getMapFile() {
+        return mapFile_;
+      }
+      /**
+       * <pre>
+       * 地图文件
+       * </pre>
+       *
+       * <code>bytes map_file = 2;</code>
+       * @param value The mapFile to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMapFile(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        mapFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 地图文件
+       * </pre>
+       *
+       * <code>bytes map_file = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMapFile() {
+        
+        mapFile_ = getDefaultInstance().getMapFile();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:navService.DownloadMapFileResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:navService.DownloadMapFileResponse)
+    private static final com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse();
+    }
+
+    public static com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DownloadMapFileResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DownloadMapFileResponse>() {
+      @java.lang.Override
+      public DownloadMapFileResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DownloadMapFileResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DownloadMapFileResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DownloadMapFileResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.navpb.MapPB.DownloadMapFileResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_navService_MapPosition_descriptor;
   private static final 
@@ -5992,6 +8584,26 @@ public final class MapPB {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_navService_LocationResetResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_navService_UploadMapFileRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_navService_UploadMapFileRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_navService_UploadMapFileResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_navService_UploadMapFileResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_navService_DownloadMapFileRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_navService_DownloadMapFileRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_navService_DownloadMapFileResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_navService_DownloadMapFileResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6015,15 +8627,25 @@ public final class MapPB {
       "\n\030MapPositionStreamRequest\"F\n\031MapPositio" +
       "nStreamResponse\022)\n\010position\030\001 \001(\0132\027.navS" +
       "ervice.MapPosition\"\026\n\024LocationResetReque" +
-      "st\"\027\n\025LocationResetResponse2\222\002\n\003Map\022M\n\nG" +
-      "etMapInfo\022\035.navService.GetMapInfoRequest" +
-      "\032\036.navService.GetMapInfoResponse\"\000\022d\n\021Ma" +
-      "pPositionStream\022$.navService.MapPosition" +
-      "StreamRequest\032%.navService.MapPositionSt" +
-      "reamResponse\"\0000\001\022V\n\rLocationReset\022 .navS" +
-      "ervice.LocationResetRequest\032!.navService" +
-      ".LocationResetResponse\"\000B\'\n\027com.jjrobot." +
-      "andy4.navpbB\005MapPBZ\005navpbb\006proto3"
+      "st\"\027\n\025LocationResetResponse\"6\n\024UploadMap" +
+      "FileRequest\022\014\n\004name\030\001 \001(\t\022\020\n\010map_file\030\002 " +
+      "\001(\014\"#\n\025UploadMapFileResponse\022\n\n\002id\030\001 \001(\t" +
+      "\"$\n\026DownloadMapFileRequest\022\n\n\002id\030\001 \001(\t\"9" +
+      "\n\027DownloadMapFileResponse\022\014\n\004name\030\001 \001(\t\022" +
+      "\020\n\010map_file\030\002 \001(\0142\222\002\n\003Map\022M\n\nGetMapInfo\022" +
+      "\035.navService.GetMapInfoRequest\032\036.navServ" +
+      "ice.GetMapInfoResponse\"\000\022d\n\021MapPositionS" +
+      "tream\022$.navService.MapPositionStreamRequ" +
+      "est\032%.navService.MapPositionStreamRespon" +
+      "se\"\0000\001\022V\n\rLocationReset\022 .navService.Loc" +
+      "ationResetRequest\032!.navService.LocationR" +
+      "esetResponse\"\0002\276\001\n\nMapStorage\022T\n\rUploadM" +
+      "apFile\022 .navService.UploadMapFileRequest" +
+      "\032!.navService.UploadMapFileResponse\022Z\n\017D" +
+      "ownloadMapFile\022\".navService.DownloadMapF" +
+      "ileRequest\032#.navService.DownloadMapFileR" +
+      "esponseB\'\n\027com.jjrobot.andy4.navpbB\005MapP" +
+      "BZ\005navpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6083,6 +8705,30 @@ public final class MapPB {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_navService_LocationResetResponse_descriptor,
         new java.lang.String[] { });
+    internal_static_navService_UploadMapFileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_navService_UploadMapFileRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_navService_UploadMapFileRequest_descriptor,
+        new java.lang.String[] { "Name", "MapFile", });
+    internal_static_navService_UploadMapFileResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_navService_UploadMapFileResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_navService_UploadMapFileResponse_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_navService_DownloadMapFileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_navService_DownloadMapFileRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_navService_DownloadMapFileRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_navService_DownloadMapFileResponse_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_navService_DownloadMapFileResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_navService_DownloadMapFileResponse_descriptor,
+        new java.lang.String[] { "Name", "MapFile", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

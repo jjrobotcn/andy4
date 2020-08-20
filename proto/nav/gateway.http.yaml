@@ -56,3 +56,11 @@ http:
     - selector: navService.Map.LocationReset
       post: "/api/v2/nav/location_reset"
       body: "*"
+
+    - selector: navService.MapStorage.UploadMapFile
+      post: "/api/v2/nav/upload_map_file"
+      body: "*"
+
+    - selector: navService.MapStorage.DownloadMapFile
+      post: "/api/v2/nav/download_map_file"
+      body: "*"
