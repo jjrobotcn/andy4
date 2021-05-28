@@ -11,23 +11,24 @@ option java_outer_classname = "SensorServicePB";
 //
 // 开发管理平台功能参考: http://10.10.10.2/detect
 service SensorService {
-    // GetDetect 计算前方障碍的距离与方法
-    //
-    // 此计算方法受GetMotionInduction数据影响
+    //计算前方障碍的距离与方法(该接口不再支持)
     rpc GetDetect (GetDetectRequest) returns (stream GetDetectResponse) {}
 
-    // GetMotionInduction 获取动态感应数据
+    // 获取动态感应数据(该接口不再支持)
     rpc GetMotionInduction(GetMotionInductionRequest) returns (stream GetMotionInductionResponse) {}
 
-    // GetTouch 获取触摸感应数据
-    //
-    // 目前支持头部与手部的触摸
+    //获取触摸感应数据
     rpc GetTouch (GetTouchRequest) returns (stream GetTouchResponse) {}
+    
+    //碰撞传感器数据
+    rpc GetBumper(GetBumperRequest) returns (stream GetBumperResponse){}
 
-    // Raw 内部传感器数据
-    //
-    // 此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
-    rpc Raw (RawRequest) returns (stream RawResponse) {}
+    //防跌落传感器数据
+    rpc GetAnti(GetAntiRequest) returns (stream GetAntiResponse){}
+
+    //避障距离传感器
+    rpc GetObs(GetObsRequest) returns (stream GetObsResponse){}
+
 }
 
 // 检测方向
@@ -48,75 +49,48 @@ enum DetectDistance {
     LONG = 4; // 远距
 }
 
+//传感器综合
 message GetDetectRequest {}
-
-// 传感器状态流数据
-// stype: 数据类型
 message GetDetectResponse {
     DetectDirection direction = 1;
     DetectDistance distance = 2;
 }
 
+//动态人体传感器
 message GetMotionInductionRequest {}
-
 message GetMotionInductionResponse {
     bool left = 1; // 左侧感应指示
     bool right = 2; // 右侧感应指示
 }
 
+// 触摸传感器
 message GetTouchRequest {}
-
-// 触摸状态流数据
 message GetTouchResponse {
     bool hand_left = 1; // 左手触摸
     bool hand_right = 2; // 右手触摸
     bool head = 3; // 头部触摸
 }
 
-enum DataType {
-    UNKNOWN = 0;
-    OBS = 1;
-    AGV = 2;
-    TOUCH = 4;
+// 碰撞传感器
+message GetBumperRequest {}
+message GetBumperResponse {
+    bool forward = 1; // 前面碰撞
+    bool backward = 2; // 后面碰撞
+}
+// 跌落传感器
+message GetAntiRequest {}
+message GetAntiResponse {
+    bool forward_left_status = 1; // 前左跌落传感器状态
+    bool forward_right_status = 2; // 前右跌落传感器状态
+    uint32 forward_left_distance = 3; // 前左跌落传感器距离
+    uint32 forward_right_distance = 4; // 前右跌落传感器距离
 }
 
-// 避障传感器数据
-// e.g. {"topRight: 30", "bottomMiddle": 10}
-// *topRight等key非最终使用, 仅作为示例
-message DataObs {
-    map<string, int32> data = 1;
+// 避障传感器
+message GetObsRequest {}
+message GetObsResponse {
+    uint32 forward_left = 1; // 前左跌落传感器距离
+    uint32 forward_right = 2; // 前右跌落传感器距离
 }
 
-// agv数据
-// card_id: 感应卡点id
-// data: 是否为激活状态列表
-message DataAgv {
-    string card_id = 1;
-    repeated bool data = 2;
-}
 
-// 触摸数据
-// e.g. {hand_left: false, hand_right: true, head: true}
-message DataTouch {
-    map<string, bool> touched = 1;
-}
-
-// 使用器数据更新请求
-// dtype: 传感器更新数据类型
-message UpdateReq {
-    DataType dtype = 1;
-    DataObs obs = 2;
-    DataAgv agv = 3;
-    DataTouch touch = 5;
-}
-
-message RawRequest {}
-
-// 原始数据返回
-// dtype: 传感器更新数据类型
-message RawResponse {
-    DataType dtype = 1;
-    DataObs obs = 2;
-    DataAgv agv = 3;
-    DataTouch touch = 5;
-}

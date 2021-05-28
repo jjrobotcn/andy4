@@ -31,10 +31,20 @@ class SensorServiceStub(object):
                 request_serializer=sensor__pb2.GetTouchRequest.SerializeToString,
                 response_deserializer=sensor__pb2.GetTouchResponse.FromString,
                 )
-        self.Raw = channel.unary_stream(
-                '/sensorService.SensorService/Raw',
-                request_serializer=sensor__pb2.RawRequest.SerializeToString,
-                response_deserializer=sensor__pb2.RawResponse.FromString,
+        self.GetBumper = channel.unary_stream(
+                '/sensorService.SensorService/GetBumper',
+                request_serializer=sensor__pb2.GetBumperRequest.SerializeToString,
+                response_deserializer=sensor__pb2.GetBumperResponse.FromString,
+                )
+        self.GetAnti = channel.unary_stream(
+                '/sensorService.SensorService/GetAnti',
+                request_serializer=sensor__pb2.GetAntiRequest.SerializeToString,
+                response_deserializer=sensor__pb2.GetAntiResponse.FromString,
+                )
+        self.GetObs = channel.unary_stream(
+                '/sensorService.SensorService/GetObs',
+                request_serializer=sensor__pb2.GetObsRequest.SerializeToString,
+                response_deserializer=sensor__pb2.GetObsResponse.FromString,
                 )
 
 
@@ -45,34 +55,42 @@ class SensorServiceServicer(object):
     """
 
     def GetDetect(self, request, context):
-        """GetDetect 计算前方障碍的距离与方法
-
-        此计算方法受GetMotionInduction数据影响
+        """计算前方障碍的距离与方法(该接口不再支持)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetMotionInduction(self, request, context):
-        """GetMotionInduction 获取动态感应数据
+        """获取动态感应数据(该接口不再支持)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTouch(self, request, context):
-        """GetTouch 获取触摸感应数据
-
-        目前支持头部与手部的触摸
+        """获取触摸感应数据
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Raw(self, request, context):
-        """Raw 内部传感器数据
+    def GetBumper(self, request, context):
+        """碰撞传感器数据
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-        此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
+    def GetAnti(self, request, context):
+        """防跌落传感器数据
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObs(self, request, context):
+        """避障距离传感器
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -96,10 +114,20 @@ def add_SensorServiceServicer_to_server(servicer, server):
                     request_deserializer=sensor__pb2.GetTouchRequest.FromString,
                     response_serializer=sensor__pb2.GetTouchResponse.SerializeToString,
             ),
-            'Raw': grpc.unary_stream_rpc_method_handler(
-                    servicer.Raw,
-                    request_deserializer=sensor__pb2.RawRequest.FromString,
-                    response_serializer=sensor__pb2.RawResponse.SerializeToString,
+            'GetBumper': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetBumper,
+                    request_deserializer=sensor__pb2.GetBumperRequest.FromString,
+                    response_serializer=sensor__pb2.GetBumperResponse.SerializeToString,
+            ),
+            'GetAnti': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetAnti,
+                    request_deserializer=sensor__pb2.GetAntiRequest.FromString,
+                    response_serializer=sensor__pb2.GetAntiResponse.SerializeToString,
+            ),
+            'GetObs': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetObs,
+                    request_deserializer=sensor__pb2.GetObsRequest.FromString,
+                    response_serializer=sensor__pb2.GetObsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -163,7 +191,7 @@ class SensorService(object):
             call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Raw(request,
+    def GetBumper(request,
             target,
             options=(),
             channel_credentials=None,
@@ -172,8 +200,40 @@ class SensorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/sensorService.SensorService/Raw',
-            sensor__pb2.RawRequest.SerializeToString,
-            sensor__pb2.RawResponse.FromString,
+        return grpc.experimental.unary_stream(request, target, '/sensorService.SensorService/GetBumper',
+            sensor__pb2.GetBumperRequest.SerializeToString,
+            sensor__pb2.GetBumperResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAnti(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/sensorService.SensorService/GetAnti',
+            sensor__pb2.GetAntiRequest.SerializeToString,
+            sensor__pb2.GetAntiResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/sensorService.SensorService/GetObs',
+            sensor__pb2.GetObsRequest.SerializeToString,
+            sensor__pb2.GetObsResponse.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -10,7 +10,9 @@ interface ISensorServiceService extends grpc.ServiceDefinition<grpc.UntypedServi
   getDetect: grpc.MethodDefinition<sensor_pb.GetDetectRequest, sensor_pb.GetDetectResponse>;
   getMotionInduction: grpc.MethodDefinition<sensor_pb.GetMotionInductionRequest, sensor_pb.GetMotionInductionResponse>;
   getTouch: grpc.MethodDefinition<sensor_pb.GetTouchRequest, sensor_pb.GetTouchResponse>;
-  raw: grpc.MethodDefinition<sensor_pb.RawRequest, sensor_pb.RawResponse>;
+  getBumper: grpc.MethodDefinition<sensor_pb.GetBumperRequest, sensor_pb.GetBumperResponse>;
+  getAnti: grpc.MethodDefinition<sensor_pb.GetAntiRequest, sensor_pb.GetAntiResponse>;
+  getObs: grpc.MethodDefinition<sensor_pb.GetObsRequest, sensor_pb.GetObsResponse>;
 }
 
 export const SensorServiceService: ISensorServiceService;
@@ -23,6 +25,10 @@ export class SensorServiceClient extends grpc.Client {
   getMotionInduction(argument: sensor_pb.GetMotionInductionRequest, metadata?: grpc.Metadata | null, options?: grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetMotionInductionResponse>;
   getTouch(argument: sensor_pb.GetTouchRequest, metadataOrOptions?: grpc.Metadata | grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetTouchResponse>;
   getTouch(argument: sensor_pb.GetTouchRequest, metadata?: grpc.Metadata | null, options?: grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetTouchResponse>;
-  raw(argument: sensor_pb.RawRequest, metadataOrOptions?: grpc.Metadata | grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.RawResponse>;
-  raw(argument: sensor_pb.RawRequest, metadata?: grpc.Metadata | null, options?: grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.RawResponse>;
+  getBumper(argument: sensor_pb.GetBumperRequest, metadataOrOptions?: grpc.Metadata | grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetBumperResponse>;
+  getBumper(argument: sensor_pb.GetBumperRequest, metadata?: grpc.Metadata | null, options?: grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetBumperResponse>;
+  getAnti(argument: sensor_pb.GetAntiRequest, metadataOrOptions?: grpc.Metadata | grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetAntiResponse>;
+  getAnti(argument: sensor_pb.GetAntiRequest, metadata?: grpc.Metadata | null, options?: grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetAntiResponse>;
+  getObs(argument: sensor_pb.GetObsRequest, metadataOrOptions?: grpc.Metadata | grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetObsResponse>;
+  getObs(argument: sensor_pb.GetObsRequest, metadata?: grpc.Metadata | null, options?: grpc.CallOptions | null): grpc.ClientReadableStream<sensor_pb.GetObsResponse>;
 }

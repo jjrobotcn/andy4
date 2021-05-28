@@ -82,11 +82,45 @@ func request_SensorService_GetTouch_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_SensorService_Raw_0(ctx context.Context, marshaler runtime.Marshaler, client SensorServiceClient, req *http.Request, pathParams map[string]string) (SensorService_RawClient, runtime.ServerMetadata, error) {
-	var protoReq RawRequest
+func request_SensorService_GetBumper_0(ctx context.Context, marshaler runtime.Marshaler, client SensorServiceClient, req *http.Request, pathParams map[string]string) (SensorService_GetBumperClient, runtime.ServerMetadata, error) {
+	var protoReq GetBumperRequest
 	var metadata runtime.ServerMetadata
 
-	stream, err := client.Raw(ctx, &protoReq)
+	stream, err := client.GetBumper(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
+
+}
+
+func request_SensorService_GetAnti_0(ctx context.Context, marshaler runtime.Marshaler, client SensorServiceClient, req *http.Request, pathParams map[string]string) (SensorService_GetAntiClient, runtime.ServerMetadata, error) {
+	var protoReq GetAntiRequest
+	var metadata runtime.ServerMetadata
+
+	stream, err := client.GetAnti(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
+
+}
+
+func request_SensorService_GetObs_0(ctx context.Context, marshaler runtime.Marshaler, client SensorServiceClient, req *http.Request, pathParams map[string]string) (SensorService_GetObsClient, runtime.ServerMetadata, error) {
+	var protoReq GetObsRequest
+	var metadata runtime.ServerMetadata
+
+	stream, err := client.GetObs(ctx, &protoReq)
 	if err != nil {
 		return nil, metadata, err
 	}
@@ -125,7 +159,21 @@ func RegisterSensorServiceHandlerServer(ctx context.Context, mux *runtime.ServeM
 		return
 	})
 
-	mux.Handle("GET", pattern_SensorService_Raw_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_SensorService_GetBumper_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
+	})
+
+	mux.Handle("GET", pattern_SensorService_GetAnti_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
+	})
+
+	mux.Handle("GET", pattern_SensorService_GetObs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -233,7 +281,7 @@ func RegisterSensorServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 
 	})
 
-	mux.Handle("GET", pattern_SensorService_Raw_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_SensorService_GetBumper_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -242,14 +290,54 @@ func RegisterSensorServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_SensorService_Raw_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_SensorService_GetBumper_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_SensorService_Raw_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_SensorService_GetBumper_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_SensorService_GetAnti_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SensorService_GetAnti_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_SensorService_GetAnti_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_SensorService_GetObs_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_SensorService_GetObs_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_SensorService_GetObs_0(ctx, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -263,7 +351,11 @@ var (
 
 	pattern_SensorService_GetTouch_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "sensor", "get_touch"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_SensorService_Raw_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "sensor", "raw"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_SensorService_GetBumper_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "sensor", "get_bumper"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_SensorService_GetAnti_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "sensor", "get_anti"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_SensorService_GetObs_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v2", "sensor", "get_obs"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -273,5 +365,9 @@ var (
 
 	forward_SensorService_GetTouch_0 = runtime.ForwardResponseStream
 
-	forward_SensorService_Raw_0 = runtime.ForwardResponseStream
+	forward_SensorService_GetBumper_0 = runtime.ForwardResponseStream
+
+	forward_SensorService_GetAnti_0 = runtime.ForwardResponseStream
+
+	forward_SensorService_GetObs_0 = runtime.ForwardResponseStream
 )

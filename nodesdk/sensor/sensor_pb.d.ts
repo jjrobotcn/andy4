@@ -127,159 +127,131 @@ export namespace GetTouchResponse {
   }
 }
 
-export class DataObs extends jspb.Message {
-  getDataMap(): jspb.Map<string, number>;
-  clearDataMap(): void;
+export class GetBumperRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): DataObs.AsObject;
-  static toObject(includeInstance: boolean, msg: DataObs): DataObs.AsObject;
+  toObject(includeInstance?: boolean): GetBumperRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetBumperRequest): GetBumperRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: DataObs, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): DataObs;
-  static deserializeBinaryFromReader(message: DataObs, reader: jspb.BinaryReader): DataObs;
+  static serializeBinaryToWriter(message: GetBumperRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetBumperRequest;
+  static deserializeBinaryFromReader(message: GetBumperRequest, reader: jspb.BinaryReader): GetBumperRequest;
 }
 
-export namespace DataObs {
-  export type AsObject = {
-    dataMap: Array<[string, number]>,
-  }
-}
-
-export class DataAgv extends jspb.Message {
-  getCardId(): string;
-  setCardId(value: string): void;
-
-  clearDataList(): void;
-  getDataList(): Array<boolean>;
-  setDataList(value: Array<boolean>): void;
-  addData(value: boolean, index?: number): boolean;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): DataAgv.AsObject;
-  static toObject(includeInstance: boolean, msg: DataAgv): DataAgv.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: DataAgv, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): DataAgv;
-  static deserializeBinaryFromReader(message: DataAgv, reader: jspb.BinaryReader): DataAgv;
-}
-
-export namespace DataAgv {
-  export type AsObject = {
-    cardId: string,
-    dataList: Array<boolean>,
-  }
-}
-
-export class DataTouch extends jspb.Message {
-  getTouchedMap(): jspb.Map<string, boolean>;
-  clearTouchedMap(): void;
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): DataTouch.AsObject;
-  static toObject(includeInstance: boolean, msg: DataTouch): DataTouch.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: DataTouch, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): DataTouch;
-  static deserializeBinaryFromReader(message: DataTouch, reader: jspb.BinaryReader): DataTouch;
-}
-
-export namespace DataTouch {
-  export type AsObject = {
-    touchedMap: Array<[string, boolean]>,
-  }
-}
-
-export class UpdateReq extends jspb.Message {
-  getDtype(): DataTypeMap[keyof DataTypeMap];
-  setDtype(value: DataTypeMap[keyof DataTypeMap]): void;
-
-  hasObs(): boolean;
-  clearObs(): void;
-  getObs(): DataObs | undefined;
-  setObs(value?: DataObs): void;
-
-  hasAgv(): boolean;
-  clearAgv(): void;
-  getAgv(): DataAgv | undefined;
-  setAgv(value?: DataAgv): void;
-
-  hasTouch(): boolean;
-  clearTouch(): void;
-  getTouch(): DataTouch | undefined;
-  setTouch(value?: DataTouch): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UpdateReq.AsObject;
-  static toObject(includeInstance: boolean, msg: UpdateReq): UpdateReq.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UpdateReq, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UpdateReq;
-  static deserializeBinaryFromReader(message: UpdateReq, reader: jspb.BinaryReader): UpdateReq;
-}
-
-export namespace UpdateReq {
-  export type AsObject = {
-    dtype: DataTypeMap[keyof DataTypeMap],
-    obs?: DataObs.AsObject,
-    agv?: DataAgv.AsObject,
-    touch?: DataTouch.AsObject,
-  }
-}
-
-export class RawRequest extends jspb.Message {
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): RawRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: RawRequest): RawRequest.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: RawRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): RawRequest;
-  static deserializeBinaryFromReader(message: RawRequest, reader: jspb.BinaryReader): RawRequest;
-}
-
-export namespace RawRequest {
+export namespace GetBumperRequest {
   export type AsObject = {
   }
 }
 
-export class RawResponse extends jspb.Message {
-  getDtype(): DataTypeMap[keyof DataTypeMap];
-  setDtype(value: DataTypeMap[keyof DataTypeMap]): void;
+export class GetBumperResponse extends jspb.Message {
+  getForward(): boolean;
+  setForward(value: boolean): void;
 
-  hasObs(): boolean;
-  clearObs(): void;
-  getObs(): DataObs | undefined;
-  setObs(value?: DataObs): void;
-
-  hasAgv(): boolean;
-  clearAgv(): void;
-  getAgv(): DataAgv | undefined;
-  setAgv(value?: DataAgv): void;
-
-  hasTouch(): boolean;
-  clearTouch(): void;
-  getTouch(): DataTouch | undefined;
-  setTouch(value?: DataTouch): void;
+  getBackward(): boolean;
+  setBackward(value: boolean): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): RawResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: RawResponse): RawResponse.AsObject;
+  toObject(includeInstance?: boolean): GetBumperResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetBumperResponse): GetBumperResponse.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: RawResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): RawResponse;
-  static deserializeBinaryFromReader(message: RawResponse, reader: jspb.BinaryReader): RawResponse;
+  static serializeBinaryToWriter(message: GetBumperResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetBumperResponse;
+  static deserializeBinaryFromReader(message: GetBumperResponse, reader: jspb.BinaryReader): GetBumperResponse;
 }
 
-export namespace RawResponse {
+export namespace GetBumperResponse {
   export type AsObject = {
-    dtype: DataTypeMap[keyof DataTypeMap],
-    obs?: DataObs.AsObject,
-    agv?: DataAgv.AsObject,
-    touch?: DataTouch.AsObject,
+    forward: boolean,
+    backward: boolean,
+  }
+}
+
+export class GetAntiRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetAntiRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetAntiRequest): GetAntiRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetAntiRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetAntiRequest;
+  static deserializeBinaryFromReader(message: GetAntiRequest, reader: jspb.BinaryReader): GetAntiRequest;
+}
+
+export namespace GetAntiRequest {
+  export type AsObject = {
+  }
+}
+
+export class GetAntiResponse extends jspb.Message {
+  getForwardLeftStatus(): boolean;
+  setForwardLeftStatus(value: boolean): void;
+
+  getForwardRightStatus(): boolean;
+  setForwardRightStatus(value: boolean): void;
+
+  getForwardLeftDistance(): number;
+  setForwardLeftDistance(value: number): void;
+
+  getForwardRightDistance(): number;
+  setForwardRightDistance(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetAntiResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetAntiResponse): GetAntiResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetAntiResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetAntiResponse;
+  static deserializeBinaryFromReader(message: GetAntiResponse, reader: jspb.BinaryReader): GetAntiResponse;
+}
+
+export namespace GetAntiResponse {
+  export type AsObject = {
+    forwardLeftStatus: boolean,
+    forwardRightStatus: boolean,
+    forwardLeftDistance: number,
+    forwardRightDistance: number,
+  }
+}
+
+export class GetObsRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetObsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetObsRequest): GetObsRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetObsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetObsRequest;
+  static deserializeBinaryFromReader(message: GetObsRequest, reader: jspb.BinaryReader): GetObsRequest;
+}
+
+export namespace GetObsRequest {
+  export type AsObject = {
+  }
+}
+
+export class GetObsResponse extends jspb.Message {
+  getForwardLeft(): number;
+  setForwardLeft(value: number): void;
+
+  getForwardRight(): number;
+  setForwardRight(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetObsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetObsResponse): GetObsResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetObsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetObsResponse;
+  static deserializeBinaryFromReader(message: GetObsResponse, reader: jspb.BinaryReader): GetObsResponse;
+}
+
+export namespace GetObsResponse {
+  export type AsObject = {
+    forwardLeft: number,
+    forwardRight: number,
   }
 }
 
@@ -302,13 +274,4 @@ export interface DetectDistanceMap {
 }
 
 export const DetectDistance: DetectDistanceMap;
-
-export interface DataTypeMap {
-  UNKNOWN: 0;
-  OBS: 1;
-  AGV: 2;
-  TOUCH: 4;
-}
-
-export const DataType: DataTypeMap;
 

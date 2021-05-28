@@ -94,37 +94,7 @@ func (DetectDistance) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_c749425f02243e2d, []int{1}
 }
 
-type DataType int32
-
-const (
-	DataType_UNKNOWN DataType = 0
-	DataType_OBS     DataType = 1
-	DataType_AGV     DataType = 2
-	DataType_TOUCH   DataType = 4
-)
-
-var DataType_name = map[int32]string{
-	0: "UNKNOWN",
-	1: "OBS",
-	2: "AGV",
-	4: "TOUCH",
-}
-
-var DataType_value = map[string]int32{
-	"UNKNOWN": 0,
-	"OBS":     1,
-	"AGV":     2,
-	"TOUCH":   4,
-}
-
-func (x DataType) String() string {
-	return proto.EnumName(DataType_name, int32(x))
-}
-
-func (DataType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_c749425f02243e2d, []int{2}
-}
-
+//传感器综合
 type GetDetectRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -156,8 +126,6 @@ func (m *GetDetectRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GetDetectRequest proto.InternalMessageInfo
 
-// 传感器状态流数据
-// stype: 数据类型
 type GetDetectResponse struct {
 	Direction            DetectDirection `protobuf:"varint,1,opt,name=direction,proto3,enum=sensorService.DetectDirection" json:"direction,omitempty"`
 	Distance             DetectDistance  `protobuf:"varint,2,opt,name=distance,proto3,enum=sensorService.DetectDistance" json:"distance,omitempty"`
@@ -205,6 +173,7 @@ func (m *GetDetectResponse) GetDistance() DetectDistance {
 	return DetectDistance__ZERO_DIS
 }
 
+//动态人体传感器
 type GetMotionInductionRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -283,6 +252,7 @@ func (m *GetMotionInductionResponse) GetRight() bool {
 	return false
 }
 
+// 触摸传感器
 type GetTouchRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -314,7 +284,6 @@ func (m *GetTouchRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GetTouchRequest proto.InternalMessageInfo
 
-// 触摸状态流数据
 type GetTouchResponse struct {
 	HandLeft             bool     `protobuf:"varint,1,opt,name=hand_left,json=handLeft,proto3" json:"hand_left,omitempty"`
 	HandRight            bool     `protobuf:"varint,2,opt,name=hand_right,json=handRight,proto3" json:"hand_right,omitempty"`
@@ -370,371 +339,322 @@ func (m *GetTouchResponse) GetHead() bool {
 	return false
 }
 
-// 避障传感器数据
-// e.g. {"topRight: 30", "bottomMiddle": 10}
-// *topRight等key非最终使用, 仅作为示例
-type DataObs struct {
-	Data                 map[string]int32 `protobuf:"bytes,1,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+// 碰撞传感器
+type GetBumperRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DataObs) Reset()         { *m = DataObs{} }
-func (m *DataObs) String() string { return proto.CompactTextString(m) }
-func (*DataObs) ProtoMessage()    {}
-func (*DataObs) Descriptor() ([]byte, []int) {
+func (m *GetBumperRequest) Reset()         { *m = GetBumperRequest{} }
+func (m *GetBumperRequest) String() string { return proto.CompactTextString(m) }
+func (*GetBumperRequest) ProtoMessage()    {}
+func (*GetBumperRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c749425f02243e2d, []int{6}
 }
 
-func (m *DataObs) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DataObs.Unmarshal(m, b)
+func (m *GetBumperRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBumperRequest.Unmarshal(m, b)
 }
-func (m *DataObs) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DataObs.Marshal(b, m, deterministic)
+func (m *GetBumperRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBumperRequest.Marshal(b, m, deterministic)
 }
-func (m *DataObs) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DataObs.Merge(m, src)
+func (m *GetBumperRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBumperRequest.Merge(m, src)
 }
-func (m *DataObs) XXX_Size() int {
-	return xxx_messageInfo_DataObs.Size(m)
+func (m *GetBumperRequest) XXX_Size() int {
+	return xxx_messageInfo_GetBumperRequest.Size(m)
 }
-func (m *DataObs) XXX_DiscardUnknown() {
-	xxx_messageInfo_DataObs.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DataObs proto.InternalMessageInfo
-
-func (m *DataObs) GetData() map[string]int32 {
-	if m != nil {
-		return m.Data
-	}
-	return nil
+func (m *GetBumperRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBumperRequest.DiscardUnknown(m)
 }
 
-// agv数据
-// card_id: 感应卡点id
-// data: 是否为激活状态列表
-type DataAgv struct {
-	CardId               string   `protobuf:"bytes,1,opt,name=card_id,json=cardId,proto3" json:"card_id,omitempty"`
-	Data                 []bool   `protobuf:"varint,2,rep,packed,name=data,proto3" json:"data,omitempty"`
+var xxx_messageInfo_GetBumperRequest proto.InternalMessageInfo
+
+type GetBumperResponse struct {
+	Forward              bool     `protobuf:"varint,1,opt,name=forward,proto3" json:"forward,omitempty"`
+	Backward             bool     `protobuf:"varint,2,opt,name=backward,proto3" json:"backward,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *DataAgv) Reset()         { *m = DataAgv{} }
-func (m *DataAgv) String() string { return proto.CompactTextString(m) }
-func (*DataAgv) ProtoMessage()    {}
-func (*DataAgv) Descriptor() ([]byte, []int) {
+func (m *GetBumperResponse) Reset()         { *m = GetBumperResponse{} }
+func (m *GetBumperResponse) String() string { return proto.CompactTextString(m) }
+func (*GetBumperResponse) ProtoMessage()    {}
+func (*GetBumperResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c749425f02243e2d, []int{7}
 }
 
-func (m *DataAgv) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DataAgv.Unmarshal(m, b)
+func (m *GetBumperResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetBumperResponse.Unmarshal(m, b)
 }
-func (m *DataAgv) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DataAgv.Marshal(b, m, deterministic)
+func (m *GetBumperResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetBumperResponse.Marshal(b, m, deterministic)
 }
-func (m *DataAgv) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DataAgv.Merge(m, src)
+func (m *GetBumperResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetBumperResponse.Merge(m, src)
 }
-func (m *DataAgv) XXX_Size() int {
-	return xxx_messageInfo_DataAgv.Size(m)
+func (m *GetBumperResponse) XXX_Size() int {
+	return xxx_messageInfo_GetBumperResponse.Size(m)
 }
-func (m *DataAgv) XXX_DiscardUnknown() {
-	xxx_messageInfo_DataAgv.DiscardUnknown(m)
+func (m *GetBumperResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetBumperResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_DataAgv proto.InternalMessageInfo
+var xxx_messageInfo_GetBumperResponse proto.InternalMessageInfo
 
-func (m *DataAgv) GetCardId() string {
+func (m *GetBumperResponse) GetForward() bool {
 	if m != nil {
-		return m.CardId
+		return m.Forward
 	}
-	return ""
+	return false
 }
 
-func (m *DataAgv) GetData() []bool {
+func (m *GetBumperResponse) GetBackward() bool {
 	if m != nil {
-		return m.Data
+		return m.Backward
 	}
-	return nil
+	return false
 }
 
-// 触摸数据
-// e.g. {hand_left: false, hand_right: true, head: true}
-type DataTouch struct {
-	Touched              map[string]bool `protobuf:"bytes,1,rep,name=touched,proto3" json:"touched,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
-}
-
-func (m *DataTouch) Reset()         { *m = DataTouch{} }
-func (m *DataTouch) String() string { return proto.CompactTextString(m) }
-func (*DataTouch) ProtoMessage()    {}
-func (*DataTouch) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c749425f02243e2d, []int{8}
-}
-
-func (m *DataTouch) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DataTouch.Unmarshal(m, b)
-}
-func (m *DataTouch) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DataTouch.Marshal(b, m, deterministic)
-}
-func (m *DataTouch) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DataTouch.Merge(m, src)
-}
-func (m *DataTouch) XXX_Size() int {
-	return xxx_messageInfo_DataTouch.Size(m)
-}
-func (m *DataTouch) XXX_DiscardUnknown() {
-	xxx_messageInfo_DataTouch.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DataTouch proto.InternalMessageInfo
-
-func (m *DataTouch) GetTouched() map[string]bool {
-	if m != nil {
-		return m.Touched
-	}
-	return nil
-}
-
-// 使用器数据更新请求
-// dtype: 传感器更新数据类型
-type UpdateReq struct {
-	Dtype                DataType   `protobuf:"varint,1,opt,name=dtype,proto3,enum=sensorService.DataType" json:"dtype,omitempty"`
-	Obs                  *DataObs   `protobuf:"bytes,2,opt,name=obs,proto3" json:"obs,omitempty"`
-	Agv                  *DataAgv   `protobuf:"bytes,3,opt,name=agv,proto3" json:"agv,omitempty"`
-	Touch                *DataTouch `protobuf:"bytes,5,opt,name=touch,proto3" json:"touch,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
-}
-
-func (m *UpdateReq) Reset()         { *m = UpdateReq{} }
-func (m *UpdateReq) String() string { return proto.CompactTextString(m) }
-func (*UpdateReq) ProtoMessage()    {}
-func (*UpdateReq) Descriptor() ([]byte, []int) {
-	return fileDescriptor_c749425f02243e2d, []int{9}
-}
-
-func (m *UpdateReq) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_UpdateReq.Unmarshal(m, b)
-}
-func (m *UpdateReq) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_UpdateReq.Marshal(b, m, deterministic)
-}
-func (m *UpdateReq) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateReq.Merge(m, src)
-}
-func (m *UpdateReq) XXX_Size() int {
-	return xxx_messageInfo_UpdateReq.Size(m)
-}
-func (m *UpdateReq) XXX_DiscardUnknown() {
-	xxx_messageInfo_UpdateReq.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_UpdateReq proto.InternalMessageInfo
-
-func (m *UpdateReq) GetDtype() DataType {
-	if m != nil {
-		return m.Dtype
-	}
-	return DataType_UNKNOWN
-}
-
-func (m *UpdateReq) GetObs() *DataObs {
-	if m != nil {
-		return m.Obs
-	}
-	return nil
-}
-
-func (m *UpdateReq) GetAgv() *DataAgv {
-	if m != nil {
-		return m.Agv
-	}
-	return nil
-}
-
-func (m *UpdateReq) GetTouch() *DataTouch {
-	if m != nil {
-		return m.Touch
-	}
-	return nil
-}
-
-type RawRequest struct {
+// 跌落传感器
+type GetAntiRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *RawRequest) Reset()         { *m = RawRequest{} }
-func (m *RawRequest) String() string { return proto.CompactTextString(m) }
-func (*RawRequest) ProtoMessage()    {}
-func (*RawRequest) Descriptor() ([]byte, []int) {
+func (m *GetAntiRequest) Reset()         { *m = GetAntiRequest{} }
+func (m *GetAntiRequest) String() string { return proto.CompactTextString(m) }
+func (*GetAntiRequest) ProtoMessage()    {}
+func (*GetAntiRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c749425f02243e2d, []int{8}
+}
+
+func (m *GetAntiRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAntiRequest.Unmarshal(m, b)
+}
+func (m *GetAntiRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAntiRequest.Marshal(b, m, deterministic)
+}
+func (m *GetAntiRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAntiRequest.Merge(m, src)
+}
+func (m *GetAntiRequest) XXX_Size() int {
+	return xxx_messageInfo_GetAntiRequest.Size(m)
+}
+func (m *GetAntiRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAntiRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAntiRequest proto.InternalMessageInfo
+
+type GetAntiResponse struct {
+	ForwardLeftStatus    bool     `protobuf:"varint,1,opt,name=forward_left_status,json=forwardLeftStatus,proto3" json:"forward_left_status,omitempty"`
+	ForwardRightStatus   bool     `protobuf:"varint,2,opt,name=forward_right_status,json=forwardRightStatus,proto3" json:"forward_right_status,omitempty"`
+	ForwardLeftDistance  uint32   `protobuf:"varint,3,opt,name=forward_left_distance,json=forwardLeftDistance,proto3" json:"forward_left_distance,omitempty"`
+	ForwardRightDistance uint32   `protobuf:"varint,4,opt,name=forward_right_distance,json=forwardRightDistance,proto3" json:"forward_right_distance,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetAntiResponse) Reset()         { *m = GetAntiResponse{} }
+func (m *GetAntiResponse) String() string { return proto.CompactTextString(m) }
+func (*GetAntiResponse) ProtoMessage()    {}
+func (*GetAntiResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_c749425f02243e2d, []int{9}
+}
+
+func (m *GetAntiResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAntiResponse.Unmarshal(m, b)
+}
+func (m *GetAntiResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAntiResponse.Marshal(b, m, deterministic)
+}
+func (m *GetAntiResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAntiResponse.Merge(m, src)
+}
+func (m *GetAntiResponse) XXX_Size() int {
+	return xxx_messageInfo_GetAntiResponse.Size(m)
+}
+func (m *GetAntiResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAntiResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAntiResponse proto.InternalMessageInfo
+
+func (m *GetAntiResponse) GetForwardLeftStatus() bool {
+	if m != nil {
+		return m.ForwardLeftStatus
+	}
+	return false
+}
+
+func (m *GetAntiResponse) GetForwardRightStatus() bool {
+	if m != nil {
+		return m.ForwardRightStatus
+	}
+	return false
+}
+
+func (m *GetAntiResponse) GetForwardLeftDistance() uint32 {
+	if m != nil {
+		return m.ForwardLeftDistance
+	}
+	return 0
+}
+
+func (m *GetAntiResponse) GetForwardRightDistance() uint32 {
+	if m != nil {
+		return m.ForwardRightDistance
+	}
+	return 0
+}
+
+// 避障传感器
+type GetObsRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetObsRequest) Reset()         { *m = GetObsRequest{} }
+func (m *GetObsRequest) String() string { return proto.CompactTextString(m) }
+func (*GetObsRequest) ProtoMessage()    {}
+func (*GetObsRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c749425f02243e2d, []int{10}
 }
 
-func (m *RawRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RawRequest.Unmarshal(m, b)
+func (m *GetObsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetObsRequest.Unmarshal(m, b)
 }
-func (m *RawRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RawRequest.Marshal(b, m, deterministic)
+func (m *GetObsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetObsRequest.Marshal(b, m, deterministic)
 }
-func (m *RawRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RawRequest.Merge(m, src)
+func (m *GetObsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetObsRequest.Merge(m, src)
 }
-func (m *RawRequest) XXX_Size() int {
-	return xxx_messageInfo_RawRequest.Size(m)
+func (m *GetObsRequest) XXX_Size() int {
+	return xxx_messageInfo_GetObsRequest.Size(m)
 }
-func (m *RawRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_RawRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RawRequest proto.InternalMessageInfo
-
-// 原始数据返回
-// dtype: 传感器更新数据类型
-type RawResponse struct {
-	Dtype                DataType   `protobuf:"varint,1,opt,name=dtype,proto3,enum=sensorService.DataType" json:"dtype,omitempty"`
-	Obs                  *DataObs   `protobuf:"bytes,2,opt,name=obs,proto3" json:"obs,omitempty"`
-	Agv                  *DataAgv   `protobuf:"bytes,3,opt,name=agv,proto3" json:"agv,omitempty"`
-	Touch                *DataTouch `protobuf:"bytes,5,opt,name=touch,proto3" json:"touch,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
+func (m *GetObsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetObsRequest.DiscardUnknown(m)
 }
 
-func (m *RawResponse) Reset()         { *m = RawResponse{} }
-func (m *RawResponse) String() string { return proto.CompactTextString(m) }
-func (*RawResponse) ProtoMessage()    {}
-func (*RawResponse) Descriptor() ([]byte, []int) {
+var xxx_messageInfo_GetObsRequest proto.InternalMessageInfo
+
+type GetObsResponse struct {
+	ForwardLeft          uint32   `protobuf:"varint,1,opt,name=forward_left,json=forwardLeft,proto3" json:"forward_left,omitempty"`
+	ForwardRight         uint32   `protobuf:"varint,2,opt,name=forward_right,json=forwardRight,proto3" json:"forward_right,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetObsResponse) Reset()         { *m = GetObsResponse{} }
+func (m *GetObsResponse) String() string { return proto.CompactTextString(m) }
+func (*GetObsResponse) ProtoMessage()    {}
+func (*GetObsResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c749425f02243e2d, []int{11}
 }
 
-func (m *RawResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RawResponse.Unmarshal(m, b)
+func (m *GetObsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetObsResponse.Unmarshal(m, b)
 }
-func (m *RawResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RawResponse.Marshal(b, m, deterministic)
+func (m *GetObsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetObsResponse.Marshal(b, m, deterministic)
 }
-func (m *RawResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RawResponse.Merge(m, src)
+func (m *GetObsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetObsResponse.Merge(m, src)
 }
-func (m *RawResponse) XXX_Size() int {
-	return xxx_messageInfo_RawResponse.Size(m)
+func (m *GetObsResponse) XXX_Size() int {
+	return xxx_messageInfo_GetObsResponse.Size(m)
 }
-func (m *RawResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_RawResponse.DiscardUnknown(m)
+func (m *GetObsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetObsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_RawResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetObsResponse proto.InternalMessageInfo
 
-func (m *RawResponse) GetDtype() DataType {
+func (m *GetObsResponse) GetForwardLeft() uint32 {
 	if m != nil {
-		return m.Dtype
+		return m.ForwardLeft
 	}
-	return DataType_UNKNOWN
+	return 0
 }
 
-func (m *RawResponse) GetObs() *DataObs {
+func (m *GetObsResponse) GetForwardRight() uint32 {
 	if m != nil {
-		return m.Obs
+		return m.ForwardRight
 	}
-	return nil
-}
-
-func (m *RawResponse) GetAgv() *DataAgv {
-	if m != nil {
-		return m.Agv
-	}
-	return nil
-}
-
-func (m *RawResponse) GetTouch() *DataTouch {
-	if m != nil {
-		return m.Touch
-	}
-	return nil
+	return 0
 }
 
 func init() {
 	proto.RegisterEnum("sensorService.DetectDirection", DetectDirection_name, DetectDirection_value)
 	proto.RegisterEnum("sensorService.DetectDistance", DetectDistance_name, DetectDistance_value)
-	proto.RegisterEnum("sensorService.DataType", DataType_name, DataType_value)
 	proto.RegisterType((*GetDetectRequest)(nil), "sensorService.GetDetectRequest")
 	proto.RegisterType((*GetDetectResponse)(nil), "sensorService.GetDetectResponse")
 	proto.RegisterType((*GetMotionInductionRequest)(nil), "sensorService.GetMotionInductionRequest")
 	proto.RegisterType((*GetMotionInductionResponse)(nil), "sensorService.GetMotionInductionResponse")
 	proto.RegisterType((*GetTouchRequest)(nil), "sensorService.GetTouchRequest")
 	proto.RegisterType((*GetTouchResponse)(nil), "sensorService.GetTouchResponse")
-	proto.RegisterType((*DataObs)(nil), "sensorService.DataObs")
-	proto.RegisterMapType((map[string]int32)(nil), "sensorService.DataObs.DataEntry")
-	proto.RegisterType((*DataAgv)(nil), "sensorService.DataAgv")
-	proto.RegisterType((*DataTouch)(nil), "sensorService.DataTouch")
-	proto.RegisterMapType((map[string]bool)(nil), "sensorService.DataTouch.TouchedEntry")
-	proto.RegisterType((*UpdateReq)(nil), "sensorService.UpdateReq")
-	proto.RegisterType((*RawRequest)(nil), "sensorService.RawRequest")
-	proto.RegisterType((*RawResponse)(nil), "sensorService.RawResponse")
+	proto.RegisterType((*GetBumperRequest)(nil), "sensorService.GetBumperRequest")
+	proto.RegisterType((*GetBumperResponse)(nil), "sensorService.GetBumperResponse")
+	proto.RegisterType((*GetAntiRequest)(nil), "sensorService.GetAntiRequest")
+	proto.RegisterType((*GetAntiResponse)(nil), "sensorService.GetAntiResponse")
+	proto.RegisterType((*GetObsRequest)(nil), "sensorService.GetObsRequest")
+	proto.RegisterType((*GetObsResponse)(nil), "sensorService.GetObsResponse")
 }
 
 func init() { proto.RegisterFile("sensor.proto", fileDescriptor_c749425f02243e2d) }
 
 var fileDescriptor_c749425f02243e2d = []byte{
-	// 737 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x55, 0xd1, 0x6e, 0xda, 0x4a,
-	0x10, 0x8d, 0x31, 0x04, 0x7b, 0x48, 0x82, 0xb3, 0xba, 0xba, 0x21, 0x8e, 0x92, 0x20, 0x4b, 0x57,
-	0xe2, 0x46, 0x2a, 0xaa, 0x68, 0xd4, 0xb4, 0x51, 0xa5, 0x16, 0x82, 0x43, 0x50, 0x09, 0x6e, 0x17,
-	0x68, 0xa5, 0xbc, 0x20, 0x83, 0xb7, 0x40, 0x9a, 0xd8, 0xc4, 0x5e, 0x48, 0xf9, 0x83, 0x3e, 0xf4,
-	0x9b, 0xaa, 0xfe, 0x4c, 0xff, 0xa3, 0xda, 0x5d, 0x93, 0x38, 0xc4, 0xa8, 0x7d, 0xed, 0x13, 0x3b,
-	0x33, 0xe7, 0x9c, 0x3d, 0x33, 0x5e, 0x0d, 0xb0, 0x16, 0x10, 0x37, 0xf0, 0xfc, 0xe2, 0xd8, 0xf7,
-	0xa8, 0x87, 0xd6, 0x45, 0xd4, 0x22, 0xfe, 0x74, 0xd4, 0x27, 0x06, 0x02, 0xad, 0x46, 0x68, 0x95,
-	0x50, 0xd2, 0xa7, 0x98, 0xdc, 0x4c, 0x48, 0x40, 0x8d, 0x6f, 0x12, 0x6c, 0x46, 0x92, 0xc1, 0xd8,
-	0x73, 0x03, 0x82, 0x5e, 0x81, 0xea, 0x8c, 0x7c, 0xd2, 0xa7, 0x23, 0xcf, 0xcd, 0x49, 0x79, 0xa9,
-	0xb0, 0x51, 0xda, 0x2b, 0x3e, 0x10, 0x2b, 0x0a, 0x46, 0x75, 0x8e, 0xc2, 0xf7, 0x04, 0xf4, 0x12,
-	0x14, 0x67, 0x14, 0x50, 0xdb, 0xed, 0x93, 0x5c, 0x82, 0x93, 0x77, 0x97, 0x90, 0x05, 0x08, 0xdf,
-	0xc1, 0x8d, 0x1d, 0xd8, 0xae, 0x11, 0x7a, 0xee, 0x31, 0x9d, 0xba, 0xeb, 0x4c, 0x84, 0x76, 0xe8,
-	0xf5, 0x14, 0xf4, 0xb8, 0x62, 0xe8, 0x19, 0x41, 0xf2, 0x8a, 0x7c, 0xa2, 0xdc, 0xae, 0x82, 0xf9,
-	0x19, 0xfd, 0x03, 0x29, 0x7f, 0x34, 0x18, 0x52, 0x6e, 0x43, 0xc1, 0x22, 0x30, 0x36, 0x21, 0x5b,
-	0x23, 0xb4, 0xed, 0x4d, 0xfa, 0xc3, 0xb9, 0x74, 0x8f, 0x8f, 0x26, 0x4c, 0x85, 0x82, 0x3b, 0xa0,
-	0x0e, 0x6d, 0xd7, 0xe9, 0x46, 0x54, 0x15, 0x96, 0x68, 0x30, 0xe5, 0x5d, 0x00, 0x5e, 0x8c, 0xca,
-	0x73, 0x38, 0x66, 0x09, 0x66, 0x66, 0x48, 0x6c, 0x27, 0x27, 0x0b, 0x33, 0xec, 0x6c, 0x7c, 0x81,
-	0x74, 0xd5, 0xa6, 0xb6, 0xd5, 0x0b, 0xd0, 0x21, 0x24, 0x1d, 0x9b, 0xda, 0x39, 0x29, 0x2f, 0x17,
-	0x32, 0xa5, 0xfc, 0xe2, 0x74, 0x04, 0x8a, 0xff, 0x9a, 0x2e, 0xf5, 0x67, 0x98, 0xa3, 0xf5, 0x23,
-	0x50, 0xef, 0x52, 0x48, 0x03, 0xf9, 0x33, 0x99, 0x71, 0x5f, 0x2a, 0x66, 0x47, 0xd6, 0xec, 0xd4,
-	0xbe, 0x9a, 0x88, 0x99, 0xa7, 0xb0, 0x08, 0x8e, 0x13, 0x2f, 0x24, 0xe3, 0xb9, 0xb8, 0xb9, 0x3c,
-	0x98, 0xa2, 0x2d, 0x48, 0xf7, 0x6d, 0xdf, 0xe9, 0x8e, 0x9c, 0x90, 0xba, 0xca, 0xc2, 0xba, 0xc3,
-	0x1c, 0x73, 0x4b, 0x89, 0xbc, 0xcc, 0x1c, 0xb3, 0xb3, 0xf1, 0x55, 0x12, 0x37, 0xf2, 0xb9, 0xa0,
-	0xd7, 0x90, 0xa6, 0xec, 0x40, 0x9c, 0xd0, 0xf7, 0x7f, 0x31, 0xbe, 0x39, 0xb4, 0xd8, 0x16, 0x38,
-	0x61, 0x7e, 0xce, 0xd2, 0x8f, 0x61, 0x2d, 0x5a, 0xf8, 0x5d, 0x0b, 0x4a, 0xb4, 0x85, 0xef, 0x12,
-	0xa8, 0x9d, 0xb1, 0x63, 0x53, 0x82, 0xc9, 0x0d, 0x7a, 0x02, 0x29, 0x87, 0xce, 0xc6, 0x24, 0x7c,
-	0x9b, 0x5b, 0x71, 0x46, 0x66, 0x63, 0x82, 0x05, 0x0a, 0x15, 0x40, 0xf6, 0x7a, 0x01, 0x17, 0xcd,
-	0x94, 0xfe, 0x8d, 0x9f, 0x36, 0x66, 0x10, 0x86, 0xb4, 0x07, 0x53, 0xfe, 0xd9, 0xe2, 0x91, 0xe5,
-	0xc1, 0x14, 0x33, 0x08, 0x2a, 0x42, 0x8a, 0xf7, 0x95, 0x4b, 0x71, 0x6c, 0x6e, 0xd9, 0x2c, 0xb0,
-	0x80, 0x19, 0x6b, 0x00, 0xd8, 0xbe, 0x9d, 0xbf, 0xb7, 0x1f, 0x12, 0x64, 0x78, 0x18, 0xbe, 0xb5,
-	0xbf, 0xaf, 0xa1, 0x03, 0x0c, 0xd9, 0x85, 0x1d, 0x80, 0xd6, 0x41, 0xed, 0x5e, 0x98, 0xd8, 0xea,
-	0x56, 0xeb, 0x58, 0x5b, 0x41, 0x59, 0xc8, 0x60, 0xb3, 0x61, 0x96, 0x5b, 0x26, 0x4f, 0x48, 0x48,
-	0x81, 0x64, 0xc3, 0x3c, 0x6d, 0x6b, 0x09, 0x04, 0xb0, 0x7a, 0x62, 0x36, 0xdb, 0x26, 0xd6, 0x64,
-	0xa4, 0x42, 0x0a, 0xd7, 0x6b, 0x67, 0x6d, 0x2d, 0x79, 0xf0, 0x1e, 0x36, 0x1e, 0xae, 0x86, 0xa8,
-	0x64, 0x6b, 0x51, 0xb2, 0xa5, 0x49, 0x8c, 0x7c, 0xd2, 0xb0, 0x5a, 0xa6, 0xd0, 0x3c, 0x37, 0xab,
-	0xf5, 0xce, 0xb9, 0x26, 0xf3, 0x9b, 0xac, 0x66, 0x4d, 0x4b, 0x1e, 0x1c, 0x82, 0x32, 0x9f, 0x1e,
-	0xca, 0x40, 0xba, 0xd3, 0x7c, 0xdb, 0xb4, 0x3e, 0x36, 0xb5, 0x15, 0x94, 0x06, 0xd9, 0xaa, 0x30,
-	0x89, 0x34, 0xc8, 0xe5, 0xda, 0x07, 0x2d, 0xc1, 0xb4, 0xda, 0x56, 0xe7, 0xe4, 0x4c, 0x4b, 0x96,
-	0x7e, 0x26, 0x60, 0xbd, 0x15, 0xed, 0x1f, 0x61, 0x50, 0xef, 0xf6, 0x24, 0xda, 0x5f, 0x18, 0xce,
-	0xe2, 0x5a, 0xd5, 0xf3, 0xcb, 0x01, 0xe2, 0x8b, 0x1b, 0x2b, 0x4f, 0x25, 0x74, 0x0d, 0xe8, 0xf1,
-	0x42, 0x43, 0x85, 0xc7, 0xdc, 0xf8, 0x85, 0xa8, 0xff, 0xff, 0x07, 0xc8, 0xc8, 0x75, 0x16, 0x28,
-	0xf3, 0x25, 0x87, 0xf6, 0x1e, 0x53, 0xa3, 0x0b, 0x51, 0xdf, 0x5f, 0x5a, 0x8f, 0x08, 0xbe, 0x01,
-	0x19, 0xdb, 0xb7, 0x68, 0x7b, 0x01, 0x7b, 0xff, 0xce, 0x75, 0x3d, 0xae, 0x74, 0xaf, 0x50, 0x39,
-	0x02, 0xbd, 0xef, 0x5d, 0x17, 0x2f, 0x2f, 0x7d, 0xaf, 0xe7, 0xd1, 0xa2, 0xed, 0x3a, 0xb3, 0xc3,
-	0x90, 0x32, 0xee, 0x55, 0xb2, 0x0f, 0x3e, 0xc1, 0xbb, 0xca, 0x85, 0x32, 0x2f, 0xf5, 0x56, 0xf9,
-	0x3f, 0xdc, 0xb3, 0x5f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xad, 0x4b, 0x6b, 0xfd, 0xf1, 0x06, 0x00,
-	0x00,
+	// 662 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x55, 0x4d, 0x4f, 0xdb, 0x40,
+	0x10, 0xc5, 0x10, 0xc0, 0x19, 0x30, 0x31, 0x0b, 0xad, 0x52, 0xd3, 0x00, 0x75, 0x2f, 0x94, 0x43,
+	0x84, 0x28, 0x52, 0x55, 0xa9, 0x17, 0x42, 0x8c, 0x1b, 0x29, 0x90, 0x76, 0x9d, 0x4a, 0x15, 0x97,
+	0xc8, 0x1f, 0x4b, 0x63, 0x5a, 0xec, 0xd4, 0xde, 0xb4, 0xea, 0x7f, 0xe8, 0xa1, 0x7f, 0xb0, 0xff,
+	0xa5, 0xf2, 0x7e, 0x24, 0xeb, 0x7c, 0x48, 0xbd, 0x79, 0x67, 0xe6, 0xbd, 0x37, 0x33, 0x9a, 0x97,
+	0xc0, 0x76, 0x4e, 0x92, 0x3c, 0xcd, 0x9a, 0xa3, 0x2c, 0xa5, 0x29, 0x32, 0xf8, 0xcb, 0x23, 0xd9,
+	0x8f, 0x38, 0x24, 0x36, 0x02, 0xd3, 0x25, 0xb4, 0x4d, 0x28, 0x09, 0x29, 0x26, 0xdf, 0xc7, 0x24,
+	0xa7, 0xf6, 0x6f, 0x0d, 0x76, 0x95, 0x60, 0x3e, 0x4a, 0x93, 0x9c, 0xa0, 0x77, 0x50, 0x8d, 0xe2,
+	0x8c, 0x84, 0x34, 0x4e, 0x93, 0xba, 0x76, 0xac, 0x9d, 0xec, 0x9c, 0x1f, 0x36, 0x4b, 0x64, 0x4d,
+	0x8e, 0x68, 0xcb, 0x2a, 0x3c, 0x05, 0xa0, 0xb7, 0xa0, 0x47, 0x71, 0x4e, 0xfd, 0x24, 0x24, 0xf5,
+	0x55, 0x06, 0x6e, 0x2c, 0x01, 0xf3, 0x22, 0x3c, 0x29, 0xb7, 0x0f, 0xe0, 0x99, 0x4b, 0xe8, 0x4d,
+	0x5a, 0xf0, 0x74, 0x92, 0x68, 0xcc, 0xb9, 0x45, 0xaf, 0xd7, 0x60, 0x2d, 0x4a, 0x8a, 0x9e, 0x11,
+	0x54, 0xbe, 0x91, 0x7b, 0xca, 0xda, 0xd5, 0x31, 0xfb, 0x46, 0xfb, 0xb0, 0x9e, 0xc5, 0x5f, 0x86,
+	0x94, 0xb5, 0xa1, 0x63, 0xfe, 0xb0, 0x77, 0xa1, 0xe6, 0x12, 0xda, 0x4f, 0xc7, 0xe1, 0x50, 0x52,
+	0x07, 0x6c, 0x35, 0x22, 0x24, 0x08, 0x0f, 0xa0, 0x3a, 0xf4, 0x93, 0x68, 0xa0, 0xb0, 0xea, 0x45,
+	0xa0, 0x5b, 0x30, 0x37, 0x00, 0x58, 0x52, 0xa5, 0x67, 0xe5, 0xb8, 0x08, 0x14, 0xcd, 0x0c, 0x89,
+	0x1f, 0xd5, 0xd7, 0x78, 0x33, 0xc5, 0xb7, 0x58, 0x7f, 0x6b, 0xfc, 0x38, 0x22, 0x99, 0xd4, 0xed,
+	0xb0, 0xed, 0xcb, 0x98, 0x10, 0xae, 0xc3, 0xe6, 0x7d, 0x9a, 0xfd, 0xf4, 0xb3, 0x48, 0xc8, 0xca,
+	0x27, 0xb2, 0x40, 0x0f, 0xfc, 0xf0, 0x2b, 0x4b, 0x71, 0xcd, 0xc9, 0xdb, 0x36, 0x61, 0xc7, 0x25,
+	0xf4, 0x32, 0xa1, 0xb1, 0x24, 0xff, 0xab, 0xb1, 0x41, 0x79, 0x48, 0x70, 0x37, 0x61, 0x4f, 0x90,
+	0xb1, 0xb9, 0x06, 0x39, 0xf5, 0xe9, 0x38, 0x17, 0x3a, 0xbb, 0x22, 0x55, 0x4c, 0xe8, 0xb1, 0x04,
+	0x3a, 0x83, 0x7d, 0x59, 0xcf, 0x46, 0x95, 0x00, 0xae, 0x8e, 0x44, 0x8e, 0x0d, 0x2d, 0x10, 0xe7,
+	0xf0, 0xa4, 0xa4, 0x30, 0x39, 0x85, 0x62, 0x17, 0x06, 0xde, 0x53, 0x34, 0xe4, 0x01, 0xa0, 0x0b,
+	0x78, 0x5a, 0x56, 0x99, 0x80, 0x2a, 0x0c, 0xb4, 0xaf, 0xea, 0x48, 0x94, 0x5d, 0x03, 0xc3, 0x25,
+	0xb4, 0x17, 0xe4, 0x72, 0xe0, 0xcf, 0x6c, 0x05, 0x2c, 0x20, 0xc6, 0x7d, 0x01, 0xdb, 0x6a, 0x33,
+	0x6c, 0x4e, 0x03, 0x6f, 0x29, 0x3d, 0xa0, 0x97, 0x60, 0x94, 0xb4, 0xd9, 0x68, 0x06, 0xde, 0x56,
+	0x25, 0x4f, 0x31, 0xd4, 0x66, 0x0e, 0x1e, 0x19, 0x50, 0x1d, 0xdc, 0x39, 0xb8, 0x37, 0x68, 0x77,
+	0xb0, 0xb9, 0x82, 0x6a, 0xb0, 0x85, 0x9d, 0xae, 0x73, 0xe9, 0x39, 0x2c, 0xa0, 0x21, 0x1d, 0x2a,
+	0x5d, 0xe7, 0xba, 0x6f, 0xae, 0x22, 0x80, 0x8d, 0x2b, 0xe7, 0xb6, 0xef, 0x60, 0x73, 0x0d, 0x55,
+	0x61, 0x1d, 0x77, 0xdc, 0xf7, 0x7d, 0xb3, 0x72, 0xfa, 0x11, 0x76, 0xca, 0x3e, 0x50, 0x29, 0xbd,
+	0x59, 0x4a, 0xcf, 0xd4, 0x0a, 0xf0, 0x55, 0xb7, 0xe7, 0x39, 0x9c, 0xf3, 0xc6, 0x69, 0x77, 0x3e,
+	0xdd, 0x98, 0x6b, 0x4c, 0xa9, 0x77, 0xeb, 0x9a, 0x95, 0xf3, 0x3f, 0x15, 0x30, 0x3c, 0xd5, 0x69,
+	0x08, 0x43, 0x75, 0x62, 0x6f, 0x74, 0x34, 0x63, 0xc3, 0xd9, 0x5f, 0x03, 0xeb, 0x78, 0x79, 0x01,
+	0x5f, 0xa8, 0xbd, 0x72, 0xa6, 0xa1, 0x47, 0x40, 0xf3, 0x3e, 0x44, 0x27, 0xf3, 0xd8, 0xc5, 0x3e,
+	0xb6, 0x5e, 0xfd, 0x47, 0xa5, 0x22, 0xd7, 0x03, 0x5d, 0x7a, 0x13, 0x1d, 0xce, 0x43, 0x55, 0x1f,
+	0x5b, 0x47, 0x4b, 0xf3, 0x0a, 0x21, 0xdf, 0x09, 0x37, 0xdd, 0xa2, 0x9d, 0x94, 0x2c, 0xba, 0x68,
+	0x27, 0x65, 0xbf, 0x32, 0xce, 0x2e, 0x6c, 0x0a, 0xab, 0xa1, 0xc6, 0x3c, 0x40, 0x71, 0xa5, 0x75,
+	0xb8, 0x2c, 0xad, 0xb0, 0x75, 0x60, 0x83, 0x1f, 0x32, 0x7a, 0x3e, 0x5f, 0x3d, 0x3d, 0x78, 0xab,
+	0xb1, 0x24, 0x3b, 0xa5, 0x6a, 0xbd, 0x01, 0x2b, 0x4c, 0x1f, 0x9b, 0x0f, 0x0f, 0x59, 0x1a, 0xa4,
+	0xb4, 0xe9, 0x27, 0xd1, 0xaf, 0x0b, 0x81, 0x1a, 0x05, 0xad, 0x5a, 0xe9, 0x5a, 0x3e, 0xb4, 0xee,
+	0x74, 0x99, 0x0a, 0x36, 0xd8, 0x7f, 0xc8, 0xeb, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x6b, 0x01,
+	0x54, 0x38, 0x53, 0x06, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -749,20 +669,18 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type SensorServiceClient interface {
-	// GetDetect 计算前方障碍的距离与方法
-	//
-	// 此计算方法受GetMotionInduction数据影响
+	//计算前方障碍的距离与方法(该接口不再支持)
 	GetDetect(ctx context.Context, in *GetDetectRequest, opts ...grpc.CallOption) (SensorService_GetDetectClient, error)
-	// GetMotionInduction 获取动态感应数据
+	// 获取动态感应数据(该接口不再支持)
 	GetMotionInduction(ctx context.Context, in *GetMotionInductionRequest, opts ...grpc.CallOption) (SensorService_GetMotionInductionClient, error)
-	// GetTouch 获取触摸感应数据
-	//
-	// 目前支持头部与手部的触摸
+	//获取触摸感应数据
 	GetTouch(ctx context.Context, in *GetTouchRequest, opts ...grpc.CallOption) (SensorService_GetTouchClient, error)
-	// Raw 内部传感器数据
-	//
-	// 此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
-	Raw(ctx context.Context, in *RawRequest, opts ...grpc.CallOption) (SensorService_RawClient, error)
+	//碰撞传感器数据
+	GetBumper(ctx context.Context, in *GetBumperRequest, opts ...grpc.CallOption) (SensorService_GetBumperClient, error)
+	//防跌落传感器数据
+	GetAnti(ctx context.Context, in *GetAntiRequest, opts ...grpc.CallOption) (SensorService_GetAntiClient, error)
+	//避障距离传感器
+	GetObs(ctx context.Context, in *GetObsRequest, opts ...grpc.CallOption) (SensorService_GetObsClient, error)
 }
 
 type sensorServiceClient struct {
@@ -869,12 +787,12 @@ func (x *sensorServiceGetTouchClient) Recv() (*GetTouchResponse, error) {
 	return m, nil
 }
 
-func (c *sensorServiceClient) Raw(ctx context.Context, in *RawRequest, opts ...grpc.CallOption) (SensorService_RawClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_SensorService_serviceDesc.Streams[3], "/sensorService.SensorService/Raw", opts...)
+func (c *sensorServiceClient) GetBumper(ctx context.Context, in *GetBumperRequest, opts ...grpc.CallOption) (SensorService_GetBumperClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_SensorService_serviceDesc.Streams[3], "/sensorService.SensorService/GetBumper", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &sensorServiceRawClient{stream}
+	x := &sensorServiceGetBumperClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -884,17 +802,81 @@ func (c *sensorServiceClient) Raw(ctx context.Context, in *RawRequest, opts ...g
 	return x, nil
 }
 
-type SensorService_RawClient interface {
-	Recv() (*RawResponse, error)
+type SensorService_GetBumperClient interface {
+	Recv() (*GetBumperResponse, error)
 	grpc.ClientStream
 }
 
-type sensorServiceRawClient struct {
+type sensorServiceGetBumperClient struct {
 	grpc.ClientStream
 }
 
-func (x *sensorServiceRawClient) Recv() (*RawResponse, error) {
-	m := new(RawResponse)
+func (x *sensorServiceGetBumperClient) Recv() (*GetBumperResponse, error) {
+	m := new(GetBumperResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *sensorServiceClient) GetAnti(ctx context.Context, in *GetAntiRequest, opts ...grpc.CallOption) (SensorService_GetAntiClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_SensorService_serviceDesc.Streams[4], "/sensorService.SensorService/GetAnti", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &sensorServiceGetAntiClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type SensorService_GetAntiClient interface {
+	Recv() (*GetAntiResponse, error)
+	grpc.ClientStream
+}
+
+type sensorServiceGetAntiClient struct {
+	grpc.ClientStream
+}
+
+func (x *sensorServiceGetAntiClient) Recv() (*GetAntiResponse, error) {
+	m := new(GetAntiResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *sensorServiceClient) GetObs(ctx context.Context, in *GetObsRequest, opts ...grpc.CallOption) (SensorService_GetObsClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_SensorService_serviceDesc.Streams[5], "/sensorService.SensorService/GetObs", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &sensorServiceGetObsClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type SensorService_GetObsClient interface {
+	Recv() (*GetObsResponse, error)
+	grpc.ClientStream
+}
+
+type sensorServiceGetObsClient struct {
+	grpc.ClientStream
+}
+
+func (x *sensorServiceGetObsClient) Recv() (*GetObsResponse, error) {
+	m := new(GetObsResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -903,20 +885,18 @@ func (x *sensorServiceRawClient) Recv() (*RawResponse, error) {
 
 // SensorServiceServer is the server API for SensorService service.
 type SensorServiceServer interface {
-	// GetDetect 计算前方障碍的距离与方法
-	//
-	// 此计算方法受GetMotionInduction数据影响
+	//计算前方障碍的距离与方法(该接口不再支持)
 	GetDetect(*GetDetectRequest, SensorService_GetDetectServer) error
-	// GetMotionInduction 获取动态感应数据
+	// 获取动态感应数据(该接口不再支持)
 	GetMotionInduction(*GetMotionInductionRequest, SensorService_GetMotionInductionServer) error
-	// GetTouch 获取触摸感应数据
-	//
-	// 目前支持头部与手部的触摸
+	//获取触摸感应数据
 	GetTouch(*GetTouchRequest, SensorService_GetTouchServer) error
-	// Raw 内部传感器数据
-	//
-	// 此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
-	Raw(*RawRequest, SensorService_RawServer) error
+	//碰撞传感器数据
+	GetBumper(*GetBumperRequest, SensorService_GetBumperServer) error
+	//防跌落传感器数据
+	GetAnti(*GetAntiRequest, SensorService_GetAntiServer) error
+	//避障距离传感器
+	GetObs(*GetObsRequest, SensorService_GetObsServer) error
 }
 
 // UnimplementedSensorServiceServer can be embedded to have forward compatible implementations.
@@ -932,8 +912,14 @@ func (*UnimplementedSensorServiceServer) GetMotionInduction(req *GetMotionInduct
 func (*UnimplementedSensorServiceServer) GetTouch(req *GetTouchRequest, srv SensorService_GetTouchServer) error {
 	return status.Errorf(codes.Unimplemented, "method GetTouch not implemented")
 }
-func (*UnimplementedSensorServiceServer) Raw(req *RawRequest, srv SensorService_RawServer) error {
-	return status.Errorf(codes.Unimplemented, "method Raw not implemented")
+func (*UnimplementedSensorServiceServer) GetBumper(req *GetBumperRequest, srv SensorService_GetBumperServer) error {
+	return status.Errorf(codes.Unimplemented, "method GetBumper not implemented")
+}
+func (*UnimplementedSensorServiceServer) GetAnti(req *GetAntiRequest, srv SensorService_GetAntiServer) error {
+	return status.Errorf(codes.Unimplemented, "method GetAnti not implemented")
+}
+func (*UnimplementedSensorServiceServer) GetObs(req *GetObsRequest, srv SensorService_GetObsServer) error {
+	return status.Errorf(codes.Unimplemented, "method GetObs not implemented")
 }
 
 func RegisterSensorServiceServer(s *grpc.Server, srv SensorServiceServer) {
@@ -1003,24 +989,66 @@ func (x *sensorServiceGetTouchServer) Send(m *GetTouchResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func _SensorService_Raw_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(RawRequest)
+func _SensorService_GetBumper_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetBumperRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(SensorServiceServer).Raw(m, &sensorServiceRawServer{stream})
+	return srv.(SensorServiceServer).GetBumper(m, &sensorServiceGetBumperServer{stream})
 }
 
-type SensorService_RawServer interface {
-	Send(*RawResponse) error
+type SensorService_GetBumperServer interface {
+	Send(*GetBumperResponse) error
 	grpc.ServerStream
 }
 
-type sensorServiceRawServer struct {
+type sensorServiceGetBumperServer struct {
 	grpc.ServerStream
 }
 
-func (x *sensorServiceRawServer) Send(m *RawResponse) error {
+func (x *sensorServiceGetBumperServer) Send(m *GetBumperResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _SensorService_GetAnti_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetAntiRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(SensorServiceServer).GetAnti(m, &sensorServiceGetAntiServer{stream})
+}
+
+type SensorService_GetAntiServer interface {
+	Send(*GetAntiResponse) error
+	grpc.ServerStream
+}
+
+type sensorServiceGetAntiServer struct {
+	grpc.ServerStream
+}
+
+func (x *sensorServiceGetAntiServer) Send(m *GetAntiResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _SensorService_GetObs_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetObsRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(SensorServiceServer).GetObs(m, &sensorServiceGetObsServer{stream})
+}
+
+type SensorService_GetObsServer interface {
+	Send(*GetObsResponse) error
+	grpc.ServerStream
+}
+
+type sensorServiceGetObsServer struct {
+	grpc.ServerStream
+}
+
+func (x *sensorServiceGetObsServer) Send(m *GetObsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -1045,8 +1073,18 @@ var _SensorService_serviceDesc = grpc.ServiceDesc{
 			ServerStreams: true,
 		},
 		{
-			StreamName:    "Raw",
-			Handler:       _SensorService_Raw_Handler,
+			StreamName:    "GetBumper",
+			Handler:       _SensorService_GetBumper_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "GetAnti",
+			Handler:       _SensorService_GetAnti_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "GetObs",
+			Handler:       _SensorService_GetObs_Handler,
 			ServerStreams: true,
 		},
 	},

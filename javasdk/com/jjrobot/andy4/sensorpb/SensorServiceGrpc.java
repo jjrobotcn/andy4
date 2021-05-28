@@ -124,35 +124,97 @@ public final class SensorServiceGrpc {
     return getGetTouchMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest,
-      com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse> getRawMethod;
+  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest,
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse> getGetBumperMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Raw",
-      requestType = com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.class,
-      responseType = com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetBumper",
+      requestType = com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.class,
+      responseType = com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest,
-      com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse> getRawMethod() {
-    io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse> getRawMethod;
-    if ((getRawMethod = SensorServiceGrpc.getRawMethod) == null) {
+  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest,
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse> getGetBumperMethod() {
+    io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse> getGetBumperMethod;
+    if ((getGetBumperMethod = SensorServiceGrpc.getGetBumperMethod) == null) {
       synchronized (SensorServiceGrpc.class) {
-        if ((getRawMethod = SensorServiceGrpc.getRawMethod) == null) {
-          SensorServiceGrpc.getRawMethod = getRawMethod =
-              io.grpc.MethodDescriptor.<com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse>newBuilder()
+        if ((getGetBumperMethod = SensorServiceGrpc.getGetBumperMethod) == null) {
+          SensorServiceGrpc.getGetBumperMethod = getGetBumperMethod =
+              io.grpc.MethodDescriptor.<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Raw"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetBumper"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.getDefaultInstance()))
+                  com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new SensorServiceMethodDescriptorSupplier("Raw"))
+                  com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SensorServiceMethodDescriptorSupplier("GetBumper"))
               .build();
         }
       }
     }
-    return getRawMethod;
+    return getGetBumperMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest,
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse> getGetAntiMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAnti",
+      requestType = com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.class,
+      responseType = com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest,
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse> getGetAntiMethod() {
+    io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse> getGetAntiMethod;
+    if ((getGetAntiMethod = SensorServiceGrpc.getGetAntiMethod) == null) {
+      synchronized (SensorServiceGrpc.class) {
+        if ((getGetAntiMethod = SensorServiceGrpc.getGetAntiMethod) == null) {
+          SensorServiceGrpc.getGetAntiMethod = getGetAntiMethod =
+              io.grpc.MethodDescriptor.<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAnti"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SensorServiceMethodDescriptorSupplier("GetAnti"))
+              .build();
+        }
+      }
+    }
+    return getGetAntiMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest,
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse> getGetObsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetObs",
+      requestType = com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.class,
+      responseType = com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest,
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse> getGetObsMethod() {
+    io.grpc.MethodDescriptor<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse> getGetObsMethod;
+    if ((getGetObsMethod = SensorServiceGrpc.getGetObsMethod) == null) {
+      synchronized (SensorServiceGrpc.class) {
+        if ((getGetObsMethod = SensorServiceGrpc.getGetObsMethod) == null) {
+          SensorServiceGrpc.getGetObsMethod = getGetObsMethod =
+              io.grpc.MethodDescriptor.<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest, com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetObs"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SensorServiceMethodDescriptorSupplier("GetObs"))
+              .build();
+        }
+      }
+    }
+    return getGetObsMethod;
   }
 
   /**
@@ -209,8 +271,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetDetect 计算前方障碍的距离与方法
-     * 此计算方法受GetMotionInduction数据影响
+     *计算前方障碍的距离与方法(该接口不再支持)
      * </pre>
      */
     public void getDetect(com.jjrobot.andy4.sensorpb.SensorServicePB.GetDetectRequest request,
@@ -220,7 +281,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetMotionInduction 获取动态感应数据
+     * 获取动态感应数据(该接口不再支持)
      * </pre>
      */
     public void getMotionInduction(com.jjrobot.andy4.sensorpb.SensorServicePB.GetMotionInductionRequest request,
@@ -230,8 +291,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetTouch 获取触摸感应数据
-     * 目前支持头部与手部的触摸
+     *获取触摸感应数据
      * </pre>
      */
     public void getTouch(com.jjrobot.andy4.sensorpb.SensorServicePB.GetTouchRequest request,
@@ -241,13 +301,32 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * Raw 内部传感器数据
-     * 此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
+     *碰撞传感器数据
      * </pre>
      */
-    public void raw(com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest request,
-        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getRawMethod(), responseObserver);
+    public void getBumper(com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetBumperMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *防跌落传感器数据
+     * </pre>
+     */
+    public void getAnti(com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetAntiMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *避障距离传感器
+     * </pre>
+     */
+    public void getObs(com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetObsMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -274,12 +353,26 @@ public final class SensorServiceGrpc {
                 com.jjrobot.andy4.sensorpb.SensorServicePB.GetTouchResponse>(
                   this, METHODID_GET_TOUCH)))
           .addMethod(
-            getRawMethod(),
+            getGetBumperMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest,
-                com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse>(
-                  this, METHODID_RAW)))
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest,
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse>(
+                  this, METHODID_GET_BUMPER)))
+          .addMethod(
+            getGetAntiMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest,
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse>(
+                  this, METHODID_GET_ANTI)))
+          .addMethod(
+            getGetObsMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest,
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse>(
+                  this, METHODID_GET_OBS)))
           .build();
     }
   }
@@ -304,8 +397,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetDetect 计算前方障碍的距离与方法
-     * 此计算方法受GetMotionInduction数据影响
+     *计算前方障碍的距离与方法(该接口不再支持)
      * </pre>
      */
     public void getDetect(com.jjrobot.andy4.sensorpb.SensorServicePB.GetDetectRequest request,
@@ -316,7 +408,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetMotionInduction 获取动态感应数据
+     * 获取动态感应数据(该接口不再支持)
      * </pre>
      */
     public void getMotionInduction(com.jjrobot.andy4.sensorpb.SensorServicePB.GetMotionInductionRequest request,
@@ -327,8 +419,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetTouch 获取触摸感应数据
-     * 目前支持头部与手部的触摸
+     *获取触摸感应数据
      * </pre>
      */
     public void getTouch(com.jjrobot.andy4.sensorpb.SensorServicePB.GetTouchRequest request,
@@ -339,14 +430,35 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * Raw 内部传感器数据
-     * 此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
+     *碰撞传感器数据
      * </pre>
      */
-    public void raw(com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest request,
-        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse> responseObserver) {
+    public void getBumper(com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse> responseObserver) {
       asyncServerStreamingCall(
-          getChannel().newCall(getRawMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetBumperMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *防跌落传感器数据
+     * </pre>
+     */
+    public void getAnti(com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetAntiMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *避障距离传感器
+     * </pre>
+     */
+    public void getObs(com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetObsMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -370,8 +482,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetDetect 计算前方障碍的距离与方法
-     * 此计算方法受GetMotionInduction数据影响
+     *计算前方障碍的距离与方法(该接口不再支持)
      * </pre>
      */
     public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.GetDetectResponse> getDetect(
@@ -382,7 +493,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetMotionInduction 获取动态感应数据
+     * 获取动态感应数据(该接口不再支持)
      * </pre>
      */
     public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.GetMotionInductionResponse> getMotionInduction(
@@ -393,8 +504,7 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * GetTouch 获取触摸感应数据
-     * 目前支持头部与手部的触摸
+     *获取触摸感应数据
      * </pre>
      */
     public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.GetTouchResponse> getTouch(
@@ -405,14 +515,35 @@ public final class SensorServiceGrpc {
 
     /**
      * <pre>
-     * Raw 内部传感器数据
-     * 此方法为底层数据方法，用于上层的计算与调试，通常开发用户不应使用此方法
+     *碰撞传感器数据
      * </pre>
      */
-    public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse> raw(
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest request) {
+    public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse> getBumper(
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest request) {
       return blockingServerStreamingCall(
-          getChannel(), getRawMethod(), getCallOptions(), request);
+          getChannel(), getGetBumperMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *防跌落传感器数据
+     * </pre>
+     */
+    public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse> getAnti(
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetAntiMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *避障距离传感器
+     * </pre>
+     */
+    public java.util.Iterator<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse> getObs(
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetObsMethod(), getCallOptions(), request);
     }
   }
 
@@ -438,7 +569,9 @@ public final class SensorServiceGrpc {
   private static final int METHODID_GET_DETECT = 0;
   private static final int METHODID_GET_MOTION_INDUCTION = 1;
   private static final int METHODID_GET_TOUCH = 2;
-  private static final int METHODID_RAW = 3;
+  private static final int METHODID_GET_BUMPER = 3;
+  private static final int METHODID_GET_ANTI = 4;
+  private static final int METHODID_GET_OBS = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -469,9 +602,17 @@ public final class SensorServiceGrpc {
           serviceImpl.getTouch((com.jjrobot.andy4.sensorpb.SensorServicePB.GetTouchRequest) request,
               (io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetTouchResponse>) responseObserver);
           break;
-        case METHODID_RAW:
-          serviceImpl.raw((com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest) request,
-              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse>) responseObserver);
+        case METHODID_GET_BUMPER:
+          serviceImpl.getBumper((com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest) request,
+              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse>) responseObserver);
+          break;
+        case METHODID_GET_ANTI:
+          serviceImpl.getAnti((com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest) request,
+              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse>) responseObserver);
+          break;
+        case METHODID_GET_OBS:
+          serviceImpl.getObs((com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest) request,
+              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -537,7 +678,9 @@ public final class SensorServiceGrpc {
               .addMethod(getGetDetectMethod())
               .addMethod(getGetMotionInductionMethod())
               .addMethod(getGetTouchMethod())
-              .addMethod(getRawMethod())
+              .addMethod(getGetBumperMethod())
+              .addMethod(getGetAntiMethod())
+              .addMethod(getGetObsMethod())
               .build();
         }
       }

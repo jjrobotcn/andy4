@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='sensorService',
   syntax='proto3',
   serialized_options=b'\n\032com.jjrobot.andy4.sensorpbB\017SensorServicePBZ\010sensorpb',
-  serialized_pb=b'\n\x0csensor.proto\x12\rsensorService\"\x12\n\x10GetDetectRequest\"w\n\x11GetDetectResponse\x12\x31\n\tdirection\x18\x01 \x01(\x0e\x32\x1e.sensorService.DetectDirection\x12/\n\x08\x64istance\x18\x02 \x01(\x0e\x32\x1d.sensorService.DetectDistance\"\x1b\n\x19GetMotionInductionRequest\"9\n\x1aGetMotionInductionResponse\x12\x0c\n\x04left\x18\x01 \x01(\x08\x12\r\n\x05right\x18\x02 \x01(\x08\"\x11\n\x0fGetTouchRequest\"G\n\x10GetTouchResponse\x12\x11\n\thand_left\x18\x01 \x01(\x08\x12\x12\n\nhand_right\x18\x02 \x01(\x08\x12\x0c\n\x04head\x18\x03 \x01(\x08\"f\n\x07\x44\x61taObs\x12.\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32 .sensorService.DataObs.DataEntry\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"(\n\x07\x44\x61taAgv\x12\x0f\n\x07\x63\x61rd_id\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x02 \x03(\x08\"s\n\tDataTouch\x12\x36\n\x07touched\x18\x01 \x03(\x0b\x32%.sensorService.DataTouch.TouchedEntry\x1a.\n\x0cTouchedEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\xa6\x01\n\tUpdateReq\x12&\n\x05\x64type\x18\x01 \x01(\x0e\x32\x17.sensorService.DataType\x12#\n\x03obs\x18\x02 \x01(\x0b\x32\x16.sensorService.DataObs\x12#\n\x03\x61gv\x18\x03 \x01(\x0b\x32\x16.sensorService.DataAgv\x12\'\n\x05touch\x18\x05 \x01(\x0b\x32\x18.sensorService.DataTouch\"\x0c\n\nRawRequest\"\xa8\x01\n\x0bRawResponse\x12&\n\x05\x64type\x18\x01 \x01(\x0e\x32\x17.sensorService.DataType\x12#\n\x03obs\x18\x02 \x01(\x0b\x32\x16.sensorService.DataObs\x12#\n\x03\x61gv\x18\x03 \x01(\x0b\x32\x16.sensorService.DataAgv\x12\'\n\x05touch\x18\x05 \x01(\x0b\x32\x18.sensorService.DataTouch*R\n\x0f\x44\x65tectDirection\x12\r\n\t_ZERO_DIR\x10\x00\x12\x0f\n\x0bRELEASE_DIR\x10\x01\x12\x08\n\x04LEFT\x10\x02\x12\n\n\x06\x43\x45NTER\x10\x03\x12\t\n\x05RIGHT\x10\x04*Q\n\x0e\x44\x65tectDistance\x12\r\n\t_ZERO_DIS\x10\x00\x12\x0f\n\x0bRELEASE_DIS\x10\x01\x12\t\n\x05\x43LOSE\x10\x02\x12\n\n\x06MEDIUM\x10\x03\x12\x08\n\x04LONG\x10\x04*4\n\x08\x44\x61taType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x07\n\x03OBS\x10\x01\x12\x07\n\x03\x41GV\x10\x02\x12\t\n\x05TOUCH\x10\x04\x32\xe5\x02\n\rSensorService\x12R\n\tGetDetect\x12\x1f.sensorService.GetDetectRequest\x1a .sensorService.GetDetectResponse\"\x00\x30\x01\x12m\n\x12GetMotionInduction\x12(.sensorService.GetMotionInductionRequest\x1a).sensorService.GetMotionInductionResponse\"\x00\x30\x01\x12O\n\x08GetTouch\x12\x1e.sensorService.GetTouchRequest\x1a\x1f.sensorService.GetTouchResponse\"\x00\x30\x01\x12@\n\x03Raw\x12\x19.sensorService.RawRequest\x1a\x1a.sensorService.RawResponse\"\x00\x30\x01\x42\x37\n\x1a\x63om.jjrobot.andy4.sensorpbB\x0fSensorServicePBZ\x08sensorpbb\x06proto3'
+  serialized_pb=b'\n\x0csensor.proto\x12\rsensorService\"\x12\n\x10GetDetectRequest\"w\n\x11GetDetectResponse\x12\x31\n\tdirection\x18\x01 \x01(\x0e\x32\x1e.sensorService.DetectDirection\x12/\n\x08\x64istance\x18\x02 \x01(\x0e\x32\x1d.sensorService.DetectDistance\"\x1b\n\x19GetMotionInductionRequest\"9\n\x1aGetMotionInductionResponse\x12\x0c\n\x04left\x18\x01 \x01(\x08\x12\r\n\x05right\x18\x02 \x01(\x08\"\x11\n\x0fGetTouchRequest\"G\n\x10GetTouchResponse\x12\x11\n\thand_left\x18\x01 \x01(\x08\x12\x12\n\nhand_right\x18\x02 \x01(\x08\x12\x0c\n\x04head\x18\x03 \x01(\x08\"\x12\n\x10GetBumperRequest\"6\n\x11GetBumperResponse\x12\x0f\n\x07\x66orward\x18\x01 \x01(\x08\x12\x10\n\x08\x62\x61\x63kward\x18\x02 \x01(\x08\"\x10\n\x0eGetAntiRequest\"\x8b\x01\n\x0fGetAntiResponse\x12\x1b\n\x13\x66orward_left_status\x18\x01 \x01(\x08\x12\x1c\n\x14\x66orward_right_status\x18\x02 \x01(\x08\x12\x1d\n\x15\x66orward_left_distance\x18\x03 \x01(\r\x12\x1e\n\x16\x66orward_right_distance\x18\x04 \x01(\r\"\x0f\n\rGetObsRequest\"=\n\x0eGetObsResponse\x12\x14\n\x0c\x66orward_left\x18\x01 \x01(\r\x12\x15\n\rforward_right\x18\x02 \x01(\r*R\n\x0f\x44\x65tectDirection\x12\r\n\t_ZERO_DIR\x10\x00\x12\x0f\n\x0bRELEASE_DIR\x10\x01\x12\x08\n\x04LEFT\x10\x02\x12\n\n\x06\x43\x45NTER\x10\x03\x12\t\n\x05RIGHT\x10\x04*Q\n\x0e\x44\x65tectDistance\x12\r\n\t_ZERO_DIS\x10\x00\x12\x0f\n\x0bRELEASE_DIS\x10\x01\x12\t\n\x05\x43LOSE\x10\x02\x12\n\n\x06MEDIUM\x10\x03\x12\x08\n\x04LONG\x10\x04\x32\x90\x04\n\rSensorService\x12R\n\tGetDetect\x12\x1f.sensorService.GetDetectRequest\x1a .sensorService.GetDetectResponse\"\x00\x30\x01\x12m\n\x12GetMotionInduction\x12(.sensorService.GetMotionInductionRequest\x1a).sensorService.GetMotionInductionResponse\"\x00\x30\x01\x12O\n\x08GetTouch\x12\x1e.sensorService.GetTouchRequest\x1a\x1f.sensorService.GetTouchResponse\"\x00\x30\x01\x12R\n\tGetBumper\x12\x1f.sensorService.GetBumperRequest\x1a .sensorService.GetBumperResponse\"\x00\x30\x01\x12L\n\x07GetAnti\x12\x1d.sensorService.GetAntiRequest\x1a\x1e.sensorService.GetAntiResponse\"\x00\x30\x01\x12I\n\x06GetObs\x12\x1c.sensorService.GetObsRequest\x1a\x1d.sensorService.GetObsResponse\"\x00\x30\x01\x42\x37\n\x1a\x63om.jjrobot.andy4.sensorpbB\x0fSensorServicePBZ\x08sensorpbb\x06proto3'
 )
 
 _DETECTDIRECTION = _descriptor.EnumDescriptor(
@@ -51,8 +51,8 @@ _DETECTDIRECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=969,
-  serialized_end=1051,
+  serialized_start=668,
+  serialized_end=750,
 )
 _sym_db.RegisterEnumDescriptor(_DETECTDIRECTION)
 
@@ -86,43 +86,12 @@ _DETECTDISTANCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1053,
-  serialized_end=1134,
+  serialized_start=752,
+  serialized_end=833,
 )
 _sym_db.RegisterEnumDescriptor(_DETECTDISTANCE)
 
 DetectDistance = enum_type_wrapper.EnumTypeWrapper(_DETECTDISTANCE)
-_DATATYPE = _descriptor.EnumDescriptor(
-  name='DataType',
-  full_name='sensorService.DataType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='UNKNOWN', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='OBS', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='AGV', index=2, number=2,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='TOUCH', index=3, number=4,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=1136,
-  serialized_end=1188,
-)
-_sym_db.RegisterEnumDescriptor(_DATATYPE)
-
-DataType = enum_type_wrapper.EnumTypeWrapper(_DATATYPE)
 _ZERO_DIR = 0
 RELEASE_DIR = 1
 LEFT = 2
@@ -133,10 +102,6 @@ RELEASE_DIS = 1
 CLOSE = 2
 MEDIUM = 3
 LONG = 4
-UNKNOWN = 0
-OBS = 1
-AGV = 2
-TOUCH = 4
 
 
 
@@ -333,61 +298,17 @@ _GETTOUCHRESPONSE = _descriptor.Descriptor(
 )
 
 
-_DATAOBS_DATAENTRY = _descriptor.Descriptor(
-  name='DataEntry',
-  full_name='sensorService.DataObs.DataEntry',
+_GETBUMPERREQUEST = _descriptor.Descriptor(
+  name='GetBumperRequest',
+  full_name='sensorService.GetBumperRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='sensorService.DataObs.DataEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='sensorService.DataObs.DataEntry.value', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
   nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'8\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=411,
-  serialized_end=454,
-)
-
-_DATAOBS = _descriptor.Descriptor(
-  name='DataObs',
-  full_name='sensorService.DataObs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data', full_name='sensorService.DataObs.data', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_DATAOBS_DATAENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -397,64 +318,26 @@ _DATAOBS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=352,
-  serialized_end=454,
+  serialized_end=370,
 )
 
 
-_DATAAGV = _descriptor.Descriptor(
-  name='DataAgv',
-  full_name='sensorService.DataAgv',
+_GETBUMPERRESPONSE = _descriptor.Descriptor(
+  name='GetBumperResponse',
+  full_name='sensorService.GetBumperResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='card_id', full_name='sensorService.DataAgv.card_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='forward', full_name='sensorService.GetBumperResponse.forward', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='data', full_name='sensorService.DataAgv.data', index=1,
-      number=2, type=8, cpp_type=7, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=456,
-  serialized_end=496,
-)
-
-
-_DATATOUCH_TOUCHEDENTRY = _descriptor.Descriptor(
-  name='TouchedEntry',
-  full_name='sensorService.DataTouch.TouchedEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='sensorService.DataTouch.TouchedEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='sensorService.DataTouch.TouchedEntry.value', index=1,
+      name='backward', full_name='sensorService.GetBumperResponse.backward', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -466,34 +349,28 @@ _DATATOUCH_TOUCHEDENTRY = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=b'8\001',
+  serialized_options=None,
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=567,
-  serialized_end=613,
+  serialized_start=372,
+  serialized_end=426,
 )
 
-_DATATOUCH = _descriptor.Descriptor(
-  name='DataTouch',
-  full_name='sensorService.DataTouch',
+
+_GETANTIREQUEST = _descriptor.Descriptor(
+  name='GetAntiRequest',
+  full_name='sensorService.GetAntiRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='touched', full_name='sensorService.DataTouch.touched', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_DATATOUCH_TOUCHEDENTRY, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -502,43 +379,43 @@ _DATATOUCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=498,
-  serialized_end=613,
+  serialized_start=428,
+  serialized_end=444,
 )
 
 
-_UPDATEREQ = _descriptor.Descriptor(
-  name='UpdateReq',
-  full_name='sensorService.UpdateReq',
+_GETANTIRESPONSE = _descriptor.Descriptor(
+  name='GetAntiResponse',
+  full_name='sensorService.GetAntiResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dtype', full_name='sensorService.UpdateReq.dtype', index=0,
-      number=1, type=14, cpp_type=8, label=1,
+      name='forward_left_status', full_name='sensorService.GetAntiResponse.forward_left_status', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='forward_right_status', full_name='sensorService.GetAntiResponse.forward_right_status', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='forward_left_distance', full_name='sensorService.GetAntiResponse.forward_left_distance', index=2,
+      number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='obs', full_name='sensorService.UpdateReq.obs', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='agv', full_name='sensorService.UpdateReq.agv', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='touch', full_name='sensorService.UpdateReq.touch', index=3,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='forward_right_distance', full_name='sensorService.GetAntiResponse.forward_right_distance', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -554,14 +431,14 @@ _UPDATEREQ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=782,
+  serialized_start=447,
+  serialized_end=586,
 )
 
 
-_RAWREQUEST = _descriptor.Descriptor(
-  name='RawRequest',
-  full_name='sensorService.RawRequest',
+_GETOBSREQUEST = _descriptor.Descriptor(
+  name='GetObsRequest',
+  full_name='sensorService.GetObsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
@@ -578,43 +455,29 @@ _RAWREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=784,
-  serialized_end=796,
+  serialized_start=588,
+  serialized_end=603,
 )
 
 
-_RAWRESPONSE = _descriptor.Descriptor(
-  name='RawResponse',
-  full_name='sensorService.RawResponse',
+_GETOBSRESPONSE = _descriptor.Descriptor(
+  name='GetObsResponse',
+  full_name='sensorService.GetObsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dtype', full_name='sensorService.RawResponse.dtype', index=0,
-      number=1, type=14, cpp_type=8, label=1,
+      name='forward_left', full_name='sensorService.GetObsResponse.forward_left', index=0,
+      number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='obs', full_name='sensorService.RawResponse.obs', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='agv', full_name='sensorService.RawResponse.agv', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='touch', full_name='sensorService.RawResponse.touch', index=3,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='forward_right', full_name='sensorService.GetObsResponse.forward_right', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -630,39 +493,26 @@ _RAWRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=799,
-  serialized_end=967,
+  serialized_start=605,
+  serialized_end=666,
 )
 
 _GETDETECTRESPONSE.fields_by_name['direction'].enum_type = _DETECTDIRECTION
 _GETDETECTRESPONSE.fields_by_name['distance'].enum_type = _DETECTDISTANCE
-_DATAOBS_DATAENTRY.containing_type = _DATAOBS
-_DATAOBS.fields_by_name['data'].message_type = _DATAOBS_DATAENTRY
-_DATATOUCH_TOUCHEDENTRY.containing_type = _DATATOUCH
-_DATATOUCH.fields_by_name['touched'].message_type = _DATATOUCH_TOUCHEDENTRY
-_UPDATEREQ.fields_by_name['dtype'].enum_type = _DATATYPE
-_UPDATEREQ.fields_by_name['obs'].message_type = _DATAOBS
-_UPDATEREQ.fields_by_name['agv'].message_type = _DATAAGV
-_UPDATEREQ.fields_by_name['touch'].message_type = _DATATOUCH
-_RAWRESPONSE.fields_by_name['dtype'].enum_type = _DATATYPE
-_RAWRESPONSE.fields_by_name['obs'].message_type = _DATAOBS
-_RAWRESPONSE.fields_by_name['agv'].message_type = _DATAAGV
-_RAWRESPONSE.fields_by_name['touch'].message_type = _DATATOUCH
 DESCRIPTOR.message_types_by_name['GetDetectRequest'] = _GETDETECTREQUEST
 DESCRIPTOR.message_types_by_name['GetDetectResponse'] = _GETDETECTRESPONSE
 DESCRIPTOR.message_types_by_name['GetMotionInductionRequest'] = _GETMOTIONINDUCTIONREQUEST
 DESCRIPTOR.message_types_by_name['GetMotionInductionResponse'] = _GETMOTIONINDUCTIONRESPONSE
 DESCRIPTOR.message_types_by_name['GetTouchRequest'] = _GETTOUCHREQUEST
 DESCRIPTOR.message_types_by_name['GetTouchResponse'] = _GETTOUCHRESPONSE
-DESCRIPTOR.message_types_by_name['DataObs'] = _DATAOBS
-DESCRIPTOR.message_types_by_name['DataAgv'] = _DATAAGV
-DESCRIPTOR.message_types_by_name['DataTouch'] = _DATATOUCH
-DESCRIPTOR.message_types_by_name['UpdateReq'] = _UPDATEREQ
-DESCRIPTOR.message_types_by_name['RawRequest'] = _RAWREQUEST
-DESCRIPTOR.message_types_by_name['RawResponse'] = _RAWRESPONSE
+DESCRIPTOR.message_types_by_name['GetBumperRequest'] = _GETBUMPERREQUEST
+DESCRIPTOR.message_types_by_name['GetBumperResponse'] = _GETBUMPERRESPONSE
+DESCRIPTOR.message_types_by_name['GetAntiRequest'] = _GETANTIREQUEST
+DESCRIPTOR.message_types_by_name['GetAntiResponse'] = _GETANTIRESPONSE
+DESCRIPTOR.message_types_by_name['GetObsRequest'] = _GETOBSREQUEST
+DESCRIPTOR.message_types_by_name['GetObsResponse'] = _GETOBSRESPONSE
 DESCRIPTOR.enum_types_by_name['DetectDirection'] = _DETECTDIRECTION
 DESCRIPTOR.enum_types_by_name['DetectDistance'] = _DETECTDISTANCE
-DESCRIPTOR.enum_types_by_name['DataType'] = _DATATYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GetDetectRequest = _reflection.GeneratedProtocolMessageType('GetDetectRequest', (_message.Message,), {
@@ -707,68 +557,50 @@ GetTouchResponse = _reflection.GeneratedProtocolMessageType('GetTouchResponse', 
   })
 _sym_db.RegisterMessage(GetTouchResponse)
 
-DataObs = _reflection.GeneratedProtocolMessageType('DataObs', (_message.Message,), {
-
-  'DataEntry' : _reflection.GeneratedProtocolMessageType('DataEntry', (_message.Message,), {
-    'DESCRIPTOR' : _DATAOBS_DATAENTRY,
-    '__module__' : 'sensor_pb2'
-    # @@protoc_insertion_point(class_scope:sensorService.DataObs.DataEntry)
-    })
-  ,
-  'DESCRIPTOR' : _DATAOBS,
+GetBumperRequest = _reflection.GeneratedProtocolMessageType('GetBumperRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETBUMPERREQUEST,
   '__module__' : 'sensor_pb2'
-  # @@protoc_insertion_point(class_scope:sensorService.DataObs)
+  # @@protoc_insertion_point(class_scope:sensorService.GetBumperRequest)
   })
-_sym_db.RegisterMessage(DataObs)
-_sym_db.RegisterMessage(DataObs.DataEntry)
+_sym_db.RegisterMessage(GetBumperRequest)
 
-DataAgv = _reflection.GeneratedProtocolMessageType('DataAgv', (_message.Message,), {
-  'DESCRIPTOR' : _DATAAGV,
+GetBumperResponse = _reflection.GeneratedProtocolMessageType('GetBumperResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETBUMPERRESPONSE,
   '__module__' : 'sensor_pb2'
-  # @@protoc_insertion_point(class_scope:sensorService.DataAgv)
+  # @@protoc_insertion_point(class_scope:sensorService.GetBumperResponse)
   })
-_sym_db.RegisterMessage(DataAgv)
+_sym_db.RegisterMessage(GetBumperResponse)
 
-DataTouch = _reflection.GeneratedProtocolMessageType('DataTouch', (_message.Message,), {
-
-  'TouchedEntry' : _reflection.GeneratedProtocolMessageType('TouchedEntry', (_message.Message,), {
-    'DESCRIPTOR' : _DATATOUCH_TOUCHEDENTRY,
-    '__module__' : 'sensor_pb2'
-    # @@protoc_insertion_point(class_scope:sensorService.DataTouch.TouchedEntry)
-    })
-  ,
-  'DESCRIPTOR' : _DATATOUCH,
+GetAntiRequest = _reflection.GeneratedProtocolMessageType('GetAntiRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETANTIREQUEST,
   '__module__' : 'sensor_pb2'
-  # @@protoc_insertion_point(class_scope:sensorService.DataTouch)
+  # @@protoc_insertion_point(class_scope:sensorService.GetAntiRequest)
   })
-_sym_db.RegisterMessage(DataTouch)
-_sym_db.RegisterMessage(DataTouch.TouchedEntry)
+_sym_db.RegisterMessage(GetAntiRequest)
 
-UpdateReq = _reflection.GeneratedProtocolMessageType('UpdateReq', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEREQ,
+GetAntiResponse = _reflection.GeneratedProtocolMessageType('GetAntiResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETANTIRESPONSE,
   '__module__' : 'sensor_pb2'
-  # @@protoc_insertion_point(class_scope:sensorService.UpdateReq)
+  # @@protoc_insertion_point(class_scope:sensorService.GetAntiResponse)
   })
-_sym_db.RegisterMessage(UpdateReq)
+_sym_db.RegisterMessage(GetAntiResponse)
 
-RawRequest = _reflection.GeneratedProtocolMessageType('RawRequest', (_message.Message,), {
-  'DESCRIPTOR' : _RAWREQUEST,
+GetObsRequest = _reflection.GeneratedProtocolMessageType('GetObsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBSREQUEST,
   '__module__' : 'sensor_pb2'
-  # @@protoc_insertion_point(class_scope:sensorService.RawRequest)
+  # @@protoc_insertion_point(class_scope:sensorService.GetObsRequest)
   })
-_sym_db.RegisterMessage(RawRequest)
+_sym_db.RegisterMessage(GetObsRequest)
 
-RawResponse = _reflection.GeneratedProtocolMessageType('RawResponse', (_message.Message,), {
-  'DESCRIPTOR' : _RAWRESPONSE,
+GetObsResponse = _reflection.GeneratedProtocolMessageType('GetObsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETOBSRESPONSE,
   '__module__' : 'sensor_pb2'
-  # @@protoc_insertion_point(class_scope:sensorService.RawResponse)
+  # @@protoc_insertion_point(class_scope:sensorService.GetObsResponse)
   })
-_sym_db.RegisterMessage(RawResponse)
+_sym_db.RegisterMessage(GetObsResponse)
 
 
 DESCRIPTOR._options = None
-_DATAOBS_DATAENTRY._options = None
-_DATATOUCH_TOUCHEDENTRY._options = None
 
 _SENSORSERVICE = _descriptor.ServiceDescriptor(
   name='SensorService',
@@ -776,8 +608,8 @@ _SENSORSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1191,
-  serialized_end=1548,
+  serialized_start=836,
+  serialized_end=1364,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetDetect',
@@ -807,12 +639,30 @@ _SENSORSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='Raw',
-    full_name='sensorService.SensorService.Raw',
+    name='GetBumper',
+    full_name='sensorService.SensorService.GetBumper',
     index=3,
     containing_service=None,
-    input_type=_RAWREQUEST,
-    output_type=_RAWRESPONSE,
+    input_type=_GETBUMPERREQUEST,
+    output_type=_GETBUMPERRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAnti',
+    full_name='sensorService.SensorService.GetAnti',
+    index=4,
+    containing_service=None,
+    input_type=_GETANTIREQUEST,
+    output_type=_GETANTIRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetObs',
+    full_name='sensorService.SensorService.GetObs',
+    index=5,
+    containing_service=None,
+    input_type=_GETOBSREQUEST,
+    output_type=_GETOBSRESPONSE,
     serialized_options=None,
   ),
 ])

@@ -17,6 +17,14 @@ http:
       # [http:, ws:]
       get: "/api/v2/sensor/get_touch"
 
-    - selector: sensorService.SensorService.Raw
+    - selector: sensorService.SensorService.GetBumper
       # [http:, ws:]
-      get: "/api/v2/sensor/raw"
+      get: "/api/v2/sensor/get_bumper"
+
+    - selector: sensorService.SensorService.GetAnti
+      # [http:, ws:]
+      get: "/api/v2/sensor/get_anti"
+
+    - selector: sensorService.SensorService.GetObs
+      # [http:, ws:]
+      get: "/api/v2/sensor/get_obs"

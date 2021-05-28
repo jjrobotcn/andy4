@@ -364,133 +364,15 @@ public final class SensorServicePB {
     // @@protoc_insertion_point(enum_scope:sensorService.DetectDistance)
   }
 
-  /**
-   * Protobuf enum {@code sensorService.DataType}
-   */
-  public enum DataType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>UNKNOWN = 0;</code>
-     */
-    UNKNOWN(0),
-    /**
-     * <code>OBS = 1;</code>
-     */
-    OBS(1),
-    /**
-     * <code>AGV = 2;</code>
-     */
-    AGV(2),
-    /**
-     * <code>TOUCH = 4;</code>
-     */
-    TOUCH(4),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>UNKNOWN = 0;</code>
-     */
-    public static final int UNKNOWN_VALUE = 0;
-    /**
-     * <code>OBS = 1;</code>
-     */
-    public static final int OBS_VALUE = 1;
-    /**
-     * <code>AGV = 2;</code>
-     */
-    public static final int AGV_VALUE = 2;
-    /**
-     * <code>TOUCH = 4;</code>
-     */
-    public static final int TOUCH_VALUE = 4;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static DataType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static DataType forNumber(int value) {
-      switch (value) {
-        case 0: return UNKNOWN;
-        case 1: return OBS;
-        case 2: return AGV;
-        case 4: return TOUCH;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<DataType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        DataType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<DataType>() {
-            public DataType findValueByNumber(int number) {
-              return DataType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.getDescriptor().getEnumTypes().get(2);
-    }
-
-    private static final DataType[] VALUES = values();
-
-    public static DataType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private DataType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:sensorService.DataType)
-  }
-
   public interface GetDetectRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:sensorService.GetDetectRequest)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   *传感器综合
+   * </pre>
+   *
    * Protobuf type {@code sensorService.GetDetectRequest}
    */
   public  static final class GetDetectRequest extends
@@ -712,6 +594,10 @@ public final class SensorServicePB {
       return builder;
     }
     /**
+     * <pre>
+     *传感器综合
+     * </pre>
+     *
      * Protobuf type {@code sensorService.GetDetectRequest}
      */
     public static final class Builder extends
@@ -931,11 +817,6 @@ public final class SensorServicePB {
     com.jjrobot.andy4.sensorpb.SensorServicePB.DetectDistance getDistance();
   }
   /**
-   * <pre>
-   * 传感器状态流数据
-   * stype: 数据类型
-   * </pre>
-   *
    * Protobuf type {@code sensorService.GetDetectResponse}
    */
   public  static final class GetDetectResponse extends
@@ -1229,11 +1110,6 @@ public final class SensorServicePB {
       return builder;
     }
     /**
-     * <pre>
-     * 传感器状态流数据
-     * stype: 数据类型
-     * </pre>
-     *
      * Protobuf type {@code sensorService.GetDetectResponse}
      */
     public static final class Builder extends
@@ -1547,6 +1423,10 @@ public final class SensorServicePB {
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   *动态人体传感器
+   * </pre>
+   *
    * Protobuf type {@code sensorService.GetMotionInductionRequest}
    */
   public  static final class GetMotionInductionRequest extends
@@ -1768,6 +1648,10 @@ public final class SensorServicePB {
       return builder;
     }
     /**
+     * <pre>
+     *动态人体传感器
+     * </pre>
+     *
      * Protobuf type {@code sensorService.GetMotionInductionRequest}
      */
     public static final class Builder extends
@@ -2561,6 +2445,10 @@ public final class SensorServicePB {
       com.google.protobuf.MessageOrBuilder {
   }
   /**
+   * <pre>
+   * 触摸传感器
+   * </pre>
+   *
    * Protobuf type {@code sensorService.GetTouchRequest}
    */
   public  static final class GetTouchRequest extends
@@ -2782,6 +2670,10 @@ public final class SensorServicePB {
       return builder;
     }
     /**
+     * <pre>
+     * 触摸传感器
+     * </pre>
+     *
      * Protobuf type {@code sensorService.GetTouchRequest}
      */
     public static final class Builder extends
@@ -3009,10 +2901,6 @@ public final class SensorServicePB {
     boolean getHead();
   }
   /**
-   * <pre>
-   * 触摸状态流数据
-   * </pre>
-   *
    * Protobuf type {@code sensorService.GetTouchResponse}
    */
   public  static final class GetTouchResponse extends
@@ -3327,10 +3215,6 @@ public final class SensorServicePB {
       return builder;
     }
     /**
-     * <pre>
-     * 触摸状态流数据
-     * </pre>
-     *
      * Protobuf type {@code sensorService.GetTouchResponse}
      */
     public static final class Builder extends
@@ -3667,70 +3551,34 @@ public final class SensorServicePB {
 
   }
 
-  public interface DataObsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorService.DataObs)
+  public interface GetBumperRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sensorService.GetBumperRequest)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-    int getDataCount();
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-    boolean containsData(
-        java.lang.String key);
-    /**
-     * Use {@link #getDataMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getData();
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.Integer>
-    getDataMap();
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-
-    int getDataOrDefault(
-        java.lang.String key,
-        int defaultValue);
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-
-    int getDataOrThrow(
-        java.lang.String key);
   }
   /**
    * <pre>
-   * 避障传感器数据
-   * e.g. {"topRight: 30", "bottomMiddle": 10}
-   * *topRight等key非最终使用, 仅作为示例
+   * 碰撞传感器
    * </pre>
    *
-   * Protobuf type {@code sensorService.DataObs}
+   * Protobuf type {@code sensorService.GetBumperRequest}
    */
-  public  static final class DataObs extends
+  public  static final class GetBumperRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sensorService.DataObs)
-      DataObsOrBuilder {
+      // @@protoc_insertion_point(message_implements:sensorService.GetBumperRequest)
+      GetBumperRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DataObs.newBuilder() to construct.
-    private DataObs(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetBumperRequest.newBuilder() to construct.
+    private GetBumperRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DataObs() {
+    private GetBumperRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new DataObs();
+      return new GetBumperRequest();
     }
 
     @java.lang.Override
@@ -3738,7 +3586,7 @@ public final class SensorServicePB {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DataObs(
+    private GetBumperRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3746,7 +3594,6 @@ public final class SensorServicePB {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -3757,19 +3604,6 @@ public final class SensorServicePB {
             case 0:
               done = true;
               break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                data_ = com.google.protobuf.MapField.newMapField(
-                    DataDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              data__ = input.readMessage(
-                  DataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              data_.getMutableMap().put(
-                  data__.getKey(), data__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3791,103 +3625,15 @@ public final class SensorServicePB {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataObs_descriptor;
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperRequest_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetData();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataObs_fieldAccessorTable
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.class, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder.class);
-    }
-
-    public static final int DATA_FIELD_NUMBER = 1;
-    private static final class DataDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Integer> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Integer>newDefaultInstance(
-                  com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataObs_DataEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.INT32,
-                  0);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Integer> data_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetData() {
-      if (data_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            DataDefaultEntryHolder.defaultEntry);
-      }
-      return data_;
-    }
-
-    public int getDataCount() {
-      return internalGetData().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-
-    public boolean containsData(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetData().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getDataMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Integer> getData() {
-      return getDataMap();
-    }
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.Integer> getDataMap() {
-      return internalGetData().getMap();
-    }
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-
-    public int getDataOrDefault(
-        java.lang.String key,
-        int defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetData().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, int32&gt; data = 1;</code>
-     */
-
-    public int getDataOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Integer> map =
-          internalGetData().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+              com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3904,12 +3650,6 @@ public final class SensorServicePB {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetData(),
-          DataDefaultEntryHolder.defaultEntry,
-          1);
       unknownFields.writeTo(output);
     }
 
@@ -3919,16 +3659,6 @@ public final class SensorServicePB {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
-           : internalGetData().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-        data__ = DataDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, data__);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3939,13 +3669,11 @@ public final class SensorServicePB {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs)) {
+      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest)) {
         return super.equals(obj);
       }
-      com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs other = (com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs) obj;
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest other = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest) obj;
 
-      if (!internalGetData().equals(
-          other.internalGetData())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3957,78 +3685,74 @@ public final class SensorServicePB {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetData().getMap().isEmpty()) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetData().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(byte[] data)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseDelimitedFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseDelimitedFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4041,7 +3765,7 @@ public final class SensorServicePB {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs prototype) {
+    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4058,53 +3782,29 @@ public final class SensorServicePB {
     }
     /**
      * <pre>
-     * 避障传感器数据
-     * e.g. {"topRight: 30", "bottomMiddle": 10}
-     * *topRight等key非最终使用, 仅作为示例
+     * 碰撞传感器
      * </pre>
      *
-     * Protobuf type {@code sensorService.DataObs}
+     * Protobuf type {@code sensorService.GetBumperRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorService.DataObs)
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sensorService.GetBumperRequest)
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataObs_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperRequest_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetData();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableData();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataObs_fieldAccessorTable
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.class, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder.class);
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.Builder.class);
       }
 
-      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.newBuilder()
+      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4122,24 +3822,23 @@ public final class SensorServicePB {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableData().clear();
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataObs_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getDefaultInstanceForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs build() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs result = buildPartial();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest build() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4147,11 +3846,8 @@ public final class SensorServicePB {
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs buildPartial() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs result = new com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs(this);
-        int from_bitField0_ = bitField0_;
-        result.data_ = internalGetData();
-        result.data_.makeImmutable();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest buildPartial() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest result = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest(this);
         onBuilt();
         return result;
       }
@@ -4190,18 +3886,16 @@ public final class SensorServicePB {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs) {
-          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs)other);
+        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest) {
+          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs other) {
-        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance()) return this;
-        internalGetMutableData().mergeFrom(
-            other.internalGetData());
+      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest other) {
+        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4217,141 +3911,17 @@ public final class SensorServicePB {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs parsedMessage = null;
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs) e.getUnfinishedMessage();
+          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Integer> data_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetData() {
-        if (data_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              DataDefaultEntryHolder.defaultEntry);
-        }
-        return data_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutableData() {
-        onChanged();;
-        if (data_ == null) {
-          data_ = com.google.protobuf.MapField.newMapField(
-              DataDefaultEntryHolder.defaultEntry);
-        }
-        if (!data_.isMutable()) {
-          data_ = data_.copy();
-        }
-        return data_;
-      }
-
-      public int getDataCount() {
-        return internalGetData().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-
-      public boolean containsData(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetData().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getDataMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer> getData() {
-        return getDataMap();
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.Integer> getDataMap() {
-        return internalGetData().getMap();
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-
-      public int getDataOrDefault(
-          java.lang.String key,
-          int defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetData().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-
-      public int getDataOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Integer> map =
-            internalGetData().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearData() {
-        internalGetMutableData().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-
-      public Builder removeData(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableData().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Integer>
-      getMutableData() {
-        return internalGetMutableData().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-      public Builder putData(
-          java.lang.String key,
-          int value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutableData().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, int32&gt; data = 1;</code>
-       */
-
-      public Builder putAllData(
-          java.util.Map<java.lang.String, java.lang.Integer> values) {
-        internalGetMutableData().getMutableMap()
-            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -4367,107 +3937,90 @@ public final class SensorServicePB {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sensorService.DataObs)
+      // @@protoc_insertion_point(builder_scope:sensorService.GetBumperRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:sensorService.DataObs)
-    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sensorService.GetBumperRequest)
+    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs();
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest();
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getDefaultInstance() {
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DataObs>
-        PARSER = new com.google.protobuf.AbstractParser<DataObs>() {
+    private static final com.google.protobuf.Parser<GetBumperRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetBumperRequest>() {
       @java.lang.Override
-      public DataObs parsePartialFrom(
+      public GetBumperRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataObs(input, extensionRegistry);
+        return new GetBumperRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DataObs> parser() {
+    public static com.google.protobuf.Parser<GetBumperRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DataObs> getParserForType() {
+    public com.google.protobuf.Parser<GetBumperRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getDefaultInstanceForType() {
+    public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DataAgvOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorService.DataAgv)
+  public interface GetBumperResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sensorService.GetBumperResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string card_id = 1;</code>
-     * @return The cardId.
+     * <pre>
+     * 前面碰撞
+     * </pre>
+     *
+     * <code>bool forward = 1;</code>
+     * @return The forward.
      */
-    java.lang.String getCardId();
-    /**
-     * <code>string card_id = 1;</code>
-     * @return The bytes for cardId.
-     */
-    com.google.protobuf.ByteString
-        getCardIdBytes();
+    boolean getForward();
 
     /**
-     * <code>repeated bool data = 2;</code>
-     * @return A list containing the data.
+     * <pre>
+     * 后面碰撞
+     * </pre>
+     *
+     * <code>bool backward = 2;</code>
+     * @return The backward.
      */
-    java.util.List<java.lang.Boolean> getDataList();
-    /**
-     * <code>repeated bool data = 2;</code>
-     * @return The count of data.
-     */
-    int getDataCount();
-    /**
-     * <code>repeated bool data = 2;</code>
-     * @param index The index of the element to return.
-     * @return The data at the given index.
-     */
-    boolean getData(int index);
+    boolean getBackward();
   }
   /**
-   * <pre>
-   * agv数据
-   * card_id: 感应卡点id
-   * data: 是否为激活状态列表
-   * </pre>
-   *
-   * Protobuf type {@code sensorService.DataAgv}
+   * Protobuf type {@code sensorService.GetBumperResponse}
    */
-  public  static final class DataAgv extends
+  public  static final class GetBumperResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sensorService.DataAgv)
-      DataAgvOrBuilder {
+      // @@protoc_insertion_point(message_implements:sensorService.GetBumperResponse)
+      GetBumperResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DataAgv.newBuilder() to construct.
-    private DataAgv(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetBumperResponse.newBuilder() to construct.
+    private GetBumperResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DataAgv() {
-      cardId_ = "";
-      data_ = emptyBooleanList();
+    private GetBumperResponse() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new DataAgv();
+      return new GetBumperResponse();
     }
 
     @java.lang.Override
@@ -4475,7 +4028,7 @@ public final class SensorServicePB {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DataAgv(
+    private GetBumperResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4483,7 +4036,6 @@ public final class SensorServicePB {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -4494,31 +4046,14 @@ public final class SensorServicePB {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              cardId_ = s;
+              forward_ = input.readBool();
               break;
             }
             case 16: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                data_ = newBooleanList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              data_.addBoolean(input.readBool());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                data_ = newBooleanList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                data_.addBoolean(input.readBool());
-              }
-              input.popLimit(limit);
+
+              backward_ = input.readBool();
               break;
             }
             default: {
@@ -4536,88 +4071,50 @@ public final class SensorServicePB {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          data_.makeImmutable(); // C
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataAgv_descriptor;
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataAgv_fieldAccessorTable
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.class, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder.class);
+              com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.Builder.class);
     }
 
-    public static final int CARD_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object cardId_;
+    public static final int FORWARD_FIELD_NUMBER = 1;
+    private boolean forward_;
     /**
-     * <code>string card_id = 1;</code>
-     * @return The cardId.
+     * <pre>
+     * 前面碰撞
+     * </pre>
+     *
+     * <code>bool forward = 1;</code>
+     * @return The forward.
      */
-    public java.lang.String getCardId() {
-      java.lang.Object ref = cardId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        cardId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string card_id = 1;</code>
-     * @return The bytes for cardId.
-     */
-    public com.google.protobuf.ByteString
-        getCardIdBytes() {
-      java.lang.Object ref = cardId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        cardId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public boolean getForward() {
+      return forward_;
     }
 
-    public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.Internal.BooleanList data_;
+    public static final int BACKWARD_FIELD_NUMBER = 2;
+    private boolean backward_;
     /**
-     * <code>repeated bool data = 2;</code>
-     * @return A list containing the data.
+     * <pre>
+     * 后面碰撞
+     * </pre>
+     *
+     * <code>bool backward = 2;</code>
+     * @return The backward.
      */
-    public java.util.List<java.lang.Boolean>
-        getDataList() {
-      return data_;
+    public boolean getBackward() {
+      return backward_;
     }
-    /**
-     * <code>repeated bool data = 2;</code>
-     * @return The count of data.
-     */
-    public int getDataCount() {
-      return data_.size();
-    }
-    /**
-     * <code>repeated bool data = 2;</code>
-     * @param index The index of the element to return.
-     * @return The data at the given index.
-     */
-    public boolean getData(int index) {
-      return data_.getBoolean(index);
-    }
-    private int dataMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -4633,16 +4130,11 @@ public final class SensorServicePB {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (!getCardIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cardId_);
+      if (forward_ != false) {
+        output.writeBool(1, forward_);
       }
-      if (getDataList().size() > 0) {
-        output.writeUInt32NoTag(18);
-        output.writeUInt32NoTag(dataMemoizedSerializedSize);
-      }
-      for (int i = 0; i < data_.size(); i++) {
-        output.writeBoolNoTag(data_.getBoolean(i));
+      if (backward_ != false) {
+        output.writeBool(2, backward_);
       }
       unknownFields.writeTo(output);
     }
@@ -4653,19 +4145,13 @@ public final class SensorServicePB {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCardIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cardId_);
+      if (forward_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, forward_);
       }
-      {
-        int dataSize = 0;
-        dataSize = 1 * getDataList().size();
-        size += dataSize;
-        if (!getDataList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        dataMemoizedSerializedSize = dataSize;
+      if (backward_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, backward_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4677,15 +4163,15 @@ public final class SensorServicePB {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv)) {
+      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse)) {
         return super.equals(obj);
       }
-      com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv other = (com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv) obj;
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse other = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse) obj;
 
-      if (!getCardId()
-          .equals(other.getCardId())) return false;
-      if (!getDataList()
-          .equals(other.getDataList())) return false;
+      if (getForward()
+          != other.getForward()) return false;
+      if (getBackward()
+          != other.getBackward()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4697,80 +4183,80 @@ public final class SensorServicePB {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CARD_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getCardId().hashCode();
-      if (getDataCount() > 0) {
-        hash = (37 * hash) + DATA_FIELD_NUMBER;
-        hash = (53 * hash) + getDataList().hashCode();
-      }
+      hash = (37 * hash) + FORWARD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getForward());
+      hash = (37 * hash) + BACKWARD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getBackward());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(byte[] data)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseDelimitedFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseDelimitedFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4783,7 +4269,7 @@ public final class SensorServicePB {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv prototype) {
+    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4799,32 +4285,26 @@ public final class SensorServicePB {
       return builder;
     }
     /**
-     * <pre>
-     * agv数据
-     * card_id: 感应卡点id
-     * data: 是否为激活状态列表
-     * </pre>
-     *
-     * Protobuf type {@code sensorService.DataAgv}
+     * Protobuf type {@code sensorService.GetBumperResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorService.DataAgv)
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sensorService.GetBumperResponse)
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataAgv_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataAgv_fieldAccessorTable
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.class, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder.class);
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.Builder.class);
       }
 
-      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.newBuilder()
+      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4842,27 +4322,27 @@ public final class SensorServicePB {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        cardId_ = "";
+        forward_ = false;
 
-        data_ = emptyBooleanList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        backward_ = false;
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataAgv_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetBumperResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getDefaultInstanceForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv build() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv result = buildPartial();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse build() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -4870,15 +4350,10 @@ public final class SensorServicePB {
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv buildPartial() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv result = new com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv(this);
-        int from_bitField0_ = bitField0_;
-        result.cardId_ = cardId_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          data_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.data_ = data_;
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse buildPartial() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse result = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse(this);
+        result.forward_ = forward_;
+        result.backward_ = backward_;
         onBuilt();
         return result;
       }
@@ -4917,29 +4392,21 @@ public final class SensorServicePB {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv) {
-          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv)other);
+        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse) {
+          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv other) {
-        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance()) return this;
-        if (!other.getCardId().isEmpty()) {
-          cardId_ = other.cardId_;
-          onChanged();
+      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse other) {
+        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse.getDefaultInstance()) return this;
+        if (other.getForward() != false) {
+          setForward(other.getForward());
         }
-        if (!other.data_.isEmpty()) {
-          if (data_.isEmpty()) {
-            data_ = other.data_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureDataIsMutable();
-            data_.addAll(other.data_);
-          }
-          onChanged();
+        if (other.getBackward() != false) {
+          setBackward(other.getBackward());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4956,11 +4423,11 @@ public final class SensorServicePB {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv parsedMessage = null;
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv) e.getUnfinishedMessage();
+          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4969,159 +4436,87 @@ public final class SensorServicePB {
         }
         return this;
       }
-      private int bitField0_;
 
-      private java.lang.Object cardId_ = "";
+      private boolean forward_ ;
       /**
-       * <code>string card_id = 1;</code>
-       * @return The cardId.
+       * <pre>
+       * 前面碰撞
+       * </pre>
+       *
+       * <code>bool forward = 1;</code>
+       * @return The forward.
        */
-      public java.lang.String getCardId() {
-        java.lang.Object ref = cardId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          cardId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public boolean getForward() {
+        return forward_;
       }
       /**
-       * <code>string card_id = 1;</code>
-       * @return The bytes for cardId.
-       */
-      public com.google.protobuf.ByteString
-          getCardIdBytes() {
-        java.lang.Object ref = cardId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          cardId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string card_id = 1;</code>
-       * @param value The cardId to set.
+       * <pre>
+       * 前面碰撞
+       * </pre>
+       *
+       * <code>bool forward = 1;</code>
+       * @param value The forward to set.
        * @return This builder for chaining.
        */
-      public Builder setCardId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        cardId_ = value;
+      public Builder setForward(boolean value) {
+        
+        forward_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string card_id = 1;</code>
+       * <pre>
+       * 前面碰撞
+       * </pre>
+       *
+       * <code>bool forward = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearCardId() {
+      public Builder clearForward() {
         
-        cardId_ = getDefaultInstance().getCardId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string card_id = 1;</code>
-       * @param value The bytes for cardId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCardIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        cardId_ = value;
+        forward_ = false;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList data_ = emptyBooleanList();
-      private void ensureDataIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          data_ = mutableCopy(data_);
-          bitField0_ |= 0x00000001;
-         }
-      }
+      private boolean backward_ ;
       /**
-       * <code>repeated bool data = 2;</code>
-       * @return A list containing the data.
+       * <pre>
+       * 后面碰撞
+       * </pre>
+       *
+       * <code>bool backward = 2;</code>
+       * @return The backward.
        */
-      public java.util.List<java.lang.Boolean>
-          getDataList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
-                 java.util.Collections.unmodifiableList(data_) : data_;
+      public boolean getBackward() {
+        return backward_;
       }
       /**
-       * <code>repeated bool data = 2;</code>
-       * @return The count of data.
-       */
-      public int getDataCount() {
-        return data_.size();
-      }
-      /**
-       * <code>repeated bool data = 2;</code>
-       * @param index The index of the element to return.
-       * @return The data at the given index.
-       */
-      public boolean getData(int index) {
-        return data_.getBoolean(index);
-      }
-      /**
-       * <code>repeated bool data = 2;</code>
-       * @param index The index to set the value at.
-       * @param value The data to set.
+       * <pre>
+       * 后面碰撞
+       * </pre>
+       *
+       * <code>bool backward = 2;</code>
+       * @param value The backward to set.
        * @return This builder for chaining.
        */
-      public Builder setData(
-          int index, boolean value) {
-        ensureDataIsMutable();
-        data_.setBoolean(index, value);
+      public Builder setBackward(boolean value) {
+        
+        backward_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated bool data = 2;</code>
-       * @param value The data to add.
+       * <pre>
+       * 后面碰撞
+       * </pre>
+       *
+       * <code>bool backward = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder addData(boolean value) {
-        ensureDataIsMutable();
-        data_.addBoolean(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bool data = 2;</code>
-       * @param values The data to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllData(
-          java.lang.Iterable<? extends java.lang.Boolean> values) {
-        ensureDataIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, data_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bool data = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearData() {
-        data_ = emptyBooleanList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+      public Builder clearBackward() {
+        
+        backward_ = false;
         onChanged();
         return this;
       }
@@ -5138,109 +4533,74 @@ public final class SensorServicePB {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sensorService.DataAgv)
+      // @@protoc_insertion_point(builder_scope:sensorService.GetBumperResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:sensorService.DataAgv)
-    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sensorService.GetBumperResponse)
+    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv();
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse();
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getDefaultInstance() {
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DataAgv>
-        PARSER = new com.google.protobuf.AbstractParser<DataAgv>() {
+    private static final com.google.protobuf.Parser<GetBumperResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetBumperResponse>() {
       @java.lang.Override
-      public DataAgv parsePartialFrom(
+      public GetBumperResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataAgv(input, extensionRegistry);
+        return new GetBumperResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DataAgv> parser() {
+    public static com.google.protobuf.Parser<GetBumperResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DataAgv> getParserForType() {
+    public com.google.protobuf.Parser<GetBumperResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getDefaultInstanceForType() {
+    public com.jjrobot.andy4.sensorpb.SensorServicePB.GetBumperResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface DataTouchOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorService.DataTouch)
+  public interface GetAntiRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sensorService.GetAntiRequest)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-    int getTouchedCount();
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-    boolean containsTouched(
-        java.lang.String key);
-    /**
-     * Use {@link #getTouchedMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.Boolean>
-    getTouched();
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.Boolean>
-    getTouchedMap();
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-
-    boolean getTouchedOrDefault(
-        java.lang.String key,
-        boolean defaultValue);
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-
-    boolean getTouchedOrThrow(
-        java.lang.String key);
   }
   /**
    * <pre>
-   * 触摸数据
-   * e.g. {hand_left: false, hand_right: true, head: true}
+   * 跌落传感器
    * </pre>
    *
-   * Protobuf type {@code sensorService.DataTouch}
+   * Protobuf type {@code sensorService.GetAntiRequest}
    */
-  public  static final class DataTouch extends
+  public  static final class GetAntiRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sensorService.DataTouch)
-      DataTouchOrBuilder {
+      // @@protoc_insertion_point(message_implements:sensorService.GetAntiRequest)
+      GetAntiRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DataTouch.newBuilder() to construct.
-    private DataTouch(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetAntiRequest.newBuilder() to construct.
+    private GetAntiRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DataTouch() {
+    private GetAntiRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new DataTouch();
+      return new GetAntiRequest();
     }
 
     @java.lang.Override
@@ -5248,7 +4608,7 @@ public final class SensorServicePB {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DataTouch(
+    private GetAntiRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5256,7 +4616,6 @@ public final class SensorServicePB {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -5267,19 +4626,6 @@ public final class SensorServicePB {
             case 0:
               done = true;
               break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                touched_ = com.google.protobuf.MapField.newMapField(
-                    TouchedDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
-              touched__ = input.readMessage(
-                  TouchedDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              touched_.getMutableMap().put(
-                  touched__.getKey(), touched__.getValue());
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5301,103 +4647,15 @@ public final class SensorServicePB {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataTouch_descriptor;
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiRequest_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetTouched();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataTouch_fieldAccessorTable
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.class, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder.class);
-    }
-
-    public static final int TOUCHED_FIELD_NUMBER = 1;
-    private static final class TouchedDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.Boolean> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.Boolean>newDefaultInstance(
-                  com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataTouch_TouchedEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.BOOL,
-                  false);
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.Boolean> touched_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-    internalGetTouched() {
-      if (touched_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            TouchedDefaultEntryHolder.defaultEntry);
-      }
-      return touched_;
-    }
-
-    public int getTouchedCount() {
-      return internalGetTouched().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-
-    public boolean containsTouched(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetTouched().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getTouchedMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.Boolean> getTouched() {
-      return getTouchedMap();
-    }
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.Boolean> getTouchedMap() {
-      return internalGetTouched().getMap();
-    }
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-
-    public boolean getTouchedOrDefault(
-        java.lang.String key,
-        boolean defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Boolean> map =
-          internalGetTouched().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, bool&gt; touched = 1;</code>
-     */
-
-    public boolean getTouchedOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.Boolean> map =
-          internalGetTouched().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+              com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5414,12 +4672,6 @@ public final class SensorServicePB {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetTouched(),
-          TouchedDefaultEntryHolder.defaultEntry,
-          1);
       unknownFields.writeTo(output);
     }
 
@@ -5429,16 +4681,6 @@ public final class SensorServicePB {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.String, java.lang.Boolean> entry
-           : internalGetTouched().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
-        touched__ = TouchedDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, touched__);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5449,13 +4691,11 @@ public final class SensorServicePB {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch)) {
+      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest)) {
         return super.equals(obj);
       }
-      com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch other = (com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch) obj;
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest other = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest) obj;
 
-      if (!internalGetTouched().equals(
-          other.internalGetTouched())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5467,78 +4707,74 @@ public final class SensorServicePB {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetTouched().getMap().isEmpty()) {
-        hash = (37 * hash) + TOUCHED_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetTouched().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(byte[] data)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseDelimitedFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseDelimitedFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5551,7 +4787,7 @@ public final class SensorServicePB {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch prototype) {
+    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5568,52 +4804,29 @@ public final class SensorServicePB {
     }
     /**
      * <pre>
-     * 触摸数据
-     * e.g. {hand_left: false, hand_right: true, head: true}
+     * 跌落传感器
      * </pre>
      *
-     * Protobuf type {@code sensorService.DataTouch}
+     * Protobuf type {@code sensorService.GetAntiRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorService.DataTouch)
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sensorService.GetAntiRequest)
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataTouch_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiRequest_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetTouched();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableTouched();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataTouch_fieldAccessorTable
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.class, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder.class);
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.Builder.class);
       }
 
-      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.newBuilder()
+      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5631,24 +4844,23 @@ public final class SensorServicePB {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableTouched().clear();
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_DataTouch_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getDefaultInstanceForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch build() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch result = buildPartial();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest build() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5656,11 +4868,8 @@ public final class SensorServicePB {
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch buildPartial() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch result = new com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch(this);
-        int from_bitField0_ = bitField0_;
-        result.touched_ = internalGetTouched();
-        result.touched_.makeImmutable();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest buildPartial() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest result = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest(this);
         onBuilt();
         return result;
       }
@@ -5699,18 +4908,16 @@ public final class SensorServicePB {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch) {
-          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch)other);
+        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest) {
+          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch other) {
-        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance()) return this;
-        internalGetMutableTouched().mergeFrom(
-            other.internalGetTouched());
+      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest other) {
+        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5726,141 +4933,17 @@ public final class SensorServicePB {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch parsedMessage = null;
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch) e.getUnfinishedMessage();
+          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.Boolean> touched_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-      internalGetTouched() {
-        if (touched_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              TouchedDefaultEntryHolder.defaultEntry);
-        }
-        return touched_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
-      internalGetMutableTouched() {
-        onChanged();;
-        if (touched_ == null) {
-          touched_ = com.google.protobuf.MapField.newMapField(
-              TouchedDefaultEntryHolder.defaultEntry);
-        }
-        if (!touched_.isMutable()) {
-          touched_ = touched_.copy();
-        }
-        return touched_;
-      }
-
-      public int getTouchedCount() {
-        return internalGetTouched().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-
-      public boolean containsTouched(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetTouched().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getTouchedMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Boolean> getTouched() {
-        return getTouchedMap();
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.Boolean> getTouchedMap() {
-        return internalGetTouched().getMap();
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-
-      public boolean getTouchedOrDefault(
-          java.lang.String key,
-          boolean defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Boolean> map =
-            internalGetTouched().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-
-      public boolean getTouchedOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.Boolean> map =
-            internalGetTouched().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearTouched() {
-        internalGetMutableTouched().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-
-      public Builder removeTouched(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableTouched().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.Boolean>
-      getMutableTouched() {
-        return internalGetMutableTouched().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-      public Builder putTouched(
-          java.lang.String key,
-          boolean value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        
-        internalGetMutableTouched().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, bool&gt; touched = 1;</code>
-       */
-
-      public Builder putAllTouched(
-          java.util.Map<java.lang.String, java.lang.Boolean> values) {
-        internalGetMutableTouched().getMutableMap()
-            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -5876,132 +4959,110 @@ public final class SensorServicePB {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sensorService.DataTouch)
+      // @@protoc_insertion_point(builder_scope:sensorService.GetAntiRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:sensorService.DataTouch)
-    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sensorService.GetAntiRequest)
+    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch();
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest();
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getDefaultInstance() {
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DataTouch>
-        PARSER = new com.google.protobuf.AbstractParser<DataTouch>() {
+    private static final com.google.protobuf.Parser<GetAntiRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetAntiRequest>() {
       @java.lang.Override
-      public DataTouch parsePartialFrom(
+      public GetAntiRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataTouch(input, extensionRegistry);
+        return new GetAntiRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DataTouch> parser() {
+    public static com.google.protobuf.Parser<GetAntiRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DataTouch> getParserForType() {
+    public com.google.protobuf.Parser<GetAntiRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getDefaultInstanceForType() {
+    public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface UpdateReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorService.UpdateReq)
+  public interface GetAntiResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sensorService.GetAntiResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The enum numeric value on the wire for dtype.
+     * <pre>
+     * 前左跌落传感器状态
+     * </pre>
+     *
+     * <code>bool forward_left_status = 1;</code>
+     * @return The forwardLeftStatus.
      */
-    int getDtypeValue();
-    /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The dtype.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataType getDtype();
+    boolean getForwardLeftStatus();
 
     /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return Whether the obs field is set.
+     * <pre>
+     * 前右跌落传感器状态
+     * </pre>
+     *
+     * <code>bool forward_right_status = 2;</code>
+     * @return The forwardRightStatus.
      */
-    boolean hasObs();
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return The obs.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getObs();
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder getObsOrBuilder();
+    boolean getForwardRightStatus();
 
     /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return Whether the agv field is set.
+     * <pre>
+     * 前左跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_left_distance = 3;</code>
+     * @return The forwardLeftDistance.
      */
-    boolean hasAgv();
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return The agv.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getAgv();
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder getAgvOrBuilder();
+    int getForwardLeftDistance();
 
     /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return Whether the touch field is set.
+     * <pre>
+     * 前右跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_right_distance = 4;</code>
+     * @return The forwardRightDistance.
      */
-    boolean hasTouch();
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return The touch.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getTouch();
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder getTouchOrBuilder();
+    int getForwardRightDistance();
   }
   /**
-   * <pre>
-   * 使用器数据更新请求
-   * dtype: 传感器更新数据类型
-   * </pre>
-   *
-   * Protobuf type {@code sensorService.UpdateReq}
+   * Protobuf type {@code sensorService.GetAntiResponse}
    */
-  public  static final class UpdateReq extends
+  public  static final class GetAntiResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sensorService.UpdateReq)
-      UpdateReqOrBuilder {
+      // @@protoc_insertion_point(message_implements:sensorService.GetAntiResponse)
+      GetAntiResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use UpdateReq.newBuilder() to construct.
-    private UpdateReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetAntiResponse.newBuilder() to construct.
+    private GetAntiResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private UpdateReq() {
-      dtype_ = 0;
+    private GetAntiResponse() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new UpdateReq();
+      return new GetAntiResponse();
     }
 
     @java.lang.Override
@@ -6009,7 +5070,7 @@ public final class SensorServicePB {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UpdateReq(
+    private GetAntiResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6028,48 +5089,23 @@ public final class SensorServicePB {
               done = true;
               break;
             case 8: {
-              int rawValue = input.readEnum();
 
-              dtype_ = rawValue;
+              forwardLeftStatus_ = input.readBool();
               break;
             }
-            case 18: {
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder subBuilder = null;
-              if (obs_ != null) {
-                subBuilder = obs_.toBuilder();
-              }
-              obs_ = input.readMessage(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(obs_);
-                obs_ = subBuilder.buildPartial();
-              }
+            case 16: {
 
+              forwardRightStatus_ = input.readBool();
               break;
             }
-            case 26: {
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder subBuilder = null;
-              if (agv_ != null) {
-                subBuilder = agv_.toBuilder();
-              }
-              agv_ = input.readMessage(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(agv_);
-                agv_ = subBuilder.buildPartial();
-              }
+            case 24: {
 
+              forwardLeftDistance_ = input.readUInt32();
               break;
             }
-            case 42: {
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder subBuilder = null;
-              if (touch_ != null) {
-                subBuilder = touch_.toBuilder();
-              }
-              touch_ = input.readMessage(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(touch_);
-                touch_ = subBuilder.buildPartial();
-              }
+            case 32: {
 
+              forwardRightDistance_ = input.readUInt32();
               break;
             }
             default: {
@@ -6093,103 +5129,71 @@ public final class SensorServicePB {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_UpdateReq_descriptor;
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_UpdateReq_fieldAccessorTable
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.class, com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.Builder.class);
+              com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.Builder.class);
     }
 
-    public static final int DTYPE_FIELD_NUMBER = 1;
-    private int dtype_;
+    public static final int FORWARD_LEFT_STATUS_FIELD_NUMBER = 1;
+    private boolean forwardLeftStatus_;
     /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The enum numeric value on the wire for dtype.
+     * <pre>
+     * 前左跌落传感器状态
+     * </pre>
+     *
+     * <code>bool forward_left_status = 1;</code>
+     * @return The forwardLeftStatus.
      */
-    public int getDtypeValue() {
-      return dtype_;
-    }
-    /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The dtype.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataType getDtype() {
-      @SuppressWarnings("deprecation")
-      com.jjrobot.andy4.sensorpb.SensorServicePB.DataType result = com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.valueOf(dtype_);
-      return result == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNRECOGNIZED : result;
+    public boolean getForwardLeftStatus() {
+      return forwardLeftStatus_;
     }
 
-    public static final int OBS_FIELD_NUMBER = 2;
-    private com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs obs_;
+    public static final int FORWARD_RIGHT_STATUS_FIELD_NUMBER = 2;
+    private boolean forwardRightStatus_;
     /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return Whether the obs field is set.
+     * <pre>
+     * 前右跌落传感器状态
+     * </pre>
+     *
+     * <code>bool forward_right_status = 2;</code>
+     * @return The forwardRightStatus.
      */
-    public boolean hasObs() {
-      return obs_ != null;
-    }
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return The obs.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getObs() {
-      return obs_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance() : obs_;
-    }
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder getObsOrBuilder() {
-      return getObs();
+    public boolean getForwardRightStatus() {
+      return forwardRightStatus_;
     }
 
-    public static final int AGV_FIELD_NUMBER = 3;
-    private com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv agv_;
+    public static final int FORWARD_LEFT_DISTANCE_FIELD_NUMBER = 3;
+    private int forwardLeftDistance_;
     /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return Whether the agv field is set.
+     * <pre>
+     * 前左跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_left_distance = 3;</code>
+     * @return The forwardLeftDistance.
      */
-    public boolean hasAgv() {
-      return agv_ != null;
-    }
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return The agv.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getAgv() {
-      return agv_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance() : agv_;
-    }
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder getAgvOrBuilder() {
-      return getAgv();
+    public int getForwardLeftDistance() {
+      return forwardLeftDistance_;
     }
 
-    public static final int TOUCH_FIELD_NUMBER = 5;
-    private com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch touch_;
+    public static final int FORWARD_RIGHT_DISTANCE_FIELD_NUMBER = 4;
+    private int forwardRightDistance_;
     /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return Whether the touch field is set.
+     * <pre>
+     * 前右跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_right_distance = 4;</code>
+     * @return The forwardRightDistance.
      */
-    public boolean hasTouch() {
-      return touch_ != null;
-    }
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return The touch.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getTouch() {
-      return touch_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance() : touch_;
-    }
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder getTouchOrBuilder() {
-      return getTouch();
+    public int getForwardRightDistance() {
+      return forwardRightDistance_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6206,17 +5210,17 @@ public final class SensorServicePB {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (dtype_ != com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNKNOWN.getNumber()) {
-        output.writeEnum(1, dtype_);
+      if (forwardLeftStatus_ != false) {
+        output.writeBool(1, forwardLeftStatus_);
       }
-      if (obs_ != null) {
-        output.writeMessage(2, getObs());
+      if (forwardRightStatus_ != false) {
+        output.writeBool(2, forwardRightStatus_);
       }
-      if (agv_ != null) {
-        output.writeMessage(3, getAgv());
+      if (forwardLeftDistance_ != 0) {
+        output.writeUInt32(3, forwardLeftDistance_);
       }
-      if (touch_ != null) {
-        output.writeMessage(5, getTouch());
+      if (forwardRightDistance_ != 0) {
+        output.writeUInt32(4, forwardRightDistance_);
       }
       unknownFields.writeTo(output);
     }
@@ -6227,21 +5231,21 @@ public final class SensorServicePB {
       if (size != -1) return size;
 
       size = 0;
-      if (dtype_ != com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNKNOWN.getNumber()) {
+      if (forwardLeftStatus_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, dtype_);
+          .computeBoolSize(1, forwardLeftStatus_);
       }
-      if (obs_ != null) {
+      if (forwardRightStatus_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getObs());
+          .computeBoolSize(2, forwardRightStatus_);
       }
-      if (agv_ != null) {
+      if (forwardLeftDistance_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getAgv());
+          .computeUInt32Size(3, forwardLeftDistance_);
       }
-      if (touch_ != null) {
+      if (forwardRightDistance_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getTouch());
+          .computeUInt32Size(4, forwardRightDistance_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6253,27 +5257,19 @@ public final class SensorServicePB {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq)) {
+      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse)) {
         return super.equals(obj);
       }
-      com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq other = (com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq) obj;
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse other = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse) obj;
 
-      if (dtype_ != other.dtype_) return false;
-      if (hasObs() != other.hasObs()) return false;
-      if (hasObs()) {
-        if (!getObs()
-            .equals(other.getObs())) return false;
-      }
-      if (hasAgv() != other.hasAgv()) return false;
-      if (hasAgv()) {
-        if (!getAgv()
-            .equals(other.getAgv())) return false;
-      }
-      if (hasTouch() != other.hasTouch()) return false;
-      if (hasTouch()) {
-        if (!getTouch()
-            .equals(other.getTouch())) return false;
-      }
+      if (getForwardLeftStatus()
+          != other.getForwardLeftStatus()) return false;
+      if (getForwardRightStatus()
+          != other.getForwardRightStatus()) return false;
+      if (getForwardLeftDistance()
+          != other.getForwardLeftDistance()) return false;
+      if (getForwardRightDistance()
+          != other.getForwardRightDistance()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6285,88 +5281,84 @@ public final class SensorServicePB {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + dtype_;
-      if (hasObs()) {
-        hash = (37 * hash) + OBS_FIELD_NUMBER;
-        hash = (53 * hash) + getObs().hashCode();
-      }
-      if (hasAgv()) {
-        hash = (37 * hash) + AGV_FIELD_NUMBER;
-        hash = (53 * hash) + getAgv().hashCode();
-      }
-      if (hasTouch()) {
-        hash = (37 * hash) + TOUCH_FIELD_NUMBER;
-        hash = (53 * hash) + getTouch().hashCode();
-      }
+      hash = (37 * hash) + FORWARD_LEFT_STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getForwardLeftStatus());
+      hash = (37 * hash) + FORWARD_RIGHT_STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getForwardRightStatus());
+      hash = (37 * hash) + FORWARD_LEFT_DISTANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getForwardLeftDistance();
+      hash = (37 * hash) + FORWARD_RIGHT_DISTANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getForwardRightDistance();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(byte[] data)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseDelimitedFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseDelimitedFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6379,7 +5371,7 @@ public final class SensorServicePB {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq prototype) {
+    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -6395,31 +5387,26 @@ public final class SensorServicePB {
       return builder;
     }
     /**
-     * <pre>
-     * 使用器数据更新请求
-     * dtype: 传感器更新数据类型
-     * </pre>
-     *
-     * Protobuf type {@code sensorService.UpdateReq}
+     * Protobuf type {@code sensorService.GetAntiResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorService.UpdateReq)
-        com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReqOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sensorService.GetAntiResponse)
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_UpdateReq_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_UpdateReq_fieldAccessorTable
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.class, com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.Builder.class);
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.Builder.class);
       }
 
-      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.newBuilder()
+      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6437,43 +5424,31 @@ public final class SensorServicePB {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        dtype_ = 0;
+        forwardLeftStatus_ = false;
 
-        if (obsBuilder_ == null) {
-          obs_ = null;
-        } else {
-          obs_ = null;
-          obsBuilder_ = null;
-        }
-        if (agvBuilder_ == null) {
-          agv_ = null;
-        } else {
-          agv_ = null;
-          agvBuilder_ = null;
-        }
-        if (touchBuilder_ == null) {
-          touch_ = null;
-        } else {
-          touch_ = null;
-          touchBuilder_ = null;
-        }
+        forwardRightStatus_ = false;
+
+        forwardLeftDistance_ = 0;
+
+        forwardRightDistance_ = 0;
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_UpdateReq_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetAntiResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq getDefaultInstanceForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.getDefaultInstance();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq build() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq result = buildPartial();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse build() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -6481,24 +5456,12 @@ public final class SensorServicePB {
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq buildPartial() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq result = new com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq(this);
-        result.dtype_ = dtype_;
-        if (obsBuilder_ == null) {
-          result.obs_ = obs_;
-        } else {
-          result.obs_ = obsBuilder_.build();
-        }
-        if (agvBuilder_ == null) {
-          result.agv_ = agv_;
-        } else {
-          result.agv_ = agvBuilder_.build();
-        }
-        if (touchBuilder_ == null) {
-          result.touch_ = touch_;
-        } else {
-          result.touch_ = touchBuilder_.build();
-        }
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse buildPartial() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse result = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse(this);
+        result.forwardLeftStatus_ = forwardLeftStatus_;
+        result.forwardRightStatus_ = forwardRightStatus_;
+        result.forwardLeftDistance_ = forwardLeftDistance_;
+        result.forwardRightDistance_ = forwardRightDistance_;
         onBuilt();
         return result;
       }
@@ -6537,27 +5500,27 @@ public final class SensorServicePB {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq) {
-          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq)other);
+        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse) {
+          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq other) {
-        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq.getDefaultInstance()) return this;
-        if (other.dtype_ != 0) {
-          setDtypeValue(other.getDtypeValue());
+      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse other) {
+        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse.getDefaultInstance()) return this;
+        if (other.getForwardLeftStatus() != false) {
+          setForwardLeftStatus(other.getForwardLeftStatus());
         }
-        if (other.hasObs()) {
-          mergeObs(other.getObs());
+        if (other.getForwardRightStatus() != false) {
+          setForwardRightStatus(other.getForwardRightStatus());
         }
-        if (other.hasAgv()) {
-          mergeAgv(other.getAgv());
+        if (other.getForwardLeftDistance() != 0) {
+          setForwardLeftDistance(other.getForwardLeftDistance());
         }
-        if (other.hasTouch()) {
-          mergeTouch(other.getTouch());
+        if (other.getForwardRightDistance() != 0) {
+          setForwardRightDistance(other.getForwardRightDistance());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6574,11 +5537,11 @@ public final class SensorServicePB {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq parsedMessage = null;
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq) e.getUnfinishedMessage();
+          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6588,413 +5551,172 @@ public final class SensorServicePB {
         return this;
       }
 
-      private int dtype_ = 0;
+      private boolean forwardLeftStatus_ ;
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @return The enum numeric value on the wire for dtype.
+       * <pre>
+       * 前左跌落传感器状态
+       * </pre>
+       *
+       * <code>bool forward_left_status = 1;</code>
+       * @return The forwardLeftStatus.
        */
-      public int getDtypeValue() {
-        return dtype_;
+      public boolean getForwardLeftStatus() {
+        return forwardLeftStatus_;
       }
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @param value The enum numeric value on the wire for dtype to set.
+       * <pre>
+       * 前左跌落传感器状态
+       * </pre>
+       *
+       * <code>bool forward_left_status = 1;</code>
+       * @param value The forwardLeftStatus to set.
        * @return This builder for chaining.
        */
-      public Builder setDtypeValue(int value) {
-        dtype_ = value;
+      public Builder setForwardLeftStatus(boolean value) {
+        
+        forwardLeftStatus_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @return The dtype.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataType getDtype() {
-        @SuppressWarnings("deprecation")
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataType result = com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.valueOf(dtype_);
-        return result == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @param value The dtype to set.
+       * <pre>
+       * 前左跌落传感器状态
+       * </pre>
+       *
+       * <code>bool forward_left_status = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder setDtype(com.jjrobot.andy4.sensorpb.SensorServicePB.DataType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder clearForwardLeftStatus() {
         
-        dtype_ = value.getNumber();
+        forwardLeftStatus_ = false;
         onChanged();
         return this;
       }
+
+      private boolean forwardRightStatus_ ;
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
+       * <pre>
+       * 前右跌落传感器状态
+       * </pre>
+       *
+       * <code>bool forward_right_status = 2;</code>
+       * @return The forwardRightStatus.
+       */
+      public boolean getForwardRightStatus() {
+        return forwardRightStatus_;
+      }
+      /**
+       * <pre>
+       * 前右跌落传感器状态
+       * </pre>
+       *
+       * <code>bool forward_right_status = 2;</code>
+       * @param value The forwardRightStatus to set.
        * @return This builder for chaining.
        */
-      public Builder clearDtype() {
+      public Builder setForwardRightStatus(boolean value) {
         
-        dtype_ = 0;
+        forwardRightStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 前右跌落传感器状态
+       * </pre>
+       *
+       * <code>bool forward_right_status = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearForwardRightStatus() {
+        
+        forwardRightStatus_ = false;
         onChanged();
         return this;
       }
 
-      private com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs obs_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder> obsBuilder_;
+      private int forwardLeftDistance_ ;
       /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       * @return Whether the obs field is set.
+       * <pre>
+       * 前左跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_left_distance = 3;</code>
+       * @return The forwardLeftDistance.
        */
-      public boolean hasObs() {
-        return obsBuilder_ != null || obs_ != null;
+      public int getForwardLeftDistance() {
+        return forwardLeftDistance_;
       }
       /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       * @return The obs.
+       * <pre>
+       * 前左跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_left_distance = 3;</code>
+       * @param value The forwardLeftDistance to set.
+       * @return This builder for chaining.
        */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getObs() {
-        if (obsBuilder_ == null) {
-          return obs_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance() : obs_;
-        } else {
-          return obsBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder setObs(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs value) {
-        if (obsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          obs_ = value;
-          onChanged();
-        } else {
-          obsBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder setObs(
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder builderForValue) {
-        if (obsBuilder_ == null) {
-          obs_ = builderForValue.build();
-          onChanged();
-        } else {
-          obsBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder mergeObs(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs value) {
-        if (obsBuilder_ == null) {
-          if (obs_ != null) {
-            obs_ =
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.newBuilder(obs_).mergeFrom(value).buildPartial();
-          } else {
-            obs_ = value;
-          }
-          onChanged();
-        } else {
-          obsBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder clearObs() {
-        if (obsBuilder_ == null) {
-          obs_ = null;
-          onChanged();
-        } else {
-          obs_ = null;
-          obsBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder getObsBuilder() {
+      public Builder setForwardLeftDistance(int value) {
         
+        forwardLeftDistance_ = value;
         onChanged();
-        return getObsFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder getObsOrBuilder() {
-        if (obsBuilder_ != null) {
-          return obsBuilder_.getMessageOrBuilder();
-        } else {
-          return obs_ == null ?
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance() : obs_;
-        }
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder> 
-          getObsFieldBuilder() {
-        if (obsBuilder_ == null) {
-          obsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder>(
-                  getObs(),
-                  getParentForChildren(),
-                  isClean());
-          obs_ = null;
-        }
-        return obsBuilder_;
-      }
-
-      private com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv agv_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder> agvBuilder_;
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       * @return Whether the agv field is set.
-       */
-      public boolean hasAgv() {
-        return agvBuilder_ != null || agv_ != null;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       * @return The agv.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getAgv() {
-        if (agvBuilder_ == null) {
-          return agv_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance() : agv_;
-        } else {
-          return agvBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder setAgv(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv value) {
-        if (agvBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          agv_ = value;
-          onChanged();
-        } else {
-          agvBuilder_.setMessage(value);
-        }
-
         return this;
       }
       /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
+       * <pre>
+       * 前左跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_left_distance = 3;</code>
+       * @return This builder for chaining.
        */
-      public Builder setAgv(
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder builderForValue) {
-        if (agvBuilder_ == null) {
-          agv_ = builderForValue.build();
-          onChanged();
-        } else {
-          agvBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder mergeAgv(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv value) {
-        if (agvBuilder_ == null) {
-          if (agv_ != null) {
-            agv_ =
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.newBuilder(agv_).mergeFrom(value).buildPartial();
-          } else {
-            agv_ = value;
-          }
-          onChanged();
-        } else {
-          agvBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder clearAgv() {
-        if (agvBuilder_ == null) {
-          agv_ = null;
-          onChanged();
-        } else {
-          agv_ = null;
-          agvBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder getAgvBuilder() {
+      public Builder clearForwardLeftDistance() {
         
+        forwardLeftDistance_ = 0;
         onChanged();
-        return getAgvFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder getAgvOrBuilder() {
-        if (agvBuilder_ != null) {
-          return agvBuilder_.getMessageOrBuilder();
-        } else {
-          return agv_ == null ?
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance() : agv_;
-        }
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder> 
-          getAgvFieldBuilder() {
-        if (agvBuilder_ == null) {
-          agvBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder>(
-                  getAgv(),
-                  getParentForChildren(),
-                  isClean());
-          agv_ = null;
-        }
-        return agvBuilder_;
-      }
-
-      private com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch touch_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder> touchBuilder_;
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       * @return Whether the touch field is set.
-       */
-      public boolean hasTouch() {
-        return touchBuilder_ != null || touch_ != null;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       * @return The touch.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getTouch() {
-        if (touchBuilder_ == null) {
-          return touch_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance() : touch_;
-        } else {
-          return touchBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder setTouch(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch value) {
-        if (touchBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          touch_ = value;
-          onChanged();
-        } else {
-          touchBuilder_.setMessage(value);
-        }
-
         return this;
       }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder setTouch(
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder builderForValue) {
-        if (touchBuilder_ == null) {
-          touch_ = builderForValue.build();
-          onChanged();
-        } else {
-          touchBuilder_.setMessage(builderForValue.build());
-        }
 
-        return this;
+      private int forwardRightDistance_ ;
+      /**
+       * <pre>
+       * 前右跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_right_distance = 4;</code>
+       * @return The forwardRightDistance.
+       */
+      public int getForwardRightDistance() {
+        return forwardRightDistance_;
       }
       /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
+       * <pre>
+       * 前右跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_right_distance = 4;</code>
+       * @param value The forwardRightDistance to set.
+       * @return This builder for chaining.
        */
-      public Builder mergeTouch(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch value) {
-        if (touchBuilder_ == null) {
-          if (touch_ != null) {
-            touch_ =
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.newBuilder(touch_).mergeFrom(value).buildPartial();
-          } else {
-            touch_ = value;
-          }
-          onChanged();
-        } else {
-          touchBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder clearTouch() {
-        if (touchBuilder_ == null) {
-          touch_ = null;
-          onChanged();
-        } else {
-          touch_ = null;
-          touchBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder getTouchBuilder() {
+      public Builder setForwardRightDistance(int value) {
         
+        forwardRightDistance_ = value;
         onChanged();
-        return getTouchFieldBuilder().getBuilder();
+        return this;
       }
       /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
+       * <pre>
+       * 前右跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_right_distance = 4;</code>
+       * @return This builder for chaining.
        */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder getTouchOrBuilder() {
-        if (touchBuilder_ != null) {
-          return touchBuilder_.getMessageOrBuilder();
-        } else {
-          return touch_ == null ?
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance() : touch_;
-        }
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder> 
-          getTouchFieldBuilder() {
-        if (touchBuilder_ == null) {
-          touchBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder>(
-                  getTouch(),
-                  getParentForChildren(),
-                  isClean());
-          touch_ = null;
-        }
-        return touchBuilder_;
+      public Builder clearForwardRightDistance() {
+        
+        forwardRightDistance_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7009,70 +5731,74 @@ public final class SensorServicePB {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sensorService.UpdateReq)
+      // @@protoc_insertion_point(builder_scope:sensorService.GetAntiResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:sensorService.UpdateReq)
-    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sensorService.GetAntiResponse)
+    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq();
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse();
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq getDefaultInstance() {
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<UpdateReq>
-        PARSER = new com.google.protobuf.AbstractParser<UpdateReq>() {
+    private static final com.google.protobuf.Parser<GetAntiResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetAntiResponse>() {
       @java.lang.Override
-      public UpdateReq parsePartialFrom(
+      public GetAntiResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdateReq(input, extensionRegistry);
+        return new GetAntiResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<UpdateReq> parser() {
+    public static com.google.protobuf.Parser<GetAntiResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UpdateReq> getParserForType() {
+    public com.google.protobuf.Parser<GetAntiResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.UpdateReq getDefaultInstanceForType() {
+    public com.jjrobot.andy4.sensorpb.SensorServicePB.GetAntiResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface RawRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorService.RawRequest)
+  public interface GetObsRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sensorService.GetObsRequest)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code sensorService.RawRequest}
+   * <pre>
+   * 避障传感器
+   * </pre>
+   *
+   * Protobuf type {@code sensorService.GetObsRequest}
    */
-  public  static final class RawRequest extends
+  public  static final class GetObsRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sensorService.RawRequest)
-      RawRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:sensorService.GetObsRequest)
+      GetObsRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use RawRequest.newBuilder() to construct.
-    private RawRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetObsRequest.newBuilder() to construct.
+    private GetObsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RawRequest() {
+    private GetObsRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new RawRequest();
+      return new GetObsRequest();
     }
 
     @java.lang.Override
@@ -7080,7 +5806,7 @@ public final class SensorServicePB {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RawRequest(
+    private GetObsRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7119,15 +5845,15 @@ public final class SensorServicePB {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawRequest_descriptor;
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawRequest_fieldAccessorTable
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.Builder.class);
+              com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7163,10 +5889,10 @@ public final class SensorServicePB {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest)) {
+      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest)) {
         return super.equals(obj);
       }
-      com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest other = (com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest) obj;
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest other = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest) obj;
 
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -7184,69 +5910,69 @@ public final class SensorServicePB {
       return hash;
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(byte[] data)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseDelimitedFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7259,7 +5985,7 @@ public final class SensorServicePB {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest prototype) {
+    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7275,26 +6001,30 @@ public final class SensorServicePB {
       return builder;
     }
     /**
-     * Protobuf type {@code sensorService.RawRequest}
+     * <pre>
+     * 避障传感器
+     * </pre>
+     *
+     * Protobuf type {@code sensorService.GetObsRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorService.RawRequest)
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sensorService.GetObsRequest)
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawRequest_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawRequest_fieldAccessorTable
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.Builder.class);
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.Builder.class);
       }
 
-      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.newBuilder()
+      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7318,17 +6048,17 @@ public final class SensorServicePB {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawRequest_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest getDefaultInstanceForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.getDefaultInstance();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest build() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest result = buildPartial();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest build() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -7336,8 +6066,8 @@ public final class SensorServicePB {
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest buildPartial() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest result = new com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest(this);
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest buildPartial() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest result = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest(this);
         onBuilt();
         return result;
       }
@@ -7376,16 +6106,16 @@ public final class SensorServicePB {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest) {
-          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest)other);
+        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest) {
+          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest other) {
-        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest other) {
+        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7401,11 +6131,11 @@ public final class SensorServicePB {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest parsedMessage = null;
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7427,132 +6157,90 @@ public final class SensorServicePB {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sensorService.RawRequest)
+      // @@protoc_insertion_point(builder_scope:sensorService.GetObsRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:sensorService.RawRequest)
-    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sensorService.GetObsRequest)
+    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest();
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest();
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest getDefaultInstance() {
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<RawRequest>
-        PARSER = new com.google.protobuf.AbstractParser<RawRequest>() {
+    private static final com.google.protobuf.Parser<GetObsRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetObsRequest>() {
       @java.lang.Override
-      public RawRequest parsePartialFrom(
+      public GetObsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RawRequest(input, extensionRegistry);
+        return new GetObsRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<RawRequest> parser() {
+    public static com.google.protobuf.Parser<GetObsRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RawRequest> getParserForType() {
+    public com.google.protobuf.Parser<GetObsRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.RawRequest getDefaultInstanceForType() {
+    public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface RawResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sensorService.RawResponse)
+  public interface GetObsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sensorService.GetObsResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The enum numeric value on the wire for dtype.
+     * <pre>
+     * 前左跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_left = 1;</code>
+     * @return The forwardLeft.
      */
-    int getDtypeValue();
-    /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The dtype.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataType getDtype();
+    int getForwardLeft();
 
     /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return Whether the obs field is set.
+     * <pre>
+     * 前右跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_right = 2;</code>
+     * @return The forwardRight.
      */
-    boolean hasObs();
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return The obs.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getObs();
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder getObsOrBuilder();
-
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return Whether the agv field is set.
-     */
-    boolean hasAgv();
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return The agv.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getAgv();
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder getAgvOrBuilder();
-
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return Whether the touch field is set.
-     */
-    boolean hasTouch();
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return The touch.
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getTouch();
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     */
-    com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder getTouchOrBuilder();
+    int getForwardRight();
   }
   /**
-   * <pre>
-   * 原始数据返回
-   * dtype: 传感器更新数据类型
-   * </pre>
-   *
-   * Protobuf type {@code sensorService.RawResponse}
+   * Protobuf type {@code sensorService.GetObsResponse}
    */
-  public  static final class RawResponse extends
+  public  static final class GetObsResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sensorService.RawResponse)
-      RawResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:sensorService.GetObsResponse)
+      GetObsResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use RawResponse.newBuilder() to construct.
-    private RawResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetObsResponse.newBuilder() to construct.
+    private GetObsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RawResponse() {
-      dtype_ = 0;
+    private GetObsResponse() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new RawResponse();
+      return new GetObsResponse();
     }
 
     @java.lang.Override
@@ -7560,7 +6248,7 @@ public final class SensorServicePB {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RawResponse(
+    private GetObsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7579,48 +6267,13 @@ public final class SensorServicePB {
               done = true;
               break;
             case 8: {
-              int rawValue = input.readEnum();
 
-              dtype_ = rawValue;
+              forwardLeft_ = input.readUInt32();
               break;
             }
-            case 18: {
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder subBuilder = null;
-              if (obs_ != null) {
-                subBuilder = obs_.toBuilder();
-              }
-              obs_ = input.readMessage(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(obs_);
-                obs_ = subBuilder.buildPartial();
-              }
+            case 16: {
 
-              break;
-            }
-            case 26: {
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder subBuilder = null;
-              if (agv_ != null) {
-                subBuilder = agv_.toBuilder();
-              }
-              agv_ = input.readMessage(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(agv_);
-                agv_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder subBuilder = null;
-              if (touch_ != null) {
-                subBuilder = touch_.toBuilder();
-              }
-              touch_ = input.readMessage(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(touch_);
-                touch_ = subBuilder.buildPartial();
-              }
-
+              forwardRight_ = input.readUInt32();
               break;
             }
             default: {
@@ -7644,103 +6297,43 @@ public final class SensorServicePB {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawResponse_descriptor;
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawResponse_fieldAccessorTable
+      return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.Builder.class);
+              com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.Builder.class);
     }
 
-    public static final int DTYPE_FIELD_NUMBER = 1;
-    private int dtype_;
+    public static final int FORWARD_LEFT_FIELD_NUMBER = 1;
+    private int forwardLeft_;
     /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The enum numeric value on the wire for dtype.
+     * <pre>
+     * 前左跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_left = 1;</code>
+     * @return The forwardLeft.
      */
-    public int getDtypeValue() {
-      return dtype_;
-    }
-    /**
-     * <code>.sensorService.DataType dtype = 1;</code>
-     * @return The dtype.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataType getDtype() {
-      @SuppressWarnings("deprecation")
-      com.jjrobot.andy4.sensorpb.SensorServicePB.DataType result = com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.valueOf(dtype_);
-      return result == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNRECOGNIZED : result;
+    public int getForwardLeft() {
+      return forwardLeft_;
     }
 
-    public static final int OBS_FIELD_NUMBER = 2;
-    private com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs obs_;
+    public static final int FORWARD_RIGHT_FIELD_NUMBER = 2;
+    private int forwardRight_;
     /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return Whether the obs field is set.
+     * <pre>
+     * 前右跌落传感器距离
+     * </pre>
+     *
+     * <code>uint32 forward_right = 2;</code>
+     * @return The forwardRight.
      */
-    public boolean hasObs() {
-      return obs_ != null;
-    }
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     * @return The obs.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getObs() {
-      return obs_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance() : obs_;
-    }
-    /**
-     * <code>.sensorService.DataObs obs = 2;</code>
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder getObsOrBuilder() {
-      return getObs();
-    }
-
-    public static final int AGV_FIELD_NUMBER = 3;
-    private com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv agv_;
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return Whether the agv field is set.
-     */
-    public boolean hasAgv() {
-      return agv_ != null;
-    }
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     * @return The agv.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getAgv() {
-      return agv_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance() : agv_;
-    }
-    /**
-     * <code>.sensorService.DataAgv agv = 3;</code>
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder getAgvOrBuilder() {
-      return getAgv();
-    }
-
-    public static final int TOUCH_FIELD_NUMBER = 5;
-    private com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch touch_;
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return Whether the touch field is set.
-     */
-    public boolean hasTouch() {
-      return touch_ != null;
-    }
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     * @return The touch.
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getTouch() {
-      return touch_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance() : touch_;
-    }
-    /**
-     * <code>.sensorService.DataTouch touch = 5;</code>
-     */
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder getTouchOrBuilder() {
-      return getTouch();
+    public int getForwardRight() {
+      return forwardRight_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7757,17 +6350,11 @@ public final class SensorServicePB {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (dtype_ != com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNKNOWN.getNumber()) {
-        output.writeEnum(1, dtype_);
+      if (forwardLeft_ != 0) {
+        output.writeUInt32(1, forwardLeft_);
       }
-      if (obs_ != null) {
-        output.writeMessage(2, getObs());
-      }
-      if (agv_ != null) {
-        output.writeMessage(3, getAgv());
-      }
-      if (touch_ != null) {
-        output.writeMessage(5, getTouch());
+      if (forwardRight_ != 0) {
+        output.writeUInt32(2, forwardRight_);
       }
       unknownFields.writeTo(output);
     }
@@ -7778,21 +6365,13 @@ public final class SensorServicePB {
       if (size != -1) return size;
 
       size = 0;
-      if (dtype_ != com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNKNOWN.getNumber()) {
+      if (forwardLeft_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, dtype_);
+          .computeUInt32Size(1, forwardLeft_);
       }
-      if (obs_ != null) {
+      if (forwardRight_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getObs());
-      }
-      if (agv_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getAgv());
-      }
-      if (touch_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getTouch());
+          .computeUInt32Size(2, forwardRight_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7804,27 +6383,15 @@ public final class SensorServicePB {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse)) {
+      if (!(obj instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse)) {
         return super.equals(obj);
       }
-      com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse other = (com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse) obj;
+      com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse other = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse) obj;
 
-      if (dtype_ != other.dtype_) return false;
-      if (hasObs() != other.hasObs()) return false;
-      if (hasObs()) {
-        if (!getObs()
-            .equals(other.getObs())) return false;
-      }
-      if (hasAgv() != other.hasAgv()) return false;
-      if (hasAgv()) {
-        if (!getAgv()
-            .equals(other.getAgv())) return false;
-      }
-      if (hasTouch() != other.hasTouch()) return false;
-      if (hasTouch()) {
-        if (!getTouch()
-            .equals(other.getTouch())) return false;
-      }
+      if (getForwardLeft()
+          != other.getForwardLeft()) return false;
+      if (getForwardRight()
+          != other.getForwardRight()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7836,88 +6403,78 @@ public final class SensorServicePB {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + dtype_;
-      if (hasObs()) {
-        hash = (37 * hash) + OBS_FIELD_NUMBER;
-        hash = (53 * hash) + getObs().hashCode();
-      }
-      if (hasAgv()) {
-        hash = (37 * hash) + AGV_FIELD_NUMBER;
-        hash = (53 * hash) + getAgv().hashCode();
-      }
-      if (hasTouch()) {
-        hash = (37 * hash) + TOUCH_FIELD_NUMBER;
-        hash = (53 * hash) + getTouch().hashCode();
-      }
+      hash = (37 * hash) + FORWARD_LEFT_FIELD_NUMBER;
+      hash = (53 * hash) + getForwardLeft();
+      hash = (37 * hash) + FORWARD_RIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + getForwardRight();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(byte[] data)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseDelimitedFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parseFrom(
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7930,7 +6487,7 @@ public final class SensorServicePB {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse prototype) {
+    public static Builder newBuilder(com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7946,31 +6503,26 @@ public final class SensorServicePB {
       return builder;
     }
     /**
-     * <pre>
-     * 原始数据返回
-     * dtype: 传感器更新数据类型
-     * </pre>
-     *
-     * Protobuf type {@code sensorService.RawResponse}
+     * Protobuf type {@code sensorService.GetObsResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sensorService.RawResponse)
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sensorService.GetObsResponse)
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawResponse_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawResponse_fieldAccessorTable
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.Builder.class);
+                com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.class, com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.Builder.class);
       }
 
-      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.newBuilder()
+      // Construct using com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7988,43 +6540,27 @@ public final class SensorServicePB {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        dtype_ = 0;
+        forwardLeft_ = 0;
 
-        if (obsBuilder_ == null) {
-          obs_ = null;
-        } else {
-          obs_ = null;
-          obsBuilder_ = null;
-        }
-        if (agvBuilder_ == null) {
-          agv_ = null;
-        } else {
-          agv_ = null;
-          agvBuilder_ = null;
-        }
-        if (touchBuilder_ == null) {
-          touch_ = null;
-        } else {
-          touch_ = null;
-          touchBuilder_ = null;
-        }
+        forwardRight_ = 0;
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_RawResponse_descriptor;
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.internal_static_sensorService_GetObsResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse getDefaultInstanceForType() {
-        return com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.getDefaultInstance();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse build() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse result = buildPartial();
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse build() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8032,24 +6568,10 @@ public final class SensorServicePB {
       }
 
       @java.lang.Override
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse buildPartial() {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse result = new com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse(this);
-        result.dtype_ = dtype_;
-        if (obsBuilder_ == null) {
-          result.obs_ = obs_;
-        } else {
-          result.obs_ = obsBuilder_.build();
-        }
-        if (agvBuilder_ == null) {
-          result.agv_ = agv_;
-        } else {
-          result.agv_ = agvBuilder_.build();
-        }
-        if (touchBuilder_ == null) {
-          result.touch_ = touch_;
-        } else {
-          result.touch_ = touchBuilder_.build();
-        }
+      public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse buildPartial() {
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse result = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse(this);
+        result.forwardLeft_ = forwardLeft_;
+        result.forwardRight_ = forwardRight_;
         onBuilt();
         return result;
       }
@@ -8088,27 +6610,21 @@ public final class SensorServicePB {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse) {
-          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse)other);
+        if (other instanceof com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse) {
+          return mergeFrom((com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse other) {
-        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse.getDefaultInstance()) return this;
-        if (other.dtype_ != 0) {
-          setDtypeValue(other.getDtypeValue());
+      public Builder mergeFrom(com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse other) {
+        if (other == com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse.getDefaultInstance()) return this;
+        if (other.getForwardLeft() != 0) {
+          setForwardLeft(other.getForwardLeft());
         }
-        if (other.hasObs()) {
-          mergeObs(other.getObs());
-        }
-        if (other.hasAgv()) {
-          mergeAgv(other.getAgv());
-        }
-        if (other.hasTouch()) {
-          mergeTouch(other.getTouch());
+        if (other.getForwardRight() != 0) {
+          setForwardRight(other.getForwardRight());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8125,11 +6641,11 @@ public final class SensorServicePB {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse parsedMessage = null;
+        com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8139,413 +6655,88 @@ public final class SensorServicePB {
         return this;
       }
 
-      private int dtype_ = 0;
+      private int forwardLeft_ ;
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @return The enum numeric value on the wire for dtype.
+       * <pre>
+       * 前左跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_left = 1;</code>
+       * @return The forwardLeft.
        */
-      public int getDtypeValue() {
-        return dtype_;
+      public int getForwardLeft() {
+        return forwardLeft_;
       }
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @param value The enum numeric value on the wire for dtype to set.
+       * <pre>
+       * 前左跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_left = 1;</code>
+       * @param value The forwardLeft to set.
        * @return This builder for chaining.
        */
-      public Builder setDtypeValue(int value) {
-        dtype_ = value;
+      public Builder setForwardLeft(int value) {
+        
+        forwardLeft_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @return The dtype.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataType getDtype() {
-        @SuppressWarnings("deprecation")
-        com.jjrobot.andy4.sensorpb.SensorServicePB.DataType result = com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.valueOf(dtype_);
-        return result == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataType.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.sensorService.DataType dtype = 1;</code>
-       * @param value The dtype to set.
+       * <pre>
+       * 前左跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_left = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder setDtype(com.jjrobot.andy4.sensorpb.SensorServicePB.DataType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder clearForwardLeft() {
         
-        dtype_ = value.getNumber();
+        forwardLeft_ = 0;
         onChanged();
         return this;
       }
+
+      private int forwardRight_ ;
       /**
-       * <code>.sensorService.DataType dtype = 1;</code>
+       * <pre>
+       * 前右跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_right = 2;</code>
+       * @return The forwardRight.
+       */
+      public int getForwardRight() {
+        return forwardRight_;
+      }
+      /**
+       * <pre>
+       * 前右跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_right = 2;</code>
+       * @param value The forwardRight to set.
        * @return This builder for chaining.
        */
-      public Builder clearDtype() {
+      public Builder setForwardRight(int value) {
         
-        dtype_ = 0;
+        forwardRight_ = value;
         onChanged();
         return this;
       }
-
-      private com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs obs_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder> obsBuilder_;
       /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       * @return Whether the obs field is set.
+       * <pre>
+       * 前右跌落传感器距离
+       * </pre>
+       *
+       * <code>uint32 forward_right = 2;</code>
+       * @return This builder for chaining.
        */
-      public boolean hasObs() {
-        return obsBuilder_ != null || obs_ != null;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       * @return The obs.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs getObs() {
-        if (obsBuilder_ == null) {
-          return obs_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance() : obs_;
-        } else {
-          return obsBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder setObs(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs value) {
-        if (obsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          obs_ = value;
-          onChanged();
-        } else {
-          obsBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder setObs(
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder builderForValue) {
-        if (obsBuilder_ == null) {
-          obs_ = builderForValue.build();
-          onChanged();
-        } else {
-          obsBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder mergeObs(com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs value) {
-        if (obsBuilder_ == null) {
-          if (obs_ != null) {
-            obs_ =
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.newBuilder(obs_).mergeFrom(value).buildPartial();
-          } else {
-            obs_ = value;
-          }
-          onChanged();
-        } else {
-          obsBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public Builder clearObs() {
-        if (obsBuilder_ == null) {
-          obs_ = null;
-          onChanged();
-        } else {
-          obs_ = null;
-          obsBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder getObsBuilder() {
+      public Builder clearForwardRight() {
         
+        forwardRight_ = 0;
         onChanged();
-        return getObsFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder getObsOrBuilder() {
-        if (obsBuilder_ != null) {
-          return obsBuilder_.getMessageOrBuilder();
-        } else {
-          return obs_ == null ?
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.getDefaultInstance() : obs_;
-        }
-      }
-      /**
-       * <code>.sensorService.DataObs obs = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder> 
-          getObsFieldBuilder() {
-        if (obsBuilder_ == null) {
-          obsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObs.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataObsOrBuilder>(
-                  getObs(),
-                  getParentForChildren(),
-                  isClean());
-          obs_ = null;
-        }
-        return obsBuilder_;
-      }
-
-      private com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv agv_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder> agvBuilder_;
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       * @return Whether the agv field is set.
-       */
-      public boolean hasAgv() {
-        return agvBuilder_ != null || agv_ != null;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       * @return The agv.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv getAgv() {
-        if (agvBuilder_ == null) {
-          return agv_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance() : agv_;
-        } else {
-          return agvBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder setAgv(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv value) {
-        if (agvBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          agv_ = value;
-          onChanged();
-        } else {
-          agvBuilder_.setMessage(value);
-        }
-
         return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder setAgv(
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder builderForValue) {
-        if (agvBuilder_ == null) {
-          agv_ = builderForValue.build();
-          onChanged();
-        } else {
-          agvBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder mergeAgv(com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv value) {
-        if (agvBuilder_ == null) {
-          if (agv_ != null) {
-            agv_ =
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.newBuilder(agv_).mergeFrom(value).buildPartial();
-          } else {
-            agv_ = value;
-          }
-          onChanged();
-        } else {
-          agvBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public Builder clearAgv() {
-        if (agvBuilder_ == null) {
-          agv_ = null;
-          onChanged();
-        } else {
-          agv_ = null;
-          agvBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder getAgvBuilder() {
-        
-        onChanged();
-        return getAgvFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder getAgvOrBuilder() {
-        if (agvBuilder_ != null) {
-          return agvBuilder_.getMessageOrBuilder();
-        } else {
-          return agv_ == null ?
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.getDefaultInstance() : agv_;
-        }
-      }
-      /**
-       * <code>.sensorService.DataAgv agv = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder> 
-          getAgvFieldBuilder() {
-        if (agvBuilder_ == null) {
-          agvBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgv.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataAgvOrBuilder>(
-                  getAgv(),
-                  getParentForChildren(),
-                  isClean());
-          agv_ = null;
-        }
-        return agvBuilder_;
-      }
-
-      private com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch touch_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder> touchBuilder_;
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       * @return Whether the touch field is set.
-       */
-      public boolean hasTouch() {
-        return touchBuilder_ != null || touch_ != null;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       * @return The touch.
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch getTouch() {
-        if (touchBuilder_ == null) {
-          return touch_ == null ? com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance() : touch_;
-        } else {
-          return touchBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder setTouch(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch value) {
-        if (touchBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          touch_ = value;
-          onChanged();
-        } else {
-          touchBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder setTouch(
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder builderForValue) {
-        if (touchBuilder_ == null) {
-          touch_ = builderForValue.build();
-          onChanged();
-        } else {
-          touchBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder mergeTouch(com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch value) {
-        if (touchBuilder_ == null) {
-          if (touch_ != null) {
-            touch_ =
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.newBuilder(touch_).mergeFrom(value).buildPartial();
-          } else {
-            touch_ = value;
-          }
-          onChanged();
-        } else {
-          touchBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public Builder clearTouch() {
-        if (touchBuilder_ == null) {
-          touch_ = null;
-          onChanged();
-        } else {
-          touch_ = null;
-          touchBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder getTouchBuilder() {
-        
-        onChanged();
-        return getTouchFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      public com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder getTouchOrBuilder() {
-        if (touchBuilder_ != null) {
-          return touchBuilder_.getMessageOrBuilder();
-        } else {
-          return touch_ == null ?
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.getDefaultInstance() : touch_;
-        }
-      }
-      /**
-       * <code>.sensorService.DataTouch touch = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder> 
-          getTouchFieldBuilder() {
-        if (touchBuilder_ == null) {
-          touchBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouch.Builder, com.jjrobot.andy4.sensorpb.SensorServicePB.DataTouchOrBuilder>(
-                  getTouch(),
-                  getParentForChildren(),
-                  isClean());
-          touch_ = null;
-        }
-        return touchBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8560,41 +6751,41 @@ public final class SensorServicePB {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sensorService.RawResponse)
+      // @@protoc_insertion_point(builder_scope:sensorService.GetObsResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:sensorService.RawResponse)
-    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sensorService.GetObsResponse)
+    private static final com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse();
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse();
     }
 
-    public static com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse getDefaultInstance() {
+    public static com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<RawResponse>
-        PARSER = new com.google.protobuf.AbstractParser<RawResponse>() {
+    private static final com.google.protobuf.Parser<GetObsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetObsResponse>() {
       @java.lang.Override
-      public RawResponse parsePartialFrom(
+      public GetObsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RawResponse(input, extensionRegistry);
+        return new GetObsResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<RawResponse> parser() {
+    public static com.google.protobuf.Parser<GetObsResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RawResponse> getParserForType() {
+    public com.google.protobuf.Parser<GetObsResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.jjrobot.andy4.sensorpb.SensorServicePB.RawResponse getDefaultInstanceForType() {
+    public com.jjrobot.andy4.sensorpb.SensorServicePB.GetObsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8631,45 +6822,35 @@ public final class SensorServicePB {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sensorService_GetTouchResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_DataObs_descriptor;
+    internal_static_sensorService_GetBumperRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_DataObs_fieldAccessorTable;
+      internal_static_sensorService_GetBumperRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_DataObs_DataEntry_descriptor;
+    internal_static_sensorService_GetBumperResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_DataObs_DataEntry_fieldAccessorTable;
+      internal_static_sensorService_GetBumperResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_DataAgv_descriptor;
+    internal_static_sensorService_GetAntiRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_DataAgv_fieldAccessorTable;
+      internal_static_sensorService_GetAntiRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_DataTouch_descriptor;
+    internal_static_sensorService_GetAntiResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_DataTouch_fieldAccessorTable;
+      internal_static_sensorService_GetAntiResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_DataTouch_TouchedEntry_descriptor;
+    internal_static_sensorService_GetObsRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_DataTouch_TouchedEntry_fieldAccessorTable;
+      internal_static_sensorService_GetObsRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_UpdateReq_descriptor;
+    internal_static_sensorService_GetObsResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_UpdateReq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_RawRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_RawRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sensorService_RawResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sensorService_RawResponse_fieldAccessorTable;
+      internal_static_sensorService_GetObsResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -8687,39 +6868,34 @@ public final class SensorServicePB {
       "9\n\032GetMotionInductionResponse\022\014\n\004left\030\001 " +
       "\001(\010\022\r\n\005right\030\002 \001(\010\"\021\n\017GetTouchRequest\"G\n" +
       "\020GetTouchResponse\022\021\n\thand_left\030\001 \001(\010\022\022\n\n" +
-      "hand_right\030\002 \001(\010\022\014\n\004head\030\003 \001(\010\"f\n\007DataOb" +
-      "s\022.\n\004data\030\001 \003(\0132 .sensorService.DataObs." +
-      "DataEntry\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\005:\0028\001\"(\n\007DataAgv\022\017\n\007card_id\030\001 \001" +
-      "(\t\022\014\n\004data\030\002 \003(\010\"s\n\tDataTouch\0226\n\007touched" +
-      "\030\001 \003(\0132%.sensorService.DataTouch.Touched" +
-      "Entry\032.\n\014TouchedEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\010:\0028\001\"\246\001\n\tUpdateReq\022&\n\005dtype\030\001 \001" +
-      "(\0162\027.sensorService.DataType\022#\n\003obs\030\002 \001(\013" +
-      "2\026.sensorService.DataObs\022#\n\003agv\030\003 \001(\0132\026." +
-      "sensorService.DataAgv\022\'\n\005touch\030\005 \001(\0132\030.s" +
-      "ensorService.DataTouch\"\014\n\nRawRequest\"\250\001\n" +
-      "\013RawResponse\022&\n\005dtype\030\001 \001(\0162\027.sensorServ" +
-      "ice.DataType\022#\n\003obs\030\002 \001(\0132\026.sensorServic" +
-      "e.DataObs\022#\n\003agv\030\003 \001(\0132\026.sensorService.D" +
-      "ataAgv\022\'\n\005touch\030\005 \001(\0132\030.sensorService.Da" +
-      "taTouch*R\n\017DetectDirection\022\r\n\t_ZERO_DIR\020" +
-      "\000\022\017\n\013RELEASE_DIR\020\001\022\010\n\004LEFT\020\002\022\n\n\006CENTER\020\003" +
-      "\022\t\n\005RIGHT\020\004*Q\n\016DetectDistance\022\r\n\t_ZERO_D" +
-      "IS\020\000\022\017\n\013RELEASE_DIS\020\001\022\t\n\005CLOSE\020\002\022\n\n\006MEDI" +
-      "UM\020\003\022\010\n\004LONG\020\004*4\n\010DataType\022\013\n\007UNKNOWN\020\000\022" +
-      "\007\n\003OBS\020\001\022\007\n\003AGV\020\002\022\t\n\005TOUCH\020\0042\345\002\n\rSensorS" +
-      "ervice\022R\n\tGetDetect\022\037.sensorService.GetD" +
-      "etectRequest\032 .sensorService.GetDetectRe" +
-      "sponse\"\0000\001\022m\n\022GetMotionInduction\022(.senso" +
-      "rService.GetMotionInductionRequest\032).sen" +
-      "sorService.GetMotionInductionResponse\"\0000" +
-      "\001\022O\n\010GetTouch\022\036.sensorService.GetTouchRe" +
-      "quest\032\037.sensorService.GetTouchResponse\"\000" +
-      "0\001\022@\n\003Raw\022\031.sensorService.RawRequest\032\032.s" +
-      "ensorService.RawResponse\"\0000\001B7\n\032com.jjro" +
-      "bot.andy4.sensorpbB\017SensorServicePBZ\010sen" +
-      "sorpbb\006proto3"
+      "hand_right\030\002 \001(\010\022\014\n\004head\030\003 \001(\010\"\022\n\020GetBum" +
+      "perRequest\"6\n\021GetBumperResponse\022\017\n\007forwa" +
+      "rd\030\001 \001(\010\022\020\n\010backward\030\002 \001(\010\"\020\n\016GetAntiReq" +
+      "uest\"\213\001\n\017GetAntiResponse\022\033\n\023forward_left" +
+      "_status\030\001 \001(\010\022\034\n\024forward_right_status\030\002 " +
+      "\001(\010\022\035\n\025forward_left_distance\030\003 \001(\r\022\036\n\026fo" +
+      "rward_right_distance\030\004 \001(\r\"\017\n\rGetObsRequ" +
+      "est\"=\n\016GetObsResponse\022\024\n\014forward_left\030\001 " +
+      "\001(\r\022\025\n\rforward_right\030\002 \001(\r*R\n\017DetectDire" +
+      "ction\022\r\n\t_ZERO_DIR\020\000\022\017\n\013RELEASE_DIR\020\001\022\010\n" +
+      "\004LEFT\020\002\022\n\n\006CENTER\020\003\022\t\n\005RIGHT\020\004*Q\n\016Detect" +
+      "Distance\022\r\n\t_ZERO_DIS\020\000\022\017\n\013RELEASE_DIS\020\001" +
+      "\022\t\n\005CLOSE\020\002\022\n\n\006MEDIUM\020\003\022\010\n\004LONG\020\0042\220\004\n\rSe" +
+      "nsorService\022R\n\tGetDetect\022\037.sensorService" +
+      ".GetDetectRequest\032 .sensorService.GetDet" +
+      "ectResponse\"\0000\001\022m\n\022GetMotionInduction\022(." +
+      "sensorService.GetMotionInductionRequest\032" +
+      ").sensorService.GetMotionInductionRespon" +
+      "se\"\0000\001\022O\n\010GetTouch\022\036.sensorService.GetTo" +
+      "uchRequest\032\037.sensorService.GetTouchRespo" +
+      "nse\"\0000\001\022R\n\tGetBumper\022\037.sensorService.Get" +
+      "BumperRequest\032 .sensorService.GetBumperR" +
+      "esponse\"\0000\001\022L\n\007GetAnti\022\035.sensorService.G" +
+      "etAntiRequest\032\036.sensorService.GetAntiRes" +
+      "ponse\"\0000\001\022I\n\006GetObs\022\034.sensorService.GetO" +
+      "bsRequest\032\035.sensorService.GetObsResponse" +
+      "\"\0000\001B7\n\032com.jjrobot.andy4.sensorpbB\017Sens" +
+      "orServicePBZ\010sensorpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8761,54 +6937,42 @@ public final class SensorServicePB {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sensorService_GetTouchResponse_descriptor,
         new java.lang.String[] { "HandLeft", "HandRight", "Head", });
-    internal_static_sensorService_DataObs_descriptor =
+    internal_static_sensorService_GetBumperRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_sensorService_DataObs_fieldAccessorTable = new
+    internal_static_sensorService_GetBumperRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_DataObs_descriptor,
-        new java.lang.String[] { "Data", });
-    internal_static_sensorService_DataObs_DataEntry_descriptor =
-      internal_static_sensorService_DataObs_descriptor.getNestedTypes().get(0);
-    internal_static_sensorService_DataObs_DataEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_DataObs_DataEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_sensorService_DataAgv_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_sensorService_DataAgv_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_DataAgv_descriptor,
-        new java.lang.String[] { "CardId", "Data", });
-    internal_static_sensorService_DataTouch_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_sensorService_DataTouch_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_DataTouch_descriptor,
-        new java.lang.String[] { "Touched", });
-    internal_static_sensorService_DataTouch_TouchedEntry_descriptor =
-      internal_static_sensorService_DataTouch_descriptor.getNestedTypes().get(0);
-    internal_static_sensorService_DataTouch_TouchedEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_DataTouch_TouchedEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_sensorService_UpdateReq_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_sensorService_UpdateReq_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_UpdateReq_descriptor,
-        new java.lang.String[] { "Dtype", "Obs", "Agv", "Touch", });
-    internal_static_sensorService_RawRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_sensorService_RawRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_RawRequest_descriptor,
+        internal_static_sensorService_GetBumperRequest_descriptor,
         new java.lang.String[] { });
-    internal_static_sensorService_RawResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_sensorService_RawResponse_fieldAccessorTable = new
+    internal_static_sensorService_GetBumperResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_sensorService_GetBumperResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sensorService_RawResponse_descriptor,
-        new java.lang.String[] { "Dtype", "Obs", "Agv", "Touch", });
+        internal_static_sensorService_GetBumperResponse_descriptor,
+        new java.lang.String[] { "Forward", "Backward", });
+    internal_static_sensorService_GetAntiRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_sensorService_GetAntiRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sensorService_GetAntiRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_sensorService_GetAntiResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_sensorService_GetAntiResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sensorService_GetAntiResponse_descriptor,
+        new java.lang.String[] { "ForwardLeftStatus", "ForwardRightStatus", "ForwardLeftDistance", "ForwardRightDistance", });
+    internal_static_sensorService_GetObsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_sensorService_GetObsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sensorService_GetObsRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_sensorService_GetObsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_sensorService_GetObsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sensorService_GetObsResponse_descriptor,
+        new java.lang.String[] { "ForwardLeft", "ForwardRight", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
