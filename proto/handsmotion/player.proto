@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+import "group.proto";
+
+package handsmotion;
+
+option go_package = "handmotionpb";
+
+option java_package = "com.jjrobot.andy4.handmotionpb";
+option java_outer_classname = "HandMotionPlayerServicePB";
+
+service Player {
+    // Play 播放手臂动作
+    rpc Play(PlayRequest) returns (PlayResponse) {}
+
+    // Stop 停止手臂动作
+    rpc Stop(StopRequest) returns (StopResponse) {}
+
+    // Reset 恢复手臂至初始位置
+    rpc Reset(ResetRequest) returns (ResetResponse) {}
+
+    // State 查询当前player状态
+    rpc State(StateRequest) returns (StateResponse) {}
+
+    // OnStateChange 监听当前player状态
+    rpc OnStateChange(OnStateChangeRequest) returns (stream OnStateChangeResponse) {}
+}
+
+
+message PlayRequest {
+    // 手臂动作
+    // 支持通过id或名称任意一值
+    MotionMeta motion = 1;
+
+    // 同步标识
+    // true: 等待动作完成时返回
+    // false: 动作开始执行时立即返回
+    bool sync_mode = 2;
+}
+
+message PlayResponse {}
+
+message StopRequest {}
+
+message StopResponse {}
+
+message ResetRequest {}
+
+message ResetResponse {}
+
+message StateRequest {}
+
+// 播放状态
+enum PlayerState {
+    // 默认零值，不使用
+    UNKNOWN = 0;
+    // 已停止
+    STOPPED = 1;
+    // 播放中
+    PLAYING = 2;
+}
+
+message StateResponse {
+    // 播放状态
+    PlayerState state = 1;
+    // 当前手臂动作
+    MotionMeta motion = 2;
+}
+
+message OnStateChangeRequest {}
+
+message OnStateChangeResponse {
+    // 播放状态
+    PlayerState state = 1;
+    // 当前手臂动作
+    MotionMeta motion = 2;
+}

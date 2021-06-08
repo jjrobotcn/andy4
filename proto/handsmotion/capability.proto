@@ -2,51 +2,25 @@ syntax = "proto3";
 
 package handsmotion;
 
-import "google/api/annotations.proto";
+option go_package = "handmotionpb";
+option java_package = "com.jjrobot.andy4.handmotionpb";
+option java_outer_classname = "HandMotionCapabilityServicePB";
 
 service Capability {
-    // 手指调整方法
-    // 调整手指动作的开合与重置
-    rpc FingersAdjustment (FingersAdjustmentRequest) returns (FingersAdjustmentResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/capability/fingers_adjustment"
-            body: "*"
-        };
-    }
+    //调整手指动作的开合与重置
+    rpc FingersAdjustment (FingersAdjustmentRequest) returns (FingersAdjustmentResponse) {}
 
-    // 手臂调整方法
-    // 调整手臂位置重置、使能与失能。
-    // 失能后可通过外力移动至相应位置后通过使能恢复锁定当前位置
-    rpc ArmAdjustment (ArmAdjustmentRequest) returns (ArmAdjustmentResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/capability/arm_adjustment"
-            body: "*"
-        };
-    }
+    // 调整手臂位置重置、使能与失能,失能后可通过外力移动至相应位置后通过使能恢复锁定当前位置
+    rpc ArmAdjustment (ArmAdjustmentRequest) returns (ArmAdjustmentResponse) {}
 
-    // 标记当前位置为初始位置
-    // 所有位置数据将基于此点进行计算
-    rpc MarkAsOriginalPosition (MarkAsOriginalPositionRequest) returns (MarkAsOriginalPositionResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/capability/mark_as_original_position"
-            body: "*"
-        };
-    }
+    // 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+    rpc MarkAsOriginalPosition (MarkAsOriginalPositionRequest) returns (MarkAsOriginalPositionResponse) {}
 
     // 获取当前绝对位置
-    rpc GetAbsolutePosition (GetAbsolutePositionRequest) returns (GetAbsolutePositionResponse) {
-        option (google.api.http) = {
-            get: "/api/v2/motion/hands/capability/get_absolute_position"
-        };
-    }
+    rpc GetAbsolutePosition (GetAbsolutePositionRequest) returns (GetAbsolutePositionResponse) {}
 
     // 绝对位置移动
-    rpc AbsoluteMove (AbsoluteMoveRequest) returns (AbsoluteMoveResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/capability/absolute_move"
-            body: "*"
-        };
-    }
+    rpc AbsoluteMove (AbsoluteMoveRequest) returns (AbsoluteMoveResponse) {}
 }
 
 message FingersAdjustmentRequest {
@@ -129,7 +103,7 @@ message AbsoluteMoveRequest {
     repeated MovementScript scripts = 1;
 
     // 同步标识
-    // true: 等待动作完成时返回，动作期间中断连接将恢复为初始位置
+    // true: 等待动作完成时返回
     // false: 动作开始执行时立即返回
     bool sync_mode = 2;
 }

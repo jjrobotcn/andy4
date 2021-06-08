@@ -2,17 +2,18 @@
 // source: group.proto
 
 /*
-Package handsmotion is a reverse proxy.
+Package handmotionpb is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package handsmotion
+package handmotionpb
 
 import (
 	"context"
 	"io"
 	"net/http"
 
+	"github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/proto"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/utilities"
@@ -22,11 +23,13 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// Suppress "imported and not used" errors
 var _ codes.Code
 var _ io.Reader
 var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
+var _ = descriptor.ForMessage
 
 func request_GroupManagement_NewMotionGroup_0(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq NewMotionGroupRequest
@@ -45,8 +48,8 @@ func request_GroupManagement_NewMotionGroup_0(ctx context.Context, marshaler run
 
 }
 
-func request_GroupManagement_ListMotionGroups_0(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ListMotionGroupsRequest
+func local_request_GroupManagement_NewMotionGroup_0(ctx context.Context, marshaler runtime.Marshaler, server GroupManagementServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq NewMotionGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -57,16 +60,25 @@ func request_GroupManagement_ListMotionGroups_0(ctx context.Context, marshaler r
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
+	msg, err := server.NewMotionGroup(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+func request_GroupManagement_ListMotionGroups_0(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ListMotionGroupsRequest
+	var metadata runtime.ServerMetadata
+
 	msg, err := client.ListMotionGroups(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_GroupManagement_ListMotionGroups_1(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_GroupManagement_ListMotionGroups_0(ctx context.Context, marshaler runtime.Marshaler, server GroupManagementServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListMotionGroupsRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := client.ListMotionGroups(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := server.ListMotionGroups(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -88,8 +100,8 @@ func request_GroupManagement_DeleteMotionGroup_0(ctx context.Context, marshaler 
 
 }
 
-func request_GroupManagement_GetMotionGroup_0(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetMotionGroupRequest
+func local_request_GroupManagement_DeleteMotionGroup_0(ctx context.Context, marshaler runtime.Marshaler, server GroupManagementServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq DeleteMotionGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -100,27 +112,43 @@ func request_GroupManagement_GetMotionGroup_0(ctx context.Context, marshaler run
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.GetMotionGroup(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := server.DeleteMotionGroup(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
 var (
-	filter_GroupManagement_GetMotionGroup_1 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_GroupManagement_GetMotionGroup_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_GroupManagement_GetMotionGroup_1(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_GroupManagement_GetMotionGroup_0(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetMotionGroupRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GroupManagement_GetMotionGroup_1); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GroupManagement_GetMotionGroup_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
 	msg, err := client.GetMotionGroup(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_GroupManagement_GetMotionGroup_0(ctx context.Context, marshaler runtime.Marshaler, server GroupManagementServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetMotionGroupRequest
+	var metadata runtime.ServerMetadata
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_GroupManagement_GetMotionGroup_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.GetMotionGroup(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -142,6 +170,23 @@ func request_GroupManagement_UpdateMotionGroupMeta_0(ctx context.Context, marsha
 
 }
 
+func local_request_GroupManagement_UpdateMotionGroupMeta_0(ctx context.Context, marshaler runtime.Marshaler, server GroupManagementServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UpdateMotionMetaRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.UpdateMotionGroupMeta(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_GroupManagement_UpdateMotionGroupScripts_0(ctx context.Context, marshaler runtime.Marshaler, client GroupManagementClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateMotionScriptsRequest
 	var metadata runtime.ServerMetadata
@@ -157,6 +202,151 @@ func request_GroupManagement_UpdateMotionGroupScripts_0(ctx context.Context, mar
 	msg, err := client.UpdateMotionGroupScripts(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
+}
+
+func local_request_GroupManagement_UpdateMotionGroupScripts_0(ctx context.Context, marshaler runtime.Marshaler, server GroupManagementServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UpdateMotionScriptsRequest
+	var metadata runtime.ServerMetadata
+
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.UpdateMotionGroupScripts(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+// RegisterGroupManagementHandlerServer registers the http handlers for service GroupManagement to "mux".
+// UnaryRPC     :call GroupManagementServer directly.
+// StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
+func RegisterGroupManagementHandlerServer(ctx context.Context, mux *runtime.ServeMux, server GroupManagementServer) error {
+
+	mux.Handle("POST", pattern_GroupManagement_NewMotionGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_GroupManagement_NewMotionGroup_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_GroupManagement_NewMotionGroup_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_GroupManagement_ListMotionGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_GroupManagement_ListMotionGroups_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_GroupManagement_ListMotionGroups_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_GroupManagement_DeleteMotionGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_GroupManagement_DeleteMotionGroup_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_GroupManagement_DeleteMotionGroup_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_GroupManagement_GetMotionGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_GroupManagement_GetMotionGroup_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_GroupManagement_GetMotionGroup_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_GroupManagement_UpdateMotionGroupMeta_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_GroupManagement_UpdateMotionGroupMeta_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_GroupManagement_UpdateMotionGroupMeta_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_GroupManagement_UpdateMotionGroupScripts_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_GroupManagement_UpdateMotionGroupScripts_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_GroupManagement_UpdateMotionGroupScripts_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	return nil
 }
 
 // RegisterGroupManagementHandlerFromEndpoint is same as RegisterGroupManagementHandler but
@@ -217,7 +407,7 @@ func RegisterGroupManagementHandlerClient(ctx context.Context, mux *runtime.Serv
 
 	})
 
-	mux.Handle("POST", pattern_GroupManagement_ListMotionGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GroupManagement_ListMotionGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -234,26 +424,6 @@ func RegisterGroupManagementHandlerClient(ctx context.Context, mux *runtime.Serv
 		}
 
 		forward_GroupManagement_ListMotionGroups_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_GroupManagement_ListMotionGroups_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_GroupManagement_ListMotionGroups_1(rctx, inboundMarshaler, client, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_GroupManagement_ListMotionGroups_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -277,7 +447,7 @@ func RegisterGroupManagementHandlerClient(ctx context.Context, mux *runtime.Serv
 
 	})
 
-	mux.Handle("POST", pattern_GroupManagement_GetMotionGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_GroupManagement_GetMotionGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -294,26 +464,6 @@ func RegisterGroupManagementHandlerClient(ctx context.Context, mux *runtime.Serv
 		}
 
 		forward_GroupManagement_GetMotionGroup_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-
-	})
-
-	mux.Handle("GET", pattern_GroupManagement_GetMotionGroup_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		rctx, err := runtime.AnnotateContext(ctx, mux, req)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_GroupManagement_GetMotionGroup_1(rctx, inboundMarshaler, client, req, pathParams)
-		ctx = runtime.NewServerMetadataContext(ctx, md)
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-
-		forward_GroupManagement_GetMotionGroup_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -365,13 +515,9 @@ var (
 
 	pattern_GroupManagement_ListMotionGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "groups", "list_motion_groups"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_GroupManagement_ListMotionGroups_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "groups", "list_motion_groups"}, "", runtime.AssumeColonVerbOpt(true)))
-
 	pattern_GroupManagement_DeleteMotionGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "groups", "delete_motion_group"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_GroupManagement_GetMotionGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "groups", "get_motion_group"}, "", runtime.AssumeColonVerbOpt(true)))
-
-	pattern_GroupManagement_GetMotionGroup_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "groups", "get_motion_group"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_GroupManagement_UpdateMotionGroupMeta_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 2, 5}, []string{"api", "v2", "motion", "hands", "groups", "update_motion_group_meta"}, "", runtime.AssumeColonVerbOpt(true)))
 
@@ -383,13 +529,9 @@ var (
 
 	forward_GroupManagement_ListMotionGroups_0 = runtime.ForwardResponseMessage
 
-	forward_GroupManagement_ListMotionGroups_1 = runtime.ForwardResponseMessage
-
 	forward_GroupManagement_DeleteMotionGroup_0 = runtime.ForwardResponseMessage
 
 	forward_GroupManagement_GetMotionGroup_0 = runtime.ForwardResponseMessage
-
-	forward_GroupManagement_GetMotionGroup_1 = runtime.ForwardResponseMessage
 
 	forward_GroupManagement_UpdateMotionGroupMeta_0 = runtime.ForwardResponseMessage
 

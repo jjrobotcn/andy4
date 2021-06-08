@@ -1,64 +1,33 @@
 syntax = "proto3";
 
+import "capability.proto";
+
 package handsmotion;
 
-import "capability.proto";
-import "google/api/annotations.proto";
+option go_package = "handmotionpb";
+
+option java_package = "com.jjrobot.andy4.handmotionpb";
+option java_outer_classname = "HandMotionGroupServicePB";
+
 
 service GroupManagement {
     // 新建动作分组
-    rpc NewMotionGroup (NewMotionGroupRequest) returns (NewMotionGroupResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/groups/new_motion_group"
-            body: "*"
-        };
-    }
+    rpc NewMotionGroup (NewMotionGroupRequest) returns (NewMotionGroupResponse) {}
 
     // 获取所有动作分组列表
-    rpc ListMotionGroups (ListMotionGroupsRequest) returns (ListMotionGroupsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/groups/list_motion_groups"
-            body: "*"
-            additional_bindings {
-                get: "/api/v2/motion/hands/groups/list_motion_groups"
-            }
-        };
-    }
+    rpc ListMotionGroups (ListMotionGroupsRequest) returns (ListMotionGroupsResponse) {}
 
     // 删除动作分组
-    rpc DeleteMotionGroup (DeleteMotionGroupRequest) returns (DeleteMotionGroupResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/groups/delete_motion_group"
-            body: "*"
-        };
-    }
+    rpc DeleteMotionGroup (DeleteMotionGroupRequest) returns (DeleteMotionGroupResponse) {}
 
     // 获取动作分组
-    rpc GetMotionGroup (GetMotionGroupRequest) returns (GetMotionGroupResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/groups/get_motion_group"
-            body: "*"
-            additional_bindings {
-                get: "/api/v2/motion/hands/groups/get_motion_group"
-            }
-        };
-    }
+    rpc GetMotionGroup (GetMotionGroupRequest) returns (GetMotionGroupResponse) {}
 
     // 更新动作分组Meta
-    rpc UpdateMotionGroupMeta (UpdateMotionMetaRequest) returns (UpdateMotionMetaResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/groups/update_motion_group_meta"
-            body: "*"
-        };
-    }
+    rpc UpdateMotionGroupMeta (UpdateMotionMetaRequest) returns (UpdateMotionMetaResponse) {}
 
     // 更新动作分组Scripts
-    rpc UpdateMotionGroupScripts (UpdateMotionScriptsRequest) returns (UpdateMotionScriptsResponse) {
-        option (google.api.http) = {
-            post: "/api/v2/motion/hands/groups/update_motion_group_scripts"
-            body: "*"
-        };
-    }
+    rpc UpdateMotionGroupScripts (UpdateMotionScriptsRequest) returns (UpdateMotionScriptsResponse) {}
 }
 
 message MotionMeta {

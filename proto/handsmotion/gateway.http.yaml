@@ -1,0 +1,68 @@
+type: google.api.Service
+
+config_version: 3
+
+http:
+  rules:
+    # group.proto
+    - selector: handsmotion.GroupManagement.NewMotionGroup
+      post: "/api/v2/motion/hands/groups/new_motion_group"
+      body: "*"
+
+    - selector: handsmotion.GroupManagement.ListMotionGroups
+      get: "/api/v2/motion/hands/groups/list_motion_groups"
+
+    - selector: handsmotion.GroupManagement.DeleteMotionGroup
+      post: "/api/v2/motion/hands/groups/delete_motion_group"
+      body: "*"
+
+    - selector: handsmotion.GroupManagement.GetMotionGroup
+      get: "/api/v2/motion/hands/groups/get_motion_group"
+
+    - selector: handsmotion.GroupManagement.UpdateMotionGroupMeta
+      post: "/api/v2/motion/hands/groups/update_motion_group_meta"
+      body: "*"
+
+    - selector: handsmotion.GroupManagement.UpdateMotionGroupScripts
+      post: "/api/v2/motion/hands/groups/update_motion_group_scripts"
+      body: "*"
+    # capability.proto
+    - selector: handsmotion.Capability.FingersAdjustment
+      post: "/api/v2/motion/hands/capability/fingers_adjustment"
+      body: "*"
+
+    - selector: handsmotion.Capability.ArmAdjustment
+      post: "/api/v2/motion/hands/capability/arm_adjustment"
+      body: "*"
+
+    - selector: handsmotion.Capability.MarkAsOriginalPosition
+      post: "/api/v2/motion/hands/capability/mark_as_original_position"
+      body: "*"
+
+    - selector: handsmotion.Capability.GetAbsolutePosition
+      post: "/api/v2/motion/hands/capability/get_absolute_position"
+      body: "*"
+
+    - selector: handsmotion.Capability.AbsoluteMove
+      post: "/api/v2/motion/hands/capability/absolute_move"
+      body: "*"
+    #player.proto
+    - selector: handsmotion.Player.Play
+      post: "/api/v2/motion/hands/player/play"
+      body: "*"
+
+    - selector: handsmotion.Player.Stop
+      post: "/api/v2/motion/hands/player/stop"
+      body: "*"
+
+    - selector: handsmotion.Player.Reset
+      post: "/api/v2/motion/hands/player/reset"
+      body: "*"
+
+    - selector: handsmotion.Player.State
+      get: "/api/v2/motion/hands/player/state"
+
+    # [http:, ws:]
+    - selector: handsmotion.Player.OnStateChange
+      get: "/api/v2/motion/hands/player/on_state_change"
+
