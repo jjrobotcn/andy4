@@ -1,0 +1,284 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "capability.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/motion/hands/capability/absolute_move": {
+      "post": {
+        "summary": "绝对位置移动",
+        "operationId": "AbsoluteMove",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionAbsoluteMoveResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionAbsoluteMoveRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Capability"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/capability/arm_adjustment": {
+      "post": {
+        "summary": "手臂调整方法\n调整手臂位置重置、使能与失能。\n失能后可通过外力移动至相应位置后通过使能恢复锁定当前位置",
+        "operationId": "ArmAdjustment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionArmAdjustmentResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionArmAdjustmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Capability"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/capability/fingers_adjustment": {
+      "post": {
+        "summary": "手指调整方法\n调整手指动作的开合与重置",
+        "operationId": "FingersAdjustment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionFingersAdjustmentResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionFingersAdjustmentRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Capability"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/capability/get_absolute_position": {
+      "get": {
+        "summary": "获取当前绝对位置",
+        "operationId": "GetAbsolutePosition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionGetAbsolutePositionResponse"
+            }
+          }
+        },
+        "tags": [
+          "Capability"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/capability/mark_as_original_position": {
+      "post": {
+        "summary": "标记当前位置为初始位置\n所有位置数据将基于此点进行计算",
+        "operationId": "MarkAsOriginalPosition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionMarkAsOriginalPositionResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionMarkAsOriginalPositionRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Capability"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "FingerMoveFingerMovementTypes": {
+      "type": "string",
+      "enum": [
+        "LOOSE",
+        "TIGHT"
+      ],
+      "default": "LOOSE",
+      "description": "- LOOSE: 手指松开\n - TIGHT: 手指收紧",
+      "title": "手指移动类型"
+    },
+    "FingersAdjustmentRequestFingerMove": {
+      "type": "object",
+      "properties": {
+        "finger_idx": {
+          "type": "integer",
+          "format": "int64",
+          "title": "手指index 0: 拇指 4：尾指"
+        },
+        "type": {
+          "$ref": "#/definitions/FingerMoveFingerMovementTypes",
+          "title": "手指移动类型"
+        },
+        "stroke": {
+          "type": "integer",
+          "format": "int32",
+          "title": "移动行程 0-3600"
+        }
+      }
+    },
+    "handsmotionAbsoluteMoveRequest": {
+      "type": "object",
+      "properties": {
+        "scripts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/handsmotionMovementScript"
+          }
+        },
+        "sync_mode": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "同步标识\ntrue: 等待动作完成时返回，动作期间中断连接将恢复为初始位置\nfalse: 动作开始执行时立即返回"
+        }
+      }
+    },
+    "handsmotionAbsoluteMoveResponse": {
+      "type": "object"
+    },
+    "handsmotionArmAdjustmentRequest": {
+      "type": "object",
+      "properties": {
+        "hand_idx": {
+          "type": "integer",
+          "format": "int64",
+          "title": "手index 0: 左手 1：右手"
+        },
+        "reset": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "重置至手臂原点位置"
+        },
+        "disability": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "手臂失能"
+        }
+      }
+    },
+    "handsmotionArmAdjustmentResponse": {
+      "type": "object"
+    },
+    "handsmotionFingersAdjustmentRequest": {
+      "type": "object",
+      "properties": {
+        "hand_idx": {
+          "type": "integer",
+          "format": "int64",
+          "title": "手index 0: 左手 1：右手"
+        },
+        "reset": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "重置至手指原点位置"
+        },
+        "move": {
+          "$ref": "#/definitions/FingersAdjustmentRequestFingerMove",
+          "title": "手指移动"
+        }
+      }
+    },
+    "handsmotionFingersAdjustmentResponse": {
+      "type": "object"
+    },
+    "handsmotionGetAbsolutePositionResponse": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "$ref": "#/definitions/handsmotionPosition",
+          "title": "位置数据"
+        }
+      }
+    },
+    "handsmotionMarkAsOriginalPositionRequest": {
+      "type": "object"
+    },
+    "handsmotionMarkAsOriginalPositionResponse": {
+      "type": "object"
+    },
+    "handsmotionMovementScript": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "$ref": "#/definitions/handsmotionPosition",
+          "title": "位置数据"
+        },
+        "run_time": {
+          "type": "integer",
+          "format": "int32",
+          "title": "运动时间ms"
+        },
+        "keep_time": {
+          "type": "integer",
+          "format": "int32",
+          "title": "保持时间ms"
+        }
+      },
+      "title": "运动脚本"
+    },
+    "handsmotionPosition": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "format": "byte"
+        }
+      },
+      "title": "位置数据"
+    }
+  }
+}

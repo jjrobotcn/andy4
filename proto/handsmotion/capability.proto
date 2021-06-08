@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+package handsmotion;
+
+import "google/api/annotations.proto";
+
+service Capability {
+    // 手指调整方法
+    // 调整手指动作的开合与重置
+    rpc FingersAdjustment (FingersAdjustmentRequest) returns (FingersAdjustmentResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/capability/fingers_adjustment"
+            body: "*"
+        };
+    }
+
+    // 手臂调整方法
+    // 调整手臂位置重置、使能与失能。
+    // 失能后可通过外力移动至相应位置后通过使能恢复锁定当前位置
+    rpc ArmAdjustment (ArmAdjustmentRequest) returns (ArmAdjustmentResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/capability/arm_adjustment"
+            body: "*"
+        };
+    }
+
+    // 标记当前位置为初始位置
+    // 所有位置数据将基于此点进行计算
+    rpc MarkAsOriginalPosition (MarkAsOriginalPositionRequest) returns (MarkAsOriginalPositionResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/capability/mark_as_original_position"
+            body: "*"
+        };
+    }
+
+    // 获取当前绝对位置
+    rpc GetAbsolutePosition (GetAbsolutePositionRequest) returns (GetAbsolutePositionResponse) {
+        option (google.api.http) = {
+            get: "/api/v2/motion/hands/capability/get_absolute_position"
+        };
+    }
+
+    // 绝对位置移动
+    rpc AbsoluteMove (AbsoluteMoveRequest) returns (AbsoluteMoveResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/capability/absolute_move"
+            body: "*"
+        };
+    }
+}
+
+message FingersAdjustmentRequest {
+    message FingerMove {
+        // 手指移动类型
+        enum FingerMovementTypes {
+            // 手指松开
+            LOOSE = 0;
+            // 手指收紧
+            TIGHT = 1;
+        }
+
+        // 手指index 0: 拇指 4：尾指
+        uint32 finger_idx = 2;
+        // 手指移动类型
+        FingerMovementTypes type = 3;
+        // 移动行程 0-3600
+        int32 stroke = 4;
+    }
+
+    // 手index 0: 左手 1：右手
+    uint32 hand_idx = 1;
+
+    oneof req {
+        // 重置至手指原点位置
+        bool reset = 2;
+        // 手指移动
+        FingerMove move = 3;
+    }
+}
+
+message FingersAdjustmentResponse {
+}
+
+message ArmAdjustmentRequest {
+    // 手index 0: 左手 1：右手
+    uint32 hand_idx = 1;
+
+    oneof req {
+        // 重置至手臂原点位置
+        bool reset = 2;
+        // 手臂失能
+        bool disability = 3;
+    }
+}
+
+message ArmAdjustmentResponse {
+}
+
+// 位置数据
+message Position {
+    bytes data = 1;
+}
+
+message MarkAsOriginalPositionRequest {
+}
+
+message MarkAsOriginalPositionResponse {
+}
+
+// 运动脚本
+message MovementScript {
+    // 位置数据
+    Position position = 1;
+    // 运动时间ms
+    int32 run_time = 2;
+    // 保持时间ms
+    int32 keep_time = 3;
+}
+
+message GetAbsolutePositionRequest {
+}
+
+message GetAbsolutePositionResponse {
+    // 位置数据
+    Position position = 1;
+}
+
+message AbsoluteMoveRequest {
+    repeated MovementScript scripts = 1;
+
+    // 同步标识
+    // true: 等待动作完成时返回，动作期间中断连接将恢复为初始位置
+    // false: 动作开始执行时立即返回
+    bool sync_mode = 2;
+}
+
+message AbsoluteMoveResponse {
+}

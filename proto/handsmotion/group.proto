@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package handsmotion;
+
+import "capability.proto";
+import "google/api/annotations.proto";
+
+service GroupManagement {
+    // 新建动作分组
+    rpc NewMotionGroup (NewMotionGroupRequest) returns (NewMotionGroupResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/groups/new_motion_group"
+            body: "*"
+        };
+    }
+
+    // 获取所有动作分组列表
+    rpc ListMotionGroups (ListMotionGroupsRequest) returns (ListMotionGroupsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/groups/list_motion_groups"
+            body: "*"
+            additional_bindings {
+                get: "/api/v2/motion/hands/groups/list_motion_groups"
+            }
+        };
+    }
+
+    // 删除动作分组
+    rpc DeleteMotionGroup (DeleteMotionGroupRequest) returns (DeleteMotionGroupResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/groups/delete_motion_group"
+            body: "*"
+        };
+    }
+
+    // 获取动作分组
+    rpc GetMotionGroup (GetMotionGroupRequest) returns (GetMotionGroupResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/groups/get_motion_group"
+            body: "*"
+            additional_bindings {
+                get: "/api/v2/motion/hands/groups/get_motion_group"
+            }
+        };
+    }
+
+    // 更新动作分组Meta
+    rpc UpdateMotionGroupMeta (UpdateMotionMetaRequest) returns (UpdateMotionMetaResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/groups/update_motion_group_meta"
+            body: "*"
+        };
+    }
+
+    // 更新动作分组Scripts
+    rpc UpdateMotionGroupScripts (UpdateMotionScriptsRequest) returns (UpdateMotionScriptsResponse) {
+        option (google.api.http) = {
+            post: "/api/v2/motion/hands/groups/update_motion_group_scripts"
+            body: "*"
+        };
+    }
+}
+
+message MotionMeta {
+    string id = 1;
+    string name = 2;
+}
+
+message NewMotionGroupRequest {
+    string name = 1;
+}
+
+message NewMotionGroupResponse {
+    MotionMeta motion = 1;
+}
+
+message ListMotionGroupsRequest {
+}
+
+message ListMotionGroupsResponse {
+    repeated MotionMeta motions = 1;
+}
+
+message DeleteMotionGroupRequest {
+    string id = 1;
+}
+
+message DeleteMotionGroupResponse {
+}
+
+message GetMotionGroupRequest {
+    string id = 1;
+}
+
+message GetMotionGroupResponse {
+    MotionMeta meta = 1;
+    repeated MovementScript scripts = 2;
+}
+
+message UpdateMotionMetaRequest {
+    MotionMeta motion = 2;
+}
+
+message UpdateMotionMetaResponse {
+}
+
+message UpdateMotionScriptsRequest {
+    string id = 1;
+    repeated MovementScript scripts = 2;
+}
+
+message UpdateMotionScriptsResponse {
+}

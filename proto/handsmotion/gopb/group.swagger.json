@@ -1,0 +1,353 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "group.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v2/motion/hands/groups/delete_motion_group": {
+      "post": {
+        "summary": "删除动作分组",
+        "operationId": "DeleteMotionGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionDeleteMotionGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionDeleteMotionGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/groups/get_motion_group": {
+      "get": {
+        "summary": "获取动作分组",
+        "operationId": "GetMotionGroup2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionGetMotionGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      },
+      "post": {
+        "summary": "获取动作分组",
+        "operationId": "GetMotionGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionGetMotionGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionGetMotionGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/groups/list_motion_groups": {
+      "get": {
+        "summary": "获取所有动作分组列表",
+        "operationId": "ListMotionGroups2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionListMotionGroupsResponse"
+            }
+          }
+        },
+        "tags": [
+          "GroupManagement"
+        ]
+      },
+      "post": {
+        "summary": "获取所有动作分组列表",
+        "operationId": "ListMotionGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionListMotionGroupsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionListMotionGroupsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/groups/new_motion_group": {
+      "post": {
+        "summary": "新建动作分组",
+        "operationId": "NewMotionGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionNewMotionGroupResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionNewMotionGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/groups/update_motion_group_meta": {
+      "post": {
+        "summary": "更新动作分组Meta",
+        "operationId": "UpdateMotionGroupMeta",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionUpdateMotionMetaResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionUpdateMotionMetaRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      }
+    },
+    "/api/v2/motion/hands/groups/update_motion_group_scripts": {
+      "post": {
+        "summary": "更新动作分组Scripts",
+        "operationId": "UpdateMotionGroupScripts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/handsmotionUpdateMotionScriptsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/handsmotionUpdateMotionScriptsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GroupManagement"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "handsmotionDeleteMotionGroupRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "handsmotionDeleteMotionGroupResponse": {
+      "type": "object"
+    },
+    "handsmotionGetMotionGroupRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "handsmotionGetMotionGroupResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/handsmotionMotionMeta"
+        },
+        "scripts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/handsmotionMovementScript"
+          }
+        }
+      }
+    },
+    "handsmotionListMotionGroupsRequest": {
+      "type": "object"
+    },
+    "handsmotionListMotionGroupsResponse": {
+      "type": "object",
+      "properties": {
+        "motions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/handsmotionMotionMeta"
+          }
+        }
+      }
+    },
+    "handsmotionMotionMeta": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "handsmotionMovementScript": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "$ref": "#/definitions/handsmotionPosition",
+          "title": "位置数据"
+        },
+        "run_time": {
+          "type": "integer",
+          "format": "int32",
+          "title": "运动时间ms"
+        },
+        "keep_time": {
+          "type": "integer",
+          "format": "int32",
+          "title": "保持时间ms"
+        }
+      },
+      "title": "运动脚本"
+    },
+    "handsmotionNewMotionGroupRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "handsmotionNewMotionGroupResponse": {
+      "type": "object",
+      "properties": {
+        "motion": {
+          "$ref": "#/definitions/handsmotionMotionMeta"
+        }
+      }
+    },
+    "handsmotionPosition": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "format": "byte"
+        }
+      },
+      "title": "位置数据"
+    },
+    "handsmotionUpdateMotionMetaRequest": {
+      "type": "object",
+      "properties": {
+        "motion": {
+          "$ref": "#/definitions/handsmotionMotionMeta"
+        }
+      }
+    },
+    "handsmotionUpdateMotionMetaResponse": {
+      "type": "object"
+    },
+    "handsmotionUpdateMotionScriptsRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "scripts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/handsmotionMovementScript"
+          }
+        }
+      }
+    },
+    "handsmotionUpdateMotionScriptsResponse": {
+      "type": "object"
+    }
+  }
+}
