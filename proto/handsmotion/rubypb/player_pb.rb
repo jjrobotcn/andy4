@@ -3,20 +3,13 @@
 
 require 'google/protobuf'
 
+require 'group_pb'
 require 'google/api/annotations_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("player.proto", :syntax => :proto3) do
-    add_message "handsmotion.Uri" do
-      optional :id, :string, 1
-      optional :name, :string, 2
-    end
     add_message "handsmotion.PlayRequest" do
-      optional :repeated, :int32, 3
-      optional :repeated_interval_ms, :uint32, 4
-      oneof :uri do
-        optional :id, :string, 1
-        optional :name, :string, 2
-      end
+      optional :motion, :message, 1, "handsmotion.MotionMeta"
+      optional :sync_mode, :bool, 2
     end
     add_message "handsmotion.PlayResponse" do
     end
@@ -28,22 +21,17 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "handsmotion.ResetResponse" do
     end
-    add_message "handsmotion.PlaylistRequest" do
-    end
-    add_message "handsmotion.PlaylistResponse" do
-      repeated :playlist, :message, 1, "handsmotion.Uri"
-    end
     add_message "handsmotion.StateRequest" do
     end
     add_message "handsmotion.StateResponse" do
       optional :state, :enum, 1, "handsmotion.PlayerState"
-      optional :uri, :message, 2, "handsmotion.Uri"
+      optional :motion, :message, 2, "handsmotion.MotionMeta"
     end
     add_message "handsmotion.OnStateChangeRequest" do
     end
     add_message "handsmotion.OnStateChangeResponse" do
       optional :state, :enum, 1, "handsmotion.PlayerState"
-      optional :uri, :message, 2, "handsmotion.Uri"
+      optional :motion, :message, 2, "handsmotion.MotionMeta"
     end
     add_enum "handsmotion.PlayerState" do
       value :UNKNOWN, 0
@@ -54,15 +42,12 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
 end
 
 module Handsmotion
-  Uri = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.Uri").msgclass
   PlayRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.PlayRequest").msgclass
   PlayResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.PlayResponse").msgclass
   StopRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.StopRequest").msgclass
   StopResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.StopResponse").msgclass
   ResetRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.ResetRequest").msgclass
   ResetResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.ResetResponse").msgclass
-  PlaylistRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.PlaylistRequest").msgclass
-  PlaylistResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.PlaylistResponse").msgclass
   StateRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.StateRequest").msgclass
   StateResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.StateResponse").msgclass
   OnStateChangeRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("handsmotion.OnStateChangeRequest").msgclass

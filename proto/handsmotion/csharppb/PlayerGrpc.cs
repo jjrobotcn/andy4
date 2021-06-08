@@ -18,8 +18,6 @@ namespace Handsmotion {
     static readonly grpc::Marshaller<global::Handsmotion.StopResponse> __Marshaller_handsmotion_StopResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.StopResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Handsmotion.ResetRequest> __Marshaller_handsmotion_ResetRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.ResetRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Handsmotion.ResetResponse> __Marshaller_handsmotion_ResetResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.ResetResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Handsmotion.PlaylistRequest> __Marshaller_handsmotion_PlaylistRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.PlaylistRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Handsmotion.PlaylistResponse> __Marshaller_handsmotion_PlaylistResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.PlaylistResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Handsmotion.StateRequest> __Marshaller_handsmotion_StateRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.StateRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Handsmotion.StateResponse> __Marshaller_handsmotion_StateResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.StateResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Handsmotion.OnStateChangeRequest> __Marshaller_handsmotion_OnStateChangeRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Handsmotion.OnStateChangeRequest.Parser.ParseFrom);
@@ -46,13 +44,6 @@ namespace Handsmotion {
         __Marshaller_handsmotion_ResetRequest,
         __Marshaller_handsmotion_ResetResponse);
 
-    static readonly grpc::Method<global::Handsmotion.PlaylistRequest, global::Handsmotion.PlaylistResponse> __Method_Playlist = new grpc::Method<global::Handsmotion.PlaylistRequest, global::Handsmotion.PlaylistResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "Playlist",
-        __Marshaller_handsmotion_PlaylistRequest,
-        __Marshaller_handsmotion_PlaylistResponse);
-
     static readonly grpc::Method<global::Handsmotion.StateRequest, global::Handsmotion.StateResponse> __Method_State = new grpc::Method<global::Handsmotion.StateRequest, global::Handsmotion.StateResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -78,7 +69,7 @@ namespace Handsmotion {
     public abstract partial class PlayerBase
     {
       /// <summary>
-      /// Play为播放动作组对象方法
+      /// Play 播放手臂动作
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -89,7 +80,7 @@ namespace Handsmotion {
       }
 
       /// <summary>
-      /// Stop为停止动作组对象方法
+      /// Stop 停止手臂动作
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -100,7 +91,7 @@ namespace Handsmotion {
       }
 
       /// <summary>
-      /// Reset为重置初始状态方法
+      /// Reset 恢复手臂至初始位置
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -111,18 +102,7 @@ namespace Handsmotion {
       }
 
       /// <summary>
-      /// Playlist为获取动作组对象列表方法
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
-      public virtual global::System.Threading.Tasks.Task<global::Handsmotion.PlaylistResponse> Playlist(global::Handsmotion.PlaylistRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
-      /// State为查询当前player状态方法
+      /// State 查询当前player状态
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
@@ -133,7 +113,7 @@ namespace Handsmotion {
       }
 
       /// <summary>
-      /// OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+      /// OnStateChange 监听当前player状态
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
@@ -170,7 +150,7 @@ namespace Handsmotion {
       }
 
       /// <summary>
-      /// Play为播放动作组对象方法
+      /// Play 播放手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -182,7 +162,7 @@ namespace Handsmotion {
         return Play(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Play为播放动作组对象方法
+      /// Play 播放手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -192,7 +172,7 @@ namespace Handsmotion {
         return CallInvoker.BlockingUnaryCall(__Method_Play, null, options, request);
       }
       /// <summary>
-      /// Play为播放动作组对象方法
+      /// Play 播放手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -204,7 +184,7 @@ namespace Handsmotion {
         return PlayAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Play为播放动作组对象方法
+      /// Play 播放手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -214,7 +194,7 @@ namespace Handsmotion {
         return CallInvoker.AsyncUnaryCall(__Method_Play, null, options, request);
       }
       /// <summary>
-      /// Stop为停止动作组对象方法
+      /// Stop 停止手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -226,7 +206,7 @@ namespace Handsmotion {
         return Stop(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Stop为停止动作组对象方法
+      /// Stop 停止手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -236,7 +216,7 @@ namespace Handsmotion {
         return CallInvoker.BlockingUnaryCall(__Method_Stop, null, options, request);
       }
       /// <summary>
-      /// Stop为停止动作组对象方法
+      /// Stop 停止手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -248,7 +228,7 @@ namespace Handsmotion {
         return StopAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Stop为停止动作组对象方法
+      /// Stop 停止手臂动作
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -258,7 +238,7 @@ namespace Handsmotion {
         return CallInvoker.AsyncUnaryCall(__Method_Stop, null, options, request);
       }
       /// <summary>
-      /// Reset为重置初始状态方法
+      /// Reset 恢复手臂至初始位置
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -270,7 +250,7 @@ namespace Handsmotion {
         return Reset(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Reset为重置初始状态方法
+      /// Reset 恢复手臂至初始位置
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -280,7 +260,7 @@ namespace Handsmotion {
         return CallInvoker.BlockingUnaryCall(__Method_Reset, null, options, request);
       }
       /// <summary>
-      /// Reset为重置初始状态方法
+      /// Reset 恢复手臂至初始位置
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -292,7 +272,7 @@ namespace Handsmotion {
         return ResetAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Reset为重置初始状态方法
+      /// Reset 恢复手臂至初始位置
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -302,51 +282,7 @@ namespace Handsmotion {
         return CallInvoker.AsyncUnaryCall(__Method_Reset, null, options, request);
       }
       /// <summary>
-      /// Playlist为获取动作组对象列表方法
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::Handsmotion.PlaylistResponse Playlist(global::Handsmotion.PlaylistRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return Playlist(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Playlist为获取动作组对象列表方法
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::Handsmotion.PlaylistResponse Playlist(global::Handsmotion.PlaylistRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_Playlist, null, options, request);
-      }
-      /// <summary>
-      /// Playlist为获取动作组对象列表方法
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::Handsmotion.PlaylistResponse> PlaylistAsync(global::Handsmotion.PlaylistRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return PlaylistAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Playlist为获取动作组对象列表方法
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::Handsmotion.PlaylistResponse> PlaylistAsync(global::Handsmotion.PlaylistRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_Playlist, null, options, request);
-      }
-      /// <summary>
-      /// State为查询当前player状态方法
+      /// State 查询当前player状态
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -358,7 +294,7 @@ namespace Handsmotion {
         return State(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// State为查询当前player状态方法
+      /// State 查询当前player状态
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -368,7 +304,7 @@ namespace Handsmotion {
         return CallInvoker.BlockingUnaryCall(__Method_State, null, options, request);
       }
       /// <summary>
-      /// State为查询当前player状态方法
+      /// State 查询当前player状态
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -380,7 +316,7 @@ namespace Handsmotion {
         return StateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// State为查询当前player状态方法
+      /// State 查询当前player状态
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -390,7 +326,7 @@ namespace Handsmotion {
         return CallInvoker.AsyncUnaryCall(__Method_State, null, options, request);
       }
       /// <summary>
-      /// OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+      /// OnStateChange 监听当前player状态
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -402,7 +338,7 @@ namespace Handsmotion {
         return OnStateChange(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+      /// OnStateChange 监听当前player状态
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -426,7 +362,6 @@ namespace Handsmotion {
           .AddMethod(__Method_Play, serviceImpl.Play)
           .AddMethod(__Method_Stop, serviceImpl.Stop)
           .AddMethod(__Method_Reset, serviceImpl.Reset)
-          .AddMethod(__Method_Playlist, serviceImpl.Playlist)
           .AddMethod(__Method_State, serviceImpl.State)
           .AddMethod(__Method_OnStateChange, serviceImpl.OnStateChange).Build();
     }
@@ -440,7 +375,6 @@ namespace Handsmotion {
       serviceBinder.AddMethod(__Method_Play, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Handsmotion.PlayRequest, global::Handsmotion.PlayResponse>(serviceImpl.Play));
       serviceBinder.AddMethod(__Method_Stop, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Handsmotion.StopRequest, global::Handsmotion.StopResponse>(serviceImpl.Stop));
       serviceBinder.AddMethod(__Method_Reset, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Handsmotion.ResetRequest, global::Handsmotion.ResetResponse>(serviceImpl.Reset));
-      serviceBinder.AddMethod(__Method_Playlist, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Handsmotion.PlaylistRequest, global::Handsmotion.PlaylistResponse>(serviceImpl.Playlist));
       serviceBinder.AddMethod(__Method_State, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Handsmotion.StateRequest, global::Handsmotion.StateResponse>(serviceImpl.State));
       serviceBinder.AddMethod(__Method_OnStateChange, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Handsmotion.OnStateChangeRequest, global::Handsmotion.OnStateChangeResponse>(serviceImpl.OnStateChange));
     }

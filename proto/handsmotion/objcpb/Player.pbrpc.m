@@ -4,6 +4,7 @@
 #import <ProtoRPC/ProtoRPC.h>
 #import <RxLibrary/GRXWriter+Immediate.h>
 
+#import "Group.pbobjc.h"
 #import "google/api/Annotations.pbobjc.h"
 
 @implementation Player
@@ -57,7 +58,7 @@
 
 // Deprecated methods.
 /**
- * Play为播放动作组对象方法
+ * Play 播放手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -66,7 +67,7 @@
 }
 // Returns a not-yet-started RPC object.
 /**
- * Play为播放动作组对象方法
+ * Play 播放手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -77,7 +78,7 @@
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 /**
- * Play为播放动作组对象方法
+ * Play 播放手臂动作
  */
 - (GRPCUnaryProtoCall *)playWithMessage:(PlayRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [self RPCToMethod:@"Play"
@@ -91,7 +92,7 @@
 
 // Deprecated methods.
 /**
- * Stop为停止动作组对象方法
+ * Stop 停止手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -100,7 +101,7 @@
 }
 // Returns a not-yet-started RPC object.
 /**
- * Stop为停止动作组对象方法
+ * Stop 停止手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -111,7 +112,7 @@
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 /**
- * Stop为停止动作组对象方法
+ * Stop 停止手臂动作
  */
 - (GRPCUnaryProtoCall *)stopWithMessage:(StopRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [self RPCToMethod:@"Stop"
@@ -125,7 +126,7 @@
 
 // Deprecated methods.
 /**
- * Reset为重置初始状态方法
+ * Reset 恢复手臂至初始位置
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -134,7 +135,7 @@
 }
 // Returns a not-yet-started RPC object.
 /**
- * Reset为重置初始状态方法
+ * Reset 恢复手臂至初始位置
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -145,7 +146,7 @@
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 /**
- * Reset为重置初始状态方法
+ * Reset 恢复手臂至初始位置
  */
 - (GRPCUnaryProtoCall *)resetWithMessage:(ResetRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [self RPCToMethod:@"Reset"
@@ -155,45 +156,11 @@
              responseClass:[ResetResponse class]];
 }
 
-#pragma mark Playlist(PlaylistRequest) returns (PlaylistResponse)
-
-// Deprecated methods.
-/**
- * Playlist为获取动作组对象列表方法
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (void)playlistWithRequest:(PlaylistRequest *)request handler:(void(^)(PlaylistResponse *_Nullable response, NSError *_Nullable error))handler{
-  [[self RPCToPlaylistWithRequest:request handler:handler] start];
-}
-// Returns a not-yet-started RPC object.
-/**
- * Playlist为获取动作组对象列表方法
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (GRPCProtoCall *)RPCToPlaylistWithRequest:(PlaylistRequest *)request handler:(void(^)(PlaylistResponse *_Nullable response, NSError *_Nullable error))handler{
-  return [self RPCToMethod:@"Playlist"
-            requestsWriter:[GRXWriter writerWithValue:request]
-             responseClass:[PlaylistResponse class]
-        responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
-}
-/**
- * Playlist为获取动作组对象列表方法
- */
-- (GRPCUnaryProtoCall *)playlistWithMessage:(PlaylistRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
-  return [self RPCToMethod:@"Playlist"
-                   message:message
-           responseHandler:handler
-               callOptions:callOptions
-             responseClass:[PlaylistResponse class]];
-}
-
 #pragma mark State(StateRequest) returns (StateResponse)
 
 // Deprecated methods.
 /**
- * State为查询当前player状态方法
+ * State 查询当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -202,7 +169,7 @@
 }
 // Returns a not-yet-started RPC object.
 /**
- * State为查询当前player状态方法
+ * State 查询当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -213,7 +180,7 @@
         responsesWriteable:[GRXWriteable writeableWithSingleHandler:handler]];
 }
 /**
- * State为查询当前player状态方法
+ * State 查询当前player状态
  */
 - (GRPCUnaryProtoCall *)stateWithMessage:(StateRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [self RPCToMethod:@"State"
@@ -227,7 +194,7 @@
 
 // Deprecated methods.
 /**
- * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+ * OnStateChange 监听当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -236,7 +203,7 @@
 }
 // Returns a not-yet-started RPC object.
 /**
- * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+ * OnStateChange 监听当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -247,7 +214,7 @@
         responsesWriteable:[GRXWriteable writeableWithEventHandler:eventHandler]];
 }
 /**
- * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+ * OnStateChange 监听当前player状态
  */
 - (GRPCUnaryProtoCall *)onStateChangeWithMessage:(OnStateChangeRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions {
   return [self RPCToMethod:@"OnStateChange"

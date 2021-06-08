@@ -3,6 +3,7 @@
 'use strict';
 var grpc = require('grpc');
 var player_pb = require('./player_pb.js');
+var group_pb = require('./group_pb.js');
 var google_api_annotations_pb = require('./google/api/annotations_pb.js');
 
 function serialize_handsmotion_OnStateChangeRequest(arg) {
@@ -47,28 +48,6 @@ function serialize_handsmotion_PlayResponse(arg) {
 
 function deserialize_handsmotion_PlayResponse(buffer_arg) {
   return player_pb.PlayResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_handsmotion_PlaylistRequest(arg) {
-  if (!(arg instanceof player_pb.PlaylistRequest)) {
-    throw new Error('Expected argument of type handsmotion.PlaylistRequest');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_handsmotion_PlaylistRequest(buffer_arg) {
-  return player_pb.PlaylistRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_handsmotion_PlaylistResponse(arg) {
-  if (!(arg instanceof player_pb.PlaylistResponse)) {
-    throw new Error('Expected argument of type handsmotion.PlaylistResponse');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_handsmotion_PlaylistResponse(buffer_arg) {
-  return player_pb.PlaylistResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_handsmotion_ResetRequest(arg) {
@@ -139,7 +118,7 @@ function deserialize_handsmotion_StopResponse(buffer_arg) {
 
 
 var PlayerService = exports.PlayerService = {
-  // Play为播放动作组对象方法
+  // Play 播放手臂动作
   play: {
     path: '/handsmotion.Player/Play',
     requestStream: false,
@@ -151,7 +130,7 @@ var PlayerService = exports.PlayerService = {
     responseSerialize: serialize_handsmotion_PlayResponse,
     responseDeserialize: deserialize_handsmotion_PlayResponse,
   },
-  // Stop为停止动作组对象方法
+  // Stop 停止手臂动作
   stop: {
     path: '/handsmotion.Player/Stop',
     requestStream: false,
@@ -163,7 +142,7 @@ var PlayerService = exports.PlayerService = {
     responseSerialize: serialize_handsmotion_StopResponse,
     responseDeserialize: deserialize_handsmotion_StopResponse,
   },
-  // Reset为重置初始状态方法
+  // Reset 恢复手臂至初始位置
   reset: {
     path: '/handsmotion.Player/Reset',
     requestStream: false,
@@ -175,19 +154,7 @@ var PlayerService = exports.PlayerService = {
     responseSerialize: serialize_handsmotion_ResetResponse,
     responseDeserialize: deserialize_handsmotion_ResetResponse,
   },
-  // Playlist为获取动作组对象列表方法
-  playlist: {
-    path: '/handsmotion.Player/Playlist',
-    requestStream: false,
-    responseStream: false,
-    requestType: player_pb.PlaylistRequest,
-    responseType: player_pb.PlaylistResponse,
-    requestSerialize: serialize_handsmotion_PlaylistRequest,
-    requestDeserialize: deserialize_handsmotion_PlaylistRequest,
-    responseSerialize: serialize_handsmotion_PlaylistResponse,
-    responseDeserialize: deserialize_handsmotion_PlaylistResponse,
-  },
-  // State为查询当前player状态方法
+  // State 查询当前player状态
   state: {
     path: '/handsmotion.Player/State',
     requestStream: false,
@@ -199,7 +166,7 @@ var PlayerService = exports.PlayerService = {
     responseSerialize: serialize_handsmotion_StateResponse,
     responseDeserialize: deserialize_handsmotion_StateResponse,
   },
-  // OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+  // OnStateChange 监听当前player状态
   onStateChange: {
     path: '/handsmotion.Player/OnStateChange',
     requestStream: false,

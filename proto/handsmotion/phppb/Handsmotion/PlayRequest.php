@@ -7,7 +7,6 @@ namespace Handsmotion;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
-use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * Generated from protobuf message <code>handsmotion.PlayRequest</code>
@@ -15,23 +14,20 @@ use Google\Protobuf\Internal\GPBWrapperUtils;
 class PlayRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * 播放动作重复次数
-     * 小于0: 无限重复，可通过Stop停止
-     * 0: 同等设置该值为1
-     * > 0: 根据设置播放次数重复播放
-     * 默认播放1次
+     * 手臂动作
+     * 支持通过id或名称任意一值
      *
-     * Generated from protobuf field <code>int32 repeated = 3;</code>
+     * Generated from protobuf field <code>.handsmotion.MotionMeta motion = 1;</code>
      */
-    private $repeated = 0;
+    private $motion = null;
     /**
-     * 重复播放间隔，单位为毫秒
-     * 默认为0，无间隔
+     * 同步标识
+     * true: 等待动作完成时返回
+     * false: 动作开始执行时立即返回
      *
-     * Generated from protobuf field <code>uint32 repeated_interval_ms = 4;</code>
+     * Generated from protobuf field <code>bool sync_mode = 2;</code>
      */
-    private $repeated_interval_ms = 0;
-    protected $uri;
+    private $sync_mode = false;
 
     /**
      * Constructor.
@@ -39,18 +35,13 @@ class PlayRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $id
-     *     @type string $name
-     *           使用自定义名时将播放首个匹配项
-     *     @type int $repeated
-     *           播放动作重复次数
-     *           小于0: 无限重复，可通过Stop停止
-     *           0: 同等设置该值为1
-     *           > 0: 根据设置播放次数重复播放
-     *           默认播放1次
-     *     @type int $repeated_interval_ms
-     *           重复播放间隔，单位为毫秒
-     *           默认为0，无间隔
+     *     @type \Handsmotion\MotionMeta $motion
+     *           手臂动作
+     *           支持通过id或名称任意一值
+     *     @type bool $sync_mode
+     *           同步标识
+     *           true: 等待动作完成时返回
+     *           false: 动作开始执行时立即返回
      * }
      */
     public function __construct($data = NULL) {
@@ -59,121 +50,61 @@ class PlayRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string id = 1;</code>
-     * @return string
+     * 手臂动作
+     * 支持通过id或名称任意一值
+     *
+     * Generated from protobuf field <code>.handsmotion.MotionMeta motion = 1;</code>
+     * @return \Handsmotion\MotionMeta
      */
-    public function getId()
+    public function getMotion()
     {
-        return $this->readOneof(1);
+        return $this->motion;
     }
 
     /**
-     * Generated from protobuf field <code>string id = 1;</code>
-     * @param string $var
+     * 手臂动作
+     * 支持通过id或名称任意一值
+     *
+     * Generated from protobuf field <code>.handsmotion.MotionMeta motion = 1;</code>
+     * @param \Handsmotion\MotionMeta $var
      * @return $this
      */
-    public function setId($var)
+    public function setMotion($var)
     {
-        GPBUtil::checkString($var, True);
-        $this->writeOneof(1, $var);
+        GPBUtil::checkMessage($var, \Handsmotion\MotionMeta::class);
+        $this->motion = $var;
 
         return $this;
     }
 
     /**
-     * 使用自定义名时将播放首个匹配项
+     * 同步标识
+     * true: 等待动作完成时返回
+     * false: 动作开始执行时立即返回
      *
-     * Generated from protobuf field <code>string name = 2;</code>
-     * @return string
+     * Generated from protobuf field <code>bool sync_mode = 2;</code>
+     * @return bool
      */
-    public function getName()
+    public function getSyncMode()
     {
-        return $this->readOneof(2);
+        return $this->sync_mode;
     }
 
     /**
-     * 使用自定义名时将播放首个匹配项
+     * 同步标识
+     * true: 等待动作完成时返回
+     * false: 动作开始执行时立即返回
      *
-     * Generated from protobuf field <code>string name = 2;</code>
-     * @param string $var
+     * Generated from protobuf field <code>bool sync_mode = 2;</code>
+     * @param bool $var
      * @return $this
      */
-    public function setName($var)
+    public function setSyncMode($var)
     {
-        GPBUtil::checkString($var, True);
-        $this->writeOneof(2, $var);
+        GPBUtil::checkBool($var);
+        $this->sync_mode = $var;
 
         return $this;
-    }
-
-    /**
-     * 播放动作重复次数
-     * 小于0: 无限重复，可通过Stop停止
-     * 0: 同等设置该值为1
-     * > 0: 根据设置播放次数重复播放
-     * 默认播放1次
-     *
-     * Generated from protobuf field <code>int32 repeated = 3;</code>
-     * @return int
-     */
-    public function getRepeated()
-    {
-        return $this->repeated;
-    }
-
-    /**
-     * 播放动作重复次数
-     * 小于0: 无限重复，可通过Stop停止
-     * 0: 同等设置该值为1
-     * > 0: 根据设置播放次数重复播放
-     * 默认播放1次
-     *
-     * Generated from protobuf field <code>int32 repeated = 3;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setRepeated($var)
-    {
-        GPBUtil::checkInt32($var);
-        $this->repeated = $var;
-
-        return $this;
-    }
-
-    /**
-     * 重复播放间隔，单位为毫秒
-     * 默认为0，无间隔
-     *
-     * Generated from protobuf field <code>uint32 repeated_interval_ms = 4;</code>
-     * @return int
-     */
-    public function getRepeatedIntervalMs()
-    {
-        return $this->repeated_interval_ms;
-    }
-
-    /**
-     * 重复播放间隔，单位为毫秒
-     * 默认为0，无间隔
-     *
-     * Generated from protobuf field <code>uint32 repeated_interval_ms = 4;</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setRepeatedIntervalMs($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->repeated_interval_ms = $var;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUri()
-    {
-        return $this->whichOneof("uri");
     }
 
 }

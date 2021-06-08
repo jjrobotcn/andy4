@@ -21,9 +21,9 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 
 namespace grpc_impl {
-class Channel;
 class CompletionQueue;
 class ServerCompletionQueue;
+class ServerContext;
 }  // namespace grpc_impl
 
 namespace grpc {
@@ -31,10 +31,6 @@ namespace experimental {
 template <typename RequestT, typename ResponseT>
 class MessageAllocator;
 }  // namespace experimental
-}  // namespace grpc_impl
-
-namespace grpc {
-class ServerContext;
 }  // namespace grpc
 
 namespace handsmotion {
@@ -47,7 +43,7 @@ class Player final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Play为播放动作组对象方法
+    // Play 播放手臂动作
     virtual ::grpc::Status Play(::grpc::ClientContext* context, const ::handsmotion::PlayRequest& request, ::handsmotion::PlayResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlayResponse>> AsyncPlay(::grpc::ClientContext* context, const ::handsmotion::PlayRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlayResponse>>(AsyncPlayRaw(context, request, cq));
@@ -55,7 +51,7 @@ class Player final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlayResponse>> PrepareAsyncPlay(::grpc::ClientContext* context, const ::handsmotion::PlayRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlayResponse>>(PrepareAsyncPlayRaw(context, request, cq));
     }
-    // Stop为停止动作组对象方法
+    // Stop 停止手臂动作
     virtual ::grpc::Status Stop(::grpc::ClientContext* context, const ::handsmotion::StopRequest& request, ::handsmotion::StopResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StopResponse>> AsyncStop(::grpc::ClientContext* context, const ::handsmotion::StopRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StopResponse>>(AsyncStopRaw(context, request, cq));
@@ -63,7 +59,7 @@ class Player final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StopResponse>> PrepareAsyncStop(::grpc::ClientContext* context, const ::handsmotion::StopRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StopResponse>>(PrepareAsyncStopRaw(context, request, cq));
     }
-    // Reset为重置初始状态方法
+    // Reset 恢复手臂至初始位置
     virtual ::grpc::Status Reset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::handsmotion::ResetResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::ResetResponse>> AsyncReset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::ResetResponse>>(AsyncResetRaw(context, request, cq));
@@ -71,15 +67,7 @@ class Player final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::ResetResponse>> PrepareAsyncReset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::ResetResponse>>(PrepareAsyncResetRaw(context, request, cq));
     }
-    // Playlist为获取动作组对象列表方法
-    virtual ::grpc::Status Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::handsmotion::PlaylistResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlaylistResponse>> AsyncPlaylist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlaylistResponse>>(AsyncPlaylistRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlaylistResponse>> PrepareAsyncPlaylist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlaylistResponse>>(PrepareAsyncPlaylistRaw(context, request, cq));
-    }
-    // State为查询当前player状态方法
+    // State 查询当前player状态
     virtual ::grpc::Status State(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::handsmotion::StateResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StateResponse>> AsyncState(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StateResponse>>(AsyncStateRaw(context, request, cq));
@@ -87,7 +75,7 @@ class Player final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StateResponse>> PrepareAsyncState(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StateResponse>>(PrepareAsyncStateRaw(context, request, cq));
     }
-    // OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+    // OnStateChange 监听当前player状态
     std::unique_ptr< ::grpc::ClientReaderInterface< ::handsmotion::OnStateChangeResponse>> OnStateChange(::grpc::ClientContext* context, const ::handsmotion::OnStateChangeRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::handsmotion::OnStateChangeResponse>>(OnStateChangeRaw(context, request));
     }
@@ -100,32 +88,27 @@ class Player final {
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      // Play为播放动作组对象方法
+      // Play 播放手臂动作
       virtual void Play(::grpc::ClientContext* context, const ::handsmotion::PlayRequest* request, ::handsmotion::PlayResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Play(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlayResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Play(::grpc::ClientContext* context, const ::handsmotion::PlayRequest* request, ::handsmotion::PlayResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void Play(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlayResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      // Stop为停止动作组对象方法
+      // Stop 停止手臂动作
       virtual void Stop(::grpc::ClientContext* context, const ::handsmotion::StopRequest* request, ::handsmotion::StopResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::StopResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Stop(::grpc::ClientContext* context, const ::handsmotion::StopRequest* request, ::handsmotion::StopResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void Stop(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::StopResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      // Reset为重置初始状态方法
+      // Reset 恢复手臂至初始位置
       virtual void Reset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest* request, ::handsmotion::ResetResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::ResetResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Reset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest* request, ::handsmotion::ResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void Reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::ResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      // Playlist为获取动作组对象列表方法
-      virtual void Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Playlist(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlaylistResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void Playlist(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      // State为查询当前player状态方法
+      // State 查询当前player状态
       virtual void State(::grpc::ClientContext* context, const ::handsmotion::StateRequest* request, ::handsmotion::StateResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::StateResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void State(::grpc::ClientContext* context, const ::handsmotion::StateRequest* request, ::handsmotion::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      // OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+      // OnStateChange 监听当前player状态
       virtual void OnStateChange(::grpc::ClientContext* context, ::handsmotion::OnStateChangeRequest* request, ::grpc::experimental::ClientReadReactor< ::handsmotion::OnStateChangeResponse>* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
@@ -136,8 +119,6 @@ class Player final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StopResponse>* PrepareAsyncStopRaw(::grpc::ClientContext* context, const ::handsmotion::StopRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::ResetResponse>* AsyncResetRaw(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::ResetResponse>* PrepareAsyncResetRaw(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlaylistResponse>* AsyncPlaylistRaw(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::PlaylistResponse>* PrepareAsyncPlaylistRaw(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StateResponse>* AsyncStateRaw(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::handsmotion::StateResponse>* PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientReaderInterface< ::handsmotion::OnStateChangeResponse>* OnStateChangeRaw(::grpc::ClientContext* context, const ::handsmotion::OnStateChangeRequest& request) = 0;
@@ -167,13 +148,6 @@ class Player final {
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::ResetResponse>> PrepareAsyncReset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::ResetResponse>>(PrepareAsyncResetRaw(context, request, cq));
-    }
-    ::grpc::Status Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::handsmotion::PlaylistResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>> AsyncPlaylist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>>(AsyncPlaylistRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>> PrepareAsyncPlaylist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>>(PrepareAsyncPlaylistRaw(context, request, cq));
     }
     ::grpc::Status State(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::handsmotion::StateResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::handsmotion::StateResponse>> AsyncState(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) {
@@ -206,10 +180,6 @@ class Player final {
       void Reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::ResetResponse* response, std::function<void(::grpc::Status)>) override;
       void Reset(::grpc::ClientContext* context, const ::handsmotion::ResetRequest* request, ::handsmotion::ResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void Reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::ResetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, std::function<void(::grpc::Status)>) override;
-      void Playlist(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlaylistResponse* response, std::function<void(::grpc::Status)>) override;
-      void Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void Playlist(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void State(::grpc::ClientContext* context, const ::handsmotion::StateRequest* request, ::handsmotion::StateResponse* response, std::function<void(::grpc::Status)>) override;
       void State(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::StateResponse* response, std::function<void(::grpc::Status)>) override;
       void State(::grpc::ClientContext* context, const ::handsmotion::StateRequest* request, ::handsmotion::StateResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
@@ -232,8 +202,6 @@ class Player final {
     ::grpc::ClientAsyncResponseReader< ::handsmotion::StopResponse>* PrepareAsyncStopRaw(::grpc::ClientContext* context, const ::handsmotion::StopRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::handsmotion::ResetResponse>* AsyncResetRaw(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::handsmotion::ResetResponse>* PrepareAsyncResetRaw(::grpc::ClientContext* context, const ::handsmotion::ResetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>* AsyncPlaylistRaw(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>* PrepareAsyncPlaylistRaw(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::handsmotion::StateResponse>* AsyncStateRaw(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::handsmotion::StateResponse>* PrepareAsyncStateRaw(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientReader< ::handsmotion::OnStateChangeResponse>* OnStateChangeRaw(::grpc::ClientContext* context, const ::handsmotion::OnStateChangeRequest& request) override;
@@ -242,7 +210,6 @@ class Player final {
     const ::grpc::internal::RpcMethod rpcmethod_Play_;
     const ::grpc::internal::RpcMethod rpcmethod_Stop_;
     const ::grpc::internal::RpcMethod rpcmethod_Reset_;
-    const ::grpc::internal::RpcMethod rpcmethod_Playlist_;
     const ::grpc::internal::RpcMethod rpcmethod_State_;
     const ::grpc::internal::RpcMethod rpcmethod_OnStateChange_;
   };
@@ -252,17 +219,15 @@ class Player final {
    public:
     Service();
     virtual ~Service();
-    // Play为播放动作组对象方法
+    // Play 播放手臂动作
     virtual ::grpc::Status Play(::grpc::ServerContext* context, const ::handsmotion::PlayRequest* request, ::handsmotion::PlayResponse* response);
-    // Stop为停止动作组对象方法
+    // Stop 停止手臂动作
     virtual ::grpc::Status Stop(::grpc::ServerContext* context, const ::handsmotion::StopRequest* request, ::handsmotion::StopResponse* response);
-    // Reset为重置初始状态方法
+    // Reset 恢复手臂至初始位置
     virtual ::grpc::Status Reset(::grpc::ServerContext* context, const ::handsmotion::ResetRequest* request, ::handsmotion::ResetResponse* response);
-    // Playlist为获取动作组对象列表方法
-    virtual ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response);
-    // State为查询当前player状态方法
+    // State 查询当前player状态
     virtual ::grpc::Status State(::grpc::ServerContext* context, const ::handsmotion::StateRequest* request, ::handsmotion::StateResponse* response);
-    // OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+    // OnStateChange 监听当前player状态
     virtual ::grpc::Status OnStateChange(::grpc::ServerContext* context, const ::handsmotion::OnStateChangeRequest* request, ::grpc::ServerWriter< ::handsmotion::OnStateChangeResponse>* writer);
   };
   template <class BaseClass>
@@ -326,32 +291,12 @@ class Player final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_Playlist : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithAsyncMethod_Playlist() {
-      ::grpc::Service::MarkMethodAsync(3);
-    }
-    ~WithAsyncMethod_Playlist() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestPlaylist(::grpc::ServerContext* context, ::handsmotion::PlaylistRequest* request, ::grpc::ServerAsyncResponseWriter< ::handsmotion::PlaylistResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithAsyncMethod_State : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_State() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_State() override {
       BaseClassMustBeDerivedFromService(this);
@@ -362,7 +307,7 @@ class Player final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestState(::grpc::ServerContext* context, ::handsmotion::StateRequest* request, ::grpc::ServerAsyncResponseWriter< ::handsmotion::StateResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -371,7 +316,7 @@ class Player final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_OnStateChange() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_OnStateChange() override {
       BaseClassMustBeDerivedFromService(this);
@@ -382,10 +327,10 @@ class Player final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestOnStateChange(::grpc::ServerContext* context, ::handsmotion::OnStateChangeRequest* request, ::grpc::ServerAsyncWriter< ::handsmotion::OnStateChangeResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Play<WithAsyncMethod_Stop<WithAsyncMethod_Reset<WithAsyncMethod_Playlist<WithAsyncMethod_State<WithAsyncMethod_OnStateChange<Service > > > > > > AsyncService;
+  typedef WithAsyncMethod_Play<WithAsyncMethod_Stop<WithAsyncMethod_Reset<WithAsyncMethod_State<WithAsyncMethod_OnStateChange<Service > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_Play : public BaseClass {
    private:
@@ -480,43 +425,12 @@ class Player final {
     virtual void Reset(::grpc::ServerContext* context, const ::handsmotion::ResetRequest* request, ::handsmotion::ResetResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_Playlist : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithCallbackMethod_Playlist() {
-      ::grpc::Service::experimental().MarkMethodCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::handsmotion::PlaylistRequest, ::handsmotion::PlaylistResponse>(
-          [this](::grpc::ServerContext* context,
-                 const ::handsmotion::PlaylistRequest* request,
-                 ::handsmotion::PlaylistResponse* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->Playlist(context, request, response, controller);
-                 }));
-    }
-    void SetMessageAllocatorFor_Playlist(
-        ::grpc::experimental::MessageAllocator< ::handsmotion::PlaylistRequest, ::handsmotion::PlaylistResponse>* allocator) {
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::handsmotion::PlaylistRequest, ::handsmotion::PlaylistResponse>*>(
-          ::grpc::Service::experimental().GetHandler(3))
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_Playlist() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
   class ExperimentalWithCallbackMethod_State : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_State() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
+      ::grpc::Service::experimental().MarkMethodCallback(3,
         new ::grpc::internal::CallbackUnaryHandler< ::handsmotion::StateRequest, ::handsmotion::StateResponse>(
           [this](::grpc::ServerContext* context,
                  const ::handsmotion::StateRequest* request,
@@ -528,7 +442,7 @@ class Player final {
     void SetMessageAllocatorFor_State(
         ::grpc::experimental::MessageAllocator< ::handsmotion::StateRequest, ::handsmotion::StateResponse>* allocator) {
       static_cast<::grpc::internal::CallbackUnaryHandler< ::handsmotion::StateRequest, ::handsmotion::StateResponse>*>(
-          ::grpc::Service::experimental().GetHandler(4))
+          ::grpc::Service::experimental().GetHandler(3))
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_State() override {
@@ -547,7 +461,7 @@ class Player final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_OnStateChange() {
-      ::grpc::Service::experimental().MarkMethodCallback(5,
+      ::grpc::Service::experimental().MarkMethodCallback(4,
         new ::grpc::internal::CallbackServerStreamingHandler< ::handsmotion::OnStateChangeRequest, ::handsmotion::OnStateChangeResponse>(
           [this] { return this->OnStateChange(); }));
     }
@@ -563,7 +477,7 @@ class Player final {
       return new ::grpc::internal::UnimplementedWriteReactor<
         ::handsmotion::OnStateChangeRequest, ::handsmotion::OnStateChangeResponse>;}
   };
-  typedef ExperimentalWithCallbackMethod_Play<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_Reset<ExperimentalWithCallbackMethod_Playlist<ExperimentalWithCallbackMethod_State<ExperimentalWithCallbackMethod_OnStateChange<Service > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_Play<ExperimentalWithCallbackMethod_Stop<ExperimentalWithCallbackMethod_Reset<ExperimentalWithCallbackMethod_State<ExperimentalWithCallbackMethod_OnStateChange<Service > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Play : public BaseClass {
    private:
@@ -616,29 +530,12 @@ class Player final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Playlist : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithGenericMethod_Playlist() {
-      ::grpc::Service::MarkMethodGeneric(3);
-    }
-    ~WithGenericMethod_Playlist() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
   class WithGenericMethod_State : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_State() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_State() override {
       BaseClassMustBeDerivedFromService(this);
@@ -655,7 +552,7 @@ class Player final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_OnStateChange() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_OnStateChange() override {
       BaseClassMustBeDerivedFromService(this);
@@ -727,32 +624,12 @@ class Player final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_Playlist : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithRawMethod_Playlist() {
-      ::grpc::Service::MarkMethodRaw(3);
-    }
-    ~WithRawMethod_Playlist() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestPlaylist(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawMethod_State : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_State() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_State() override {
       BaseClassMustBeDerivedFromService(this);
@@ -763,7 +640,7 @@ class Player final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestState(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -772,7 +649,7 @@ class Player final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_OnStateChange() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_OnStateChange() override {
       BaseClassMustBeDerivedFromService(this);
@@ -783,7 +660,7 @@ class Player final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestOnStateChange(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -862,37 +739,12 @@ class Player final {
     virtual void Reset(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_Playlist : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    ExperimentalWithRawCallbackMethod_Playlist() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(3,
-        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-          [this](::grpc::ServerContext* context,
-                 const ::grpc::ByteBuffer* request,
-                 ::grpc::ByteBuffer* response,
-                 ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->Playlist(context, request, response, controller);
-                 }));
-    }
-    ~ExperimentalWithRawCallbackMethod_Playlist() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual void Playlist(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
-  };
-  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_State : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_State() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+      ::grpc::Service::experimental().MarkMethodRawCallback(3,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -917,7 +769,7 @@ class Player final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_OnStateChange() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(5,
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
         new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this] { return this->OnStateChange(); }));
     }
@@ -994,32 +846,12 @@ class Player final {
     virtual ::grpc::Status StreamedReset(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::handsmotion::ResetRequest,::handsmotion::ResetResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_Playlist : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service *service) {}
-   public:
-    WithStreamedUnaryMethod_Playlist() {
-      ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::internal::StreamedUnaryHandler< ::handsmotion::PlaylistRequest, ::handsmotion::PlaylistResponse>(std::bind(&WithStreamedUnaryMethod_Playlist<BaseClass>::StreamedPlaylist, this, std::placeholders::_1, std::placeholders::_2)));
-    }
-    ~WithStreamedUnaryMethod_Playlist() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPlaylist(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::handsmotion::PlaylistRequest,::handsmotion::PlaylistResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_State : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_State() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler< ::handsmotion::StateRequest, ::handsmotion::StateResponse>(std::bind(&WithStreamedUnaryMethod_State<BaseClass>::StreamedState, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_State() override {
@@ -1033,14 +865,14 @@ class Player final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedState(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::handsmotion::StateRequest,::handsmotion::StateResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Play<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_Reset<WithStreamedUnaryMethod_Playlist<WithStreamedUnaryMethod_State<Service > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_Play<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_Reset<WithStreamedUnaryMethod_State<Service > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_OnStateChange : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithSplitStreamingMethod_OnStateChange() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::SplitServerStreamingHandler< ::handsmotion::OnStateChangeRequest, ::handsmotion::OnStateChangeResponse>(std::bind(&WithSplitStreamingMethod_OnStateChange<BaseClass>::StreamedOnStateChange, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithSplitStreamingMethod_OnStateChange() override {
@@ -1055,7 +887,7 @@ class Player final {
     virtual ::grpc::Status StreamedOnStateChange(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::handsmotion::OnStateChangeRequest,::handsmotion::OnStateChangeResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_OnStateChange<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Play<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_Reset<WithStreamedUnaryMethod_Playlist<WithStreamedUnaryMethod_State<WithSplitStreamingMethod_OnStateChange<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_Play<WithStreamedUnaryMethod_Stop<WithStreamedUnaryMethod_Reset<WithStreamedUnaryMethod_State<WithSplitStreamingMethod_OnStateChange<Service > > > > > StreamedService;
 };
 
 }  // namespace handsmotion

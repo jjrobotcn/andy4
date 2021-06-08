@@ -183,7 +183,7 @@
         "sync_mode": {
           "type": "boolean",
           "format": "boolean",
-          "title": "同步标识\ntrue: 等待动作完成时返回，动作期间中断连接将恢复为初始位置\nfalse: 动作开始执行时立即返回"
+          "title": "同步标识\ntrue: 等待动作完成时返回\nfalse: 动作开始执行时立即返回"
         }
       }
     },

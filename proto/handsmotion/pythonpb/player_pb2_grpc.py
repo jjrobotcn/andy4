@@ -29,11 +29,6 @@ class PlayerStub(object):
         request_serializer=player__pb2.ResetRequest.SerializeToString,
         response_deserializer=player__pb2.ResetResponse.FromString,
         )
-    self.Playlist = channel.unary_unary(
-        '/handsmotion.Player/Playlist',
-        request_serializer=player__pb2.PlaylistRequest.SerializeToString,
-        response_deserializer=player__pb2.PlaylistResponse.FromString,
-        )
     self.State = channel.unary_unary(
         '/handsmotion.Player/State',
         request_serializer=player__pb2.StateRequest.SerializeToString,
@@ -51,42 +46,35 @@ class PlayerServicer(object):
   pass
 
   def Play(self, request, context):
-    """Play为播放动作组对象方法
+    """Play 播放手臂动作
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def Stop(self, request, context):
-    """Stop为停止动作组对象方法
+    """Stop 停止手臂动作
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def Reset(self, request, context):
-    """Reset为重置初始状态方法
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Playlist(self, request, context):
-    """Playlist为获取动作组对象列表方法
+    """Reset 恢复手臂至初始位置
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def State(self, request, context):
-    """State为查询当前player状态方法
+    """State 查询当前player状态
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def OnStateChange(self, request, context):
-    """OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+    """OnStateChange 监听当前player状态
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -109,11 +97,6 @@ def add_PlayerServicer_to_server(servicer, server):
           servicer.Reset,
           request_deserializer=player__pb2.ResetRequest.FromString,
           response_serializer=player__pb2.ResetResponse.SerializeToString,
-      ),
-      'Playlist': grpc.unary_unary_rpc_method_handler(
-          servicer.Playlist,
-          request_deserializer=player__pb2.PlaylistRequest.FromString,
-          response_serializer=player__pb2.PlaylistResponse.SerializeToString,
       ),
       'State': grpc.unary_unary_rpc_method_handler(
           servicer.State,

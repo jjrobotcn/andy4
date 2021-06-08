@@ -14,17 +14,15 @@ module Handsmotion
       self.unmarshal_class_method = :decode
       self.service_name = 'handsmotion.Player'
 
-      # Play为播放动作组对象方法
+      # Play 播放手臂动作
       rpc :Play, PlayRequest, PlayResponse
-      # Stop为停止动作组对象方法
+      # Stop 停止手臂动作
       rpc :Stop, StopRequest, StopResponse
-      # Reset为重置初始状态方法
+      # Reset 恢复手臂至初始位置
       rpc :Reset, ResetRequest, ResetResponse
-      # Playlist为获取动作组对象列表方法
-      rpc :Playlist, PlaylistRequest, PlaylistResponse
-      # State为查询当前player状态方法
+      # State 查询当前player状态
       rpc :State, StateRequest, StateResponse
-      # OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+      # OnStateChange 监听当前player状态
       rpc :OnStateChange, OnStateChangeRequest, stream(OnStateChangeResponse)
     end
 

@@ -129,7 +129,7 @@ message AbsoluteMoveRequest {
     repeated MovementScript scripts = 1;
 
     // 同步标识
-    // true: 等待动作完成时返回，动作期间中断连接将恢复为初始位置
+    // true: 等待动作完成时返回
     // false: 动作开始执行时立即返回
     bool sync_mode = 2;
 }

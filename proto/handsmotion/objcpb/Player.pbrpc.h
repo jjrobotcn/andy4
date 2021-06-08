@@ -13,8 +13,6 @@
 @class OnStateChangeResponse;
 @class PlayRequest;
 @class PlayResponse;
-@class PlaylistRequest;
-@class PlaylistResponse;
 @class ResetRequest;
 @class ResetResponse;
 @class StateRequest;
@@ -23,6 +21,7 @@
 @class StopResponse;
 
 #if !defined(GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO) || !GPB_GRPC_FORWARD_DECLARE_MESSAGE_PROTO
+  #import "Group.pbobjc.h"
   #import "google/api/Annotations.pbobjc.h"
 #endif
 
@@ -40,42 +39,35 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Play(PlayRequest) returns (PlayResponse)
 
 /**
- * Play为播放动作组对象方法
+ * Play 播放手臂动作
  */
 - (GRPCUnaryProtoCall *)playWithMessage:(PlayRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 #pragma mark Stop(StopRequest) returns (StopResponse)
 
 /**
- * Stop为停止动作组对象方法
+ * Stop 停止手臂动作
  */
 - (GRPCUnaryProtoCall *)stopWithMessage:(StopRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 #pragma mark Reset(ResetRequest) returns (ResetResponse)
 
 /**
- * Reset为重置初始状态方法
+ * Reset 恢复手臂至初始位置
  */
 - (GRPCUnaryProtoCall *)resetWithMessage:(ResetRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
-
-#pragma mark Playlist(PlaylistRequest) returns (PlaylistResponse)
-
-/**
- * Playlist为获取动作组对象列表方法
- */
-- (GRPCUnaryProtoCall *)playlistWithMessage:(PlaylistRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 #pragma mark State(StateRequest) returns (StateResponse)
 
 /**
- * State为查询当前player状态方法
+ * State 查询当前player状态
  */
 - (GRPCUnaryProtoCall *)stateWithMessage:(StateRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
 #pragma mark OnStateChange(OnStateChangeRequest) returns (stream OnStateChangeResponse)
 
 /**
- * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+ * OnStateChange 监听当前player状态
  */
 - (GRPCUnaryProtoCall *)onStateChangeWithMessage:(OnStateChangeRequest *)message responseHandler:(id<GRPCProtoResponseHandler>)handler callOptions:(GRPCCallOptions *_Nullable)callOptions;
 
@@ -90,14 +82,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Play(PlayRequest) returns (PlayResponse)
 
 /**
- * Play为播放动作组对象方法
+ * Play 播放手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (void)playWithRequest:(PlayRequest *)request handler:(void(^)(PlayResponse *_Nullable response, NSError *_Nullable error))handler;
 
 /**
- * Play为播放动作组对象方法
+ * Play 播放手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -107,14 +99,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Stop(StopRequest) returns (StopResponse)
 
 /**
- * Stop为停止动作组对象方法
+ * Stop 停止手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (void)stopWithRequest:(StopRequest *)request handler:(void(^)(StopResponse *_Nullable response, NSError *_Nullable error))handler;
 
 /**
- * Stop为停止动作组对象方法
+ * Stop 停止手臂动作
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -124,48 +116,31 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Reset(ResetRequest) returns (ResetResponse)
 
 /**
- * Reset为重置初始状态方法
+ * Reset 恢复手臂至初始位置
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (void)resetWithRequest:(ResetRequest *)request handler:(void(^)(ResetResponse *_Nullable response, NSError *_Nullable error))handler;
 
 /**
- * Reset为重置初始状态方法
+ * Reset 恢复手臂至初始位置
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (GRPCProtoCall *)RPCToResetWithRequest:(ResetRequest *)request handler:(void(^)(ResetResponse *_Nullable response, NSError *_Nullable error))handler;
 
 
-#pragma mark Playlist(PlaylistRequest) returns (PlaylistResponse)
-
-/**
- * Playlist为获取动作组对象列表方法
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (void)playlistWithRequest:(PlaylistRequest *)request handler:(void(^)(PlaylistResponse *_Nullable response, NSError *_Nullable error))handler;
-
-/**
- * Playlist为获取动作组对象列表方法
- *
- * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
- */
-- (GRPCProtoCall *)RPCToPlaylistWithRequest:(PlaylistRequest *)request handler:(void(^)(PlaylistResponse *_Nullable response, NSError *_Nullable error))handler;
-
-
 #pragma mark State(StateRequest) returns (StateResponse)
 
 /**
- * State为查询当前player状态方法
+ * State 查询当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (void)stateWithRequest:(StateRequest *)request handler:(void(^)(StateResponse *_Nullable response, NSError *_Nullable error))handler;
 
 /**
- * State为查询当前player状态方法
+ * State 查询当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
@@ -175,14 +150,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark OnStateChange(OnStateChangeRequest) returns (stream OnStateChangeResponse)
 
 /**
- * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+ * OnStateChange 监听当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */
 - (void)onStateChangeWithRequest:(OnStateChangeRequest *)request eventHandler:(void(^)(BOOL done, OnStateChangeResponse *_Nullable response, NSError *_Nullable error))eventHandler;
 
 /**
- * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+ * OnStateChange 监听当前player状态
  *
  * This method belongs to a set of APIs that have been deprecated. Using the v2 API is recommended.
  */

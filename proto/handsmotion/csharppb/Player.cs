@@ -24,57 +24,44 @@ namespace Handsmotion {
     static PlayerReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxwbGF5ZXIucHJvdG8SC2hhbmRzbW90aW9uGhxnb29nbGUvYXBpL2Fubm90",
-            "YXRpb25zLnByb3RvIh8KA1VyaRIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJ",
-            "ImIKC1BsYXlSZXF1ZXN0EgwKAmlkGAEgASgJSAASDgoEbmFtZRgCIAEoCUgA",
-            "EhAKCHJlcGVhdGVkGAMgASgFEhwKFHJlcGVhdGVkX2ludGVydmFsX21zGAQg",
-            "ASgNQgUKA3VyaSIOCgxQbGF5UmVzcG9uc2UiDQoLU3RvcFJlcXVlc3QiDgoM",
+            "CgxwbGF5ZXIucHJvdG8SC2hhbmRzbW90aW9uGgtncm91cC5wcm90bxocZ29v",
+            "Z2xlL2FwaS9hbm5vdGF0aW9ucy5wcm90byJJCgtQbGF5UmVxdWVzdBInCgZt",
+            "b3Rpb24YASABKAsyFy5oYW5kc21vdGlvbi5Nb3Rpb25NZXRhEhEKCXN5bmNf",
+            "bW9kZRgCIAEoCCIOCgxQbGF5UmVzcG9uc2UiDQoLU3RvcFJlcXVlc3QiDgoM",
             "U3RvcFJlc3BvbnNlIg4KDFJlc2V0UmVxdWVzdCIPCg1SZXNldFJlc3BvbnNl",
-            "IhEKD1BsYXlsaXN0UmVxdWVzdCI2ChBQbGF5bGlzdFJlc3BvbnNlEiIKCHBs",
-            "YXlsaXN0GAEgAygLMhAuaGFuZHNtb3Rpb24uVXJpIg4KDFN0YXRlUmVxdWVz",
-            "dCJXCg1TdGF0ZVJlc3BvbnNlEicKBXN0YXRlGAEgASgOMhguaGFuZHNtb3Rp",
-            "b24uUGxheWVyU3RhdGUSHQoDdXJpGAIgASgLMhAuaGFuZHNtb3Rpb24uVXJp",
-            "IhYKFE9uU3RhdGVDaGFuZ2VSZXF1ZXN0Il8KFU9uU3RhdGVDaGFuZ2VSZXNw",
-            "b25zZRInCgVzdGF0ZRgBIAEoDjIYLmhhbmRzbW90aW9uLlBsYXllclN0YXRl",
-            "Eh0KA3VyaRgCIAEoCzIQLmhhbmRzbW90aW9uLlVyaSo0CgtQbGF5ZXJTdGF0",
-            "ZRILCgdVTktOT1dOEAASCwoHU1RPUFBFRBABEgsKB1BMQVlJTkcQAjKBBwoG",
-            "UGxheWVyEowBCgRQbGF5EhguaGFuZHNtb3Rpb24uUGxheVJlcXVlc3QaGS5o",
-            "YW5kc21vdGlvbi5QbGF5UmVzcG9uc2UiT4LT5JMCSSIgL2FwaS92Mi9tb3Rp",
-            "b24vaGFuZHMvcGxheWVyL3BsYXk6ASpaIhIgL2FwaS92Mi9tb3Rpb24vaGFu",
-            "ZHMvcGxheWVyL3BsYXkSjAEKBFN0b3ASGC5oYW5kc21vdGlvbi5TdG9wUmVx",
-            "dWVzdBoZLmhhbmRzbW90aW9uLlN0b3BSZXNwb25zZSJPgtPkkwJJIiAvYXBp",
-            "L3YyL21vdGlvbi9oYW5kcy9wbGF5ZXIvc3RvcDoBKloiEiAvYXBpL3YyL21v",
-            "dGlvbi9oYW5kcy9wbGF5ZXIvc3RvcBKRAQoFUmVzZXQSGS5oYW5kc21vdGlv",
-            "bi5SZXNldFJlcXVlc3QaGi5oYW5kc21vdGlvbi5SZXNldFJlc3BvbnNlIlGC",
-            "0+STAksiIS9hcGkvdjIvbW90aW9uL2hhbmRzL3BsYXllci9yZXNldDoBKloj",
-            "EiEvYXBpL3YyL21vdGlvbi9oYW5kcy9wbGF5ZXIvcmVzZXQSoAEKCFBsYXls",
-            "aXN0EhwuaGFuZHNtb3Rpb24uUGxheWxpc3RSZXF1ZXN0Gh0uaGFuZHNtb3Rp",
-            "b24uUGxheWxpc3RSZXNwb25zZSJXgtPkkwJRIiQvYXBpL3YyL21vdGlvbi9o",
-            "YW5kcy9wbGF5ZXIvcGxheWxpc3Q6ASpaJhIkL2FwaS92Mi9tb3Rpb24vaGFu",
-            "ZHMvcGxheWVyL3BsYXlsaXN0EpEBCgVTdGF0ZRIZLmhhbmRzbW90aW9uLlN0",
-            "YXRlUmVxdWVzdBoaLmhhbmRzbW90aW9uLlN0YXRlUmVzcG9uc2UiUYLT5JMC",
-            "SyIhL2FwaS92Mi9tb3Rpb24vaGFuZHMvcGxheWVyL3N0YXRlOgEqWiMSIS9h",
-            "cGkvdjIvbW90aW9uL2hhbmRzL3BsYXllci9zdGF0ZRKNAQoNT25TdGF0ZUNo",
-            "YW5nZRIhLmhhbmRzbW90aW9uLk9uU3RhdGVDaGFuZ2VSZXF1ZXN0GiIuaGFu",
-            "ZHNtb3Rpb24uT25TdGF0ZUNoYW5nZVJlc3BvbnNlIjOC0+STAi0SKy9hcGkv",
-            "djIvbW90aW9uL2hhbmRzL3BsYXllci9vbl9zdGF0ZV9jaGFuZ2UwAUIjCiFj",
-            "b20uamotcm9ib3QuYW5keTRzcnYuaGFuZHNtb3Rpb25iBnByb3RvMw=="));
+            "Ig4KDFN0YXRlUmVxdWVzdCJhCg1TdGF0ZVJlc3BvbnNlEicKBXN0YXRlGAEg",
+            "ASgOMhguaGFuZHNtb3Rpb24uUGxheWVyU3RhdGUSJwoGbW90aW9uGAIgASgL",
+            "MhcuaGFuZHNtb3Rpb24uTW90aW9uTWV0YSIWChRPblN0YXRlQ2hhbmdlUmVx",
+            "dWVzdCJpChVPblN0YXRlQ2hhbmdlUmVzcG9uc2USJwoFc3RhdGUYASABKA4y",
+            "GC5oYW5kc21vdGlvbi5QbGF5ZXJTdGF0ZRInCgZtb3Rpb24YAiABKAsyFy5o",
+            "YW5kc21vdGlvbi5Nb3Rpb25NZXRhKjQKC1BsYXllclN0YXRlEgsKB1VOS05P",
+            "V04QABILCgdTVE9QUEVEEAESCwoHUExBWUlORxACMsUECgZQbGF5ZXISaAoE",
+            "UGxheRIYLmhhbmRzbW90aW9uLlBsYXlSZXF1ZXN0GhkuaGFuZHNtb3Rpb24u",
+            "UGxheVJlc3BvbnNlIiuC0+STAiUiIC9hcGkvdjIvbW90aW9uL2hhbmRzL3Bs",
+            "YXllci9wbGF5OgEqEmgKBFN0b3ASGC5oYW5kc21vdGlvbi5TdG9wUmVxdWVz",
+            "dBoZLmhhbmRzbW90aW9uLlN0b3BSZXNwb25zZSIrgtPkkwIlIiAvYXBpL3Yy",
+            "L21vdGlvbi9oYW5kcy9wbGF5ZXIvc3RvcDoBKhJsCgVSZXNldBIZLmhhbmRz",
+            "bW90aW9uLlJlc2V0UmVxdWVzdBoaLmhhbmRzbW90aW9uLlJlc2V0UmVzcG9u",
+            "c2UiLILT5JMCJiIhL2FwaS92Mi9tb3Rpb24vaGFuZHMvcGxheWVyL3Jlc2V0",
+            "OgEqEmkKBVN0YXRlEhkuaGFuZHNtb3Rpb24uU3RhdGVSZXF1ZXN0GhouaGFu",
+            "ZHNtb3Rpb24uU3RhdGVSZXNwb25zZSIpgtPkkwIjEiEvYXBpL3YyL21vdGlv",
+            "bi9oYW5kcy9wbGF5ZXIvc3RhdGUSjQEKDU9uU3RhdGVDaGFuZ2USIS5oYW5k",
+            "c21vdGlvbi5PblN0YXRlQ2hhbmdlUmVxdWVzdBoiLmhhbmRzbW90aW9uLk9u",
+            "U3RhdGVDaGFuZ2VSZXNwb25zZSIzgtPkkwItEisvYXBpL3YyL21vdGlvbi9o",
+            "YW5kcy9wbGF5ZXIvb25fc3RhdGVfY2hhbmdlMAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Api.AnnotationsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Handsmotion.GroupReflection.Descriptor, global::Google.Api.AnnotationsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Handsmotion.PlayerState), }, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.Uri), global::Handsmotion.Uri.Parser, new[]{ "Id", "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.PlayRequest), global::Handsmotion.PlayRequest.Parser, new[]{ "Id", "Name", "Repeated", "RepeatedIntervalMs" }, new[]{ "Uri" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.PlayRequest), global::Handsmotion.PlayRequest.Parser, new[]{ "Motion", "SyncMode" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.PlayResponse), global::Handsmotion.PlayResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.StopRequest), global::Handsmotion.StopRequest.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.StopResponse), global::Handsmotion.StopResponse.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.ResetRequest), global::Handsmotion.ResetRequest.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.ResetResponse), global::Handsmotion.ResetResponse.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.PlaylistRequest), global::Handsmotion.PlaylistRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.PlaylistResponse), global::Handsmotion.PlaylistResponse.Parser, new[]{ "Playlist" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.StateRequest), global::Handsmotion.StateRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.StateResponse), global::Handsmotion.StateResponse.Parser, new[]{ "State", "Uri" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.StateResponse), global::Handsmotion.StateResponse.Parser, new[]{ "State", "Motion" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.OnStateChangeRequest), global::Handsmotion.OnStateChangeRequest.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.OnStateChangeResponse), global::Handsmotion.OnStateChangeResponse.Parser, new[]{ "State", "Uri" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Handsmotion.OnStateChangeResponse), global::Handsmotion.OnStateChangeResponse.Parser, new[]{ "State", "Motion" }, null, null, null)
           }));
     }
     #endregion
@@ -102,172 +89,6 @@ namespace Handsmotion {
   #endregion
 
   #region Messages
-  /// <summary>
-  /// 动作组对象描述
-  /// </summary>
-  public sealed partial class Uri : pb::IMessage<Uri> {
-    private static readonly pb::MessageParser<Uri> _parser = new pb::MessageParser<Uri>(() => new Uri());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Uri> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Uri() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Uri(Uri other) : this() {
-      id_ = other.id_;
-      name_ = other.name_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Uri Clone() {
-      return new Uri(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private string id_ = "";
-    /// <summary>
-    /// 动作组分配id
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
-      get { return id_; }
-      set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
-    private string name_ = "";
-    /// <summary>
-    /// 动作组自字义名
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Uri);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Uri other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      if (Name != other.Name) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Name);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
-      }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Uri other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Id = input.ReadString();
-            break;
-          }
-          case 18: {
-            Name = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class PlayRequest : pb::IMessage<PlayRequest> {
     private static readonly pb::MessageParser<PlayRequest> _parser = new pb::MessageParser<PlayRequest>(() => new PlayRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -276,7 +97,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -293,17 +114,8 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PlayRequest(PlayRequest other) : this() {
-      repeated_ = other.repeated_;
-      repeatedIntervalMs_ = other.repeatedIntervalMs_;
-      switch (other.UriCase) {
-        case UriOneofCase.Id:
-          Id = other.Id;
-          break;
-        case UriOneofCase.Name:
-          Name = other.Name;
-          break;
-      }
-
+      motion_ = other.motion_ != null ? other.motion_.Clone() : null;
+      syncMode_ = other.syncMode_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -312,81 +124,35 @@ namespace Handsmotion {
       return new PlayRequest(this);
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
-      get { return uriCase_ == UriOneofCase.Id ? (string) uri_ : ""; }
-      set {
-        uri_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        uriCase_ = UriOneofCase.Id;
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
+    /// <summary>Field number for the "motion" field.</summary>
+    public const int MotionFieldNumber = 1;
+    private global::Handsmotion.MotionMeta motion_;
     /// <summary>
-    /// 使用自定义名时将播放首个匹配项
+    /// 手臂动作
+    /// 支持通过id或名称任意一值
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return uriCase_ == UriOneofCase.Name ? (string) uri_ : ""; }
+    public global::Handsmotion.MotionMeta Motion {
+      get { return motion_; }
       set {
-        uri_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-        uriCase_ = UriOneofCase.Name;
+        motion_ = value;
       }
     }
 
-    /// <summary>Field number for the "repeated" field.</summary>
-    public const int RepeatedFieldNumber = 3;
-    private int repeated_;
+    /// <summary>Field number for the "sync_mode" field.</summary>
+    public const int SyncModeFieldNumber = 2;
+    private bool syncMode_;
     /// <summary>
-    /// 播放动作重复次数
-    /// 小于0: 无限重复，可通过Stop停止
-    /// 0: 同等设置该值为1
-    /// > 0: 根据设置播放次数重复播放
-    /// 默认播放1次
+    /// 同步标识
+    /// true: 等待动作完成时返回
+    /// false: 动作开始执行时立即返回
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Repeated {
-      get { return repeated_; }
+    public bool SyncMode {
+      get { return syncMode_; }
       set {
-        repeated_ = value;
+        syncMode_ = value;
       }
-    }
-
-    /// <summary>Field number for the "repeated_interval_ms" field.</summary>
-    public const int RepeatedIntervalMsFieldNumber = 4;
-    private uint repeatedIntervalMs_;
-    /// <summary>
-    /// 重复播放间隔，单位为毫秒
-    /// 默认为0，无间隔
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint RepeatedIntervalMs {
-      get { return repeatedIntervalMs_; }
-      set {
-        repeatedIntervalMs_ = value;
-      }
-    }
-
-    private object uri_;
-    /// <summary>Enum of possible cases for the "uri" oneof.</summary>
-    public enum UriOneofCase {
-      None = 0,
-      Id = 1,
-      Name = 2,
-    }
-    private UriOneofCase uriCase_ = UriOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public UriOneofCase UriCase {
-      get { return uriCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearUri() {
-      uriCase_ = UriOneofCase.None;
-      uri_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -402,22 +168,16 @@ namespace Handsmotion {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
-      if (Name != other.Name) return false;
-      if (Repeated != other.Repeated) return false;
-      if (RepeatedIntervalMs != other.RepeatedIntervalMs) return false;
-      if (UriCase != other.UriCase) return false;
+      if (!object.Equals(Motion, other.Motion)) return false;
+      if (SyncMode != other.SyncMode) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (uriCase_ == UriOneofCase.Id) hash ^= Id.GetHashCode();
-      if (uriCase_ == UriOneofCase.Name) hash ^= Name.GetHashCode();
-      if (Repeated != 0) hash ^= Repeated.GetHashCode();
-      if (RepeatedIntervalMs != 0) hash ^= RepeatedIntervalMs.GetHashCode();
-      hash ^= (int) uriCase_;
+      if (motion_ != null) hash ^= Motion.GetHashCode();
+      if (SyncMode != false) hash ^= SyncMode.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -431,21 +191,13 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (uriCase_ == UriOneofCase.Id) {
+      if (motion_ != null) {
         output.WriteRawTag(10);
-        output.WriteString(Id);
+        output.WriteMessage(Motion);
       }
-      if (uriCase_ == UriOneofCase.Name) {
-        output.WriteRawTag(18);
-        output.WriteString(Name);
-      }
-      if (Repeated != 0) {
-        output.WriteRawTag(24);
-        output.WriteInt32(Repeated);
-      }
-      if (RepeatedIntervalMs != 0) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(RepeatedIntervalMs);
+      if (SyncMode != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(SyncMode);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -455,17 +207,11 @@ namespace Handsmotion {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (uriCase_ == UriOneofCase.Id) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (motion_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Motion);
       }
-      if (uriCase_ == UriOneofCase.Name) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Repeated != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Repeated);
-      }
-      if (RepeatedIntervalMs != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RepeatedIntervalMs);
+      if (SyncMode != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -478,21 +224,15 @@ namespace Handsmotion {
       if (other == null) {
         return;
       }
-      if (other.Repeated != 0) {
-        Repeated = other.Repeated;
+      if (other.motion_ != null) {
+        if (motion_ == null) {
+          Motion = new global::Handsmotion.MotionMeta();
+        }
+        Motion.MergeFrom(other.Motion);
       }
-      if (other.RepeatedIntervalMs != 0) {
-        RepeatedIntervalMs = other.RepeatedIntervalMs;
+      if (other.SyncMode != false) {
+        SyncMode = other.SyncMode;
       }
-      switch (other.UriCase) {
-        case UriOneofCase.Id:
-          Id = other.Id;
-          break;
-        case UriOneofCase.Name:
-          Name = other.Name;
-          break;
-      }
-
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -505,19 +245,14 @@ namespace Handsmotion {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Id = input.ReadString();
+            if (motion_ == null) {
+              Motion = new global::Handsmotion.MotionMeta();
+            }
+            input.ReadMessage(Motion);
             break;
           }
-          case 18: {
-            Name = input.ReadString();
-            break;
-          }
-          case 24: {
-            Repeated = input.ReadInt32();
-            break;
-          }
-          case 32: {
-            RepeatedIntervalMs = input.ReadUInt32();
+          case 16: {
+            SyncMode = input.ReadBool();
             break;
           }
         }
@@ -534,7 +269,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -635,7 +370,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -736,7 +471,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -837,7 +572,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -938,7 +673,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1031,231 +766,6 @@ namespace Handsmotion {
 
   }
 
-  public sealed partial class PlaylistRequest : pb::IMessage<PlaylistRequest> {
-    private static readonly pb::MessageParser<PlaylistRequest> _parser = new pb::MessageParser<PlaylistRequest>(() => new PlaylistRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PlaylistRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlaylistRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlaylistRequest(PlaylistRequest other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlaylistRequest Clone() {
-      return new PlaylistRequest(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as PlaylistRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PlaylistRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PlaylistRequest other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class PlaylistResponse : pb::IMessage<PlaylistResponse> {
-    private static readonly pb::MessageParser<PlaylistResponse> _parser = new pb::MessageParser<PlaylistResponse>(() => new PlaylistResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PlaylistResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlaylistResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlaylistResponse(PlaylistResponse other) : this() {
-      playlist_ = other.playlist_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlaylistResponse Clone() {
-      return new PlaylistResponse(this);
-    }
-
-    /// <summary>Field number for the "playlist" field.</summary>
-    public const int PlaylistFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Handsmotion.Uri> _repeated_playlist_codec
-        = pb::FieldCodec.ForMessage(10, global::Handsmotion.Uri.Parser);
-    private readonly pbc::RepeatedField<global::Handsmotion.Uri> playlist_ = new pbc::RepeatedField<global::Handsmotion.Uri>();
-    /// <summary>
-    /// Uri动作组播放列表
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Handsmotion.Uri> Playlist {
-      get { return playlist_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as PlaylistResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PlaylistResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!playlist_.Equals(other.playlist_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= playlist_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      playlist_.WriteTo(output, _repeated_playlist_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += playlist_.CalculateSize(_repeated_playlist_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PlaylistResponse other) {
-      if (other == null) {
-        return;
-      }
-      playlist_.Add(other.playlist_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            playlist_.AddEntriesFrom(input, _repeated_playlist_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
   public sealed partial class StateRequest : pb::IMessage<StateRequest> {
     private static readonly pb::MessageParser<StateRequest> _parser = new pb::MessageParser<StateRequest>(() => new StateRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -1264,7 +774,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1365,7 +875,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1383,7 +893,7 @@ namespace Handsmotion {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public StateResponse(StateResponse other) : this() {
       state_ = other.state_;
-      uri_ = other.uri_ != null ? other.uri_.Clone() : null;
+      motion_ = other.motion_ != null ? other.motion_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1406,17 +916,17 @@ namespace Handsmotion {
       }
     }
 
-    /// <summary>Field number for the "uri" field.</summary>
-    public const int UriFieldNumber = 2;
-    private global::Handsmotion.Uri uri_;
+    /// <summary>Field number for the "motion" field.</summary>
+    public const int MotionFieldNumber = 2;
+    private global::Handsmotion.MotionMeta motion_;
     /// <summary>
-    /// 动作组资源Uri
+    /// 当前手臂动作
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Handsmotion.Uri Uri {
-      get { return uri_; }
+    public global::Handsmotion.MotionMeta Motion {
+      get { return motion_; }
       set {
-        uri_ = value;
+        motion_ = value;
       }
     }
 
@@ -1434,7 +944,7 @@ namespace Handsmotion {
         return true;
       }
       if (State != other.State) return false;
-      if (!object.Equals(Uri, other.Uri)) return false;
+      if (!object.Equals(Motion, other.Motion)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1442,7 +952,7 @@ namespace Handsmotion {
     public override int GetHashCode() {
       int hash = 1;
       if (State != 0) hash ^= State.GetHashCode();
-      if (uri_ != null) hash ^= Uri.GetHashCode();
+      if (motion_ != null) hash ^= Motion.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1460,9 +970,9 @@ namespace Handsmotion {
         output.WriteRawTag(8);
         output.WriteEnum((int) State);
       }
-      if (uri_ != null) {
+      if (motion_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(Uri);
+        output.WriteMessage(Motion);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1475,8 +985,8 @@ namespace Handsmotion {
       if (State != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
       }
-      if (uri_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Uri);
+      if (motion_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Motion);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1492,11 +1002,11 @@ namespace Handsmotion {
       if (other.State != 0) {
         State = other.State;
       }
-      if (other.uri_ != null) {
-        if (uri_ == null) {
-          Uri = new global::Handsmotion.Uri();
+      if (other.motion_ != null) {
+        if (motion_ == null) {
+          Motion = new global::Handsmotion.MotionMeta();
         }
-        Uri.MergeFrom(other.Uri);
+        Motion.MergeFrom(other.Motion);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1514,10 +1024,10 @@ namespace Handsmotion {
             break;
           }
           case 18: {
-            if (uri_ == null) {
-              Uri = new global::Handsmotion.Uri();
+            if (motion_ == null) {
+              Motion = new global::Handsmotion.MotionMeta();
             }
-            input.ReadMessage(Uri);
+            input.ReadMessage(Motion);
             break;
           }
         }
@@ -1534,7 +1044,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1635,7 +1145,7 @@ namespace Handsmotion {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Handsmotion.PlayerReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1653,7 +1163,7 @@ namespace Handsmotion {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OnStateChangeResponse(OnStateChangeResponse other) : this() {
       state_ = other.state_;
-      uri_ = other.uri_ != null ? other.uri_.Clone() : null;
+      motion_ = other.motion_ != null ? other.motion_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1676,17 +1186,17 @@ namespace Handsmotion {
       }
     }
 
-    /// <summary>Field number for the "uri" field.</summary>
-    public const int UriFieldNumber = 2;
-    private global::Handsmotion.Uri uri_;
+    /// <summary>Field number for the "motion" field.</summary>
+    public const int MotionFieldNumber = 2;
+    private global::Handsmotion.MotionMeta motion_;
     /// <summary>
-    /// 动作组资源Uri
+    /// 当前手臂动作
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Handsmotion.Uri Uri {
-      get { return uri_; }
+    public global::Handsmotion.MotionMeta Motion {
+      get { return motion_; }
       set {
-        uri_ = value;
+        motion_ = value;
       }
     }
 
@@ -1704,7 +1214,7 @@ namespace Handsmotion {
         return true;
       }
       if (State != other.State) return false;
-      if (!object.Equals(Uri, other.Uri)) return false;
+      if (!object.Equals(Motion, other.Motion)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1712,7 +1222,7 @@ namespace Handsmotion {
     public override int GetHashCode() {
       int hash = 1;
       if (State != 0) hash ^= State.GetHashCode();
-      if (uri_ != null) hash ^= Uri.GetHashCode();
+      if (motion_ != null) hash ^= Motion.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1730,9 +1240,9 @@ namespace Handsmotion {
         output.WriteRawTag(8);
         output.WriteEnum((int) State);
       }
-      if (uri_ != null) {
+      if (motion_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(Uri);
+        output.WriteMessage(Motion);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1745,8 +1255,8 @@ namespace Handsmotion {
       if (State != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
       }
-      if (uri_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Uri);
+      if (motion_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Motion);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1762,11 +1272,11 @@ namespace Handsmotion {
       if (other.State != 0) {
         State = other.State;
       }
-      if (other.uri_ != null) {
-        if (uri_ == null) {
-          Uri = new global::Handsmotion.Uri();
+      if (other.motion_ != null) {
+        if (motion_ == null) {
+          Motion = new global::Handsmotion.MotionMeta();
         }
-        Uri.MergeFrom(other.Uri);
+        Motion.MergeFrom(other.Motion);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1784,10 +1294,10 @@ namespace Handsmotion {
             break;
           }
           case 18: {
-            if (uri_ == null) {
-              Uri = new global::Handsmotion.Uri();
+            if (motion_ == null) {
+              Motion = new global::Handsmotion.MotionMeta();
             }
-            input.ReadMessage(Uri);
+            input.ReadMessage(Motion);
             break;
           }
         }

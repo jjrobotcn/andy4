@@ -57,72 +57,14 @@ func (PlayerState) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_41d803d1b635d5c6, []int{0}
 }
 
-// 动作组对象描述
-type Uri struct {
-	// 动作组分配id
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// 动作组自字义名
-	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *Uri) Reset()         { *m = Uri{} }
-func (m *Uri) String() string { return proto.CompactTextString(m) }
-func (*Uri) ProtoMessage()    {}
-func (*Uri) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{0}
-}
-
-func (m *Uri) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Uri.Unmarshal(m, b)
-}
-func (m *Uri) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Uri.Marshal(b, m, deterministic)
-}
-func (m *Uri) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Uri.Merge(m, src)
-}
-func (m *Uri) XXX_Size() int {
-	return xxx_messageInfo_Uri.Size(m)
-}
-func (m *Uri) XXX_DiscardUnknown() {
-	xxx_messageInfo_Uri.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Uri proto.InternalMessageInfo
-
-func (m *Uri) GetId() string {
-	if m != nil {
-		return m.Id
-	}
-	return ""
-}
-
-func (m *Uri) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
-
 type PlayRequest struct {
-	// 动作组对象描述 oneof
-	//
-	// Types that are valid to be assigned to Uri:
-	//	*PlayRequest_Id
-	//	*PlayRequest_Name
-	Uri isPlayRequest_Uri `protobuf_oneof:"uri"`
-	// 播放动作重复次数
-	// 小于0: 无限重复，可通过Stop停止
-	// 0: 同等设置该值为1
-	// > 0: 根据设置播放次数重复播放
-	// 默认播放1次
-	Repeated int32 `protobuf:"varint,3,opt,name=repeated,proto3" json:"repeated,omitempty"`
-	// 重复播放间隔，单位为毫秒
-	// 默认为0，无间隔
-	RepeatedIntervalMs   uint32   `protobuf:"varint,4,opt,name=repeated_interval_ms,json=repeatedIntervalMs,proto3" json:"repeated_interval_ms,omitempty"`
+	// 手臂动作
+	// 支持通过id或名称任意一值
+	Motion *MotionMeta `protobuf:"bytes,1,opt,name=motion,proto3" json:"motion,omitempty"`
+	// 同步标识
+	// true: 等待动作完成时返回
+	// false: 动作开始执行时立即返回
+	SyncMode             bool     `protobuf:"varint,2,opt,name=sync_mode,json=syncMode,proto3" json:"sync_mode,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -132,7 +74,7 @@ func (m *PlayRequest) Reset()         { *m = PlayRequest{} }
 func (m *PlayRequest) String() string { return proto.CompactTextString(m) }
 func (*PlayRequest) ProtoMessage()    {}
 func (*PlayRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{1}
+	return fileDescriptor_41d803d1b635d5c6, []int{0}
 }
 
 func (m *PlayRequest) XXX_Unmarshal(b []byte) error {
@@ -153,63 +95,18 @@ func (m *PlayRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_PlayRequest proto.InternalMessageInfo
 
-type isPlayRequest_Uri interface {
-	isPlayRequest_Uri()
-}
-
-type PlayRequest_Id struct {
-	Id string `protobuf:"bytes,1,opt,name=id,proto3,oneof"`
-}
-
-type PlayRequest_Name struct {
-	Name string `protobuf:"bytes,2,opt,name=name,proto3,oneof"`
-}
-
-func (*PlayRequest_Id) isPlayRequest_Uri() {}
-
-func (*PlayRequest_Name) isPlayRequest_Uri() {}
-
-func (m *PlayRequest) GetUri() isPlayRequest_Uri {
+func (m *PlayRequest) GetMotion() *MotionMeta {
 	if m != nil {
-		return m.Uri
+		return m.Motion
 	}
 	return nil
 }
 
-func (m *PlayRequest) GetId() string {
-	if x, ok := m.GetUri().(*PlayRequest_Id); ok {
-		return x.Id
-	}
-	return ""
-}
-
-func (m *PlayRequest) GetName() string {
-	if x, ok := m.GetUri().(*PlayRequest_Name); ok {
-		return x.Name
-	}
-	return ""
-}
-
-func (m *PlayRequest) GetRepeated() int32 {
+func (m *PlayRequest) GetSyncMode() bool {
 	if m != nil {
-		return m.Repeated
+		return m.SyncMode
 	}
-	return 0
-}
-
-func (m *PlayRequest) GetRepeatedIntervalMs() uint32 {
-	if m != nil {
-		return m.RepeatedIntervalMs
-	}
-	return 0
-}
-
-// XXX_OneofWrappers is for the internal use of the proto package.
-func (*PlayRequest) XXX_OneofWrappers() []interface{} {
-	return []interface{}{
-		(*PlayRequest_Id)(nil),
-		(*PlayRequest_Name)(nil),
-	}
+	return false
 }
 
 type PlayResponse struct {
@@ -222,7 +119,7 @@ func (m *PlayResponse) Reset()         { *m = PlayResponse{} }
 func (m *PlayResponse) String() string { return proto.CompactTextString(m) }
 func (*PlayResponse) ProtoMessage()    {}
 func (*PlayResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{2}
+	return fileDescriptor_41d803d1b635d5c6, []int{1}
 }
 
 func (m *PlayResponse) XXX_Unmarshal(b []byte) error {
@@ -253,7 +150,7 @@ func (m *StopRequest) Reset()         { *m = StopRequest{} }
 func (m *StopRequest) String() string { return proto.CompactTextString(m) }
 func (*StopRequest) ProtoMessage()    {}
 func (*StopRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{3}
+	return fileDescriptor_41d803d1b635d5c6, []int{2}
 }
 
 func (m *StopRequest) XXX_Unmarshal(b []byte) error {
@@ -284,7 +181,7 @@ func (m *StopResponse) Reset()         { *m = StopResponse{} }
 func (m *StopResponse) String() string { return proto.CompactTextString(m) }
 func (*StopResponse) ProtoMessage()    {}
 func (*StopResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{4}
+	return fileDescriptor_41d803d1b635d5c6, []int{3}
 }
 
 func (m *StopResponse) XXX_Unmarshal(b []byte) error {
@@ -315,7 +212,7 @@ func (m *ResetRequest) Reset()         { *m = ResetRequest{} }
 func (m *ResetRequest) String() string { return proto.CompactTextString(m) }
 func (*ResetRequest) ProtoMessage()    {}
 func (*ResetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{5}
+	return fileDescriptor_41d803d1b635d5c6, []int{4}
 }
 
 func (m *ResetRequest) XXX_Unmarshal(b []byte) error {
@@ -346,7 +243,7 @@ func (m *ResetResponse) Reset()         { *m = ResetResponse{} }
 func (m *ResetResponse) String() string { return proto.CompactTextString(m) }
 func (*ResetResponse) ProtoMessage()    {}
 func (*ResetResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{6}
+	return fileDescriptor_41d803d1b635d5c6, []int{5}
 }
 
 func (m *ResetResponse) XXX_Unmarshal(b []byte) error {
@@ -367,77 +264,6 @@ func (m *ResetResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ResetResponse proto.InternalMessageInfo
 
-type PlaylistRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *PlaylistRequest) Reset()         { *m = PlaylistRequest{} }
-func (m *PlaylistRequest) String() string { return proto.CompactTextString(m) }
-func (*PlaylistRequest) ProtoMessage()    {}
-func (*PlaylistRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{7}
-}
-
-func (m *PlaylistRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlaylistRequest.Unmarshal(m, b)
-}
-func (m *PlaylistRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlaylistRequest.Marshal(b, m, deterministic)
-}
-func (m *PlaylistRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlaylistRequest.Merge(m, src)
-}
-func (m *PlaylistRequest) XXX_Size() int {
-	return xxx_messageInfo_PlaylistRequest.Size(m)
-}
-func (m *PlaylistRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlaylistRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PlaylistRequest proto.InternalMessageInfo
-
-type PlaylistResponse struct {
-	// Uri动作组播放列表
-	Playlist             []*Uri   `protobuf:"bytes,1,rep,name=playlist,proto3" json:"playlist,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *PlaylistResponse) Reset()         { *m = PlaylistResponse{} }
-func (m *PlaylistResponse) String() string { return proto.CompactTextString(m) }
-func (*PlaylistResponse) ProtoMessage()    {}
-func (*PlaylistResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{8}
-}
-
-func (m *PlaylistResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlaylistResponse.Unmarshal(m, b)
-}
-func (m *PlaylistResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlaylistResponse.Marshal(b, m, deterministic)
-}
-func (m *PlaylistResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlaylistResponse.Merge(m, src)
-}
-func (m *PlaylistResponse) XXX_Size() int {
-	return xxx_messageInfo_PlaylistResponse.Size(m)
-}
-func (m *PlaylistResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlaylistResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PlaylistResponse proto.InternalMessageInfo
-
-func (m *PlaylistResponse) GetPlaylist() []*Uri {
-	if m != nil {
-		return m.Playlist
-	}
-	return nil
-}
-
 type StateRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -448,7 +274,7 @@ func (m *StateRequest) Reset()         { *m = StateRequest{} }
 func (m *StateRequest) String() string { return proto.CompactTextString(m) }
 func (*StateRequest) ProtoMessage()    {}
 func (*StateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{9}
+	return fileDescriptor_41d803d1b635d5c6, []int{6}
 }
 
 func (m *StateRequest) XXX_Unmarshal(b []byte) error {
@@ -472,18 +298,18 @@ var xxx_messageInfo_StateRequest proto.InternalMessageInfo
 type StateResponse struct {
 	// 播放状态
 	State PlayerState `protobuf:"varint,1,opt,name=state,proto3,enum=handsmotion.PlayerState" json:"state,omitempty"`
-	// 动作组资源Uri
-	Uri                  *Uri     `protobuf:"bytes,2,opt,name=uri,proto3" json:"uri,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	// 当前手臂动作
+	Motion               *MotionMeta `protobuf:"bytes,2,opt,name=motion,proto3" json:"motion,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
 func (m *StateResponse) Reset()         { *m = StateResponse{} }
 func (m *StateResponse) String() string { return proto.CompactTextString(m) }
 func (*StateResponse) ProtoMessage()    {}
 func (*StateResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{10}
+	return fileDescriptor_41d803d1b635d5c6, []int{7}
 }
 
 func (m *StateResponse) XXX_Unmarshal(b []byte) error {
@@ -511,9 +337,9 @@ func (m *StateResponse) GetState() PlayerState {
 	return PlayerState_UNKNOWN
 }
 
-func (m *StateResponse) GetUri() *Uri {
+func (m *StateResponse) GetMotion() *MotionMeta {
 	if m != nil {
-		return m.Uri
+		return m.Motion
 	}
 	return nil
 }
@@ -528,7 +354,7 @@ func (m *OnStateChangeRequest) Reset()         { *m = OnStateChangeRequest{} }
 func (m *OnStateChangeRequest) String() string { return proto.CompactTextString(m) }
 func (*OnStateChangeRequest) ProtoMessage()    {}
 func (*OnStateChangeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{11}
+	return fileDescriptor_41d803d1b635d5c6, []int{8}
 }
 
 func (m *OnStateChangeRequest) XXX_Unmarshal(b []byte) error {
@@ -552,18 +378,18 @@ var xxx_messageInfo_OnStateChangeRequest proto.InternalMessageInfo
 type OnStateChangeResponse struct {
 	// 播放状态
 	State PlayerState `protobuf:"varint,1,opt,name=state,proto3,enum=handsmotion.PlayerState" json:"state,omitempty"`
-	// 动作组资源Uri
-	Uri                  *Uri     `protobuf:"bytes,2,opt,name=uri,proto3" json:"uri,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	// 当前手臂动作
+	Motion               *MotionMeta `protobuf:"bytes,2,opt,name=motion,proto3" json:"motion,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
 }
 
 func (m *OnStateChangeResponse) Reset()         { *m = OnStateChangeResponse{} }
 func (m *OnStateChangeResponse) String() string { return proto.CompactTextString(m) }
 func (*OnStateChangeResponse) ProtoMessage()    {}
 func (*OnStateChangeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_41d803d1b635d5c6, []int{12}
+	return fileDescriptor_41d803d1b635d5c6, []int{9}
 }
 
 func (m *OnStateChangeResponse) XXX_Unmarshal(b []byte) error {
@@ -591,24 +417,21 @@ func (m *OnStateChangeResponse) GetState() PlayerState {
 	return PlayerState_UNKNOWN
 }
 
-func (m *OnStateChangeResponse) GetUri() *Uri {
+func (m *OnStateChangeResponse) GetMotion() *MotionMeta {
 	if m != nil {
-		return m.Uri
+		return m.Motion
 	}
 	return nil
 }
 
 func init() {
 	proto.RegisterEnum("handsmotion.PlayerState", PlayerState_name, PlayerState_value)
-	proto.RegisterType((*Uri)(nil), "handsmotion.Uri")
 	proto.RegisterType((*PlayRequest)(nil), "handsmotion.PlayRequest")
 	proto.RegisterType((*PlayResponse)(nil), "handsmotion.PlayResponse")
 	proto.RegisterType((*StopRequest)(nil), "handsmotion.StopRequest")
 	proto.RegisterType((*StopResponse)(nil), "handsmotion.StopResponse")
 	proto.RegisterType((*ResetRequest)(nil), "handsmotion.ResetRequest")
 	proto.RegisterType((*ResetResponse)(nil), "handsmotion.ResetResponse")
-	proto.RegisterType((*PlaylistRequest)(nil), "handsmotion.PlaylistRequest")
-	proto.RegisterType((*PlaylistResponse)(nil), "handsmotion.PlaylistResponse")
 	proto.RegisterType((*StateRequest)(nil), "handsmotion.StateRequest")
 	proto.RegisterType((*StateResponse)(nil), "handsmotion.StateResponse")
 	proto.RegisterType((*OnStateChangeRequest)(nil), "handsmotion.OnStateChangeRequest")
@@ -618,47 +441,37 @@ func init() {
 func init() { proto.RegisterFile("player.proto", fileDescriptor_41d803d1b635d5c6) }
 
 var fileDescriptor_41d803d1b635d5c6 = []byte{
-	// 627 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x95, 0xdf, 0x6e, 0x12, 0x41,
-	0x14, 0xc6, 0x3b, 0x50, 0xda, 0x7a, 0x28, 0x74, 0x9d, 0x54, 0xb3, 0x6e, 0x6a, 0x42, 0xb7, 0xc6,
-	0x60, 0xb5, 0x4b, 0x43, 0x7b, 0xe5, 0x95, 0x56, 0x8d, 0x25, 0x55, 0xa0, 0x5b, 0x49, 0xa3, 0x37,
-	0x64, 0x0a, 0x13, 0xba, 0x15, 0x76, 0xd6, 0x9d, 0x2d, 0x09, 0x97, 0x7a, 0x69, 0xf4, 0xc2, 0xf8,
-	0x02, 0xbe, 0x93, 0xaf, 0xe0, 0x83, 0x98, 0xf9, 0x03, 0xec, 0x52, 0x04, 0x6e, 0xbc, 0x62, 0xe6,
-	0x9c, 0xef, 0x9b, 0xf9, 0xed, 0x99, 0x73, 0x02, 0xac, 0x07, 0x5d, 0x32, 0xa0, 0xa1, 0x13, 0x84,
-	0x2c, 0x62, 0x38, 0x7b, 0x49, 0xfc, 0x36, 0xef, 0xb1, 0xc8, 0x63, 0xbe, 0xb5, 0xd5, 0x61, 0xac,
-	0xd3, 0xa5, 0x25, 0x12, 0x78, 0x25, 0xe2, 0xfb, 0x2c, 0x22, 0x22, 0xcc, 0x95, 0xd4, 0x7e, 0x04,
-	0xe9, 0x46, 0xe8, 0xe1, 0x3c, 0xa4, 0xbc, 0xb6, 0x89, 0x0a, 0xa8, 0x78, 0xcb, 0x4d, 0x79, 0x6d,
-	0x8c, 0x61, 0xd9, 0x27, 0x3d, 0x6a, 0xa6, 0x64, 0x44, 0xae, 0xed, 0xaf, 0x08, 0xb2, 0xf5, 0x2e,
-	0x19, 0xb8, 0xf4, 0xd3, 0x35, 0xe5, 0x11, 0x36, 0xc6, 0x9e, 0xe3, 0x25, 0xe9, 0xda, 0x8c, 0xbb,
-	0x8e, 0x97, 0x94, 0x0f, 0x5b, 0xb0, 0x16, 0xd2, 0x80, 0x92, 0x88, 0xb6, 0xcd, 0x74, 0x01, 0x15,
-	0x33, 0xee, 0x68, 0x8f, 0xf7, 0x61, 0x73, 0xb8, 0x6e, 0x7a, 0x7e, 0x44, 0xc3, 0x3e, 0xe9, 0x36,
-	0x7b, 0xdc, 0x5c, 0x2e, 0xa0, 0x62, 0xce, 0xc5, 0xc3, 0x5c, 0x45, 0xa7, 0xde, 0xf2, 0xa3, 0x0c,
-	0xa4, 0xaf, 0x43, 0xcf, 0xce, 0xc3, 0xba, 0x62, 0xe1, 0x01, 0xf3, 0x39, 0xb5, 0x73, 0x90, 0x3d,
-	0x8b, 0x58, 0xa0, 0xd9, 0x44, 0x5a, 0x6d, 0x75, 0x3a, 0x0f, 0xeb, 0x2e, 0xe5, 0x34, 0x1a, 0xe6,
-	0x37, 0x20, 0xa7, 0xf7, 0x5a, 0x70, 0x1b, 0x36, 0xc4, 0x79, 0x5d, 0x8f, 0x8f, 0x34, 0xcf, 0xc0,
-	0x18, 0x87, 0x94, 0x0c, 0x3f, 0x81, 0xb5, 0x40, 0xc7, 0x4c, 0x54, 0x48, 0x17, 0xb3, 0x65, 0xc3,
-	0x89, 0x15, 0xdb, 0x69, 0x84, 0x9e, 0x3b, 0x52, 0x28, 0x0a, 0x12, 0xd1, 0xe1, 0x89, 0x2d, 0xc8,
-	0xe9, 0xbd, 0x3e, 0xce, 0x81, 0x0c, 0x17, 0x01, 0x59, 0xc5, 0x7c, 0xd9, 0x4c, 0x9c, 0x55, 0x97,
-	0x4f, 0xaa, 0x0c, 0x4a, 0x86, 0x6d, 0xf9, 0xf1, 0xb2, 0xbe, 0xd3, 0x6e, 0x96, 0x95, 0xb9, 0x0b,
-	0x9b, 0x35, 0x5f, 0xba, 0x5e, 0x5c, 0x12, 0xbf, 0x33, 0xba, 0xfc, 0x23, 0xdc, 0x99, 0x88, 0xff,
-	0x3f, 0x88, 0xdd, 0x43, 0xd5, 0x2a, 0xda, 0x89, 0xb3, 0xb0, 0xda, 0xa8, 0x9e, 0x54, 0x6b, 0xe7,
-	0x55, 0x63, 0x49, 0x6c, 0xce, 0xde, 0xd5, 0xea, 0xf5, 0x57, 0x2f, 0x0d, 0x24, 0x36, 0xf5, 0x37,
-	0xcf, 0xdf, 0x57, 0xaa, 0xaf, 0x8d, 0x54, 0xf9, 0xf3, 0x2a, 0xac, 0x28, 0x1b, 0xfe, 0x86, 0x60,
-	0x59, 0x2c, 0xf1, 0x4d, 0x1c, 0xfd, 0x41, 0xd6, 0xbd, 0x29, 0x19, 0xfd, 0x9a, 0xb5, 0x2f, 0xbf,
-	0xff, 0xfc, 0x4c, 0x55, 0xec, 0x82, 0xec, 0xfa, 0x7e, 0xb9, 0xa4, 0x44, 0x25, 0x69, 0x28, 0xa9,
-	0x59, 0x91, 0x3f, 0x4f, 0xd1, 0xee, 0x07, 0x1b, 0xcf, 0x95, 0x49, 0x1c, 0xd1, 0x50, 0x13, 0x38,
-	0xb1, 0x96, 0x9b, 0xc0, 0x49, 0x74, 0xdf, 0x42, 0x38, 0x3c, 0x62, 0xc1, 0x02, 0x38, 0x42, 0x86,
-	0x7f, 0x20, 0xc8, 0xc8, 0xfe, 0xc5, 0xc9, 0x5b, 0xe3, 0x3d, 0x6e, 0x59, 0xd3, 0x52, 0x9a, 0xe8,
-	0x54, 0x12, 0x9d, 0xd8, 0xdb, 0xb3, 0xae, 0x0a, 0x85, 0x45, 0x20, 0xed, 0xe0, 0xf9, 0x3a, 0xfc,
-	0x0b, 0xc1, 0xda, 0x70, 0x5e, 0xf0, 0xd6, 0x8d, 0xb7, 0x89, 0x4d, 0x96, 0x75, 0xff, 0x1f, 0x59,
-	0x0d, 0x77, 0x2e, 0xe1, 0x4e, 0xed, 0x07, 0xf3, 0x9e, 0x45, 0xb8, 0x04, 0xdf, 0x43, 0xbc, 0x90,
-	0x54, 0x96, 0x4d, 0x35, 0xe4, 0xe4, 0x63, 0x8d, 0x87, 0x74, 0xa2, 0x6c, 0x89, 0x79, 0x5d, 0xac,
-	0x6c, 0x72, 0x4a, 0x16, 0x28, 0x9b, 0x9a, 0xa6, 0xef, 0x08, 0x72, 0x89, 0xb9, 0xc4, 0xdb, 0x09,
-	0x80, 0x69, 0xb3, 0x6c, 0xd9, 0xb3, 0x24, 0x9a, 0xf5, 0x40, 0xb2, 0xee, 0xe1, 0xc7, 0xb3, 0x18,
-	0x98, 0xdf, 0x94, 0x18, 0xcd, 0x96, 0x34, 0xef, 0xa3, 0xa3, 0x1d, 0xd8, 0x6e, 0xb1, 0x9e, 0x73,
-	0x75, 0xb5, 0x17, 0xb2, 0x0b, 0x16, 0x39, 0xc4, 0x6f, 0x0f, 0x0e, 0x79, 0xd8, 0x8f, 0xdf, 0x78,
-	0xb1, 0x22, 0xff, 0x3c, 0x0e, 0xfe, 0x06, 0x00, 0x00, 0xff, 0xff, 0xf2, 0xf8, 0x9a, 0x47, 0x77,
-	0x06, 0x00, 0x00,
+	// 472 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x54, 0xcb, 0x6e, 0xd3, 0x40,
+	0x14, 0xc5, 0x51, 0x13, 0xca, 0x75, 0x12, 0xa2, 0x11, 0x8f, 0x60, 0x58, 0x24, 0x83, 0x40, 0xa5,
+	0x85, 0x18, 0xb9, 0xac, 0xd8, 0x21, 0x40, 0x08, 0x41, 0x1c, 0xcb, 0x01, 0x21, 0xc4, 0x22, 0x1a,
+	0x9a, 0x91, 0x13, 0xc9, 0x9d, 0x19, 0x3c, 0x53, 0x44, 0xb6, 0xec, 0x59, 0xf1, 0x4d, 0x7c, 0x01,
+	0xbf, 0xc0, 0x87, 0xa0, 0x79, 0x94, 0xda, 0x26, 0xb2, 0xba, 0xea, 0xca, 0xb9, 0x73, 0xcf, 0x3d,
+	0xe7, 0xdc, 0x99, 0xa3, 0x40, 0x57, 0xe4, 0x64, 0x43, 0x8b, 0x89, 0x28, 0xb8, 0xe2, 0xc8, 0x5f,
+	0x11, 0xb6, 0x94, 0xc7, 0x5c, 0xad, 0x39, 0x0b, 0xfc, 0xac, 0xe0, 0x27, 0xc2, 0x76, 0x82, 0x3b,
+	0x19, 0xe7, 0x59, 0x4e, 0x43, 0x22, 0xd6, 0x21, 0x61, 0x8c, 0x2b, 0xa2, 0x31, 0xd2, 0x76, 0xf1,
+	0x27, 0xf0, 0x93, 0x9c, 0x6c, 0x52, 0xfa, 0xe5, 0x84, 0x4a, 0x85, 0x42, 0xe8, 0x58, 0x8e, 0xa1,
+	0x37, 0xf2, 0xf6, 0xfc, 0xe8, 0xe6, 0xa4, 0xc4, 0x3b, 0x99, 0x9a, 0xcf, 0x94, 0x2a, 0x92, 0x3a,
+	0x18, 0xba, 0x0d, 0x57, 0xe4, 0x86, 0x1d, 0x2d, 0x8e, 0xf9, 0x92, 0x0e, 0x5b, 0x23, 0x6f, 0x6f,
+	0x37, 0xdd, 0xd5, 0x07, 0x53, 0xbe, 0xa4, 0xb8, 0x0f, 0x5d, 0x4b, 0x2e, 0x05, 0x67, 0x92, 0xe2,
+	0x1e, 0xf8, 0x73, 0xc5, 0x85, 0x13, 0xd3, 0x6d, 0x5b, 0xba, 0x76, 0x1f, 0xba, 0x29, 0x95, 0x54,
+	0x9d, 0xf6, 0xaf, 0x42, 0xcf, 0xd5, 0x67, 0x80, 0xb9, 0x22, 0x8a, 0x9e, 0x02, 0x04, 0xf4, 0x5c,
+	0x6d, 0x01, 0x68, 0x02, 0x6d, 0xa9, 0x0f, 0x8c, 0xfb, 0x7e, 0x34, 0xac, 0xb8, 0x4f, 0xcc, 0x7d,
+	0xd9, 0x01, 0x0b, 0x2b, 0xad, 0xdb, 0x3a, 0xd7, 0xba, 0xf8, 0x06, 0x5c, 0x9b, 0x31, 0x43, 0xf1,
+	0x7c, 0x45, 0x58, 0xf6, 0xcf, 0xc9, 0x37, 0xb8, 0x5e, 0x3b, 0xbf, 0x20, 0x47, 0xfb, 0x4f, 0xec,
+	0x03, 0x3a, 0x1a, 0xe4, 0xc3, 0xe5, 0xf7, 0xf1, 0x9b, 0x78, 0xf6, 0x21, 0x1e, 0x5c, 0xd2, 0xc5,
+	0xfc, 0xdd, 0x2c, 0x49, 0x5e, 0xbe, 0x18, 0x78, 0xba, 0x48, 0xde, 0x3e, 0xfb, 0xf8, 0x3a, 0x7e,
+	0x35, 0x68, 0x45, 0xbf, 0x76, 0xa0, 0x63, 0xc7, 0xd0, 0x0a, 0x76, 0xf4, 0x2f, 0xf4, 0xbf, 0x35,
+	0xb7, 0x5c, 0x70, 0x6b, 0x4b, 0xc7, 0xbd, 0xc8, 0xc1, 0xf7, 0xdf, 0x7f, 0x7e, 0xb6, 0xee, 0xe1,
+	0x91, 0x89, 0xd7, 0xd7, 0x28, 0xb4, 0xa0, 0xd0, 0x0c, 0x84, 0x36, 0xa1, 0xe6, 0xf3, 0xd4, 0xdb,
+	0xd7, 0x4a, 0xfa, 0xbd, 0x6b, 0x4a, 0xa5, 0x44, 0xd4, 0x94, 0x2a, 0xe1, 0x38, 0x97, 0x92, 0x54,
+	0x5c, 0x68, 0xa5, 0x1c, 0xda, 0x26, 0x39, 0xa8, 0x4a, 0x58, 0x4e, 0x57, 0x10, 0x6c, 0x6b, 0x39,
+	0xb1, 0x87, 0x46, 0xec, 0x3e, 0x1e, 0x37, 0x89, 0x15, 0x7a, 0x44, 0xab, 0xad, 0xa1, 0x6d, 0x2f,
+	0xbf, 0x6e, 0xff, 0x2c, 0xaa, 0x35, 0xb5, 0x4a, 0x6a, 0xf1, 0x03, 0xa3, 0x76, 0x17, 0x8d, 0x9b,
+	0x57, 0xd3, 0x0a, 0x3f, 0x3c, 0xe8, 0x55, 0x82, 0x86, 0xc6, 0x15, 0xe2, 0x6d, 0xe1, 0x0c, 0x70,
+	0x13, 0xc4, 0x79, 0x38, 0x34, 0x1e, 0x1e, 0xa1, 0x83, 0x26, 0x0f, 0x9c, 0x2d, 0x8c, 0x8d, 0xc5,
+	0x91, 0x19, 0x7e, 0xec, 0x7d, 0xee, 0x98, 0x7f, 0x91, 0xc3, 0xbf, 0x01, 0x00, 0x00, 0xff, 0xff,
+	0x77, 0xed, 0x86, 0x4b, 0x8d, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -673,17 +486,15 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type PlayerClient interface {
-	// Play为播放动作组对象方法
+	// Play 播放手臂动作
 	Play(ctx context.Context, in *PlayRequest, opts ...grpc.CallOption) (*PlayResponse, error)
-	// Stop为停止动作组对象方法
+	// Stop 停止手臂动作
 	Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error)
-	// Reset为重置初始状态方法
+	// Reset 恢复手臂至初始位置
 	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
-	// Playlist为获取动作组对象列表方法
-	Playlist(ctx context.Context, in *PlaylistRequest, opts ...grpc.CallOption) (*PlaylistResponse, error)
-	// State为查询当前player状态方法
+	// State 查询当前player状态
 	State(ctx context.Context, in *StateRequest, opts ...grpc.CallOption) (*StateResponse, error)
-	// OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+	// OnStateChange 监听当前player状态
 	OnStateChange(ctx context.Context, in *OnStateChangeRequest, opts ...grpc.CallOption) (Player_OnStateChangeClient, error)
 }
 
@@ -716,15 +527,6 @@ func (c *playerClient) Stop(ctx context.Context, in *StopRequest, opts ...grpc.C
 func (c *playerClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
 	out := new(ResetResponse)
 	err := c.cc.Invoke(ctx, "/handsmotion.Player/Reset", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *playerClient) Playlist(ctx context.Context, in *PlaylistRequest, opts ...grpc.CallOption) (*PlaylistResponse, error) {
-	out := new(PlaylistResponse)
-	err := c.cc.Invoke(ctx, "/handsmotion.Player/Playlist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -774,17 +576,15 @@ func (x *playerOnStateChangeClient) Recv() (*OnStateChangeResponse, error) {
 
 // PlayerServer is the server API for Player service.
 type PlayerServer interface {
-	// Play为播放动作组对象方法
+	// Play 播放手臂动作
 	Play(context.Context, *PlayRequest) (*PlayResponse, error)
-	// Stop为停止动作组对象方法
+	// Stop 停止手臂动作
 	Stop(context.Context, *StopRequest) (*StopResponse, error)
-	// Reset为重置初始状态方法
+	// Reset 恢复手臂至初始位置
 	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
-	// Playlist为获取动作组对象列表方法
-	Playlist(context.Context, *PlaylistRequest) (*PlaylistResponse, error)
-	// State为查询当前player状态方法
+	// State 查询当前player状态
 	State(context.Context, *StateRequest) (*StateResponse, error)
-	// OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+	// OnStateChange 监听当前player状态
 	OnStateChange(*OnStateChangeRequest, Player_OnStateChangeServer) error
 }
 
@@ -800,9 +600,6 @@ func (*UnimplementedPlayerServer) Stop(ctx context.Context, req *StopRequest) (*
 }
 func (*UnimplementedPlayerServer) Reset(ctx context.Context, req *ResetRequest) (*ResetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Reset not implemented")
-}
-func (*UnimplementedPlayerServer) Playlist(ctx context.Context, req *PlaylistRequest) (*PlaylistResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Playlist not implemented")
 }
 func (*UnimplementedPlayerServer) State(ctx context.Context, req *StateRequest) (*StateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method State not implemented")
@@ -869,24 +666,6 @@ func _Player_Reset_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Player_Playlist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PlaylistRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PlayerServer).Playlist(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/handsmotion.Player/Playlist",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PlayerServer).Playlist(ctx, req.(*PlaylistRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Player_State_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(StateRequest)
 	if err := dec(in); err != nil {
@@ -941,10 +720,6 @@ var _Player_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Reset",
 			Handler:    _Player_Reset_Handler,
-		},
-		{
-			MethodName: "Playlist",
-			Handler:    _Player_Playlist_Handler,
 		},
 		{
 			MethodName: "State",

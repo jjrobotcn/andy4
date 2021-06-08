@@ -22,7 +22,6 @@ static const char* Player_method_names[] = {
   "/handsmotion.Player/Play",
   "/handsmotion.Player/Stop",
   "/handsmotion.Player/Reset",
-  "/handsmotion.Player/Playlist",
   "/handsmotion.Player/State",
   "/handsmotion.Player/OnStateChange",
 };
@@ -37,9 +36,8 @@ Player::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Play_(Player_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Stop_(Player_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_Reset_(Player_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Playlist_(Player_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_State_(Player_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_OnStateChange_(Player_method_names[5], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_State_(Player_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_OnStateChange_(Player_method_names[4], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
 
 ::grpc::Status Player::Stub::Play(::grpc::ClientContext* context, const ::handsmotion::PlayRequest& request, ::handsmotion::PlayResponse* response) {
@@ -126,34 +124,6 @@ void Player::Stub::experimental_async::Reset(::grpc::ClientContext* context, con
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::handsmotion::ResetResponse>::Create(channel_.get(), cq, rpcmethod_Reset_, context, request, false);
 }
 
-::grpc::Status Player::Stub::Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::handsmotion::PlaylistResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Playlist_, context, request, response);
-}
-
-void Player::Stub::experimental_async::Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Playlist_, context, request, response, std::move(f));
-}
-
-void Player::Stub::experimental_async::Playlist(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlaylistResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Playlist_, context, request, response, std::move(f));
-}
-
-void Player::Stub::experimental_async::Playlist(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Playlist_, context, request, response, reactor);
-}
-
-void Player::Stub::experimental_async::Playlist(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::handsmotion::PlaylistResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Playlist_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>* Player::Stub::AsyncPlaylistRaw(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::handsmotion::PlaylistResponse>::Create(channel_.get(), cq, rpcmethod_Playlist_, context, request, true);
-}
-
-::grpc::ClientAsyncResponseReader< ::handsmotion::PlaylistResponse>* Player::Stub::PrepareAsyncPlaylistRaw(::grpc::ClientContext* context, const ::handsmotion::PlaylistRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::handsmotion::PlaylistResponse>::Create(channel_.get(), cq, rpcmethod_Playlist_, context, request, false);
-}
-
 ::grpc::Status Player::Stub::State(::grpc::ClientContext* context, const ::handsmotion::StateRequest& request, ::handsmotion::StateResponse* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_State_, context, request, response);
 }
@@ -217,15 +187,10 @@ Player::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Player_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Player::Service, ::handsmotion::PlaylistRequest, ::handsmotion::PlaylistResponse>(
-          std::mem_fn(&Player::Service::Playlist), this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Player_method_names[4],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Player::Service, ::handsmotion::StateRequest, ::handsmotion::StateResponse>(
           std::mem_fn(&Player::Service::State), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Player_method_names[5],
+      Player_method_names[4],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< Player::Service, ::handsmotion::OnStateChangeRequest, ::handsmotion::OnStateChangeResponse>(
           std::mem_fn(&Player::Service::OnStateChange), this)));
@@ -249,13 +214,6 @@ Player::Service::~Service() {
 }
 
 ::grpc::Status Player::Service::Reset(::grpc::ServerContext* context, const ::handsmotion::ResetRequest* request, ::handsmotion::ResetResponse* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status Player::Service::Playlist(::grpc::ServerContext* context, const ::handsmotion::PlaylistRequest* request, ::handsmotion::PlaylistResponse* response) {
   (void) context;
   (void) request;
   (void) response;

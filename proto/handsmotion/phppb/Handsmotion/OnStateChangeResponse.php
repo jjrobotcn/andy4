@@ -7,7 +7,6 @@ namespace Handsmotion;
 use Google\Protobuf\Internal\GPBType;
 use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
-use Google\Protobuf\Internal\GPBWrapperUtils;
 
 /**
  * Generated from protobuf message <code>handsmotion.OnStateChangeResponse</code>
@@ -21,11 +20,11 @@ class OnStateChangeResponse extends \Google\Protobuf\Internal\Message
      */
     private $state = 0;
     /**
-     * 动作组资源Uri
+     * 当前手臂动作
      *
-     * Generated from protobuf field <code>.handsmotion.Uri uri = 2;</code>
+     * Generated from protobuf field <code>.handsmotion.MotionMeta motion = 2;</code>
      */
-    private $uri = null;
+    private $motion = null;
 
     /**
      * Constructor.
@@ -35,8 +34,8 @@ class OnStateChangeResponse extends \Google\Protobuf\Internal\Message
      *
      *     @type int $state
      *           播放状态
-     *     @type \Handsmotion\Uri $uri
-     *           动作组资源Uri
+     *     @type \Handsmotion\MotionMeta $motion
+     *           当前手臂动作
      * }
      */
     public function __construct($data = NULL) {
@@ -71,27 +70,27 @@ class OnStateChangeResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * 动作组资源Uri
+     * 当前手臂动作
      *
-     * Generated from protobuf field <code>.handsmotion.Uri uri = 2;</code>
-     * @return \Handsmotion\Uri
+     * Generated from protobuf field <code>.handsmotion.MotionMeta motion = 2;</code>
+     * @return \Handsmotion\MotionMeta
      */
-    public function getUri()
+    public function getMotion()
     {
-        return $this->uri;
+        return $this->motion;
     }
 
     /**
-     * 动作组资源Uri
+     * 当前手臂动作
      *
-     * Generated from protobuf field <code>.handsmotion.Uri uri = 2;</code>
-     * @param \Handsmotion\Uri $var
+     * Generated from protobuf field <code>.handsmotion.MotionMeta motion = 2;</code>
+     * @param \Handsmotion\MotionMeta $var
      * @return $this
      */
-    public function setUri($var)
+    public function setMotion($var)
     {
-        GPBUtil::checkMessage($var, \Handsmotion\Uri::class);
-        $this->uri = $var;
+        GPBUtil::checkMessage($var, \Handsmotion\MotionMeta::class);
+        $this->motion = $var;
 
         return $this;
     }

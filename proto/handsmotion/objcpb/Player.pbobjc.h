@@ -27,7 +27,7 @@
 
 CF_EXTERN_C_BEGIN
 
-@class Uri;
+@class MotionMeta;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -74,72 +74,31 @@ BOOL PlayerState_IsValidValue(int32_t value);
 @interface PlayerRoot : GPBRootObject
 @end
 
-#pragma mark - Uri
-
-typedef GPB_ENUM(Uri_FieldNumber) {
-  Uri_FieldNumber_Id_p = 1,
-  Uri_FieldNumber_Name = 2,
-};
-
-/**
- * 动作组对象描述
- **/
-@interface Uri : GPBMessage
-
-/** 动作组分配id */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
-
-/** 动作组自字义名 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
-
-@end
-
 #pragma mark - PlayRequest
 
 typedef GPB_ENUM(PlayRequest_FieldNumber) {
-  PlayRequest_FieldNumber_Id_p = 1,
-  PlayRequest_FieldNumber_Name = 2,
-  PlayRequest_FieldNumber_Repeated = 3,
-  PlayRequest_FieldNumber_RepeatedIntervalMs = 4,
-};
-
-typedef GPB_ENUM(PlayRequest_Uri_OneOfCase) {
-  PlayRequest_Uri_OneOfCase_GPBUnsetOneOfCase = 0,
-  PlayRequest_Uri_OneOfCase_Id_p = 1,
-  PlayRequest_Uri_OneOfCase_Name = 2,
+  PlayRequest_FieldNumber_Motion = 1,
+  PlayRequest_FieldNumber_SyncMode = 2,
 };
 
 @interface PlayRequest : GPBMessage
 
-/** 动作组对象描述 oneof */
-@property(nonatomic, readonly) PlayRequest_Uri_OneOfCase uriOneOfCase;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
-
-/** 使用自定义名时将播放首个匹配项 */
-@property(nonatomic, readwrite, copy, null_resettable) NSString *name;
+/**
+ * 手臂动作
+ * 支持通过id或名称任意一值
+ **/
+@property(nonatomic, readwrite, strong, null_resettable) MotionMeta *motion;
+/** Test to see if @c motion has been set. */
+@property(nonatomic, readwrite) BOOL hasMotion;
 
 /**
- * 播放动作重复次数
- * 小于0: 无限重复，可通过Stop停止
- * 0: 同等设置该值为1
- * > 0: 根据设置播放次数重复播放
- * 默认播放1次
+ * 同步标识
+ * true: 等待动作完成时返回
+ * false: 动作开始执行时立即返回
  **/
-@property(nonatomic, readwrite) int32_t repeated;
-
-/**
- * 重复播放间隔，单位为毫秒
- * 默认为0，无间隔
- **/
-@property(nonatomic, readwrite) uint32_t repeatedIntervalMs;
+@property(nonatomic, readwrite) BOOL syncMode;
 
 @end
-
-/**
- * Clears whatever value was set for the oneof 'uri'.
- **/
-void PlayRequest_ClearUriOneOfCase(PlayRequest *message);
 
 #pragma mark - PlayResponse
 
@@ -171,27 +130,6 @@ void PlayRequest_ClearUriOneOfCase(PlayRequest *message);
 
 @end
 
-#pragma mark - PlaylistRequest
-
-@interface PlaylistRequest : GPBMessage
-
-@end
-
-#pragma mark - PlaylistResponse
-
-typedef GPB_ENUM(PlaylistResponse_FieldNumber) {
-  PlaylistResponse_FieldNumber_PlaylistArray = 1,
-};
-
-@interface PlaylistResponse : GPBMessage
-
-/** Uri动作组播放列表 */
-@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<Uri*> *playlistArray;
-/** The number of items in @c playlistArray without causing the array to be created. */
-@property(nonatomic, readonly) NSUInteger playlistArray_Count;
-
-@end
-
 #pragma mark - StateRequest
 
 @interface StateRequest : GPBMessage
@@ -202,7 +140,7 @@ typedef GPB_ENUM(PlaylistResponse_FieldNumber) {
 
 typedef GPB_ENUM(StateResponse_FieldNumber) {
   StateResponse_FieldNumber_State = 1,
-  StateResponse_FieldNumber_Uri = 2,
+  StateResponse_FieldNumber_Motion = 2,
 };
 
 @interface StateResponse : GPBMessage
@@ -210,10 +148,10 @@ typedef GPB_ENUM(StateResponse_FieldNumber) {
 /** 播放状态 */
 @property(nonatomic, readwrite) PlayerState state;
 
-/** 动作组资源Uri */
-@property(nonatomic, readwrite, strong, null_resettable) Uri *uri;
-/** Test to see if @c uri has been set. */
-@property(nonatomic, readwrite) BOOL hasUri;
+/** 当前手臂动作 */
+@property(nonatomic, readwrite, strong, null_resettable) MotionMeta *motion;
+/** Test to see if @c motion has been set. */
+@property(nonatomic, readwrite) BOOL hasMotion;
 
 @end
 
@@ -239,7 +177,7 @@ void SetStateResponse_State_RawValue(StateResponse *message, int32_t value);
 
 typedef GPB_ENUM(OnStateChangeResponse_FieldNumber) {
   OnStateChangeResponse_FieldNumber_State = 1,
-  OnStateChangeResponse_FieldNumber_Uri = 2,
+  OnStateChangeResponse_FieldNumber_Motion = 2,
 };
 
 @interface OnStateChangeResponse : GPBMessage
@@ -247,10 +185,10 @@ typedef GPB_ENUM(OnStateChangeResponse_FieldNumber) {
 /** 播放状态 */
 @property(nonatomic, readwrite) PlayerState state;
 
-/** 动作组资源Uri */
-@property(nonatomic, readwrite, strong, null_resettable) Uri *uri;
-/** Test to see if @c uri has been set. */
-@property(nonatomic, readwrite) BOOL hasUri;
+/** 当前手臂动作 */
+@property(nonatomic, readwrite, strong, null_resettable) MotionMeta *motion;
+/** Test to see if @c motion has been set. */
+@property(nonatomic, readwrite) BOOL hasMotion;
 
 @end
 

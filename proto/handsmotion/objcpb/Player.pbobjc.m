@@ -16,12 +16,12 @@
 #import <stdatomic.h>
 
 #import "Player.pbobjc.h"
+#import "Group.pbobjc.h"
 #import "google/api/Annotations.pbobjc.h"
 // @@protoc_insertion_point(imports)
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic ignored "-Wdirect-ivar-access"
 
 #pragma mark - PlayerRoot
 
@@ -93,78 +93,16 @@ BOOL PlayerState_IsValidValue(int32_t value__) {
   }
 }
 
-#pragma mark - Uri
-
-@implementation Uri
-
-@dynamic id_p;
-@dynamic name;
-
-typedef struct Uri__storage_ {
-  uint32_t _has_storage_[1];
-  NSString *id_p;
-  NSString *name;
-} Uri__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "id_p",
-        .dataTypeSpecific.className = NULL,
-        .number = Uri_FieldNumber_Id_p,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(Uri__storage_, id_p),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "name",
-        .dataTypeSpecific.className = NULL,
-        .number = Uri_FieldNumber_Name,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(Uri__storage_, name),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[Uri class]
-                                     rootClass:[PlayerRoot class]
-                                          file:PlayerRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(Uri__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
 #pragma mark - PlayRequest
 
 @implementation PlayRequest
 
-@dynamic uriOneOfCase;
-@dynamic id_p;
-@dynamic name;
-@dynamic repeated;
-@dynamic repeatedIntervalMs;
+@dynamic hasMotion, motion;
+@dynamic syncMode;
 
 typedef struct PlayRequest__storage_ {
-  uint32_t _has_storage_[2];
-  int32_t repeated;
-  uint32_t repeatedIntervalMs;
-  NSString *id_p;
-  NSString *name;
+  uint32_t _has_storage_[1];
+  MotionMeta *motion;
 } PlayRequest__storage_;
 
 // This method is threadsafe because it is initially called
@@ -174,40 +112,22 @@ typedef struct PlayRequest__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "id_p",
-        .dataTypeSpecific.className = NULL,
-        .number = PlayRequest_FieldNumber_Id_p,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(PlayRequest__storage_, id_p),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "name",
-        .dataTypeSpecific.className = NULL,
-        .number = PlayRequest_FieldNumber_Name,
-        .hasIndex = -1,
-        .offset = (uint32_t)offsetof(PlayRequest__storage_, name),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "repeated",
-        .dataTypeSpecific.className = NULL,
-        .number = PlayRequest_FieldNumber_Repeated,
+        .name = "motion",
+        .dataTypeSpecific.className = GPBStringifySymbol(MotionMeta),
+        .number = PlayRequest_FieldNumber_Motion,
         .hasIndex = 0,
-        .offset = (uint32_t)offsetof(PlayRequest__storage_, repeated),
+        .offset = (uint32_t)offsetof(PlayRequest__storage_, motion),
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeInt32,
+        .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "repeatedIntervalMs",
+        .name = "syncMode",
         .dataTypeSpecific.className = NULL,
-        .number = PlayRequest_FieldNumber_RepeatedIntervalMs,
+        .number = PlayRequest_FieldNumber_SyncMode,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(PlayRequest__storage_, repeatedIntervalMs),
+        .offset = 2,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -218,12 +138,6 @@ typedef struct PlayRequest__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(PlayRequest__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-    static const char *oneofs[] = {
-      "uri",
-    };
-    [localDescriptor setupOneofs:oneofs
-                           count:(uint32_t)(sizeof(oneofs) / sizeof(char*))
-                   firstHasIndex:-1];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -234,11 +148,6 @@ typedef struct PlayRequest__storage_ {
 
 @end
 
-void PlayRequest_ClearUriOneOfCase(PlayRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
-  GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
-}
 #pragma mark - PlayResponse
 
 @implementation PlayResponse
@@ -399,83 +308,6 @@ typedef struct ResetResponse__storage_ {
 
 @end
 
-#pragma mark - PlaylistRequest
-
-@implementation PlaylistRequest
-
-
-typedef struct PlaylistRequest__storage_ {
-  uint32_t _has_storage_[1];
-} PlaylistRequest__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[PlaylistRequest class]
-                                     rootClass:[PlayerRoot class]
-                                          file:PlayerRoot_FileDescriptor()
-                                        fields:NULL
-                                    fieldCount:0
-                                   storageSize:sizeof(PlaylistRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - PlaylistResponse
-
-@implementation PlaylistResponse
-
-@dynamic playlistArray, playlistArray_Count;
-
-typedef struct PlaylistResponse__storage_ {
-  uint32_t _has_storage_[1];
-  NSMutableArray *playlistArray;
-} PlaylistResponse__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "playlistArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(Uri),
-        .number = PlaylistResponse_FieldNumber_PlaylistArray,
-        .hasIndex = GPBNoHasBit,
-        .offset = (uint32_t)offsetof(PlaylistResponse__storage_, playlistArray),
-        .flags = GPBFieldRepeated,
-        .dataType = GPBDataTypeMessage,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[PlaylistResponse class]
-                                     rootClass:[PlayerRoot class]
-                                          file:PlayerRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(PlaylistResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    #if defined(DEBUG) && DEBUG
-      NSAssert(descriptor == nil, @"Startup recursed!");
-    #endif  // DEBUG
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
 #pragma mark - StateRequest
 
 @implementation StateRequest
@@ -513,12 +345,12 @@ typedef struct StateRequest__storage_ {
 @implementation StateResponse
 
 @dynamic state;
-@dynamic hasUri, uri;
+@dynamic hasMotion, motion;
 
 typedef struct StateResponse__storage_ {
   uint32_t _has_storage_[1];
   PlayerState state;
-  Uri *uri;
+  MotionMeta *motion;
 } StateResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -537,11 +369,11 @@ typedef struct StateResponse__storage_ {
         .dataType = GPBDataTypeEnum,
       },
       {
-        .name = "uri",
-        .dataTypeSpecific.className = GPBStringifySymbol(Uri),
-        .number = StateResponse_FieldNumber_Uri,
+        .name = "motion",
+        .dataTypeSpecific.className = GPBStringifySymbol(MotionMeta),
+        .number = StateResponse_FieldNumber_Motion,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(StateResponse__storage_, uri),
+        .offset = (uint32_t)offsetof(StateResponse__storage_, motion),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
@@ -613,12 +445,12 @@ typedef struct OnStateChangeRequest__storage_ {
 @implementation OnStateChangeResponse
 
 @dynamic state;
-@dynamic hasUri, uri;
+@dynamic hasMotion, motion;
 
 typedef struct OnStateChangeResponse__storage_ {
   uint32_t _has_storage_[1];
   PlayerState state;
-  Uri *uri;
+  MotionMeta *motion;
 } OnStateChangeResponse__storage_;
 
 // This method is threadsafe because it is initially called
@@ -637,11 +469,11 @@ typedef struct OnStateChangeResponse__storage_ {
         .dataType = GPBDataTypeEnum,
       },
       {
-        .name = "uri",
-        .dataTypeSpecific.className = GPBStringifySymbol(Uri),
-        .number = OnStateChangeResponse_FieldNumber_Uri,
+        .name = "motion",
+        .dataTypeSpecific.className = GPBStringifySymbol(MotionMeta),
+        .number = OnStateChangeResponse_FieldNumber_Motion,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(OnStateChangeResponse__storage_, uri),
+        .offset = (uint32_t)offsetof(OnStateChangeResponse__storage_, motion),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },

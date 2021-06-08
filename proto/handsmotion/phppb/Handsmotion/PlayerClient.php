@@ -17,7 +17,7 @@ class PlayerClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Play为播放动作组对象方法
+     * Play 播放手臂动作
      * @param \Handsmotion\PlayRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -31,7 +31,7 @@ class PlayerClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Stop为停止动作组对象方法
+     * Stop 停止手臂动作
      * @param \Handsmotion\StopRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -45,7 +45,7 @@ class PlayerClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Reset为重置初始状态方法
+     * Reset 恢复手臂至初始位置
      * @param \Handsmotion\ResetRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -59,21 +59,7 @@ class PlayerClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Playlist为获取动作组对象列表方法
-     * @param \Handsmotion\PlaylistRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     */
-    public function Playlist(\Handsmotion\PlaylistRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/handsmotion.Player/Playlist',
-        $argument,
-        ['\Handsmotion\PlaylistResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * State为查询当前player状态方法
+     * State 查询当前player状态
      * @param \Handsmotion\StateRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -87,7 +73,7 @@ class PlayerClient extends \Grpc\BaseStub {
     }
 
     /**
-     * OnStateChange为监听State改变方法，当State状态改变时将流式返回State状态数据
+     * OnStateChange 监听当前player状态
      * @param \Handsmotion\OnStateChangeRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

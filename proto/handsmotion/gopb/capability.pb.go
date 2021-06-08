@@ -586,7 +586,7 @@ func (m *GetAbsolutePositionResponse) GetPosition() *Position {
 type AbsoluteMoveRequest struct {
 	Scripts []*MovementScript `protobuf:"bytes,1,rep,name=scripts,proto3" json:"scripts,omitempty"`
 	// 同步标识
-	// true: 等待动作完成时返回，动作期间中断连接将恢复为初始位置
+	// true: 等待动作完成时返回
 	// false: 动作开始执行时立即返回
 	SyncMode             bool     `protobuf:"varint,2,opt,name=sync_mode,json=syncMode,proto3" json:"sync_mode,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
