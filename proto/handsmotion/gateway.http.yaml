@@ -40,8 +40,7 @@ http:
       body: "*"
 
     - selector: handsmotion.Capability.GetAbsolutePosition
-      post: "/api/v2/motion/hands/capability/get_absolute_position"
-      body: "*"
+      get: "/api/v2/motion/hands/capability/get_absolute_position"
 
     - selector: handsmotion.Capability.AbsoluteMove
       post: "/api/v2/motion/hands/capability/absolute_move"
