@@ -1845,11 +1845,11 @@ proto.sensorService.GetObsResponse.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readUint32());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setForwardLeft(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readUint32());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setForwardRight(value);
       break;
     default:
@@ -1883,14 +1883,14 @@ proto.sensorService.GetObsResponse.serializeBinaryToWriter = function(message, w
   var f = undefined;
   f = message.getForwardLeft();
   if (f !== 0) {
-    writer.writeUint32(
+    writer.writeInt32(
       1,
       f
     );
   }
   f = message.getForwardRight();
   if (f !== 0) {
-    writer.writeUint32(
+    writer.writeInt32(
       2,
       f
     );
@@ -1899,7 +1899,7 @@ proto.sensorService.GetObsResponse.serializeBinaryToWriter = function(message, w
 
 
 /**
- * optional uint32 forward_left = 1;
+ * optional int32 forward_left = 1;
  * @return {number}
  */
 proto.sensorService.GetObsResponse.prototype.getForwardLeft = function() {
@@ -1917,7 +1917,7 @@ proto.sensorService.GetObsResponse.prototype.setForwardLeft = function(value) {
 
 
 /**
- * optional uint32 forward_right = 2;
+ * optional int32 forward_right = 2;
  * @return {number}
  */
 proto.sensorService.GetObsResponse.prototype.getForwardRight = function() {

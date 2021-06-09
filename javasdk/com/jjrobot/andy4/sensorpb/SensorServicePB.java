@@ -5777,7 +5777,7 @@ public final class SensorServicePB {
   }
   /**
    * <pre>
-   * 避障传感器
+   * 避障传感器 值-1为没接传感器
    * </pre>
    *
    * Protobuf type {@code sensorService.GetObsRequest}
@@ -6002,7 +6002,7 @@ public final class SensorServicePB {
     }
     /**
      * <pre>
-     * 避障传感器
+     * 避障传感器 值-1为没接传感器
      * </pre>
      *
      * Protobuf type {@code sensorService.GetObsRequest}
@@ -6206,7 +6206,7 @@ public final class SensorServicePB {
      * 前左跌落传感器距离
      * </pre>
      *
-     * <code>uint32 forward_left = 1;</code>
+     * <code>int32 forward_left = 1;</code>
      * @return The forwardLeft.
      */
     int getForwardLeft();
@@ -6216,7 +6216,7 @@ public final class SensorServicePB {
      * 前右跌落传感器距离
      * </pre>
      *
-     * <code>uint32 forward_right = 2;</code>
+     * <code>int32 forward_right = 2;</code>
      * @return The forwardRight.
      */
     int getForwardRight();
@@ -6268,12 +6268,12 @@ public final class SensorServicePB {
               break;
             case 8: {
 
-              forwardLeft_ = input.readUInt32();
+              forwardLeft_ = input.readInt32();
               break;
             }
             case 16: {
 
-              forwardRight_ = input.readUInt32();
+              forwardRight_ = input.readInt32();
               break;
             }
             default: {
@@ -6315,7 +6315,7 @@ public final class SensorServicePB {
      * 前左跌落传感器距离
      * </pre>
      *
-     * <code>uint32 forward_left = 1;</code>
+     * <code>int32 forward_left = 1;</code>
      * @return The forwardLeft.
      */
     public int getForwardLeft() {
@@ -6329,7 +6329,7 @@ public final class SensorServicePB {
      * 前右跌落传感器距离
      * </pre>
      *
-     * <code>uint32 forward_right = 2;</code>
+     * <code>int32 forward_right = 2;</code>
      * @return The forwardRight.
      */
     public int getForwardRight() {
@@ -6351,10 +6351,10 @@ public final class SensorServicePB {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (forwardLeft_ != 0) {
-        output.writeUInt32(1, forwardLeft_);
+        output.writeInt32(1, forwardLeft_);
       }
       if (forwardRight_ != 0) {
-        output.writeUInt32(2, forwardRight_);
+        output.writeInt32(2, forwardRight_);
       }
       unknownFields.writeTo(output);
     }
@@ -6367,11 +6367,11 @@ public final class SensorServicePB {
       size = 0;
       if (forwardLeft_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, forwardLeft_);
+          .computeInt32Size(1, forwardLeft_);
       }
       if (forwardRight_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, forwardRight_);
+          .computeInt32Size(2, forwardRight_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6661,7 +6661,7 @@ public final class SensorServicePB {
        * 前左跌落传感器距离
        * </pre>
        *
-       * <code>uint32 forward_left = 1;</code>
+       * <code>int32 forward_left = 1;</code>
        * @return The forwardLeft.
        */
       public int getForwardLeft() {
@@ -6672,7 +6672,7 @@ public final class SensorServicePB {
        * 前左跌落传感器距离
        * </pre>
        *
-       * <code>uint32 forward_left = 1;</code>
+       * <code>int32 forward_left = 1;</code>
        * @param value The forwardLeft to set.
        * @return This builder for chaining.
        */
@@ -6687,7 +6687,7 @@ public final class SensorServicePB {
        * 前左跌落传感器距离
        * </pre>
        *
-       * <code>uint32 forward_left = 1;</code>
+       * <code>int32 forward_left = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearForwardLeft() {
@@ -6703,7 +6703,7 @@ public final class SensorServicePB {
        * 前右跌落传感器距离
        * </pre>
        *
-       * <code>uint32 forward_right = 2;</code>
+       * <code>int32 forward_right = 2;</code>
        * @return The forwardRight.
        */
       public int getForwardRight() {
@@ -6714,7 +6714,7 @@ public final class SensorServicePB {
        * 前右跌落传感器距离
        * </pre>
        *
-       * <code>uint32 forward_right = 2;</code>
+       * <code>int32 forward_right = 2;</code>
        * @param value The forwardRight to set.
        * @return This builder for chaining.
        */
@@ -6729,7 +6729,7 @@ public final class SensorServicePB {
        * 前右跌落传感器距离
        * </pre>
        *
-       * <code>uint32 forward_right = 2;</code>
+       * <code>int32 forward_right = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearForwardRight() {
@@ -6876,7 +6876,7 @@ public final class SensorServicePB {
       "\001(\010\022\035\n\025forward_left_distance\030\003 \001(\r\022\036\n\026fo" +
       "rward_right_distance\030\004 \001(\r\"\017\n\rGetObsRequ" +
       "est\"=\n\016GetObsResponse\022\024\n\014forward_left\030\001 " +
-      "\001(\r\022\025\n\rforward_right\030\002 \001(\r*R\n\017DetectDire" +
+      "\001(\005\022\025\n\rforward_right\030\002 \001(\005*R\n\017DetectDire" +
       "ction\022\r\n\t_ZERO_DIR\020\000\022\017\n\013RELEASE_DIR\020\001\022\010\n" +
       "\004LEFT\020\002\022\n\n\006CENTER\020\003\022\t\n\005RIGHT\020\004*Q\n\016Detect" +
       "Distance\022\r\n\t_ZERO_DIS\020\000\022\017\n\013RELEASE_DIS\020\001" +

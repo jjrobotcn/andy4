@@ -86,11 +86,11 @@ message GetAntiResponse {
     uint32 forward_right_distance = 4; // 前右跌落传感器距离
 }
 
-// 避障传感器
+// 避障传感器 值-1为没接传感器
 message GetObsRequest {}
 message GetObsResponse {
-    uint32 forward_left = 1; // 前左跌落传感器距离
-    uint32 forward_right = 2; // 前右跌落传感器距离
+    int32 forward_left = 1; // 前左跌落传感器距离
+    int32 forward_right = 2; // 前右跌落传感器距离
 }
 
 
