@@ -202,6 +202,74 @@ export namespace MarkAsOriginalPositionResponse {
   }
 }
 
+export class SetJointOriginPosRequest extends jspb.Message {
+  clearIdList(): void;
+  getIdList(): Array<number>;
+  setIdList(value: Array<number>): void;
+  addId(value: number, index?: number): number;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SetJointOriginPosRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SetJointOriginPosRequest): SetJointOriginPosRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SetJointOriginPosRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SetJointOriginPosRequest;
+  static deserializeBinaryFromReader(message: SetJointOriginPosRequest, reader: jspb.BinaryReader): SetJointOriginPosRequest;
+}
+
+export namespace SetJointOriginPosRequest {
+  export type AsObject = {
+    idList: Array<number>,
+  }
+}
+
+export class SetJointOriginPosResponse extends jspb.Message {
+  clearOriginStateList(): void;
+  getOriginStateList(): Array<SetJointOriginPosResponse.OriginState>;
+  setOriginStateList(value: Array<SetJointOriginPosResponse.OriginState>): void;
+  addOriginState(value?: SetJointOriginPosResponse.OriginState, index?: number): SetJointOriginPosResponse.OriginState;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SetJointOriginPosResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SetJointOriginPosResponse): SetJointOriginPosResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SetJointOriginPosResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SetJointOriginPosResponse;
+  static deserializeBinaryFromReader(message: SetJointOriginPosResponse, reader: jspb.BinaryReader): SetJointOriginPosResponse;
+}
+
+export namespace SetJointOriginPosResponse {
+  export type AsObject = {
+    originStateList: Array<SetJointOriginPosResponse.OriginState.AsObject>,
+  }
+
+  export class OriginState extends jspb.Message {
+    getId(): number;
+    setId(value: number): void;
+
+    getState(): number;
+    setState(value: number): void;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): OriginState.AsObject;
+    static toObject(includeInstance: boolean, msg: OriginState): OriginState.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: OriginState, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): OriginState;
+    static deserializeBinaryFromReader(message: OriginState, reader: jspb.BinaryReader): OriginState;
+  }
+
+  export namespace OriginState {
+    export type AsObject = {
+      id: number,
+      state: number,
+    }
+  }
+}
+
 export class MovementScript extends jspb.Message {
   hasPosition(): boolean;
   clearPosition(): void;

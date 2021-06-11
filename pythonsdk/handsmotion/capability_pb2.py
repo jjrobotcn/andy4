@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='handsmotion',
   syntax='proto3',
   serialized_options=b'\n\036com.jjrobot.andy4.handmotionpbB\035HandMotionCapabilityServicePBZ\014handmotionpb',
-  serialized_pb=b'\n\x10\x63\x61pability.proto\x12\x0bhandsmotion\"\xba\x02\n\x18\x46ingersAdjustmentRequest\x12\x10\n\x08hand_idx\x18\x01 \x01(\r\x12\x0f\n\x05reset\x18\x02 \x01(\x08H\x00\x12@\n\x04move\x18\x03 \x01(\x0b\x32\x30.handsmotion.FingersAdjustmentRequest.FingerMoveH\x00\x1a\xb1\x01\n\nFingerMove\x12\x12\n\nfinger_idx\x18\x02 \x01(\r\x12R\n\x04type\x18\x03 \x01(\x0e\x32\x44.handsmotion.FingersAdjustmentRequest.FingerMove.FingerMovementTypes\x12\x0e\n\x06stroke\x18\x04 \x01(\x05\"+\n\x13\x46ingerMovementTypes\x12\t\n\x05LOOSE\x10\x00\x12\t\n\x05TIGHT\x10\x01\x42\x05\n\x03req\"\x1b\n\x19\x46ingersAdjustmentResponse\"V\n\x14\x41rmAdjustmentRequest\x12\x10\n\x08hand_idx\x18\x01 \x01(\r\x12\x0f\n\x05reset\x18\x02 \x01(\x08H\x00\x12\x14\n\ndisability\x18\x03 \x01(\x08H\x00\x42\x05\n\x03req\"\x17\n\x15\x41rmAdjustmentResponse\"\x18\n\x08Position\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"\x1f\n\x1dMarkAsOriginalPositionRequest\" \n\x1eMarkAsOriginalPositionResponse\"^\n\x0eMovementScript\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.handsmotion.Position\x12\x10\n\x08run_time\x18\x02 \x01(\x05\x12\x11\n\tkeep_time\x18\x03 \x01(\x05\"\x1c\n\x1aGetAbsolutePositionRequest\"F\n\x1bGetAbsolutePositionResponse\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.handsmotion.Position\"V\n\x13\x41\x62soluteMoveRequest\x12,\n\x07scripts\x18\x01 \x03(\x0b\x32\x1b.handsmotion.MovementScript\x12\x11\n\tsync_mode\x18\x02 \x01(\x08\"\x16\n\x14\x41\x62soluteMoveResponse2\x84\x04\n\nCapability\x12\x64\n\x11\x46ingersAdjustment\x12%.handsmotion.FingersAdjustmentRequest\x1a&.handsmotion.FingersAdjustmentResponse\"\x00\x12X\n\rArmAdjustment\x12!.handsmotion.ArmAdjustmentRequest\x1a\".handsmotion.ArmAdjustmentResponse\"\x00\x12s\n\x16MarkAsOriginalPosition\x12*.handsmotion.MarkAsOriginalPositionRequest\x1a+.handsmotion.MarkAsOriginalPositionResponse\"\x00\x12j\n\x13GetAbsolutePosition\x12\'.handsmotion.GetAbsolutePositionRequest\x1a(.handsmotion.GetAbsolutePositionResponse\"\x00\x12U\n\x0c\x41\x62soluteMove\x12 .handsmotion.AbsoluteMoveRequest\x1a!.handsmotion.AbsoluteMoveResponse\"\x00\x42M\n\x1e\x63om.jjrobot.andy4.handmotionpbB\x1dHandMotionCapabilityServicePBZ\x0chandmotionpbb\x06proto3'
+  serialized_pb=b'\n\x10\x63\x61pability.proto\x12\x0bhandsmotion\"\xba\x02\n\x18\x46ingersAdjustmentRequest\x12\x10\n\x08hand_idx\x18\x01 \x01(\r\x12\x0f\n\x05reset\x18\x02 \x01(\x08H\x00\x12@\n\x04move\x18\x03 \x01(\x0b\x32\x30.handsmotion.FingersAdjustmentRequest.FingerMoveH\x00\x1a\xb1\x01\n\nFingerMove\x12\x12\n\nfinger_idx\x18\x02 \x01(\r\x12R\n\x04type\x18\x03 \x01(\x0e\x32\x44.handsmotion.FingersAdjustmentRequest.FingerMove.FingerMovementTypes\x12\x0e\n\x06stroke\x18\x04 \x01(\x05\"+\n\x13\x46ingerMovementTypes\x12\t\n\x05LOOSE\x10\x00\x12\t\n\x05TIGHT\x10\x01\x42\x05\n\x03req\"\x1b\n\x19\x46ingersAdjustmentResponse\"V\n\x14\x41rmAdjustmentRequest\x12\x10\n\x08hand_idx\x18\x01 \x01(\r\x12\x0f\n\x05reset\x18\x02 \x01(\x08H\x00\x12\x14\n\ndisability\x18\x03 \x01(\x08H\x00\x42\x05\n\x03req\"\x17\n\x15\x41rmAdjustmentResponse\"\x18\n\x08Position\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"\x1f\n\x1dMarkAsOriginalPositionRequest\" \n\x1eMarkAsOriginalPositionResponse\"&\n\x18SetJointOriginPosRequest\x12\n\n\x02id\x18\x01 \x03(\r\"\x8f\x01\n\x19SetJointOriginPosResponse\x12H\n\x0corigin_state\x18\x01 \x03(\x0b\x32\x32.handsmotion.SetJointOriginPosResponse.OriginState\x1a(\n\x0bOriginState\x12\n\n\x02id\x18\x01 \x01(\r\x12\r\n\x05state\x18\x02 \x01(\x05\"^\n\x0eMovementScript\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.handsmotion.Position\x12\x10\n\x08run_time\x18\x02 \x01(\x05\x12\x11\n\tkeep_time\x18\x03 \x01(\x05\"\x1c\n\x1aGetAbsolutePositionRequest\"F\n\x1bGetAbsolutePositionResponse\x12\'\n\x08position\x18\x01 \x01(\x0b\x32\x15.handsmotion.Position\"V\n\x13\x41\x62soluteMoveRequest\x12,\n\x07scripts\x18\x01 \x03(\x0b\x32\x1b.handsmotion.MovementScript\x12\x11\n\tsync_mode\x18\x02 \x01(\x08\"\x16\n\x14\x41\x62soluteMoveResponse2\xea\x04\n\nCapability\x12\x64\n\x11\x46ingersAdjustment\x12%.handsmotion.FingersAdjustmentRequest\x1a&.handsmotion.FingersAdjustmentResponse\"\x00\x12X\n\rArmAdjustment\x12!.handsmotion.ArmAdjustmentRequest\x1a\".handsmotion.ArmAdjustmentResponse\"\x00\x12s\n\x16MarkAsOriginalPosition\x12*.handsmotion.MarkAsOriginalPositionRequest\x1a+.handsmotion.MarkAsOriginalPositionResponse\"\x00\x12\x64\n\x11SetJointOriginPos\x12%.handsmotion.SetJointOriginPosRequest\x1a&.handsmotion.SetJointOriginPosResponse\"\x00\x12j\n\x13GetAbsolutePosition\x12\'.handsmotion.GetAbsolutePositionRequest\x1a(.handsmotion.GetAbsolutePositionResponse\"\x00\x12U\n\x0c\x41\x62soluteMove\x12 .handsmotion.AbsoluteMoveRequest\x1a!.handsmotion.AbsoluteMoveResponse\"\x00\x42M\n\x1e\x63om.jjrobot.andy4.handmotionpbB\x1dHandMotionCapabilityServicePBZ\x0chandmotionpbb\x06proto3'
 )
 
 
@@ -314,6 +314,105 @@ _MARKASORIGINALPOSITIONRESPONSE = _descriptor.Descriptor(
 )
 
 
+_SETJOINTORIGINPOSREQUEST = _descriptor.Descriptor(
+  name='SetJointOriginPosRequest',
+  full_name='handsmotion.SetJointOriginPosRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='handsmotion.SetJointOriginPosRequest.id', index=0,
+      number=1, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=585,
+  serialized_end=623,
+)
+
+
+_SETJOINTORIGINPOSRESPONSE_ORIGINSTATE = _descriptor.Descriptor(
+  name='OriginState',
+  full_name='handsmotion.SetJointOriginPosResponse.OriginState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='handsmotion.SetJointOriginPosResponse.OriginState.id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='state', full_name='handsmotion.SetJointOriginPosResponse.OriginState.state', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=729,
+  serialized_end=769,
+)
+
+_SETJOINTORIGINPOSRESPONSE = _descriptor.Descriptor(
+  name='SetJointOriginPosResponse',
+  full_name='handsmotion.SetJointOriginPosResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='origin_state', full_name='handsmotion.SetJointOriginPosResponse.origin_state', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SETJOINTORIGINPOSRESPONSE_ORIGINSTATE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=626,
+  serialized_end=769,
+)
+
+
 _MOVEMENTSCRIPT = _descriptor.Descriptor(
   name='MovementScript',
   full_name='handsmotion.MovementScript',
@@ -354,8 +453,8 @@ _MOVEMENTSCRIPT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=585,
-  serialized_end=679,
+  serialized_start=771,
+  serialized_end=865,
 )
 
 
@@ -378,8 +477,8 @@ _GETABSOLUTEPOSITIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=681,
-  serialized_end=709,
+  serialized_start=867,
+  serialized_end=895,
 )
 
 
@@ -409,8 +508,8 @@ _GETABSOLUTEPOSITIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=711,
-  serialized_end=781,
+  serialized_start=897,
+  serialized_end=967,
 )
 
 
@@ -447,8 +546,8 @@ _ABSOLUTEMOVEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=783,
-  serialized_end=869,
+  serialized_start=969,
+  serialized_end=1055,
 )
 
 
@@ -471,8 +570,8 @@ _ABSOLUTEMOVERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=871,
-  serialized_end=893,
+  serialized_start=1057,
+  serialized_end=1079,
 )
 
 _FINGERSADJUSTMENTREQUEST_FINGERMOVE.fields_by_name['type'].enum_type = _FINGERSADJUSTMENTREQUEST_FINGERMOVE_FINGERMOVEMENTTYPES
@@ -491,6 +590,8 @@ _ARMADJUSTMENTREQUEST.fields_by_name['reset'].containing_oneof = _ARMADJUSTMENTR
 _ARMADJUSTMENTREQUEST.oneofs_by_name['req'].fields.append(
   _ARMADJUSTMENTREQUEST.fields_by_name['disability'])
 _ARMADJUSTMENTREQUEST.fields_by_name['disability'].containing_oneof = _ARMADJUSTMENTREQUEST.oneofs_by_name['req']
+_SETJOINTORIGINPOSRESPONSE_ORIGINSTATE.containing_type = _SETJOINTORIGINPOSRESPONSE
+_SETJOINTORIGINPOSRESPONSE.fields_by_name['origin_state'].message_type = _SETJOINTORIGINPOSRESPONSE_ORIGINSTATE
 _MOVEMENTSCRIPT.fields_by_name['position'].message_type = _POSITION
 _GETABSOLUTEPOSITIONRESPONSE.fields_by_name['position'].message_type = _POSITION
 _ABSOLUTEMOVEREQUEST.fields_by_name['scripts'].message_type = _MOVEMENTSCRIPT
@@ -501,6 +602,8 @@ DESCRIPTOR.message_types_by_name['ArmAdjustmentResponse'] = _ARMADJUSTMENTRESPON
 DESCRIPTOR.message_types_by_name['Position'] = _POSITION
 DESCRIPTOR.message_types_by_name['MarkAsOriginalPositionRequest'] = _MARKASORIGINALPOSITIONREQUEST
 DESCRIPTOR.message_types_by_name['MarkAsOriginalPositionResponse'] = _MARKASORIGINALPOSITIONRESPONSE
+DESCRIPTOR.message_types_by_name['SetJointOriginPosRequest'] = _SETJOINTORIGINPOSREQUEST
+DESCRIPTOR.message_types_by_name['SetJointOriginPosResponse'] = _SETJOINTORIGINPOSRESPONSE
 DESCRIPTOR.message_types_by_name['MovementScript'] = _MOVEMENTSCRIPT
 DESCRIPTOR.message_types_by_name['GetAbsolutePositionRequest'] = _GETABSOLUTEPOSITIONREQUEST
 DESCRIPTOR.message_types_by_name['GetAbsolutePositionResponse'] = _GETABSOLUTEPOSITIONRESPONSE
@@ -565,6 +668,28 @@ MarkAsOriginalPositionResponse = _reflection.GeneratedProtocolMessageType('MarkA
   })
 _sym_db.RegisterMessage(MarkAsOriginalPositionResponse)
 
+SetJointOriginPosRequest = _reflection.GeneratedProtocolMessageType('SetJointOriginPosRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SETJOINTORIGINPOSREQUEST,
+  '__module__' : 'capability_pb2'
+  # @@protoc_insertion_point(class_scope:handsmotion.SetJointOriginPosRequest)
+  })
+_sym_db.RegisterMessage(SetJointOriginPosRequest)
+
+SetJointOriginPosResponse = _reflection.GeneratedProtocolMessageType('SetJointOriginPosResponse', (_message.Message,), {
+
+  'OriginState' : _reflection.GeneratedProtocolMessageType('OriginState', (_message.Message,), {
+    'DESCRIPTOR' : _SETJOINTORIGINPOSRESPONSE_ORIGINSTATE,
+    '__module__' : 'capability_pb2'
+    # @@protoc_insertion_point(class_scope:handsmotion.SetJointOriginPosResponse.OriginState)
+    })
+  ,
+  'DESCRIPTOR' : _SETJOINTORIGINPOSRESPONSE,
+  '__module__' : 'capability_pb2'
+  # @@protoc_insertion_point(class_scope:handsmotion.SetJointOriginPosResponse)
+  })
+_sym_db.RegisterMessage(SetJointOriginPosResponse)
+_sym_db.RegisterMessage(SetJointOriginPosResponse.OriginState)
+
 MovementScript = _reflection.GeneratedProtocolMessageType('MovementScript', (_message.Message,), {
   'DESCRIPTOR' : _MOVEMENTSCRIPT,
   '__module__' : 'capability_pb2'
@@ -609,8 +734,8 @@ _CAPABILITY = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=896,
-  serialized_end=1412,
+  serialized_start=1082,
+  serialized_end=1700,
   methods=[
   _descriptor.MethodDescriptor(
     name='FingersAdjustment',
@@ -640,9 +765,18 @@ _CAPABILITY = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
+    name='SetJointOriginPos',
+    full_name='handsmotion.Capability.SetJointOriginPos',
+    index=3,
+    containing_service=None,
+    input_type=_SETJOINTORIGINPOSREQUEST,
+    output_type=_SETJOINTORIGINPOSRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetAbsolutePosition',
     full_name='handsmotion.Capability.GetAbsolutePosition',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_GETABSOLUTEPOSITIONREQUEST,
     output_type=_GETABSOLUTEPOSITIONRESPONSE,
@@ -651,7 +785,7 @@ _CAPABILITY = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AbsoluteMove',
     full_name='handsmotion.Capability.AbsoluteMove',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_ABSOLUTEMOVEREQUEST,
     output_type=_ABSOLUTEMOVERESPONSE,

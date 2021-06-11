@@ -120,6 +120,37 @@ public final class CapabilityGrpc {
     return getMarkAsOriginalPositionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest,
+      com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> getSetJointOriginPosMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetJointOriginPos",
+      requestType = com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.class,
+      responseType = com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest,
+      com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> getSetJointOriginPosMethod() {
+    io.grpc.MethodDescriptor<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> getSetJointOriginPosMethod;
+    if ((getSetJointOriginPosMethod = CapabilityGrpc.getSetJointOriginPosMethod) == null) {
+      synchronized (CapabilityGrpc.class) {
+        if ((getSetJointOriginPosMethod = CapabilityGrpc.getSetJointOriginPosMethod) == null) {
+          CapabilityGrpc.getSetJointOriginPosMethod = getSetJointOriginPosMethod =
+              io.grpc.MethodDescriptor.<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetJointOriginPos"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CapabilityMethodDescriptorSupplier("SetJointOriginPos"))
+              .build();
+        }
+      }
+    }
+    return getSetJointOriginPosMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.GetAbsolutePositionRequest,
       com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.GetAbsolutePositionResponse> getGetAbsolutePositionMethod;
 
@@ -262,6 +293,16 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
+     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * </pre>
+     */
+    public void setJointOriginPos(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSetJointOriginPosMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
      * 获取当前绝对位置
      * </pre>
      */
@@ -303,6 +344,13 @@ public final class CapabilityGrpc {
                 com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.MarkAsOriginalPositionRequest,
                 com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.MarkAsOriginalPositionResponse>(
                   this, METHODID_MARK_AS_ORIGINAL_POSITION)))
+          .addMethod(
+            getSetJointOriginPosMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest,
+                com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse>(
+                  this, METHODID_SET_JOINT_ORIGIN_POS)))
           .addMethod(
             getGetAbsolutePositionMethod(),
             asyncUnaryCall(
@@ -370,6 +418,17 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
+     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * </pre>
+     */
+    public void setJointOriginPos(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSetJointOriginPosMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 获取当前绝对位置
      * </pre>
      */
@@ -433,6 +492,16 @@ public final class CapabilityGrpc {
     public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.MarkAsOriginalPositionResponse markAsOriginalPosition(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.MarkAsOriginalPositionRequest request) {
       return blockingUnaryCall(
           getChannel(), getMarkAsOriginalPositionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * </pre>
+     */
+    public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse setJointOriginPos(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getSetJointOriginPosMethod(), getCallOptions(), request);
     }
 
     /**
@@ -505,6 +574,17 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
+     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> setJointOriginPos(
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSetJointOriginPosMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 获取当前绝对位置
      * </pre>
      */
@@ -529,8 +609,9 @@ public final class CapabilityGrpc {
   private static final int METHODID_FINGERS_ADJUSTMENT = 0;
   private static final int METHODID_ARM_ADJUSTMENT = 1;
   private static final int METHODID_MARK_AS_ORIGINAL_POSITION = 2;
-  private static final int METHODID_GET_ABSOLUTE_POSITION = 3;
-  private static final int METHODID_ABSOLUTE_MOVE = 4;
+  private static final int METHODID_SET_JOINT_ORIGIN_POS = 3;
+  private static final int METHODID_GET_ABSOLUTE_POSITION = 4;
+  private static final int METHODID_ABSOLUTE_MOVE = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -560,6 +641,10 @@ public final class CapabilityGrpc {
         case METHODID_MARK_AS_ORIGINAL_POSITION:
           serviceImpl.markAsOriginalPosition((com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.MarkAsOriginalPositionRequest) request,
               (io.grpc.stub.StreamObserver<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.MarkAsOriginalPositionResponse>) responseObserver);
+          break;
+        case METHODID_SET_JOINT_ORIGIN_POS:
+          serviceImpl.setJointOriginPos((com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest) request,
+              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse>) responseObserver);
           break;
         case METHODID_GET_ABSOLUTE_POSITION:
           serviceImpl.getAbsolutePosition((com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.GetAbsolutePositionRequest) request,
@@ -633,6 +718,7 @@ public final class CapabilityGrpc {
               .addMethod(getFingersAdjustmentMethod())
               .addMethod(getArmAdjustmentMethod())
               .addMethod(getMarkAsOriginalPositionMethod())
+              .addMethod(getSetJointOriginPosMethod())
               .addMethod(getGetAbsolutePositionMethod())
               .addMethod(getAbsoluteMoveMethod())
               .build();

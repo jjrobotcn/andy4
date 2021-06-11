@@ -28,6 +28,11 @@ class CapabilityStub(object):
                 request_serializer=capability__pb2.MarkAsOriginalPositionRequest.SerializeToString,
                 response_deserializer=capability__pb2.MarkAsOriginalPositionResponse.FromString,
                 )
+        self.SetJointOriginPos = channel.unary_unary(
+                '/handsmotion.Capability/SetJointOriginPos',
+                request_serializer=capability__pb2.SetJointOriginPosRequest.SerializeToString,
+                response_deserializer=capability__pb2.SetJointOriginPosResponse.FromString,
+                )
         self.GetAbsolutePosition = channel.unary_unary(
                 '/handsmotion.Capability/GetAbsolutePosition',
                 request_serializer=capability__pb2.GetAbsolutePositionRequest.SerializeToString,
@@ -58,6 +63,13 @@ class CapabilityServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def MarkAsOriginalPosition(self, request, context):
+        """标记当前位置为初始位置,所有位置数据将基于此点进行计算
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetJointOriginPos(self, request, context):
         """标记当前位置为初始位置,所有位置数据将基于此点进行计算
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -95,6 +107,11 @@ def add_CapabilityServicer_to_server(servicer, server):
                     servicer.MarkAsOriginalPosition,
                     request_deserializer=capability__pb2.MarkAsOriginalPositionRequest.FromString,
                     response_serializer=capability__pb2.MarkAsOriginalPositionResponse.SerializeToString,
+            ),
+            'SetJointOriginPos': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetJointOriginPos,
+                    request_deserializer=capability__pb2.SetJointOriginPosRequest.FromString,
+                    response_serializer=capability__pb2.SetJointOriginPosResponse.SerializeToString,
             ),
             'GetAbsolutePosition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAbsolutePosition,
@@ -161,6 +178,22 @@ class Capability(object):
         return grpc.experimental.unary_unary(request, target, '/handsmotion.Capability/MarkAsOriginalPosition',
             capability__pb2.MarkAsOriginalPositionRequest.SerializeToString,
             capability__pb2.MarkAsOriginalPositionResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetJointOriginPos(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/handsmotion.Capability/SetJointOriginPos',
+            capability__pb2.SetJointOriginPosRequest.SerializeToString,
+            capability__pb2.SetJointOriginPosResponse.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)
 

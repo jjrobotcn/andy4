@@ -39,6 +39,10 @@ http:
       post: "/api/v2/motion/hands/capability/mark_as_original_position"
       body: "*"
 
+    - selector: handsmotion.Capability.SetJointOriginPos
+      post: "/api/v2/motion/hands/capability/set_joint_origin_pos"
+      body: "*"
+        
     - selector: handsmotion.Capability.GetAbsolutePosition
       get: "/api/v2/motion/hands/capability/get_absolute_position"
 

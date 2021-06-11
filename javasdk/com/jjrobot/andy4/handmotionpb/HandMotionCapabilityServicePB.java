@@ -4792,6 +4792,1962 @@ public final class HandMotionCapabilityServicePB {
 
   }
 
+  public interface SetJointOriginPosRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:handsmotion.SetJointOriginPosRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated uint32 id = 1;</code>
+     * @return A list containing the id.
+     */
+    java.util.List<java.lang.Integer> getIdList();
+    /**
+     * <code>repeated uint32 id = 1;</code>
+     * @return The count of id.
+     */
+    int getIdCount();
+    /**
+     * <code>repeated uint32 id = 1;</code>
+     * @param index The index of the element to return.
+     * @return The id at the given index.
+     */
+    int getId(int index);
+  }
+  /**
+   * Protobuf type {@code handsmotion.SetJointOriginPosRequest}
+   */
+  public  static final class SetJointOriginPosRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:handsmotion.SetJointOriginPosRequest)
+      SetJointOriginPosRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SetJointOriginPosRequest.newBuilder() to construct.
+    private SetJointOriginPosRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SetJointOriginPosRequest() {
+      id_ = emptyIntList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SetJointOriginPosRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetJointOriginPosRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                id_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              id_.addInt(input.readUInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                id_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                id_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          id_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.class, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.IntList id_;
+    /**
+     * <code>repeated uint32 id = 1;</code>
+     * @return A list containing the id.
+     */
+    public java.util.List<java.lang.Integer>
+        getIdList() {
+      return id_;
+    }
+    /**
+     * <code>repeated uint32 id = 1;</code>
+     * @return The count of id.
+     */
+    public int getIdCount() {
+      return id_.size();
+    }
+    /**
+     * <code>repeated uint32 id = 1;</code>
+     * @param index The index of the element to return.
+     * @return The id at the given index.
+     */
+    public int getId(int index) {
+      return id_.getInt(index);
+    }
+    private int idMemoizedSerializedSize = -1;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getIdList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(idMemoizedSerializedSize);
+      }
+      for (int i = 0; i < id_.size(); i++) {
+        output.writeUInt32NoTag(id_.getInt(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < id_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(id_.getInt(i));
+        }
+        size += dataSize;
+        if (!getIdList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        idMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest other = (com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest) obj;
+
+      if (!getIdList()
+          .equals(other.getIdList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getIdCount() > 0) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getIdList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code handsmotion.SetJointOriginPosRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:handsmotion.SetJointOriginPosRequest)
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.class, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest build() {
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest buildPartial() {
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest result = new com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          id_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest) {
+          return mergeFrom((com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest other) {
+        if (other == com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest.getDefaultInstance()) return this;
+        if (!other.id_.isEmpty()) {
+          if (id_.isEmpty()) {
+            id_ = other.id_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureIdIsMutable();
+            id_.addAll(other.id_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.IntList id_ = emptyIntList();
+      private void ensureIdIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          id_ = mutableCopy(id_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @return A list containing the id.
+       */
+      public java.util.List<java.lang.Integer>
+          getIdList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(id_) : id_;
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @return The count of id.
+       */
+      public int getIdCount() {
+        return id_.size();
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @param index The index of the element to return.
+       * @return The id at the given index.
+       */
+      public int getId(int index) {
+        return id_.getInt(index);
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          int index, int value) {
+        ensureIdIsMutable();
+        id_.setInt(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @param value The id to add.
+       * @return This builder for chaining.
+       */
+      public Builder addId(int value) {
+        ensureIdIsMutable();
+        id_.addInt(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @param values The id to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllId(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureIdIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, id_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint32 id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        id_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:handsmotion.SetJointOriginPosRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:handsmotion.SetJointOriginPosRequest)
+    private static final com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest();
+    }
+
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SetJointOriginPosRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SetJointOriginPosRequest>() {
+      @java.lang.Override
+      public SetJointOriginPosRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetJointOriginPosRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SetJointOriginPosRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetJointOriginPosRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SetJointOriginPosResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:handsmotion.SetJointOriginPosResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    java.util.List<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState> 
+        getOriginStateList();
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState getOriginState(int index);
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    int getOriginStateCount();
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    java.util.List<? extends com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder> 
+        getOriginStateOrBuilderList();
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder getOriginStateOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code handsmotion.SetJointOriginPosResponse}
+   */
+  public  static final class SetJointOriginPosResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:handsmotion.SetJointOriginPosResponse)
+      SetJointOriginPosResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SetJointOriginPosResponse.newBuilder() to construct.
+    private SetJointOriginPosResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SetJointOriginPosResponse() {
+      originState_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SetJointOriginPosResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetJointOriginPosResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                originState_ = new java.util.ArrayList<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              originState_.add(
+                  input.readMessage(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          originState_ = java.util.Collections.unmodifiableList(originState_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.class, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.Builder.class);
+    }
+
+    public interface OriginStateOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:handsmotion.SetJointOriginPosResponse.OriginState)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>uint32 id = 1;</code>
+       * @return The id.
+       */
+      int getId();
+
+      /**
+       * <code>int32 state = 2;</code>
+       * @return The state.
+       */
+      int getState();
+    }
+    /**
+     * Protobuf type {@code handsmotion.SetJointOriginPosResponse.OriginState}
+     */
+    public  static final class OriginState extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:handsmotion.SetJointOriginPosResponse.OriginState)
+        OriginStateOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use OriginState.newBuilder() to construct.
+      private OriginState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private OriginState() {
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new OriginState();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private OriginState(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+
+                id_ = input.readUInt32();
+                break;
+              }
+              case 16: {
+
+                state_ = input.readInt32();
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_OriginState_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_OriginState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.class, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder.class);
+      }
+
+      public static final int ID_FIELD_NUMBER = 1;
+      private int id_;
+      /**
+       * <code>uint32 id = 1;</code>
+       * @return The id.
+       */
+      public int getId() {
+        return id_;
+      }
+
+      public static final int STATE_FIELD_NUMBER = 2;
+      private int state_;
+      /**
+       * <code>int32 state = 2;</code>
+       * @return The state.
+       */
+      public int getState() {
+        return state_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (id_ != 0) {
+          output.writeUInt32(1, id_);
+        }
+        if (state_ != 0) {
+          output.writeInt32(2, state_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (id_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(1, id_);
+        }
+        if (state_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(2, state_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState)) {
+          return super.equals(obj);
+        }
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState other = (com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState) obj;
+
+        if (getId()
+            != other.getId()) return false;
+        if (getState()
+            != other.getState()) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+        hash = (37 * hash) + STATE_FIELD_NUMBER;
+        hash = (53 * hash) + getState();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code handsmotion.SetJointOriginPosResponse.OriginState}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:handsmotion.SetJointOriginPosResponse.OriginState)
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_OriginState_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_OriginState_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.class, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder.class);
+        }
+
+        // Construct using com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          id_ = 0;
+
+          state_ = 0;
+
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_OriginState_descriptor;
+        }
+
+        @java.lang.Override
+        public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState getDefaultInstanceForType() {
+          return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState build() {
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState buildPartial() {
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState result = new com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState(this);
+          result.id_ = id_;
+          result.state_ = state_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState) {
+            return mergeFrom((com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState other) {
+          if (other == com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.getDefaultInstance()) return this;
+          if (other.getId() != 0) {
+            setId(other.getId());
+          }
+          if (other.getState() != 0) {
+            setState(other.getState());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private int id_ ;
+        /**
+         * <code>uint32 id = 1;</code>
+         * @return The id.
+         */
+        public int getId() {
+          return id_;
+        }
+        /**
+         * <code>uint32 id = 1;</code>
+         * @param value The id to set.
+         * @return This builder for chaining.
+         */
+        public Builder setId(int value) {
+          
+          id_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint32 id = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearId() {
+          
+          id_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private int state_ ;
+        /**
+         * <code>int32 state = 2;</code>
+         * @return The state.
+         */
+        public int getState() {
+          return state_;
+        }
+        /**
+         * <code>int32 state = 2;</code>
+         * @param value The state to set.
+         * @return This builder for chaining.
+         */
+        public Builder setState(int value) {
+          
+          state_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int32 state = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearState() {
+          
+          state_ = 0;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:handsmotion.SetJointOriginPosResponse.OriginState)
+      }
+
+      // @@protoc_insertion_point(class_scope:handsmotion.SetJointOriginPosResponse.OriginState)
+      private static final com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState();
+      }
+
+      public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<OriginState>
+          PARSER = new com.google.protobuf.AbstractParser<OriginState>() {
+        @java.lang.Override
+        public OriginState parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new OriginState(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<OriginState> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<OriginState> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int ORIGIN_STATE_FIELD_NUMBER = 1;
+    private java.util.List<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState> originState_;
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    public java.util.List<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState> getOriginStateList() {
+      return originState_;
+    }
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    public java.util.List<? extends com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder> 
+        getOriginStateOrBuilderList() {
+      return originState_;
+    }
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    public int getOriginStateCount() {
+      return originState_.size();
+    }
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState getOriginState(int index) {
+      return originState_.get(index);
+    }
+    /**
+     * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+     */
+    public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder getOriginStateOrBuilder(
+        int index) {
+      return originState_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < originState_.size(); i++) {
+        output.writeMessage(1, originState_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < originState_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, originState_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse other = (com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse) obj;
+
+      if (!getOriginStateList()
+          .equals(other.getOriginStateList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getOriginStateCount() > 0) {
+        hash = (37 * hash) + ORIGIN_STATE_FIELD_NUMBER;
+        hash = (53 * hash) + getOriginStateList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code handsmotion.SetJointOriginPosResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:handsmotion.SetJointOriginPosResponse)
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.class, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getOriginStateFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (originStateBuilder_ == null) {
+          originState_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          originStateBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.internal_static_handsmotion_SetJointOriginPosResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse build() {
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse buildPartial() {
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse result = new com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (originStateBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            originState_ = java.util.Collections.unmodifiableList(originState_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.originState_ = originState_;
+        } else {
+          result.originState_ = originStateBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse) {
+          return mergeFrom((com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse other) {
+        if (other == com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.getDefaultInstance()) return this;
+        if (originStateBuilder_ == null) {
+          if (!other.originState_.isEmpty()) {
+            if (originState_.isEmpty()) {
+              originState_ = other.originState_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureOriginStateIsMutable();
+              originState_.addAll(other.originState_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.originState_.isEmpty()) {
+            if (originStateBuilder_.isEmpty()) {
+              originStateBuilder_.dispose();
+              originStateBuilder_ = null;
+              originState_ = other.originState_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              originStateBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getOriginStateFieldBuilder() : null;
+            } else {
+              originStateBuilder_.addAllMessages(other.originState_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState> originState_ =
+        java.util.Collections.emptyList();
+      private void ensureOriginStateIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          originState_ = new java.util.ArrayList<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState>(originState_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder> originStateBuilder_;
+
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public java.util.List<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState> getOriginStateList() {
+        if (originStateBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(originState_);
+        } else {
+          return originStateBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public int getOriginStateCount() {
+        if (originStateBuilder_ == null) {
+          return originState_.size();
+        } else {
+          return originStateBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState getOriginState(int index) {
+        if (originStateBuilder_ == null) {
+          return originState_.get(index);
+        } else {
+          return originStateBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder setOriginState(
+          int index, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState value) {
+        if (originStateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOriginStateIsMutable();
+          originState_.set(index, value);
+          onChanged();
+        } else {
+          originStateBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder setOriginState(
+          int index, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder builderForValue) {
+        if (originStateBuilder_ == null) {
+          ensureOriginStateIsMutable();
+          originState_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          originStateBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder addOriginState(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState value) {
+        if (originStateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOriginStateIsMutable();
+          originState_.add(value);
+          onChanged();
+        } else {
+          originStateBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder addOriginState(
+          int index, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState value) {
+        if (originStateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOriginStateIsMutable();
+          originState_.add(index, value);
+          onChanged();
+        } else {
+          originStateBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder addOriginState(
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder builderForValue) {
+        if (originStateBuilder_ == null) {
+          ensureOriginStateIsMutable();
+          originState_.add(builderForValue.build());
+          onChanged();
+        } else {
+          originStateBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder addOriginState(
+          int index, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder builderForValue) {
+        if (originStateBuilder_ == null) {
+          ensureOriginStateIsMutable();
+          originState_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          originStateBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder addAllOriginState(
+          java.lang.Iterable<? extends com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState> values) {
+        if (originStateBuilder_ == null) {
+          ensureOriginStateIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, originState_);
+          onChanged();
+        } else {
+          originStateBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder clearOriginState() {
+        if (originStateBuilder_ == null) {
+          originState_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          originStateBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public Builder removeOriginState(int index) {
+        if (originStateBuilder_ == null) {
+          ensureOriginStateIsMutable();
+          originState_.remove(index);
+          onChanged();
+        } else {
+          originStateBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder getOriginStateBuilder(
+          int index) {
+        return getOriginStateFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder getOriginStateOrBuilder(
+          int index) {
+        if (originStateBuilder_ == null) {
+          return originState_.get(index);  } else {
+          return originStateBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public java.util.List<? extends com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder> 
+           getOriginStateOrBuilderList() {
+        if (originStateBuilder_ != null) {
+          return originStateBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(originState_);
+        }
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder addOriginStateBuilder() {
+        return getOriginStateFieldBuilder().addBuilder(
+            com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder addOriginStateBuilder(
+          int index) {
+        return getOriginStateFieldBuilder().addBuilder(
+            index, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .handsmotion.SetJointOriginPosResponse.OriginState origin_state = 1;</code>
+       */
+      public java.util.List<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder> 
+           getOriginStateBuilderList() {
+        return getOriginStateFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder> 
+          getOriginStateFieldBuilder() {
+        if (originStateBuilder_ == null) {
+          originStateBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginState.Builder, com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse.OriginStateOrBuilder>(
+                  originState_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          originState_ = null;
+        }
+        return originStateBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:handsmotion.SetJointOriginPosResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:handsmotion.SetJointOriginPosResponse)
+    private static final com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse();
+    }
+
+    public static com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SetJointOriginPosResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SetJointOriginPosResponse>() {
+      @java.lang.Override
+      public SetJointOriginPosResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetJointOriginPosResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SetJointOriginPosResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetJointOriginPosResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MovementScriptOrBuilder extends
       // @@protoc_insertion_point(interface_extends:handsmotion.MovementScript)
       com.google.protobuf.MessageOrBuilder {
@@ -8096,6 +10052,21 @@ public final class HandMotionCapabilityServicePB {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_handsmotion_MarkAsOriginalPositionResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_handsmotion_SetJointOriginPosRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_handsmotion_SetJointOriginPosRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_handsmotion_SetJointOriginPosResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_handsmotion_SetJointOriginPosResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_handsmotion_SetJointOriginPosResponse_OriginState_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_handsmotion_SetJointOriginPosResponse_OriginState_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_handsmotion_MovementScript_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8143,30 +10114,37 @@ public final class HandMotionCapabilityServicePB {
       "disability\030\003 \001(\010H\000B\005\n\003req\"\027\n\025ArmAdjustme" +
       "ntResponse\"\030\n\010Position\022\014\n\004data\030\001 \001(\014\"\037\n\035" +
       "MarkAsOriginalPositionRequest\" \n\036MarkAsO" +
-      "riginalPositionResponse\"^\n\016MovementScrip" +
-      "t\022\'\n\010position\030\001 \001(\0132\025.handsmotion.Positi" +
-      "on\022\020\n\010run_time\030\002 \001(\005\022\021\n\tkeep_time\030\003 \001(\005\"" +
-      "\034\n\032GetAbsolutePositionRequest\"F\n\033GetAbso" +
-      "lutePositionResponse\022\'\n\010position\030\001 \001(\0132\025" +
-      ".handsmotion.Position\"V\n\023AbsoluteMoveReq" +
-      "uest\022,\n\007scripts\030\001 \003(\0132\033.handsmotion.Move" +
-      "mentScript\022\021\n\tsync_mode\030\002 \001(\010\"\026\n\024Absolut" +
-      "eMoveResponse2\204\004\n\nCapability\022d\n\021FingersA" +
-      "djustment\022%.handsmotion.FingersAdjustmen" +
-      "tRequest\032&.handsmotion.FingersAdjustment" +
-      "Response\"\000\022X\n\rArmAdjustment\022!.handsmotio" +
-      "n.ArmAdjustmentRequest\032\".handsmotion.Arm" +
-      "AdjustmentResponse\"\000\022s\n\026MarkAsOriginalPo" +
-      "sition\022*.handsmotion.MarkAsOriginalPosit" +
-      "ionRequest\032+.handsmotion.MarkAsOriginalP" +
-      "ositionResponse\"\000\022j\n\023GetAbsolutePosition" +
-      "\022\'.handsmotion.GetAbsolutePositionReques" +
-      "t\032(.handsmotion.GetAbsolutePositionRespo" +
-      "nse\"\000\022U\n\014AbsoluteMove\022 .handsmotion.Abso" +
-      "luteMoveRequest\032!.handsmotion.AbsoluteMo" +
-      "veResponse\"\000BM\n\036com.jjrobot.andy4.handmo" +
-      "tionpbB\035HandMotionCapabilityServicePBZ\014h" +
-      "andmotionpbb\006proto3"
+      "riginalPositionResponse\"&\n\030SetJointOrigi" +
+      "nPosRequest\022\n\n\002id\030\001 \003(\r\"\217\001\n\031SetJointOrig" +
+      "inPosResponse\022H\n\014origin_state\030\001 \003(\01322.ha" +
+      "ndsmotion.SetJointOriginPosResponse.Orig" +
+      "inState\032(\n\013OriginState\022\n\n\002id\030\001 \001(\r\022\r\n\005st" +
+      "ate\030\002 \001(\005\"^\n\016MovementScript\022\'\n\010position\030" +
+      "\001 \001(\0132\025.handsmotion.Position\022\020\n\010run_time" +
+      "\030\002 \001(\005\022\021\n\tkeep_time\030\003 \001(\005\"\034\n\032GetAbsolute" +
+      "PositionRequest\"F\n\033GetAbsolutePositionRe" +
+      "sponse\022\'\n\010position\030\001 \001(\0132\025.handsmotion.P" +
+      "osition\"V\n\023AbsoluteMoveRequest\022,\n\007script" +
+      "s\030\001 \003(\0132\033.handsmotion.MovementScript\022\021\n\t" +
+      "sync_mode\030\002 \001(\010\"\026\n\024AbsoluteMoveResponse2" +
+      "\352\004\n\nCapability\022d\n\021FingersAdjustment\022%.ha" +
+      "ndsmotion.FingersAdjustmentRequest\032&.han" +
+      "dsmotion.FingersAdjustmentResponse\"\000\022X\n\r" +
+      "ArmAdjustment\022!.handsmotion.ArmAdjustmen" +
+      "tRequest\032\".handsmotion.ArmAdjustmentResp" +
+      "onse\"\000\022s\n\026MarkAsOriginalPosition\022*.hands" +
+      "motion.MarkAsOriginalPositionRequest\032+.h" +
+      "andsmotion.MarkAsOriginalPositionRespons" +
+      "e\"\000\022d\n\021SetJointOriginPos\022%.handsmotion.S" +
+      "etJointOriginPosRequest\032&.handsmotion.Se" +
+      "tJointOriginPosResponse\"\000\022j\n\023GetAbsolute" +
+      "Position\022\'.handsmotion.GetAbsolutePositi" +
+      "onRequest\032(.handsmotion.GetAbsolutePosit" +
+      "ionResponse\"\000\022U\n\014AbsoluteMove\022 .handsmot" +
+      "ion.AbsoluteMoveRequest\032!.handsmotion.Ab" +
+      "soluteMoveResponse\"\000BM\n\036com.jjrobot.andy" +
+      "4.handmotionpbB\035HandMotionCapabilityServ" +
+      "icePBZ\014handmotionpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8220,32 +10198,50 @@ public final class HandMotionCapabilityServicePB {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_handsmotion_MarkAsOriginalPositionResponse_descriptor,
         new java.lang.String[] { });
-    internal_static_handsmotion_MovementScript_descriptor =
+    internal_static_handsmotion_SetJointOriginPosRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
+    internal_static_handsmotion_SetJointOriginPosRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_handsmotion_SetJointOriginPosRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_handsmotion_SetJointOriginPosResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_handsmotion_SetJointOriginPosResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_handsmotion_SetJointOriginPosResponse_descriptor,
+        new java.lang.String[] { "OriginState", });
+    internal_static_handsmotion_SetJointOriginPosResponse_OriginState_descriptor =
+      internal_static_handsmotion_SetJointOriginPosResponse_descriptor.getNestedTypes().get(0);
+    internal_static_handsmotion_SetJointOriginPosResponse_OriginState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_handsmotion_SetJointOriginPosResponse_OriginState_descriptor,
+        new java.lang.String[] { "Id", "State", });
+    internal_static_handsmotion_MovementScript_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_handsmotion_MovementScript_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_handsmotion_MovementScript_descriptor,
         new java.lang.String[] { "Position", "RunTime", "KeepTime", });
     internal_static_handsmotion_GetAbsolutePositionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_handsmotion_GetAbsolutePositionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_handsmotion_GetAbsolutePositionRequest_descriptor,
         new java.lang.String[] { });
     internal_static_handsmotion_GetAbsolutePositionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_handsmotion_GetAbsolutePositionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_handsmotion_GetAbsolutePositionResponse_descriptor,
         new java.lang.String[] { "Position", });
     internal_static_handsmotion_AbsoluteMoveRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_handsmotion_AbsoluteMoveRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_handsmotion_AbsoluteMoveRequest_descriptor,
         new java.lang.String[] { "Scripts", "SyncMode", });
     internal_static_handsmotion_AbsoluteMoveResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_handsmotion_AbsoluteMoveResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_handsmotion_AbsoluteMoveResponse_descriptor,

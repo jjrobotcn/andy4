@@ -114,6 +114,28 @@ function deserialize_handsmotion_MarkAsOriginalPositionResponse(buffer_arg) {
   return capability_pb.MarkAsOriginalPositionResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_handsmotion_SetJointOriginPosRequest(arg) {
+  if (!(arg instanceof capability_pb.SetJointOriginPosRequest)) {
+    throw new Error('Expected argument of type handsmotion.SetJointOriginPosRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_handsmotion_SetJointOriginPosRequest(buffer_arg) {
+  return capability_pb.SetJointOriginPosRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_handsmotion_SetJointOriginPosResponse(arg) {
+  if (!(arg instanceof capability_pb.SetJointOriginPosResponse)) {
+    throw new Error('Expected argument of type handsmotion.SetJointOriginPosResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_handsmotion_SetJointOriginPosResponse(buffer_arg) {
+  return capability_pb.SetJointOriginPosResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 var CapabilityService = exports.CapabilityService = {
   // 调整手指动作的开合与重置
@@ -151,6 +173,18 @@ var CapabilityService = exports.CapabilityService = {
     requestDeserialize: deserialize_handsmotion_MarkAsOriginalPositionRequest,
     responseSerialize: serialize_handsmotion_MarkAsOriginalPositionResponse,
     responseDeserialize: deserialize_handsmotion_MarkAsOriginalPositionResponse,
+  },
+  // 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+  setJointOriginPos: {
+    path: '/handsmotion.Capability/SetJointOriginPos',
+    requestStream: false,
+    responseStream: false,
+    requestType: capability_pb.SetJointOriginPosRequest,
+    responseType: capability_pb.SetJointOriginPosResponse,
+    requestSerialize: serialize_handsmotion_SetJointOriginPosRequest,
+    requestDeserialize: deserialize_handsmotion_SetJointOriginPosRequest,
+    responseSerialize: serialize_handsmotion_SetJointOriginPosResponse,
+    responseDeserialize: deserialize_handsmotion_SetJointOriginPosResponse,
   },
   // 获取当前绝对位置
   getAbsolutePosition: {

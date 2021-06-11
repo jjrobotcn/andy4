@@ -16,6 +16,9 @@ service Capability {
     // 标记当前位置为初始位置,所有位置数据将基于此点进行计算
     rpc MarkAsOriginalPosition (MarkAsOriginalPositionRequest) returns (MarkAsOriginalPositionResponse) {}
 
+    // 设置手臂的原始点
+    rpc SetJointOriginPos (SetJointOriginPosRequest) returns (SetJointOriginPosResponse) {}
+
     // 获取当前绝对位置
     rpc GetAbsolutePosition (GetAbsolutePositionRequest) returns (GetAbsolutePositionResponse) {}
 
@@ -81,6 +84,16 @@ message MarkAsOriginalPositionRequest {
 message MarkAsOriginalPositionResponse {
 }
 
+message SetJointOriginPosRequest{
+    repeated uint32 id = 1;
+}
+message SetJointOriginPosResponse{
+  message OriginState{
+      uint32 id = 1;
+      int32 state = 2;
+  }
+  repeated OriginState origin_state = 1;
+}
 // 运动脚本
 message MovementScript {
     // 位置数据

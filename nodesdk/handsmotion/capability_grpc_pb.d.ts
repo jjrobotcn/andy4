@@ -10,6 +10,7 @@ interface ICapabilityService extends grpc.ServiceDefinition<grpc.UntypedServiceI
   fingersAdjustment: grpc.MethodDefinition<capability_pb.FingersAdjustmentRequest, capability_pb.FingersAdjustmentResponse>;
   armAdjustment: grpc.MethodDefinition<capability_pb.ArmAdjustmentRequest, capability_pb.ArmAdjustmentResponse>;
   markAsOriginalPosition: grpc.MethodDefinition<capability_pb.MarkAsOriginalPositionRequest, capability_pb.MarkAsOriginalPositionResponse>;
+  setJointOriginPos: grpc.MethodDefinition<capability_pb.SetJointOriginPosRequest, capability_pb.SetJointOriginPosResponse>;
   getAbsolutePosition: grpc.MethodDefinition<capability_pb.GetAbsolutePositionRequest, capability_pb.GetAbsolutePositionResponse>;
   absoluteMove: grpc.MethodDefinition<capability_pb.AbsoluteMoveRequest, capability_pb.AbsoluteMoveResponse>;
 }
@@ -27,6 +28,9 @@ export class CapabilityClient extends grpc.Client {
   markAsOriginalPosition(argument: capability_pb.MarkAsOriginalPositionRequest, callback: grpc.requestCallback<capability_pb.MarkAsOriginalPositionResponse>): grpc.ClientUnaryCall;
   markAsOriginalPosition(argument: capability_pb.MarkAsOriginalPositionRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<capability_pb.MarkAsOriginalPositionResponse>): grpc.ClientUnaryCall;
   markAsOriginalPosition(argument: capability_pb.MarkAsOriginalPositionRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<capability_pb.MarkAsOriginalPositionResponse>): grpc.ClientUnaryCall;
+  setJointOriginPos(argument: capability_pb.SetJointOriginPosRequest, callback: grpc.requestCallback<capability_pb.SetJointOriginPosResponse>): grpc.ClientUnaryCall;
+  setJointOriginPos(argument: capability_pb.SetJointOriginPosRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<capability_pb.SetJointOriginPosResponse>): grpc.ClientUnaryCall;
+  setJointOriginPos(argument: capability_pb.SetJointOriginPosRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<capability_pb.SetJointOriginPosResponse>): grpc.ClientUnaryCall;
   getAbsolutePosition(argument: capability_pb.GetAbsolutePositionRequest, callback: grpc.requestCallback<capability_pb.GetAbsolutePositionResponse>): grpc.ClientUnaryCall;
   getAbsolutePosition(argument: capability_pb.GetAbsolutePositionRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<capability_pb.GetAbsolutePositionResponse>): grpc.ClientUnaryCall;
   getAbsolutePosition(argument: capability_pb.GetAbsolutePositionRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<capability_pb.GetAbsolutePositionResponse>): grpc.ClientUnaryCall;
