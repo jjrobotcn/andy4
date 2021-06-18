@@ -7590,6 +7590,3315 @@ public final class PowerServicePB {
 
   }
 
+  public interface WeekdaysOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.Weekdays)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool monday = 1;</code>
+     * @return The monday.
+     */
+    boolean getMonday();
+
+    /**
+     * <code>bool tuesday = 2;</code>
+     * @return The tuesday.
+     */
+    boolean getTuesday();
+
+    /**
+     * <code>bool wednesday = 3;</code>
+     * @return The wednesday.
+     */
+    boolean getWednesday();
+
+    /**
+     * <code>bool thursday = 4;</code>
+     * @return The thursday.
+     */
+    boolean getThursday();
+
+    /**
+     * <code>bool friday = 5;</code>
+     * @return The friday.
+     */
+    boolean getFriday();
+
+    /**
+     * <code>bool saturday = 6;</code>
+     * @return The saturday.
+     */
+    boolean getSaturday();
+
+    /**
+     * <code>bool sunday = 7;</code>
+     * @return The sunday.
+     */
+    boolean getSunday();
+  }
+  /**
+   * Protobuf type {@code powerService.Weekdays}
+   */
+  public  static final class Weekdays extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.Weekdays)
+      WeekdaysOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Weekdays.newBuilder() to construct.
+    private Weekdays(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Weekdays() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Weekdays();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Weekdays(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              monday_ = input.readBool();
+              break;
+            }
+            case 16: {
+
+              tuesday_ = input.readBool();
+              break;
+            }
+            case 24: {
+
+              wednesday_ = input.readBool();
+              break;
+            }
+            case 32: {
+
+              thursday_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              friday_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              saturday_ = input.readBool();
+              break;
+            }
+            case 56: {
+
+              sunday_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Weekdays_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Weekdays_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.class, com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder.class);
+    }
+
+    public static final int MONDAY_FIELD_NUMBER = 1;
+    private boolean monday_;
+    /**
+     * <code>bool monday = 1;</code>
+     * @return The monday.
+     */
+    public boolean getMonday() {
+      return monday_;
+    }
+
+    public static final int TUESDAY_FIELD_NUMBER = 2;
+    private boolean tuesday_;
+    /**
+     * <code>bool tuesday = 2;</code>
+     * @return The tuesday.
+     */
+    public boolean getTuesday() {
+      return tuesday_;
+    }
+
+    public static final int WEDNESDAY_FIELD_NUMBER = 3;
+    private boolean wednesday_;
+    /**
+     * <code>bool wednesday = 3;</code>
+     * @return The wednesday.
+     */
+    public boolean getWednesday() {
+      return wednesday_;
+    }
+
+    public static final int THURSDAY_FIELD_NUMBER = 4;
+    private boolean thursday_;
+    /**
+     * <code>bool thursday = 4;</code>
+     * @return The thursday.
+     */
+    public boolean getThursday() {
+      return thursday_;
+    }
+
+    public static final int FRIDAY_FIELD_NUMBER = 5;
+    private boolean friday_;
+    /**
+     * <code>bool friday = 5;</code>
+     * @return The friday.
+     */
+    public boolean getFriday() {
+      return friday_;
+    }
+
+    public static final int SATURDAY_FIELD_NUMBER = 6;
+    private boolean saturday_;
+    /**
+     * <code>bool saturday = 6;</code>
+     * @return The saturday.
+     */
+    public boolean getSaturday() {
+      return saturday_;
+    }
+
+    public static final int SUNDAY_FIELD_NUMBER = 7;
+    private boolean sunday_;
+    /**
+     * <code>bool sunday = 7;</code>
+     * @return The sunday.
+     */
+    public boolean getSunday() {
+      return sunday_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (monday_ != false) {
+        output.writeBool(1, monday_);
+      }
+      if (tuesday_ != false) {
+        output.writeBool(2, tuesday_);
+      }
+      if (wednesday_ != false) {
+        output.writeBool(3, wednesday_);
+      }
+      if (thursday_ != false) {
+        output.writeBool(4, thursday_);
+      }
+      if (friday_ != false) {
+        output.writeBool(5, friday_);
+      }
+      if (saturday_ != false) {
+        output.writeBool(6, saturday_);
+      }
+      if (sunday_ != false) {
+        output.writeBool(7, sunday_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (monday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, monday_);
+      }
+      if (tuesday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, tuesday_);
+      }
+      if (wednesday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, wednesday_);
+      }
+      if (thursday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, thursday_);
+      }
+      if (friday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, friday_);
+      }
+      if (saturday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, saturday_);
+      }
+      if (sunday_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, sunday_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays other = (com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays) obj;
+
+      if (getMonday()
+          != other.getMonday()) return false;
+      if (getTuesday()
+          != other.getTuesday()) return false;
+      if (getWednesday()
+          != other.getWednesday()) return false;
+      if (getThursday()
+          != other.getThursday()) return false;
+      if (getFriday()
+          != other.getFriday()) return false;
+      if (getSaturday()
+          != other.getSaturday()) return false;
+      if (getSunday()
+          != other.getSunday()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MONDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getMonday());
+      hash = (37 * hash) + TUESDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getTuesday());
+      hash = (37 * hash) + WEDNESDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWednesday());
+      hash = (37 * hash) + THURSDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getThursday());
+      hash = (37 * hash) + FRIDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFriday());
+      hash = (37 * hash) + SATURDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSaturday());
+      hash = (37 * hash) + SUNDAY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSunday());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.Weekdays}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.Weekdays)
+        com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Weekdays_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Weekdays_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.class, com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        monday_ = false;
+
+        tuesday_ = false;
+
+        wednesday_ = false;
+
+        thursday_ = false;
+
+        friday_ = false;
+
+        saturday_ = false;
+
+        sunday_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Weekdays_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays getDefaultInstanceForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays build() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays buildPartial() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays result = new com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays(this);
+        result.monday_ = monday_;
+        result.tuesday_ = tuesday_;
+        result.wednesday_ = wednesday_;
+        result.thursday_ = thursday_;
+        result.friday_ = friday_;
+        result.saturday_ = saturday_;
+        result.sunday_ = sunday_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays) {
+          return mergeFrom((com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays other) {
+        if (other == com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.getDefaultInstance()) return this;
+        if (other.getMonday() != false) {
+          setMonday(other.getMonday());
+        }
+        if (other.getTuesday() != false) {
+          setTuesday(other.getTuesday());
+        }
+        if (other.getWednesday() != false) {
+          setWednesday(other.getWednesday());
+        }
+        if (other.getThursday() != false) {
+          setThursday(other.getThursday());
+        }
+        if (other.getFriday() != false) {
+          setFriday(other.getFriday());
+        }
+        if (other.getSaturday() != false) {
+          setSaturday(other.getSaturday());
+        }
+        if (other.getSunday() != false) {
+          setSunday(other.getSunday());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean monday_ ;
+      /**
+       * <code>bool monday = 1;</code>
+       * @return The monday.
+       */
+      public boolean getMonday() {
+        return monday_;
+      }
+      /**
+       * <code>bool monday = 1;</code>
+       * @param value The monday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMonday(boolean value) {
+        
+        monday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool monday = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMonday() {
+        
+        monday_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean tuesday_ ;
+      /**
+       * <code>bool tuesday = 2;</code>
+       * @return The tuesday.
+       */
+      public boolean getTuesday() {
+        return tuesday_;
+      }
+      /**
+       * <code>bool tuesday = 2;</code>
+       * @param value The tuesday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTuesday(boolean value) {
+        
+        tuesday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool tuesday = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTuesday() {
+        
+        tuesday_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean wednesday_ ;
+      /**
+       * <code>bool wednesday = 3;</code>
+       * @return The wednesday.
+       */
+      public boolean getWednesday() {
+        return wednesday_;
+      }
+      /**
+       * <code>bool wednesday = 3;</code>
+       * @param value The wednesday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWednesday(boolean value) {
+        
+        wednesday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool wednesday = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWednesday() {
+        
+        wednesday_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean thursday_ ;
+      /**
+       * <code>bool thursday = 4;</code>
+       * @return The thursday.
+       */
+      public boolean getThursday() {
+        return thursday_;
+      }
+      /**
+       * <code>bool thursday = 4;</code>
+       * @param value The thursday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setThursday(boolean value) {
+        
+        thursday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool thursday = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearThursday() {
+        
+        thursday_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean friday_ ;
+      /**
+       * <code>bool friday = 5;</code>
+       * @return The friday.
+       */
+      public boolean getFriday() {
+        return friday_;
+      }
+      /**
+       * <code>bool friday = 5;</code>
+       * @param value The friday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFriday(boolean value) {
+        
+        friday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool friday = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFriday() {
+        
+        friday_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean saturday_ ;
+      /**
+       * <code>bool saturday = 6;</code>
+       * @return The saturday.
+       */
+      public boolean getSaturday() {
+        return saturday_;
+      }
+      /**
+       * <code>bool saturday = 6;</code>
+       * @param value The saturday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSaturday(boolean value) {
+        
+        saturday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool saturday = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSaturday() {
+        
+        saturday_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean sunday_ ;
+      /**
+       * <code>bool sunday = 7;</code>
+       * @return The sunday.
+       */
+      public boolean getSunday() {
+        return sunday_;
+      }
+      /**
+       * <code>bool sunday = 7;</code>
+       * @param value The sunday to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSunday(boolean value) {
+        
+        sunday_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool sunday = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSunday() {
+        
+        sunday_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.Weekdays)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.Weekdays)
+    private static final com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays();
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Weekdays>
+        PARSER = new com.google.protobuf.AbstractParser<Weekdays>() {
+      @java.lang.Override
+      public Weekdays parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Weekdays(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Weekdays> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Weekdays> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TimeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.Time)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 hour = 1;</code>
+     * @return The hour.
+     */
+    int getHour();
+
+    /**
+     * <code>uint32 minute = 2;</code>
+     * @return The minute.
+     */
+    int getMinute();
+  }
+  /**
+   * Protobuf type {@code powerService.Time}
+   */
+  public  static final class Time extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.Time)
+      TimeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Time.newBuilder() to construct.
+    private Time(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Time() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Time();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Time(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              hour_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              minute_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Time_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Time_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.class, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder.class);
+    }
+
+    public static final int HOUR_FIELD_NUMBER = 1;
+    private int hour_;
+    /**
+     * <code>uint32 hour = 1;</code>
+     * @return The hour.
+     */
+    public int getHour() {
+      return hour_;
+    }
+
+    public static final int MINUTE_FIELD_NUMBER = 2;
+    private int minute_;
+    /**
+     * <code>uint32 minute = 2;</code>
+     * @return The minute.
+     */
+    public int getMinute() {
+      return minute_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (hour_ != 0) {
+        output.writeUInt32(1, hour_);
+      }
+      if (minute_ != 0) {
+        output.writeUInt32(2, minute_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (hour_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, hour_);
+      }
+      if (minute_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, minute_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.powerpb.PowerServicePB.Time)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.powerpb.PowerServicePB.Time other = (com.jjrobot.andy4.powerpb.PowerServicePB.Time) obj;
+
+      if (getHour()
+          != other.getHour()) return false;
+      if (getMinute()
+          != other.getMinute()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + HOUR_FIELD_NUMBER;
+      hash = (53 * hash) + getHour();
+      hash = (37 * hash) + MINUTE_FIELD_NUMBER;
+      hash = (53 * hash) + getMinute();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.powerpb.PowerServicePB.Time prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.Time}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.Time)
+        com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Time_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Time_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.powerpb.PowerServicePB.Time.class, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.powerpb.PowerServicePB.Time.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        hour_ = 0;
+
+        minute_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_Time_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time getDefaultInstanceForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time build() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.Time result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time buildPartial() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.Time result = new com.jjrobot.andy4.powerpb.PowerServicePB.Time(this);
+        result.hour_ = hour_;
+        result.minute_ = minute_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.powerpb.PowerServicePB.Time) {
+          return mergeFrom((com.jjrobot.andy4.powerpb.PowerServicePB.Time)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.powerpb.PowerServicePB.Time other) {
+        if (other == com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance()) return this;
+        if (other.getHour() != 0) {
+          setHour(other.getHour());
+        }
+        if (other.getMinute() != 0) {
+          setMinute(other.getMinute());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.powerpb.PowerServicePB.Time parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.powerpb.PowerServicePB.Time) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int hour_ ;
+      /**
+       * <code>uint32 hour = 1;</code>
+       * @return The hour.
+       */
+      public int getHour() {
+        return hour_;
+      }
+      /**
+       * <code>uint32 hour = 1;</code>
+       * @param value The hour to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHour(int value) {
+        
+        hour_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 hour = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHour() {
+        
+        hour_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int minute_ ;
+      /**
+       * <code>uint32 minute = 2;</code>
+       * @return The minute.
+       */
+      public int getMinute() {
+        return minute_;
+      }
+      /**
+       * <code>uint32 minute = 2;</code>
+       * @param value The minute to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMinute(int value) {
+        
+        minute_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 minute = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMinute() {
+        
+        minute_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.Time)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.Time)
+    private static final com.jjrobot.andy4.powerpb.PowerServicePB.Time DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.powerpb.PowerServicePB.Time();
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.Time getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Time>
+        PARSER = new com.google.protobuf.AbstractParser<Time>() {
+      @java.lang.Override
+      public Time parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Time(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Time> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Time> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.powerpb.PowerServicePB.Time getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AutoPowerOnOffModelOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.AutoPowerOnOffModel)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.powerService.Time on_start_time = 1;</code>
+     * @return Whether the onStartTime field is set.
+     */
+    boolean hasOnStartTime();
+    /**
+     * <code>.powerService.Time on_start_time = 1;</code>
+     * @return The onStartTime.
+     */
+    com.jjrobot.andy4.powerpb.PowerServicePB.Time getOnStartTime();
+    /**
+     * <code>.powerService.Time on_start_time = 1;</code>
+     */
+    com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder getOnStartTimeOrBuilder();
+
+    /**
+     * <code>.powerService.Time on_end_time = 2;</code>
+     * @return Whether the onEndTime field is set.
+     */
+    boolean hasOnEndTime();
+    /**
+     * <code>.powerService.Time on_end_time = 2;</code>
+     * @return The onEndTime.
+     */
+    com.jjrobot.andy4.powerpb.PowerServicePB.Time getOnEndTime();
+    /**
+     * <code>.powerService.Time on_end_time = 2;</code>
+     */
+    com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder getOnEndTimeOrBuilder();
+
+    /**
+     * <code>.powerService.Weekdays weekdays = 3;</code>
+     * @return Whether the weekdays field is set.
+     */
+    boolean hasWeekdays();
+    /**
+     * <code>.powerService.Weekdays weekdays = 3;</code>
+     * @return The weekdays.
+     */
+    com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays getWeekdays();
+    /**
+     * <code>.powerService.Weekdays weekdays = 3;</code>
+     */
+    com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder getWeekdaysOrBuilder();
+  }
+  /**
+   * Protobuf type {@code powerService.AutoPowerOnOffModel}
+   */
+  public  static final class AutoPowerOnOffModel extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.AutoPowerOnOffModel)
+      AutoPowerOnOffModelOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AutoPowerOnOffModel.newBuilder() to construct.
+    private AutoPowerOnOffModel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AutoPowerOnOffModel() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AutoPowerOnOffModel();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AutoPowerOnOffModel(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder subBuilder = null;
+              if (onStartTime_ != null) {
+                subBuilder = onStartTime_.toBuilder();
+              }
+              onStartTime_ = input.readMessage(com.jjrobot.andy4.powerpb.PowerServicePB.Time.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(onStartTime_);
+                onStartTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder subBuilder = null;
+              if (onEndTime_ != null) {
+                subBuilder = onEndTime_.toBuilder();
+              }
+              onEndTime_ = input.readMessage(com.jjrobot.andy4.powerpb.PowerServicePB.Time.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(onEndTime_);
+                onEndTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder subBuilder = null;
+              if (weekdays_ != null) {
+                subBuilder = weekdays_.toBuilder();
+              }
+              weekdays_ = input.readMessage(com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(weekdays_);
+                weekdays_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_AutoPowerOnOffModel_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_AutoPowerOnOffModel_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.class, com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.Builder.class);
+    }
+
+    public static final int ON_START_TIME_FIELD_NUMBER = 1;
+    private com.jjrobot.andy4.powerpb.PowerServicePB.Time onStartTime_;
+    /**
+     * <code>.powerService.Time on_start_time = 1;</code>
+     * @return Whether the onStartTime field is set.
+     */
+    public boolean hasOnStartTime() {
+      return onStartTime_ != null;
+    }
+    /**
+     * <code>.powerService.Time on_start_time = 1;</code>
+     * @return The onStartTime.
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.Time getOnStartTime() {
+      return onStartTime_ == null ? com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance() : onStartTime_;
+    }
+    /**
+     * <code>.powerService.Time on_start_time = 1;</code>
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder getOnStartTimeOrBuilder() {
+      return getOnStartTime();
+    }
+
+    public static final int ON_END_TIME_FIELD_NUMBER = 2;
+    private com.jjrobot.andy4.powerpb.PowerServicePB.Time onEndTime_;
+    /**
+     * <code>.powerService.Time on_end_time = 2;</code>
+     * @return Whether the onEndTime field is set.
+     */
+    public boolean hasOnEndTime() {
+      return onEndTime_ != null;
+    }
+    /**
+     * <code>.powerService.Time on_end_time = 2;</code>
+     * @return The onEndTime.
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.Time getOnEndTime() {
+      return onEndTime_ == null ? com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance() : onEndTime_;
+    }
+    /**
+     * <code>.powerService.Time on_end_time = 2;</code>
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder getOnEndTimeOrBuilder() {
+      return getOnEndTime();
+    }
+
+    public static final int WEEKDAYS_FIELD_NUMBER = 3;
+    private com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays weekdays_;
+    /**
+     * <code>.powerService.Weekdays weekdays = 3;</code>
+     * @return Whether the weekdays field is set.
+     */
+    public boolean hasWeekdays() {
+      return weekdays_ != null;
+    }
+    /**
+     * <code>.powerService.Weekdays weekdays = 3;</code>
+     * @return The weekdays.
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays getWeekdays() {
+      return weekdays_ == null ? com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.getDefaultInstance() : weekdays_;
+    }
+    /**
+     * <code>.powerService.Weekdays weekdays = 3;</code>
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder getWeekdaysOrBuilder() {
+      return getWeekdays();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (onStartTime_ != null) {
+        output.writeMessage(1, getOnStartTime());
+      }
+      if (onEndTime_ != null) {
+        output.writeMessage(2, getOnEndTime());
+      }
+      if (weekdays_ != null) {
+        output.writeMessage(3, getWeekdays());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (onStartTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getOnStartTime());
+      }
+      if (onEndTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getOnEndTime());
+      }
+      if (weekdays_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getWeekdays());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel other = (com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel) obj;
+
+      if (hasOnStartTime() != other.hasOnStartTime()) return false;
+      if (hasOnStartTime()) {
+        if (!getOnStartTime()
+            .equals(other.getOnStartTime())) return false;
+      }
+      if (hasOnEndTime() != other.hasOnEndTime()) return false;
+      if (hasOnEndTime()) {
+        if (!getOnEndTime()
+            .equals(other.getOnEndTime())) return false;
+      }
+      if (hasWeekdays() != other.hasWeekdays()) return false;
+      if (hasWeekdays()) {
+        if (!getWeekdays()
+            .equals(other.getWeekdays())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasOnStartTime()) {
+        hash = (37 * hash) + ON_START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getOnStartTime().hashCode();
+      }
+      if (hasOnEndTime()) {
+        hash = (37 * hash) + ON_END_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getOnEndTime().hashCode();
+      }
+      if (hasWeekdays()) {
+        hash = (37 * hash) + WEEKDAYS_FIELD_NUMBER;
+        hash = (53 * hash) + getWeekdays().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.AutoPowerOnOffModel}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.AutoPowerOnOffModel)
+        com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModelOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_AutoPowerOnOffModel_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_AutoPowerOnOffModel_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.class, com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (onStartTimeBuilder_ == null) {
+          onStartTime_ = null;
+        } else {
+          onStartTime_ = null;
+          onStartTimeBuilder_ = null;
+        }
+        if (onEndTimeBuilder_ == null) {
+          onEndTime_ = null;
+        } else {
+          onEndTime_ = null;
+          onEndTimeBuilder_ = null;
+        }
+        if (weekdaysBuilder_ == null) {
+          weekdays_ = null;
+        } else {
+          weekdays_ = null;
+          weekdaysBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_AutoPowerOnOffModel_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel getDefaultInstanceForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel build() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel buildPartial() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel result = new com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel(this);
+        if (onStartTimeBuilder_ == null) {
+          result.onStartTime_ = onStartTime_;
+        } else {
+          result.onStartTime_ = onStartTimeBuilder_.build();
+        }
+        if (onEndTimeBuilder_ == null) {
+          result.onEndTime_ = onEndTime_;
+        } else {
+          result.onEndTime_ = onEndTimeBuilder_.build();
+        }
+        if (weekdaysBuilder_ == null) {
+          result.weekdays_ = weekdays_;
+        } else {
+          result.weekdays_ = weekdaysBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel) {
+          return mergeFrom((com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel other) {
+        if (other == com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.getDefaultInstance()) return this;
+        if (other.hasOnStartTime()) {
+          mergeOnStartTime(other.getOnStartTime());
+        }
+        if (other.hasOnEndTime()) {
+          mergeOnEndTime(other.getOnEndTime());
+        }
+        if (other.hasWeekdays()) {
+          mergeWeekdays(other.getWeekdays());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.jjrobot.andy4.powerpb.PowerServicePB.Time onStartTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.jjrobot.andy4.powerpb.PowerServicePB.Time, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder> onStartTimeBuilder_;
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       * @return Whether the onStartTime field is set.
+       */
+      public boolean hasOnStartTime() {
+        return onStartTimeBuilder_ != null || onStartTime_ != null;
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       * @return The onStartTime.
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time getOnStartTime() {
+        if (onStartTimeBuilder_ == null) {
+          return onStartTime_ == null ? com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance() : onStartTime_;
+        } else {
+          return onStartTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      public Builder setOnStartTime(com.jjrobot.andy4.powerpb.PowerServicePB.Time value) {
+        if (onStartTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          onStartTime_ = value;
+          onChanged();
+        } else {
+          onStartTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      public Builder setOnStartTime(
+          com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder builderForValue) {
+        if (onStartTimeBuilder_ == null) {
+          onStartTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          onStartTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      public Builder mergeOnStartTime(com.jjrobot.andy4.powerpb.PowerServicePB.Time value) {
+        if (onStartTimeBuilder_ == null) {
+          if (onStartTime_ != null) {
+            onStartTime_ =
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.newBuilder(onStartTime_).mergeFrom(value).buildPartial();
+          } else {
+            onStartTime_ = value;
+          }
+          onChanged();
+        } else {
+          onStartTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      public Builder clearOnStartTime() {
+        if (onStartTimeBuilder_ == null) {
+          onStartTime_ = null;
+          onChanged();
+        } else {
+          onStartTime_ = null;
+          onStartTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder getOnStartTimeBuilder() {
+        
+        onChanged();
+        return getOnStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder getOnStartTimeOrBuilder() {
+        if (onStartTimeBuilder_ != null) {
+          return onStartTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return onStartTime_ == null ?
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance() : onStartTime_;
+        }
+      }
+      /**
+       * <code>.powerService.Time on_start_time = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.jjrobot.andy4.powerpb.PowerServicePB.Time, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder> 
+          getOnStartTimeFieldBuilder() {
+        if (onStartTimeBuilder_ == null) {
+          onStartTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder>(
+                  getOnStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          onStartTime_ = null;
+        }
+        return onStartTimeBuilder_;
+      }
+
+      private com.jjrobot.andy4.powerpb.PowerServicePB.Time onEndTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.jjrobot.andy4.powerpb.PowerServicePB.Time, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder> onEndTimeBuilder_;
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       * @return Whether the onEndTime field is set.
+       */
+      public boolean hasOnEndTime() {
+        return onEndTimeBuilder_ != null || onEndTime_ != null;
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       * @return The onEndTime.
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time getOnEndTime() {
+        if (onEndTimeBuilder_ == null) {
+          return onEndTime_ == null ? com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance() : onEndTime_;
+        } else {
+          return onEndTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      public Builder setOnEndTime(com.jjrobot.andy4.powerpb.PowerServicePB.Time value) {
+        if (onEndTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          onEndTime_ = value;
+          onChanged();
+        } else {
+          onEndTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      public Builder setOnEndTime(
+          com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder builderForValue) {
+        if (onEndTimeBuilder_ == null) {
+          onEndTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          onEndTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      public Builder mergeOnEndTime(com.jjrobot.andy4.powerpb.PowerServicePB.Time value) {
+        if (onEndTimeBuilder_ == null) {
+          if (onEndTime_ != null) {
+            onEndTime_ =
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.newBuilder(onEndTime_).mergeFrom(value).buildPartial();
+          } else {
+            onEndTime_ = value;
+          }
+          onChanged();
+        } else {
+          onEndTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      public Builder clearOnEndTime() {
+        if (onEndTimeBuilder_ == null) {
+          onEndTime_ = null;
+          onChanged();
+        } else {
+          onEndTime_ = null;
+          onEndTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder getOnEndTimeBuilder() {
+        
+        onChanged();
+        return getOnEndTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder getOnEndTimeOrBuilder() {
+        if (onEndTimeBuilder_ != null) {
+          return onEndTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return onEndTime_ == null ?
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time.getDefaultInstance() : onEndTime_;
+        }
+      }
+      /**
+       * <code>.powerService.Time on_end_time = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.jjrobot.andy4.powerpb.PowerServicePB.Time, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder> 
+          getOnEndTimeFieldBuilder() {
+        if (onEndTimeBuilder_ == null) {
+          onEndTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.jjrobot.andy4.powerpb.PowerServicePB.Time, com.jjrobot.andy4.powerpb.PowerServicePB.Time.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.TimeOrBuilder>(
+                  getOnEndTime(),
+                  getParentForChildren(),
+                  isClean());
+          onEndTime_ = null;
+        }
+        return onEndTimeBuilder_;
+      }
+
+      private com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays weekdays_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays, com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder> weekdaysBuilder_;
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       * @return Whether the weekdays field is set.
+       */
+      public boolean hasWeekdays() {
+        return weekdaysBuilder_ != null || weekdays_ != null;
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       * @return The weekdays.
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays getWeekdays() {
+        if (weekdaysBuilder_ == null) {
+          return weekdays_ == null ? com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.getDefaultInstance() : weekdays_;
+        } else {
+          return weekdaysBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      public Builder setWeekdays(com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays value) {
+        if (weekdaysBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          weekdays_ = value;
+          onChanged();
+        } else {
+          weekdaysBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      public Builder setWeekdays(
+          com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder builderForValue) {
+        if (weekdaysBuilder_ == null) {
+          weekdays_ = builderForValue.build();
+          onChanged();
+        } else {
+          weekdaysBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      public Builder mergeWeekdays(com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays value) {
+        if (weekdaysBuilder_ == null) {
+          if (weekdays_ != null) {
+            weekdays_ =
+              com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.newBuilder(weekdays_).mergeFrom(value).buildPartial();
+          } else {
+            weekdays_ = value;
+          }
+          onChanged();
+        } else {
+          weekdaysBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      public Builder clearWeekdays() {
+        if (weekdaysBuilder_ == null) {
+          weekdays_ = null;
+          onChanged();
+        } else {
+          weekdays_ = null;
+          weekdaysBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder getWeekdaysBuilder() {
+        
+        onChanged();
+        return getWeekdaysFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      public com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder getWeekdaysOrBuilder() {
+        if (weekdaysBuilder_ != null) {
+          return weekdaysBuilder_.getMessageOrBuilder();
+        } else {
+          return weekdays_ == null ?
+              com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.getDefaultInstance() : weekdays_;
+        }
+      }
+      /**
+       * <code>.powerService.Weekdays weekdays = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays, com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder> 
+          getWeekdaysFieldBuilder() {
+        if (weekdaysBuilder_ == null) {
+          weekdaysBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays, com.jjrobot.andy4.powerpb.PowerServicePB.Weekdays.Builder, com.jjrobot.andy4.powerpb.PowerServicePB.WeekdaysOrBuilder>(
+                  getWeekdays(),
+                  getParentForChildren(),
+                  isClean());
+          weekdays_ = null;
+        }
+        return weekdaysBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.AutoPowerOnOffModel)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.AutoPowerOnOffModel)
+    private static final com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel();
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AutoPowerOnOffModel>
+        PARSER = new com.google.protobuf.AbstractParser<AutoPowerOnOffModel>() {
+      @java.lang.Override
+      public AutoPowerOnOffModel parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AutoPowerOnOffModel(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AutoPowerOnOffModel> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AutoPowerOnOffModel> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SetAutoPowerOnOffResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.SetAutoPowerOnOffResponse)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code powerService.SetAutoPowerOnOffResponse}
+   */
+  public  static final class SetAutoPowerOnOffResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.SetAutoPowerOnOffResponse)
+      SetAutoPowerOnOffResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SetAutoPowerOnOffResponse.newBuilder() to construct.
+    private SetAutoPowerOnOffResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SetAutoPowerOnOffResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SetAutoPowerOnOffResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetAutoPowerOnOffResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_SetAutoPowerOnOffResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_SetAutoPowerOnOffResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.class, com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse other = (com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.SetAutoPowerOnOffResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.SetAutoPowerOnOffResponse)
+        com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_SetAutoPowerOnOffResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_SetAutoPowerOnOffResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.class, com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_SetAutoPowerOnOffResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse getDefaultInstanceForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse build() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse buildPartial() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse result = new com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse) {
+          return mergeFrom((com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse other) {
+        if (other == com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.SetAutoPowerOnOffResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.SetAutoPowerOnOffResponse)
+    private static final com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse();
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SetAutoPowerOnOffResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SetAutoPowerOnOffResponse>() {
+      @java.lang.Override
+      public SetAutoPowerOnOffResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetAutoPowerOnOffResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SetAutoPowerOnOffResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetAutoPowerOnOffResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetAutoPowerOnOffRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:powerService.GetAutoPowerOnOffRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code powerService.GetAutoPowerOnOffRequest}
+   */
+  public  static final class GetAutoPowerOnOffRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:powerService.GetAutoPowerOnOffRequest)
+      GetAutoPowerOnOffRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetAutoPowerOnOffRequest.newBuilder() to construct.
+    private GetAutoPowerOnOffRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetAutoPowerOnOffRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetAutoPowerOnOffRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetAutoPowerOnOffRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_GetAutoPowerOnOffRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_GetAutoPowerOnOffRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.class, com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest)) {
+        return super.equals(obj);
+      }
+      com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest other = (com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code powerService.GetAutoPowerOnOffRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:powerService.GetAutoPowerOnOffRequest)
+        com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_GetAutoPowerOnOffRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_GetAutoPowerOnOffRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.class, com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.Builder.class);
+      }
+
+      // Construct using com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.internal_static_powerService_GetAutoPowerOnOffRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest getDefaultInstanceForType() {
+        return com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest build() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest buildPartial() {
+        com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest result = new com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest) {
+          return mergeFrom((com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest other) {
+        if (other == com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:powerService.GetAutoPowerOnOffRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:powerService.GetAutoPowerOnOffRequest)
+    private static final com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest();
+    }
+
+    public static com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetAutoPowerOnOffRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetAutoPowerOnOffRequest>() {
+      @java.lang.Override
+      public GetAutoPowerOnOffRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetAutoPowerOnOffRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetAutoPowerOnOffRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetAutoPowerOnOffRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_powerService_PowerStatus_descriptor;
   private static final 
@@ -7650,6 +10959,31 @@ public final class PowerServicePB {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_powerService_SwitchResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_Weekdays_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_Weekdays_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_Time_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_Time_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_AutoPowerOnOffModel_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_AutoPowerOnOffModel_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_SetAutoPowerOnOffResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_SetAutoPowerOnOffResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_powerService_GetAutoPowerOnOffRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_powerService_GetAutoPowerOnOffRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7677,21 +11011,35 @@ public final class PowerServicePB {
       "module\030\001 \001(\0162\031.powerService.ModuleTypes\022" +
       "\021\n\toff_after\030\004 \001(\005\022\020\n\010on_after\030\003 \001(\005\"5\n\016" +
       "SwitchResponse\022#\n\006states\030\001 \003(\0132\023.powerSe" +
-      "rvice.State*\244\001\n\013ModuleTypes\022\025\n\021UnknownMo" +
-      "duleType\020\000\022\010\n\004Main\020\001\022\n\n\006EscPos\020\002\022\n\n\006Scre" +
-      "en\020\003\022\n\n\006Sensor\020\004\022\n\n\006Speech\020\005\022\n\n\006Lights\020\006" +
-      "\022\016\n\nExpression\020\007\022\r\n\tNavigator\020\010\022\n\n\006Motio" +
-      "n\020\t\022\r\n\tAmplifier\020\n2\304\002\n\014PowerService\022_\n\016G" +
-      "etPowerStatus\022#.powerService.GetPowerSta" +
-      "tusRequest\032$.powerService.GetPowerStatus" +
-      "Response\"\0000\001\022E\n\006Reboot\022\033.powerService.Re" +
-      "bootRequest\032\034.powerService.RebootRespons" +
-      "e\"\000\022E\n\006States\022\033.powerService.StatesReque" +
-      "st\032\034.powerService.StatesResponse\"\000\022E\n\006Sw" +
-      "itch\022\033.powerService.SwitchRequest\032\034.powe" +
-      "rService.SwitchResponse\"\000B4\n\031com.jjrobot" +
-      ".andy4.powerpbB\016PowerServicePBZ\007powerpbb" +
-      "\006proto3"
+      "rvice.State\"\202\001\n\010Weekdays\022\016\n\006monday\030\001 \001(\010" +
+      "\022\017\n\007tuesday\030\002 \001(\010\022\021\n\twednesday\030\003 \001(\010\022\020\n\010" +
+      "thursday\030\004 \001(\010\022\016\n\006friday\030\005 \001(\010\022\020\n\010saturd" +
+      "ay\030\006 \001(\010\022\016\n\006sunday\030\007 \001(\010\"$\n\004Time\022\014\n\004hour" +
+      "\030\001 \001(\r\022\016\n\006minute\030\002 \001(\r\"\223\001\n\023AutoPowerOnOf" +
+      "fModel\022)\n\ron_start_time\030\001 \001(\0132\022.powerSer" +
+      "vice.Time\022\'\n\013on_end_time\030\002 \001(\0132\022.powerSe" +
+      "rvice.Time\022(\n\010weekdays\030\003 \001(\0132\026.powerServ" +
+      "ice.Weekdays\"\033\n\031SetAutoPowerOnOffRespons" +
+      "e\"\032\n\030GetAutoPowerOnOffRequest*\244\001\n\013Module" +
+      "Types\022\025\n\021UnknownModuleType\020\000\022\010\n\004Main\020\001\022\n" +
+      "\n\006EscPos\020\002\022\n\n\006Screen\020\003\022\n\n\006Sensor\020\004\022\n\n\006Sp" +
+      "eech\020\005\022\n\n\006Lights\020\006\022\016\n\nExpression\020\007\022\r\n\tNa" +
+      "vigator\020\010\022\n\n\006Motion\020\t\022\r\n\tAmplifier\020\n2\211\004\n" +
+      "\014PowerService\022_\n\016GetPowerStatus\022#.powerS" +
+      "ervice.GetPowerStatusRequest\032$.powerServ" +
+      "ice.GetPowerStatusResponse\"\0000\001\022E\n\006Reboot" +
+      "\022\033.powerService.RebootRequest\032\034.powerSer" +
+      "vice.RebootResponse\"\000\022E\n\006States\022\033.powerS" +
+      "ervice.StatesRequest\032\034.powerService.Stat" +
+      "esResponse\"\000\022E\n\006Switch\022\033.powerService.Sw" +
+      "itchRequest\032\034.powerService.SwitchRespons" +
+      "e\"\000\022a\n\021SetAutoPowerOnOff\022!.powerService." +
+      "AutoPowerOnOffModel\032\'.powerService.SetAu" +
+      "toPowerOnOffResponse\"\000\022`\n\021GetAutoPowerOn" +
+      "Off\022&.powerService.GetAutoPowerOnOffRequ" +
+      "est\032!.powerService.AutoPowerOnOffModel\"\000" +
+      "B4\n\031com.jjrobot.andy4.powerpbB\016PowerServ" +
+      "icePBZ\007powerpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7769,6 +11117,36 @@ public final class PowerServicePB {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_powerService_SwitchResponse_descriptor,
         new java.lang.String[] { "States", });
+    internal_static_powerService_Weekdays_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_powerService_Weekdays_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_Weekdays_descriptor,
+        new java.lang.String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", });
+    internal_static_powerService_Time_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_powerService_Time_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_Time_descriptor,
+        new java.lang.String[] { "Hour", "Minute", });
+    internal_static_powerService_AutoPowerOnOffModel_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_powerService_AutoPowerOnOffModel_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_AutoPowerOnOffModel_descriptor,
+        new java.lang.String[] { "OnStartTime", "OnEndTime", "Weekdays", });
+    internal_static_powerService_SetAutoPowerOnOffResponse_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_powerService_SetAutoPowerOnOffResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_SetAutoPowerOnOffResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_powerService_GetAutoPowerOnOffRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_powerService_GetAutoPowerOnOffRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_powerService_GetAutoPowerOnOffRequest_descriptor,
+        new java.lang.String[] { });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

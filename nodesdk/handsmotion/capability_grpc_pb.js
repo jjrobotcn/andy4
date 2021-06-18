@@ -174,7 +174,7 @@ var CapabilityService = exports.CapabilityService = {
     responseSerialize: serialize_handsmotion_MarkAsOriginalPositionResponse,
     responseDeserialize: deserialize_handsmotion_MarkAsOriginalPositionResponse,
   },
-  // 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+  // 设置手臂的原始点
   setJointOriginPos: {
     path: '/handsmotion.Capability/SetJointOriginPos',
     requestStream: false,

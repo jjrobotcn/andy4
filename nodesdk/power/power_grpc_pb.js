@@ -4,6 +4,28 @@
 var grpc = require('grpc');
 var power_pb = require('./power_pb.js');
 
+function serialize_powerService_AutoPowerOnOffModel(arg) {
+  if (!(arg instanceof power_pb.AutoPowerOnOffModel)) {
+    throw new Error('Expected argument of type powerService.AutoPowerOnOffModel');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_AutoPowerOnOffModel(buffer_arg) {
+  return power_pb.AutoPowerOnOffModel.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_powerService_GetAutoPowerOnOffRequest(arg) {
+  if (!(arg instanceof power_pb.GetAutoPowerOnOffRequest)) {
+    throw new Error('Expected argument of type powerService.GetAutoPowerOnOffRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_GetAutoPowerOnOffRequest(buffer_arg) {
+  return power_pb.GetAutoPowerOnOffRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_powerService_GetPowerStatusRequest(arg) {
   if (!(arg instanceof power_pb.GetPowerStatusRequest)) {
     throw new Error('Expected argument of type powerService.GetPowerStatusRequest');
@@ -46,6 +68,17 @@ function serialize_powerService_RebootResponse(arg) {
 
 function deserialize_powerService_RebootResponse(buffer_arg) {
   return power_pb.RebootResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_powerService_SetAutoPowerOnOffResponse(arg) {
+  if (!(arg instanceof power_pb.SetAutoPowerOnOffResponse)) {
+    throw new Error('Expected argument of type powerService.SetAutoPowerOnOffResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_powerService_SetAutoPowerOnOffResponse(buffer_arg) {
+  return power_pb.SetAutoPowerOnOffResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_powerService_StatesRequest(arg) {
@@ -96,8 +129,6 @@ function deserialize_powerService_SwitchResponse(buffer_arg) {
 // powerService.PowerService 电源控制管理
 var PowerServiceService = exports.PowerServiceService = {
   // GetPowerStatus 监听电源状态
-  //
-  // 开发管理平台功能参考: http://10.10.10.2/power
   getPowerStatus: {
     path: '/powerService.PowerService/GetPowerStatus',
     requestStream: false,
@@ -144,6 +175,29 @@ var PowerServiceService = exports.PowerServiceService = {
     requestDeserialize: deserialize_powerService_SwitchRequest,
     responseSerialize: serialize_powerService_SwitchResponse,
     responseDeserialize: deserialize_powerService_SwitchResponse,
+  },
+  // 设置自动开关机
+  setAutoPowerOnOff: {
+    path: '/powerService.PowerService/SetAutoPowerOnOff',
+    requestStream: false,
+    responseStream: false,
+    requestType: power_pb.AutoPowerOnOffModel,
+    responseType: power_pb.SetAutoPowerOnOffResponse,
+    requestSerialize: serialize_powerService_AutoPowerOnOffModel,
+    requestDeserialize: deserialize_powerService_AutoPowerOnOffModel,
+    responseSerialize: serialize_powerService_SetAutoPowerOnOffResponse,
+    responseDeserialize: deserialize_powerService_SetAutoPowerOnOffResponse,
+  },
+  getAutoPowerOnOff: {
+    path: '/powerService.PowerService/GetAutoPowerOnOff',
+    requestStream: false,
+    responseStream: false,
+    requestType: power_pb.GetAutoPowerOnOffRequest,
+    responseType: power_pb.AutoPowerOnOffModel,
+    requestSerialize: serialize_powerService_GetAutoPowerOnOffRequest,
+    requestDeserialize: deserialize_powerService_GetAutoPowerOnOffRequest,
+    responseSerialize: serialize_powerService_AutoPowerOnOffModel,
+    responseDeserialize: deserialize_powerService_AutoPowerOnOffModel,
   },
 };
 

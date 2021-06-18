@@ -70,7 +70,7 @@ class CapabilityServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SetJointOriginPos(self, request, context):
-        """标记当前位置为初始位置,所有位置数据将基于此点进行计算
+        """设置手臂的原始点
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

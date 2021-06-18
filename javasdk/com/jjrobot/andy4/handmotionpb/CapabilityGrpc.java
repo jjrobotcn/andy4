@@ -293,7 +293,7 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
-     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * 设置手臂的原始点
      * </pre>
      */
     public void setJointOriginPos(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request,
@@ -418,7 +418,7 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
-     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * 设置手臂的原始点
      * </pre>
      */
     public void setJointOriginPos(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request,
@@ -496,7 +496,7 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
-     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * 设置手臂的原始点
      * </pre>
      */
     public com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse setJointOriginPos(com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosRequest request) {
@@ -574,7 +574,7 @@ public final class CapabilityGrpc {
 
     /**
      * <pre>
-     * 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+     * 设置手臂的原始点
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.jjrobot.andy4.handmotionpb.HandMotionCapabilityServicePB.SetJointOriginPosResponse> setJointOriginPos(

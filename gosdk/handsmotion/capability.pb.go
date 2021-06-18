@@ -878,7 +878,7 @@ type CapabilityClient interface {
 	ArmAdjustment(ctx context.Context, in *ArmAdjustmentRequest, opts ...grpc.CallOption) (*ArmAdjustmentResponse, error)
 	// 标记当前位置为初始位置,所有位置数据将基于此点进行计算
 	MarkAsOriginalPosition(ctx context.Context, in *MarkAsOriginalPositionRequest, opts ...grpc.CallOption) (*MarkAsOriginalPositionResponse, error)
-	// 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+	// 设置手臂的原始点
 	SetJointOriginPos(ctx context.Context, in *SetJointOriginPosRequest, opts ...grpc.CallOption) (*SetJointOriginPosResponse, error)
 	// 获取当前绝对位置
 	GetAbsolutePosition(ctx context.Context, in *GetAbsolutePositionRequest, opts ...grpc.CallOption) (*GetAbsolutePositionResponse, error)
@@ -956,7 +956,7 @@ type CapabilityServer interface {
 	ArmAdjustment(context.Context, *ArmAdjustmentRequest) (*ArmAdjustmentResponse, error)
 	// 标记当前位置为初始位置,所有位置数据将基于此点进行计算
 	MarkAsOriginalPosition(context.Context, *MarkAsOriginalPositionRequest) (*MarkAsOriginalPositionResponse, error)
-	// 标记当前位置为初始位置,所有位置数据将基于此点进行计算
+	// 设置手臂的原始点
 	SetJointOriginPos(context.Context, *SetJointOriginPosRequest) (*SetJointOriginPosResponse, error)
 	// 获取当前绝对位置
 	GetAbsolutePosition(context.Context, *GetAbsolutePositionRequest) (*GetAbsolutePositionResponse, error)

@@ -34,6 +34,16 @@ class PowerServiceStub(object):
                 request_serializer=power__pb2.SwitchRequest.SerializeToString,
                 response_deserializer=power__pb2.SwitchResponse.FromString,
                 )
+        self.SetAutoPowerOnOff = channel.unary_unary(
+                '/powerService.PowerService/SetAutoPowerOnOff',
+                request_serializer=power__pb2.AutoPowerOnOffModel.SerializeToString,
+                response_deserializer=power__pb2.SetAutoPowerOnOffResponse.FromString,
+                )
+        self.GetAutoPowerOnOff = channel.unary_unary(
+                '/powerService.PowerService/GetAutoPowerOnOff',
+                request_serializer=power__pb2.GetAutoPowerOnOffRequest.SerializeToString,
+                response_deserializer=power__pb2.AutoPowerOnOffModel.FromString,
+                )
 
 
 class PowerServiceServicer(object):
@@ -42,8 +52,6 @@ class PowerServiceServicer(object):
 
     def GetPowerStatus(self, request, context):
         """GetPowerStatus 监听电源状态
-
-        开发管理平台功能参考: http://10.10.10.2/power
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -70,6 +78,19 @@ class PowerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetAutoPowerOnOff(self, request, context):
+        """设置自动开关机
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAutoPowerOnOff(self, request, context):
+        """Missing associated documentation comment in .proto file"""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PowerServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -92,6 +113,16 @@ def add_PowerServiceServicer_to_server(servicer, server):
                     servicer.Switch,
                     request_deserializer=power__pb2.SwitchRequest.FromString,
                     response_serializer=power__pb2.SwitchResponse.SerializeToString,
+            ),
+            'SetAutoPowerOnOff': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetAutoPowerOnOff,
+                    request_deserializer=power__pb2.AutoPowerOnOffModel.FromString,
+                    response_serializer=power__pb2.SetAutoPowerOnOffResponse.SerializeToString,
+            ),
+            'GetAutoPowerOnOff': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAutoPowerOnOff,
+                    request_deserializer=power__pb2.GetAutoPowerOnOffRequest.FromString,
+                    response_serializer=power__pb2.AutoPowerOnOffModel.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -165,5 +196,37 @@ class PowerService(object):
         return grpc.experimental.unary_unary(request, target, '/powerService.PowerService/Switch',
             power__pb2.SwitchRequest.SerializeToString,
             power__pb2.SwitchResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetAutoPowerOnOff(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/powerService.PowerService/SetAutoPowerOnOff',
+            power__pb2.AutoPowerOnOffModel.SerializeToString,
+            power__pb2.SetAutoPowerOnOffResponse.FromString,
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAutoPowerOnOff(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/powerService.PowerService/GetAutoPowerOnOff',
+            power__pb2.GetAutoPowerOnOffRequest.SerializeToString,
+            power__pb2.AutoPowerOnOffModel.FromString,
             options, channel_credentials,
             call_credentials, compression, wait_for_ready, timeout, metadata)

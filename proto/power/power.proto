@@ -10,8 +10,6 @@ option java_outer_classname = "PowerServicePB";
 // powerService.PowerService 电源控制管理
 service PowerService {
     // GetPowerStatus 监听电源状态
-    //
-    // 开发管理平台功能参考: http://10.10.10.2/power
     rpc GetPowerStatus (GetPowerStatusRequest) returns (stream GetPowerStatusResponse) {}
 
     // Reboot 内部模块的电源进行断电方式重启
@@ -22,6 +20,10 @@ service PowerService {
 
     // Switch 控制内部模块电源的开关
     rpc Switch (SwitchRequest) returns (SwitchResponse) {}
+
+    //设置自动开关机
+    rpc SetAutoPowerOnOff(AutoPowerOnOffModel)returns(SetAutoPowerOnOffResponse){}
+    rpc GetAutoPowerOnOff(GetAutoPowerOnOffRequest)returns(AutoPowerOnOffModel){}
 }
 
 // 模块类型枚举
@@ -98,3 +100,30 @@ message SwitchRequest {
 message SwitchResponse {
     repeated State states = 1;
 }
+
+message Weekdays{
+    bool monday = 1;
+    bool tuesday = 2;
+    bool wednesday = 3;
+    bool thursday = 4;
+    bool friday = 5;
+    bool saturday = 6;
+    bool sunday = 7;
+}
+message Time{
+    uint32 hour = 1;
+    uint32 minute = 2;
+}
+message AutoPowerOnOffModel{
+    Time  on_start_time = 1;
+    Time on_end_time = 2;
+    Weekdays weekdays = 3;
+}
+message SetAutoPowerOnOffResponse{
+
+}
+
+message GetAutoPowerOnOffRequest{
+
+}
+

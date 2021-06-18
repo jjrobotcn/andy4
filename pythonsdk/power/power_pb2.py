@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='powerService',
   syntax='proto3',
   serialized_options=b'\n\031com.jjrobot.andy4.powerpbB\016PowerServicePBZ\007powerpb',
-  serialized_pb=b'\n\x0bpower.proto\x12\x0cpowerService\"\x9e\x01\n\x0bPowerStatus\x12\r\n\x05level\x18\x01 \x01(\r\x12\x13\n\x0bis_charging\x18\x02 \x01(\x08\x12;\n\x07\x64\x65vices\x18\x03 \x03(\x0b\x32&.powerService.PowerStatus.DevicesEntryB\x02\x18\x01\x1a.\n\x0c\x44\x65vicesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\x17\n\x15GetPowerStatusRequest\"I\n\x16GetPowerStatusResponse\x12/\n\x0cpower_status\x18\x01 \x01(\x0b\x32\x19.powerService.PowerStatus\"\x1c\n\rRebootRequest\x12\x0b\n\x03\x61ll\x18\x01 \x01(\x08\"\x10\n\x0eRebootResponse\"f\n\x05State\x12)\n\x06module\x18\x01 \x01(\x0e\x32\x19.powerService.ModuleTypes\x12\r\n\x05is_on\x18\x02 \x01(\x08\x12\x11\n\toff_after\x18\x04 \x01(\x05\x12\x10\n\x08on_after\x18\x03 \x01(\x05\"\x0f\n\rStatesRequest\"5\n\x0eStatesResponse\x12#\n\x06states\x18\x01 \x03(\x0b\x32\x13.powerService.State\"\xa1\x01\n\rSwitchRequest\x12\x35\n\x08requests\x18\x01 \x03(\x0b\x32#.powerService.SwitchRequest.request\x1aY\n\x07request\x12)\n\x06module\x18\x01 \x01(\x0e\x32\x19.powerService.ModuleTypes\x12\x11\n\toff_after\x18\x04 \x01(\x05\x12\x10\n\x08on_after\x18\x03 \x01(\x05\"5\n\x0eSwitchResponse\x12#\n\x06states\x18\x01 \x03(\x0b\x32\x13.powerService.State*\xa4\x01\n\x0bModuleTypes\x12\x15\n\x11UnknownModuleType\x10\x00\x12\x08\n\x04Main\x10\x01\x12\n\n\x06\x45scPos\x10\x02\x12\n\n\x06Screen\x10\x03\x12\n\n\x06Sensor\x10\x04\x12\n\n\x06Speech\x10\x05\x12\n\n\x06Lights\x10\x06\x12\x0e\n\nExpression\x10\x07\x12\r\n\tNavigator\x10\x08\x12\n\n\x06Motion\x10\t\x12\r\n\tAmplifier\x10\n2\xc4\x02\n\x0cPowerService\x12_\n\x0eGetPowerStatus\x12#.powerService.GetPowerStatusRequest\x1a$.powerService.GetPowerStatusResponse\"\x00\x30\x01\x12\x45\n\x06Reboot\x12\x1b.powerService.RebootRequest\x1a\x1c.powerService.RebootResponse\"\x00\x12\x45\n\x06States\x12\x1b.powerService.StatesRequest\x1a\x1c.powerService.StatesResponse\"\x00\x12\x45\n\x06Switch\x12\x1b.powerService.SwitchRequest\x1a\x1c.powerService.SwitchResponse\"\x00\x42\x34\n\x19\x63om.jjrobot.andy4.powerpbB\x0ePowerServicePBZ\x07powerpbb\x06proto3'
+  serialized_pb=b'\n\x0bpower.proto\x12\x0cpowerService\"\x9e\x01\n\x0bPowerStatus\x12\r\n\x05level\x18\x01 \x01(\r\x12\x13\n\x0bis_charging\x18\x02 \x01(\x08\x12;\n\x07\x64\x65vices\x18\x03 \x03(\x0b\x32&.powerService.PowerStatus.DevicesEntryB\x02\x18\x01\x1a.\n\x0c\x44\x65vicesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\x17\n\x15GetPowerStatusRequest\"I\n\x16GetPowerStatusResponse\x12/\n\x0cpower_status\x18\x01 \x01(\x0b\x32\x19.powerService.PowerStatus\"\x1c\n\rRebootRequest\x12\x0b\n\x03\x61ll\x18\x01 \x01(\x08\"\x10\n\x0eRebootResponse\"f\n\x05State\x12)\n\x06module\x18\x01 \x01(\x0e\x32\x19.powerService.ModuleTypes\x12\r\n\x05is_on\x18\x02 \x01(\x08\x12\x11\n\toff_after\x18\x04 \x01(\x05\x12\x10\n\x08on_after\x18\x03 \x01(\x05\"\x0f\n\rStatesRequest\"5\n\x0eStatesResponse\x12#\n\x06states\x18\x01 \x03(\x0b\x32\x13.powerService.State\"\xa1\x01\n\rSwitchRequest\x12\x35\n\x08requests\x18\x01 \x03(\x0b\x32#.powerService.SwitchRequest.request\x1aY\n\x07request\x12)\n\x06module\x18\x01 \x01(\x0e\x32\x19.powerService.ModuleTypes\x12\x11\n\toff_after\x18\x04 \x01(\x05\x12\x10\n\x08on_after\x18\x03 \x01(\x05\"5\n\x0eSwitchResponse\x12#\n\x06states\x18\x01 \x03(\x0b\x32\x13.powerService.State\"\x82\x01\n\x08Weekdays\x12\x0e\n\x06monday\x18\x01 \x01(\x08\x12\x0f\n\x07tuesday\x18\x02 \x01(\x08\x12\x11\n\twednesday\x18\x03 \x01(\x08\x12\x10\n\x08thursday\x18\x04 \x01(\x08\x12\x0e\n\x06\x66riday\x18\x05 \x01(\x08\x12\x10\n\x08saturday\x18\x06 \x01(\x08\x12\x0e\n\x06sunday\x18\x07 \x01(\x08\"$\n\x04Time\x12\x0c\n\x04hour\x18\x01 \x01(\r\x12\x0e\n\x06minute\x18\x02 \x01(\r\"\x93\x01\n\x13\x41utoPowerOnOffModel\x12)\n\ron_start_time\x18\x01 \x01(\x0b\x32\x12.powerService.Time\x12\'\n\x0bon_end_time\x18\x02 \x01(\x0b\x32\x12.powerService.Time\x12(\n\x08weekdays\x18\x03 \x01(\x0b\x32\x16.powerService.Weekdays\"\x1b\n\x19SetAutoPowerOnOffResponse\"\x1a\n\x18GetAutoPowerOnOffRequest*\xa4\x01\n\x0bModuleTypes\x12\x15\n\x11UnknownModuleType\x10\x00\x12\x08\n\x04Main\x10\x01\x12\n\n\x06\x45scPos\x10\x02\x12\n\n\x06Screen\x10\x03\x12\n\n\x06Sensor\x10\x04\x12\n\n\x06Speech\x10\x05\x12\n\n\x06Lights\x10\x06\x12\x0e\n\nExpression\x10\x07\x12\r\n\tNavigator\x10\x08\x12\n\n\x06Motion\x10\t\x12\r\n\tAmplifier\x10\n2\x89\x04\n\x0cPowerService\x12_\n\x0eGetPowerStatus\x12#.powerService.GetPowerStatusRequest\x1a$.powerService.GetPowerStatusResponse\"\x00\x30\x01\x12\x45\n\x06Reboot\x12\x1b.powerService.RebootRequest\x1a\x1c.powerService.RebootResponse\"\x00\x12\x45\n\x06States\x12\x1b.powerService.StatesRequest\x1a\x1c.powerService.StatesResponse\"\x00\x12\x45\n\x06Switch\x12\x1b.powerService.SwitchRequest\x1a\x1c.powerService.SwitchResponse\"\x00\x12\x61\n\x11SetAutoPowerOnOff\x12!.powerService.AutoPowerOnOffModel\x1a\'.powerService.SetAutoPowerOnOffResponse\"\x00\x12`\n\x11GetAutoPowerOnOff\x12&.powerService.GetAutoPowerOnOffRequest\x1a!.powerService.AutoPowerOnOffModel\"\x00\x42\x34\n\x19\x63om.jjrobot.andy4.powerpbB\x0ePowerServicePBZ\x07powerpbb\x06proto3'
 )
 
 _MODULETYPES = _descriptor.EnumDescriptor(
@@ -75,8 +75,8 @@ _MODULETYPES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=734,
-  serialized_end=898,
+  serialized_start=1112,
+  serialized_end=1276,
 )
 _sym_db.RegisterEnumDescriptor(_MODULETYPES)
 
@@ -499,6 +499,210 @@ _SWITCHRESPONSE = _descriptor.Descriptor(
   serialized_end=731,
 )
 
+
+_WEEKDAYS = _descriptor.Descriptor(
+  name='Weekdays',
+  full_name='powerService.Weekdays',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='monday', full_name='powerService.Weekdays.monday', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tuesday', full_name='powerService.Weekdays.tuesday', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='wednesday', full_name='powerService.Weekdays.wednesday', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='thursday', full_name='powerService.Weekdays.thursday', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='friday', full_name='powerService.Weekdays.friday', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='saturday', full_name='powerService.Weekdays.saturday', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='sunday', full_name='powerService.Weekdays.sunday', index=6,
+      number=7, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=734,
+  serialized_end=864,
+)
+
+
+_TIME = _descriptor.Descriptor(
+  name='Time',
+  full_name='powerService.Time',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='hour', full_name='powerService.Time.hour', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='minute', full_name='powerService.Time.minute', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=866,
+  serialized_end=902,
+)
+
+
+_AUTOPOWERONOFFMODEL = _descriptor.Descriptor(
+  name='AutoPowerOnOffModel',
+  full_name='powerService.AutoPowerOnOffModel',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='on_start_time', full_name='powerService.AutoPowerOnOffModel.on_start_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='on_end_time', full_name='powerService.AutoPowerOnOffModel.on_end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='weekdays', full_name='powerService.AutoPowerOnOffModel.weekdays', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=905,
+  serialized_end=1052,
+)
+
+
+_SETAUTOPOWERONOFFRESPONSE = _descriptor.Descriptor(
+  name='SetAutoPowerOnOffResponse',
+  full_name='powerService.SetAutoPowerOnOffResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1054,
+  serialized_end=1081,
+)
+
+
+_GETAUTOPOWERONOFFREQUEST = _descriptor.Descriptor(
+  name='GetAutoPowerOnOffRequest',
+  full_name='powerService.GetAutoPowerOnOffRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1083,
+  serialized_end=1109,
+)
+
 _POWERSTATUS_DEVICESENTRY.containing_type = _POWERSTATUS
 _POWERSTATUS.fields_by_name['devices'].message_type = _POWERSTATUS_DEVICESENTRY
 _GETPOWERSTATUSRESPONSE.fields_by_name['power_status'].message_type = _POWERSTATUS
@@ -508,6 +712,9 @@ _SWITCHREQUEST_REQUEST.fields_by_name['module'].enum_type = _MODULETYPES
 _SWITCHREQUEST_REQUEST.containing_type = _SWITCHREQUEST
 _SWITCHREQUEST.fields_by_name['requests'].message_type = _SWITCHREQUEST_REQUEST
 _SWITCHRESPONSE.fields_by_name['states'].message_type = _STATE
+_AUTOPOWERONOFFMODEL.fields_by_name['on_start_time'].message_type = _TIME
+_AUTOPOWERONOFFMODEL.fields_by_name['on_end_time'].message_type = _TIME
+_AUTOPOWERONOFFMODEL.fields_by_name['weekdays'].message_type = _WEEKDAYS
 DESCRIPTOR.message_types_by_name['PowerStatus'] = _POWERSTATUS
 DESCRIPTOR.message_types_by_name['GetPowerStatusRequest'] = _GETPOWERSTATUSREQUEST
 DESCRIPTOR.message_types_by_name['GetPowerStatusResponse'] = _GETPOWERSTATUSRESPONSE
@@ -518,6 +725,11 @@ DESCRIPTOR.message_types_by_name['StatesRequest'] = _STATESREQUEST
 DESCRIPTOR.message_types_by_name['StatesResponse'] = _STATESRESPONSE
 DESCRIPTOR.message_types_by_name['SwitchRequest'] = _SWITCHREQUEST
 DESCRIPTOR.message_types_by_name['SwitchResponse'] = _SWITCHRESPONSE
+DESCRIPTOR.message_types_by_name['Weekdays'] = _WEEKDAYS
+DESCRIPTOR.message_types_by_name['Time'] = _TIME
+DESCRIPTOR.message_types_by_name['AutoPowerOnOffModel'] = _AUTOPOWERONOFFMODEL
+DESCRIPTOR.message_types_by_name['SetAutoPowerOnOffResponse'] = _SETAUTOPOWERONOFFRESPONSE
+DESCRIPTOR.message_types_by_name['GetAutoPowerOnOffRequest'] = _GETAUTOPOWERONOFFREQUEST
 DESCRIPTOR.enum_types_by_name['ModuleTypes'] = _MODULETYPES
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -607,6 +819,41 @@ SwitchResponse = _reflection.GeneratedProtocolMessageType('SwitchResponse', (_me
   })
 _sym_db.RegisterMessage(SwitchResponse)
 
+Weekdays = _reflection.GeneratedProtocolMessageType('Weekdays', (_message.Message,), {
+  'DESCRIPTOR' : _WEEKDAYS,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.Weekdays)
+  })
+_sym_db.RegisterMessage(Weekdays)
+
+Time = _reflection.GeneratedProtocolMessageType('Time', (_message.Message,), {
+  'DESCRIPTOR' : _TIME,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.Time)
+  })
+_sym_db.RegisterMessage(Time)
+
+AutoPowerOnOffModel = _reflection.GeneratedProtocolMessageType('AutoPowerOnOffModel', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOPOWERONOFFMODEL,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.AutoPowerOnOffModel)
+  })
+_sym_db.RegisterMessage(AutoPowerOnOffModel)
+
+SetAutoPowerOnOffResponse = _reflection.GeneratedProtocolMessageType('SetAutoPowerOnOffResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SETAUTOPOWERONOFFRESPONSE,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.SetAutoPowerOnOffResponse)
+  })
+_sym_db.RegisterMessage(SetAutoPowerOnOffResponse)
+
+GetAutoPowerOnOffRequest = _reflection.GeneratedProtocolMessageType('GetAutoPowerOnOffRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETAUTOPOWERONOFFREQUEST,
+  '__module__' : 'power_pb2'
+  # @@protoc_insertion_point(class_scope:powerService.GetAutoPowerOnOffRequest)
+  })
+_sym_db.RegisterMessage(GetAutoPowerOnOffRequest)
+
 
 DESCRIPTOR._options = None
 _POWERSTATUS_DEVICESENTRY._options = None
@@ -618,8 +865,8 @@ _POWERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=901,
-  serialized_end=1225,
+  serialized_start=1279,
+  serialized_end=1800,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetPowerStatus',
@@ -655,6 +902,24 @@ _POWERSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SWITCHREQUEST,
     output_type=_SWITCHRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetAutoPowerOnOff',
+    full_name='powerService.PowerService.SetAutoPowerOnOff',
+    index=4,
+    containing_service=None,
+    input_type=_AUTOPOWERONOFFMODEL,
+    output_type=_SETAUTOPOWERONOFFRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetAutoPowerOnOff',
+    full_name='powerService.PowerService.GetAutoPowerOnOff',
+    index=5,
+    containing_service=None,
+    input_type=_GETAUTOPOWERONOFFREQUEST,
+    output_type=_AUTOPOWERONOFFMODEL,
     serialized_options=None,
   ),
 ])

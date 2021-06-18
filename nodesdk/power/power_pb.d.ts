@@ -246,6 +246,140 @@ export namespace SwitchResponse {
   }
 }
 
+export class Weekdays extends jspb.Message {
+  getMonday(): boolean;
+  setMonday(value: boolean): void;
+
+  getTuesday(): boolean;
+  setTuesday(value: boolean): void;
+
+  getWednesday(): boolean;
+  setWednesday(value: boolean): void;
+
+  getThursday(): boolean;
+  setThursday(value: boolean): void;
+
+  getFriday(): boolean;
+  setFriday(value: boolean): void;
+
+  getSaturday(): boolean;
+  setSaturday(value: boolean): void;
+
+  getSunday(): boolean;
+  setSunday(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Weekdays.AsObject;
+  static toObject(includeInstance: boolean, msg: Weekdays): Weekdays.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Weekdays, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Weekdays;
+  static deserializeBinaryFromReader(message: Weekdays, reader: jspb.BinaryReader): Weekdays;
+}
+
+export namespace Weekdays {
+  export type AsObject = {
+    monday: boolean,
+    tuesday: boolean,
+    wednesday: boolean,
+    thursday: boolean,
+    friday: boolean,
+    saturday: boolean,
+    sunday: boolean,
+  }
+}
+
+export class Time extends jspb.Message {
+  getHour(): number;
+  setHour(value: number): void;
+
+  getMinute(): number;
+  setMinute(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Time.AsObject;
+  static toObject(includeInstance: boolean, msg: Time): Time.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Time, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Time;
+  static deserializeBinaryFromReader(message: Time, reader: jspb.BinaryReader): Time;
+}
+
+export namespace Time {
+  export type AsObject = {
+    hour: number,
+    minute: number,
+  }
+}
+
+export class AutoPowerOnOffModel extends jspb.Message {
+  hasOnStartTime(): boolean;
+  clearOnStartTime(): void;
+  getOnStartTime(): Time | undefined;
+  setOnStartTime(value?: Time): void;
+
+  hasOnEndTime(): boolean;
+  clearOnEndTime(): void;
+  getOnEndTime(): Time | undefined;
+  setOnEndTime(value?: Time): void;
+
+  hasWeekdays(): boolean;
+  clearWeekdays(): void;
+  getWeekdays(): Weekdays | undefined;
+  setWeekdays(value?: Weekdays): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AutoPowerOnOffModel.AsObject;
+  static toObject(includeInstance: boolean, msg: AutoPowerOnOffModel): AutoPowerOnOffModel.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: AutoPowerOnOffModel, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AutoPowerOnOffModel;
+  static deserializeBinaryFromReader(message: AutoPowerOnOffModel, reader: jspb.BinaryReader): AutoPowerOnOffModel;
+}
+
+export namespace AutoPowerOnOffModel {
+  export type AsObject = {
+    onStartTime?: Time.AsObject,
+    onEndTime?: Time.AsObject,
+    weekdays?: Weekdays.AsObject,
+  }
+}
+
+export class SetAutoPowerOnOffResponse extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SetAutoPowerOnOffResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SetAutoPowerOnOffResponse): SetAutoPowerOnOffResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SetAutoPowerOnOffResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SetAutoPowerOnOffResponse;
+  static deserializeBinaryFromReader(message: SetAutoPowerOnOffResponse, reader: jspb.BinaryReader): SetAutoPowerOnOffResponse;
+}
+
+export namespace SetAutoPowerOnOffResponse {
+  export type AsObject = {
+  }
+}
+
+export class GetAutoPowerOnOffRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetAutoPowerOnOffRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetAutoPowerOnOffRequest): GetAutoPowerOnOffRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: GetAutoPowerOnOffRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetAutoPowerOnOffRequest;
+  static deserializeBinaryFromReader(message: GetAutoPowerOnOffRequest, reader: jspb.BinaryReader): GetAutoPowerOnOffRequest;
+}
+
+export namespace GetAutoPowerOnOffRequest {
+  export type AsObject = {
+  }
+}
+
 export interface ModuleTypesMap {
   UNKNOWNMODULETYPE: 0;
   MAIN: 1;

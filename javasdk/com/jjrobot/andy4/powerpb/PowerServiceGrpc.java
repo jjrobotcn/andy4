@@ -154,6 +154,68 @@ public final class PowerServiceGrpc {
     return getSwitchMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel,
+      com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse> getSetAutoPowerOnOffMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetAutoPowerOnOff",
+      requestType = com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.class,
+      responseType = com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel,
+      com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse> getSetAutoPowerOnOffMethod() {
+    io.grpc.MethodDescriptor<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel, com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse> getSetAutoPowerOnOffMethod;
+    if ((getSetAutoPowerOnOffMethod = PowerServiceGrpc.getSetAutoPowerOnOffMethod) == null) {
+      synchronized (PowerServiceGrpc.class) {
+        if ((getSetAutoPowerOnOffMethod = PowerServiceGrpc.getSetAutoPowerOnOffMethod) == null) {
+          PowerServiceGrpc.getSetAutoPowerOnOffMethod = getSetAutoPowerOnOffMethod =
+              io.grpc.MethodDescriptor.<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel, com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetAutoPowerOnOff"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new PowerServiceMethodDescriptorSupplier("SetAutoPowerOnOff"))
+              .build();
+        }
+      }
+    }
+    return getSetAutoPowerOnOffMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest,
+      com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel> getGetAutoPowerOnOffMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAutoPowerOnOff",
+      requestType = com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.class,
+      responseType = com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest,
+      com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel> getGetAutoPowerOnOffMethod() {
+    io.grpc.MethodDescriptor<com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest, com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel> getGetAutoPowerOnOffMethod;
+    if ((getGetAutoPowerOnOffMethod = PowerServiceGrpc.getGetAutoPowerOnOffMethod) == null) {
+      synchronized (PowerServiceGrpc.class) {
+        if ((getGetAutoPowerOnOffMethod = PowerServiceGrpc.getGetAutoPowerOnOffMethod) == null) {
+          PowerServiceGrpc.getGetAutoPowerOnOffMethod = getGetAutoPowerOnOffMethod =
+              io.grpc.MethodDescriptor.<com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest, com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAutoPowerOnOff"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel.getDefaultInstance()))
+              .setSchemaDescriptor(new PowerServiceMethodDescriptorSupplier("GetAutoPowerOnOff"))
+              .build();
+        }
+      }
+    }
+    return getGetAutoPowerOnOffMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -208,7 +270,6 @@ public final class PowerServiceGrpc {
     /**
      * <pre>
      * GetPowerStatus 监听电源状态
-     * 开发管理平台功能参考: http://10.10.10.2/power
      * </pre>
      */
     public void getPowerStatus(com.jjrobot.andy4.powerpb.PowerServicePB.GetPowerStatusRequest request,
@@ -246,6 +307,23 @@ public final class PowerServiceGrpc {
       asyncUnimplementedUnaryCall(getSwitchMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *设置自动开关机
+     * </pre>
+     */
+    public void setAutoPowerOnOff(com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSetAutoPowerOnOffMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getAutoPowerOnOff(com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetAutoPowerOnOffMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -276,6 +354,20 @@ public final class PowerServiceGrpc {
                 com.jjrobot.andy4.powerpb.PowerServicePB.SwitchRequest,
                 com.jjrobot.andy4.powerpb.PowerServicePB.SwitchResponse>(
                   this, METHODID_SWITCH)))
+          .addMethod(
+            getSetAutoPowerOnOffMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel,
+                com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse>(
+                  this, METHODID_SET_AUTO_POWER_ON_OFF)))
+          .addMethod(
+            getGetAutoPowerOnOffMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest,
+                com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel>(
+                  this, METHODID_GET_AUTO_POWER_ON_OFF)))
           .build();
     }
   }
@@ -300,7 +392,6 @@ public final class PowerServiceGrpc {
     /**
      * <pre>
      * GetPowerStatus 监听电源状态
-     * 开发管理平台功能参考: http://10.10.10.2/power
      * </pre>
      */
     public void getPowerStatus(com.jjrobot.andy4.powerpb.PowerServicePB.GetPowerStatusRequest request,
@@ -341,6 +432,25 @@ public final class PowerServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSwitchMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *设置自动开关机
+     * </pre>
+     */
+    public void setAutoPowerOnOff(com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSetAutoPowerOnOffMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getAutoPowerOnOff(com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest request,
+        io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetAutoPowerOnOffMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -363,7 +473,6 @@ public final class PowerServiceGrpc {
     /**
      * <pre>
      * GetPowerStatus 监听电源状态
-     * 开发管理平台功能参考: http://10.10.10.2/power
      * </pre>
      */
     public java.util.Iterator<com.jjrobot.andy4.powerpb.PowerServicePB.GetPowerStatusResponse> getPowerStatus(
@@ -400,6 +509,23 @@ public final class PowerServiceGrpc {
     public com.jjrobot.andy4.powerpb.PowerServicePB.SwitchResponse switch_(com.jjrobot.andy4.powerpb.PowerServicePB.SwitchRequest request) {
       return blockingUnaryCall(
           getChannel(), getSwitchMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *设置自动开关机
+     * </pre>
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse setAutoPowerOnOff(com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel request) {
+      return blockingUnaryCall(
+          getChannel(), getSetAutoPowerOnOffMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel getAutoPowerOnOff(com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetAutoPowerOnOffMethod(), getCallOptions(), request);
     }
   }
 
@@ -452,12 +578,33 @@ public final class PowerServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSwitchMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *设置自动开关机
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse> setAutoPowerOnOff(
+        com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSetAutoPowerOnOffMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel> getAutoPowerOnOff(
+        com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetAutoPowerOnOffMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_POWER_STATUS = 0;
   private static final int METHODID_REBOOT = 1;
   private static final int METHODID_STATES = 2;
   private static final int METHODID_SWITCH = 3;
+  private static final int METHODID_SET_AUTO_POWER_ON_OFF = 4;
+  private static final int METHODID_GET_AUTO_POWER_ON_OFF = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -491,6 +638,14 @@ public final class PowerServiceGrpc {
         case METHODID_SWITCH:
           serviceImpl.switch_((com.jjrobot.andy4.powerpb.PowerServicePB.SwitchRequest) request,
               (io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.SwitchResponse>) responseObserver);
+          break;
+        case METHODID_SET_AUTO_POWER_ON_OFF:
+          serviceImpl.setAutoPowerOnOff((com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel) request,
+              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.SetAutoPowerOnOffResponse>) responseObserver);
+          break;
+        case METHODID_GET_AUTO_POWER_ON_OFF:
+          serviceImpl.getAutoPowerOnOff((com.jjrobot.andy4.powerpb.PowerServicePB.GetAutoPowerOnOffRequest) request,
+              (io.grpc.stub.StreamObserver<com.jjrobot.andy4.powerpb.PowerServicePB.AutoPowerOnOffModel>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -557,6 +712,8 @@ public final class PowerServiceGrpc {
               .addMethod(getRebootMethod())
               .addMethod(getStatesMethod())
               .addMethod(getSwitchMethod())
+              .addMethod(getSetAutoPowerOnOffMethod())
+              .addMethod(getGetAutoPowerOnOffMethod())
               .build();
         }
       }

@@ -19,3 +19,11 @@ http:
     - selector: powerService.PowerService.Switch
       post: "/api/v2/power/switch"
       body: "*"
+
+    - selector: powerService.PowerService.SetAutoPowerOnOff
+      post: "/api/v2/power/set_auto_power_on_off"
+      body: "*"
+
+    - selector: powerService.PowerService.GetAutoPowerOnOff
+      get: "/api/v2/power/get_auto_power_on_off"
+
